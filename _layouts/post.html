@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="cn">
+{% include head.html %}
+<body>
+	<div id="container" class="container">
+		{% include loading.html %}
+
+		<div id="content" class="content">
+			{% include navbar.html %}
+
+			{% include post.html %}
+
+			{% include footer.html %}
+		</div>
+
+		<nav id="menu" class="menu">
+			<ul>
+				<li><a href="{{ site.BASE_PATH }}/">首页</a></li>
+				{% for list in site.categories %}
+					{% if list[0] == page.categories %}
+					<li class="active"><a href="{{ site.BASE_PATH }}/{{ list[0] }}.html">{{ list[0] }}</a></li>
+					{% else %}
+					<li><a href="{{ site.BASE_PATH }}/{{ list[0] }}.html">{{ list[0] }}</a></li>
+					{% endif %}
+				{% endfor %}
+				<li><a href="{{ site.BASE_PATH }}/about.html">关于博主</a></li>
+				<li><a href="{{ site.BASE_PATH }}/codebase.html">代码库</a></li>
+			</ul>
+		</nav>
+	</div>
+	<script type="text/javascript" src="{{ site.BASE_PATH }}/js/classie.js"></script>
+	<script type="text/javascript" src="{{ site.BASE_PATH }}/js/PathLoader.js"></script>
+	<script type="text/javascript" src="{{ site.BASE_PATH }}/js/pageLoading.js"></script>
+	<script type="text/javascript" src="{{ site.BASE_PATH }}/js/menuTriggle.js"></script>
+	<script type="text/javascript" src="{{ site.BASE_PATH }}/js/postTriggle.js"></script>
+	<script type="text/javascript">
+		var footer = document.querySelector('.footer'),
+			footT  = footer.offsetTop,
+			footH  = footer.offsetHeight,
+			winH   = window.innerHeight;
+		if (footT - footH < winH) {
+			classie.add(footer,'bottom');
+		};
+	</script>
+</body>
+</html>
