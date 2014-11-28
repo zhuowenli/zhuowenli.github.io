@@ -774,3 +774,91 @@ $green: #39A239;
 		}
 	}
 //-----------------------------------------------------
+
+// 类型: @media 1200
+// 说明: 
+//-----------------------------------------------------
+	@include max-screen(1200px){
+		.footer{
+			.row{
+				padding: 0 1em;
+				width: 100%;
+			}
+		}
+	}
+//-----------------------------------------------------
+
+// 类型: @media 800
+// 说明: 
+//-----------------------------------------------------
+	@include max-screen(800px){
+		.article{
+			padding: 0 1em;
+			.entry-content{
+				.entry-poster{
+					width: 100%;
+					height: auto;
+					margin: 0;
+					max-height: 250px;
+					img{
+						position: relative;
+					}
+				}
+			}
+		}
+	}
+//-----------------------------------------------------
+
+// 类型: @media 640
+// 说明: 
+//-----------------------------------------------------
+	@include max-screen(640px){
+		body{
+			font-size: 14px;
+		}
+		.header{
+			padding-top: 120px;
+			min-height: 328px;
+		}
+		.navbar{
+			height: 68px;
+			.btn-menu{
+				margin-top: 20px;
+			}
+			.pull-center{
+				position: absolute;
+				top: 0;
+				right: 5px;
+				margin-top: 28px;
+				li a{
+					margin: 0 6px;
+				}
+			}
+		}
+		.post-title{
+			padding: 10em 1em 0;
+		}
+		.footer{
+			height: auto;
+			padding: 2em;
+			.row{
+				text-align: center;
+				.pull-left,.pull-right{
+					position: relative;
+					padding: 0;
+					p{
+						width: 100%;
+						height: 2em;
+						line-height: 2em;
+					}
+				}
+				.avatar{
+					margin-bottom: 20px;
+				}
+			}
+		}
+		.menu{
+			min-width: 260px;
+		}
+	}
+//-----------------------------------------------------
