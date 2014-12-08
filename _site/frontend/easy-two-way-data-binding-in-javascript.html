@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<meta name="Keywords" content="卓文理,前端,前端开发,网页设计,交互设计"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+	<meta content="yes" name="apple-mobile-web-app-capable" />    
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />     
+	<meta content="telephone=no" name="format-detection" />  
+	
+	<meta name="author" content="卓文理">
+
+	<link href="/img/icon.png" rel="apple-touch-icon-precomposed">
+	<link href="/img/icon.png" rel="Shortcut Icon" type="image/x-icon"/>
+	
+    <title>JavaScript实现简单的双向数据绑定 | 卓文理</title>
+
+	<link rel="stylesheet" href="/css/monokai.css">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="http://yandex.st/highlightjs/7.1/styles/default.min.css">
+	<script src="http://yandex.st/highlightjs/7.1/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+	<!--[if lt IE 9]>
+		<script src="/js/html5.js" type="text/javascript"></script>
+	<![endif]-->
+</head>
+<body>
+	<div id="container" class="container">
+				<div id="loading">
+			<div class="ld-logo">
+				<svg class="ld-inner" viewBox="0 0 612 792" enable-background="new 0 0 612 792" xml:space="preserve" style="height:250px;">
+					<polyline fill="#39A239" points="506.6,217.5 171,217.5 171,241.7 395.1,241.7 141.7,523.7 171,523.7 431.6,241.7 506.6,241.8 506.6,258.2 260.8,523.7 268.1,523.7 461.8,523.7 461.8,596.6 126.2,596.6 126.2,620.7 484.2,620.7 484.6,523.9 506.6,523.7 506.6,645.1 103.8,645.1 103.8,572.9 439.4,572.9 439.4,548.3 216,548.3 209.5,548.3 469.8,265.8 439.4,265.8 178.3,548.3 103.6,548.3 103.6,532.5 350.7,265.8 149,265.8 149,193.2 484.2,193.2 484.1,168.7 126.2,168.7 126.2,265.8 103.4,265.8 103.4,145 506.6,145 "/>
+				</svg>
+			</div>
+			<div class="ld-loader">
+				<svg class="ld-inner" width="60px" height="60px" viewBox="0 0 80 80">
+					<path class="ld-loader-circlebg" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"/>
+					<path id="ld-loader-circle" class="ld-loader-circle" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"/>
+				</svg>
+			</div>
+		</div>
+
+		<div id="content" class="content">
+						<nav class="navbar">
+				<div class="pull-left">
+					<button id="btnMenu" class="btn-menu"><i class="icon icon-menu"></i>Menu</button>
+				</div>
+				<ul class="pull-center">
+					<li class="active"><a href="/">BLOG</a></li>
+					<li><a href="/about.html">ABOUT</a></li>
+					<li><a href="/codebase.html">CODEBASE</a></li>
+				</ul>
+				<div class="pull-right"></div>
+			</nav>
+
+			<header class="post-header">
+	<div class="hd-img">
+		<img src="/img/bg/11.jpg" alt="背景图片">
+	</div>
+	<div class="title">
+		<h1>JavaScript实现简单的双向数据绑定</h1>
+	</div>
+</header>
+<button id="btnArrow" class="btn-arrow" data-info="点击显示文章"><i class="icon icon-arrow-down"></i></button>
+<div class="post-title">
+	<h1>JavaScript实现简单的双向数据绑定</h1>
+	<p class="subline">data binding with javascript</p>
+	<p>作者: <strong>卓文理</strong>&nbsp;&nbsp;&nbsp;分类: <strong>frontend</strong>&nbsp;&nbsp;&nbsp;日期: <strong>2014年09月23日</strong></p>
+</div>
+
+<article class="post-content">
+	<div>
+		<h2>
+    JavaScript实现简单的双向数据绑定
+</h2>
+
+<p>
+    双向数据绑定指的是，对象属性的变化的同时绑定UI，反之亦然。换句话说，如果我们有一个<code>user</code>对象和一个<code>name</code>属性，一旦我们给<code>user.name</code>赋了新值。那么在UI上就会同时显示新的值。同样的，如果UI上有一个输入框，输入新值就会使<code>user</code>对象的<code>name</code>属性发生改变。
+</p>
+
+<p>
+    很多流行的JavaScript框架如Ember.js，Angular.js或者KnockoutJS，都将双向数据绑定作为自己的特性。但是这并不意味着实现一个双向数据绑定很困，也不是说要实现这些功能就要使用其他JS框架。实现双向数据绑定的底层思想很基础，可以分为三个步骤：
+</p>
+
+<ol>
+    <li>我们需要一个方法来识别哪个UI元素绑定了相应的属性</li>
+    <li>我们需要监视属性和UI元素的变化</li>
+    <li>我们需要将所有的变化</li>
+</ol>
+
+<p>
+    虽然实现的方法很多，但是最简单也是最有效的方法就是使用PubSub（发布者-订阅者）模式。这个思路很简单：我们使用自定义的<code>data</code>属性在HTML中指明绑定。所有绑定起来的javascript对象以及DOM元素都会订阅一个PubSub对象。只要javascript对象或者一个HTML输入元素被监听到了变化，就会触发绑定到PubSub对象上的事件，从而其他绑定的对象或者元素都会发生变化。
+</p>
+
+<h3>
+    使用jQuery实现
+</h3>
+
+<p>
+    使用jQuery来实现双向数据绑定是非常简单的。因为jQuery能够使我们轻松的订阅和发布DOM事件，以及我们自定义的事件：
+</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">function DataBinder (object_id) {
+    // 使用一个简单的jQuery对象作为简单的订阅者、发布者
+    var pubSub = jQuery({});
+
+    // 我们希望一个data元素可以在表单中指明绑定：data-bind-&lt;object_id&gt;=&quot;&lt;property_name&gt;&quot;
+    var data_attr = &quot;bind-&quot; + object_id,
+        message   = object_id + &quot;:keyup&quot;;
+
+    // 使用data-binding属性和代理来监听哪个元素上发生了变化事件
+    // 以便能够“广播”到所有的关联对象
+    jQuery(document).on(&quot;keyup&quot;,&quot;[data-&quot; + data_attr + &quot;]&quot;,function(event){
+        var $input = jQuery(this);
+        pubSub.trigger(message,[$input.data(data_attr),$input.val()]);
+    })
+
+    // pubSub将变化传播到所有绑定的元素，设置input标签的值或者其他标签的HTML内容
+    pubSub.on(message,function(event,prop_name,new_val){
+        jQuery(&quot;[data-&quot; + data_attr + &quot;=&quot; + prop_name + &quot;]&quot;).each(function(){
+            var $bound = jQuery(this);
+            if ($bound.is(&quot;input,textarea,select&quot;)) {
+                $bound.val(new_val);
+            }else{
+                $bound.html(new_val);
+            }
+        });
+    });
+
+    return pubSub;
+}
+</code></pre></div>
+<p>
+    对于上面这个实现来说，可以按照以下代码简单的实现一个User模型：
+</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">function User(uid) {
+    var binder = new DataBinder(uid),
+        user   = {
+            attribute : {},
+
+            // 属性设置器使用数据绑定器pubSub来发布
+            set : function(attr_name,val) {
+                this.attribute[attr_name] = val;
+                binder.trigger(uid + &quot;:keyup&quot;,[attr_name,val,this]);
+            },
+
+            get : function(attr_name) {
+                return this.attribute[attr_name];
+            },
+
+            _binder : binder
+        };
+
+    binder.on(uid + &quot;:keyup&quot;,function(event,attr_name,new_val,initiator) {
+        if (initiator !== user) {
+            user.set(attr_name,new_val);
+        }
+    });
+
+    return user;
+}
+</code></pre></div>
+<p>
+    现在，不管什么时候我们想把模型的属性绑定到UI上。我们只需要在相应的HTML元素上，加上<code>data</code>属性即可。
+</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html">// HTML
+
+&lt;input type=&quot;text&quot; data-bind-1=&quot;name&quot; &gt;
+&lt;div data-bind-1=&quot;name&quot;&gt;&lt;/div&gt;
+</code></pre></div><div class="highlight"><pre><code class="language-javascript" data-lang="javascript">// JavaScript 调用
+
+var user = new User(1);
+user.set(&quot;name&quot;,&quot;asd&quot;);
+</code></pre></div>
+<p>
+    input字段的值会自动反映反映出<code>user</code>对象的<code>name</code>属性。反之亦然。
+</p>
+
+<h3>
+    使用原生JavaScript实现
+</h3>
+
+<p>
+    在如今大多数项目中，都是使用了jQuery，因此完全可以使用上面的例子。但是，更进一步，如果我们移除了jQuery的依赖会怎么样？事实上，这并不困难（尤其是我们限定在只支持IE8以上的版本）。现在，我们就使用原生的JavaScript来实现一个自定义的PubSub已经监听DOM事件。
+</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">function DataBinder(object_id){
+    // 创建一个简单的pubSub对象
+    var pubSub = {
+            callbacks: {},
+            on: function(msg,callback) {
+                this.callbacks[msg] = this.callbacks[msg] || [];
+                this.callbacks[msg].push(callback);
+            },
+            publish: function(msg) {
+                this.callbacks[msg] = this.callbacks[msg] || [];
+                for (var i = 0,len = this.callbacks[msg].length; i &lt; len; i++) {
+                    this.callbacks[msg][i].apply(this,arguments);
+                };
+            }
+        },
+
+        data_attr = &quot;data-bind-&quot; + object_id,
+        message   = object_id + &quot;:change&quot;,
+
+        changeHandler = function(event) {
+            var target    = event.target || event.srcElement, // IE8兼容
+                prop_name = target.getAttribute(data_attr);
+
+            if (prop_name &amp;&amp; prop_name !== &quot;&quot;) {
+                pubSub.publish(message,prop_name,target.value);
+            }
+        };
+
+    // 监听事件变化，并代理到pubSub
+    if (document.addEventListener) {
+        document.addEventListener(&quot;keyup&quot;,changeHandler,false);
+    } else{
+        // IE8使用attachEvent而不是addEventListenter
+        document.attachEvent(&quot;onkeyup&quot;,changeHandler);
+    };
+
+    // pubSub将变化传播到所有绑定元素
+    pubSub.on(message,function(event,prop_name,new_val){
+        var elements = document.querySelectorAll(&quot;[&quot; + data_attr + &quot;=&quot; +prop_name + &quot;]&quot;),
+            tag_name;
+        for (var i = 0,len = elements.length; i &lt; len; i++) {
+            tag_name = elements[i].tagName.toLowerCase();
+
+            if (tag_name === &quot;input&quot; || tag_name === &quot;textarea&quot; || tag_name === &quot;select&quot;) {
+                elements[i].value = new_val;
+            } else{
+                elements[i].innerHTML = new_val;
+            };
+        };
+    })
+
+    return pubSub;
+}
+</code></pre></div>
+<p>
+    这个模型可以勉强和上面的例子保持一致，除了在设置器中调用的那个<code>trigger</code>方法之外，它需要通过调用一个自定义的PubSub的publish方法来实现：
+</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">function User(uid) {
+    var binder = new DataBinder(uid),
+        user   = {
+            attribute : {},
+
+            // 属性设置器使用数据绑定器pubSub来发布
+            set : function(attr_name,val) {
+                this.attribute[attr_name] = val;
+                binder.publish(uid + &quot;:change&quot;,attr_name,val,this);
+            },
+
+            get : function(attr_name) {
+                return this.attribute[attr_name];
+            },
+
+            _binder : binder
+        };
+
+    binder.on(uid + &quot;:change&quot;,function(event,attr_name,new_val,initiator) {
+        if (initiator !== user) {
+            user.set(attr_name,new_val);
+        }
+    });
+
+    return user;
+}
+</code></pre></div>
+<p>
+    我们用了不到100行的原生JavaScript代码实现了同样的效果，而不使用臃肿的JavaScript框架。
+</p>
+
+<!--more-->
+
+<hr />
+
+<p>&nbsp;</p>
+
+<p>原文：《<a href="http://www.lucaongaro.eu/blog/2012/12/02/easy-two-way-data-binding-in-javascript/"><span style="color: #000000;">Easy Two-Way Data Binding in JavaScript</span></a>》</p>
+
+<p>译者：<a href="http://www.zwlme.com">卓文理</a></p>
+
+<p><span style="color: #404040;">如需转载烦请注明出处：<a href="http://www.zwlme.com">www.zwlme.com</a></span></p>
+
+	</div>
+</article>
+
+						<footer class="footer">
+				<div class="row">
+					<div class="pull-left">
+						<a class="avatar" href="/" title="卓文理">卓文理</a>
+						<p class="copyright">2014 ALL RIGHTS RESERVED</p>
+					</div>
+					<div class="pull-right">
+						<p class="powered">Powered by <a target="_blank" href="https://github.com/">github</a> <a target="_blank" href="http://jekyllrb.com/">jekyll</a> | themed by <a target="_blank" href="">卓文理</a></p>
+					</div>
+				</div>
+			</footer>
+		</div>
+
+		<nav id="menu" class="menu">
+			<ul>
+				<li><a href="">首页</a></li>
+				<li><a href="/frontend.html">前端开发</a></li>
+				<li><a href="/design.html">设计网摘</a></li>
+				<li><a href="/diary.html">生活日志</a></li>
+				<li><a href="/about.html">关于博主</a></li>
+				<li><a href="/codebase.html">代码库</a></li>
+			</ul>
+		</nav>
+	</div>
+	<script type="text/javascript" src="/js/classie.js"></script>
+	<script type="text/javascript" src="/js/PathLoader.js"></script>
+	<script type="text/javascript" src="/js/pageLoading.js"></script>
+	<script type="text/javascript" src="/js/menuTriggle.js"></script>
+	<script type="text/javascript" src="/js/postTriggle.js"></script>
+	<script type="text/javascript">
+		var footer = document.querySelector('.footer'),
+			footT  = footer.offsetTop,
+			footH  = footer.offsetHeight,
+			winH   = window.innerHeight;
+		if (footT - footH + 100 < winH) {
+			classie.add(footer,'bottom');
+		};
+	</script>
+</body>
+</html>

@@ -13,7 +13,7 @@
 	<link href="/img/icon.png" rel="apple-touch-icon-precomposed">
 	<link href="/img/icon.png" rel="Shortcut Icon" type="image/x-icon"/>
 	
-    <title>快速实现Poly背景效果 | 卓文理</title>
+    <title>Javascript 模块模式 | 卓文理</title>
 
 	<link rel="stylesheet" href="/css/monokai.css">
 	<link rel="stylesheet" href="/css/style.css">
@@ -56,106 +56,114 @@
 
 			<header class="post-header">
 	<div class="hd-img">
-		<img src="/img/bg/5.jpg" alt="背景图片">
+		<img src="/img/bg/12.jpg" alt="背景图片">
 	</div>
 	<div class="title">
-		<h1>快速实现Poly背景效果</h1>
+		<h1>Javascript 模块模式</h1>
 	</div>
 </header>
 <button id="btnArrow" class="btn-arrow" data-info="点击显示文章"><i class="icon icon-arrow-down"></i></button>
 <div class="post-title">
-	<h1>快速实现Poly背景效果</h1>
-	<p class="subline">low poly</p>
-	<p>作者: <strong>卓文理</strong>&nbsp;&nbsp;&nbsp;分类: <strong>frontend</strong>&nbsp;&nbsp;&nbsp;日期: <strong>2014年09月24日</strong></p>
+	<h1>Javascript 模块模式</h1>
+	<p class="subline">javascript module pattern</p>
+	<p>作者: <strong>卓文理</strong>&nbsp;&nbsp;&nbsp;分类: <strong>frontend</strong>&nbsp;&nbsp;&nbsp;日期: <strong>2014年11月06日</strong></p>
 </div>
 
 <article class="post-content">
 	<div>
-		<p>最近Poly效果很流行，在海报，T-shit，手机背景，网站背景上随处可见。今天我将会教大家如何快速创建一张有Poly效果的背景图片，只需要用到浏览器跟Adobe Illustrator。</p>
+		<h2>Javascript 模块模式</h2>
 
-<p><img src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/13.png"/></p>
+<p>假设现在我们有一个小型的Js库，目的是用来增加一个数字：</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">var jspy = {
+    count: 0,
 
-<p style="text-align: center;">
-    <a target="_blank" href="http://www.zwlme.com/codebase/demo/poly/">打开制作工具</a>
-</p>
+    incrementCount: function(){
+        this.count++;
+    },
 
-<p style="text-align: center;"><!--more--></p>
+    decrementCount: function(){
+        this.count--;
+    },
+
+    getCount: function(){
+        return this.count;
+    }
+};
+</code></pre></div>
+<p>但是，使用这个js库的人可以用<code>jspy.count = 5</code>的方法来改变这个值。并不是我们的最初目的。在其他的编程语言中你可以定义一个私有变量，但是Javascript并不能“真正”定义私有变量。然而，我们可以通过操作Javascript来实现，这就引出了一个最流行的Javascript设计模式，<strong>模块模式</strong>。</p>
+
+<p>针对上面问题的解决方案如下：</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">var jspy = (function(){
+    var _count = 0;
+
+    var incrementCount = function(){
+        _count++;
+    }
+
+    var getCount = function(){
+        return _count;
+    }
+
+    return {
+        incrementCount : incrementCount,
+        getCount : getCount
+    };
+})();
+</code></pre></div>
+<p>首先我们创造一个<code>_count</code>变量，下划线表明它是一个私有变量。再Javascript中下划线并没有什么实际的意义，但是它是一个用来标明私有变量的普遍用法。现在函数就可以操纵、返回变量了：</p>
+
+<p>然而，你注意到了我吧整个库包含在了一个自调用匿名函数中。这是一个在执行过程中马上被执行的函数。这个函数运行，定义了函数和变量然后到了<code>return {}</code>的部分，它告诉函数将其返回给变量<code>jspy</code>，或者换句话说，暴露给用户。我们暴露两个函数而不是<code>_count</code>变量，这意味着我们可以做如下操作：</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">jspy.incrementCount();
+jspy.getCount();
+</code></pre></div>
+<p>但是当我们试图进行如下操作时：</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">jspy._count; // undefined
+</code></pre></div>
+<p>它返回undefined。</p>
+
+<p>对于上面的这种设计模式有许多不同的实现方法。有人喜欢在return 中定义函数：</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">var jspy = (function(){
+    var _count = 0;
+
+    return {
+        incrementCount : function(){
+            _count++;
+        },
+        getCount : function(){
+            return _count;
+        }
+    }
+})();
+</code></pre></div>
+<p>受到上面例子的启发，CHristian Heilmann提出了Revealing Module Pattern。他的方法是将所有方法定义为私有变量，也就是说，不在return中定义，但是在那里暴露给用户，如下所示：</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">var jspy = (function(){
+    var _count = 0;
+    var incrementCount = function(){
+        _count++;
+    }
+    var resetCount = function(){
+        _count = 0;
+    }
+    var getCount = function(){
+        return _count;
+    }
+    return {
+        add : incrementCount,
+        reset : incrementCount,
+        get : getCount
+    };
+})();
+</code></pre></div>
+<p>这种设计模式有两个好处：</p>
+
+<ul>
+    <li>首先，它使我们更容易的了解暴露的函数。当你不在<code>return</code>中定义函数时，我们能轻松的了解到每一行就是一个暴露的函数，这时我们阅读代码更加轻松。</li>
+    <li>其次，你可以用简短的名字（例如<code>add</code>）来暴露函数，但在定义的时候仍然可以使用冗余的定义方法（例如<code>incrementCount</code>）。</li>
+</ul>
 
 <hr>
 
-<h3>Step 1</h3>
-
-<p>首先，打开<a target="_blank" href="http://www.zwlme.com/codebase/demo/poly/">链接</a>。</p>
-
-<p>我是用谷歌浏览器的，最好不要用IE浏览器，这个工具需要浏览器的API支持才能使用(IE9+支持canvas，但是仍不支持Data URIs)。</p>
-
-<p><img src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/1.png" /></p>
-
-<h3>Step 2</h3>
-
-<p>拖拽一张图片到指定位置</p>
-
-<p><img src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/2.png" /></p>
-
-<p>现在只需在图片上点击不同的地方，就会出现三角形</p>
-
-<p><img src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/3.png" /></p>
-
-<p>你也可以拖动节点，创建不同的形状</p>
-
-<p><img src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/4.png" /></p>
-
-<p>你也可以将三角形分成多个部分，只要在三角形中间点击他们</p>
-
-<p><img src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/5.png" /></p>
-
-<h3>Step 3</h3>
-
-<p>创建一些复杂的图像可能就需要透明度了，上面的滑块就是来控制透明度的</p>
-
-<p><img src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/6.png" /></p>
-
-<p>你可以删除所有创建的节点，或者嫌挨个添加太麻烦，需要随机添加节点。点击上方的“<span style="color: #000000;">重置所有节点</span>”和“<span style="color: #000000;">随机添加节点</span>”就可以了。</p>
-
-<p><img src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/7.png" /></p>
-
-<p>
-    接下来继续添加节点，把poly图像充满整个页面。
-</p>
-
-<p><img src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/8.jpg" /></p>
-
-<h3>Step 4</h3>
-
-<p>图片创建完后，点击上方的“<span style="color: #35a1d4;">生成SVG</span>”这个链接。然后就出现了“<span style="color: #35a1d4;">查看SVG</span>”的链接。</p>
-
-<p><img src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/9.png" />
-<p>点击<span style="color: #35a1d4;">查看SVG</span>，新窗口打开一个页面。如图：</p>
-<img src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/10.png" /></p>
-
-<p>右键保存SVG到本地</p>
-
-<p><img src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/11.png" /></p>
-
-<h3>Step 5</h3>
-
-<p>用Adobe Illustrator打开SVG文件，如你所见，生成图像是线性渐变的常规矢量对象。</p>
-
-<p><img src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/12.png" /></p>
-
-<h3>最终结果</h3>
-
-<p><img src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/13.png" /></p>
-
-<p>OK，大功告成。压根没什么难度是吧！！！ 记得把你好看的作品在下方的评论中贴出来看看哟~~~</p>
-
-<!--more-->
-
-<hr />
-
-<p>&nbsp;</p>
-
-<p>原文：《<a href="http://vectorboom.com/load/tutorials/effects/how_to_create_vector_polygonal_background_quickly/3-1-0-338"><span style="color: #000000;">Illustrator Tutorial: How to Create Vector Polygonal Background Quickly Using Triangulator</span></a>》</p>
+<p>原文：《<a href="http://javascriptplayground.com/blog/2012/04/javascript-module-pattern/"><span style="color: #000000;">The JavaScript Module Pattern</span></a>》</p>
 
 <p>译者：<a href="http://www.zwlme.com">卓文理</a></p>
 

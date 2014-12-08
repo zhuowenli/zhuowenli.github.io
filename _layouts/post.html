@@ -15,14 +15,10 @@
 
 		<nav id="menu" class="menu">
 			<ul>
-				<li><a href="{{ site.BASE_PATH }}/">首页</a></li>
-				{% for list in site.categories %}
-					{% if list[0] == page.categories %}
-					<li class="active"><a href="{{ site.BASE_PATH }}/{{ list[0] }}.html">{{ list[0] }}</a></li>
-					{% else %}
-					<li><a href="{{ site.BASE_PATH }}/{{ list[0] }}.html">{{ list[0] }}</a></li>
-					{% endif %}
-				{% endfor %}
+				<li><a href="{{ site.BASE_PATH }}">首页</a></li>
+				<li><a href="{{ site.BASE_PATH }}/frontend.html">前端开发</a></li>
+				<li><a href="{{ site.BASE_PATH }}/design.html">设计网摘</a></li>
+				<li><a href="{{ site.BASE_PATH }}/diary.html">生活日志</a></li>
 				<li><a href="{{ site.BASE_PATH }}/about.html">关于博主</a></li>
 				<li><a href="{{ site.BASE_PATH }}/codebase.html">代码库</a></li>
 			</ul>
