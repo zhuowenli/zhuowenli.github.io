@@ -2,8 +2,11 @@
 paginate: 10 # pagination based on number of posts
 paginate_path: "page:num" #pagination generated sub path format
 encoding: utf-8
-markdown: kramdown  #use kramdown to parse markdown
 permalink: /:categories/:title.html
+
+markdown: redcarpet
+highlighter: false
+
 
 name: 卓文理
 

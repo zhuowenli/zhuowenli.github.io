@@ -13,7 +13,7 @@
 	<link href="/img/icon.png" rel="apple-touch-icon-precomposed">
 	<link href="/img/icon.png" rel="Shortcut Icon" type="image/x-icon"/>
 	
-    <title>Hello GitHub! | 卓文理</title>
+    <title>使用background-clip实现透明边框 | 卓文理</title>
 
 	<link rel="stylesheet" href="/css/monokai.css">
 	<link rel="stylesheet" href="/css/style.css">
@@ -56,44 +56,78 @@
 
 			<header class="post-header">
 	<div class="hd-img">
-		<img src="/img/bg/1.jpg" alt="背景图片">
+		<img src="/img/bg/6.jpg" alt="背景图片">
 	</div>
 	<div class="title">
-		<h1>Hello GitHub!</h1>
+		<h1>使用background-clip实现透明边框</h1>
 	</div>
 </header>
 <button id="btnArrow" class="btn-arrow" data-info="点击显示文章"><i class="icon icon-arrow-down"></i></button>
 <div class="post-title">
-	<h1>Hello GitHub!</h1>
-	<p class="subline">博客搬迁计划</p>
-	<p>作者: <strong>卓文理</strong>&nbsp;&nbsp;&nbsp;分类: <strong>diary</strong>&nbsp;&nbsp;&nbsp;日期: <strong>2014年11月27日</strong></p>
+	<h1>使用background-clip实现透明边框</h1>
+	<p class="subline">background-clip</p>
+	<p>作者: <strong>卓文理</strong>&nbsp;&nbsp;&nbsp;分类: <strong>frontend</strong>&nbsp;&nbsp;&nbsp;日期: <strong>2014年09月19日</strong></p>
 </div>
 
 <article class="post-content">
 	<div>
-		<p>最近正好有时间，把博客页面重新设计了一下，通过jekyll模版引擎重新构建，然后挂到GitHub Pages上面。</p>
+		<p>你有没有在网页上见过透明边框的元素？类似下面这样的效果：</p>
 
-<p>很久以前就想自己整一个博客网站，看了很多博客框架，最终还是选择在SAE上面搭建wordpress。</p>
+<p>
+    <img class="center" src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/transparentborders.png">
+</p>
 
-<p>选择SAE和wordpress是因为比较简单，也没有什么太大的限制。SAE虽然需要云豆，我用了一些特殊方法搞了好几万的豆子，倒是也够用很久了。</p>
+<p>
+    你可能觉得实现效果非常简单，只需要以下代码：
+</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css">#lightbox{
+    background: white;
+    border: 20px solid rgba(0,0,0,0.3);
+}
+</code></pre></div>
+<p>
+    但是如果这样写的话，就会出现如下效果。
+</p>
 
-<p>至于为什么想换平台把SAE搬迁到GitHub上？主要是因为SAE时常会不稳定，动不动就上不去，之前抛弃七牛也是因为这个原因。想我这种优(diao)秀(si)程序猿连自己建的网站都上不了，简直不能忍啊！</p>
+<p>
+    <img class="center" src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/gray.png">
+</p>
 
-<p>百度找了很多博客平台，都不是很满意。最后还是想在GitHub上面自己重新搭建一个。这也是很好的学习机会。</p>
+<p>
+    在上面的截图中，边框已经用了<code>RGBa</code>设置为透明，但是边框却显示为不透明的灰色，这是因为该元素的白色背景透过透明边框显示了出来。
+</p>
 
-<p>参考了一些文章：</p>
+<p>
+    幸运的是，CSS3有个属性拯救了我们！这个属性就是<code>background-clip</code>，它正是用来指定在一个盒模型中，究竟哪一部分能够用来显示背景。它做的事儿正如它的名字一样：<code>background-clip</code>（背景剪裁）。它可以将盒子的指定部分的背景裁去。这一属性可以有三个值，而且也可以加上浏览器前缀。以下就是该属性的三种设置。你不用同时使用如下代码，这里仅是为了显示方便而已：
+</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css">#lightbox {
+-moz-background-clip: border; /* Firefox 3.6 */
+-webkit-background-clip: border; /* Safari 4? Chrome 6? */
+background-clip: border-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
 
-<ul>
-<li><a href="http://www.pchou.info/web-build/2013/01/03/build-github-blog-page-01.html">一步步在GitHub上创建博客主页</a></li>
-<li><a href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html">搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门</a></li>
-<li><a href="http://wowubuntu.com/markdown/index.html">Markdown 语法说明 (简体中文版)</a></li>
-<li><a href="http://jekyllbootstrap.com/api/template-data-api.html">Template Data API</a></li>
-<li><a href="https://github.com/Shopify/liquid/wiki/Liquid-for-Designers">Liquid for Designers</a></li>
-</ul>
+-moz-background-clip: padding; /* Firefox 3.6 */
+-webkit-background-clip: padding; /* Safari 4? Chrome 6? */
+background-clip: padding-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
 
-<p>大家有兴趣可以来尝试一下。</p>
+-moz-background-clip: content; /* Firefox 3.6 */
+-webkit-background-clip: content; /* Safari 4? Chrome 6? */
+background-clip: content-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */}
+</code></pre></div>
+<p>
+    以下是图示：
+</p>
 
-<p>ok，开篇到此为止了。</p>
+<p>
+    <img class="center" src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/background-clip.png">
+</p>
+
+<p>
+    嗯，写到这你应该就知道<code>background-clip</code>的作用了：如果我们将background-clip设置为padding-box的话，白色背景就会在边框处被裁掉，然后透明边框就可以透出该元素下面的内容了，这也正是我们想要的效果！
+</p>
+
+<p>
+    <img class="center" src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/transparentborders.png">
+</p>
 
 	</div>
 </article>

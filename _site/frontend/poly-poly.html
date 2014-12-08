@@ -13,7 +13,7 @@
 	<link href="/img/icon.png" rel="apple-touch-icon-precomposed">
 	<link href="/img/icon.png" rel="Shortcut Icon" type="image/x-icon"/>
 	
-    <title>Hello GitHub! | 卓文理</title>
+    <title>快速实现Poly背景效果 | 卓文理</title>
 
 	<link rel="stylesheet" href="/css/monokai.css">
 	<link rel="stylesheet" href="/css/style.css">
@@ -56,44 +56,110 @@
 
 			<header class="post-header">
 	<div class="hd-img">
-		<img src="/img/bg/1.jpg" alt="背景图片">
+		<img src="/img/bg/5.jpg" alt="背景图片">
 	</div>
 	<div class="title">
-		<h1>Hello GitHub!</h1>
+		<h1>快速实现Poly背景效果</h1>
 	</div>
 </header>
 <button id="btnArrow" class="btn-arrow" data-info="点击显示文章"><i class="icon icon-arrow-down"></i></button>
 <div class="post-title">
-	<h1>Hello GitHub!</h1>
-	<p class="subline">博客搬迁计划</p>
-	<p>作者: <strong>卓文理</strong>&nbsp;&nbsp;&nbsp;分类: <strong>diary</strong>&nbsp;&nbsp;&nbsp;日期: <strong>2014年11月27日</strong></p>
+	<h1>快速实现Poly背景效果</h1>
+	<p class="subline">low poly</p>
+	<p>作者: <strong>卓文理</strong>&nbsp;&nbsp;&nbsp;分类: <strong>frontend</strong>&nbsp;&nbsp;&nbsp;日期: <strong>2014年09月24日</strong></p>
 </div>
 
 <article class="post-content">
 	<div>
-		<p>最近正好有时间，把博客页面重新设计了一下，通过jekyll模版引擎重新构建，然后挂到GitHub Pages上面。</p>
+		<p>最近Poly效果很流行，在海报，T-shit，手机背景，网站背景上随处可见。今天我将会教大家如何快速创建一张有Poly效果的背景图片，只需要用到浏览器跟Adobe Illustrator。</p>
 
-<p>很久以前就想自己整一个博客网站，看了很多博客框架，最终还是选择在SAE上面搭建wordpress。</p>
+<p><img src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/13.png"/></p>
 
-<p>选择SAE和wordpress是因为比较简单，也没有什么太大的限制。SAE虽然需要云豆，我用了一些特殊方法搞了好几万的豆子，倒是也够用很久了。</p>
+<p style="text-align: center;">
+    <a target="_blank" href="http://www.zwlme.com/codebase/demo/poly/">打开制作工具</a>
+</p>
 
-<p>至于为什么想换平台把SAE搬迁到GitHub上？主要是因为SAE时常会不稳定，动不动就上不去，之前抛弃七牛也是因为这个原因。想我这种优(diao)秀(si)程序猿连自己建的网站都上不了，简直不能忍啊！</p>
+<p style="text-align: center;"><!--more--></p>
 
-<p>百度找了很多博客平台，都不是很满意。最后还是想在GitHub上面自己重新搭建一个。这也是很好的学习机会。</p>
+<hr>
 
-<p>参考了一些文章：</p>
+<h3>Step 1</h3>
 
-<ul>
-<li><a href="http://www.pchou.info/web-build/2013/01/03/build-github-blog-page-01.html">一步步在GitHub上创建博客主页</a></li>
-<li><a href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html">搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门</a></li>
-<li><a href="http://wowubuntu.com/markdown/index.html">Markdown 语法说明 (简体中文版)</a></li>
-<li><a href="http://jekyllbootstrap.com/api/template-data-api.html">Template Data API</a></li>
-<li><a href="https://github.com/Shopify/liquid/wiki/Liquid-for-Designers">Liquid for Designers</a></li>
-</ul>
+<p>首先，打开<a target="_blank" href="http://www.zwlme.com/codebase/demo/poly/">链接</a>。</p>
 
-<p>大家有兴趣可以来尝试一下。</p>
+<p>我是用谷歌浏览器的，最好不要用IE浏览器，这个工具需要浏览器的API支持才能使用(IE9+支持canvas，但是仍不支持Data URIs)。</p>
 
-<p>ok，开篇到此为止了。</p>
+<p><img src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/1.png" /></p>
+
+<h3>Step 2</h3>
+
+<p>拖拽一张图片到指定位置</p>
+
+<p><img src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/2.png" /></p>
+
+<p>现在只需在图片上点击不同的地方，就会出现三角形</p>
+
+<p><img src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/3.png" /></p>
+
+<p>你也可以拖动节点，创建不同的形状</p>
+
+<p><img src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/4.png" /></p>
+
+<p>你也可以将三角形分成多个部分，只要在三角形中间点击他们</p>
+
+<p><img src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/5.png" /></p>
+
+<h3>Step 3</h3>
+
+<p>创建一些复杂的图像可能就需要透明度了，上面的滑块就是来控制透明度的</p>
+
+<p><img src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/6.png" /></p>
+
+<p>你可以删除所有创建的节点，或者嫌挨个添加太麻烦，需要随机添加节点。点击上方的“<span style="color: #000000;">重置所有节点</span>”和“<span style="color: #000000;">随机添加节点</span>”就可以了。</p>
+
+<p><img src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/7.png" /></p>
+
+<p>
+    接下来继续添加节点，把poly图像充满整个页面。
+</p>
+
+<p><img src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/8.jpg" /></p>
+
+<h3>Step 4</h3>
+
+<p>图片创建完后，点击上方的“<span style="color: #35a1d4;">生成SVG</span>”这个链接。然后就出现了“<span style="color: #35a1d4;">查看SVG</span>”的链接。</p>
+
+<p><img src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/9.png" />
+<p>点击<span style="color: #35a1d4;">查看SVG</span>，新窗口打开一个页面。如图：</p>
+<img src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/10.png" /></p>
+
+<p>右键保存SVG到本地</p>
+
+<p><img src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/11.png" /></p>
+
+<h3>Step 5</h3>
+
+<p>用Adobe Illustrator打开SVG文件，如你所见，生成图像是线性渐变的常规矢量对象。</p>
+
+<p><img src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/12.png" /></p>
+
+<h3>最终结果</h3>
+
+<p><img src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/13.png" /></p>
+
+<p>OK，大功告成。压根没什么难度是吧！！！ 记得把你好看的作品在下方的评论中贴出来看看哟~~~</p>
+
+<!--more-->
+
+<hr />
+
+<p>&nbsp;</p>
+
+<p>原文：《<a href="http://vectorboom.com/load/tutorials/effects/how_to_create_vector_polygonal_background_quickly/3-1-0-338"><span style="color: #000000;">Illustrator Tutorial: How to Create Vector Polygonal Background Quickly Using Triangulator</span></a>》</p>
+
+<p>译者：<a href="http://www.zwlme.com">卓文理</a></p>
+
+<p><span style="color: #404040;">如需转载烦请注明出处：<a href="http://www.zwlme.com">www.zwlme.com</a></span></p>
 
 	</div>
 </article>
