@@ -24,6 +24,10 @@
 			var progress = 0,
 				interval = setInterval(function(){
 					instance.setProgress(progress);
+					if (document.readyState === "interactive") {
+						progress = Math.min(progress + Math.random() * 0.01, 1);
+						instance.setProgress(progress);
+					};
 					if (document.readyState === "loading") {
 						progress = Math.min(progress + Math.random() * 0.03, 1);
 						instance.setProgress(progress);
@@ -32,7 +36,6 @@
 						progress = Math.min(progress + Math.random() * 0.2, 1);
 						PageLoaded(progress,interval);
 					};
-
 				},80);
 		}
 		loader.setProgressFn(simulationFn);
