@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>响应式WEB设计 | 卓文理</title>
+    <meta name="author" content="卓文理" />
+    <link href="css/presentation.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<head/>
+
+<body class="impress-not-supported">
+
+<div class="fallback-message">
+    <p>你的浏览器实在太low了，或者禁用了javascript，不能很好的显示这个页面。</p>
+    <p>想看更炫的效果，请启用javascript，或者使用 <b>Chrome</b>, <b>Safari</b>, <b>Firefox</b>或 <b>IE10+</b> 浏览器.</p>
+</div>
+
+<div id="impress">
+
+    <div id="title" class="step slide" data-x="0" data-y="0">
+        <div class="title">
+            <span class="">响应式web设计</span>
+        </div>
+        <div class="right">
+            <span>Responsive Web Design</span> 
+        </div>
+        <div class="title_author">
+            <span class="date">2014.10</span>
+            <span class="slash">/</span>
+            <span class="author"><a href="http://www.zwlme.com" target="_blank">卓文理</a></span>
+        </div>
+    </div>
+
+    <div id="what" class="step overlay" data-x="0" data-y="1000">
+        <div class="ec-title">什么是响应式?</div>
+    </div>
+
+    <div id="what-notion" class="step slide" data-x="0" data-y="1000">
+        <div class="slide-content">
+            <p class="block-center">响应式网页设计最初是由<a href="http://www.zwlme.com/responsive-web-design.html" target="_blank">Ethan Marcotte</a>提出的一个概念：为什么一定要为每个用户群各自打造一套设计和开发方案？Web设计应该做到根据不同设备环境自动响应及调整。</p>
+        </div>
+    </div>
+    
+    <div id="what-reply" class="step slide" data-x="0" data-y="1000">
+        <div class="slide-content">
+            <p class="block-center">响应式就是实现屏幕分辨率自适应以及自动缩放的图片等等的技术</p>
+        </div>
+    </div>
+
+    <div id="what-reply-2" class="step overlay" data-x="0" data-y="1000">
+        <div class="question">吗？</div>
+    </div>
+
+    <div id="what-reply-3" class="step overlay" data-x="0" data-y="1000">
+        <div class="new">新的设计思维模式</div>
+        <div class="line"></div>
+    </div>
+
+    <div id="now" class="step slide" data-x="0" data-y="2000">
+        <div class="slide-content">
+            <p class="block-center slide-header">主流设备</p>
+        </div>
+    </div>
+
+    <div id="now-devices-1" class="step slide" data-x="0" data-y="2000">
+        <div class="slide-content text-center">
+            <!-- 台式机 -->
+            <img class="center" src="img/desktop-device.png" alt="">
+        </div>
+    </div>
+
+    <div id="now-devices-2" class="step slide" data-x="0" data-y="2000">
+        <div class="slide-content text-center">
+            <!-- 笔记本 -->
+            <img class="center" src="img/notebook-device.png" alt="">
+        </div>
+    </div>
+
+    <div id="now-devices-3" class="step slide" data-x="0" data-y="2000">
+        <div class="slide-content text-center">
+            <!-- 手机，平板 -->
+            <img class="center" src="img/multiple-device.png" alt="">
+        </div>
+    </div>
+
+    <div id="now-devices-4" class="step slide" data-x="0" data-y="2000">
+        <div class="slide-content text-center">
+            <!-- PDA -->
+            <img class="center" src="img/pda-device.png" alt="">
+        </div>
+    </div>
+
+    <div id="now-devices-5" class="step slide" data-x="0" data-y="2000">
+        <div class="slide-content text-center">
+            <!-- XBOX360 -->
+            <img class="center" src="img/xbox-device.png" alt="">
+        </div>
+    </div>
+
+    <div id="now-devices-6" class="step slide" data-x="0" data-y="2000">
+        <div class="slide-content text-center">
+            <!-- 打印机 -->
+            <img class="center" src="img/printer-device.png" alt="">
+        </div>
+    </div>
+
+    <div id="now-devices-7" class="step slide" data-x="0" data-y="2000">
+        <div class="slide-content">
+            <p class="block-center">等等...</p>
+        </div>
+    </div>
+
+    <div id="now-devices-8" class="step slide" data-x="0" data-y="2000">
+        <div class="slide-content">
+            <p class="block-center">这么多的设备，需要维护几套页面？</p>
+        </div>
+    </div>
+
+    <div id="now-devices-9" class="step slide" data-x="0" data-y="2000">
+        <div class="slide-content">
+            <p class="block-center">说不定，哪一天。</p>
+        </div>
+    </div>
+    
+    <div id="now-devices-10" class="step slide" data-x="0" data-y="2000">
+        <div class="slide-content">
+            <p class="block-center">老板脑洞大开，说：“我们需要给iWatch也整个网站”。</p>
+        </div>
+    </div>
+    
+    <div id="now-devices-11" class="step slide" data-x="0" data-y="2000">
+        <div class="slide-content text-center">
+            <!-- iWatch -->
+            <img class="center" src="img/iwatch-device.png" alt="">
+        </div>
+    </div>
+    
+    <div id="now-devices-12" class="step slide" data-x="0" data-y="2000">
+        <div class="slide-content">
+            <p class="block-center">给电视也整个网站。</p>
+        </div>
+    </div>
+    
+    <div id="now-devices-13" class="step slide" data-x="0" data-y="2000">
+        <div class="slide-content text-center">
+            <!-- iWatch -->
+            <img class="center" src="img/televised.png" alt="">
+        </div>
+    </div>
+
+    <div id="now-devices-14" class="step slide" data-x="0" data-y="2000">
+        <div class="slide-content">
+            <p class="block-center">嗯。好像完全可以。</p>
+        </div>
+    </div>
+
+    <div id="now-devices-15" class="step slide" data-x="0" data-y="2000">
+        <div class="vcenter">
+            <ul>
+                <li>
+                    电脑设备：www.xxx.com
+                </li>
+                <li>
+                    移动设备：m.xxx.com
+                </li>
+                <li>
+                    穿戴设备：i.xxx.com
+                </li>
+                <li>
+                    电视设备：tv.xxx.com
+                </li>
+                <li>
+                    ...
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="need" class="step slide" data-x="0" data-y="3000">
+        <div class="slide-content">
+            <p class="block-center">响应式：xxx.com</p>
+        </div>
+    </div>
+
+    <div id="advantage" class="step slide" data-x="0" data-y="3000">
+        <div class="ec-title">
+            优点
+        </div>
+        <div class="vcenter">
+            <ul class="lv0_indent">
+                <li>跨平台和终端且不需要分配子域</li>
+                <li>节省人力开发成本</li>
+                <li>表现力一致</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="achieve" class="step overlay" data-x="0" data-y="4000">
+        <div class="ex-title">如何实现?</div>
+    </div>
+
+    <!-- 设置viewport -->
+    <div id="code-viewport" class="step slide" data-x="0" data-y="4000">
+        <div class="slide-content">
+            <div class="ec-title">
+                设置viewport
+            </div>
+            <div class="pre block-center">
+                <div id="crayon-543f953636a1f653278613" class="crayon-syntax crayon-theme-sublime-text crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: 10px; margin-bottom: 10px; font-size: 16px !important; line-height: 24px !important; height: auto;">
+                    <div class="crayon-plain-wrap"></div>
+                    <div class="crayon-main" style="position: relative; z-index: 1;">
+                        <table class="crayon-table">
+                            <tbody>
+                                <tr class="crayon-row"><td class="crayon-nums " data-settings="show"><div class="crayon-nums-content" style="font-size: 13px !important; line-height: 18px !important;"><div class="crayon-num" data-line="crayon-543f953636a1f653278613-1">1</div></div></td><td class="crayon-code"><div class="crayon-pre"><div class="crayon-line" id="crayon-543f953636a1f653278613-1"><span class="crayon-o">&lt;</span><span class="crayon-e">meta </span><span class="crayon-r">name</span><span class="crayon-o">=</span><span class="crayon-s">"viewport"</span><span class="crayon-h"> </span><span class="crayon-e ">content</span><span class="crayon-o">=</span><span class="crayon-s">"width=device-width, initial-scale=1"</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-o">&gt;</span></div></div></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="code-viewport-tag1" class="step overlay" data-x="0" data-y="4000">
+        <div class="slide-content">
+            <div class="arrow-1"></div>
+            <div class="tag">
+                viewport可以用来控制网页默认的宽度和高度
+            </div>
+        </div>
+    </div>
+
+    <div id="code-viewport-tag2" class="step overlay" data-x="0" data-y="4000">
+        <div class="slide-content">
+            <div class="arrow-2"></div>
+            <div class="tag">
+                width=device-width（网页宽度默认等于屏幕宽度）<br />
+                initial-scale=1（原始缩放比例为1.0，即网页初始大小占屏幕面积的100%）。<br />
+                <a href="#media-feature">更多内容...</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 流动布局 -->
+    <div id="code-fluid-grid" class="step slide" data-x="0" data-y="5000">
+        <div class="slide-content">
+            <div class="ec-title">
+                流动布局（fluid grid）
+            </div>
+            <div class="pre block-center">
+                <div id="crayon-543f953636a1f653278613" class="crayon-syntax crayon-theme-sublime-text crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: 10px; margin-bottom: 10px; font-size: 16px !important; line-height: 24px !important; height: auto;">
+                    <div class="crayon-plain-wrap"></div>
+                        <div class="crayon-main" style="position: relative; z-index: 1;">
+                            <table class="crayon-table">
+                                <tbody>
+                                <tr class="crayon-row">
+                                    <td class="crayon-nums " data-settings="show"><div class="crayon-num">1</div><div class="crayon-num">2</div><div class="crayon-num">3</div><div class="crayon-num">4</div><div class="crayon-num">5</div><div class="crayon-num">6</div><div class="crayon-num">7</div><div class="crayon-num">8</div><div class="crayon-num">9</div></td>
+                                    <td class="crayon-code"><div class="crayon-pre"><div class="crayon-line" id="crayon-544472054e60e598718518-1"><span class="crayon-sy">.</span><span class="crayon-i">main</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-544472054e60e598718518-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-t">float</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-v">right</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-544472054e60e598718518-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">width</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">70</span><span class="crayon-o">%</span><span class="crayon-sy">;</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-544472054e60e598718518-4"><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-544472054e60e598718518-5"><span class="crayon-sy">.</span><span class="crayon-i">leftBar</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-544472054e60e598718518-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-t">float</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-v">left</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-544472054e60e598718518-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">width</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">25</span><span class="crayon-o">%</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-544472054e60e598718518-8"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">font</span><span class="crayon-o">-</span><span class="crayon-v">size</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">1em</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-544472054e60e598718518-9"><span class="crayon-sy">}</span></div></div></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="code-fluid-grid-tag" class="step overlay" data-x="0" data-y="5000">
+        <div class="slide-content">
+            <div class="arrow-3"></div>
+            <div class="arrow-4"></div>
+            <div class="tag">
+                使用float或者inline-block等布局，如果宽度太小，放不下两个元素，后面的元素会自动滚动到前面元素的下方，不会在水平方向overflow（溢出），避免了水平滚动条的出现。
+            </div>
+            <div class="tag2">
+                使用百分比布局<br />
+                使用em来替代px
+            </div>
+        </div>
+    </div>
+    
+    <div id="code-fluid-grid-tag" class="step overlay" data-x="0" data-y="5000">
+        <div class="slide-content vcenter" style="text-align:center;">
+            <img src="img/float.jpg" alt="">
+        </div>
+    </div>
+
+    <!-- 媒体查询 -->
+    <div id="code-media-query" class="step slide" data-x="0" data-y="6000">
+        <div class="slide-content">
+            <div class="ec-title">
+                选择加载CSS
+            </div>
+            <div class="pre block-center">
+                <div id="crayon-543f953636a1f653278613" class="crayon-syntax crayon-theme-sublime-text crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: 10px; margin-bottom: 10px; font-size: 16px !important; line-height: 24px !important; height: auto;">
+                    <div class="crayon-plain-wrap"></div>
+                    <div class="crayon-main" style="position: relative; z-index: 1;">
+                        <table class="crayon-table">
+                            <tbody>
+                                <tr class="crayon-row">
+                                    <td class="crayon-nums " data-settings="show"><div class="crayon-nums-content"><div class="crayon-num" data-line="crayon-5440e6c2cc871514040489-1">1</div></div>
+                                    </td>
+                                    <td class="crayon-code"><div class="crayon-pre"><div class="crayon-line" id="crayon-5440e6c2cc871514040489-1"><span class="crayon-o">&lt;</span><span class="crayon-e">link </span><span class="crayon-e ">rel</span><span class="crayon-o">=</span><span class="crayon-s">"stylesheet"</span><span class="crayon-h"> </span><span class="crayon-e ">media</span><span class="crayon-o">=</span><span class="crayon-s">"screen and (max-device-width: 400px)"</span><span class="crayon-h"> </span><span class="crayon-e ">href</span><span class="crayon-o">=</span><span class="crayon-s">"tinyScreen.css"</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-o">&gt;</span></div></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="code-media-query-tag" class="step overlay" data-x="0" data-y="6000">
+        <div class="slide-content">
+            <div class="arrow-1"></div>
+            <div class="tag">
+                屏幕宽度小于400像素（max-device-width: 400px），就加载tinyScreen.css文件。
+            </div>
+        </div>
+    </div>
+    
+    <div id="code-media-query-and" class="step slide" data-x="1500" data-y="6000">
+        <div class="slide-content">
+            <div class="pre block-center">
+                <div id="crayon-543f953636a1f653278613" class="crayon-syntax crayon-theme-sublime-text crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: 10px; margin-bottom: 10px; font-size: 16px !important; line-height: 24px !important; height: auto;">
+                    <div class="crayon-plain-wrap"></div>
+                    <div class="crayon-main" style="position: relative; z-index: 1;">
+                        <table class="crayon-table">
+                            <tbody>
+                                <tr class="crayon-row">
+                                    <td class="crayon-nums " data-settings="show"><div class="crayon-nums-content"><div class="crayon-num" data-line="crayon-5440e6c2cc871514040489-1">1</div></div>
+                                    </td>
+                                    <td class="crayon-code"><div class="crayon-pre"><div class="crayon-line" id="crayon-5443386d15704566067946-1"><span class="crayon-o">&lt;</span><span class="crayon-e">link </span><span class="crayon-e ">rel</span><span class="crayon-o">=</span><span class="crayon-s">"stylesheet"</span><span class="crayon-h"> </span><span class="crayon-e ">media</span><span class="crayon-o">=</span><span class="crayon-s">"screen and (min-width: 400px) and (max-device-width: 600px)"</span><span class="crayon-h"> </span><span class="crayon-e ">href</span><span class="crayon-o">=</span><span class="crayon-s">"smallScreen.css"</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-o">&gt;</span></div></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="code-media-query-import" class="step slide" data-x="3000" data-y="6000">
+        <div class="slide-content">
+            <div class="pre block-center">
+                <div id="crayon-543f953636a1f653278613" class="crayon-syntax crayon-theme-sublime-text crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: 10px; margin-bottom: 10px; font-size: 16px !important; line-height: 24px !important; height: auto;">
+                    <div class="crayon-plain-wrap"></div>
+                    <div class="crayon-main" style="position: relative; z-index: 1;">
+                        <table class="crayon-table">
+                            <tbody>
+                                <tr class="crayon-row">
+                                    <td class="crayon-nums " data-settings="show"><div class="crayon-nums-content"><div class="crayon-num" data-line="crayon-5440e6c2cc871514040489-1">1</div></div>
+                                    </td>
+                                    <td class="crayon-code"><div class="crayon-pre"><div class="crayon-line" id="crayon-54433a0c073bd043542605-1"><span class="crayon-sy">@</span><span class="crayon-e">import </span><span class="crayon-e">url</span><span class="crayon-sy">(</span><span class="crayon-s">"tinyScreen.css"</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-e">screen </span><span class="crayon-st">and</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">max</span><span class="crayon-o">-</span><span class="crayon-v">device</span><span class="crayon-o">-</span><span class="crayon-v">width</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">400px</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="code-css-media" class="step slide" data-x="0" data-y="7000">
+        <div class="slide-content">
+            <div class="ec-title">
+                CSS的@media规则
+            </div>
+            <div class="pre block-center">
+                <div id="crayon-543f953636a1f653278613" class="crayon-syntax crayon-theme-sublime-text crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: 10px; margin-bottom: 10px; font-size: 16px !important; line-height: 24px !important; height: auto;">
+                    <div class="crayon-plain-wrap"></div>
+                    <div class="crayon-main" style="position: relative; z-index: 1;">
+                        <table class="crayon-table">
+                            <tbody>
+                            <tr class="crayon-row">
+                                <td class="crayon-nums " data-settings="show">
+                                    <div class="crayon-nums-content"><div class="crayon-num" data-line="crayon-54433de4ce634186574392-1">1</div><div class="crayon-num" data-line="crayon-54433de4ce634186574392-2">2</div><div class="crayon-num" data-line="crayon-54433de4ce634186574392-3">3</div></div>
+                                </td>
+                                <td class="crayon-code"><div class="crayon-pre"><div class="crayon-line" id="crayon-54433de4ce634186574392-1"><span class="crayon-sy">@</span><span class="crayon-e">media </span><span class="crayon-e">screen </span><span class="crayon-st">and</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">max</span><span class="crayon-o">-</span><span class="crayon-v">device</span><span class="crayon-o">-</span><span class="crayon-v">width</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">400px</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-54433de4ce634186574392-2"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-e">selector</span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-54433de4ce634186574392-3"><span class="crayon-sy">}</span></div></div></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="tag">
+                同一个CSS文件中，也可以根据不同的屏幕分辨率，选择不同的CSS规则。
+            </div>
+        </div>
+    </div>
+    
+    <!-- 设备类型 -->
+    <div id="media-type" class="step slide" data-x="0" data-y="8000">
+        <div class="slide-header">设备类型(media type):</div>
+        <div class="slide-content">
+            <ul class="lv0_indent">
+                <li><code>all</code>所有设备</li>
+                <li><code>screen</code>电脑显示器</li>
+                <li><code>print</code>打印用纸或打印预览视图</li>
+                <li><code>handheld</code>便携设备</li>
+                <li><code>tv</code>电视机类型的设备</li>
+                <li><code>speech</code>语意和音频盒成器</li>
+                <li><code>braille</code>盲人用点字法触觉回馈设备</li>
+                <li><code>embossed</code>盲文打印机</li>
+                <li><code>projection</code>各种投影设备</li>
+                <li><code>tty</code>使用固定密度字母栅格的媒介，比如电传打字机和终端</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- 设备特性 -->
+    <div id="media-feature" class="step slide" data-x="0" data-y="9000">
+        <div class="slide-header">设备特性(media feature):</div>
+        <div class="slide-content">
+            <ul class="lv0_indent">
+                <li><code>width</code>视口宽度。</li>
+                <li><code>height</code>视口高度。</li>
+                <li><code>device-width</code>渲染表面的宽度（对我们来说，就是设备屏幕的宽度）。</li>
+                <li><code>device-height</code>渲染表面的高度（对我们来说，就是设备屏幕的高度）。</li>
+                <li><code>orientation</code>检查设备处于横向还是纵向。</li>
+                <li><code>aspect-ratio</code>基于视口宽度和高度的宽高比。如 aspect-ratio: 16/9。</li>
+                <li><code>color</code>每种颜色的位数。例如 min-color: 16会检测设备是否拥有16位颜色。</li>
+                <li><code>color-index</code>设备的颜色索引表中的颜色数。值必须是非负整数。</li>
+                <li><code>monochrome</code>检测单色帧缓冲区中每像素所使用的位数。值必须是非负整数，如 monochrome: 2。</li>
+                <li><code>resolution</code>用来检测屏幕或打印机的分辨率，如 min-resolution: 300dpi。</li>
+                <li><code>scan</code>电视机的扫描方式，值可设为progressive（逐行扫描）或 interlace（隔行扫描）。</li>
+                <li><code>grid</code>用来检测输出设备是网格设备还是位图设备。</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 响应式技巧 -->
+    <div id="media-trick" class="step slide" data-x="0" data-y="10000">
+        <div class="ex-title">
+            响应式技巧
+        </div>
+    </div>
+
+    <!-- 响应式图片 -->
+    <div id="media-images" class="step slide" data-x="0" data-y="11000">
+        <div class="ex-title">
+            响应式图片
+        </div>
+    </div>
+
+    <div id="media-images-url" class="step slide" data-x="0" data-y="11000">
+        <div class="slide-content">
+            <a href="http://alistapart.com/article/responsive-web-design" target="_blank">
+                <img src="img/rwd-1.png" alt="">
+            </a>
+            <a href="http://alistapart.com/article/responsive-web-design" target="_blank">
+                <img src="img/rwd-2.png" alt="">
+            </a>
+        </div>
+    </div>
+
+    <div id="media-images-draft" class="step slide" data-x="0" data-y="11000">
+        <div class="slide-content">
+            <div class="ec-title">
+                W3C草案:新定义标签<a target="_blank" href="https://dvcs.w3.org/hg/html-proposals/raw-file/9443de7ff65f/responsive-images/responsive-images.html">&lt;picture&gt;</a>
+            </div>
+            <div class="pre block-center">
+                <div id="crayon-543f953636a1f653278613" class="crayon-syntax crayon-theme-sublime-text crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: 10px; margin-bottom: 10px; font-size: 16px !important; line-height: 24px !important; height: auto;">
+                    <div class="crayon-plain-wrap"></div>
+                    <div class="crayon-main" style="position: relative; z-index: 1;">
+                        <table class="crayon-table">
+                            <tbody>
+                                <tr class="crayon-row">
+                                    <td class="crayon-nums " data-settings="show">
+                                        <div class="crayon-nums-content"><div class="crayon-num">1</div><div class="crayon-num">2</div><div class="crayon-num">3</div><div class="crayon-num">4</div><div class="crayon-num">5</div><div class="crayon-num">6</div><div class="crayon-num">7</div><div class="crayon-num">8</div><div class="crayon-num">9</div></div>
+                                    </td>
+                                    <td class="crayon-code"><div class="crayon-pre"><div class="crayon-line"><span class="crayon-o">&lt;</span><span class="crayon-e">picture </span><span class="crayon-e ">width</span><span class="crayon-o">=</span><span class="crayon-s">"500"</span><span class="crayon-h"> </span><span class="crayon-e ">height</span><span class="crayon-o">=</span><span class="crayon-s">"500"</span><span class="crayon-o">&gt;</span></div><div class="crayon-line"><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-o">&lt;</span><span class="crayon-e">img </span><span class="crayon-e ">src</span><span class="crayon-o">=</span><span class="crayon-s">"small-1.jpg"</span><span class="crayon-h"> </span><span class="crayon-e ">alt</span><span class="crayon-o">=</span><span class="crayon-s">""</span><span class="crayon-o">&gt;</span></div><div class="crayon-line"><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-o">&lt;</span><span class="crayon-e">source </span><span class="crayon-e ">media</span><span class="crayon-o">=</span><span class="crayon-s">"(min-width: 640px)"</span><span class="crayon-h"> </span><span class="crayon-e ">srcset</span><span class="crayon-o">=</span><span class="crayon-s">"large-1.jpg 1x, large-2.jpg 2x"</span><span class="crayon-o">&gt;</span></div><div class="crayon-line"><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-o">&lt;</span><span class="crayon-e">source </span><span class="crayon-e ">media</span><span class="crayon-o">=</span><span class="crayon-s">"(min-width: 320px)"</span><span class="crayon-h"> </span><span class="crayon-e ">srcset</span><span class="crayon-o">=</span><span class="crayon-s">"med-1.jpg 1x, med-2.jpg 2x"</span><span class="crayon-o">&gt;</span></div><div class="crayon-line"><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-o">&lt;</span><span class="crayon-e">source </span><span class="crayon-e ">srcset</span><span class="crayon-o">=</span><span class="crayon-s">"small-1.jpg 1x, small-2.jpg 2x"</span><span class="crayon-o">&gt;</span></div><div class="crayon-line"><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-o">&lt;</span><span class="crayon-v">noscript</span><span class="crayon-o">&gt;</span></div><div class="crayon-line"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">img </span><span class="crayon-e ">src</span><span class="crayon-o">=</span><span class="crayon-s">"external/imgs/small.jpg"</span><span class="crayon-h"> </span><span class="crayon-e ">alt</span><span class="crayon-o">=</span><span class="crayon-s">"Team photo"</span><span class="crayon-o">&gt;</span></div><div class="crayon-line"><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">noscript</span><span class="crayon-o">&gt;</span></div><div class="crayon-line"><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-e">picture</span><span class="crayon-o">&gt;</span></div></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="media-images-code" class="step slide" data-x="0" data-y="11000">
+        <div class="slide-content">
+            <div class="pre block-center">
+                <div id="crayon-543f953636a1f653278613" class="crayon-syntax crayon-theme-sublime-text crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: 10px; margin-bottom: 10px; font-size: 16px !important; line-height: 24px !important; height: auto;">
+                    <div class="crayon-plain-wrap"></div>
+                    <div class="crayon-main" style="position: relative; z-index: 1;">
+                        <table class="crayon-table">
+                            <tbody>
+                                <tr class="crayon-row">
+                                    <td class="crayon-nums " data-settings="show">
+                                        <div class="crayon-nums-content"><div class="crayon-num">1</div><div class="crayon-num">2</div><div class="crayon-num">3</div><div class="crayon-num">4</div><div class="crayon-num">5</div><div class="crayon-num">6</div><div class="crayon-num">7</div><div class="crayon-num">8</div><div class="crayon-num">9</div></div>
+                                    </td>
+                                    <td class="crayon-code"><div class="crayon-pre"><div class="crayon-line"><span class="crayon-o">&lt;</span><span class="crayon-e">figure </span><span class="crayon-e ">width</span><span class="crayon-o">=</span><span class="crayon-s">"500"</span><span class="crayon-h"> </span><span class="crayon-e ">height</span><span class="crayon-o">=</span><span class="crayon-s">"500"</span><span class="crayon-o">&gt;</span></div><div class="crayon-line"><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-o">&lt;</span><span class="crayon-e">img </span><span class="crayon-e ">src</span><span class="crayon-o">=</span><span class="crayon-s">"small-1.jpg"</span><span class="crayon-h"> </span><span class="crayon-e ">alt</span><span class="crayon-o">=</span><span class="crayon-s">""</span><span class="crayon-o">&gt;</span></div><div class="crayon-line"><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-o">&lt;</span><span class="crayon-e">div </span><span class="crayon-e ">media</span><span class="crayon-o">=</span><span class="crayon-s">"(min-width: 640px)"</span><span class="crayon-h"> </span><span class="crayon-e ">srcset</span><span class="crayon-o">=</span><span class="crayon-s">"large-1.jpg 1x, large-2.jpg 2x"</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">div</span><span class="crayon-o">&gt;</span></div><div class="crayon-line"><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-o">&lt;</span><span class="crayon-e">div </span><span class="crayon-e ">media</span><span class="crayon-o">=</span><span class="crayon-s">"(min-width: 320px)"</span><span class="crayon-h"> </span><span class="crayon-e ">srcset</span><span class="crayon-o">=</span><span class="crayon-s">"med-1.jpg 1x, med-2.jpg 2x"</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">div</span><span class="crayon-o">&gt;</span></div><div class="crayon-line"><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-o">&lt;</span><span class="crayon-e">div </span><span class="crayon-e ">srcset</span><span class="crayon-o">=</span><span class="crayon-s">"small-1.jpg 1x, small-2.jpg 2x"</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-v ">/div&gt;</span></div><div class="crayon-line"><span class="crayon-v ">&nbsp;&nbsp; &lt;noscript&gt;</span></div><div class="crayon-line"><span class="crayon-v ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="external/i</span><span class="crayon-v">mgs</span><span class="crayon-o">/</span><span class="crayon-v">small</span><span class="crayon-sy">.</span><span class="crayon-i">jpg</span><span class="crayon-s">" alt="</span><span class="crayon-e">Team </span><span class="crayon-i">photo</span>"<span class="crayon-o">&gt;</span></div><div class="crayon-line"><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">noscript</span><span class="crayon-o">&gt;</span></div><div class="crayon-line"><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-e">figure</span><span class="crayon-o">&gt;</span></div></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div style="margin-top:50px;text-align:left;">
+                    &lt;picture&gt;目前还不支持，但它的原理我们是可借鉴的，所以就诞生了一个用于图片响应式处理的类库<a target="_blank" href="https://github.com/scottjehl/picturefill">Picturefill</a>。
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 响应式表格 -->
+    <div id="media-table" class="step slide" data-x="0" data-y="12000">
+        <div class="ex-title">
+            <a href="example/media-table-1.html" target="_blank">响应式表格</a>
+        </div>
+    </div>
+
+    <div id="media-table-code" class="step slide" data-x="0" data-y="12000">
+        <div class="slide-content">
+            <div class="pre block-center">
+                <div id="crayon-543f953636a1f653278613" class="crayon-syntax crayon-theme-sublime-text crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: 10px; margin-bottom: 10px; font-size: 16px !important; line-height: 24px !important; height: auto;">
+                    <div class="crayon-plain-wrap"></div>
+                    <div class="crayon-main" style="position: relative; z-index: 1;">
+                        <table class="crayon-table">
+                            <tbody>
+                                <tr class="crayon-row">
+                                <td class="crayon-nums " data-settings="show">
+                                    <div class="crayon-nums-content"><div class="crayon-num" data-line="crayon-5444be52b25a6159149226-1">1</div><div class="crayon-num" data-line="crayon-5444be52b25a6159149226-2">2</div><div class="crayon-num" data-line="crayon-5444be52b25a6159149226-3">3</div></div>
+                                </td>
+                                <td class="crayon-code"><div class="crayon-pre"><div class="crayon-line" id="crayon-5444be52b25a6159149226-1"><span class="crayon-sy">@</span><span class="crayon-e">media </span><span class="crayon-e">screen </span><span class="crayon-st">and</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">max</span><span class="crayon-o">-</span><span class="crayon-v">width</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">800px</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5444be52b25a6159149226-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-e">first </span><span class="crayon-v">td</span><span class="crayon-o">:</span><span class="crayon-v">nth</span><span class="crayon-o">-</span><span class="crayon-r">child</span><span class="crayon-sy">(</span><span class="crayon-cn">2</span><span class="crayon-sy">)</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-e">first </span><span class="crayon-v">th</span><span class="crayon-o">:</span><span class="crayon-v">nth</span><span class="crayon-o">-</span><span class="crayon-r">child</span><span class="crayon-sy">(</span><span class="crayon-cn">2</span><span class="crayon-sy">)</span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-v">display</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-v">none</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5444be52b25a6159149226-3"><span class="crayon-sy">}</span></div></div></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 响应式表格 -->
+    <div id="media-table-2" class="step slide" portraitdata-x="0" data-y="12000">
+        <div class="ex-title">
+            <a href="example/media-table-2.html" target="_blank">响应式表格（二）</a>
+        </div>
+    </div>
+
+    <div id="media-table-2-code" class="step slide" data-x="0" data-y="12000">
+        <div class="pre block-center">
+            <div id="crayon-543f953636a1f653278613" class="crayon-syntax crayon-theme-sublime-text crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: 10px; margin-bottom: 10px; font-size: 16px !important; line-height: 24px !important; height: auto;">
+                <div class="crayon-plain-wrap"></div>
+                <div class="crayon-main" style="position: relative; z-index: 1;">
+                    <table class="crayon-table">
+                        <tbody>
+                            <tr class="crayon-row">
+                                <td class="crayon-nums " data-settings="show">
+                                    <div class="crayon-nums-content"><div class="crayon-num">1</div><div class="crayon-num">2</div><div class="crayon-num">3</div><div class="crayon-num">4</div><div class="crayon-num">5</div><div class="crayon-num">6</div><div class="crayon-num">7</div><div class="crayon-num">8</div><div class="crayon-num">9</div><div class="crayon-num"">10</div><div class="crayon-num"">11</div></div>
+                                </td>
+                                <td class="crayon-code"><div class="crayon-pre"><div class="crayon-line"><span class="crayon-sy">@</span><span class="crayon-e">media </span><span class="crayon-e">screen </span><span class="crayon-st">and</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">max</span><span class="crayon-o">-</span><span class="crayon-v">width</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">768px</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-v">table</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">thead</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">tbody</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">th</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">td</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-e">tr</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-v">display</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-v">block</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-sy">}</span></div><div class="crayon-line"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-e">thead</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-v">display</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-v">none</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-sy">}</span></div><div class="crayon-line"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-e">tr</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-v">border</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">1px</span><span class="crayon-h"> </span><span class="crayon-v">solid</span><span class="crayon-h"> </span><span class="crayon-o">#</span><span class="crayon-v">ccc</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-sy">}</span></div><div class="crayon-line"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-e">td</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-v">border</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-v">none</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-v">border</span><span class="crayon-o">-</span><span class="crayon-v">bottom</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">1px</span><span class="crayon-h"> </span><span class="crayon-v">solid</span><span class="crayon-h"> </span><span class="crayon-o">#</span><span class="crayon-v">eee</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-v">position</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-v">relative</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-v">padding</span><span class="crayon-o">-</span><span class="crayon-v">left</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">50</span><span class="crayon-o">%</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-sy">}</span></div><div class="crayon-line"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-v">td</span><span class="crayon-o">:</span><span class="crayon-e">before</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-v">position</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-v">absolute</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-v">top</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">6px</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-v">left</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">6px</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-v">width</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">45</span><span class="crayon-o">%</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-v">padding</span><span class="crayon-o">-</span><span class="crayon-v">right</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">10px</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-v">white</span><span class="crayon-o">-</span><span class="crayon-v">space</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-v">nowrap</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-sy">}</span></div><div class="crayon-line"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-v">td</span><span class="crayon-o">:</span><span class="crayon-v">nth</span><span class="crayon-o">-</span><span class="crayon-v">of</span><span class="crayon-o">-</span><span class="crayon-e">type</span><span class="crayon-sy">(</span><span class="crayon-cn">1</span><span class="crayon-sy">)</span><span class="crayon-o">:</span><span class="crayon-e">before</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-v">content</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"First Name"</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-sy">}</span></div><div class="crayon-line"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-v">td</span><span class="crayon-o">:</span><span class="crayon-v">nth</span><span class="crayon-o">-</span><span class="crayon-v">of</span><span class="crayon-o">-</span><span class="crayon-e">type</span><span class="crayon-sy">(</span><span class="crayon-cn">2</span><span class="crayon-sy">)</span><span class="crayon-o">:</span><span class="crayon-e">before</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-v">content</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"Last Name"</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-sy">}</span></div><div class="crayon-line"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-v">td</span><span class="crayon-o">:</span><span class="crayon-v">nth</span><span class="crayon-o">-</span><span class="crayon-v">of</span><span class="crayon-o">-</span><span class="crayon-e">type</span><span class="crayon-sy">(</span><span class="crayon-cn">3</span><span class="crayon-sy">)</span><span class="crayon-o">:</span><span class="crayon-e">before</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-v">content</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"Job Title"</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-sy">}</span></div><div class="crayon-line""><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span></div><div class="crayon-line""><span class="crayon-sy">}</span></div></div></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="media-table-3-code" class="step overlay" data-x="0" data-y="12000">
+        <div class="arrow-1"></div>
+        <div class="pre block-center">
+            <div id="crayon-543f953636a1f653278613" class="crayon-syntax crayon-theme-sublime-text crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: 10px; margin-bottom: 10px; font-size: 16px !important; line-height: 24px !important; height: auto;">
+                <div class="crayon-plain-wrap"></div>
+                <div class="crayon-main" style="position: relative; z-index: 1;">
+                    <table class="crayon-table">
+                        <tbody>
+                            <tr class="crayon-row">
+                                <td class="crayon-nums " data-settings="show">
+                                    <div class="crayon-nums-content"><div class="crayon-num">1</div><div class="crayon-num">2</div><div class="crayon-num">3</div><div class="crayon-num">4</div></div>
+                                </td>
+                                <td class="crayon-code"><div class="crayon-pre"><div class="crayon-line"><span class="crayon-c">// 每个单元格使用data attributes</span></div><div class="crayon-line"><span class="crayon-o">&lt;</span><span class="crayon-e">td </span><span class="crayon-e ">data-label</span><span class="crayon-o">=</span><span class="crayon-s">"First name"</span><span class="crayon-o">&gt;</span><span class="crayon-v">Chris</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">td</span><span class="crayon-o">&gt;</span></div><div class="crayon-line"><span class="crayon-c">// css</span></div><div class="crayon-line"><span class="crayon-v">td</span><span class="crayon-o">:</span><span class="crayon-e">before</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-v">content</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-e">attr</span><span class="crayon-sy">(</span><span class="crayon-v">data</span><span class="crayon-o">-</span><span class="crayon-v">label</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-sy">}</span></div></div></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 高分辨率(DPI)下的响应式处理 -->
+    <div id="media-retina" class="step slide" data-x="0" data-y="13000">
+        <div class="ex-title">
+            高分辨率(DPI)下的响应式处理
+        </div>
+    </div>
+
+    <div id="media-retina-list" class="step slide" data-x="0" data-y="13000">
+        <div class="slide-content">
+            <ul class="lv0_indent">
+                <li><code>SVG</code>优点可承载色彩丰富、设计复杂图形，且渲染不会出现边缘不顺滑；缺点是IE,安卓手机的支持不完美。</li>
+                <li><code>Icon fonts</code>支持多浏览器，图形颜色大小的修改成本低，易于维护；图形表现单一，不支持色彩丰富且复杂的图形，IE6渲染有毛边。</li>
+                <li><code>-webkit-image-set</code>只支持单个图形的适配，不利于图形合并，兼容不完美（Safari 6+, Chrome 21+）</li>
+                <li>2x,3x,4x图片 蛋疼的网速，呵呵</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div id="media-retina-border" class="step slide" data-x="0" data-y="13000">
+        <div class="ec-title">
+            高分辨率下的1px border
+        </div>
+        <div class="slide-content" style="text-align:center;margin-top:50px;">
+            <img src="img/retina.png" alt="">
+        </div>
+    </div>
+
+    <div id="media-retina-border-code" class="step slide" data-x="0" data-y="13000">
+        <div class="slide-content">
+            <div class="pre block-center">
+                <div id="crayon-543f953636a1f653278613" class="crayon-syntax crayon-theme-sublime-text crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" no-popup minimize scroll-mouseover" style="margin-top: 10px; margin-bottom: 10px; font-size: 16px !important; line-height: 24px !important; height: auto;">
+                    <div class="crayon-plain-wrap"></div>
+                    <div class="crayon-main" style="position: relative; z-index: 1;">
+                        <table class="crayon-table">
+                            <tbody>
+                                <tr class="crayon-row">
+                                    <td class="crayon-nums " data-settings="show">
+                                        <div class="crayon-nums-content"><div class="crayon-num">1</div><div class="crayon-num">2</div><div class="crayon-num">3</div><div class="crayon-num">4</div><div class="crayon-num">5</div><div class="crayon-num">6</div><div class="crayon-num">7</div><div class="crayon-num">8</div><div class="crayon-num">9</div><div class="crayon-num">10</div></div>
+                                    </td>
+                                    <td class="crayon-code"><div class="crayon-pre"><div class="crayon-line"><span class="crayon-sy">@</span><span class="crayon-e">media </span><span class="crayon-e">only </span><span class="crayon-e">screen </span><span class="crayon-st">and</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-o">-</span><span class="crayon-v">webkit</span><span class="crayon-o">-</span><span class="crayon-v">min</span><span class="crayon-o">-</span><span class="crayon-v">device</span><span class="crayon-o">-</span><span class="crayon-v">pixel</span><span class="crayon-o">-</span><span class="crayon-v">ratio</span><span class="crayon-o">:</span><span class="crayon-cn">1.5</span><span class="crayon-sy">)</span><span class="crayon-sy">,</span></div><div class="crayon-line"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-e">only </span><span class="crayon-e">screen </span><span class="crayon-st">and</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">min</span><span class="crayon-o">-</span><span class="crayon-v">device</span><span class="crayon-o">-</span><span class="crayon-v">pixel</span><span class="crayon-o">-</span><span class="crayon-v">ratio</span><span class="crayon-o">:</span><span class="crayon-cn">1.5</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">button</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">border</span><span class="crayon-o">:</span><span class="crayon-v">none</span><span class="crayon-sy">;</span></div><div class="crayon-line"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">padding</span><span class="crayon-o">:</span><span class="crayon-cn">0</span><span class="crayon-h"> </span><span class="crayon-cn">16px</span><span class="crayon-sy">;</span></div><div class="crayon-line"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">box</span><span class="crayon-o">-</span><span class="crayon-v">shadow</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-i">inset</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-h"> </span><span class="crayon-cn">1px</span><span class="crayon-h"> </span><span class="crayon-o">#</span><span class="crayon-cn">000</span><span class="crayon-sy">,</span></div><div class="crayon-line"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-i">inset</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-h"> </span><span class="crayon-cn">1px</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-h"> </span><span class="crayon-o">#</span><span class="crayon-cn">75c2f8</span><span class="crayon-sy">,</span></div><div class="crayon-line"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">0</span><span class="crayon-h"> </span><span class="crayon-cn">1px</span><span class="crayon-h"> </span><span class="crayon-cn">1px</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-cn">1px</span><span class="crayon-h"> </span><span class="crayon-e">rgba</span><span class="crayon-sy">(</span><span class="crayon-cn">0</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-cn">5</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div><div class="crayon-line"><span class="crayon-sy">}</span></div></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="defect"  class="step slide" data-x="0" data-y="14000">
+        <div class="ex-title">缺点?</div>
+    </div>
+
+    <div id="defect-list" class="step slide" data-x="0" data-y="14000">
+        <div class="vcenter">
+            <ul class="lv0_indent">
+                <li>页面体积增大。性能低。</li>
+                <li>不适合页面较复杂的网站。</li>
+                <li>自由度太低，局限性较大。</li>
+                <li>非webkit内核兼容性较差。</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="how" class="step slide" data-x="0" data-y="15000">
+        <div class="ex-title">
+            怎么办？
+        </div>
+    </div>
+    
+    <div id="do" class="step slide" data-x="0" data-y="15000">
+        <div class="ex-title">
+            内容优先 移动优先
+        </div>
+    </div>
+
+    <div id="situation" class="step slide" data-x="0" data-y="16000">
+        <div class="ec-title">
+            目前形势
+        </div>
+        <div class="vcenter">
+            <ul class="lv0_indent">
+                <li><a href="http://mediaqueri.es/" target="_blank">完全响应式页面</a></li>
+                <li><a href="http://www.taobao.com" target="_blank">半响应式页面</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="solution" class="step slide" data-x="0" data-y="17000">
+        <div class="ex-title">
+            其他解决方案？
+        </div>
+    </div>
+
+    <div id="solution-wpo" class="step slide" data-x="0" data-y="17000">
+        <div class="ec-title">
+            性能优化
+        </div>
+        <div class="vcenter">
+            <ul class="lv0_indent">
+                <li>减少请求数量</li>
+                <li>减少字节数量</li>
+                <li>加速渲染</li>
+                <li>其他？</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="solution-compatibility" class="step slide" data-x="0" data-y="18000">
+        <div class="ec-title">
+            兼容性
+        </div>
+        <div class="vcenter">
+            <ul class="lv0_indent">
+                <li>渐进增强与优雅降级</li>
+                <li>Respond.js</li>
+                <li>Modernizr</li>
+                <li>Adapt.960.js</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="thinking" class="step slide" data-x="0" data-y="19000">
+        <div class="ec-title">
+            一些思考
+        </div>
+        <div class="vcenter">
+            <ul class="lv0_indent">
+                <li>控制设计及开发成本</li>
+                <li>响应式图片的解决方案</li>
+                <li>针对旧浏览器的更好兼容</li>
+                <li>WebAPP页面体积的响应式适配</li>
+                <li>针对代码实现和内容可维护性之间的权衡</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="thinking" class="step slide" data-x="0" data-y="19000">
+        <div class="ec-title">
+            一些思考
+        </div>
+        <div class="vcenter">
+            <ul class="lv0_indent">
+                <li>控制设计及开发成本</li>
+                <li>响应式图片的解决方案</li>
+                <li>针对旧浏览器的更好兼容</li>
+                <li>WebAPP页面体积的响应式适配</li>
+                <li>针对代码实现和内容可维护性之间的权衡</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="reference" class="step slide" data-x="0" data-y="19000">
+        <div class="ec-title">
+            参考资料
+        </div>
+        <div class="vcenter">
+            <ul class="lv0_indent">
+                <li><a href="http://tgideas.qq.com/webplat/info/news_version3/804/808/811/m579/201211/179772.shtml" target="_blank">加载，不只是少一点点</a></li>
+                <li><a href="http://www.w3cplus.com/responsive/understanding-responsive-web-design-cross-browser-compatibility.html" target="_blank">响应式设计：跨浏览器兼容性</a></li>
+                <li><a href="http://www.ruanyifeng.com/blog/2012/05/responsive_web_design.html" target="_blank">自适应网页设计（Responsive Web Design）</a></li>
+                <li><a href="https://github.com/jtyjty99999/mobileTech" target="_blank">移动端开发的一些资源与小技巧</a></li>
+                <li><a href="http://www.w3cplus.com/css/towards-retina-web.html" target="_blank">走向视网膜（Retina）的Web时代</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="questions" class="step slide" data-x="0" data-y="20000">
+        <div class="ex-title">questions?</div>
+    </div>
+
+    <div id="thanks" class="step slide" data-x="0" data-y="20000">
+        <div class="ex-title">thanks!</div>
+    </div>
+
+</div>
+
+<div class="hint">
+    <p>使用空格或者方向键来浏览</p>
+</div>
+
+<script type="text/javascript">
+    if ("ontouchstart" in document.documentElement) { 
+        document.querySelector(".hint").innerHTML = "<p>点击屏幕左边或者屏幕右边来浏览</p>";
+    }
+</script>
+
+<script type="text/javascript" src="js/impress.js"></script>
+<script type="text/javascript">impress().init();</script>
+<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
+
+
+
