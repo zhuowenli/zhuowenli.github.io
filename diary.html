@@ -1,0 +1,46 @@
+---
+layout: diary
+---
+<header class="header">
+	<h1 class="title">生活日志</h1>
+	<h2>DESIGN</h2>
+</header>
+<div class="article">
+	{% for category in site.categories %}
+		{% assign pages_list = category[1] %}
+			{% for post in pages_list %}
+				{% if post.categories contains 'diary' %}
+					{% if post.title != null %}
+						{% if group == null or group == post.group %}
+	<article class="post">
+		<header class="entry-header">
+			<time class="entry-date" datetime="{{ post.date }}">{{ post.date | date: "%Y" }}年{{ post.date | date: "%m" }}月{{ post.date | date: "%d" }}日</time>
+			<h1 class="entry-title"><a href="{{ site.BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h1>
+		</header>
+		<div class="entry-content">
+			<figure class="entry-poster">
+				<img src="{{ site.BASE_PATH }}/img/bg/{{ post.img }}.jpg" alt="背景图片">
+			</figure>
+			<div class="entry-intro">
+		    {% if post.fullview %}
+		      {{ post.content }}
+		    {% else %}
+		      {% if post.shortinfo %}
+		        {{ post.shortinfo }}
+		      {% elsif post.description %}
+		        {{ post.description }}
+		      {% else %}
+		        {{ post.excerpt }}
+		      {% endif %}
+		    {% endif %}
+		    </div>
+			<a href="{{ site.BASE_PATH }}{{ post.url }}" class="entry-more"><i class="icon icon-dot"></i></a>
+		</div>
+	</article>
+						{% endif %}
+					{% endif %}
+				{% endif %}
+			{% endfor %}
+		{% assign pages_list = nil %}
+	{% endfor %}
+</div>

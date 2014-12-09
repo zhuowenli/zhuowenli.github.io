@@ -815,7 +815,7 @@ $green: #39A239;
 			@include transform(translate3d(250px,0,-100px));
 			.navbar{
 				position: absolute;
-				height: 0;
+				height: 0\0;
 				@include transition(height 0.3s);
 			}
 		}
