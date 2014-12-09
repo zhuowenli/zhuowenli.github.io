@@ -7,13 +7,13 @@ tags: [css3, css-tricks]
 img: 6
 ---
 
-<p>你有没有在网页上见过透明边框的元素？类似下面这样的效果：</p>
-<p>
-	<img class="center" src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/transparentborders.png">
-</p>
-<p>
-	你可能觉得实现效果非常简单，只需要以下代码：
-</p>
+你有没有在网页上见过透明边框的元素？
+
+类似下面这样的效果：
+
+<img class="center" src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/transparentborders.png">
+
+你可能觉得实现效果非常简单，只需要以下代码：
 
 ```css
 #lightbox{
