@@ -498,7 +498,7 @@ $green: #39A239;
 					color: #666;
 					vertical-align: top;
 				}
-				&:active{
+				&:active,&:hover{
 					border: 2px solid $green;
 					color: $green;
 					.icon{
@@ -509,7 +509,6 @@ $green: #39A239;
 		}
 	}
 //-----------------------------------------------------
-
 
 // 类型: post-header
 // 说明: 文章头部封面
@@ -611,7 +610,7 @@ $green: #39A239;
 //-----------------------------------------------------
 	.post-content{
 		margin: 0 auto;
-		padding: 3em 0 8em;
+		padding: 3em 0 4em;
 		background: #f5f5f5;
 		& > div{
 			margin: -80px auto 0;
@@ -720,8 +719,23 @@ $green: #39A239;
 		img{
 			max-width: 100%;
 		}
+		.highlight {
+			@include box-shadow(0 0 3px #ccc);
+		}
 	}
 //-----------------------------------------------------
+
+// 类型: disqus_thread
+// 说明: 评论功能
+//-----------------------------------------------------
+	#disqus_thread{
+		margin: 0 auto 8em;
+		max-width: 900px;
+		width: 100%;
+		padding: 0 1.25em;
+	}
+//-----------------------------------------------------
+
 
 // 类型: footer
 // 说明: 页面底部
