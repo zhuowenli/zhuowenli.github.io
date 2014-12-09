@@ -328,10 +328,11 @@ $green: #39A239;
 		left: 0;
 		width: 100%;
 		height: 108px;
+		overflow: hidden;
 		z-index: 2000;
 		background:rgba(255,255,255,0);
 		@include transform(translate3d(0,0,0));
-		@include transition(background 0.3s cubic-bezier(0.7,0,0.3,1));
+		@include transition(all 0.3s cubic-bezier(0.7,0,0.3,1));
 		@include transition-duration(1.5s);
 		.btn-menu{
 			margin-top: 40px;
@@ -497,6 +498,13 @@ $green: #39A239;
 					color: #666;
 					vertical-align: top;
 				}
+				&:active{
+					border: 2px solid $green;
+					color: $green;
+					.icon{
+						color: $green;
+					}
+				}
 			}
 		}
 	}
@@ -507,7 +515,7 @@ $green: #39A239;
 // 说明: 文章头部封面
 //-----------------------------------------------------
 	.post-header{
-		overflow: auto;
+		overflow: hidden;
 		position: absolute;
 		margin: 0 auto;
 		min-height: 480px;
@@ -805,6 +813,11 @@ $green: #39A239;
 		.content{
 			overflow: hidden;
 			@include transform(translate3d(250px,0,-100px));
+			.navbar{
+				position: absolute;
+				height: 0;
+				@include transition(height 0.3s);
+			}
 		}
 		.menu{
 			visibility: visible;

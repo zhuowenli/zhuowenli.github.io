@@ -15,14 +15,22 @@
 	
     <title>卓文理</title>
 
-	<link rel="stylesheet" href="/css/monokai.css">
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="http://yandex.st/highlightjs/7.1/styles/default.min.css">
 	<script src="http://yandex.st/highlightjs/7.1/highlight.min.js"></script>
 	<script>hljs.initHighlightingOnLoad();</script>
 
-	<!--[if lt IE 9]>
+	<!--[if IE 9]>
+		<link rel="stylesheet" href="/css/ie9.css">
 		<script src="/js/html5.js" type="text/javascript"></script>
+	<![endif]-->
+
+	<!--[if lte IE 8]>
+		<script type="text/javascript">
+			var con = document.getElementById("container");
+			con.innerHTML = "你用这么垃圾的IE浏览器，你家人知道么？";
+			document.body.style.background = "#fff";
+		</script>
 	<![endif]-->
 </head>
 <body>
@@ -121,15 +129,6 @@
 		    
 		      
 		        <h2>从一行代码里面学点JavaScript</h2>
-
-<p>现如今，JavaScript无处不在，因此关于JavaScript的新知识也是层出不穷。JavaScript的特点在于，要学习它的语法入门简简单，但是要精通使用它的方式却是一件不容易的事。</p>
-
-<p>来看看下面的这段代码，它来自于谷歌“名猿”Addy Osmani在几天前贴出的一段代码，它的作用是用来调试你的CSS层。全部代码只有三行，但是你绝对可以把它放在一行里面完成：</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">[].forEach.call($$(&quot;*&quot;),function(a){
-    a.style.outline=&quot;1px solid #&quot; + (~~(Math.random() * (1 &lt;&lt; 24))).toString(16);
-})
-</code></pre></div>
-<p>现在，在你的Chrome浏览器的控制台中输入这段代码。运行后，你会发现不同HTML层都被使用不同的颜色添加了一个高亮的边框。是不是非常酷？但是，简单来说，这段代码只是首先获取了所有的页面元素，然后使用一个不同的颜色为它们添加了一个1px的边框。想法很简单，但是真要实现起来却不是那么容易的一件事。在下面的内容中，我们将一起一步一步学习如何理解上面的这段代码。</p>
 
 		      
 		    

@@ -1,0 +1,19 @@
+.post-header .title{
+	margin-left: -50%;
+}
+.button.btn-arrow{
+	margin-left: -1em;
+	margin-top: -1em;
+}
+.menu-open .content{
+	margin-left: 320px;
+}
+.ld-logo{
+	margin: -125px 0 0 -150px;
+}
+.ld-loader{
+	margin: -30px 0 0 -30px;
+}
+.loaded #loading{
+	margin-top: -100%;
+}

@@ -15,14 +15,22 @@
 	
     <title>jQuery性能优化 | 卓文理</title>
 
-	<link rel="stylesheet" href="/css/monokai.css">
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="http://yandex.st/highlightjs/7.1/styles/default.min.css">
 	<script src="http://yandex.st/highlightjs/7.1/highlight.min.js"></script>
 	<script>hljs.initHighlightingOnLoad();</script>
 
-	<!--[if lt IE 9]>
+	<!--[if IE 9]>
+		<link rel="stylesheet" href="/css/ie9.css">
 		<script src="/js/html5.js" type="text/javascript"></script>
+	<![endif]-->
+
+	<!--[if lte IE 8]>
+		<script type="text/javascript">
+			var con = document.getElementById("container");
+			con.innerHTML = "你用这么垃圾的IE浏览器，你家人知道么？";
+			document.body.style.background = "#fff";
+		</script>
 	<![endif]-->
 </head>
 <body>
@@ -78,57 +86,45 @@ $(&quot;input:checked&quot;); // 比较慢
 <h4>合理使用选择器</h4>
 
 <ul>
-<li>id和标签选择器最快，因为直接调用原生API</li>
-</ul>
+<li><p>id和标签选择器最快，因为直接调用原生API</p>
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript">$(&quot;#box&quot;); // document.getElementById | document.querySelector
 $(&quot;div&quot;);  // document.getElementsByTagName
-</code></pre></div>
-<ul>
+</code></pre></div></li>
 <li><p>类选择器在低版本浏览器比较慢，伪元素、属性选择器在不支持<code>querySelector</code>的浏览器很慢</p></li>
 <li><p>尽可能优先使用符合CSS语法规范的CSS选择器表达式，以此来避免使用jQuery自定义的选择器表达式。因为当jQuery遇到单个id
-，标签名，选择器就会快速调用浏览器支持的DOM方法查询</p></li>
-</ul>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">  $(&quot;input[checked=&#39;checked&#39;]&quot;);  // 比较快
-  $(&quot;input:checked&quot;); // 比较慢
-</code></pre></div>
-<ul>
-<li>优先选择<code>$.fn.find</code>查找子元素，因为<code>find</code>之前的选择器并没有使用jQuery自带的<code>Sizzie</code>选择器引擎，而是使用元素API查找元素</li>
-</ul>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">  $(&quot;#parent&quot;).find(&quot;.child&quot;); // 最快
-  $(&quot;.child,$(&quot;#parent&quot;)&quot;); // 较快，内部会转换成第一条语句的形式，性能有一定损耗
-  $(&quot;#parent .child&quot;); // 不如上一个语句快
-</code></pre></div>
-<ul>
-<li><p>使用组合时，尽可能使右端更明确，因为Sizzie引擎是从右到左匹配的
-<code>javascript
-$(&quot;.foo div.bar&quot;); // 快
+，标签名，选择器就会快速调用浏览器支持的DOM方法查询</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">$(&quot;input[checked=&#39;checked&#39;]&quot;);  // 比较快
+$(&quot;input:checked&quot;); // 比较慢
+</code></pre></div></li>
+<li><p>优先选择<code>$.fn.find</code>查找子元素，因为<code>find</code>之前的选择器并没有使用jQuery自带的<code>Sizzie</code>选择器引擎，而是使用元素API查找元素</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">$(&quot;#parent&quot;).find(&quot;.child&quot;); // 最快
+$(&quot;.child,$(&quot;#parent&quot;)&quot;); // 较快，内部会转换成第一条语句的形式，性能有一定损耗
+$(&quot;#parent .child&quot;); // 不如上一个语句快
+</code></pre></div></li>
+<li><p>使用组合时，尽可能使右端更明确，因为Sizzie引擎是从右到左匹配的</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">$(&quot;.foo div.bar&quot;); // 快
 $(&quot;div.foo .bar&quot;); // 较慢
-</code></p></li>
-<li><p>避免过度具体，简洁的DOM结构也有助于提升选择器性能</p></li>
-</ul>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">  $(&quot;.foo .baz&quot;); // 快
-  $(&quot;.foo .bar .baz&quot;) // 慢
-</code></pre></div>
-<ul>
-<li>尽量避免使用通配符选择器</li>
+</code></pre></div></li>
+<li><p>避免过度具体，简洁的DOM结构也有助于提升选择器性能</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">$(&quot;.foo .baz&quot;); // 快
+$(&quot;.foo .bar .baz&quot;) // 慢
+</code></pre></div></li>
+<li><p>尽量避免使用通配符选择器</p></li>
 </ul>
 
 <h4>尽可能少创建jQuery对象</h4>
 
 <ul>
 <li>如<code>document.getElementById(&#39;nav&#39;)</code>，比<code>$(&quot;#nav&quot;)</code>快</li>
-<li>如获取元素id</li>
-</ul>
+<li><p>如获取元素id</p>
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript">$(&quot;div&quot;).click(function(){
     //生成了个jQuery对象
     var id = $(this).attr(&#39;id&#39;);
     //酱紫更直接
     var id = this.id;
 });
-</code></pre></div>
-<ul>
-<li>使用链式调用缓存jQuery对象</li>
-</ul>
+</code></pre></div></li>
+<li><p>使用链式调用缓存jQuery对象</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html">&lt;div id=&quot;user&quot; class=&quot;none&quot;&gt;
     &lt;p class=&quot;name&quot;&gt;&lt;/p&gt;
     &lt;p class=&quot;city&quot;&gt;&lt;/p&gt;
@@ -137,31 +133,26 @@ $(&quot;div.foo .bar&quot;); // 较慢
     .find(&#39;.name&#39;).html(&#39;zhangsan&#39;).end()
     .find(&#39;.city&#39;).html(&#39;xiamen&#39;).end()
     .removeClass(&#39;none&#39;);
-</code></pre></div>
-<ul>
-<li>做好jQuery对象的缓存</li>
-</ul>
+</code></pre></div></li>
+<li><p>做好jQuery对象的缓存</p>
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript">var box = $(&quot;.box&quot;);
 box.find(&#39;&gt; .cls1&#39;);
 box.find(&#39;&gt; .cls2&#39;);
-</code></pre></div>
+</code></pre></div></li>
+</ul>
+
 <h4>避免频繁操作DOM</h4>
 
 <ul>
-<li>复杂操作把元素从DOM移除在操作</p>
-```javascript
-var $el = $(&#39;.box&#39;).detach();
-var $p  = $el.parent();</li>
-</ul>
+<li><p>复杂操作把元素从DOM移除在操作</p></p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">var $el = $(&#39;.box&#39;).detach();
+var $p  = $el.parent();
 
-<p>// do something...</p>
+// do something...
 
-<p>$p.append($el);
-```</p>
-
-<ul>
-<li>在循环外执行DOM修改</p></li>
-</ul>
+$p.append($el);
+</code></pre></div></li>
+<li><p>在循环外执行DOM修改</p></p>
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript">// 较好的做法
 var frag = document.creatElementFragment();
 $.each(arr,function(i,el){
@@ -173,7 +164,9 @@ $(&#39;.box&#39;)[0].addendChild(flag);
 $.each(arr,function(i,el){
     $(&#39;.box&#39;).prepend($(el));
 })
-</code></pre></div>
+</code></pre></div></li>
+</ul>
+
 <h4>使用事件代理</h4>
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript">$(&#39;ul&#39;).on(&#39;click&#39;,li,fn); // 较好
 $(&#39;ul li&#39;).on(&#39;click&#39;,fn); // 较差
@@ -198,20 +191,10 @@ $(&#39;ul li&#39;).on(&#39;click&#39;,fn); // 较差
 
 		<nav id="menu" class="menu">
 			<ul>
-				<li><a href="/">首页</a></li>
-				
-					
-					<li><a href="/frontend.html">frontend</a></li>
-					
-				
-					
-					<li><a href="/design.html">design</a></li>
-					
-				
-					
-					<li><a href="/diary.html">diary</a></li>
-					
-				
+				<li><a href="">首页</a></li>
+				<li><a href="/frontend.html">前端开发</a></li>
+				<li><a href="/design.html">设计网摘</a></li>
+				<li><a href="/diary.html">生活日志</a></li>
 				<li><a href="/about.html">关于博主</a></li>
 				<li><a href="/codebase.html">代码库</a></li>
 			</ul>
