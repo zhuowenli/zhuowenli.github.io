@@ -953,11 +953,15 @@ $green: #39A239;
 				}
 				.avatar{
 					margin-bottom: 20px;
+					margin-right: 0;
 				}
 			}
 		}
 		.menu{
 			min-width: 260px;
+		}
+		.article .post{
+			padding-top: 0;
 		}
 	}
 //-----------------------------------------------------
