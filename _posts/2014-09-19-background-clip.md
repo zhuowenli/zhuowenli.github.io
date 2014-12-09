@@ -6,6 +6,7 @@ categories: frontend
 tags: [css3, css-tricks]
 img: 6
 ---
+##使用background-clip实现透明边框
 
 你有没有在网页上见过透明边框的元素？
 
