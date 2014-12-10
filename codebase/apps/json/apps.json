@@ -1,0 +1,228 @@
+[
+	{
+		"type" : "web design icon",
+		"id"   : "loading",
+		"name" : "扁平化loading图标",
+		"author" : "卓文理",
+		"authorUrl" : "http://www.zwlme.com",
+		"avatar" : "http://www.zwlme.com/wp-content/themes/zwlme/images/me.png",
+		"imageUrl" : "apps/img/loading.gif",
+		"link" : "demo/design/loading/",
+		"description" : "扁平化loading图标"
+	},{
+		"type" : "web design",
+		"id"   : "grid-animation-effects",
+		"name" : "图片展示动画效果",
+		"author" : "卓文理",
+		"authorUrl" : "http://www.zwlme.com",
+		"avatar" : "http://www.zwlme.com/wp-content/themes/zwlme/images/me.png",
+		"imageUrl" : "apps/img/grid-animation-effects.png",
+		"link" : "demo/web/grid-animation-effects/",
+		"description" : "图片展示动画效果"
+	},{
+		"type" : "web",
+		"id"   : "TexturedText",
+		"name" : "纹理文字 - 狂炫酷拽屌",
+		"author" : "卓文理",
+		"authorUrl" : "http://www.zwlme.com",
+		"avatar" : "http://www.zwlme.com/wp-content/themes/zwlme/images/me.png",
+		"imageUrl" : "apps/img/TexturedText.jpg",
+		"link" : "demo/web/TexturedText/",
+		"description" : "纹理文字 - 狂炫酷拽屌"
+	},{
+		"type" : "web design",
+		"id"   : "javascript-color-clock",
+		"name" : "javascript颜色时钟",
+		"author" : "卓文理",
+		"authorUrl" : "http://www.zwlme.com",
+		"avatar" : "http://www.zwlme.com/wp-content/themes/zwlme/images/me.png",
+		"imageUrl" : "apps/img/javascript-color-clock.png",
+		"link" : "demo/web/javascript-color-clock/",
+		"description" : "javascript颜色时钟"
+	},{
+		"type" : "web design",
+		"id"   : "AnimatedHeaderBackgrounds",
+		"name" : "canvas动态背景,粒子效果",
+		"author" : "卓文理",
+		"authorUrl" : "http://www.zwlme.com",
+		"avatar" : "http://www.zwlme.com/wp-content/themes/zwlme/images/me.png",
+		"imageUrl" : "apps/img/AnimatedHeaderBackgrounds.png",
+		"link" : "demo/web/AnimatedHeaderBackgrounds/",
+		"description" : "canvas动态背景,粒子效果"
+	},
+	{
+		"type" : "web",
+		"id"   : "simple-icon-hover-effects",
+		"name" : "圆形图标hover特效",
+		"author" : "卓文理",
+		"authorUrl" : "http://www.zwlme.com",
+		"avatar" : "http://www.zwlme.com/wp-content/themes/zwlme/images/me.png",
+		"imageUrl" : "apps/img/simple-icon-hover-effects.png",
+		"link" : "demo/web/simple-icon-hover-effects/",
+		"description" : "使用CSS3实现圆形图标hover特效。"
+	},{
+		"type" : "web",
+		"id"   : "creative-button-styles",
+		"name" : "使用CSS3实现按钮点击特效",
+		"author" : "卓文理",
+		"authorUrl" : "http://www.zwlme.com",
+		"avatar" : "http://www.zwlme.com/wp-content/themes/zwlme/images/me.png",
+		"imageUrl" : "apps/img/creative-button-styles.png",
+		"link" : "demo/web/creative-button-styles/",
+		"description" : "使用CSS3实现按钮点击特效。"
+	},
+	{
+		"type" : "web",
+		"id"   : "css-shake-style",
+		"name" : "抽风的css",
+		"author" : "卓文理",
+		"authorUrl" : "http://www.zwlme.com",
+		"avatar" : "http://www.zwlme.com/wp-content/themes/zwlme/images/me.png",
+		"imageUrl" : "apps/img/css-shake-style.png",
+		"link" : "demo/web/css-shake-style/",
+		"description" : "使用CSS3实现抖动效果。"
+	},
+	{
+		"type" : "web",
+		"id"   : "s.kyp.com",
+		"name" : "s.kyp.com",
+		"author" : "卓文理",
+		"authorUrl" : "http://www.zwlme.com",
+		"avatar" : "http://www.zwlme.com/wp-content/themes/zwlme/images/me.png",
+		"imageUrl" : "apps/img/s.kyp.com.png",
+		"link" : "http://s.kyp.com",
+		"description" : "s.kyp.com"
+	},
+	{
+		"type" : "web design",
+		"id"   : "calculator",
+		"name" : "计算器",
+		"author" : "卓文理",
+		"authorUrl" : "http://www.zwlme.com",
+		"avatar" : "http://www.zwlme.com/wp-content/themes/zwlme/images/me.png",
+		"imageUrl" : "apps/img/calculator.png",
+		"link" : "demo/web/calculator/",
+		"description" : "使用CSS3和javascript实现简易计算"
+	},
+	{
+		"type" : "web design",
+		"id"   : "dribbble",
+		"name" : "响应式dribbble作品采集",
+		"author" : "卓文理",
+		"authorUrl" : "http://www.zwlme.com",
+		"avatar" : "http://www.zwlme.com/wp-content/themes/zwlme/images/me.png",
+		"imageUrl" : "apps/img/dribbble.png",
+		"link" : "demo/web/dribbble/",
+		"description" : "通过Jribbble插件调用dribbble的API。"
+	},
+	{
+		"type" : "web",
+		"id"   : "poly-poly",
+		"name" : "Poly Poly",
+		"author" : "卓文理",
+		"authorUrl" : "http://www.zwlme.com",
+		"avatar" : "http://www.zwlme.com/wp-content/themes/zwlme/images/me.png",
+		"imageUrl" : "apps/img/poly-poly.png",
+		"link" : "demo/poly/",
+		"description" : "使用canvas在线制作Poly背景图，并可以导出svg。"
+	},
+	{
+		"type" : "web design",
+		"id"   : "sunjune",
+		"name" : "响应式dribbble作品采集",
+		"author" : "卓文理",
+		"authorUrl" : "http://www.zwlme.com",
+		"avatar" : "http://www.zwlme.com/wp-content/themes/zwlme/images/me.png",
+		"imageUrl" : "apps/img/sunjune.png",
+		"link" : "demo/web/sunjune/",
+		"description" : "通过Jribbble插件调用dribbble的API。"
+	},
+	{
+		"type" : "web design",
+		"id"   : "about-me",
+		"name" : "关于博主",
+		"author" : "卓文理",
+		"authorUrl" : "http://www.zwlme.com",
+		"avatar" : "http://www.zwlme.com/wp-content/themes/zwlme/images/me.png",
+		"imageUrl" : "apps/img/about-me.png",
+		"link" : "../about/en/",
+		"description" : "关于博主"
+	},
+	{
+		"type" : "web design",
+		"id"   : "youtzy",
+		"name" : "幽棠卓影",
+		"author" : "卓文理",
+		"authorUrl" : "http://www.zwlme.com",
+		"avatar" : "http://www.zwlme.com/wp-content/themes/zwlme/images/me.png",
+		"imageUrl" : "apps/img/youtzy.png",
+		"link" : "http://lovezwl888.github.io/youtzy/",
+		"description" : "幽棠卓影"
+	},
+	{
+		"type" : "web design",
+		"id"   : "webbox",
+		"name" : "页面设计练习",
+		"author" : "卓文理",
+		"authorUrl" : "http://www.zwlme.com",
+		"avatar" : "http://www.zwlme.com/wp-content/themes/zwlme/images/me.png",
+		"imageUrl" : "apps/img/webbox.png",
+		"link" : "apps/img/webbox.png",
+		"description" : "页面设计练习"
+	},
+	{
+		"type" : "web design",
+		"id"   : "old-blog",
+		"name" : "旧版博客",
+		"author" : "卓文理",
+		"authorUrl" : "http://www.zwlme.com",
+		"avatar" : "http://www.zwlme.com/wp-content/themes/zwlme/images/me.png",
+		"imageUrl" : "apps/img/old-blog.png",
+		"link" : "apps/img/old-blog.png",
+		"description" : "旧版博客"
+	},
+	{
+		"type" : "web",
+		"id"   : "css-animate",
+		"name" : "css背景动画",
+		"author" : "卓文理",
+		"authorUrl" : "http://www.zwlme.com",
+		"avatar" : "http://www.zwlme.com/wp-content/themes/zwlme/images/me.png",
+		"imageUrl" : "apps/img/css-animate.png",
+		"link" : "demo/web/css-animate/",
+		"description" : "css背景动画"
+	},
+	{
+		"type" : "web",
+		"id"   : "3d-model",
+		"name" : "css3实现3D模型",
+		"author" : "卓文理",
+		"authorUrl" : "http://www.zwlme.com",
+		"avatar" : "http://www.zwlme.com/wp-content/themes/zwlme/images/me.png",
+		"imageUrl" : "apps/img/3d-model.png",
+		"link" : "demo/web/3d-model/",
+		"description" : "css3实现3D模型"
+	},
+	{
+		"type" : "web",
+		"id"   : "parallax-scroll-page",
+		"name" : "视差滚动页面",
+		"author" : "卓文理",
+		"authorUrl" : "http://www.zwlme.com",
+		"avatar" : "http://www.zwlme.com/wp-content/themes/zwlme/images/me.png",
+		"imageUrl" : "apps/img/parallax-scroll-page.png",
+		"link" : "demo/web/parallax-scroll-page/",
+		"description" : "视差滚动页面"
+	},
+	{
+		"type" : "web",
+		"id"   : "facebook-loading",
+		"name" : "仿facebook页面loading效果",
+		"author" : "卓文理",
+		"authorUrl" : "http://www.zwlme.com",
+		"avatar" : "http://www.zwlme.com/wp-content/themes/zwlme/images/me.png",
+		"imageUrl" : "apps/img/facebook-loading.png",
+		"link" : "demo/web/facebook-loading/",
+		"description" : "仿facebook页面loading效果"
+	}
+]

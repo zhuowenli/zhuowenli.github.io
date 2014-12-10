@@ -1,0 +1,26 @@
+@charset "utf-8";
+@import '../sassCore/base';
+@import '../sassCore/core/reset';
+
+//
+// @description: 介绍
+// @author: 卓文理
+// @tipe: 最后由卓文理编译整理，有问题请联系 QQ:531840344。
+// @update: 2014.05
+// @version:  v1.0
+//
+
+@include keyframes(animate){
+	from{background-position: -20% -20px , 0 0;}
+	to{background-position: 120% -20px , 100% 0;}
+}
+
+.bg{
+	width: 100%;
+	height: 300px;
+	background-image: url(img/twitter-logo-bird.png) , url(img/bg-clouds.png);
+	background-position: -250px -90px , 0 0;
+	background-size:auto,cover;
+	background-repeat: no-repeat , repeat-x;
+	@include animation(animate 10s linear infinite);
+}

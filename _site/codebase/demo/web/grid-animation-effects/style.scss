@@ -1,0 +1,39 @@
+@charset "utf-8";
+/* 
+* @Author: 卓文理(zwlme.com)
+* @Email: 531840344@qq.com
+* @Date:   2014-10-13 10:05:05
+* @Last Modified by:   卓文理(zwlme.com)
+* @Last Modified time: 2014-10-14 15:53:44
+*/
+@import '../sassCore/base';
+
+body{
+	text-align: center;
+	overflow: hidden;
+	min-height: 600px;
+}
+.grid{
+	width: 600px;
+	height: 300px;
+	margin: 100px auto 50px;
+	@include perspective(500px);
+	img{
+		width: 60px;
+		height: 60px;
+		display: block;
+		float: left;
+	}
+}
+.animation{
+	font-size: 12px;
+	text-transform: uppercase;
+	background: rgb(0, 100, 0);
+	color: #fff;
+	padding: 10px 20px;
+	@include border-radius(5px);
+	cursor: pointer;
+	&:hover{
+		background: rgb(0, 75, 0);
+	}
+}

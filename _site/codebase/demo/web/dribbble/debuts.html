@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width" />
+	<meta name="keywords" content="卓文理,dribbble,dribbble 作品采集"/>
+	<meta name="author" content="卓文理(zwlme.com)" />
+	<meta name="description" content="dribbble热门作品采集">
+	<title>Dribbble - Show and tell for designers</title>
+	<link rel="stylesheet" href="css/style.css?v=1">
+	<link rel="stylesheet" href="css/nprogress.css">
+	<link href="images/apple-touch-icon.png" rel="apple-touch-icon-precomposed" />
+	<link href="images/favicon.ico" rel="icon" />
+	<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<header id="header">
+		<section class="w">
+			<div class="logo">
+				<a href="index.html"><img src="images/logo.gif" alt="dribbble"></a>
+			</div>
+			<nav class="nav">
+				<ul>
+					<li class="active"><a href="#">Shots</a></li>
+					<li><a href="#">Designers</a></li>
+					<li><a href="#">Teams</a></li>
+					<li><a href="#">Jobs</a></li>
+				</ul>
+			</nav>
+		</section>
+	</header>
+	<nav id="shots-nav">
+		<ul class="tabs">
+			<li class=""><a href="index.html">Popular</a></li>
+			<li class="active"><a href="debuts.html">Debuts</a></li>
+			<li class=""><a href="everyone.html">Everyone</a></li>
+			<li id="t-search">
+				<form id="search" target="_black" action="https://dribbble.com/search">
+					<input class="search-text placeholder" type="text" name="q" placeholder="Search " value="">
+				</form>
+		    </li>
+		</ul>
+	</nav>
+	<section id="wallcontent"></section>
+	<div id="morewrapper">
+		<div class="morebutton">
+			<span class="icon"></span>
+			<a href="javascript:void(0)" id="showmore" type="button">加载中(Loading)...</a>
+		</div>
+	</div>
+	<footer id="footer">
+		Designed by <a href="http://www.zwlme.com">Vnnlee Zhuo</a> from <a href="http://www.zwlme.com">zwlme.com</a>
+	</footer>
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="js/nprogress.js"></script>
+	<script type="text/javascript" src="js/jquery.jribbble-1.0.1.js"></script>
+	<script type="text/javascript" src="js/jquery.isotope.min.js"></script>
+	<script type="text/javascript" src="js/jquery.imagesloaded.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+
+		    NProgress.start();
+
+		    window.onload = function(){
+		    	NProgress.done(); 
+		    }
+
+			var $wall = $("#wallcontent"),
+				pagenum = 1,
+				$showmore = $("#showmore");
+
+				jribbble();
+			$wall.isotope({
+				itemSelector : 'article'
+			});
+			$showmore.bind('click',loadshots);
+
+			function jribbble(){
+		    	NProgress.start();
+				$.jribbble.getShotsByList("debuts",function(data){
+					var items = [];
+					$.each(data.shots,function(i,shot){
+
+						items.push('<article class="dribbble">');
+						items.push('<div class="dribbble-shot">');
+						items.push('<div class="dribbble-img">');
+						items.push('<a target="_blank" href="' + shot.url + '" class="linkc">');
+						items.push('<img src="' + shot.image_teaser_url + '" alt="' +shot.title+ '">');
+						items.push('</a>');
+						items.push('</div>');
+						items.push('<div class="dribbble-desc">');
+						items.push('<div class="author">');
+						items.push('<img src="' + shot.player.avatar_url + '">');
+						items.push('<a target="_blank" href="' + shot.player.url + '">' + shot.player.name + '</a>');
+						items.push('</div>');
+						items.push('<ul class="tools group">');
+						items.push('<li class="views">' + shot.views_count + '</li>');
+						items.push('<li class="cmnt">');
+						items.push('<a target="_blank" href="' + shot.url + '#comments" title="查看评论">' + shot.comments_count + '</a>');
+						items.push('</li>');
+						items.push('<li class="fav">');
+						items.push('<a target="_blank" href="' + shot.url + '/fans" title="查看收藏">' + shot.likes_count + '</a>');
+						items.push('</li>');
+						items.push('</ul>');
+						items.push('</div>');
+						items.push('</div>');
+						items.push('</article>');
+
+					});
+					// shot.title 标题
+					// shot.url   内容链接
+					// shot.image_url        作品大图
+					// shot.image_teaser_url 作品缩略图
+					// shot.player.url       作者链接
+					// shot.player.name      作者姓名
+					// shot.player.avatar_url作者头像
+					// shot.description      正文内容
+					
+					// shot.views_count      浏览次数
+					// shot.likes_count      喜欢数量
+					// shot.comments_count   评论数
+					// shot.rebounds_count   篮板数
+
+					// comments.length      评论总数
+					// comment.player.url   评论者链接
+					// comment.player.name  评论者姓名
+					// comment.player.avatar_url 评论者头像
+					// comment.body         评论内容
+
+					var newEls      = items.join('');
+					var testcontent = $(newEls);
+					$wall.append(testcontent);
+					$wall.imagesLoaded(function(){
+						$wall.isotope('appended',testcontent).isotope('reLayout');
+						$showmore.text('更多设计(More)...').bind('click',loadshots);
+		    			NProgress.done();
+					});
+				},{page: pagenum,per_page: 10});
+				pagenum++;
+			}
+			function loadshots(){
+				$showmore.unbind('click');
+				$(this).text("加载中(Loading)...");
+				jribbble();
+			}
+		});
+	</script>
+</body>
+</html>

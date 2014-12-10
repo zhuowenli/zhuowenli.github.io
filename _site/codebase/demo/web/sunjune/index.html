@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>SUNJUNE</title>
+	<link rel="stylesheet" href="css/style.css">
+	<!--[if lte IE 8]><script src="js/html5.js"></script><![endif]-->
+</head>
+<body>
+	<div id="page">
+		<section class="content start">
+			<div class="center">
+				<a href="/">
+					<span class="logo"></span>
+				</a>				
+				<span class="sunjune"></span>
+				<span class="company"></span>
+			</div>
+			<a class="inlet inlet1"></a>
+			<a class="inlet inlet2"></a>
+			<a class="inlet inlet3"></a>
+			<a class="inlet inlet4"></a>
+			<a class="inlet inlet5"></a>
+			<a class="inlet inlet6"></a>
+			<a class="inlet inlet7"></a>
+			<a class="inlet inlet8"></a>
+		</section>
+	</div>
+	<nav class="site-nav">
+		<ul>
+		    <li class="home"><a href="/">Home</a></li>
+		    <li><a href="#">About Us</a></li>
+		    <li><a href="equipment-show.html">Equipment Show</a></li>
+		    <li><a href="#">Product Show</a></li>
+		    <li class="contact"><a href="#">Contact Us</a></li>
+		</ul>
+	</nav>
+	<div id="view-mode" class="modal read-modal in" style="display: block;">
+	    <div class="btn-group change-background" data-toggle="buttons-radio">
+	    	<a class="btn btn-daytime active" data-mode="day" href="javascript:void(0);">
+	        	<i class="icon-sun"></i>
+			</a>
+			<a class="btn btn-nighttime " data-mode="night" href="javascript:void(0);">
+			    <i class="icon-moon"></i>
+			</a>
+		</div>
+	    <div class="btn-group change-font" data-toggle="buttons-radio">
+	      <a class="btn font active" data-font="font1" href="javascript:void(0);">宋體</a>
+	      <a class="btn font hei " data-font="font2" href="javascript:void(0);">黑體</a>
+	    </div>
+	</div>
+	<script src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript">
+		(function(){
+			var wind = window.outerHeight;
+			var cont = $(".content");
+			var contH = $(".content").height();
+			if(wind - contH > 50){ //居中
+				var a = (wind - contH - 100)/2;
+				cont.css('margin-top',a);
+			}
+			var t = setTimeout(function(){ //动画延时
+				cont.removeClass('start');
+			},2500)
+
+		})();
+	</script>
+</body>
+</html>

@@ -1,0 +1,384 @@
+@charset "utf-8";
+/*
+*  @description: Dribbble热门作品采集
+*  @author: 卓文理(http://www.zwlme.com)
+*  @tipe: 最后由卓文理(http://www.zwlme.com)编译整理。
+*  @update: 2014.08.20
+*  @version:  v1.0
+*/
+
+//
+//                            _ooOoo_
+//                           o8888888o
+//                           88" . "88
+//                           (| -_- |)
+//                            O\ = /O
+//                        ____/`---'\____
+//                      .   ' \\| |// `.
+//                       / \\||| : |||// \
+//                     / _||||| -:- |||||- \
+//                       | | \\\ - /// | |
+//                     | \_| ''\---/'' | |
+//                      \ .-\__ `-` ___/-. /
+//                   ___`. .' /--.--\ `. . __
+//                ."" '< `.___\_<|>_/___.' >'"".
+//               | | : `- \`.;`\ _ /`;.`/ - ` : | |
+//                 \ \ `-. \_ __\ /__ _/ .-` / /
+//         ======`-.____`-.___\_____/___.-`____.-'======
+//                            `=---='
+//
+//         .............................................
+//                  佛祖镇楼                BUG辟易
+//          佛曰:
+//                  写字楼里写字间，写字间里程序员；
+//                  程序人员写程序，又拿程序换酒钱。
+//                  酒醒只在网上坐，酒醉还来网下眠；
+//                  酒醉酒醒日复日，网上网下年复年。
+//                  但愿老死电脑间，不愿鞠躬老板前；
+//                  奔驰宝马贵者趣，公交自行程序员。
+//                  别人笑我忒疯癫，我笑自己命太贱；
+//                  不见满街漂亮妹，哪个归得程序员？
+
+
+
+@import '../../sassCore/base';
+
+//  layout
+//---------------------------------
+	$pink: #ea4c89;
+	::-moz-selection {
+	    color: #fff;
+	    color: rgba(255,255,255,0.85);
+	    background: $pink;
+	}
+
+	::selection {
+	    color: #fff;
+	    color: rgba(255,255,255,0.85);
+	    background: $pink;
+	}
+	.w{
+		width: 100%;
+		max-width: 1120px;
+		margin: 0 auto;
+	}
+	body{
+		background: #f4f4f4;
+		color: #444; 
+		font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	}	
+//---------------------------------
+
+//  头部
+//---------------------------------
+	#header{
+		height: 60px;
+		width: 100%;
+		background: #444;
+		font-size: 0;
+		.logo{
+			height: 60px;
+			@include inline-block;
+			vertical-align: top;
+			a{
+				display: block;
+				width: 75px;
+				height: 60px;
+				background:url(../images/logo-small.png) 0 50% no-repeat;
+				@include transition(opacity 0.2s ease);
+				&:hover{
+					opacity: 0.8;
+				}
+				img{
+					height: 0;
+					border: 0;
+				}
+			}
+		}
+		.nav{
+			@include inline-block;
+			height: 60px;
+			margin-left: 100px;
+			li{
+				@include inline-block;
+				a{
+					display: block;
+					height: 60px;
+					line-height: 60px;
+					padding: 0 16px 0 16px;
+					font-size: 13px;
+					color: #999; 
+				}
+				&:hover a{
+					color: #ddd;
+				}
+				&.active a,&.active:hover a,&:active a{
+					color: #fff;
+				}
+			}
+		}
+
+	}
+//---------------------------------
+
+//  导航
+//---------------------------------
+	#shots-nav{
+		width: 100%;
+		max-width: 1120px;
+		margin: 0 auto;
+		height: 34px;
+		margin-top: 25px;
+		background: #ddd;
+		.tabs{
+			font-size: 0;
+			@include clearfix;
+			li{
+				@include inline-block;
+				&:hover{
+					a{
+					background: #ccc;
+						color: #666;
+					}
+				}
+				&.active,&:active{
+					a{
+					background: #b2b2b2;
+						color: #fff;
+					}				
+				}
+			}
+			a{
+				display: block;
+				font-size: 13px;
+				height: 34px;
+				line-height: 34px;
+				padding: 0 14px;
+			}
+		}
+		#t-search{
+			float: right;
+			height: 34px;
+			width: 264px;
+			#search{
+				float: right;
+			}
+			input{
+				height: 24px;
+				width: 100px;
+				padding: 5px 5px 5px 25px;
+				border: 0;
+				font-size: 13px;
+				@include transition(width 0.3s ease-in-out);
+				background: #fff url(../images/icon/icon-search.png) 7px 50% no-repeat;
+				&:focus{
+					width: 234px;
+				}
+			}
+		}
+	}
+//---------------------------------
+
+//  内容
+//---------------------------------
+	#wallcontent{
+		width: 100%;
+		max-width: 1160px;
+		min-height: 272px;
+		margin: 0 auto;
+		padding-left: 10px;
+		.dribbble{
+			padding: 15px;
+			.dribbble-img{
+				overflow: hidden;
+				width: 200px;
+				height: 150px;
+				img{
+					@include prefixer-pro-value(transition,transform 0.4s ease-in-out);
+					&:hover{
+						@include transform(scale(1.5));
+					}
+				}
+			}
+			.dribbble-shot{
+				width: 200px;
+				background: #fff;
+				height: 242px;
+			}
+			.dribbble-desc{
+				padding: 0 10px 10px;
+			}
+			.author{
+				height: 48px;
+				line-height: 48px;
+				border-bottom: 1px solid  #f4f4f4;
+				overflow: hidden;
+				img{
+					width: 22px;
+					height: 22px;
+					@include border-radius(22px);
+				}
+				a{
+					margin-left: 14px;
+					font-size: 12px;
+				}
+			}
+			.tools{
+				@include clearfix;
+				li{
+					height: 22px;
+					line-height: 1;
+					padding-top: 11px;
+					width: 60px;
+					float: left;
+					font-size: 12px;
+					color: #aaa;
+					a{
+						display: block;
+						height: 12px;
+						text-decoration: none;
+						color: #aaa;
+					}
+				}
+				.views{
+					margin-left: 0;
+					border-left: none;
+					width: 42px;
+					padding-left: 18px;
+					background-repeat: no-repeat;
+					background-position: 0 50%;
+					background-image: url(../images/icon/icon-views-sm.png);
+				}
+				.fav a{
+					padding-left: 18px;
+					background-repeat: no-repeat;
+					background-position: 0 0;
+					background-image: url(../images/icon/icon-hearts.png);
+				}
+				.cmnt a{
+					padding-left: 18px;
+					background-repeat: no-repeat;
+					background-position: 0 0;
+					background-image: url(../images/icon/icon-comments.png);
+				}
+				@media (-webkit-min-device-pixel-ratio: 1.5), not all, not all, not all, (min-resolution: 1.5dppx){
+					.views{
+						background-image: url(../images/icon/icon-views-sm-2x.png);
+						-webkit-background-size: 15px 10px;
+						-moz-background-size: 15px 10px;
+						background-size: 15px 10px;
+					}
+					.fav a{
+						background-image: url(../images/icon/icon-hearts-2x.png);
+						-webkit-background-size: 12px 45px;
+						-moz-background-size: 12px 45px;
+						background-size: 12px 45px;
+					}
+					.cmnt a{
+						background-image: url(../images/icon/icon-comments-2x.png);
+						-webkit-background-size: 12px 59px;
+						-moz-background-size: 12px 59px;
+						background-size: 12px 59px;
+					}
+				}
+			}
+		}
+	}
+	#morewrapper{
+		margin-top: 15px;
+		text-align: center;
+		.morebutton{
+			margin: 0 auto;
+			@include inline-block;
+			a{
+				background: $pink;
+				display: block;
+				height: 35px;
+				line-height: 35px;
+				padding: 0 20px;
+				font-size: 13px;
+				color: #fff;
+			}	
+		}
+	}
+//---------------------------------
+
+//  底部
+//---------------------------------
+	#footer{
+		margin-top: 200px;
+		height: 33px;
+		line-height: 33px;
+		font-size: 13px;
+		text-align: center;
+	}
+//---------------------------------
+
+
+
+	@media (-webkit-min-device-pixel-ratio: 1.5), not all, not all, not all, (min-resolution: 1.5dppx){
+		#header{
+			.logo a{
+				background:url(../images/logo-small-2x.png) 0 50% no-repeat;
+				-webkit-background-size: 75px 19px;
+				-moz-background-size: 75px 19px;
+				background-size: 75px 19px;
+			}
+		}
+		#shots-nav #t-search input{
+			background: #fff url(../images/icon/icon-search-2x.png) 7px 50% no-repeat;
+			-webkit-background-size: 14px 14px;
+			-moz-background-size: 14px 14px;
+			background-size: 14px 14px;
+		}
+	}
+
+	@include max-screen(520px){
+		#header{
+			.logo{
+				margin-left: 15px;
+			}
+			.nav{
+				display: none;
+			}
+		}
+		#shots-nav #t-search{			
+			position: absolute;
+			top: 15px;
+			right: 15px;
+			input:focus{
+				width: 170px;
+			}
+		}
+		#wallcontent{
+			padding: 0;
+			article{
+				margin-left: 65px;
+			}
+		}
+	}
+	@include max-screen(380px){
+		#wallcontent{
+			article{
+				margin-left: 55px;
+			}
+		}
+	}
+	@include max-screen(350px){
+		#wallcontent{
+			article{
+				margin-left: 45px;
+			}
+		}
+	}
+
+	@include max-screen(1120px){
+		#header{
+			.logo{
+				margin-left: 15px;
+			}
+		}
+		#wallcontent{
+			padding: 0;
+		}
+	}

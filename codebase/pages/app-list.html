@@ -1,0 +1,23 @@
+<div class="box">
+	<div class="app-img">
+		<a href="{{card.link}}" class="fancybox">
+			<img src="" data-ng-src="{{card.imageUrl}}" class="animation-fade" data-imageloaded data-loadedclass="animation-faded">
+		</a>
+	</div>
+	<div class="app-desc">
+		<div class="app-author">	
+			<img ng-src="{{card.avatar}}" alt="">
+			<a href="{{card.authorUrl}}" target="_blank">
+				{{card.author}}
+			</a>
+			<a class="app-new" href="{{card.link}}" title="新窗口打开" target="_blank">
+				<i class="iconfont">&#xe604;</i>
+			</a>
+		</div>
+		<div class="app-title">
+			<a href="{{card.link}}" class="fancybox">	
+				{{card.name}}
+			</a>
+		</div>			
+	</div>
+</div>

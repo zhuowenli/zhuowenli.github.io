@@ -1,0 +1,152 @@
+@charset "utf-8";
+
+/* 
+* @Author: 卓文理(zwlme.com)
+* @Email: 531840344@qq.com
+* @Date:   2014-08-09 09:10:13
+* @Last Modified by:   卓文理(zwlme.com)
+* @Last Modified time: 2014-09-03 10:26:47
+*/
+
+@import 'sassCore/base';
+@import 'sassCore/core/reset';
+
+body{
+	background:url(../images/bg.gif) repeat;
+}
+
+// 动画效果
+//--------------------------
+	@include keyframes(rotate){
+		0%{
+			@include transform(rotate(0deg));
+		}
+		100%{
+			@include transform(rotate(360deg));
+		}
+	}
+//--------------------------
+
+// 内容
+//--------------------------
+	.content{
+		margin: 28px auto;
+		width: 855px;
+		height: 667px;
+		position: relative;
+		&.start{
+			.logo{
+				@include animation(rotate 1s linear infinite);
+			}
+			.inlet{
+				opacity: 0;top: 213px;
+				left: 368px;
+			}
+		}
+		.center{
+			position: relative;
+			top: 161px;
+			left: 191px;
+			height: 270px;
+			width: 473px;
+			margin: 0;
+			span{
+				@include inline-block;
+				position: absolute;
+			}
+			.logo{
+				top: 0;
+				left: 123px;
+				width: 230px;
+				height: 230px;
+				background: url(../images/logo.png) no-repeat;
+			}
+			.sunjune{
+				top: 199px;
+				left: 79px;
+				width: 307px;
+				height: 39px;
+				background: url(../images/sunjune.png) no-repeat;
+			}
+			.company{
+				top: 253px;
+				left: 0px;
+				width: 473px;
+				height: 17px;
+				background: url(../images/company.png) no-repeat;
+			}
+		}
+		.inlet{
+			// @include prefixer(transition,#{});
+			@include transition(#{top 0.3s ease-in-out,left 0.3s ease-in-out,opacity 0.3s ease-in-out});
+			opacity: 1;
+			position: absolute;
+			@include inline-block;
+			width: 120px;
+			height: 120px;
+			@include border-radius(50%);
+			&:hover{
+				@include box-shadow(0 0 4px 4px rgba(0,0,0,0.22));
+			}
+			&:active{
+				@include box-shadow(0 0 6px 6px rgba(0,0,0,0.22));
+			}
+		}
+		.inlet1{top: 0;left: 371px;}
+		.inlet2{top: 112px;left: 617px;}
+		.inlet3{top: 260px;left: 736px;}
+		.inlet4{top: 445px;left: 617px;}
+		.inlet5{top: 548px;left: 371px;}
+		.inlet6{top: 445px;left: 125px;}
+		.inlet7{top: 260px;left: 0;}
+		.inlet8{top: 112px;left: 125px;}
+		@for $i from 1 through 8 {
+			.inlet#{$i}{
+				background: url(../images/icon#{$i}.png) no-repeat;
+			}
+		}
+	}
+//--------------------------
+
+// 导航栏
+//--------------------------
+	.site-nav{
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		background:#444;
+		padding-top: 2px;
+		height: 40px;
+		width: 100%;
+		ul{
+			border-top: 1px solid #767676;
+			width: 100%;
+			height: 39px;
+			text-align: center;
+			font-size: 0;
+			li{
+				@include inline-block;
+				height: 100%;
+				border-left: 1px solid #000;
+				border-right: 1px solid #666;
+				a{
+					cursor: pointer;
+					height: 100%;
+					padding: 13px 44px 9px;
+					display: block;
+					color: #fff;
+					line-height: 1;
+					font-size: 12px;
+					font-family: tahoma;
+					text-shadow:0 2px 2px #000;
+				}
+			}
+			.home{
+				border-left: 0;
+			}
+			.contact{
+				border-right: 0;
+			}
+		}
+	}
+//--------------------------

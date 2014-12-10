@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<meta author="卓文理">
+	<title>计算器</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="container">
+		<div id="calculator">
+			<div class="top">
+				<span class="clear">C</span>
+				<div class="screen"></div>
+			</div>
+			<div class="keys">
+				<span>7</span>
+				<span>8</span>
+				<span>9</span>
+				<span class="operator">+</span>
+				<span>4</span>
+				<span>5</span>
+				<span>6</span>
+				<span class="operator">-</span>
+				<span>1</span>
+				<span>2</span>
+				<span>3</span>
+				<span class="operator">/</span>
+				<span>0</span>
+				<span>.</span>
+				<span class="eval">=</span>
+				<span class="operator">x</span>
+			</div>
+		</div>
+	</div>
+	<script>
+		var keys = document.querySelectorAll('span');  
+		var operators = ['+','-','x','/'];
+		var decimalAdded = false;
+		//添加所有按键的点击事件。
+		for (var i = 0; i < keys.length; i++) {
+			keys[i].onclick = function(e){
+				var input = document.querySelector('.screen');
+				var inputVal = input.innerHTML;
+				var btnVal = this.innerHTML;
+				//绑定对应按键的事件
+				//清除键
+				if (btnVal=='C') {
+					input.innerHTML="";
+					decimalAdded = false;
+				}
+				//等于键
+				else if (btnVal=='=') {
+					var equation = inputVal;
+					var lastChar = equation[equation.length - 1];
+
+					equation = equation.replace(/x/g,'*'); //替换，x替换为*
+					if (operators.indexOf(lastChar) > -1 || lastChar == '.') {
+						equation = equation.replace(/.$/,''); //如果最后一位数是小数点，则去掉
+					}
+					if (equation) {
+						input.innerHTML = eval(equation);
+					};
+					decimalAdded = false;
+				}
+				//负数
+				else if (operators.indexOf(btnVal)>-1) {
+					var lastChar = inputVal[inputVal.length-1];
+					if (inputVal != "" && operators.indexOf(lastChar) == -1) {
+						input.innerHTML += btnVal;
+					}
+					else if (inputVal == "" && btnVal == "-") {
+						input.innerHTML += btnVal;
+					}
+					if (operators.indexOf(lastChar) > -1 && inputVal.length > 1) {
+						input.innerHTML = inputVal.replace(/.$/,btnVal);
+					}
+					decimalAdded = false;
+				}
+				//小数点
+				else if (btnVal == ".") {
+					if (!decimalAdded ) {
+						input.innerHTML += btnVal;
+						decimalAdded = true;
+					};
+				}
+				else{
+					input.innerHTML +=btnVal;
+				}
+				e.preventDefault();
+			}
+		}
+	</script>
+</body>
+</html>

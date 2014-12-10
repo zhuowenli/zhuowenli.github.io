@@ -1,0 +1,54 @@
+@charset "utf-8";
+/* 
+* @Author: 卓文理(zwlme.com)
+* @Email: 531840344@qq.com
+* @Date:   2014-09-30 10:18:31
+* @Last Modified by:   卓文理(zwlme.com)
+* @Last Modified time: 2014-09-30 12:44:03
+*/
+
+@import "../../sassCore/base";
+
+//  layout
+//---------------------------------
+	*, *:after, *:before{
+		@include box-sizing;
+	}
+	body,html{
+		height: 100%;
+	}
+//---------------------------------
+
+//  
+//---------------------------------
+	.large-header{
+		position: relative;
+		width: 100%;
+		background: #333;
+		overflow: hidden;
+		background: url(../img/bg.jpg) center bottom no-repeat;
+		background-size: cover;
+		z-index: 1;
+		.title{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			@include transform(translate3d(-50%,-50%,0));
+			&::before{
+				content: '';
+				width: 20vw;
+				height: 20vw;
+				min-width: 3.5em;
+				min-height: 3.5em;
+				background: url(../img/deco.svg) no-repeat center center;
+				background-size: cover;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				@include border-radius(50%);
+				z-index: -1;
+				@include transform(translate3d(-50%,-50%,0));
+			}
+		}
+	}
+//---------------------------------

@@ -1,0 +1,120 @@
+@charset "UTF-8";
+@import '../sassCore/base';
+
+*{
+	margin: 0;
+	padding: 0;
+	@include box-sizing;
+	font: bold 14px Arial,sans-serif;
+}
+html{
+	height: 100%;
+	background: white;
+	@include gradient-radial(circle,#fff 20%,#ccc);
+	background-size: cover;
+}
+
+body{
+	background-color: transparent;
+}
+
+#container{
+	padding: 100px 0;
+}
+
+#calculator{
+	width: 325px;
+	height: auto;
+	margin: 0 auto;
+	padding: 20px 20px 9px;
+	background: #9dd2ea;
+	@include gradient-angle(#9dd2ea,#8bceec);
+	@include border-radius(3px);
+	@include box-shadow(0px 4px #009de4,0px 10px 15px rgba(0,0,0,.2));
+}
+
+.keys{
+	overflow: hidden;
+	span{
+		float: left;
+		position: relative;
+		top: 0;
+		cursor: pointer;
+		width: 66px;
+		height: 36px;
+		background: white;
+		@include border-radius(3px);
+		@include box-shadow(0px 4px rgba(0,0,0,0.2));
+		margin: 0 7px 11px 0;
+		color: #888;
+		line-height: 36px;
+		text-align: center;
+		user-select:none;
+		@include transition(all 0.2s ease);
+	}
+}
+.top{
+	@extend .keys;
+	.clear{
+		float: left;
+	}
+	//显示屏
+	.screen{
+		height: 40px;
+		width: 212px;
+		float: right;
+		padding: 0 10px;
+		background: rgba(0,0,0,.2);
+		@include border-radius(3px);
+		@include box-shadow(inset 0px 4px rgba(0,0,0,.2));
+		
+		font-size: 17px;
+		line-height: 40px;
+		color: white;
+		@include text-shadow(1px 1px 2px rgba(0,0,0,.2));
+		text-align: left;
+		letter-spacing: 1px; //字体间距
+	}
+}
+.keys span{
+	&.operator{
+		background: #fff0f5;
+		margin-right: 0;
+	}
+	&.eval{
+		background: #f1ff92;
+		@include box-shadow(0 4px #9da853);
+		color: #888e5f;
+		&:hover{
+			background: #abb850;
+			@include box-shadow(0px 4px #717a33);
+			color: #fff;
+		}
+		&:active{
+			@include box-shadow(0px 0px #717a33);
+			top: 4px;
+		}
+	}
+	&.clear{
+		background: #ff9fa8;
+		@include box-shadow(0px 4px #ff7c8c);
+		&:hover{
+			background: #f68991;
+			@include box-shadow(0px 4px #d3545d);
+			color: #fff;
+		}
+		&:active{
+			@include box-shadow(0px 0px #d3545d);
+			top: 4px;
+		}
+	}
+	&:hover{
+		background: #9c89f6;
+		@include box-shadow(0px 4px #6b54d3);
+		color: #fff;
+	}
+	&:active{
+		@include box-shadow(0px 0px #6b54d3);
+		top: 4px;
+	}
+}

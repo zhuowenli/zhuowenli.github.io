@@ -25,13 +25,11 @@
 				interval = setInterval(function(){
 					instance.setProgress(progress);
 					if (document.readyState === "interactive" || document.readyState === "loading") {
-						console.log(progress)
 						progress = Math.min(progress + Math.random() * 0.03, 1);
 						instance.setProgress(progress);
 						PageLoaded(progress,interval);
 					};
 					if (document.readyState === "complete" || document.readyState === "Loaded") {
-						console.log(progress)
 						progress = Math.min(progress + Math.random() * 0.2, 1);
 						PageLoaded(progress,interval);
 					};

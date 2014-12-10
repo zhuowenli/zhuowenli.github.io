@@ -1,0 +1,1273 @@
+@charset "utf-8";
+@import '../sassCore/base';
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon/icomoon.eot');
+	src:url('../fonts/icomoon/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/icomoon/icomoon.woff') format('woff'),
+		url('../fonts/icomoon/icomoon.ttf') format('truetype'),
+		url('../fonts/icomoon/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+//
+// @description: 介绍
+// @author: 卓文理
+// @tipe: 最后由卓文理编译整理，有问题请联系 QQ:531840344。
+// @update: 2014.05
+// @version:  v1.0
+//
+
+// 
+//---------------------------------
+	$sky:#5cbcf6;      //天蓝色
+	$sky1:#55b7f3;     //深天蓝色
+	$sky2:#49a7df;     //深深天蓝色
+	$blue:#0e83cd;     //蓝色
+	$blue1:#4593e3;    //深蓝色
+	$blue2:#226fbe;	   //深蓝色;
+	$red:#f06060;      //红色
+	$red1:#cb4e4e;     //深红色
+	$red2:#ab3c3c;     //深深红色
+	$yellow:#fcd04b;   //黄色
+	$yellow1:#fcad26;  //深黄色
+	$yellow2:#da9622;  //深深黄色
+	$orange:#f29e0d;   //橙色
+	$orange1:#f58500;  //深橙色
+	$orange2:#dc7801;  //深深橙色
+	$green:#2ecc71;    //绿色
+	$green1:#24b662;   //深绿色
+	$green2:#17aa56;   //深深绿色
+	$green3:#17954c;   //深深深绿色
+	$green4:#0a833d;   //深深深深绿色
+	$purple:#9e54bd;   //紫色
+	$purple0:#9053a9;  //淡紫色
+	$purple1:#823aa0;  //深紫色
+	$gray:#ecf0f1;
+//---------------------------------
+*{
+	@include box-sizing;
+}
+
+// @media screen
+//---------------------------------
+	html{
+		font-size: 20px;
+		font-family: $fontYaHei;
+	}
+	@include min-screen(320px){
+		html{
+			font-size: 20px;
+		}
+	}
+	@include min-screen(480px){
+		html{
+			font-size: 30px;
+		}
+	}
+	@include min-screen(640px){
+		html{
+			font-size: 40px;
+		}
+	}
+//---------------------------------
+
+// layout
+//---------------------------------
+	#container {
+		height: 100%;
+		position: relative;
+		header{
+			text-align: center;
+			margin: 0 auto;
+			padding: 1rem;
+			h1{
+				font-size: 1rem;
+				line-height: 1.3;
+				font-weight: 300;
+			}
+			span{
+				display: block;
+				font-size: 60%;
+				opacity: 0.5;
+				padding: 0 0 0.6rem 0.1rem;
+			}
+		}
+		&>section{
+			margin: 0 auto;
+			padding: 2.5rem 1.5rem;
+			text-align: center;
+			color: #fff;
+			p{
+				position: relative;
+				z-index: 1;
+			}
+			.title{
+				text-align: center;
+				font-size: 0.7rem;
+				color: #fff;
+				padding: 0.5rem;
+			}
+		}
+	}
+//---------------------------------
+
+// color
+//---------------------------------
+	.color-1{
+		background: $blue;
+	}
+	.color-2{
+		background: $red;
+	}
+	.color-3{
+		background: $yellow;
+	}
+	.color-4{
+		background: $green;
+	}
+	.color-5{
+		background: $purple;
+	}
+	.color-6{
+		background: $sky;
+	}
+	.color-7{
+		background: #2ac56c;
+	}
+	.color-8{
+		background: $gray;
+		.text{
+			color: #aaa;
+		}
+	}
+//---------------------------------
+
+
+// 按钮、字体图标
+//---------------------------------
+	.btn{
+		border:none;
+		font-family: inherit;
+		font-size: 0.5rem;
+		color: inherit;
+		background:none;
+		cursor: pointer;
+		padding: 25px 80px;
+		display: inline-block;
+		margin: 15px 30px;
+		text-transform: uppercase;
+		white-space: nowrap;
+		letter-spacing: 1px;
+		font-weight: 700;
+		outline: none;
+		position: relative;
+		line-height: 1;
+		@include transition(all 0.3s);
+		@include transform(tranlateZ(0));
+		&:after{
+			content: "";
+			position: absolute;
+			z-index: -1;
+			@include transition(all 0.3s);
+		}
+	}
+
+	.btn:before,.icon-heart:after,.icon-star:after,.icon-plus:after,.icon-file:before{
+		font-family: 'icomoon'; 
+		speak:none;
+		font-style: normal;
+		font-weight: normal;
+		font-variant: normal;
+		text-transform: none;
+		line-height: 1;
+		position: relative;
+		-webkit-font-smoothing:antialiased;
+	}
+
+	.icon-envelope:before {
+		content: "\e000";
+	}
+	.icon-cart:before {
+		content: "\e007";
+	}
+	.icon-cart-2:before {
+		content: "\e008";
+	}
+	.icon-heart:before {
+		content: "\e009";
+	}
+	/* Filled heart */
+	.icon-heart:after,.icon-heart-2:before {
+		content: "\e00a";
+	}
+	.icon-star:before {
+		content: "\e00b";
+	}
+	/* Filled star */
+	.icon-star:after,
+	.icon-star-2:before {
+		content: "\e00c";
+	}
+	.icon-arrow-right:before {
+		content: "\e00d";
+	}
+	.icon-arrow-left:before {
+		content: "\e003";
+	}
+	.icon-truck:before {
+		content: "\e00e";
+	}
+	.icon-remove:before {
+		content: "\e00f";
+	}
+	.icon-cog:before {
+		content: "\e010";
+	}
+	.icon-plus:before,
+	.icon-plus:after {
+		content: "\e011";
+	}
+	.icon-minus:before {
+		content: "\e012";
+	}
+	.bh-icon-smiley:before {
+		content: "\e001";
+	}
+	.bh-icon-sad:before {
+		content: "\e002";
+	}
+	.icon-file:before {
+		content: "\e004";
+	}
+	.icon-remove-2:before {
+		content: "\e005";
+	}
+//---------------------------------
+
+
+// btn-1
+//---------------------------------
+	.btn-1{
+		border:3px solid #fff;
+		color: #fff;
+	}
+	.btn-1a:hover,.btn-1a:active{
+		color: $blue;
+		background: #fff;
+	}
+	.btn-1b{
+		&:after{
+			width: 100%;
+			height: 0;
+			top: 0;
+			left: 0;
+			background: #fff;
+		}
+		&:hover,&:active{
+			color: $blue;
+			&:after{
+				height: 100%;
+			}
+		}
+	}
+	.btn-1c{
+		&:after{
+			width: 0;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background: #fff;
+		}
+		&:hover,&:active{
+			color: $blue;
+			&:after{
+				width: 100%;
+			}
+		}
+	}
+	.btn-1d{
+		overflow: hidden;
+		&:after{
+			width: 0;
+			height: 103%;
+			top: 50%;
+			left: 50%;
+			background: #fff;
+			opacity: 0;
+			@include transform(translateX(-50%) translateY(-50%) );
+		}
+		&:hover,&:active{
+			color: $blue;
+		}
+		&:hover:after{
+			width: 90%;
+			opacity: 1;
+		}
+		&:active:after{
+			width: 103%;
+			opacity: 1;
+		}
+	}
+	.btn-1e{
+		overflow: hidden;
+		&:after{
+			width: 100%;
+			height: 0;
+			top: 50%;
+			left: 50%;
+			background: #fff;
+			opacity: 0;
+			@include transform(translateX(-50%) translateY(-50%) rotate(45deg));
+		}
+		&:hover,&:active{
+			color: $blue;
+		}
+		&:hover:after{
+			height: 260%;
+			opacity: 1;
+		}
+		&:active:after{
+			height: 400%;
+			opacity: 1;
+		}
+	}
+	.btn-1f{
+		overflow: hidden;
+		&:after{
+			width: 103%;
+			height: 0;
+			top: 50%;
+			left: 50%;
+			background: #fff;
+			opacity: 0;
+			@include transform(translateX(-50%) translateY(-50%) );
+		}
+		&:hover,&:active{
+			color: $blue;
+		}
+		&:hover:after{
+			height: 85%;
+			opacity: 1;
+		}
+		&:active:after{
+			height: 103%;
+			opacity: 1;
+		}
+	}
+//---------------------------------
+
+// btn-2
+//---------------------------------
+	.btn-2{
+		background: $red1;
+		color: #fff;
+		@include box-shadow(0 6px $red2);
+		@include transition(none);
+	}
+	.btn-2a{
+		@include border-radius(0 0 5px 5px);
+		&:hover{
+			@include box-shadow(0 4px $red2);
+			top: 2px;
+		}
+		&:active{
+			@include box-shadow(0 0 $red2);
+			top: 6px;
+		}
+	}
+	.btn-2b{
+		@include border-radius(0 0 5px 5px);
+		&:hover{
+			@include box-shadow(0 8px $red2);
+			top: -2px;
+		}
+		&:active{
+			@include box-shadow(0 0 $red2);
+			top: 6px;
+		}
+	}
+	.btn-2c{
+		@include border-radius(5px);
+		&:hover{
+			@include box-shadow(0 4px $red2);
+			top: 2px;
+		}
+		&:active{
+			@include box-shadow(0 0 $red2);
+			top: 6px;
+		}
+	}
+	.btn-2d{
+		@include border-radius(5px);
+		&:hover{
+			@include box-shadow(0 8px $red2);
+			top: -2px;
+		}
+		&:active{
+			@include box-shadow(0 0 $red2);
+			top: 6px;
+		}
+	}
+	.btn-2e{
+		@include box-shadow(-6px 0 $red2);
+		@include border-radius(5px);
+		&:hover{
+			@include box-shadow(-4px 0 $red2);
+			left: -2px;
+		}
+		&:active{
+			@include box-shadow(0 0 $red2);
+			left: -6px;
+		}
+	}
+	.btn-2f{
+		@include box-shadow(6px 0 $red2);
+		@include border-radius(5px);
+		&:hover{
+			@include box-shadow(4px 0 $red2);
+			right: -2px;
+		}
+		&:active{
+			@include box-shadow(0 0 $red2);
+			right: -6px;
+		}
+	}
+	.btn-2g{
+		@include border-radius(40px);
+		&:hover{
+			@include box-shadow(0 4px $red2);
+			top: 2px;
+		}
+		&:active{
+			@include box-shadow(0 0 $red2);
+			top: 6px;
+		}
+	}
+	.btn-2h{
+		@include border-radius(20px);
+		&:hover{
+			@include box-shadow(0 4px $red2);
+			top: 2px;
+		}
+		&:active{
+			@include box-shadow(0 0 $red2);
+			top: 6px;
+		}
+	}
+	.btn-2i{
+		@include border-radius(50%);
+		width: 90px;
+		height: 90px;
+		padding: 0;
+		&:hover{
+			@include box-shadow(0 4px $red2);
+			top: 2px;
+		}
+		&:active{
+			@include box-shadow(0 0 $red2);
+			top: 6px;
+		}
+	}
+	.btn-2j{
+		@include border-radius(50%);
+		width: 90px;
+		height: 90px;
+		padding: 0;
+		&:hover{
+			@include box-shadow(0 8px $red2);
+			top: -2px;
+		}
+		&:active{
+			@include box-shadow(0 0 $red2);
+			top: 6px;
+		}
+	}
+//---------------------------------
+
+// btn-3
+//---------------------------------
+	.btn-3{
+		background: $yellow1;
+		color: #fff;
+		&:hover{
+			background: $orange;
+		}
+		&:active{
+			background: $orange1;
+			top: 2px;
+		}
+		&:before{
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 100%;
+			line-height: 3.5;
+			font-size: 100%;
+			width: 74px;
+		}
+	}
+	.btn-3a{
+		padding: 25px 74px 25px 148px;
+		&:before{
+			background: rgba(0,0,0,0.05);
+		}
+	}
+	.btn-3b{
+		padding: 25px 74px 25px 148px;
+		@include border-radius(10px);
+		&:before{
+			border-right: 2px solid rgba(255,255,255,0.5);
+		}
+	}
+	.btn-3c{
+		padding: 80px 40px 20px;
+		@include border-radius(10px);
+		@include box-shadow(0 3px $yellow2);
+		&:before{
+			height: 60px;
+			width: 100%;
+			line-height: 60px;
+			background:#fff;
+			color: $yellow1;
+			@include border-radius(10px 10px 0 0);
+		}
+		&:active{
+			@include box-shadow(0 3px $orange2);
+			&:before{
+				color: $orange1;
+			}
+		}
+	}
+	.btn-3d{
+		padding: 25px 74px 25px 148px;
+		@include border-radius(10px);
+		&:before{
+			background: #fff;
+			color: $yellow1;
+			z-index: 2;
+			@include border-radius(10px 0 0 10px);
+		}
+		&:after{
+			width: 20px;
+			height: 20px;
+			background: #fff;
+			z-index: 1;
+			left: 55px;
+			top: 50%;
+			margin: -10px 0 0 5px;
+			@include transform(rotate(45deg));
+		}
+		&:active{
+			top: 0;
+			&:after{
+				left:59px;
+			}
+			&:before{
+				color: $orange2;
+			}
+		}
+	}
+	.btn-3e{
+		padding: 25px 148px 25px 74px;
+		overflow: hidden;
+		&:before{
+			left: auto;
+			right: 10px;
+			z-index: 2;
+		}
+		&:after{
+			width: 30%;
+			height: 200%;
+			background:rgba(255,255,255,0.1);
+			z-index: 1;
+			right: 0;
+			top: 0;
+			margin: -5px 0 0 -5px;
+			@include transform-origin(0 0);
+			@include transform(rotate(-20deg));
+		}
+		&:hover:after{
+			width: 40%;
+		}
+	}
+//---------------------------------
+
+// btn-4
+//---------------------------------
+	.btn-4{
+		border-radius: 50px;
+		border:3px solid #fff;
+		color: #fff;
+		overflow: hidden;
+		letter-spacing: 20px;
+		padding-left: 90px;
+		&:before{
+			position: absolute;
+			height: 100%;
+			font-size: 100%;
+			line-height: 3;
+			color: #fff;
+			@include transition(all 0.3s);
+		}
+		&:hover{
+			background: $green1;
+		}
+		&:active{
+			color: $green3;
+			border-color: $green3;
+			&:before{
+				color: $green3;
+			}
+		}
+	}
+	.btn-4a{
+		&:before{
+			left: 130%;
+			top: 0;
+		}
+		&:hover:before{
+			left: 80%;
+		}
+	}
+	.btn-4b{
+		&:before{
+			left: -50%;
+			top: 0;
+		}
+		&:hover:before{
+			left: 10%;
+		}
+	}
+	.btn-4c{
+		&:before{
+			left: 70%;
+			top: 0;
+			opacity: 0;
+		}
+		&:hover:before{
+			left: 80%;
+			opacity: 1;
+		}
+	}
+	.btn-4d{
+		&:before{
+			left: 30%;
+			top: 0;
+			opacity: 0;
+		}
+		&:hover:before{
+			left: 10%;
+			opacity: 1;
+		}
+	}
+//---------------------------------
+
+// btn-5
+//---------------------------------
+	.btn-5{
+		background:$purple1;
+		color: #fff;
+		height: 70px;
+		min-width: 260px;
+		line-height: 24px;
+		font-size: 16px;
+		overflow: hidden;
+		@include backface-visibility(hidden);
+		span{
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+			@include transition(all 0.3s);
+			@include backface-visibility(hidden);
+		}
+		&:before{
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			line-height: 2.5;
+			font-size: 180%;
+			@include transition(all 0.3s);
+		}
+		&:active{
+			background:$purple0;
+			top: 2px;
+			&:before{
+				color: $purple1;
+			}
+		}
+	}
+	.btn-5a{
+		&:before{
+			left: 0;
+			top: -100%;
+		}
+		&:hover{
+			&:before{
+				top: 0;
+			}
+			span{
+				@include transform(translateY(300%));
+			}
+		}
+	}
+	.btn-5b{
+		&:before{
+			top: 0;
+			left: -100%;
+		}
+		&:hover{
+			&:before{
+				left: 0;
+			}
+			span{
+				@include transform(translateX(300%));
+			}
+		}
+	}
+//---------------------------------
+
+// btn-6
+//---------------------------------
+	.btn-6{
+		background:$blue2;
+		color: #fff;
+		@include transition(none);
+		&:active{
+			top: 2px;
+		}
+	}
+	.btn-6a{
+		border:4px solid $blue2;
+		&:hover{
+			background: transparent;
+			color: $blue2;
+		}
+	}
+	.btn-6b{
+		@extend .btn-6a;
+		border-radius: 15px;
+	}
+	.btn-6c{
+		@extend .btn-6a;
+		border-radius: 60px;
+	}
+	.btn-6d{		
+		border:2px dashed $blue2;
+		&:hover{
+			background: transparent;
+			color: $blue2;
+		}
+	}
+	.btn-6e{
+		@extend .btn-6d;
+		border-radius: 15px;
+	}
+	.btn-6f{
+		@extend .btn-6d;
+		border-radius: 60px;
+	}
+	.btn-6g{		
+		border:2px dotted $blue2;
+		&:hover{
+			background: transparent;
+			color: $blue2;
+		}
+	}
+	.btn-6h{
+		@extend .btn-6g;
+		border-radius: 15px;
+	}
+	.btn-6i{
+		@extend .btn-6g;
+		border-radius: 60px;
+	}
+	.btn-6j{		
+		border:4px double $blue2;
+		&:hover{
+			background: transparent;
+			color: $blue2;
+		}
+	}
+	.btn-6k{
+		@extend .btn-6j;
+		border-radius: 15px;
+	}
+	.btn-6l{
+		@extend .btn-6j;
+		border-radius: 60px;
+	}
+//---------------------------------
+
+// btn-7
+//---------------------------------
+	.btn-7{
+		background: $green2;
+		color: #fff;
+		@include border-radius(7px);
+		@include box-shadow(0 5px $green3);
+		padding: 25px 60px 25px 90px;
+	}
+	@include keyframes(fadeOutText){
+		0%{color: transparent;}
+		80%{color: transparent;}
+		100%{color: #fff;}
+	}
+	@include keyframes(moveToRight){
+		80%{@include transform(translateX(250%));}
+		81%{opacity: 1;@include transform(translateX(250%));}
+		82%{opacity: 0;@include transform(translateX(250%));}
+		83%{opacity: 0;@include transform(translateX(-50%));}
+		84%{opacity: 1;@include transform(translateX(-50%));}
+		100%{@include transform(translateX(0%));}
+	}
+	.btn-7a{
+		overflow: hidden;
+		&:before{
+			position: absolute;
+			left: 0;
+			width: 40%;
+			font-size: 140%;
+			line-height: 0.8;
+			color: $green4;
+		}
+		&.btn-activated{
+			@include animation(fadeOutText 0.5s);
+			&:before{
+				@include animation(moveToRight 0.5s);
+			}
+		}
+	}
+
+	@include keyframes(scaleUp){
+		80%{opacity: 0;@include transform(scale(2));}
+		100%{opacity: 0;@include transform(scale(2));}
+	}
+	.btn-7b{
+		overflow: hidden;
+		&:before{
+			position: absolute;
+			left: 0;
+			width: 40%;
+			font-size: 140%;
+			line-height: 0.8;
+			color: $green4;
+		}
+		&.btn-activated{
+			&:before{
+				@include animation(scaleUp 0.5s);
+			}
+		}
+	}
+
+	.btn-icon-only{
+		padding: 25px 30px;
+		&:before{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			font-size: 26px;
+			line-height: 54px;
+			@include backface-visibility(hidden);
+		}
+	}
+	@include keyframes(fillToRight){
+		to{width: 100%;}
+	}
+	.btn-7c{
+		overflow: hidden;
+		&:before{
+			color: #fff;
+			z-index: 1;
+		}
+		&:after{
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			z-index: 0;
+			width: 0;
+			background:$green4;
+			@include transition(none);
+		}
+		&.btn-activated:after{
+			@include animation(fillToRight 0.7s forwards);
+		}
+	}
+	@include keyframes(fillToButtom){
+		to{height: 100%;}
+	}
+	.btn-7d{
+		overflow: hidden;
+		&:before{
+			color: #fff;
+			z-index: 1;
+		} 
+		&:after{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			z-index: 0;
+			height: 0;
+			background:$green4;
+			@include transition(none);
+		}
+		&.btn-activated:after{
+			@include animation(fillToButtom 0.7s forwards);
+		}
+	}
+
+	@include keyframes(scaleFade){
+		50%{
+			opacity:1;
+			@include transform(scale(1));
+		}
+		100%{
+			opacity: 0;
+			@include transform(scale(2.5));
+		}
+	}
+	.btn-7e{
+		&:after{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			left: 0;
+			top: 0;
+			z-index: 1;
+			font-size: 26px;
+			line-height: 54px;
+			color: $yellow;
+			@include transform(scale(0));
+			opacity: 0;
+			@include transition(none);
+		}
+		&.btn-activated:after{
+			@include animation(scaleFade 0.7s forwards);
+		}
+	}
+	
+	@include keyframes(dropDown){
+		to{
+			opacity: 1;
+			@include transform(scale(1));
+		}
+	}
+	.btn-7f{
+		&:after{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			left: 0;
+			top: 0;
+			z-index: 1;
+			font-size: 26px;
+			line-height: 54px;
+			color: $yellow;
+			@include transform(scale(4));
+			opacity: 0;
+			@include transition(none);
+		}
+		&.btn-activated:after{
+			@include animation(dropDown 0.5s forwards);
+		}
+	}
+	@include keyframes(dropDownFade){
+		50%{
+			opacity: 1;
+			@include transform(scale(1));
+		}
+		100%{
+			opacity: 0;
+			@include transform(scale(1.5));
+		}
+	}
+	@include keyframes(scaleFromUp){
+		0%{opacity: 0;@include transform(scale(0));}
+		100%{opacity: 1;@include transform(scale(1));}
+	}
+	.btn-7g{
+		&:after{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			left: 0;
+			top: 0;
+			z-index: 1;
+			font-size: 26px;
+			line-height: 54px;
+			color: $green4;
+			@include transform(scale(2));
+			opacity: 0;
+			@include transition(none);
+		}
+		&.btn-activated:after{
+			@include animation(dropDownFade 0.5s forwards);
+		}
+	}
+
+	@include keyframes(moveUp){
+		0%{
+			opacity: 0;
+			@include transform(translateY(50%));
+		}
+		100%{
+			opacity: 1;
+			@include transform(translateY(0));
+		}
+	}
+	@include keyframes(shake){
+		0%,100%{
+			@include transform(translateX(0));
+		}
+		10%,30%,50%,70%,90%{
+			@include transform(translateX(-10%));
+		}
+		20%,40%,60%,80%{
+			@include transform(translateX(10%));
+		}
+	}
+	.btn-7h{
+		span{
+			display: inline-block;
+			width: 100%;
+		}
+		&:before{
+			position: absolute;
+			left: 0;
+			width: 40%;
+			font-size: 160%;
+			line-height: 0.8;
+			color: $green4;
+		}
+		&.btn-success,&.btn-error{
+			color: transparent;
+			&:after{
+				z-index: 1;
+				color: #fff;
+				left: 40%;
+				top: 40%;
+			}
+		}
+		&.btn-success{
+			&:before{
+				content: "\e001";
+			}
+			&:after{
+				content: "发送成功！";
+				@include animation(moveUp 0.5s);
+			}
+		}
+		&.btn-error{
+			@include animation(shake 0.5s);
+			&:before{
+				content: "\e002";
+			}
+			&:after{
+				content: "发送失败！";
+				@include animation(scaleFromUp 0.5s);
+			}			
+		}
+	}
+
+
+	@include keyframes(openTrash){
+		50%{
+			@include transform(rotate(-35deg));
+		}
+		100%{
+			@include transform(rotate(0));
+		}
+	}
+	.trash-effect{
+		position: relative;
+		max-width: 320px;
+		margin:60px auto 0;
+		.icon-file{
+			font-size: 30px;
+			position: absolute;
+			width: 50px;
+			height: 50px;
+			top: 50%;
+			left: 50%;
+			margin: -45px 0 0 -25px;
+			@include transition(all 0.3s ease-out);
+			@include transform(translateX(90px) translateY(20px) scale(1));
+			&:nth-child(2){
+				@include transform(translateX(140px) translateY(-10px) scale(1));
+				@include transition-delay(0.2s);
+			}
+			&:nth-child(3){
+				@include transform(translateX(140px) translateY(50px) scale(1));
+				@include transition-delay(0.2s);
+			}
+		}
+		&.trash-effect-active{
+			.icon-file{
+				@include transform(translateX(-100px) translateY(-10px) scale(0));
+			}
+			.btn-7i:after{
+				@include animation(openTrash 0.5s)
+			}
+		}
+	}
+
+	.btn-7i{
+		@include box-shadow(none);
+		@include border-radius(0 0 7px 7px);
+		padding: 27px 33px;
+		@include transform(translateX(-100px));
+		&:before{
+			line-height: 45px;
+		}
+		&:after{
+			height: 11px;
+			width: 100%;
+			background: $green2;
+			@include border-radius(7px 7px 0 0);
+			left: 0;
+			top: -10px;
+			z-index: 1;
+			@include transform-origin(0 100%);
+		}
+	}
+//---------------------------------
+
+// btn-8
+//---------------------------------
+	.perspective{
+		@include perspective(800px);
+		display: inline-block;		
+	}
+	.btn-8{
+		display: block;
+		background:$sky;
+		outline: 1px solid transparent;
+		@include transform-style(preserve-3d);
+		&:active{
+			background: $sky2;
+		}
+		&:after{
+			width: 100%;
+			height: 42%;
+			left: 0;
+			top: -40%;
+			background:$sky1;
+			@include transform-origin(0% 100%);
+			@include transform(rotateX(90deg));
+		}
+	}
+	.btn-8a{		
+		&:hover{
+			@include transform(rotateX(-15deg));
+		}
+	}
+	.btn-8b{
+		&:after{
+			width: 100%;
+			height: 40%;
+			left: 0;
+			top: 100%;
+			background:$sky1;
+			@include transform-origin(0% 0%);
+			@include transform(rotateX(-90deg));
+		}	
+		&:hover{
+			@include transform(rotateX(15deg));
+		}
+	}
+	.btn-8c{
+		&:after{
+			width: 21%;
+			height: 100%;
+			left: -20%;
+			top: 0;
+			background:$sky1;
+			@include transform-origin(100% 0%);
+			@include transform(rotateY(-90deg));
+		}	
+		&:hover{
+			@include transform(rotateY(15deg));
+		}
+	}
+	.btn-8d{
+		&:after{
+			width: 20%;
+			height: 100%;
+			left: 100%;
+			top: 0;
+			background:$sky1;
+			@include transform-origin(-2% 0%);
+			@include transform(rotateY(90deg));
+		}	
+		&:hover{
+			@include transform(rotateY(-15deg));
+		}
+	}
+	.btn-8e{	
+		@include transform(rotateX(-15deg));
+		&:active{
+			@include transform(rotateX(0deg));
+		}
+	}
+	.btn-8f{	
+		@include transform(rotateX(15deg));
+		&:after{
+			width: 100%;
+			height: 40%;
+			left: 0;
+			top: 100%;
+			background:$sky1;
+			@include transform-origin(0% 0%);
+			@include transform(rotateX(-90deg));
+		}	
+		&:active{
+			@include transform(rotateX(0deg));
+		}
+	}
+	.btn-8g{
+		background:#fff;
+		color: #999;
+		&:active{
+			background:#fff;
+		}
+		&:after,&:before{
+			text-transform: uppercase;
+			width:100%;
+			height: 100%;
+			position: absolute;
+			left: 0;
+			line-height: 70px;
+		}
+		&:after{
+			top: -98%;
+			background: $green;
+			color: $green4;
+			content: "成功!";
+			@include transform-origin(0% 100%);
+			@include rotateX(90deg);
+		}
+		&:before{
+			top: 100%;
+			background: $red;
+			color: $red2;
+			content: "失败!";
+			@include transform-origin(0% 0%);
+			@include rotateX(-90deg);
+		}
+		&.btn-success3d{
+			background: #aaa;
+			@include transform-origin(50% 100%);
+			@include transform(rotateX(-90deg) translateY(100%));
+		}
+		&.btn-error3d{
+			background: #aaa;
+			@include transform-origin(50% 0%);
+			@include transform(rotateX(90deg) translateY(-100%));
+		}
+	}
+//---------------------------------
