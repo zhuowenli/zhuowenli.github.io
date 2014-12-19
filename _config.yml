@@ -1,4 +1,4 @@
-
+BASE_PATH: http://www.zwlme.com
 paginate: 10 # pagination based on number of posts
 paginate_path: "page:num" #pagination generated sub path format
 encoding: utf-8
@@ -9,6 +9,7 @@ highlighter: false
 
 
 name: 卓文理
+title: 卓文理
 
 author:
   name: 卓文理
@@ -17,4 +18,5 @@ author:
   twitter: vnnlee zhuo
   bio: 我在这里，高清有码！
 
-rss_path: feed.xml
+rss_path: sitemap.xml
+
