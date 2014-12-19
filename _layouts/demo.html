@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="cn">
+{% include head.html %}
+<body>
+	<div id="container" class="container modify">
+
+		<div id="content" class="content">
+			{% include navbar.html %}
+
+			{{content }}
+
+			{% include footer.html %}
+		</div>
+
+		<nav id="menu" class="menu">
+			<ul>
+				<li class="active"><a href="{{ site.BASE_PATH }}/">首页</a></li>
+				<li><a href="{{ site.BASE_PATH }}/frontend.html">前端开发</a></li>
+				<li><a href="{{ site.BASE_PATH }}/design.html">设计网摘</a></li>
+				<li><a href="{{ site.BASE_PATH }}/diary.html">生活日志</a></li>
+				<li><a href="{{ site.BASE_PATH }}/about.html">关于博主</a></li>
+				<li><a href="{{ site.BASE_PATH }}/friend.html">友链</a></li>
+			</ul>
+		</nav>
+	</div>
+
+	<script type="text/javascript" src="{{ site.BASE_PATH }}/js/classie.js"></script>
+	<script type="text/javascript" src="{{ site.BASE_PATH }}/js/menuTriggle.js"></script>
+	<!--[if lte IE 8]>
+		<script type="text/javascript" src="{{ site.BASE_PATH }}/js/fuckie.js"></script>
+	<![endif]-->
+</body>
+</html>

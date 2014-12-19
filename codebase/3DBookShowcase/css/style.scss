@@ -1,0 +1,300 @@
+@charset "utf-8";
+/* 
+* @Author: 卓文理 www.zwlme.com
+* @Email:  531840344@qq.com
+* @Date:   2014-11-20 16:52:57
+* @Last Modified by:   卓文理 www.zwlme.com
+* @Last Modified time: 2014-11-26 15:49:00
+*/
+
+@import '../../../css/base';
+
+$green: #8b8;
+
+%book{
+	width: 300px;
+	height: 400px;
+}
+@mixin tf($value...){
+	@include transform($value);
+}
+@mixin tfs($value: preserve-3d){
+	@include transform-style($value);
+}
+@mixin tfo($value...){
+	@include transform-origin($value);
+}
+
+@mixin ts($value...){
+	@include transition($value);
+}
+@mixin tstf($value...){
+	@include prefixer-values(transition,transform #{$value});
+}
+
+@mixin bv($value:hidden){
+	@include backface-visibility($value);
+}
+
+.main{
+	position: relative;
+	width: 300px;
+	margin: 0 auto;
+	padding-top: 50px;
+	padding-bottom: 160px;
+}
+.footer{
+	position: absolute;
+	bottom: 0;
+}
+.header{
+	min-height: 258px;
+	padding-top: 135px;
+}
+.book{
+	position: absolute;
+	height: 400px;
+	width: 100%;
+	@include tstf(0.5s);
+	@include tfs;
+	& > div{
+		display: block;
+		position: absolute;
+	}
+	// 封面
+	.front{
+		@extend %book;
+		@include tfs;
+		@include tfo(0% 50%);
+		@include tstf(0.5s);
+		@include tf(translate3d(0,0,20px));
+		z-index: 10;
+		& > div{
+			display: block;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			@extend %book;
+			border-radius: 0 3px 3px 0;
+			box-shadow: inset 4px 0 10px rgba(0, 0, 0, 0.1);
+			@include bv;
+			@include tfs;
+			background: $green;
+		}
+		.cover{
+			background:$green url('../img/1.png') 100% 95% no-repeat;
+			h2{
+				position: absolute;
+				top: 40px;
+				left: 40px;
+				right: 40px;
+				padding-top: 15px;
+				color: #fff;
+				text-shadow: 0 -1px 0 rgba(0,0,0,0.1);
+				font-size: 1.5em;
+				span{
+					&:first-child{
+						display: block;
+						text-transform: uppercase;
+						font-weight: 400;
+						font-size: 13px;
+						padding-right: 20px;
+					}
+					&:last-child{
+						font-family: Georgia, Times, "Times New Roman", serif;
+					}
+				}
+			}
+			&:after{
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 10px;
+				bottom: 0;
+				width: 3px;
+				background: rgba(0,0,0,0.06);
+				box-shadow: 1px 0 3px rgba(255, 255, 255, 0.1);
+			}
+		}
+		.cover-back{
+			@include tf(rotate3d(0,1,0,-180deg));
+		}
+		&:after{
+			content: '';
+			position: absolute;
+			top: 1px;
+			bottom: 0;
+			left: -1px;
+			width: 1px;
+		}
+	}
+
+	// 背面
+	.back{
+		z-index: 10;
+		@include tf(rotate3d(0,1,0,-180deg) translate3d(0,0,20px));
+		box-shadow: 10px 10px 30px rgba(0,0,0,0.3);
+		border-radius: 3px 0 0 3px;
+		background: $green;
+		@extend %book;
+		img{
+			width: 200px;
+			display: block;
+			margin: 30px auto 0;
+		}
+		p{
+			color: #fff;
+			font-size: 13px;
+			font-family: Georgia, Times, "Times New Roman", serif;
+			padding: 40px;
+			text-align: center;
+			text-shadow: 0 -1px 0 rgba(0,0,0,0.1);
+		}
+		&:after{
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 10px;
+			bottom: 0;
+			width: 3px;
+			background: rgba(0,0,0,0.06);
+			box-shadow: 1px 0 3px rgba(255, 255, 255, 0.1);
+		}
+	}
+
+	// 文章
+	.page{
+		background: #fff;
+		display: block;
+		position: absolute;
+		@include tf(translate3d(0,0,19px));
+		width: 295px;
+		height: 390px;
+		top: 5px;
+		@include bv;
+		z-index: 9;
+		border-right: 1px solid #f5f5f5;
+		border-bottom: 1px solid #f5f5f5;
+		.bk-content{
+			position: absolute;
+			top: 30px;
+			left: 20px;
+			bottom: 20px;
+			right: 20px;
+			padding: 30px;
+			overflow: hidden;
+			background: #fff;
+			opacity: 0;
+			pointer-events: none;
+			@include bv;
+			@include ts(opacity 0.3s ease-in-out);
+			cursor: default;
+			&.active{
+				opacity: 1;
+				pointer-events: auto;
+			}
+			p{
+				padding: 0 0 10px;
+				-webkit-font-smoothing: antialiased;
+				color: #000;
+				font-size: 17px;
+				line-height: 20px;
+				@include user-select(none);
+			}
+		}
+	}
+	// left
+	.left{
+		height: 400px;
+		width: 40px;
+		left: -20px;
+		background: $green;
+		@include tf(rotate3d(0,1,0,-90deg));
+		h2{
+			width: 400px;
+			height: 40px;
+			color: #fff;
+			font-size: 14px;
+			line-height: 40px;
+			text-align: center;
+			@include  tfo(0 0);
+			@include tf(rotate(90deg) translateY(-40px));
+			&:first-child{
+				text-transform: uppercase;
+				font-weight: 400;
+				font-size: 13px;
+				padding-right: 20px;
+			}
+			&:last-child{
+				font-family: Georgia, Times, "Times New Roman", serif;
+			}
+		}
+	}
+	.right{
+		height: 390px;
+		width: 40px;
+		left: -20px;
+		background: #fff;
+		height: 390px;
+		top: 5px;
+		@include tf(rotate3d(0,1,0,90deg) translate3d(0,0,295px));
+	}
+	.bottom{
+		background: #fff;
+		width: 295px;
+		height: 40px;
+		top: -15px;
+		@include bv;
+		@include tf(rotate3d(1,0,0,-90deg) translate3d(0,0,390px));
+	}
+	.top{
+		background: #fff;
+		width: 295px;
+		height: 40px;
+		top: -15px;
+		@include bv;
+		@include tf(rotate3d(1,0,0,90deg));
+	}
+
+	&.viewdefault{
+		&:hover{
+			@include tf(rotate3d(1,1,0,35deg));
+		}
+	}
+	&.viewback{
+		@include tf(translate3d(0,0,0px) rotate3d(0,1,0,180deg));
+		&:hover{
+			@include tf(translate3d(0,0,0px) rotate3d(0,1,0,215deg));
+			.front > div{
+				@include bv(visible);
+			}
+		}
+	}
+	&.viewinside{
+		@include tf(rotate3d(0,1,0,0deg) translate3d(0,0,150px));
+		.front{
+			@include tf(translate3d(0,0,20px) rotate3d(0,1,0,-160deg));
+			.cover-back{
+				box-shadow:none;
+			}
+		}
+	}
+}
+.option{
+	padding-top: 440px;
+	button{
+		position: relative;
+		border: 0;
+		background: #39A239;
+		color: #fff;
+		height: 34px;
+		width: 100px;
+		text-align: center;
+		line-height: 34px;
+		margin-right: 10px;
+		@include ts(top 0.3s ease-in-out);
+		&:active{
+			top: 2px;
+		}
+	}
+}

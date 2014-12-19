@@ -1,117 +1,56 @@
-@charset "UTF-8";
-/* 
-* @Author: 卓文理(zwlme.com)
-* @Email: 531840344@qq.com
-* @Date:   2014-10-20 15:03:19
-* @Last Modified by:   卓文理(zwlme.com)
-* @Last Modified time: 2014-10-20 16:03:41
+/*
+Error: File to import not found or unreadable: ../../lib/sassCore/base.
+       Load path: D:/yun/zhuowenli.github.io/share/responsive/css
+        on line 9 of D:\yun\zhuowenli.github.io\share\responsive\css\media-table.scss
+
+4: * @Email: 531840344@qq.com
+5: * @Date:   2014-10-20 15:03:19
+6: * @Last Modified by:   卓文理(zwlme.com)
+7: * @Last Modified time: 2014-10-20 16:03:41
+8: *\/
+9: @import '../../lib/sassCore/base';
+10: @import '../../lib/sassCore/core/reset';
+11: 
+12: body{
+13: 	background: #fff;
+14: }
+
+Backtrace:
+D:\yun\zhuowenli.github.io\share\responsive\css\media-table.scss:9
+D:/Application/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/import_node.rb:66:in `rescue in import'
+D:/Application/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/import_node.rb:45:in `import'
+D:/Application/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/import_node.rb:28:in `imported_file'
+D:/Application/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/import_node.rb:37:in `css_import?'
+D:/Application/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:301:in `visit_import'
+D:/Application/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+D:/Application/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+D:/Application/Koala/rubygems/gems/sass-3.4.9/lib/sass/stack.rb:79:in `block in with_base'
+D:/Application/Koala/rubygems/gems/sass-3.4.9/lib/sass/stack.rb:115:in `with_frame'
+D:/Application/Koala/rubygems/gems/sass-3.4.9/lib/sass/stack.rb:79:in `with_base'
+D:/Application/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `visit'
+D:/Application/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+D:/Application/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `map'
+D:/Application/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+D:/Application/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+D:/Application/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+D:/Application/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+D:/Application/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+D:/Application/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+D:/Application/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+D:/Application/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:157:in `visit'
+D:/Application/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:8:in `visit'
+D:/Application/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/root_node.rb:36:in `css_tree'
+D:/Application/Koala/rubygems/gems/sass-3.4.9/lib/sass/tree/root_node.rb:20:in `render'
+D:/Application/Koala/rubygems/gems/sass-3.4.9/lib/sass/engine.rb:268:in `render'
+D:/Application/Koala/rubygems/gems/sass-3.4.9/lib/sass/exec/sass_scss.rb:404:in `run'
+D:/Application/Koala/rubygems/gems/sass-3.4.9/lib/sass/exec/sass_scss.rb:62:in `process_result'
+D:/Application/Koala/rubygems/gems/sass-3.4.9/lib/sass/exec/base.rb:52:in `parse'
+D:/Application/Koala/rubygems/gems/sass-3.4.9/lib/sass/exec/base.rb:19:in `parse!'
+D:/Application/Koala/rubygems/gems/sass-3.4.9/bin/sass:13:in `<top (required)>'
+D:/Application/Koala/bin/sass:18:in `load'
+D:/Application/Koala/bin/sass:18:in `<main>'
 */
-article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary { display: block; }
-
-audio, canvas, video { display: inline-block; }
-
-audio:not([controls]) { display: none; height: 0; }
-
-[hidden], template { display: none; }
-
-html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
-
-body { margin: 0; }
-
-a { background: transparent; }
-a:hover, a:active { outline: 0; }
-
-abbr[title] { border-bottom: 1px dotted; }
-
-b, strong { font-weight: bold; }
-
-mark { background: #ff0; color: #000; }
-
-small { font-size: 80%; }
-
-img { border: 0; }
-
-svg:not(:root) { overflow: hidden; }
-
-fieldset { border: 0 none; margin: 0; padding: 0; }
-
-button, input, select, textarea { font-family: inherit; font-size: 100%; margin: 0; vertical-align: baseline; }
-
-button, input { line-height: normal; }
-
-button, select { text-transform: none; }
-
-button, html input[type="button"], input[type="reset"], input[type="submit"] { -webkit-appearance: button; cursor: pointer; }
-
-button[disabled], input[disabled] { cursor: default; }
-
-input[type="checkbox"], input[type="radio"] { box-sizing: border-box; padding: 0; }
-
-input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
-
-input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
-
-input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button { height: auto; }
-
-button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
-
-textarea { overflow: auto; vertical-align: top; }
-
-optgroup { font-weight: bold; }
-
-table { border-collapse: collapse; border-spacing: 0; }
-
-html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
-
-body { font-size: 1em; line-height: 1.5; color: #333333; background-color: #f2f2f2; min-width: 320px; }
-
-img { vertical-align: middle; }
-
-textarea { resize: vertical; }
-
-h1, h2, h3, h4, h5, h6, p, figure, form { margin: 0; }
-
-ul, ol, li, dl, dd { margin: 0; padding: 0; }
-
-ul, ol { list-style: none outside none; }
-
-h1, h2, h3 { font-weight: normal; }
-
-a { text-decoration: none; color: #333333; }
-a:hover { color: #1a1a1a; }
-
-input:-ms-input-placeholder, textarea:-ms-input-placeholder { color: #cccccc; }
-
-input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { color: #cccccc; }
-
-.table { display: table; width: 100%; }
-.table .table-cell { display: table-cell; }
-
-body { background: #fff; }
-
-#page-wrap { margin: 50px; }
-#page-wrap h1 { margin-bottom: 20px; }
-
-table { width: 100%; border-collapse: collapse; font-size: 0.8em; }
-table th { background: #333; color: #fff; font-weight: bold; }
-table tr:nth-of-type(odd) { background: #eee; }
-table td, table th { padding: 8px; border: 1px solid  #ccc; text-align: left; }
-
-@media screen and (max-width: 800px) { .first td:nth-child(2), .first th:nth-child(2), .first td:nth-child(4), .first th:nth-child(4) { display: none; } }
-@media screen and (max-width: 640px) { .first td:nth-child(7), .first th:nth-child(7), .first td:nth-child(8), .first th:nth-child(8) { display: none; } }
-
-@media screen and (max-width: 768px) { .second table, .second thead, .second tbody, .second th, .second td, .second tr { display: block; }
-  .second thead { display: none; }
-  .second tr { border: 1px solid #ccc; }
-  .second td { border: none; border-bottom: 1px solid #eee; position: relative; padding-left: 50%; }
-  .second td:before { position: absolute; top: 6px; left: 6px; width: 45%; padding-right: 10px; white-space: nowrap; }
-  .second td:nth-of-type(1):before { content: "First Name"; }
-  .second td:nth-of-type(2):before { content: "Last Name"; }
-  .second td:nth-of-type(3):before { content: "Job Title"; }
-  .second td:nth-of-type(4):before { content: "Favorite Color"; }
-  .second td:nth-of-type(5):before { content: "Wars of Trek?"; }
-  .second td:nth-of-type(6):before { content: "Porn Name"; }
-  .second td:nth-of-type(7):before { content: "Date of Birth"; }
-  .second td:nth-of-type(8):before { content: "Dream Vacation City"; }
-  .second td:nth-of-type(9):before { content: "GPA"; }
-  .second td:nth-of-type(10):before { content: "Arbitrary Data"; } }
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: ../../lib/sassCore/base.\A        Load path: D:/yun/zhuowenli.github.io/share/responsive/css\A         on line 9 of D:\yun\zhuowenli.github.io\share\responsive\css\media-table.scss\A \A 4: * @Email: 531840344@qq.com\A 5: * @Date:   2014-10-20 15:03:19\A 6: * @Last Modified by:   卓文理(zwlme.com)\A 7: * @Last Modified time: 2014-10-20 16:03:41\A 8: */\A 9: @import '../../lib/sassCore/base';\A 10: @import '../../lib/sassCore/core/reset';\A 11: \A 12: body{\A 13: 	background: #fff;\A 14: }"; }
