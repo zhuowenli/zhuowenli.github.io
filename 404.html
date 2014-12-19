@@ -1,0 +1,40 @@
+---
+---
+<!DOCTYPE html>
+<html lang="cn">
+{% include head.html %}
+<body>
+	<div id="container" class="container modify error">
+
+		<div id="content" class="content">
+			{% include navbar.html %}
+
+			<section class="error-item">
+				<div class="error-pic">
+					<img src="/img/error.png" alt="">
+					<a href="{{ site.BASE_PATH }}/">Holy Shit! Page not found! Go back to <strong>home page</strong>!</a>
+				</div>
+			</section>
+
+			{% include footer.html %}
+		</div>
+
+		<nav id="menu" class="menu">
+			<ul>
+				<li><a href="{{ site.BASE_PATH }}/">首页</a></li>
+				<li><a href="{{ site.BASE_PATH }}/frontend.html">前端开发</a></li>
+				<li><a href="{{ site.BASE_PATH }}/design.html">设计网摘</a></li>
+				<li><a href="{{ site.BASE_PATH }}/diary.html">生活日志</a></li>
+				<li><a href="{{ site.BASE_PATH }}/about.html">关于博主</a></li>
+				<li><a href="{{ site.BASE_PATH }}/friend.html">友链</a></li>
+			</ul>
+		</nav>
+	</div>
+	
+	<script type="text/javascript" src="{{ site.BASE_PATH }}/js/classie.js"></script>
+	<script type="text/javascript" src="{{ site.BASE_PATH }}/js/menuTriggle.js"></script>
+	<!--[if lte IE 8]>
+		<script type="text/javascript" src="{{ site.BASE_PATH }}/js/fuckie.js"></script>
+	<![endif]-->
+</body>
+</html>

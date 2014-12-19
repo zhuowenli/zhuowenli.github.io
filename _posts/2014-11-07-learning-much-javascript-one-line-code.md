@@ -154,9 +154,3 @@ var a = 12.34, // ~~a = 12
 译者：<a href="http://www.zwlme.com">卓文理</a>
 
 <span style="color: #404040;">如需转载烦请注明出处：<a href="http://www.zwlme.com">www.zwlme.com</a></span>
-
-<pre>
-Array.prototype.forEach.call(document.querySelectorAll("*"),function(el){
-  el.style.outline = "1px solid #" + (Math.random().toString(16)+'0000000').slice(2, 8)
-})
-</pre>

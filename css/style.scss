@@ -903,6 +903,42 @@ $green: #39A239;
 	}
 //-----------------------------------------------------
 
+// 类型: error
+// 说明: 404 page
+//-----------------------------------------------------
+	.error{
+		.footer{
+			position: absolute;
+			bottom: 0;
+		}
+		.error-item{
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			margin: auto;
+			max-width: 482px;
+			max-height: 300px;
+			.error-pic{
+				height: 100%;
+				width: 100%;
+				img{
+					width: 100%;
+					height: auto;
+				}
+			}
+			a{
+				display: block;
+				color: #666;
+				text-align: center;
+			}
+		}
+	}
+//-----------------------------------------------------
+
+
+
 // 类型: @media 1200
 // 说明: 
 //-----------------------------------------------------
@@ -965,6 +1001,12 @@ $green: #39A239;
 		}
 		.post-title{
 			padding: 10em 1em 0;
+			h1{
+				font-size: 3em;
+			}
+			.sublime{
+				font-size: 1.5em;
+			}
 		}
 		.footer{
 			height: auto;
@@ -981,6 +1023,7 @@ $green: #39A239;
 					}
 				}
 				.avatar{
+					display: none;
 					margin-bottom: 20px;
 					margin-right: 0;
 				}
