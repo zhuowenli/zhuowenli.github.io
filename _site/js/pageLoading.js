@@ -12,7 +12,7 @@
 		loader    = new PathLoader(document.getElementById('ld-loader-circle'));
 
 	function init() {
-		window.addEventListener('scroll',noscroll);
+		window.addEventListener('scroll',disableScroll);
 		classie.add(container,'loading');
 		startLoading();
 		// 3d字体
@@ -46,14 +46,16 @@
 			clearInterval(interval);
 
 			var onEndHeaderAnimation = function(ev){
+				console.log('aa');
+				window.removeEventListener('scroll',disableScroll);
 				classie.add(document.body, 'layout-switch');
-				window.removeEventListener('scroll',noscroll);
 			}
+			onEndHeaderAnimation();
 		};
 	}
 
 	// 阻止滚动
-	function noscroll(){
+	function disableScroll(){
 		window.scrollTo(0,0);
 	}
 	init();

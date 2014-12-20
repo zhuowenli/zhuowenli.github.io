@@ -51,11 +51,9 @@ $green: #39A239;
 	}
 	.content{
 		background: #f5f5f5;
-		z-index: 1000;
-		left: 0;
-		height: 100%;
+		z-index: 2000;
 		@include prefixer-values(transition,transform 0.5s);
-		overflow: auto;
+		position: relative;
 	}
 //-----------------------------------------------------
 
@@ -325,7 +323,7 @@ $green: #39A239;
 // 说明: 头部导航条
 //-----------------------------------------------------
 	.navbar{
-		position: fixed;
+		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
@@ -375,7 +373,6 @@ $green: #39A239;
 	}
 //-----------------------------------------------------
 
-
 // 类型: header
 // 说明: 首页标题
 //-----------------------------------------------------
@@ -386,6 +383,7 @@ $green: #39A239;
 		text-align: center;
 		padding-top: 210px;
 		color: #333;
+		position: relative;
 		h1{
 			font-size: 2.5em;
 			font-weight: bold;
@@ -518,11 +516,13 @@ $green: #39A239;
 //-----------------------------------------------------
 	.post-header{
 		overflow: hidden;
-		position: absolute;
+		position: fixed;
 		margin: 0 auto;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
 		min-height: 480px;
-		height: 100%;
-		width: 100%;
 		z-index: 1500;
 		background: #f5f5f5;
 		@extend %transition-tr-op;
@@ -784,9 +784,19 @@ $green: #39A239;
 			background:#fff url('data:image/png;base64,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') no-repeat;
 			background-size: 50px 50px;
 			font-size: 0;
-			overflow: hidden;
+			position: relative;
 			&:hover{
 				@include animation(photo 1s both);
+			}
+			&:before{
+				content: '';
+				display: block;
+				position: absolute;
+				background:transparent url('../img/cap.png') no-repeat;
+				width: 77px;
+				height: 90px;
+				left: -45%;
+				top: -23px;
 			}
 		}
 		p{
@@ -1040,7 +1050,7 @@ $green: #39A239;
 //-----------------------------------------------------
 
 
-// 类型: 雪花
+// 类型: 圣诞节专题
 // 说明: 
 //-----------------------------------------------------
 	@include keyframes(falling) {
@@ -1059,6 +1069,7 @@ $green: #39A239;
 		bottom: 0;
 		pointer-events: none;
 		overflow: hidden;
+		z-index: 2000;
 		.snowflake{
 			position: absolute;	
 			display: inline-block;
@@ -1141,6 +1152,37 @@ $green: #39A239;
 			-moz-transform-origin: left 10px;
 		}
 		.snowflakeSpeedSlow {
-			opacity: 0.8}
+			opacity: 0.8
 		}
+	}
+	.santa{
+		position: absolute;
+		top: 1000px;
+		left: 5%;
+		width: 15.75em;
+		height: 14em;
+		background:transparent url('../img/santa.png') no-repeat;
+		background-size: 100% 100%;
+		pointer-events:none;
+		z-index: 3000;
+	}
+	.snowman{
+		position: absolute;
+		bottom: 108px;
+		right: 5%;
+		width: 17.5em;
+		height: 15.75em;
+		background:transparent url('../img/snowman.png') no-repeat;
+		background-size: 100% 100%;
+		pointer-events:none;
+	}
+	.tree{
+		position: absolute;
+		top: 108px;
+		right: 5%;
+		width: 19.25em;
+		height: 17.5em;
+		background:transparent url('../img/tree.png') no-repeat;
+		background-size: 100% 100%;
+	}
 //-----------------------------------------------------
