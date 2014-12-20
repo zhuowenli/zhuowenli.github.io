@@ -44,6 +44,7 @@ $green: #39A239;
 		-webkit-font-smoothing: antialiased;
 		background: rgba(126,63,102,1);
   		@include gradient-radial(circle at left,rgba(175,92,121,1),rgba(126,63,102,1));
+  		overflow-x: hidden;
 	}
 	.container{
 		@include perspective(1500px);
@@ -1062,11 +1063,10 @@ $green: #39A239;
 		}
 	}
 	#snowflakesContainer {
-		position: absolute;
+		position: fixed;
 		top: 0;
-		left: 0;
-		right: 0;
 		bottom: 0;
+		width: 100%;
 		pointer-events: none;
 		overflow: hidden;
 		z-index: 2000;
