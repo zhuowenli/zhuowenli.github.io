@@ -36,12 +36,18 @@ $green: #8b8;
 	@include backface-visibility($value);
 }
 
+body{
+	overflow: hidden;
+}
+.content{
+	height: 100%;
+}
 .main{
 	position: relative;
 	width: 300px;
 	margin: 0 auto;
 	padding-top: 50px;
-	padding-bottom: 160px;
+	padding-bottom: 150px;
 }
 .footer{
 	position: absolute;
@@ -76,13 +82,14 @@ $green: #8b8;
 			bottom: 0;
 			@extend %book;
 			border-radius: 0 3px 3px 0;
-			box-shadow: inset 4px 0 10px rgba(0, 0, 0, 0.1);
-			@include bv;
 			@include tfs;
-			background: $green;
+			@include bv;
+			@include perspective(1000);
 		}
 		.cover{
+			z-index: 100;
 			background:$green url('../img/1.png') 100% 95% no-repeat;
+			box-shadow: inset 4px 0 10px rgba(0, 0, 0, 0.1);
 			h2{
 				position: absolute;
 				top: 40px;
@@ -117,6 +124,7 @@ $green: #8b8;
 			}
 		}
 		.cover-back{
+			background: $green;
 			@include tf(rotate3d(0,1,0,-180deg));
 		}
 		&:after{

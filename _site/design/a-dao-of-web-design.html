@@ -296,18 +296,24 @@
 			</ul>
 		</nav>
 	</div>
+	
+	<!--[if lte IE 8]>
+		<script type="text/javascript" src="/js/fuckie.js"></script>
+	<![endif]-->
+	
 	<script type="text/javascript" src="/js/classie.js"></script>
 	<script type="text/javascript" src="/js/menuTriggle.js"></script>
 	<script type="text/javascript" src="/js/postTriggle.js"></script>
 	<script type="text/javascript" src="/js/PathLoader.js"></script>
 	<script type="text/javascript" src="/js/pageLoading.js"></script>
 	<script type="text/javascript">
-		var footer = document.querySelector('.footer'),
+		var content = document.querySelector('.content'),
+			footer = document.querySelector('.footer'),
 			footT  = footer.offsetTop,
 			footH  = footer.offsetHeight,
 			winH   = window.innerHeight;
 		if (footT - footH + 100 < winH) {
-			classie.add(footer,'bottom');
+			content.style.height = '100%';
 		};
 	</script>
 </body>
