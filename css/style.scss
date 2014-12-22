@@ -188,6 +188,8 @@ $green: #39A239;
 				stroke: #ddd;
 			}
 			&.ld-loader-circle{
+				stroke-dasharray: 192px;
+				stroke-dashoffset: 192px;
 				@include transition(stroke-dashoffset 0.2s);
 				stroke: #39A239;
 			}

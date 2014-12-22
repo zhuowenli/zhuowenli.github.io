@@ -1,4 +1,5 @@
 BASE_PATH: http://www.zwlme.com
+SITE_PATH: http://www.zwlme.com
 paginate: 10 # pagination based on number of posts
 paginate_path: "page:num" #pagination generated sub path format
 encoding: utf-8
