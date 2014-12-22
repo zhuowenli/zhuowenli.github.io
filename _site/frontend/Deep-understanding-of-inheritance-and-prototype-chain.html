@@ -10,24 +10,24 @@
 	
 	<meta name="author" content="卓文理">
 
-	<link rel="apple-touch-icon-precomposed" href="/img/icon-114.png">
-	<link rel="apple-touch-icon-precomposed" href="/img/icon-72.png" sizes="72x72" />
-	<link rel="apple-touch-icon-precomposed" href="/img/icon-76.png" sizes="76x76" />
-	<link rel="apple-touch-icon-precomposed" href="/img/icon-114.png" sizes="114x114" />
-	<link rel="apple-touch-icon-precomposed" href="/img/icon-120.png" sizes="120x120" />
-	<link rel="apple-touch-icon-precomposed" href="/img/icon-152.png" sizes="152x152" />
-	<link href="/img/icon.png" rel="Shortcut Icon" type="image/x-icon"/>
+	<link rel="apple-touch-icon-precomposed" href="http://www.zwlme.com/img/icon-114.png">
+	<link rel="apple-touch-icon-precomposed" href="http://www.zwlme.com/img/icon-72.png" sizes="72x72" />
+	<link rel="apple-touch-icon-precomposed" href="http://www.zwlme.com/img/icon-76.png" sizes="76x76" />
+	<link rel="apple-touch-icon-precomposed" href="http://www.zwlme.com/img/icon-114.png" sizes="114x114" />
+	<link rel="apple-touch-icon-precomposed" href="http://www.zwlme.com/img/icon-120.png" sizes="120x120" />
+	<link rel="apple-touch-icon-precomposed" href="http://www.zwlme.com/img/icon-152.png" sizes="152x152" />
+	<link href="http://www.zwlme.com/img/icon.png" rel="Shortcut Icon" type="image/x-icon"/>
 	
     <title>深入理解继承与原型链 | 卓文理</title>
 
-	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/default.min.css">
-	<script src="/js/highlight.min.js"></script>
+	<link rel="stylesheet" href="http://www.zwlme.com/css/style.css">
+	<link rel="stylesheet" href="http://www.zwlme.com/css/default.min.css">
+	<script src="http://www.zwlme.com/js/highlight.min.js"></script>
 	<script>hljs.initHighlightingOnLoad();</script>
 
 	<!--[if IE 9]>
-		<link rel="stylesheet" href="/css/ie9.css">
-		<script src="/js/html5.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="http://www.zwlme.com/css/ie9.css">
+		<script src="http://www.zwlme.com/js/html5.js" type="text/javascript"></script>
 	<![endif]-->
 </head>
 <body>
@@ -52,15 +52,15 @@
 					<button id="btnMenu" class="btn-menu"><i class="icon icon-menu"></i>Menu</button>
 				</div>
 				<ul class="pull-center">
-					<li class="active"><a href="/">BLOG</a></li>
-					<li><a href="/about.html">ABOUT</a></li>
+					<li class="active"><a href="http://www.zwlme.com/">BLOG</a></li>
+					<li><a href="http://www.zwlme.com/about.html">ABOUT</a></li>
 				</ul>
 				<div class="pull-right"></div>
 			</nav>
 
 			<header class="post-header">
 	<div class="hd-img">
-		<img src="/img/bg/2.jpg" alt="背景图片">
+		<img src="http://www.zwlme.com/img/bg/2.jpg" alt="背景图片">
 	</div>
 	<div class="title">
 		<h1>深入理解继承与原型链</h1>
@@ -75,6 +75,8 @@
 
 <article class="post-content">
 	<div>
+		
+	
 		<p>对于那些熟悉基于类的面向对象语言（java或c++）的开发者来说，javascript的语法是比较怪异的。由于javascript是一门动态语言，而且它没有类的概念（虽然<code>class</code>是个保留字，不能作为变量名来使用）。</p>
 
 <p>继承方面，javascript中每个对象都有一个内部私有链接指向另一个对象，这个对象就是原对象的<strong>原型</strong>，这个原型也有自己的原型，知道对象的原型为<code>null</code>为止（也就是没有原型）。这种一级一级的链结构就称为<strong>原型链</strong>。</p>
@@ -215,6 +217,7 @@ console.log(d.hasOwnProperty); // undefined , 因为d没有继承Object.prototyp
 
 <p>在编写使用到原型继承模型的复杂代码前理解原型继承模型十分重要。同时，还要清楚代码中原型链的长度，并在必要时结束原型链，以避免可能存在的性能问题。更进一步，除非为了兼容新的javascript特性，否则永远不要扩展原生对象的原型。</p>
 
+
 	</div>
 </article>
 <div id="disqus_thread"></div>
@@ -232,14 +235,17 @@ console.log(d.hasOwnProperty); // undefined , 因为d没有继承Object.prototyp
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     
 
+<script type="text/javascript" src="http://www.zwlme.com/js/snap.svg-min.js"></script>
+<script type="text/javascript" src="http://www.zwlme.com/js/SVGButton.js"></script>
+
 						<footer class="footer">
 				<div class="row">
 					<div class="pull-left">
-						<a class="avatar" href="/" title="卓文理">卓文理</a>
+						<a class="avatar" href="http://www.zwlme.com/" title="卓文理">卓文理</a>
 						<p class="copyright">2014 ALL RIGHTS RESERVED</p>
 					</div>
 					<div class="pull-right">
-						<p class="powered">Powered by <a target="_blank" href="https://github.com/">github</a> & <a target="_blank" href="http://jekyllrb.com/">jekyll</a> | themed by <a target="_blank" href="">卓文理</a></p>
+						<p class="powered">Powered by <a target="_blank" href="https://github.com/">github</a> & <a target="_blank" href="http://jekyllrb.com/">jekyll</a> | themed by <a target="_blank" href="http://www.zwlme.com">卓文理</a></p>
 					</div>
 				</div>
 				<div class="snowman"></div>
@@ -248,25 +254,25 @@ console.log(d.hasOwnProperty); // undefined , 因为d没有继承Object.prototyp
 
 		<nav id="menu" class="menu">
 			<ul>
-				<li><a href="/">首页</a></li>
-				<li><a href="/frontend.html">前端开发</a></li>
-				<li><a href="/design.html">设计网摘</a></li>
-				<li><a href="/diary.html">生活日志</a></li>
-				<li><a href="/about.html">关于博主</a></li>
-				<li><a href="/friend.html">友链</a></li>
+				<li><a href="http://www.zwlme.com/">首页</a></li>
+				<li><a href="http://www.zwlme.com/frontend.html">前端开发</a></li>
+				<li><a href="http://www.zwlme.com/design.html">设计网摘</a></li>
+				<li><a href="http://www.zwlme.com/diary.html">生活日志</a></li>
+				<li><a href="http://www.zwlme.com/about.html">关于博主</a></li>
+				<li><a href="http://www.zwlme.com/friend.html">友链</a></li>
 			</ul>
 		</nav>
 	</div>
 	
 	<!--[if lte IE 8]>
-		<script type="text/javascript" src="/js/fuckie.js"></script>
+		<script type="text/javascript" src="http://www.zwlme.com/js/fuckie.js"></script>
 	<![endif]-->
 	
-	<script type="text/javascript" src="/js/classie.js"></script>
-	<script type="text/javascript" src="/js/menuTriggle.js"></script>
-	<script type="text/javascript" src="/js/postTriggle.js"></script>
-	<script type="text/javascript" src="/js/PathLoader.js"></script>
-	<script type="text/javascript" src="/js/pageLoading.js"></script>
+	<script type="text/javascript" src="http://www.zwlme.com/js/classie.js"></script>
+	<script type="text/javascript" src="http://www.zwlme.com/js/menuTriggle.js"></script>
+	<script type="text/javascript" src="http://www.zwlme.com/js/postTriggle.js"></script>
+	<script type="text/javascript" src="http://www.zwlme.com/js/PathLoader.js"></script>
+	<script type="text/javascript" src="http://www.zwlme.com/js/pageLoading.js"></script>
 	<script type="text/javascript">
 		var content = document.querySelector('.content'),
 			footer = document.querySelector('.footer'),

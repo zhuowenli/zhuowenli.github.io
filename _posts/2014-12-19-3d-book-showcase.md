@@ -5,13 +5,9 @@ subline: 3D Book Showcase
 categories: codebase
 tags: [github-page, jekyll]
 img: 22
+demo-link: codebase/3DBookShowcase
+demo-source: 3DBookShowcase.zip
 ---
-
-<p>
-	<a target="_blank" href="{{ site.BASE_PATH }}/codebase/3DBookShowcase/" class="demo">View Demo</a>
-	<a target="_blank" href="{{ site.BASE_PATH }}/codebase/3DBookShowcase/2DBookShowcase.zip" class="demo">Download Source</a>
-</p>
-
 
 这个demo只能在支持 CSS 3D transforms 的浏览器上运行。至于其他不支持css3的浏览器(IE什么的)就一边画圈圈去把。
 
@@ -60,6 +56,7 @@ img: 22
 	<div class="bottom"></div>
 </div>
 ```
+
 代码结构并不复杂，我们要做的是一本有3D效果的图书，所以书的封面、背面、书脊等部分，都要一一制作出来。
 
 当我们用鼠标滑过书本的时候，要稍微给它一个旋转效果。
@@ -88,7 +85,7 @@ book.viewinside .front{
 }
 ```
 
-点击FLIP按钮同样是通过旋转把书本翻到后面，我给他做了个小小的延时，让书本先把关上的动画执行完毕，然后再把书本翻过来。具体看<a target="_blank" href="{{ site.BASE_PATH }}/codebase/3DBookShowcase/">Demo</a>。
+点击FLIP按钮同样是通过旋转把书本翻到后面，我给他做了个小小的延时，让书本先把关上的动画执行完毕，然后再把书本翻过来。具体看<a target="_blank" href="{{ site.BASE_PATH }}/{{ page.demo-link }}">Demo</a>。
 
 ```css
 book.viewinside{

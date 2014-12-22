@@ -35,27 +35,12 @@ $green: #8b8;
 @mixin bv($value:hidden){
 	@include backface-visibility($value);
 }
-
-body{
-	overflow: hidden;
-}
-.content{
-	height: 100%;
-}
 .main{
 	position: relative;
 	width: 300px;
 	margin: 0 auto;
 	padding-top: 50px;
 	padding-bottom: 150px;
-}
-.footer{
-	position: absolute;
-	bottom: 0;
-}
-.header{
-	min-height: 258px;
-	padding-top: 135px;
 }
 .book{
 	position: absolute;

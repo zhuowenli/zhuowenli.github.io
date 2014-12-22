@@ -46,7 +46,6 @@
 			clearInterval(interval);
 
 			var onEndHeaderAnimation = function(ev){
-				console.log('aa');
 				window.removeEventListener('scroll',disableScroll);
 				classie.add(document.body, 'layout-switch');
 			}

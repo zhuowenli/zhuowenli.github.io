@@ -650,6 +650,13 @@ $green: #39A239;
 		p{
 			margin-bottom: 16px;
 			text-indent: 2em;
+			a{
+				text-indent: 0;
+			}
+			&.demo{
+				text-indent: 0;
+				margin-bottom: 4em;
+			}
 		}
 		.quote{
 			padding: 0 30px;
@@ -913,12 +920,51 @@ $green: #39A239;
 			}
 		}
 	}
+	// 文章svgdemo按钮动画效果
+	.demo{
+		text-align: center;
+		a{
+			display: inline-block;
+			position: relative;
+			width: 15em;
+			height: 4em;
+			line-height: 4em;
+			margin: 0;
+			padding: 0;
+			-webkit-tap-highlight-color: transparent;
+			@include user-select(none);
+			-webkit-touch-callout:none;
+			.button{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				svg{
+					fill: $green;
+				}
+			}
+			.text{
+				display: block;
+				text-align: center;
+				position: relative;
+				z-index: 2000;
+				font-size: 1.5em;
+				color: #fff;
+				@include user-select(none);
+				-webkit-touch-callout:none;
+			}
+		}
+	}
 //-----------------------------------------------------
 
 // 类型: error
 // 说明: 404 page
 //-----------------------------------------------------
 	.error{
+		.content{
+			height: 100%;
+		}
 		.footer{
 			position: absolute;
 			bottom: 0;
@@ -949,6 +995,16 @@ $green: #39A239;
 	}
 //-----------------------------------------------------
 
+// 类型: codebase
+// 说明: 
+//-----------------------------------------------------
+	.codebase{
+		.header{
+			padding-top: 160px;
+			min-height: 358px;
+		}
+	}
+//-----------------------------------------------------
 
 
 // 类型: @media 1200

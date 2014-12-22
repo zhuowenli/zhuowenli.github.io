@@ -117,8 +117,6 @@
 
 	function scrollPage(){
 		scorllVal = scrollY();
-		console.log('scorllVal: ' +scorllVal);
-		console.log('isRevealed: '+isRevealed);
 		if (noscroll) {
 			if (scorllVal < 0) {
 				return false;
