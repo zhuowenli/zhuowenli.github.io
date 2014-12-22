@@ -1,3 +1,11 @@
+/* 
+* @Author: 卓文理 www.zwlme.com
+* @Email:  531840344@qq.com
+* @Date:   2014-12-21 11:59:50
+* @Last Modified by:   卓文理 www.zwlme.com
+* @Last Modified time: 2014-12-22 13:49:57
+*/
+
 (function(){
 	function extend(a,b){
 		for(var key in b){
