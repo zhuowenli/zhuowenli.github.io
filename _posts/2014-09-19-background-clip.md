@@ -4,7 +4,7 @@ title: 使用background-clip实现透明边框
 subline: background-clip
 categories: frontend
 tags: [css3, css-tricks]
-img: 6
+img: 9
 ---
 ##使用background-clip实现透明边框
 

@@ -4,7 +4,7 @@ title: jQuery性能优化
 subline: jquery performance optimization
 categories: frontend
 tags: [github-page, jekyll]
-img: 3
+img: 4
 ---
 
 人脑不是机器，记忆都会退化，我们需要文档辅助作知识沉淀

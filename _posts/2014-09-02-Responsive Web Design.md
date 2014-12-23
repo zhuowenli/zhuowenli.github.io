@@ -4,7 +4,7 @@ title: 响应式WEB设计
 subline: Responsive WEB Design
 categories: design
 tags: [design, responsive]
-img: 8
+img: 7
 ---
 
 这是<a href="http://alistapart.com/author/emarcotte">Ethan Marcotte</a>于2010年在<a href="http://alistapart.com/">A List Part</a>上发布的一篇关于响应式的<a href="http://alistapart.com/article/responsive-web-design">文章</a>。文章介绍了响应式互联网设计作为一种不可逆转的技术和设计潮流的背景、基本原理和发展趋势。并首次提出了响应式布局这个沿用至今的概念。			

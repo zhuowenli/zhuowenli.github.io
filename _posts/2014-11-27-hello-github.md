@@ -4,7 +4,7 @@ title: Hello GitHub!
 subline: 博客搬迁计划
 categories: diary
 tags: [github-page, jekyll]
-img: 1
+img: 17
 ---
 
 最近正好有时间，把博客页面重新设计了一下，通过jekyll模版引擎重新构建，然后挂到GitHub Pages上面。

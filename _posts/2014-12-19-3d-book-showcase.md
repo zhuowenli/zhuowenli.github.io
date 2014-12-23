@@ -4,7 +4,7 @@ title: 3D 图书展示
 subline: 3D Book Showcase
 categories: codebase
 tags: [github-page, jekyll]
-img: 22
+img: 18
 demo-link: codebase/3DBookShowcase
 demo-source: 3DBookShowcase.zip
 ---

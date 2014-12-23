@@ -4,7 +4,7 @@ title: 链接下划线动画效果
 subline: Animating Link Underlines
 categories: frontend
 tags: [css, css3, animation]
-img: 18
+img: 21
 ---
 
 最近，我在构建这个网站的时候，加了个很有意思的效果。当你在首页把鼠标移到标题上的时候，链接的下划线就会从链接的中间向两边延伸开来。相信你已经注意到了吧！

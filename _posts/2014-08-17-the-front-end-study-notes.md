@@ -4,7 +4,7 @@ title: 前端学习笔记
 subline: the front end study notes
 categories: frontend
 tags: [frontend, notes]
-img: 4
+img: 3
 ---
 
 **——人脑不是机器，记忆都会退化，我们需要文档辅助作知识沉淀**

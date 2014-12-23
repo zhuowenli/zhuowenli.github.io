@@ -4,7 +4,7 @@ title: WEB设计之道
 subline: A dao of WEB design
 categories: design
 tags: [design, web]
-img: 7
+img: 6
 ---
 
 <p>道之于90年代恰如禅之于70年代。事无巨细，皆可受之道，或推之道。Web 设计之事，虽小技，然而通览<cite>《道德经》</cite>，我们仍然会发现其中包含深刻的道理。道是哲学，象佛，是一种生活与处世的方式，来自古老的<cite>《道德经》</cite>，这部拥有81个章节的晦涩经文涵盖了人类的经验，但它始终讲述一个主题，和谐。</p>

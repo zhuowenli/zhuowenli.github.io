@@ -4,7 +4,7 @@ title: 如何在javascript中创建一次性事件
 subline: one time events with javascript
 categories: frontend
 tags: [javascript]
-img: 10
+img: 11
 ---
 
 <h2>如何在javascript中创建一次性事件</h2>

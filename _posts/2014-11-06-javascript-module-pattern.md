@@ -4,7 +4,7 @@ title: Javascript 模块模式
 subline: javascript module pattern
 categories: frontend
 tags: [javascript]
-img: 12
+img: 14
 ---
 
 <h2>Javascript 模块模式</h2>

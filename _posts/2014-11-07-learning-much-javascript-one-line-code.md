@@ -4,7 +4,7 @@ title: 从一行代码里面学点JavaScript
 subline: learning much javascript with one line code
 categories: frontend
 tags: [javascript]
-img: 13
+img: 15
 ---
 
 ##从一行代码里面学点JavaScript

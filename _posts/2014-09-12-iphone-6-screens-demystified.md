@@ -4,7 +4,7 @@ title: iphone 6 屏幕揭秘
 subline: iPhone 6 Screen Demystified
 categories: frontend
 tags: [low poly, design, canvas]
-img: 28
+img: 8
 ---
 
 <p>

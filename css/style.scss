@@ -54,7 +54,6 @@ $green: #39A239;
 		background: #f5f5f5;
 		z-index: 2000;
 		@include prefixer-values(transition,transform 0.5s);
-		position: relative;
 	}
 //-----------------------------------------------------
 
@@ -861,13 +860,9 @@ $green: #39A239;
 	.menu-open{
 		overflow: hidden;
 		.content{
+			height: 100%;
 			overflow: hidden;
 			@include transform(translate3d(250px,0,-100px));
-			.navbar{
-				position: absolute;
-				height: 0\0;
-				@include transition(height 0.3s);
-			}
 		}
 		.menu{
 			visibility: visible;

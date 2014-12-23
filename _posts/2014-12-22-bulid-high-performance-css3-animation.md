@@ -4,7 +4,7 @@ title: 构建高性能CSS3动画
 subline: Bulid high performance CSS3 animation
 categories: frontend
 tags: [css, css3, animation, performance]
-img: 17
+img: 19
 ---
 
 高性能移动Web相较PC的场景需要考虑的因素也相对更多更复杂，我们总结为以下几点： 流量、功耗与流畅度。 

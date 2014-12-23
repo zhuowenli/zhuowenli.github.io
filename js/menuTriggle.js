@@ -1,9 +1,9 @@
 /* 
-* @Author: 卓文理 www.zwlme.com
+* @Author: 卓文理 zhuowenli.sinaapp.com
 * @Email:  531840344@qq.com
 * @Date:   2014-11-22 10:19:22
-* @Last Modified by:   卓文理 www.zwlme.com
-* @Last Modified time: 2014-11-26 13:49:47
+* @Last Modified by:   zwl
+* @Last Modified time: 2014-12-20 21:31:16
 */
 (function(){
 	var isMenuOpen,

@@ -4,7 +4,7 @@ title: JavaScript实现简单的双向数据绑定
 subline: data binding with javascript
 categories: frontend
 tags: [javascript]
-img: 11
+img: 12
 ---
 
 <h2>
