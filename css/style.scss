@@ -461,6 +461,10 @@ $green: #39A239;
 					left: 0;
 					width: 100%;
 					height: auto;
+					@include transition(all 15s linear);
+					&:hover{
+						@include transform(scale(1.5));
+					}
 				}
 			}
 			.entry-intro{
@@ -542,13 +546,24 @@ $green: #39A239;
 				position: absolute;
 				top: 0;
 				left: 0;
-				min-height: 100%;
 				min-width: 100%;
+				height: auto
 			}
 		}
 		.title{
 			@extend %title;
 			color: #fff;
+		}
+		&.post-quote{
+			.hd-img{
+				background: #fff;
+				img{
+					top: 50%;
+					left: 50%;
+					@include transform(translate3d(-50%,-50%,0));
+					min-width: auto;
+				}
+			}
 		}
 	}
 //-----------------------------------------------------
@@ -1025,6 +1040,7 @@ $green: #39A239;
 					height: auto;
 					margin: 0;
 					max-height: 250px;
+					background: #fff;
 					img{
 						position: relative;
 					}

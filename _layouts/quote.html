@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="cn">
+{% include head.html %}
+<body>
+	<div id="container" class="container">
+		{% include loading.html %}
+
+		<div id="content" class="content">
+			{% include navbar.html %}
+
+			{% include quote.html %}
+
+		</div>
+
+		<nav id="menu" class="menu">
+			<ul>
+				<li><a href="{{ site.BASE_PATH }}/">首页</a></li>
+				<li><a href="{{ site.BASE_PATH }}/frontend.html">前端开发</a></li>
+				<li><a href="{{ site.BASE_PATH }}/design.html">设计网摘</a></li>
+				<li><a href="{{ site.BASE_PATH }}/diary.html">生活日志</a></li>
+				<li><a href="{{ site.BASE_PATH }}/about.html">关于博主</a></li>
+				<li><a href="{{ site.BASE_PATH }}/friend.html">友链</a></li>
+			</ul>
+		</nav>
+	</div>
+	
+	<!--[if lte IE 8]>
+		<script type="text/javascript" src="{{ site.BASE_PATH }}/js/fuckie.js"></script>
+	<![endif]-->
+	
+	<script type="text/javascript" src="{{ site.BASE_PATH }}/js/classie.js"></script>
+	<script type="text/javascript" src="{{ site.BASE_PATH }}/js/menuTriggle.js"></script>
+	<script type="text/javascript" src="{{ site.BASE_PATH }}/js/PathLoader.js"></script>
+	<script type="text/javascript" src="{{ site.BASE_PATH }}/js/pageLoading.js"></script>
+	{% include tongji %}
+</body>
+</html>
