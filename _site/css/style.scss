@@ -768,7 +768,7 @@ $green: #39A239;
 	.footer{
 		height: 108px;
 		width: 100%;
-		background: #2d3039;
+		background: #cddce3;
 		&.bottom{
 			@extend %post-hide;
 			@extend %transition-tr-op;
@@ -811,13 +811,9 @@ $green: #39A239;
 		p{
 			vertical-align: top;
 			@include inline-block;
-			color: #fff;
 			height: 50px;
 			line-height: 50px;
 			font-size: 12px;
-			a{
-				color: #fff;
-			}
 		}
 	}
 //-----------------------------------------------------
