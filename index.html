@@ -38,18 +38,46 @@ layout: default
 	{% endfor %}
 	
 	<nav id="nav-below" class="navigation">
-		<div class="nav-previous">
+		<div class="SVGButton nav-previous">
 			{% if paginator.previous_page %}
 			    {% if paginator.previous_page == 1 %}
-			    <a href="{{ site.BASE_PATH }}/"><i class="icon icon-left"></i> NEWER</a>
+			    <a class="nav-link" href="{{ site.BASE_PATH }}/">
+
+					<span class="button" data-morph-active="M286.5,62.5c0,27.891-22.609,50.5-50.5,50.5c0,0-64.355-6-86-6c-21.645,0-86,6-86,6c-27.891,0-50.5-22.609-50.5-50.5l0,0C13.5,34.609,36.109,12,64,12c0,0,64.355,6,86,6c21.645,0,86-6,86-6C263.891,12,286.5,34.609,286.5,62.5L286.5,62.5z">
+						<svg width="100%" height="100%" viewBox="0 0 300 125" preserveAspectRatio="none">
+							<path d="M286.5,62.5C286.5,90.39099999999999,263.891,113,236,113C236,113,171.64499999999998,113,150,113C128.355,113,64,113,64,113C36.109,113,13.5,90.39099999999999,13.5,62.5C13.5,62.5,13.5,62.5,13.5,62.5C13.5,34.609,36.109,12,64,12C64,12,128.35500000000002,12,150,12C171.645,12,236,12,236,12C263.891,12,286.5,34.609,286.5,62.5C286.5,62.5,286.5,62.5,286.5,62.5C286.5,62.5,286.5,62.5,286.5,62.5"/>
+						</svg>
+					</span>
+					<span class="text"><i class="icon icon-left"></i> NEWER</span>
+
+			    </a>
 			    {% else %}
-				<a href="{{ site.BASE_PATH }}/{{ site.paginate_path | replace: ':num', paginator.previous_page }}"><i class="icon icon-left"></i> NEWER</a>
+				<a class="nav-link" href="{{ site.BASE_PATH }}/{{ site.paginate_path | replace: ':num', paginator.previous_page }}">
+
+					<span class="button" data-morph-active="M286.5,62.5c0,27.891-22.609,50.5-50.5,50.5c0,0-64.355-6-86-6c-21.645,0-86,6-86,6c-27.891,0-50.5-22.609-50.5-50.5l0,0C13.5,34.609,36.109,12,64,12c0,0,64.355,6,86,6c21.645,0,86-6,86-6C263.891,12,286.5,34.609,286.5,62.5L286.5,62.5z">
+						<svg width="100%" height="100%" viewBox="0 0 300 125" preserveAspectRatio="none">
+							<path d="M286.5,62.5C286.5,90.39099999999999,263.891,113,236,113C236,113,171.64499999999998,113,150,113C128.355,113,64,113,64,113C36.109,113,13.5,90.39099999999999,13.5,62.5C13.5,62.5,13.5,62.5,13.5,62.5C13.5,34.609,36.109,12,64,12C64,12,128.35500000000002,12,150,12C171.645,12,236,12,236,12C263.891,12,286.5,34.609,286.5,62.5C286.5,62.5,286.5,62.5,286.5,62.5C286.5,62.5,286.5,62.5,286.5,62.5"/>
+						</svg>
+					</span>
+					<span class="text"><i class="icon icon-left"></i> NEWER</span>
+					
+			    </a>
 				{% endif %}
 			{% endif %}
 
 			{% if paginator.next_page %}
-			<a href="{{ site.BASE_PATH }}/{{ site.paginate_path | replace: ':num', paginator.next_page }}">OLDER <i class="icon icon-right"></i></a>
+			<a class="nav-link" href="{{ site.BASE_PATH }}/{{ site.paginate_path | replace: ':num', paginator.next_page }}">
+
+					<span class="button" data-morph-active="M286.5,62.5c0,27.891-22.609,50.5-50.5,50.5c0,0-64.355-6-86-6c-21.645,0-86,6-86,6c-27.891,0-50.5-22.609-50.5-50.5l0,0C13.5,34.609,36.109,12,64,12c0,0,64.355,6,86,6c21.645,0,86-6,86-6C263.891,12,286.5,34.609,286.5,62.5L286.5,62.5z">
+						<svg width="100%" height="100%" viewBox="0 0 300 125" preserveAspectRatio="none">
+							<path d="M286.5,62.5C286.5,90.39099999999999,263.891,113,236,113C236,113,171.64499999999998,113,150,113C128.355,113,64,113,64,113C36.109,113,13.5,90.39099999999999,13.5,62.5C13.5,62.5,13.5,62.5,13.5,62.5C13.5,34.609,36.109,12,64,12C64,12,128.35500000000002,12,150,12C171.645,12,236,12,236,12C263.891,12,286.5,34.609,286.5,62.5C286.5,62.5,286.5,62.5,286.5,62.5C286.5,62.5,286.5,62.5,286.5,62.5"/>
+						</svg>
+					</span>
+					<span class="text">OLDER <i class="icon icon-right"></i></span>
+					
+			    </a>
 			{% endif %}
 		</div>
 	</nav>
+
 </div>

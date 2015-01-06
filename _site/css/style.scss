@@ -489,28 +489,43 @@ $green: #39A239;
 		padding-bottom: 70px;
 		text-align: center;
 		.nav-previous{
-			a{
+			.nav-link{
 				margin: 0 10px;
-				@include inline-block;
-				width: 140px;
-				height: 40px;
-				line-height: 40px;
-				border: 2px solid  #c4c4c4;
-				@include border-radius(40px);
-				font-size: 12px;
-				color: #434343;
+				display: inline-block;
+				position: relative;
+				width: 9em;
+				height: 3em;
+				line-height: 3em;
+				-webkit-tap-highlight-color: transparent;
+				@include user-select(none);
+				-webkit-touch-callout:none;
+				.button{
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					top: 0;
+					left: 0;
+					svg{
+						fill: transparent;
+						stroke: $green;
+						stroke-width: 2px;
+						stroke-linecap: round;
+					}
+				}
+				.text{
+					display: block;
+					text-align: center;
+					position: relative;
+					z-index: 2000;
+					color: $green;
+					@include user-select(none);
+					-webkit-touch-callout:none;
+				}
 				.icon{
 					@include inline-block;
 					font-size: 13px;
-					color: #666;
-					vertical-align: top;
-				}
-				&:active,&:hover{
-					border: 2px solid $green;
 					color: $green;
-					.icon{
-						color: $green;
-					}
+					vertical-align: top;
 				}
 			}
 		}

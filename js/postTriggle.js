@@ -128,11 +128,9 @@
 		};
 		if (scorllVal > 0 && !isRevealed) {
 			toggle(1);
-			console.log('show')
 		};
 		if (scorllVal <= 0 && isRevealed) {
 			toggle(0);
-			console.log('hide')
 		};
 	}
 

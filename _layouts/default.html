@@ -34,9 +34,15 @@
 	<![endif]-->
 	
 	<script type="text/javascript" src="{{ site.BASE_PATH }}/js/classie.js"></script>
+	<!-- snap.svg -->
+	<script type="text/javascript" src="{{ site.BASE_PATH }}/js/snap.svg-min.js"></script>
+	<script type="text/javascript" src="{{ site.BASE_PATH }}/js/SVGButton.js"></script>
+	<!-- loading -->
 	<script type="text/javascript" src="{{ site.BASE_PATH }}/js/PathLoader.js"></script>
 	<script type="text/javascript" src="{{ site.BASE_PATH }}/js/pageLoading.js"></script>
+	<!-- menu -->
 	<script type="text/javascript" src="{{ site.BASE_PATH }}/js/menuTriggle.js"></script>
+	<!-- 雪花 -->
 	<script type="text/javascript" src="{{ site.BASE_PATH }}/js/snowflakes.js"></script>
 	<script type="text/javascript">
 		var snowflakes;
@@ -44,7 +50,6 @@
 			if (document.readyState === "complete" || document.readyState === "Loaded") {
 				snowflakes = new Snowflakes('container','snowflakesContainer'); 	
 				snowflakes.create(40);
-				console.log('aaa')
 				clearInterval(snow);
 			};
 		},500);

@@ -26,7 +26,7 @@
 		easing: {reset: mina.elastic, active:mina.easein}
 	};
 	SVGButton.prototype.init = function() {
-		console.log('init');
+		console.log('SVGButton Init');
 		this.shapeEl = this.el.querySelector('span.button');
 
 		var s = Snap(this.shapeEl.querySelector('svg'));
@@ -38,7 +38,6 @@
 		this.initEvents();
 	};
 	SVGButton.prototype.initEvents = function(){
-		console.log('initEvents')
 		this.el.addEventListener('mousedown', this.down.bind(this));
 		this.el.addEventListener('touchstart', this.down.bind(this));
 
@@ -48,14 +47,12 @@
 		this.el.addEventListener('mouseout', this.up.bind(this));
 	};
 	SVGButton.prototype.down = function(){
-		console.log('up')
 		this.pathEl.stop().animate({'path': this.paths.active},this.options.speed.active,this.options.easing.active);
 	};	
 	SVGButton.prototype.up = function(){
-		console.log('down')
 		this.pathEl.stop().animate({'path': this.paths.reset},this.options.speed.reset,this.options.easing.reset);
 	};
-	[].slice.call( document.querySelectorAll( '.demo a' ) ).forEach( function( el ) {
+	[].slice.call( document.querySelectorAll( '.SVGButton a' ) ).forEach( function( el ) {
 		new SVGButton( el );
 	});
 

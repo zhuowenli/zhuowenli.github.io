@@ -16,7 +16,7 @@
 <article class="post-content">
 	<div>
 		{% if page.demo-link %}
-			<p class="demo">
+			<p class="SVGButton demo">
 				<a href="javascript:setTimeout(function(){window.open('{{ site.BASE_PATH }}/{{ page.demo-link }}');clearTimeout();},300);" class="entry-more demo-link" target="_blank">
 					<span class="button" data-morph-active="M286,113c0,0-68.8-5-136-5c-78.2,0-137,5-137,5s5-15.802,5-50.5C18,33.999,13,12,13,12s59,5,137,5c85,0,136-5,136-5s-5,17.598-5,52C281,96.398,286,113,286,113z">
 						<svg width="100%" height="100%" viewBox="0 0 300 125" preserveAspectRatio="none">
@@ -40,6 +40,3 @@
 	</div>
 </article>
 {% include disqus %}
-
-<script type="text/javascript" src="{{ site.BASE_PATH }}/js/snap.svg-min.js"></script>
-<script type="text/javascript" src="{{ site.BASE_PATH }}/js/SVGButton.js"></script>
