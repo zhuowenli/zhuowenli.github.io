@@ -5,16 +5,16 @@
   <channel>
     <title>{{ site.title }}</title>
     <description>{{ site.description }}</description>
-    <link>{{ site.BASE_PATH }}/</link>
-    <atom:link href="{{ site.BASE_PATH }}/{{ site.rss_path }}" rel="self" type="application/rss+xml" />
+    <link>{{ site.SITE_PATH }}/</link>
+    <atom:link href="{{ site.SITE_PATH }}/{{ site.rss_path }}" rel="self" type="application/rss+xml" />
     <language>zh-CN</language>
     {% for post in site.posts limit:20 %}
       <item>
         <title>{{ post.title }}</title>
         <description>{{ post.excerpt | xml_escape }}</description>
         <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
-        <link>{{ site.BASE_PATH }}{{ post.url }}</link>
-        <guid isPermaLink="true">{{ site.BASE_PATH }}{{ post.url }}</guid>
+        <link>{{ site.SITE_PATH }}{{ post.url }}</link>
+        <guid isPermaLink="true">{{ site.SITE_PATH }}{{ post.url }}</guid>
         <content>{{ post.content | xml_escape }}</content>
       </item>
     {% endfor %}
