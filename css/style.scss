@@ -560,9 +560,11 @@ $green: #39A239;
 			img{
 				position: absolute;
 				top: 0;
-				left: 0;
+				left: 50%;
 				min-width: 100%;
-				height: auto
+				min-height: 100%;
+				height: auto;
+				@include transform(translateX(-50%));
 			}
 		}
 		.title{
