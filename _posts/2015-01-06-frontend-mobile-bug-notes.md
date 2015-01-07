@@ -7,6 +7,8 @@ tags: [frontend, mobile, bug, notes]
 img: 23
 ---
 
+记录各种奇葩问题。
+
 ##IOS
 
 ####弹窗高度下榻问题

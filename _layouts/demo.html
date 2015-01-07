@@ -1,28 +1,56 @@
 <!DOCTYPE html>
 <html lang="cn">
-{% include head.html %}
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<meta name="Keywords" content="卓文理,前端,前端开发,网页设计,交互设计"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+	<meta content="yes" name="apple-mobile-web-app-capable" />    
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />     
+	<meta content="telephone=no" name="format-detection" />  
+	{% if page.description %}
+	<meta name="description" content="{{ page.description }}">
+	{% endif %}
+	<meta name="author" content="{{ site.author.name }}">
+
+	<link rel="apple-touch-icon-precomposed" href="{{ site.BASE_PATH }}/img/icon.png">
+	<link rel="apple-touch-icon-precomposed" href="{{ site.BASE_PATH }}/img/icon-72.png" sizes="72x72" />
+	<link rel="apple-touch-icon-precomposed" href="{{ site.BASE_PATH }}/img/icon-76.png" sizes="76x76" />
+	<link rel="apple-touch-icon-precomposed" href="{{ site.BASE_PATH }}/img/icon-114.png" sizes="114x114" />
+	<link rel="apple-touch-icon-precomposed" href="{{ site.BASE_PATH }}/img/icon-120.png" sizes="120x120" />
+	<link rel="apple-touch-icon-precomposed" href="{{ site.BASE_PATH }}/img/icon-152.png" sizes="152x152" />
+	<link href="{{ site.BASE_PATH }}/img/icon.png" rel="Shortcut Icon" type="image/x-icon"/>
+	
+    <title>{% if page.title %}{{ page.title }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}</title>
+
+	<link rel="stylesheet" href="{{ site.BASE_PATH }}/css/demo.css">
+	<link rel="stylesheet" href="{{ site.BASE_PATH }}/css/default.min.css">
+	<script src="{{ site.BASE_PATH }}/js/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+	<!--[if IE 9]>
+		<link rel="stylesheet" href="{{ site.BASE_PATH }}/css/ie9.css">
+		<script src="{{ site.BASE_PATH }}/js/html5.js" type="text/javascript"></script>
+	<![endif]-->
+</head>
 <body>
 	<div id="container" class="container codebase modify">
 
 		<div id="content" class="content">
-			{% include navbar.html %}
+			<nav class="navbar">
+				<div class="pull-left">
+				</div>
+				<ul class="pull-center">
+					<li class="active"><a href="{{ site.BASE_PATH }}/">HOME</a></li>
+					<li><a href="{{ site.BASE_PATH }}/codebase/{{ page.article }}.html">BACK ARTICLE</a></li>
+				</ul>
+				<div class="pull-right"></div>
+			</nav>
 
 			{{content }}
 
 		</div>
 		
 		{% include footer.html %}
-
-		<nav id="menu" class="menu">
-			<ul>
-				<li class="active"><a href="{{ site.BASE_PATH }}/">首页</a></li>
-				<li><a href="{{ site.BASE_PATH }}/frontend.html">前端开发</a></li>
-				<li><a href="{{ site.BASE_PATH }}/design.html">设计网摘</a></li>
-				<li><a href="{{ site.BASE_PATH }}/diary.html">生活日志</a></li>
-				<li><a href="{{ site.BASE_PATH }}/about.html">关于博主</a></li>
-				<li><a href="{{ site.BASE_PATH }}/friend.html">友链</a></li>
-			</ul>
-		</nav>
 	</div>
 	
 	<!--[if lte IE 8]>
@@ -31,7 +59,6 @@
 	
 
 	<script type="text/javascript" src="{{ site.BASE_PATH }}/js/classie.js"></script>
-	<script type="text/javascript" src="{{ site.BASE_PATH }}/js/menuTriggle.js"></script>
 	<script type="text/javascript">
 		var content = document.querySelector('.content'),
 			footer = document.querySelector('.footer'),
@@ -39,9 +66,7 @@
 			footH  = footer.offsetHeight,
 			winH   = window.innerHeight;
 		if (footT - footH + 100 < winH) {
-			content.style.height = '100%';
-			footer.style.position = 'absolute';
-			footer.style.bottom = 0;
+			content.style.minHeight = winH - footH + 'px';
 		};
 	</script>
 	{% include tongji %}

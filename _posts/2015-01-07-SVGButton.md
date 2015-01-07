@@ -1,6 +1,6 @@
 ---
 layout: post
-title: svg动画：弹性按钮
+title: SVG动画：弹性按钮
 subline: Elastic Button with SVG
 categories: codebase
 tags: [svg, elastic, button, snap.svg]

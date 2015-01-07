@@ -1,0 +1,414 @@
+@charset "utf-8";
+/* 
+* @Author: 卓文理 www.zwlme.com
+* @Email:  531840344@qq.com
+* @Date:   2014-11-20 16:52:57
+* @Last Modified by:   卓文理 www.zwlme.com
+* @Last Modified time: 2014-11-26 15:49:00
+*/
+
+@import 'icon';
+@import 'base';
+@import 'brandon-grotesque'; // 字体
+
+$green: #39A239;
+
+// 类型: layout
+// 说明: 公共样式
+//-----------------------------------------------------
+	html, body, .container, .post-header{
+		height: 100%;
+	}
+	.pull-left{
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+	.pull-right{
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	.pull-center{
+		text-align: center;
+	}
+	button{
+		outline: 0;
+	}
+	body{
+		color: #333;
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 1.5;
+		text-rendering: optimizeLegibility;
+		-webkit-font-smoothing: antialiased;
+	}
+	.container{
+		position: relative;
+	}
+	.content{
+		background: #f5f5f5;
+		z-index: 2000;
+	}
+//-----------------------------------------------------
+
+// 类型: extend
+// 说明: 封装的公共可调用模块
+//-----------------------------------------------------
+	%transition-tr-op{
+		@include transition-property(opacity, transform);
+		@include transition-duration(1s);
+	}
+	%box-center{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		@include transform(translate3d(-50%,-50%,0));
+	}
+	%title{
+		z-index: 1000;
+		margin: 0 auto;
+		padding: 0 1.25em;
+		width: 100%;
+		text-align: center;
+		@extend %box-center;
+		color: #516165;
+		h1{
+			padding: 0 0 0.2em;
+			font-weight: 800;
+			font-size: 4.5em;
+			margin: 0 auto;
+			line-height: 1;
+		}
+		p{
+			padding: 0 0 0.6em;
+			font-weight: 300;
+			font-size: 0.9em;
+			margin: 0 auto;
+			&.subline{
+				line-height: 1;
+				font-size: 1.75em;
+			}
+		}
+	}
+	%post-hide{
+		opacity: 0;
+		@include transform(translateY(400px));
+	}
+	%post-show{
+		opacity: 1;
+		@include transform(translateY(0));
+	}
+	@include keyframes(photo){
+		0% {
+        	@include transform(scale(1));
+	    }
+	    10%,20% {
+        	@include transform(scale(0.9) rotate(-3deg));
+	    }
+	    30%,50%,70%,90% {
+        	@include transform(scale(1.1) rotate(3deg));
+	    }
+	    40%,60%,80% {
+        	@include transform(scale(1.1) rotate(-3deg));
+	    }
+	    100% {
+        	@include transform(scale(1) rotate(0));
+	    }
+	}
+
+	@include keyframes(animInitialLogo){
+		from { opacity: 0; }
+	}
+	@include keyframes(animLoadedLogo){
+		to{
+			@include transform(translate3d(-50%,100%,0) translate3d(0,50px,0) scale3d(0.65,0.65,1));
+		}
+	}
+
+	@include keyframes(animInitialLoader){
+		from{
+			opacity: 0;
+			@include transform(translate3d(-50%,0,0) scale3d(0.5,0.5,1));
+		}
+	}
+	@include keyframes(animLoadedLoader){
+		to{
+			opacity: 0;
+			@include transform(translate3d(-50%,-100%,0) scale3d(0.3,0.3,1));
+		}
+	}
+
+	@include keyframes(animLoadedHeader){
+		to{
+			opacity: 0;
+			@include transform(translate3d(0,-100%,0) scale3d(0.3,0.3,1));
+		}
+	}
+
+	@include keyframes(animLoadedContent){
+		from{
+			opacity: 0;
+			@include transform(scale3d(0.3,0.3,1));
+		}
+	}
+
+	%animLoadedContent{
+		@include animation(animLoadedContent 1s cubic-bezier(0.7,0,0.3,1) both);
+		@include transition-delay(0.15s);
+	}
+//-----------------------------------------------------
+
+// 类型: navbar
+// 说明: 头部导航条
+//-----------------------------------------------------
+	.navbar{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 108px;
+		overflow: hidden;
+		z-index: 2000;
+		background:rgba(255,255,255,0);
+		@include transform(translate3d(0,0,0));
+		@include transition(all 0.3s cubic-bezier(0.7,0,0.3,1));
+		@include transition-duration(1.5s);
+		.btn-menu{
+			margin-top: 40px;
+			margin-left: 15px;
+			border: 0;
+			background-color: transparent;
+			z-index: 2001;
+			.icon{
+				font-size: 1.5em;
+				margin-right: 0.2em;
+			}
+		}
+		.pull-center{
+			margin-top: 48px;
+			line-height: 1;
+			z-index: 2000;
+			li{
+				@include inline-block;
+				a {
+					color: #b2b2b2;
+					margin: 0 13px;
+				}
+				&:after{
+					content: '/';
+					color: #b2b2b2;
+				}
+				&:hover a{
+					color: #aaa;
+				}
+				&.active a{
+					color: $green;
+				}
+				&:last-child:after{
+					content: '';
+				}
+			}
+		}
+	}
+//-----------------------------------------------------
+
+// 类型: header
+// 说明: 首页标题
+//-----------------------------------------------------
+	.header{
+		min-height: 408px;
+		width: 100%;
+		background: #fff;
+		text-align: center;
+		padding-top: 210px;
+		color: #333;
+		position: relative;
+		h1{
+			font-size: 2.5em;
+			font-weight: bold;
+			line-height: 1;
+			margin-bottom: 15px;
+		}
+		h2{
+			line-height: 1;
+			font-size: 1.2em;
+		}
+
+	}
+//-----------------------------------------------------
+
+// 类型: disqus_thread
+// 说明: 评论功能
+//-----------------------------------------------------
+	#disqus_thread{
+		margin: 0 auto;
+		max-width: 900px;
+		width: 100%;
+		padding: 0 1.25em 12.5em;
+	}
+//-----------------------------------------------------
+
+
+// 类型: footer
+// 说明: 页面底部
+//-----------------------------------------------------
+	.footer{
+		height: 108px;
+		width: 100%;
+		background: #cddce3;
+		&.bottom{
+			@extend %post-hide;
+			@extend %transition-tr-op;
+			position: fixed;
+			bottom: 0;
+		}
+		.row{
+			width: 1200px;
+			margin: 0 auto;
+			position: relative;
+		}
+		div{
+			padding-top: 27px;
+		}
+		.avatar{
+			@include inline-block;
+			width: 50px;
+			height: 0;
+			padding-top: 50px;
+			margin-right: 25px;
+			@include border-radius(50px);
+			background:#fff url('data:image/png;base64,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') no-repeat;
+			background-size: 50px 50px;
+			font-size: 0;
+			position: relative;
+			&:hover{
+				@include animation(photo 1s both);
+			}
+			&:before{
+				content: '';
+				display: block;
+				position: absolute;
+				background:transparent url('../img/cap.png') no-repeat;
+				width: 77px;
+				height: 90px;
+				left: -45%;
+				top: -23px;
+			}
+		}
+		p{
+			vertical-align: top;
+			@include inline-block;
+			height: 50px;
+			line-height: 50px;
+			font-size: 12px;
+		}
+	}
+//-----------------------------------------------------
+
+// 类型: codebase
+// 说明: 
+//-----------------------------------------------------
+	.codebase{
+		.header{
+			padding-top: 160px;
+			min-height: 358px;
+		}
+	}
+//-----------------------------------------------------
+
+
+// 类型: @media 1200
+// 说明: 
+//-----------------------------------------------------
+	@include max-screen(1200px){
+		.footer{
+			.row{
+				padding: 0 1em;
+				width: 100%;
+				.pull-left{
+					left: 40px;
+				}
+				.pull-right{
+					right: 40px;
+				}
+			}
+		}
+	}
+//-----------------------------------------------------
+
+
+// 类型: @media 640
+// 说明: 
+//-----------------------------------------------------
+	@include max-screen(640px){
+		body{
+			font-size: 14px;
+		}
+		.header{
+			padding-top: 120px;
+			min-height: 328px;
+		}
+		.navbar{
+			height: 68px;
+			.btn-menu{
+				margin-top: 20px;
+			}
+			.pull-center{
+				position: absolute;
+				top: 0;
+				right: 5px;
+				margin-top: 28px;
+				li a{
+					margin: 0 6px;
+				}
+			}
+		}
+		.footer{
+			height: auto;
+			padding: 2em;
+			.row{
+				text-align: center;
+				.pull-left,.pull-right{
+					position: relative;
+					padding: 0;
+					left: 0;
+					right: 0;
+					p{
+						width: 100%;
+						height: 2em;
+						line-height: 2em;
+					}
+				}
+				.avatar{
+					display: none;
+					margin-bottom: 20px;
+					margin-right: 0;
+				}
+			}
+		}
+		.menu{
+			min-width: 260px;
+		}
+	}
+//-----------------------------------------------------
+
+
+
+// 类型: 圣诞节专题
+// 说明: 
+//-----------------------------------------------------
+	#content{
+		background:#f5f5f5 url('../img/bottom.png') center bottom no-repeat;
+		padding-bottom: 100px;
+		@include max-screen(1200px) {
+			background-size: auto auto;
+		}
+		@include max-screen(800px) {
+			background-size: 200% auto;
+		}
+		@include max-screen(640px) {
+			background-size: 300% auto;
+		}
+	}
+//-----------------------------------------------------

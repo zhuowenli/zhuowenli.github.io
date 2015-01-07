@@ -232,6 +232,7 @@ $green: #39A239;
 			}
 			.header h2{
 				@extend %animLoadedContent;
+				line-height: 1.5;
 			}
 		}
 		#loading{
@@ -1040,6 +1041,12 @@ $green: #39A239;
 			.row{
 				padding: 0 1em;
 				width: 100%;
+				.pull-left{
+					left: 40px;
+				}
+				.pull-right{
+					right: 40px;
+				}
 			}
 		}
 	}
@@ -1110,6 +1117,8 @@ $green: #39A239;
 				.pull-left,.pull-right{
 					position: relative;
 					padding: 0;
+					left: 0;
+					right: 0;
 					p{
 						width: 100%;
 						height: 2em;
