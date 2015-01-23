@@ -1,0 +1,30 @@
+---
+---
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:mobile="http://www.baidu.com/schemas/sitemap-mobile/1/"> 
+  <url>
+    <loc>{{ site.SITE_PATH }}</loc>
+    <mobile:mobile type="autoadapt"/>
+    <lastmod>site.time</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+{% for post in site.posts limit:20 %}
+  <url>
+    <loc>{{ site.SITE_PATH }}{{ post.url }}</loc>
+    <mobile:mobile type="autoadapt"/>
+    <lastmod>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+{% endfor %}
+{% for post in site.pages limit:20 %}
+  <url>
+    <loc>{{ site.SITE_PATH }}{{ post.url }}</loc>
+    <mobile:mobile type="autoadapt"/>
+    <lastmod>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+{% endfor %}
+</urlset>
