@@ -19,7 +19,7 @@ layout: design
 		</header>
 		<div class="entry-content">
 			<figure class="entry-poster">
-				<img src="{{ site.BASE_PATH }}/img/bg/{{ post.img }}.jpg" alt="背景图片">
+				<a class="entry-more" href="{{ site.BASE_PATH }}{{ post.url }}"><img src="{{ site.BASE_PATH }}/img/bg/{{ post.img }}.jpg" alt=""></a>
 			</figure>
 			<div class="entry-intro">
 		    {% if post.fullview %}
@@ -34,7 +34,7 @@ layout: design
 		      {% endif %}
 		    {% endif %}
 		    </div>
-			<a href="{{ site.BASE_PATH }}{{ post.url }}" class="entry-more"><i class="icon icon-dot"></i></a>
+			<a href="{{ site.BASE_PATH }}{{ post.url }}" class="entry-more"><i class="icon icon-dot">&#xe61a;</i></a>
 		</div>
 	</article>
 						{% endif %}
