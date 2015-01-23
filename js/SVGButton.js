@@ -3,7 +3,7 @@
 * @Email:  531840344@qq.com
 * @Date:   2014-12-21 11:59:50
 * @Last Modified by:   卓文理 www.zwlme.com
-* @Last Modified time: 2014-12-22 13:49:57
+* @Last Modified time: 2015-01-15 09:06:01
 */
 
 (function(){
@@ -53,7 +53,10 @@
 		this.pathEl.stop().animate({'path': this.paths.reset},this.options.speed.reset,this.options.easing.reset);
 	};
 	[].slice.call( document.querySelectorAll( '.SVGButton a' ) ).forEach( function( el ) {
-		new SVGButton( el );
+		new SVGButton( el, {
+			speed: {reset: 650, active: 650},
+			easing: {reset: mina.elastic, active:mina.elastic}
+		});
 	});
 
 })();
