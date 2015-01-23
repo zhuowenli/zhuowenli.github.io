@@ -3,7 +3,7 @@ layout: post
 title: 浅析 Media Query Level 4
 subline: Media Query Level 4
 categories: frontend
-tags: [media query, css3, w3c]
+tags: [media query, css3, w3]
 img: 25
 ---
 
