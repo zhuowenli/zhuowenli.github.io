@@ -174,3 +174,14 @@ SVG放到`span.button`标签里面，用`data-morph-active`来保存点击后的
 正确的形变，和适当动画时间，就可以创造出非常棒的效果。
 
 本例介绍的只是一种简单思路，希望你可以通过本文延伸拓展出更多的效果出来。:)
+
+
+---------
+
+<br>
+
+相关文章
+
+> SVG动画：弹性按钮
+>
+> [SVG动画：loading 效果]({{ site.SITE_PATH }}/codebase/SVGLoading.html)

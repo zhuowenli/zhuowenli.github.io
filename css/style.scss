@@ -4,7 +4,7 @@
 * @Email:  531840344@qq.com
 * @Date:   2014-11-20 16:52:57
 * @Last Modified by:   卓文理 www.zwlme.com
-* @Last Modified time: 2015-01-23 18:22:42
+* @Last Modified time: 2015-01-26 12:07:43
 */
 
 @import 'icon';
@@ -93,6 +93,9 @@ $green: #39A239;
 			&.subline{
 				line-height: 1;
 				font-size: 1.75em;
+			}
+			a{
+				color: #516165;
 			}
 		}
 	}
@@ -693,6 +696,24 @@ $green: #39A239;
 				margin-bottom: 4em;
 			}
 		}
+
+		blockquote{
+			margin: 0;
+			border-left: 1px solid  $green;
+			p{
+				margin-bottom: 5px;
+				a:not(.entry-more){
+					padding: 0;
+					&:before{
+						left: -0.4em;
+					}
+					&:after{
+						right: -0.4em;
+					}
+				}
+			}
+		}
+
 		.quote{
 			padding: 0 30px;
 			margin: 0 0 30px;
@@ -908,7 +929,7 @@ $green: #39A239;
 	// 文章链接hover效果
 	.post .entry-content,.post-content {
 		a:not(.entry-more){
-			color: #404d5b;
+			color: #39A239;
 			display: inline-block;
 			position: relative;
 			padding: 0 0.3em;

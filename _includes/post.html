@@ -10,7 +10,7 @@
 <div class="post-title">
 	<h1>{{ page.title }}</h1>
 	{% if page.subline %}<p class="subline">{{page.subline}}</p>{% endif %}
-	<p>作者: <strong>{{ site.author.name }}</strong>&nbsp;&nbsp;&nbsp;分类: <strong>{{ page.categories }}</strong>&nbsp;&nbsp;&nbsp;日期: <strong>{{ page.date | date: "%Y" }}年{{ page.date | date: "%m" }}月{{ page.date | date: "%d" }}日</strong></p>
+	<p>作者: <a target="_blank" href="{{ site.SITE_PATH }}/"><strong>{{ site.author.name }}</strong></a>&nbsp;&nbsp;&nbsp;分类: <a target="_blank" href="{{ site.SITE_PATH }}/{{ page.categories }}.html"><strong>{{ page.categories }}</strong></a>&nbsp;&nbsp;&nbsp;日期: <strong>{{ page.date | date: "%Y" }}年{{ page.date | date: "%m" }}月{{ page.date | date: "%d" }}日</strong></p>
 </div>
 
 <article class="post-content">

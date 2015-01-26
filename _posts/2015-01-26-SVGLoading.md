@@ -316,8 +316,18 @@ function PageLoaded(progress,interval){
 }
 ```
 
-That's all. 具体效果可以查看[代码]({{ site.SITE_PATH }}/codebase/SVGLoading)。
+That's all. 具体效果可以查看[DEMO]({{ site.SITE_PATH }}/codebase/SVGLoading)。
 
 有任何疑问都可以在下方留言。
 
 谢谢！
+
+---------
+
+<br>
+
+相关文章
+
+> [SVG动画：弹性按钮]({{ site.SITE_PATH }}/codebase/SVGButton.html)
+>
+> SVG动画：loading 效果
