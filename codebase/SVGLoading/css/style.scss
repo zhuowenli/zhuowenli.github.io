@@ -1,0 +1,191 @@
+@charset "utf-8";
+/* 
+* @Author: 卓文理 www.zwlme.com
+* @Email:  531840344@qq.com
+* @Date:   2015-01-26 09:52:57
+* @Last Modified by:   卓文理 www.zwlme.com
+* @Last Modified time: 2015-01-26 11:13:45
+*/
+
+@import '../../../css/base';
+
+@font-face {
+	font-weight: normal;
+	font-style: normal;
+	font-family: 'Blokk';
+	src: url('../fonts/blokk/BLOKKRegular.eot');
+	src: url('../fonts/blokk/BLOKKRegular.eot?#iefix') format('embedded-opentype'),
+		 url('../fonts/blokk/BLOKKRegular.woff') format('woff'),
+		 url('../fonts/blokk/BLOKKRegular.svg#BLOKKRegular') format('svg');
+}
+
+// 类型: 动画
+// 说明: 
+//-----------------------------------------------------
+	@include keyframes(animInitialLogo){
+		from { opacity: 0; }
+	}
+	@include keyframes(animLoadedLogo){
+		to{
+			@include transform(translate3d(-50%,100%,0) translate3d(0,50px,0) scale3d(0.65,0.65,1));
+		}
+	}
+
+	@include keyframes(animInitialLoader){
+		from{
+			opacity: 0;
+			@include transform(translate3d(-50%,0,0) scale3d(0.5,0.5,1));
+		}
+	}
+	@include keyframes(animLoadedLoader){
+		to{
+			opacity: 0;
+			@include transform(translate3d(-50%,-100%,0) scale3d(0.3,0.3,1));
+		}
+	}
+
+	@include keyframes(animLoadedHeader){
+		to{
+			opacity: 0;
+			@include transform(translate3d(0,-100%,0) scale3d(0.3,0.3,1));
+		}
+	}
+
+	@include keyframes(animLoadedArticle){
+		from{
+			opacity: 0;
+			@include transform(translate3d(0,100%,0) scale3d(0.5,0.5,1));
+		}
+	}
+
+	@include keyframes(animLoadedContent){
+		from{
+			opacity: 0;
+			@include transform(scale3d(0.3,0.3,1));
+		}
+	}
+
+	%animLoadedContent{
+		@include animation(animLoadedContent 1s cubic-bezier(0.7,0,0.3,1) both);
+		@include transition-delay(0.15s);
+	}
+//-----------------------------------------------------
+
+
+// 类型: loading
+// 说明: 页面进度条及动画效果
+//-----------------------------------------------------
+	#loading{
+		position: fixed;
+		top: 0;
+		z-index: 8000;
+		min-height: 480px;
+		width: 100%;
+		height: 100%;
+		background: #f1f1f1;
+		.ld-inner{
+			display: block;
+			margin: 0 auto;
+		}
+		.ld-loader svg path{
+			fill:none;
+			stroke-width: 6;
+			&.ld-loader-circlebg{
+				stroke: #ddd;
+			}
+			&.ld-loader-circle{
+				stroke-dasharray: 192px;
+				stroke-dashoffset: 192px;
+				@include transition(stroke-dashoffset 0.2s);
+				stroke: #39A239;
+			}
+		}
+	}
+	.ld-logo,.ld-loader{
+		position: absolute;
+		left: 50%;
+		opacity: 0;
+		cursor: default;
+		pointer-events:none;
+	}
+	.ld-logo{
+		@include inline-block;
+		top: 40%;
+		@include transform(translate3d(-50%,-50%,0));
+		@include transition(opacity 0.3s cubic-bezier(0.7,0,0.3,1));
+	}
+	.ld-loader{
+		bottom: 20%;
+		@include transform(translate3d(-50%,0,0));
+	}
+	.loading{
+		.ld-logo,.ld-loader{
+			opacity: 1;
+		}
+		.ld-logo{
+			@include animation(animInitialLogo 0.5s cubic-bezier(0.7,0,0.3,1) both);
+		}
+		.ld-loader{
+			@include animation(animInitialLoader 0.5s cubic-bezier(0.7,0,0.3,1) both);
+		}
+	}
+	.loaded{
+		.content {
+			.article{
+				@include animation(animLoadedArticle 1s cubic-bezier(0.7,0,0.3,1) both);
+				@include transition-delay(0.15s);
+				// @extend %animLoadedContent;
+			}
+			.header h1,.post-header h1{
+				@extend %animLoadedContent;
+			}
+			.header h2{
+				@extend %animLoadedContent;
+				line-height: 1.5;
+			}
+		}
+		#loading{
+			@include animation(animLoadedHeader 1s cubic-bezier(0.7,0,0.3,1) forwards);
+		}
+		.ld-logo,.ld-loader{
+			opacity: 1;
+		}
+		.ld-logo{
+			@include transform-origin(50% 0);
+			@include animation(animLoadedLogo 1s cubic-bezier(0.7,0,0.3,1) forwards);
+		}
+		.ld-loader{
+			@include animation(animLoadedLoader 1s cubic-bezier(0.7,0,0.3,1) forwards);
+		}
+	}
+	.layout-switch{
+		#loading{
+			position: absolute;
+		}
+	}
+//-----------------------------------------------------
+
+
+.browser {
+	margin: 50px auto 100px;
+	padding-top: 8%;
+	min-height: 400px;
+	max-width: 1000px;
+	width: 100%;
+	border-radius: 8px;
+	background: #fff url(../img/browser.png) no-repeat 50% 0;
+	background-size: 100%;
+	color: #d3d3d3;
+	@include clearfix;
+}
+
+.box {
+	float: left;
+	padding: 3.5em;
+	width: 33.3%;
+	font-size: 1em;
+	line-height: 1.5;
+	p {
+		font-family: 'Blokk', Arial, sans-serif;
+	}
+}
