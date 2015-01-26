@@ -4,7 +4,7 @@
 * @Email:  531840344@qq.com
 * @Date:   2014-11-20 16:52:57
 * @Last Modified by:   卓文理 www.zwlme.com
-* @Last Modified time: 2015-01-26 12:07:43
+* @Last Modified time: 2015-01-26 15:59:45
 */
 
 @import 'icon';
@@ -165,7 +165,6 @@ $green: #39A239;
 		@include animation(animLoadedContent 1s cubic-bezier(0.7,0,0.3,1) both);
 		@include transition-delay(0.15s);
 	}
-
 //-----------------------------------------------------
 
 // 类型: loading
@@ -236,6 +235,9 @@ $green: #39A239;
 			.header h2{
 				@extend %animLoadedContent;
 				line-height: 1.5;
+			}
+			.friend{
+				@extend %animLoadedContent;
 			}
 		}
 		#loading{
@@ -1054,6 +1056,49 @@ $green: #39A239;
 	}
 //-----------------------------------------------------
 
+// 类型: friend
+// 说明: 友链
+//-----------------------------------------------------
+	.friend{
+		padding: 15px 0 100px;
+		display: block;
+		width: 100%;
+		max-width: 991px;
+		margin: 0 auto;
+		@include clearfix;
+		.box{
+			display: inline-block;
+			float: left;
+			width: 330px;
+			padding: 15px;
+			.hd{
+				background: #fff;
+				position: relative;
+				width: 300px;
+				height: 200px;
+				overflow: hidden;
+				a{
+					display: block;
+					img{
+						width: 100%;
+						height: auto;
+					}
+				}
+			}
+			.bd{
+				background: #fff;
+				width: 300px;
+				padding: 15px;
+				a{
+					line-height: 1;
+				}
+				.icon{
+					margin-right: 0.25em;
+				}
+			}
+		}
+	}
+//-----------------------------------------------------
 
 // 类型: @media 1200
 // 说明: 

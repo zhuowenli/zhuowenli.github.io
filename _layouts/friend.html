@@ -10,8 +10,14 @@
 		<div id="content" class="content">
 			{% include navbar.html %}
 
-			{{content }}
-
+			<header class="header">
+				<h1 class="title">我的小伙伴们</h1>
+				<h2>My Friends</h2>
+			</header>
+			
+			<div class="friend">
+				{{content }}
+			</div>
 		</div>
 		
 		{% include footer.html %}
