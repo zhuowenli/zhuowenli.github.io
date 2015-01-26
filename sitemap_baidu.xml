@@ -5,7 +5,7 @@
   <url>
     <loc>{{ site.SITE_PATH }}</loc>
     <mobile:mobile type="autoadapt"/>
-    <lastmod>site.time</lastmod>
+    <lastmod>{{ site.time }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
