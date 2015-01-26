@@ -7,7 +7,7 @@
 		<atom:link href="{{ site.SITE_PATH }}/{{ site.rss_path }}" rel="self" type="application/rss+xml"/>
 		<link>{{ site.SITE_PATH }}</link>
 		<description>{{ site.description }}</description>
-		<lastBuildDate>{{ site.time }}</lastBuildDate>
+		<lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
 		<language>zh-CN</language>
 		<sy:updatePeriod>daily</sy:updatePeriod>
 		<sy:updateFrequency>1</sy:updateFrequency>
