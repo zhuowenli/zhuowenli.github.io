@@ -11,7 +11,7 @@
 		<language>zh-CN</language>
 		<sy:updatePeriod>daily</sy:updatePeriod>
 		<sy:updateFrequency>1</sy:updateFrequency>
-		{% for post in site.posts limit:20 %}
+		{% for post in site.posts limit:50 %}
 		<item>
 			<title>{{ post.title }}</title>
 			<link>{{ site.SITE_PATH }}{{ post.url }}</link>
