@@ -6,8 +6,8 @@ encoding: utf-8
 permalink: /:categories/:title.html
 
 markdown: redcarpet
-highlighter: rouge
 
+highlighter: pygments
 
 name: 卓文理
 title: 卓文理
