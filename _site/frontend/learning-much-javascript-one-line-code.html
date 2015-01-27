@@ -31,10 +31,11 @@
     <title>从一行代码里面学点JavaScript | 卓文理</title>
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/default.min.css">
+	<link rel="stylesheet" href="/css/rouge.css">
+	<!-- <link rel="stylesheet" href="/css/default.min.css">
 	<script src="/js/highlight.min.js"></script>
 	<script>hljs.initHighlightingOnLoad();</script>
-
+ -->
 	<!--[if IE 9]>
 		<link rel="stylesheet" href="/css/ie9.css">
 		<script src="/js/html5.js" type="text/javascript"></script>
@@ -91,9 +92,9 @@
 
 <p>现如今，JavaScript无处不在，因此关于JavaScript的新知识也是层出不穷。JavaScript的特点在于，要学习它的语法入门简简单，但是要精通使用它的方式却是一件不容易的事。
 来看看下面的这段代码，它来自于谷歌“名猿”Addy Osmani在几天前贴出的一段代码，它的作用是用来调试你的CSS层。全部代码只有三行，但是你绝对可以把它放在一行里面完成：</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">[].forEach.call($$(&quot;*&quot;),function(a){
-    a.style.outline=&quot;1px solid #&quot; + (~~(Math.random() * (1 &lt;&lt; 24))).toString(16);
-})
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">[].</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">$$</span><span class="p">(</span><span class="s2">"*"</span><span class="p">),</span><span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">){</span>
+    <span class="nx">a</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">outline</span><span class="o">=</span><span class="s2">"1px solid #"</span> <span class="o">+</span> <span class="p">(</span><span class="o">~~</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">24</span><span class="p">))).</span><span class="nx">toString</span><span class="p">(</span><span class="mi">16</span><span class="p">);</span>
+<span class="p">})</span>
 </code></pre></div>
 <p>现在，在你的Chrome浏览器的控制台中输入这段代码。运行后，你会发现不同HTML层都被使用不同的颜色添加了一个高亮的边框。是不是非常酷？但是，简单来说，这段代码只是首先获取了所有的页面元素，然后使用一个不同的颜色为它们添加了一个1px的边框。想法很简单，但是真要实现起来却不是那么容易的一件事。在下面的内容中，我们将一起一步一步学习如何理解上面的这段代码。</p>
 
@@ -108,78 +109,78 @@
 <h3>迭代所有的元素</h3>
 
 <p>经过第一步，我们已经获得了页面内所有的元素，现在我们想做的事情是遍历每一个元素，然后为它们添加一个彩色边边框。但是上面的代码究竟是怎么一回事呢？</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">[].forEach.call($$(&#39;*&#39;),function(element){ /* 在这里修改颜色 */ });
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">[].</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">$$</span><span class="p">(</span><span class="s1">'*'</span><span class="p">),</span><span class="kd">function</span><span class="p">(</span><span class="nx">element</span><span class="p">){</span> <span class="cm">/* 在这里修改颜色 */</span> <span class="p">});</span>
 </code></pre></div>
 <p>首先，我们通过选择器获得的列表是一个<code>NodeLists</code>对象，它和JavaScript中的数组有点像，你可以使用方括号来获取其中的节点，你也可以检查它其中包含多少个元素，但是它并没有实现数组包含的所有方法，因此我们并不能使用<code>$$('*').forEach()</code>来进行迭代。在JavaScript中，有好几个类似于数组但是并不是数组的对象，除了前面的<code>NodeLists</code>，还有函数的参数集合<code>arguments</code>，在这里我们可以使用<code>call</code>或<code>apply</code>函数将函数的方法运用到这些对象上。例如下面的例子：</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">function say(name) {
-    console.log(this + &#39;&#39; + name);
-}
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">say</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span> <span class="o">+</span> <span class="s1">''</span> <span class="o">+</span> <span class="nx">name</span><span class="p">);</span>
+<span class="p">}</span>
 
-say.call(&#39;hola&#39;,&#39;Mike&#39;); // 打印 &#39;hola Mike&#39;
+<span class="nx">say</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s1">'hola'</span><span class="p">,</span><span class="s1">'Mike'</span><span class="p">);</span> <span class="c1">// 打印 'hola Mike'</span>
 </code></pre></div>
 <p>你也可以将这种方法有用在<code>arguments</code>对象上</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">function example( arg1, arg2, arg3 ) { 
-    return Array.prototype.slice.call(arguments, 1); // Returns [arg2, arg3] 
-}
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">example</span><span class="p">(</span> <span class="nx">arg1</span><span class="p">,</span> <span class="nx">arg2</span><span class="p">,</span> <span class="nx">arg3</span> <span class="p">)</span> <span class="p">{</span> 
+    <span class="k">return</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// Returns [arg2, arg3] </span>
+<span class="p">}</span>
 </code></pre></div>
 <p>在Addy的代码中，使用了<code>[].forEach.call</code>而不是<code>Array.prototype.forEach.call</code>，二者等价，但是前者可以节省几个字节。</p>
 
 <h3>为元素添加颜色</h3>
 
 <p>为了让元素都有一个漂亮的边框，我们在上面的代码中使用了CSS属性<code>outline</code>。<code>outline</code>属性位于CSS盒模型之外，因此它并不影响元素的属性或者元素在布局中的位置，这对于我们来说非常有用。这个属性和修改<code>border</code>属性非常类似，因此下面的代码应该不会很难理解：</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">a.style.outline = &quot;1px solid #&quot; + color
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">a</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">outline</span> <span class="o">=</span> <span class="s2">"1px solid #"</span> <span class="o">+</span> <span class="nx">color</span>
 </code></pre></div>
 <p>真正有趣的地方在于定义颜色部分：</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">~~(Math.random() * (1 &lt;&lt; 24)).toString(16)
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">~~</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">24</span><span class="p">)).</span><span class="nx">toString</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
 </code></pre></div>
 <p>天呐，上面的代码是什么意思？在JavaScript中，比特操作符并不是经常被使用，因此这里可能会让很多程序员感到很疑惑。</p>
 
 <p>我们想达到的目的是活的一个十六进制格式的颜色例如白色对应的是<code>FFFFFF</code>，蓝色对应的是<code>0000FF</code>，或者随便一个颜色<code>37f9ac</code>。虽然我们人类喜欢十进制，但是我们的代码常常会需要十六进制的东西。</p>
 
 <p>我们首先要学会如何使用<code>toString</code>函数将一个十进制的数组转换为一个十六进制整数。这个函数可以接受一个参数，如果参数缺省，默认为十进制，但是你完全可以使用别的数组：</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">(30).toString(); // &quot;30&quot;
-(30).toString(10); // &quot;30&quot;
-(30).toString(16); // &quot;1e&quot; 十六进制
-(30).toString(2);  // &quot;11110&quot; 二进制
-(30).toString(36); // &quot;u&quot; 36是允许的最大操作数值
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="mi">30</span><span class="p">).</span><span class="nx">toString</span><span class="p">();</span> <span class="c1">// "30"</span>
+<span class="p">(</span><span class="mi">30</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// "30"</span>
+<span class="p">(</span><span class="mi">30</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="mi">16</span><span class="p">);</span> <span class="c1">// "1e" 十六进制</span>
+<span class="p">(</span><span class="mi">30</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>  <span class="c1">// "11110" 二进制</span>
+<span class="p">(</span><span class="mi">30</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="mi">36</span><span class="p">);</span> <span class="c1">// "u" 36是允许的最大操作数值</span>
 </code></pre></div>
 <p>除此之外，你还可以使用<code>parseInt</code>函数将十六进制数字转换为十进制。</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">parseInt(&quot;30&quot;); // &quot;30&quot;
-parseInt(&quot;30&quot;,10); // &quot;30&quot;
-parseInt(&quot;1e&quot;,16); // &quot;30&quot;
-parseInt(&quot;11110&quot;,2); // &quot;30&quot;
-parseInt(&quot;u&quot;,36);  // &quot;30&quot;
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">parseInt</span><span class="p">(</span><span class="s2">"30"</span><span class="p">);</span> <span class="c1">// "30"</span>
+<span class="nb">parseInt</span><span class="p">(</span><span class="s2">"30"</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// "30"</span>
+<span class="nb">parseInt</span><span class="p">(</span><span class="s2">"1e"</span><span class="p">,</span><span class="mi">16</span><span class="p">);</span> <span class="c1">// "30"</span>
+<span class="nb">parseInt</span><span class="p">(</span><span class="s2">"11110"</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span> <span class="c1">// "30"</span>
+<span class="nb">parseInt</span><span class="p">(</span><span class="s2">"u"</span><span class="p">,</span><span class="mi">36</span><span class="p">);</span>  <span class="c1">// "30"</span>
 </code></pre></div>
 <p>因此，我们现在只需要一个位于<code>0</code>和<code>ffffff</code>之间的十六进制数，由于:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">parseInt(&quot;ffffff&quot;,16) == 16777215
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">parseInt</span><span class="p">(</span><span class="s2">"ffffff"</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span> <span class="o">==</span> <span class="mi">16777215</span>
 </code></pre></div>
 <p>而这里的<code>16777215</code>实际上是<code>2^24-1</code>。</p>
 
 <p>如果你对二进制数学熟悉的话，你可能会知道<code>1<<24 == 16777216。</code></p>
 
 <p>再进一步，你每在1后面添加一个0，你就相当于多做了一次2的乘方：</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">1 // 1 == 2^0
-100 // 4 == 2^2
-10000 // 16 == 2^4
-1000000000000000000000000 // 16777216 == 2^24
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="mi">1</span> <span class="c1">// 1 == 2^0</span>
+<span class="mi">100</span> <span class="c1">// 4 == 2^2</span>
+<span class="mi">10000</span> <span class="c1">// 16 == 2^4</span>
+<span class="mi">1000000000000000000000000</span> <span class="c1">// 16777216 == 2^24</span>
 </code></pre></div>
 <p>因此，在这里我们可以知道<code>Math.random()*(1<<24)</code>表示一个位于<code>0</code>和<code>16777215</code>之间的数。</p>
 
 <p>但是这里并没有结束，因为<code>Math.random()</code>返回的是一个浮点数，但是我们只想要整数部分。我们的代码中使用波浪号操作符来完成这件事。波浪操作符在JavaScript中被用来对一个变量进行取反。</p>
 
 <p>但是我们在这里并不关心取反，我们指向获取整数部分。因此我们还可以知道两次取反可以去掉一个浮点数的小数部分，因此<code>~~</code>的作用相当于<code>parseInt</code>：</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">var a = 12.34, // ~~a = 12
-    b = -1231.8754, // ~~b = -1231
-    c = 3213.000001 // ~~c = 3213;
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mf">12.34</span><span class="p">,</span> <span class="c1">// ~~a = 12</span>
+    <span class="nx">b</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1231.8754</span><span class="p">,</span> <span class="c1">// ~~b = -1231</span>
+    <span class="nx">c</span> <span class="o">=</span> <span class="mf">3213.000001</span> <span class="c1">// ~~c = 3213;</span>
 
-~~a == parseInt(a, 10); // true
-~~b == parseInt(b, 10); // true
-~~c == parseInt(c, 10); // true
+<span class="o">~~</span><span class="nx">a</span> <span class="o">==</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span> <span class="c1">// true</span>
+<span class="o">~~</span><span class="nx">b</span> <span class="o">==</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span> <span class="c1">// true</span>
+<span class="o">~~</span><span class="nx">c</span> <span class="o">==</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span> <span class="c1">// true</span>
 </code></pre></div>
 <p>当然，我们还有一种更加简洁的方法，使用<code>OR</code>操作符：</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">~~a == 0|a == parseInt(a, 10)
-~~b == 0|b == parseInt(b, 10)
-~~c == 0|c == parseInt(c, 10)
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">~~</span><span class="nx">a</span> <span class="o">==</span> <span class="mi">0</span><span class="o">|</span><span class="nx">a</span> <span class="o">==</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="o">~~</span><span class="nx">b</span> <span class="o">==</span> <span class="mi">0</span><span class="o">|</span><span class="nx">b</span> <span class="o">==</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="o">~~</span><span class="nx">c</span> <span class="o">==</span> <span class="mi">0</span><span class="o">|</span><span class="nx">c</span> <span class="o">==</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
 <p>
 最终，我们获得了一个位于<code>0</code>和<code>16777215</code>之间的随机整数，也就是我们想要的随机颜色。此时我们只需要使用<code>toString(16)</code>将它转化为十六进制数即可。

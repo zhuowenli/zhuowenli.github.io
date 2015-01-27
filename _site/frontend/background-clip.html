@@ -31,10 +31,11 @@
     <title>使用background-clip实现透明边框 | 卓文理</title>
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/default.min.css">
+	<link rel="stylesheet" href="/css/rouge.css">
+	<!-- <link rel="stylesheet" href="/css/default.min.css">
 	<script src="/js/highlight.min.js"></script>
 	<script>hljs.initHighlightingOnLoad();</script>
-
+ -->
 	<!--[if IE 9]>
 		<link rel="stylesheet" href="/css/ie9.css">
 		<script src="/js/html5.js" type="text/javascript"></script>
@@ -96,10 +97,10 @@
 <p><img class="center" src="http://zhuowenli-data.stor.sinaapp.com/images/2014/09/transparentborders.png"></p>
 
 <p>你可能觉得实现效果非常简单，只需要以下代码：</p>
-<div class="highlight"><pre><code class="language-css" data-lang="css">#lightbox{
-    background: white;
-    border: 20px solid rgba(0,0,0,0.3);
-}
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nf">#lightbox</span><span class="p">{</span>
+    <span class="nl">background</span><span class="p">:</span> <span class="no">white</span><span class="p">;</span>
+    <span class="nl">border</span><span class="p">:</span> <span class="m">20px</span> <span class="nb">solid</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.3</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>
     但是如果这样写的话，就会出现如下效果。
@@ -116,18 +117,18 @@
 <p>
     幸运的是，CSS3有个属性拯救了我们！这个属性就是<code>background-clip</code>，它正是用来指定在一个盒模型中，究竟哪一部分能够用来显示背景。它做的事儿正如它的名字一样：<code>background-clip</code>（背景剪裁）。它可以将盒子的指定部分的背景裁去。这一属性可以有三个值，而且也可以加上浏览器前缀。以下就是该属性的三种设置。你不用同时使用如下代码，这里仅是为了显示方便而已：
 </p>
-<div class="highlight"><pre><code class="language-css" data-lang="css">#lightbox {
--moz-background-clip: border; /* Firefox 3.6 */
--webkit-background-clip: border; /* Safari 4? Chrome 6? */
-background-clip: border-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nf">#lightbox</span> <span class="p">{</span>
+<span class="nl">-moz-background-clip</span><span class="p">:</span> <span class="n">border</span><span class="p">;</span> <span class="c">/* Firefox 3.6 */</span>
+<span class="nl">-webkit-background-clip</span><span class="p">:</span> <span class="n">border</span><span class="p">;</span> <span class="c">/* Safari 4? Chrome 6? */</span>
+<span class="nl">background-clip</span><span class="p">:</span> <span class="n">border-box</span><span class="p">;</span> <span class="c">/* Firefox 4, Safari 5, Opera 10, IE 9 */</span>
 
--moz-background-clip: padding; /* Firefox 3.6 */
--webkit-background-clip: padding; /* Safari 4? Chrome 6? */
-background-clip: padding-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
+<span class="nl">-moz-background-clip</span><span class="p">:</span> <span class="n">padding</span><span class="p">;</span> <span class="c">/* Firefox 3.6 */</span>
+<span class="nl">-webkit-background-clip</span><span class="p">:</span> <span class="n">padding</span><span class="p">;</span> <span class="c">/* Safari 4? Chrome 6? */</span>
+<span class="nl">background-clip</span><span class="p">:</span> <span class="n">padding-box</span><span class="p">;</span> <span class="c">/* Firefox 4, Safari 5, Opera 10, IE 9 */</span>
 
--moz-background-clip: content; /* Firefox 3.6 */
--webkit-background-clip: content; /* Safari 4? Chrome 6? */
-background-clip: content-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */}
+<span class="nl">-moz-background-clip</span><span class="p">:</span> <span class="n">content</span><span class="p">;</span> <span class="c">/* Firefox 3.6 */</span>
+<span class="nl">-webkit-background-clip</span><span class="p">:</span> <span class="n">content</span><span class="p">;</span> <span class="c">/* Safari 4? Chrome 6? */</span>
+<span class="nl">background-clip</span><span class="p">:</span> <span class="n">content-box</span><span class="p">;</span> <span class="c">/* Firefox 4, Safari 5, Opera 10, IE 9 */</span><span class="p">}</span>
 </code></pre></div>
 <p>
     以下是图示：

@@ -31,10 +31,11 @@
     <title>Javascript 模块模式 | 卓文理</title>
 
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/default.min.css">
+	<link rel="stylesheet" href="/css/rouge.css">
+	<!-- <link rel="stylesheet" href="/css/default.min.css">
 	<script src="/js/highlight.min.js"></script>
 	<script>hljs.initHighlightingOnLoad();</script>
-
+ -->
 	<!--[if IE 9]>
 		<link rel="stylesheet" href="/css/ie9.css">
 		<script src="/js/html5.js" type="text/javascript"></script>
@@ -90,85 +91,85 @@
 		<h2>Javascript 模块模式</h2>
 
 <p>假设现在我们有一个小型的Js库，目的是用来增加一个数字：</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">var jspy = {
-    count: 0,
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">jspy</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">count</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
 
-    incrementCount: function(){
-        this.count++;
-    },
+    <span class="na">incrementCount</span><span class="p">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">count</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">},</span>
 
-    decrementCount: function(){
-        this.count--;
-    },
+    <span class="na">decrementCount</span><span class="p">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">count</span><span class="o">--</span><span class="p">;</span>
+    <span class="p">},</span>
 
-    getCount: function(){
-        return this.count;
-    }
-};
+    <span class="na">getCount</span><span class="p">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">count</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
 </code></pre></div>
 <p>但是，使用这个js库的人可以用<code>jspy.count = 5</code>的方法来改变这个值。并不是我们的最初目的。在其他的编程语言中你可以定义一个私有变量，但是Javascript并不能“真正”定义私有变量。然而，我们可以通过操作Javascript来实现，这就引出了一个最流行的Javascript设计模式，<strong>模块模式</strong>。</p>
 
 <p>针对上面问题的解决方案如下：</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">var jspy = (function(){
-    var _count = 0;
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">jspy</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-    var incrementCount = function(){
-        _count++;
-    }
+    <span class="kd">var</span> <span class="nx">incrementCount</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">_count</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    var getCount = function(){
-        return _count;
-    }
+    <span class="kd">var</span> <span class="nx">getCount</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="nx">_count</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    return {
-        incrementCount : incrementCount,
-        getCount : getCount
-    };
-})();
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="na">incrementCount</span> <span class="p">:</span> <span class="nx">incrementCount</span><span class="p">,</span>
+        <span class="na">getCount</span> <span class="p">:</span> <span class="nx">getCount</span>
+    <span class="p">};</span>
+<span class="p">})();</span>
 </code></pre></div>
 <p>首先我们创造一个<code>_count</code>变量，下划线表明它是一个私有变量。再Javascript中下划线并没有什么实际的意义，但是它是一个用来标明私有变量的普遍用法。现在函数就可以操纵、返回变量了：</p>
 
 <p>然而，你注意到了我吧整个库包含在了一个自调用匿名函数中。这是一个在执行过程中马上被执行的函数。这个函数运行，定义了函数和变量然后到了<code>return {}</code>的部分，它告诉函数将其返回给变量<code>jspy</code>，或者换句话说，暴露给用户。我们暴露两个函数而不是<code>_count</code>变量，这意味着我们可以做如下操作：</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">jspy.incrementCount();
-jspy.getCount();
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">jspy</span><span class="p">.</span><span class="nx">incrementCount</span><span class="p">();</span>
+<span class="nx">jspy</span><span class="p">.</span><span class="nx">getCount</span><span class="p">();</span>
 </code></pre></div>
 <p>但是当我们试图进行如下操作时：</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">jspy._count; // undefined
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">jspy</span><span class="p">.</span><span class="nx">_count</span><span class="p">;</span> <span class="c1">// undefined</span>
 </code></pre></div>
 <p>它返回undefined。</p>
 
 <p>对于上面的这种设计模式有许多不同的实现方法。有人喜欢在return 中定义函数：</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">var jspy = (function(){
-    var _count = 0;
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">jspy</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-    return {
-        incrementCount : function(){
-            _count++;
-        },
-        getCount : function(){
-            return _count;
-        }
-    }
-})();
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="na">incrementCount</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(){</span>
+            <span class="nx">_count</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">},</span>
+        <span class="na">getCount</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(){</span>
+            <span class="k">return</span> <span class="nx">_count</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">})();</span>
 </code></pre></div>
 <p>受到上面例子的启发，CHristian Heilmann提出了Revealing Module Pattern。他的方法是将所有方法定义为私有变量，也就是说，不在return中定义，但是在那里暴露给用户，如下所示：</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">var jspy = (function(){
-    var _count = 0;
-    var incrementCount = function(){
-        _count++;
-    }
-    var resetCount = function(){
-        _count = 0;
-    }
-    var getCount = function(){
-        return _count;
-    }
-    return {
-        add : incrementCount,
-        reset : incrementCount,
-        get : getCount
-    };
-})();
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">jspy</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">incrementCount</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">_count</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kd">var</span> <span class="nx">resetCount</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kd">var</span> <span class="nx">getCount</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="nx">_count</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="na">add</span> <span class="p">:</span> <span class="nx">incrementCount</span><span class="p">,</span>
+        <span class="na">reset</span> <span class="p">:</span> <span class="nx">incrementCount</span><span class="p">,</span>
+        <span class="na">get</span> <span class="p">:</span> <span class="nx">getCount</span>
+    <span class="p">};</span>
+<span class="p">})();</span>
 </code></pre></div>
 <p>这种设计模式有两个好处：</p>
 

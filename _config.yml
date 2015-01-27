@@ -6,7 +6,7 @@ encoding: utf-8
 permalink: /:categories/:title.html
 
 markdown: redcarpet
-highlighter: false
+highlighter: rouge
 
 
 name: 卓文理
