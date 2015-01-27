@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>用CSS制作出绚丽燃烧的火狐狸</title>
+	<style>
+		*{padding: 0;margin: 0;}
+		.background {height: 373px;width: 244px;background: url(./img/screen-overview.jpg) 0 0 no-repeat;position: relative;padding-bottom:30px;} 
+		#foxtail {background: url(./img/foxtail.png) 0 0 no-repeat;width: 156px;height: 156px;top: 90px;left: 30px;position: absolute;}
+	</style>
+	<script type='text/javascript' src="./jquery.js"></script>
+	<script type="text/javascript" src="./jquery.spritely.min_0.6.8.js"></script>
+</head> 
+
+<body>
+	<div class="background">
+		<div id="foxtail"></div>
+	</div>
+	<script>
+		jQuery(document).ready(function() {
+			jQuery("#foxtail").sprite({ fps: 12, no_of_frames: 44, rewind: true });
+		});
+	</script>
+</body>
+</html>

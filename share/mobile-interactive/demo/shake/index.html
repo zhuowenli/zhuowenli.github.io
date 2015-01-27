@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="cn">
+<head>
+	<meta charset="UTF-8">
+	<title>抽风的CSS</title>
+	<meta name="description" content="在一个项目里我需要制作出抖动的效果。最初我使用的是普通的CSS。
+当开发完成后，我发现了这个很酷的jQuery plugin(由@jackrugile开发)。
+于是我就开始思考，我应该做出这个小的CSS project。">
+	<link rel="stylesheet" type="text/css" href="csshake.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="onepage-scroll.css">
+	<link rel="stylesheet" type="text/css" href="prism.css"></head>
+<body>
+	<div class="main">
+		<section class="section home shamrock">
+			<div class="glass shake shake-hard freez"> <i class="bubble"></i> <i class="bubble big"></i>
+				<i class="bubble"></i>
+				<i class="bubble big"></i>
+				<i class="bubble small"></i>
+				<i class="bubble"></i>
+				<i class="bubble"></i>
+				<i class="bubble small"></i>
+				<i class="bubble"></i>
+				<i class="bubble small"></i>
+				<span class="straw"></span>
+			</div>
+			<h1>
+				<span class="shake shake-delay">抽风</span>
+				的CSS
+			</h1>
+			<h4>
+				一些让你的
+				<span class="shake">页面发抖</span>
+				的CSS类
+			</h4>
+			<a class="arrow shake shake-constant"></a>
+		</section>
+		<section class="section carrot">
+			<h1>抖动方式</h1>
+			<h4>常见方式汇总</h4>
+			<ul class="previews">
+				<li>
+					<i class="preview-item shake">Bs
+						<span class="flip"></span></i> 
+					<p class="preview-desc">基本抖动</p>
+				</li>
+				<li>
+					<i class="preview-item shake shake-slow">Ss
+						<span class="flip"></span></i> 
+					<p class="preview-desc">慢速抖动</p>
+				</li>
+				<li>
+					<i class="preview-item shake shake-little">
+						Ls
+						<span class="flip"></span>
+					</i>
+					<p class="preview-desc">轻微抖动</p>
+				</li>
+				<li>
+					<i class="preview-item shake shake-hard">
+						Hs
+						<span class="flip"></span>
+					</i>
+					<p class="preview-desc">剧烈抖动</p>
+				</li>
+				<li>
+					<i class="preview-item shake shake-horizontal">
+						&#8644;
+						<span class="flip"></span>
+					</i>
+					<p class="preview-desc">横向抖动</p>
+				</li>
+				<li>
+					<i class="preview-item shake shake-vertical">
+						&#8693;
+						<span class="flip"></span>
+					</i>
+					<p class="preview-desc">上下抖动</p>
+				</li>
+				<li>
+					<i class="preview-item shake shake-rotate">
+						&#8635;
+						<span class="flip"></span>
+					</i>
+					<p class="preview-desc">扭动</p>
+				</li>
+				<li>
+					<i class="preview-item shake shake-opacity">
+						Os
+						<span class="flip"></span>
+					</i>
+					<p class="preview-desc">隐现抖动</p>
+				</li>
+				<li>
+					<i class="preview-item shake shake-crazy">
+						✌
+						<span class="flip"></span>
+					</i>
+					<p class="preview-desc">疯狂抖动</p>
+				</li>
+				<li>
+					<i class="preview-item shake shake-constant">
+						&#8455;
+						<span class="flip"></span>
+					</i>
+					<p class="preview-desc">抖动不停</p>
+				</li>
+			</ul>
+			<a class="arrow shake shake-constant"></a>
+		</section>
+		<section class="section pear">
+			<h1>抖动控制</h1>
+			<h4>你可以控制抖动的过程...</h4>
+			<ul class="previews bigs">
+				<li>
+					<i class="preview-item big shake shake-hard freez" id="pr1">
+						&#10052;
+						<span class="flip"></span>
+					</i>
+					<p class="preview-desc">抖动后停止</p>
+				</li>
+				<li>
+					<i class="preview-item big shake shake-hard shake-constant hover-stop" id="pr2">
+						&#12169;
+						<span class="flip"></span>
+					</i>
+					<p class="preview-desc">一直抖动，鼠标悬停时静止</p>
+				</li>
+			</ul>
+			<div class="dropdown">
+				<select class="dropdown-select" id="shake-type">
+					<option value="" disabled selected>选择抖动方式</option>
+					<option value="shake-hard">剧烈抖动</option>
+					<option value="shake-slow">慢速抖动</option>
+					<option value="shake-little">轻微抖动</option>
+					<option value="shake-horizontal">横向抖动</option>
+					<option value="shake-vertical">上下抖动</option>
+					<option value="shake-rotate">扭动</option>
+					<option value="shake-opacity">隐现抖动</option>
+					<option value="shake-crazy">疯狂抖动</option>
+				</select>
+			</div>
+			<a class="arrow shake shake-constant"></a>
+		</section>
+		<section class="section code amethyst">
+			<h1>用法</h1>
+			<h4>非常简单，用鼠标悬停在上面看看效果...</h4>
+			<div class="">
+				<link  type="text/css" href="css/csshake.css">
+				<pre class="language-markup shake shake-little shake-constant"><code>&lt;link type=&quot;text/css&quot; href=&quot;csshake.css&quot;&gt;</code></pre>
+				<br>
+				<pre class="language-markup shake"><code>&lt;div class=&quot;shake&quot;&gt;&lt;/div&gt;</code></pre>
+				<pre class="language-markup shake shake-hard"><code>&lt;div class=&quot;shake shake-hard&quot;&gt;&lt;/div&gt;</code></pre>
+				<pre class="language-markup shake shake-slow"><code>&lt;div class=&quot;shake shake-slow&quot;&gt;&lt;/div&gt;</code></pre>
+				<pre class="language-markup shake shake-little"><code>&lt;div class=&quot;shake shake-little&quot;&gt;&lt;/div&gt;</code></pre>
+				<pre class="language-markup shake shake-horizontal"><code>&lt;div class=&quot;shake shake-horizontal&quot;&gt;&lt;/div&gt;</code></pre>
+				<pre class="language-markup shake shake-vertical"><code>&lt;div class=&quot;shake shake-vertical&quot;&gt;&lt;/div&gt;</code></pre>
+				<pre class="language-markup shake shake-rotate"><code>&lt;div class=&quot;shake shake-rotate&quot;&gt;&lt;/div&gt;</code></pre>
+				<pre class="language-markup shake shake-opacity"><code>&lt;div class=&quot;shake shake-opacity&quot;&gt;&lt;/div&gt;</code></pre>
+				<pre class="language-markup shake shake-crazy"><code>&lt;div class=&quot;shake shake-crazy&quot;&gt;&lt;/div&gt;</code></pre>
+			</div>
+			<a class="arrow shake shake-constant"></a>
+		</section>
+		<section class="section scooter">
+			<h1>更丰富的控制方式</h1>
+			<h4>The Sass @mixins, and so on...</h4>
+			<pre>
+	<code class="language-css">@include shake($x, $y, $rot, $name, $steps, $opacity); /* _mixins.scss */ 
+	/* 	$x &amp; $y: pixels to move on the X and Y axis,
+		$rot: deg to rotate
+		$name: the name assigned to those parameters
+		$steps: adjust the animation loop (i.e 10 makes an animation in steps of 10%)
+		$opacity: true/false to add opacity animation */
+	@include shake(40px, 40px, 20deg, 'shake-crazy', 10, true); /* an example */
+
+	@include animation($name, $dur, $iter, $tim, $del); /* _shake.scss */
+	/*  $name: animation-name,
+		$dur: animation-duration,
+		$iter: animation-iteration-count,
+		$tim: animation-timing-function,
+		$del: animation-delay */
+	@include animation(shake-slow, 5s); /* an example */
+</code></pre>
+			<p>
+				注意：你需要使用
+				<code>random()</code>
+				函数来编译Sass文件。
+				<br>
+				<a href="https://github.com/nex3/sass/pull/968" class="shake freez">这里</a>
+				有如何实现的方法，或者参考
+				<a href="http://blog.codepen.io/2013/09/17/adding-random-function-sass/" class="shake shake-hard freez">这里</a>
+				或
+				<a href="http://hugogiraudel.com/2013/10/17/sass-random/" class="shake shake-rotate freez">这里</a>
+				。
+				<br>
+				还需要注意的是，这些CSS代码里是没有使用
+				<span class="shake shake-little">浏览器引擎前缀</span>
+				的。希望有一天我们不再需要使用
+				<span class="shake shake-little">浏览器引擎前缀</span>
+				。
+			</p>
+			<a class="btn amethyst shake shake-constant hover-stop" href="csshake.css">下载</a>
+			<small>csshake.css</small>
+			<a class="arrow shake shake-constant"></a>
+		</section>
+		<section class="section dolly dark-txt">
+			<h1>最后几句话</h1>
+			<h4>
+				The about, the idea, and the desire to hear from you to improve the code...
+			</h4>
+			<p>
+				在一个项目里我需要制作出抖动的效果。最初我使用的是普通的CSS。
+				<br>
+				当开发完成后，我发现了
+				<a class="shake shake-constant shake-little" href="http://jackrugile.com/jrumble/">这个</a>
+				很酷的jQuery plugin(由
+				<a class="shake" href="https://twitter.com/jackrugile">@jackrugile</a>
+				开发)。
+				<br>
+				于是我就开始思考，我应该做出
+				<span class="shake shake-little shake-constant">这个小的CSS project</span>
+				.
+			</p>
+			<a class="btn carrot shake shake-constant hover-stop" href="csshake.css">下载</a>
+			<small>csshake.css</small>
+			<a class="btn light shake" href="https://github.com/lovezwl888/csshake">Fork me on Github</a>
+
+			<footer>
+				这个网页里我使用了
+				<a href="http://leaverou.github.io/prefixfree/">prefixfree</a>
+				和
+				<a href="http://prismjs.com/">Prism.js</a>
+				，它们是由
+				<a href="http://twitter.com/LeaVerou">Lea Verou</a>
+				开发，
+				<a href="https://github.com/peachananr/onepage-scroll">One page scroll</a>
+				plugin是由
+				<a href="https://twitter.com/peachananr">@peachananr</a>
+				开发
+			</footer>
+		</section>
+	</div>
+<script src="jquery.min-1.11.0.js"></script>
+<script type="text/javascript" src="jquery.onepage-scroll.min.js"></script>
+<script type="text/javascript" src="prism.js"></script>
+<script type="text/javascript">
+		$(document).ready(function(){
+			$(".main").onepage_scroll({
+			   sectionContainer: "section",
+			   easing: "ease",
+			   animationTime: 1000,
+			   pagination: true,
+			   updateURL: false,  
+			   beforeMove: function(index) {},
+			   afterMove: function(index) {},
+			   loop: false,
+			   keyboard: true,        
+			   responsiveFallback: false
+			});
+			$('.arrow').click(function(){
+				$(".main").moveDown();
+			})
+			$('#shake-type').change(function(){
+				var newShake = $(this).val();
+				var regex = /(\s)*(shake-.*?)(?=\s)/g; 
+				$('#pr1, #pr2').removeClass('shake-hard shake-slow shake-little shake-horizontal shake-vertical shake-rotate shake-opacity shake-crazy').addClass(newShake);
+			})
+
+		}) // Ready
+
+		
+	</script>
+<script src="/misc-res/js/util.js?8fe47c"></script>
+<a style='display:none' href='http://www.webhek.com'>webhek</a>
+<script src="/misc-res/js/ga.js?8fe47c"></script>
+<script>var shares_wb = 29;</script>
+<script src="http://www.webhek.com/wordpress/wp-content/themes/webhek2/js/wb.js?8fe47c"></script>
+</body>
+</html>

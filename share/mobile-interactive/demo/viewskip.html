@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="16code 一流前端">
+  <meta name="description" content="webapp网页转场特效,手机网页动画"> 
+  <title>webapp网页转场特效</title>
+
+  <style>
+        @import "font-awesome.css";
+        #phone {
+            background: #2c3e50;
+            border-radius: 30px;
+            left: 0;
+            margin: 0 auto 0;
+            padding: 70px 18px 68px 18px;
+            position: absolute;
+            right: 0;
+            width: 240px;
+        }
+
+        #phone:before {
+            background: #1f2b38;
+            border-radius: 20px;
+            content: '';
+            height: 8px;
+            left: 0;
+            margin: -35px auto;
+            position: absolute;
+            right: 0;
+            width: 45px;
+        }
+
+        #phone:after {
+            background: #1f2b38;
+            border-radius: 20px;
+            content: "";
+            display: block;
+            height: 42px;
+            left: 0;
+            margin: 12px auto;
+            position: absolute;
+            right: 0;
+            width: 42px;
+        }
+
+        #screen {
+            background: #d6e6e9;
+            -webkit-perspective: 800px;
+            -moz-perspective: 800px;
+            -o-perspective: 800px;
+            perspective: 800px;
+            height: 400px;
+            overflow: hidden;
+            padding: 0;
+            position: relative;
+            width: 240px;
+        }
+
+        .viewport {
+            -webkit-transition: all .4s;
+            -moz-transition: all .4s;
+            -o-transition: all .4s;
+            transition: all .4s;
+            background: #d6e6e9;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .first {
+            z-index: 2;
+            left: 0;
+            -webkit-transform-origin: 0% 0%;
+            -webkit-transform: rotateY(0deg);
+            -moz-transform-origin: 0% 0%;
+            -moz-transform: rotateY(0deg);
+        }
+
+        .last {
+            z-index: 1;
+            top: 400px;
+        }
+
+        .animate .last {
+            top: 0;
+        }
+
+        .animate .first {
+            -webkit-transform: rotateY(110deg);
+            -moz-transform: rotateY(110deg);
+        }
+
+        .last .box.image {
+            left: 240px;
+            -webkit-transition-delay: 0.2s;
+            -o-transition-delay: 0.2s;
+            transition-delay: 0.2s;
+        }
+
+        .last .box.text {
+            left: -240px;
+            -webkit-transition-delay: 0.3s;
+            -o-transition-delay: 0.3s;
+            transition-delay: 0.3s;
+        }
+
+        .last .box.comment {
+            bottom: -150px;
+            -webkit-transition-delay: 0.4s;
+            -o-transition-delay: 0.4s;
+            transition-delay: 0.4s;
+        }
+
+        .animate .last .box.image {
+            left: 0;
+        }
+
+        .animate .last .box.text {
+            left: 0;
+        }
+
+        .animate .last .box.comment {
+            bottom: 0;
+        }
+
+        .header {
+            color: #ddebee;
+            background: #55b5c9;
+            font-family: Montserrat;
+            font-weight: bold;
+            width: 100%;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            padding: 15px;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        .header span {
+            float: right;
+            background: #ddebee;
+            color: #55b5c9;
+            font-size: 11px;
+            padding: 5px;
+            margin-top: -3px;
+            cursor: pointer;
+        }
+
+        .content {
+            width: 100%;
+            height: 150px;  
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            padding: 15px;
+        }
+
+        .content .box {
+            margin: 0 0 15px;
+            width: 100%;
+            position:relative;
+            background: #fcffff;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+              -webkit-transition: all .3s;
+            -moz-transition: all .3s;
+            -o-transition: all .3s;
+            transition: all .3s;
+            padding: 15px;
+        }
+
+        .box.image {
+            font-size: 72px;
+            color: #a9c8d8;
+            text-align: center;
+            line-height: 1;
+        }
+
+        .box.text {
+            color: #bbe3c1;
+            word-break:break-all;
+            padding: 15px 15px 5px 15px;
+        }
+
+        .box.comment {
+            overflow: hidden;
+            padding: 0;
+            background: #d6e6e9;
+        }
+
+        .avatar {
+            float: left;
+            overflow: hidden;
+            width: 45px;
+            height: 45px;
+            background: white;
+            border-radius: 50%;
+            color: #94d9ec;
+            font-size: 32px;
+            text-align: center;
+            line-height: 70px;
+        }
+
+        .bubble {
+            position: relative;
+            float: right;
+            width: 150px;
+            height: 45px;
+            background: white;
+        }
+
+        .bubble:after {
+            content: "";
+            position: absolute;
+            border-style: solid;
+            display: block;
+            width: 0;
+            top: 14px;
+            margin-left: -8px;
+            bottom: auto;
+            border-width: 8px 8px 8px 0px;
+            border-color: transparent white;
+        }
+
+        .second .avatar {
+            float: right;
+        }
+
+        .second .bubble {
+            float: left;
+        }
+
+        .second .bubble:after {
+            right: -8px;
+            margin-left: 0;
+            border-width: 8px 0px 8px 8px;
+        }
+  </style>
+</head>
+<body>
+<div id='phone'>
+  <div id='screen'>
+    <div class='viewport first'>
+      <div class='header'>
+        Lorem ips..
+        <span id='next'>Next Post</span>
+      </div>
+      <div class='content'>
+        <div class='box image'>
+          <i class='icon-picture'></i>
+        </div>
+        <div class='box text'>&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;</div>
+        <div class='box comment'>
+          <div class='avatar'>
+            <i class='icon-user'></i>
+          </div>
+          <div class='bubble'></div>
+        </div>
+        <div class='box comment second'>
+          <div class='avatar'>
+            <i class='icon-user'></i>
+          </div>
+          <div class='bubble'></div>
+        </div>
+      </div>
+    </div>
+    <div class='viewport last'>
+      <div class='header'>
+        Sit amet..
+        <span id='next'>Prev Post</span>
+      </div>
+      <div class='content'>
+        <div class='box image'>
+          <i class='icon-truck'></i>
+        </div>
+        <div class='box text'>&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;&#9600;</div>
+        <div class='box comment'>
+          <div class='avatar'>
+            <i class='icon-user'></i>
+          </div>
+          <div class='bubble'></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="./jquery.js"></script>
+<script>
+    $(function() {
+      $(".first #next").click(function(){
+        $("#screen").addClass("animate");
+      });
+      $(".last #next").click(function(){
+          $("#screen").removeClass("animate");
+      }); 
+    })   
+</script>  
+
+</body>
+</html>
