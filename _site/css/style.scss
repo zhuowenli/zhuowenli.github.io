@@ -4,7 +4,7 @@
 * @Email:  531840344@qq.com
 * @Date:   2014-11-20 16:52:57
 * @Last Modified by:   卓文理 www.zwlme.com
-* @Last Modified time: 2015-01-30 12:31:35
+* @Last Modified time: 2015-01-30 16:20:25
 */
 
 @import 'icon';
@@ -266,9 +266,9 @@ $green: #39A239;
 		top: 0;
 		left: 0;
 		z-index: 2001;
-		width: 300px;
+		width: 18.75em;
 		height: 100%;
-		@include transform(translate3d(-300px, 0, 0));
+		@include transform(translate3d(-18.75em, 0, 0));
 		@include prefixer-values(transition, transform 0.4s);
 		ul{
 			position: relative;
@@ -918,6 +918,9 @@ $green: #39A239;
 // 说明: 打开左侧菜单
 //-----------------------------------------------------
 	.menu-open{
+		.content{
+			pointer-events: none;
+		}
 		.menu{
 			@include transform(translate3d(0, 0, 0));
 			@include transition-delay(0s);
@@ -1205,6 +1208,9 @@ $green: #39A239;
 		}
 		.menu{
 			min-width: 260px;
+			ul{
+				line-height: 4em;
+			}
 		}
 		.article .post{
 			padding-top: 0;
