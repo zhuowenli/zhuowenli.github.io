@@ -4,7 +4,7 @@
 * @Email:  531840344@qq.com
 * @Date:   2014-11-20 16:52:57
 * @Last Modified by:   卓文理 www.zwlme.com
-* @Last Modified time: 2015-01-30 16:20:25
+* @Last Modified time: 2015-01-30 16:32:43
 */
 
 @import 'icon';
@@ -918,6 +918,7 @@ $green: #39A239;
 // 说明: 打开左侧菜单
 //-----------------------------------------------------
 	.menu-open{
+		overflow: hidden;
 		.content{
 			pointer-events: none;
 		}
