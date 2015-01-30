@@ -4,7 +4,7 @@
 * @Email:  531840344@qq.com
 * @Date:   2014-11-20 16:52:57
 * @Last Modified by:   卓文理 www.zwlme.com
-* @Last Modified time: 2015-01-27 13:15:17
+* @Last Modified time: 2015-01-30 12:31:35
 */
 
 @import 'icon';
@@ -36,24 +36,21 @@ $green: #39A239;
 		outline: 0;
 	}
 	body{
+		min-width: 320px;
 		color: #333;
 		font-size: 16px;
 		font-weight: 400;
 		line-height: 1.5;
 		text-rendering: optimizeLegibility;
 		-webkit-font-smoothing: antialiased;
-		background: rgba(126,63,102,1);
-  		@include gradient-radial(circle at left,rgba(175,92,121,1),rgba(126,63,102,1));
-  		overflow-x: hidden;
+		background: #f5f5f5;
 	}
 	.container{
-		@include perspective(1500px);
 		position: relative;
 	}
 	.content{
 		background: #f5f5f5;
 		z-index: 2000;
-		@include prefixer-values(transition,transform 0.5s);
 	}
 //-----------------------------------------------------
 
@@ -266,63 +263,65 @@ $green: #39A239;
 //-----------------------------------------------------
 	.menu{
 		position: fixed;
-		left: 0;
 		top: 0;
-		min-width: 300px;
-		min-height: 100%;
-		z-index: 1;
-		@include transform(translate3d(0,0,0));
-		padding: 20px 35px;
-		@include transition(all 0.5s);
-		visibility: hidden;
-		opacity: 0;
+		left: 0;
+		z-index: 2001;
+		width: 300px;
+		height: 100%;
+		@include transform(translate3d(-300px, 0, 0));
+		@include prefixer-values(transition, transform 0.4s);
 		ul{
 			position: relative;
-			padding: 20px 0;	
-			&:before{
-				content: '';
-				position: absolute;
-				left: 0;
-				top: 0;
-				width: 1px;
-				height: 100%;
-				*background: #fff;
-				@include gradient-vertical(rgba(255,255,255,0.1) 0%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 80%, rgba(255,255,255,0.1) 100%);
+			display: block;
+			width: 100%;
+			height: 100%;
+			line-height: 5em;
+			padding: 2em 1em;
+			z-index: 2001;
+			li{
+				a{
+					position: relative;
+					display: block;
+					color: #fff;
+					height: 100%;
+					width: 100%;
+					@include transition(all 0.3s ease-in-out);
+					z-index: 2002;
+					.icon{
+						display: inline-block;
+						line-height: 1;
+						font-size: 20px;
+						width: 60px;
+						text-align: center;
+					}
+					&:before{
+						content: '';
+						display: block;
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 0;
+						height: 100%;
+						background: #5f6f81;
+						@include transition(width 0.25s);
+						z-index: -1;
+					}
+					&:hover{
+						&:before{
+							width: 100%;
+						}
+					}
+				}
 			}
 		}
-		li{
-			position: relative;
-			&:before{
-				position: absolute;
-				top: 30px;
-				left: -6px;
-				content: '';
-				display: block;
-				width: 9px;
-				height: 9px;
-				background: #fff;
-				margin: 2px;
-				@include border-radius(9px);
-				@include transition(all 0.3s ease-in-out);
-			}
-			a{
-				display: block;
-				padding: 30px;
-				line-height: 1;
-				font-size: 13px;
-				color: rgba(255,255,255,0.9);
-				font-weight: normal;
-				@include transition(all 0.3s ease-in-out);
-			}
-			&.active,&:hover{
-				&:before{
-					@include box-shadow(0 0 8px rgba(255,255,255,1));
-				}
-				a{
-					font-weight: bold;
-					color: rgba(255,255,255,1);
-				}
-			}
+		.svg-menu{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			right: 0;
+			fill: #373a47;
+			z-index: 2000;
 		}
 	}
 //-----------------------------------------------------
@@ -349,9 +348,10 @@ $green: #39A239;
 			background-color: transparent;
 			z-index: 2001;
 			.icon{
-				font-size: 1.45em;
+				font-size: 1.5em;
 				margin-right: 0.2em;
-				vertical-align: text-top;
+				line-height: 1;
+				vertical-align: bottom;
 			}
 		}
 		.pull-center{
@@ -918,16 +918,9 @@ $green: #39A239;
 // 说明: 打开左侧菜单
 //-----------------------------------------------------
 	.menu-open{
-		overflow: hidden;
-		.content{
-			height: 100%;
-			overflow: hidden;
-			@include transform(translate3d(250px,0,-100px));
-		}
 		.menu{
-			visibility: visible;
-			opacity: 1;
-			@include transition(transform 0.5s);
+			@include transform(translate3d(0, 0, 0));
+			@include transition-delay(0s);
 		}
 	}
 //-----------------------------------------------------
