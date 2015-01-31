@@ -38,7 +38,7 @@ npm install phonegap
 回车执行后会自动下载最新版本的PhoneGap，过段时间即可安装完成。安装完成后，可在下面的位置看到phonegap文件夹，说明下载安装完成。
 
 ```plaintext
-C:\Users\{{ 用户名 }}\AppData\Roaming\npm\node_modules\
+C:\Users\用户名\AppData\Roaming\npm\node_modules\
 ```
 
 ![][img3]
@@ -180,8 +180,6 @@ super.loadUrl("file:///android_asset/www/index.html");
 ![][img18]
 
 ok, 配置成功了。 接下来可以在菜单栏点击“Run As > Android Application”，就可以在AVD或者手机设备打包apk，并安装了。
-
-
 
 [img1]: {{site.BASE_PATH}}/img/post/PhoneGap/1.png
 [img2]: {{site.BASE_PATH}}/img/post/PhoneGap/2.png
