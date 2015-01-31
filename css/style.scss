@@ -4,7 +4,7 @@
 * @Email:  531840344@qq.com
 * @Date:   2014-11-20 16:52:57
 * @Last Modified by:   卓文理 www.zwlme.com
-* @Last Modified time: 2015-01-30 16:32:43
+* @Last Modified time: 2015-01-31 16:37:41
 */
 
 @import 'icon';
@@ -309,6 +309,11 @@ $green: #39A239;
 					&:hover{
 						&:before{
 							width: 100%;
+						}
+					}
+					&:active{
+						&:before{
+							width: 50%;
 						}
 					}
 				}
@@ -678,6 +683,7 @@ $green: #39A239;
 			padding-left: 2em;
 			li{
 				margin-bottom: 10px;
+				white-space: pre-line;
 				p{
 					text-indent: 0;
 				}
@@ -778,6 +784,7 @@ $green: #39A239;
 		    font-size: 1em;
 		    color: #777
 		}
+
 		code,tt{			
 			padding: 0;
 			padding-top: 0.2em;
@@ -786,6 +793,7 @@ $green: #39A239;
 			font-size: 85%;
 			background-color: rgba(0,0,0,0.04);
 			border-radius: 3px;
+			word-break: break-all;
 			&:before,&:after{
 				letter-spacing: -0.2em;
 				content: "\00a0";
@@ -806,6 +814,8 @@ $green: #39A239;
 			}
 		}
 		img{
+			display: block;
+			margin: auto;
 			max-width: 100%;
 		}
 		.highlight {

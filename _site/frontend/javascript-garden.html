@@ -1732,10 +1732,19 @@ test()
 			footer = document.querySelector('.footer'),
 			footT  = footer.offsetTop,
 			footH  = footer.offsetHeight,
-			winH   = window.innerHeight;
+			winH   = window.innerHeight,
+			post   = document.querySelectorAll('p');
+		
 		if (footT - footH + 100 < winH) {
 			content.style.height = '100%';
 		};
+
+		for (var i = 0; i < post.length; i++) {
+			if (post.item(i).querySelector('img')) {
+				post.item(i).style.textIndent = 0;
+			};
+		};
+
 	</script>
 	<script>
 var _hmt = _hmt || [];
