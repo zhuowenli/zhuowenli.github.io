@@ -19,7 +19,7 @@ phonegap就是一种中间件技术，可以通过搭建一个webview来执行�
 
 如图，NodeJS会判断操作系统，不同系统INSTALL按钮指向的链接也不同。
 
-![](http://www.zwlme.com/img/post/PhoneGap-1/1.png)
+![]({{site.BASE_PATH}}/img/post/PhoneGap-1/1.png)
 
 ###安装PhoneGap
 
@@ -27,21 +27,21 @@ Android开发是在windows上进行的，所以下载windows版的NodeJS。安�
 
 从windows开始菜单选择“Node.js command prompt”应用，并执行。会打开一个命令行工具，这将自动设置npm管理器环境。
 
-![](http://www.zwlme.com/img/post/PhoneGap-1/2.png)
+![]({{site.BASE_PATH}}/img/post/PhoneGap-1/2.png)
 
 下面我们使用命令行来进行安装。
 
-```plaintext
+```html
 npm install phonegap
 ```
 
 回车执行后会自动下载最新版本的PhoneGap，过段时间即可安装完成。安装完成后，可在下面的位置看到phonegap文件夹，说明下载安装完成。
 
-```plaintext
+```html
 C:\Users\用户名\AppData\Roaming\npm\node_modules\
 ```
 
-![](http://www.zwlme.com/img/post/PhoneGap-1/3.png)
+![]({{site.BASE_PATH}}/img/post/PhoneGap-1/3.png)
 
 
 
@@ -53,7 +53,7 @@ C:\Users\用户名\AppData\Roaming\npm\node_modules\
 
 当然，Google已经封装了一个包含Eclipce、ADT、Android SDK的集成开发包提供下载。
 
-```plaintext
+```html
 http://developer.android.com/sdk
 ```
 
@@ -62,31 +62,31 @@ http://developer.android.com/sdk
 PhoneGap需要Apache Ant来编译工程，因此需要装Apache Ant，可以从下面的网址下载：
 
 
-```plaintext
+```html
 http://ant.apache.org/bindownload.cgi
 ```
 
-![](http://www.zwlme.com/img/post/PhoneGap-1/4.png)
+![]({{site.BASE_PATH}}/img/post/PhoneGap-1/4.png)
 
 
 下载的ANT仅仅是个压缩包，只需解压到一个目录就行。我将之解压到(D:\Application\Android\ant)目录下，然后还要配置环境变量`ANT_HOME`指向这个文件位置。
 
 为了在命令行中方便使用ant命令，我们可以将ant的bin路径添加到PATH变量中。
 
-```plaintext
+```html
 ;%ANT_HOME%\bin
 ```
 这里的`%ANT_HOME%`实际上是使用前面定义的`ANT_HOME`环境变量。
 
-![](http://www.zwlme.com/img/post/PhoneGap-1/5.png)
+![]({{site.BASE_PATH}}/img/post/PhoneGap-1/5.png)
 
-![](http://www.zwlme.com/img/post/PhoneGap-1/6.png)
+![]({{site.BASE_PATH}}/img/post/PhoneGap-1/6.png)
 
 ###配置Android环境
 
 此外，还要配置Android环境变量。添加`ANDROID_HOME`环境变量，指向SDK目录(D:\Application\Android\sdk)，然后添加到PATH中。
 
-```plaintext
+```html
 ;%ANDROID_HOME%\tools;%ANDROID_HOME%\platform-tools
 ```
 
@@ -98,23 +98,23 @@ http://ant.apache.org/bindownload.cgi
 
 使用PhoneGap create命令创建工程，命令如下：
 
-```plaintext
+```html
 phonegap create <工程路径> <包名> <工程名>
 ```
 
 例如：
 
-```plaintext
+```html
 phonegap create kypapp "zhuowenli.kyp.com" "HelloWorld"
 ```
 
 第一次参数对应的是创建的工程的目录(kypapp)，第二个参数是包名，第三个参数是程序名称，也就是安装打包后在手机上显示的名称。
 
-![](http://www.zwlme.com/img/post/PhoneGap-1/7.png)
+![]({{site.BASE_PATH}}/img/post/PhoneGap-1/7.png)
 
 执行后就会在F:\kypapp目录下创建PhoneGap工程，如图：
 
-![](http://www.zwlme.com/img/post/PhoneGap-1/8.png)
+![]({{site.BASE_PATH}}/img/post/PhoneGap-1/8.png)
 
 ###为PhoneGap工程添加Android平台
 
@@ -123,60 +123,60 @@ PhoneGap工程创建完成后还不知道要在哪种平台上开发和部署程
 首先cd进入PhoneGap工程目录
 
 
-```plaintext
+```html
 cd kypapp
 ```
 
 然后调用下面命令添加Android平台。
 
 
-```plaintext
+```html
 phonegap build android
 ```
 
-![](http://www.zwlme.com/img/post/PhoneGap-1/9.png)
+![]({{site.BASE_PATH}}/img/post/PhoneGap-1/9.png)
 
 并且在F:\kypapp\platforms目录下，将可以看到配置好的Android文件夹。
 
 
-![](http://www.zwlme.com/img/post/PhoneGap-1/10.png)
+![]({{site.BASE_PATH}}/img/post/PhoneGap-1/10.png)
 
 
 ##使用ADT进行PhoneGap开发
 
 启动Eclipse。
 
-![](http://www.zwlme.com/img/post/PhoneGap-1/11.png)
+![]({{site.BASE_PATH}}/img/post/PhoneGap-1/11.png)
 
 初次启动需要指定Android SDK的目录。单机“Browser...”按钮导航到D:\Application\Android\sdk目录。
 
-![](http://www.zwlme.com/img/post/PhoneGap-1/12.png)
+![]({{site.BASE_PATH}}/img/post/PhoneGap-1/12.png)
 
 点击OK后就可以进入开发环境了。
 
 - **步骤1**  在主菜单上选择“File > New > Project”菜单栏，打开就能看到Android相关工程
-  ![](http://www.zwlme.com/img/post/PhoneGap-1/13.png)
+  ![]({{site.BASE_PATH}}/img/post/PhoneGap-1/13.png)
 - **步骤2**  选择“Android Project from Existing Code”目录，点击Next
-  ![](http://www.zwlme.com/img/post/PhoneGap-1/14.png)
+  ![]({{site.BASE_PATH}}/img/post/PhoneGap-1/14.png)
 - **步骤3**  点击“Browser...”按钮，导航到F:\kypapp\platforms\android目录（刚刚用PhoneGap添加的Android平台目录），将会在下面创建两个工程。
-  ![](http://www.zwlme.com/img/post/PhoneGap-1/15.png)
+  ![]({{site.BASE_PATH}}/img/post/PhoneGap-1/15.png)
 - **步骤4**  右击HelloWorld主目录，选择“Properties > Resource Filters”,删除“Exclude all:”下面的两条信息（选中，点击右侧Remove），然后点击OK。
-  ![](http://www.zwlme.com/img/post/PhoneGap-1/16.png)
+  ![]({{site.BASE_PATH}}/img/post/PhoneGap-1/16.png)
   会发现assets底下多了个www文件夹啦。然后res下面的www文件夹可以删掉了。如图：
-  ![](http://www.zwlme.com/img/post/PhoneGap-1/17.png)
+  ![]({{site.BASE_PATH}}/img/post/PhoneGap-1/17.png)
 
 接下来在包浏览器中，打开“src > zhuowenli.kyp.com > CordovaApp.java”，这是主Java文件。
 删除或注释掉下面一行代码：
 
-```plaintext
+```html
 loadUrl(launchUrl);
 ```
 
 替换为下面这行代码：
 
-```plaintext
+```html
 super.loadUrl("file:///android_asset/www/index.html");
 ```
-![](http://www.zwlme.com/img/post/PhoneGap-1/18.png)
+![]({{site.BASE_PATH}}/img/post/PhoneGap-1/18.png)
 
 ok, 配置成功了。 接下来可以在菜单栏点击“Run As > Android Application”，就可以在AVD或者手机设备打包apk，并安装到设备上预览了。
