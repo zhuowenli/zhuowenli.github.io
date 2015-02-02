@@ -30,8 +30,6 @@ PhoneGap的整个生命周期可能产生下面所列的事件，这些事件默
 - deviceready：PhoneGap在完全载入时，将触发该事件
 - pause：      当应用程序放在后台运行时，将触发该事件
 - resume：     当应用程序从后台恢复到前台时，将触发该事件。
-- online：     当该设备链接网络时，触发该事件
-- offline：    当该处于离线状态，或者无网络时，触发该事件。
 - backbutton： 在使用者按後退按钮时，将触发该事件。
 - menubutton： 在使用者按功能表按钮时，将触发该事件。
 - searchbutton：當使用者按 Android 上的搜尋按钮时，将触发该事件。
