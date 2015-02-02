@@ -4,7 +4,7 @@
 * @Email:  531840344@qq.com
 * @Date:   2014-11-20 16:52:57
 * @Last Modified by:   卓文理 www.zwlme.com
-* @Last Modified time: 2015-02-02 10:20:50
+* @Last Modified time: 2015-02-02 14:59:16
 */
 
 @import 'icon';
@@ -820,6 +820,10 @@ $green: #39A239;
 		}
 		.highlight {
 			@include box-shadow(0 0 3px #ccc);
+		}
+		hr{
+			margin: 3em 0;
+			border: 1px solid #fff;
 		}
 	}
 //-----------------------------------------------------

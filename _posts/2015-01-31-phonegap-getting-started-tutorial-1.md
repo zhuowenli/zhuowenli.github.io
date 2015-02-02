@@ -199,3 +199,4 @@ ok, 配置成功了。 接下来可以在菜单栏点击“Run As > Android Appl
 [img16]: {{site.BASE_PATH}}/img/post/PhoneGap-1/16.png
 [img17]: {{site.BASE_PATH}}/img/post/PhoneGap-1/17.png
 [img18]: {{site.BASE_PATH}}/img/post/PhoneGap-1/18.png
+
