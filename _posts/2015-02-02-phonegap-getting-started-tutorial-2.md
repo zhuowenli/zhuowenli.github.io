@@ -192,5 +192,15 @@ document.addEventListener("volumedownbutton", yourCallbackFunction, false);
 
 ----------
 
+
+>相关文章:
+>
+> [PhoneGap入门教程(1) - 环境安装与配置]({{ site.SITE_PATH }}/frontend/phonegap-getting-started-tutorial-1.html)
+>
+> PhoneGap入门教程(2) - 内核事件和基本用法
+
+<br>
+
 > 参考资料：
+>
 > [Apache Cordova Documentation](http://cordova.apache.org/docs/zh/3.1.0/cordova_events_events.md.html#deviceready)

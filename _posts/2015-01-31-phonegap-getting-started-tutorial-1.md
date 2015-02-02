@@ -200,3 +200,11 @@ ok, 配置成功了。 接下来可以在菜单栏点击“Run As > Android Appl
 [img17]: {{site.BASE_PATH}}/img/post/PhoneGap-1/17.png
 [img18]: {{site.BASE_PATH}}/img/post/PhoneGap-1/18.png
 
+
+---------
+
+>相关文章:
+>
+> PhoneGap入门教程(1) - 环境安装与配置
+>
+> [PhoneGap入门教程(2) - 内核事件和基本用法]({{ site.SITE_PATH }}/frontend/phonegap-getting-started-tutorial-2.html)
