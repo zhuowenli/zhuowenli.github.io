@@ -3,7 +3,7 @@
 * @Email:  531840344@qq.com
 * @Date:   2014-12-21 11:59:50
 * @Last Modified by:   卓文理 www.zwlme.com
-* @Last Modified time: 2015-01-15 09:06:01
+* @Last Modified time: 2015-02-03 15:14:01
 */
 
 (function(){
@@ -26,7 +26,6 @@
 		easing: {reset: mina.elastic, active:mina.easein}
 	};
 	SVGButton.prototype.init = function() {
-		console.log('SVGButton Init');
 		this.shapeEl = this.el.querySelector('span.button');
 
 		var s = Snap(this.shapeEl.querySelector('svg'));
