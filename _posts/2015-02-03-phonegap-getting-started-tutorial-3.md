@@ -110,7 +110,7 @@ PhoneGap3.x 官方有很多插件可以使用，下列是这些插件的列表�
 
 同时，可以从下面的网址查询PhoneGap3.x适用的第三方插件，这些第三方插件也可以用`phonegap plugin`命令进行管理。
 
-(http://plugins.cordova.io/)[http://plugins.cordova.io/]
+[http://plugins.cordova.io/](http://plugins.cordova.io/)
 
 
 
