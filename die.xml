@@ -3,151 +3,223 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:mobile="http://www.baidu.com/schemas/sitemap-mobile/1/"> 
   <url>
+    <loc>http://www.zwlme.com/hello-world.html</loc>
+    <lastmod>{{ site.time }}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://www.zwlme.com/mobile-front-end-development-summary-html.html</loc>
+    <lastmod>{{ site.time }}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://www.zwlme.com/design/Responsive%20Web%20Design.html</loc>
+    <lastmod>{{ site.time }}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://www.zwlme.com/tag/</loc>
+    <lastmod>{{ site.time }}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://www.zwlme.com/tag/%E5%8E%9F%E5%9E%8B%E9%93%BE</loc>
+    <lastmod>{{ site.time }}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://www.zwlme.com/the-front-end-study-notes.html</loc>
+    <lastmod>{{ site.time }}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>http://www.zwlme.com/topics/</loc>
     <lastmod>{{ site.time }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://www.zwlme.com/tag/*</loc>
+    <loc>http://www.zwlme.com/topics/frontend/mobile</loc>
     <lastmod>{{ site.time }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://www.zwlme.com/deep-understanding-of-inheritance-and-prototype-chain.html</loc>
+    <loc>http://www.zwlme.com/author/</loc>
     <lastmod>{{ site.time }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://www.zwlme.com/a-dao-of-web-design.html</loc>
+    <loc>http://www.zwlme.com/author/admin/</loc>
     <lastmod>{{ site.time }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://www.zwlme.com/about/en/</loc>
+    <loc>http://www.zwlme.com/author/admin/page/2</loc>
     <lastmod>{{ site.time }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://www.zwlme.com/hello-world.html?replytocom=14</loc>
+    <loc>http://www.zwlme.com/jquery-performance-optimization.html</loc>
     <lastmod>{{ site.time }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://www.zwlme.com/css-memo-background-clip.html</loc>
+    <loc>http://www.zwlme.com/2014/</loc>
     <lastmod>{{ site.time }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://www.zwlme.com/illustrator-tutorial-create-poly-background-quickly.html</loc>
+    <loc>http://www.zwlme.com/2014/09</loc>
     <lastmod>{{ site.time }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://www.zwlme.com/windows8-1-wampserver-error.html</loc>
+    <loc>http://www.zwlme.com/tag/win8-1</loc>
     <lastmod>{{ site.time }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://www.zwlme.com/create-one-time-events-javascript.html</loc>
+    <loc>http://www.zwlme.com/tag/illustrator</loc>
     <lastmod>{{ site.time }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://www.zwlme.com/author/*</loc>
+    <loc>http://www.zwlme.com/tag/inherit</loc>
     <lastmod>{{ site.time }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://www.zwlme.com/hello-world.html?replytocom=17</loc>
+    <loc>http://www.zwlme.com/?p=177</loc>
     <lastmod>{{ site.time }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://www.zwlme.com/responsive-web-design.html</loc>
+    <loc>http://www.zwlme.com/?p=75</loc>
     <lastmod>{{ site.time }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://www.zwlme.com/a-dao-of-web-design.html?replytocom=23</loc>
+    <loc>http://www.zwlme.com/?p=114</loc>
     <lastmod>{{ site.time }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://www.zwlme.com/the-front-end-study-notes.html?replytocom=13</loc>
+    <loc>http://www.zwlme.com/?p=219</loc>
     <lastmod>{{ site.time }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://www.zwlme.com/javascript-module-pattern.html</loc>
+    <loc>http://www.zwlme.com/?p=207</loc>
     <lastmod>{{ site.time }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://www.zwlme.com/learning-much-javascript-one-line-code.html?replytocom=61</loc>
+    <loc>http://www.zwlme.com/?p=229</loc>
     <lastmod>{{ site.time }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://www.zwlme.com/quote-4.html</loc>
+    <loc>http://www.zwlme.com/?p=221</loc>
     <lastmod>{{ site.time }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://www.zwlme.com/quote-3.html</loc>
+    <loc>http://www.zwlme.com/?p=215</loc>
     <lastmod>{{ site.time }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://www.zwlme.com/quote-2.html</loc>
+    <loc>http://www.zwlme.com/?p=1</loc>
     <lastmod>{{ site.time }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://www.zwlme.com/quote-1.html</loc>
+    <loc>http://www.zwlme.com/?p=168</loc>
     <lastmod>{{ site.time }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://www.zwlme.com/mobile-front-end-development-summary-html.html?replytocom=2</loc>
+    <loc>http://www.zwlme.com/?p=92</loc>
     <lastmod>{{ site.time }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://www.zwlme.com/easy-two-way-data-binding-in-javascript.html</loc>
+    <loc>http://www.zwlme.com/?p=122</loc>
     <lastmod>{{ site.time }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://www.zwlme.com/the-front-end-study-notes.html?replytocom=7</loc>
+    <loc>http://www.zwlme.com/?p=139</loc>
     <lastmod>{{ site.time }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://www.zwlme.com/aaencode.html</loc>
+    <loc>http://www.zwlme.com/learning-much-javascript-one-line-code.html</loc>
+    <lastmod>{{ site.time }}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://www.zwlme.com/page/2</loc>
+    <lastmod>{{ site.time }}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://www.zwlme.com/javascript-module-pattern.html/feed</loc>
+    <lastmod>{{ site.time }}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://www.zwlme.com/tag/requirejs</loc>
+    <lastmod>{{ site.time }}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://www.zwlme.com/tag/apache</loc>
+    <lastmod>{{ site.time }}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://www.zwlme.com/tag/%E5%88%86%E8%BE%A8%E7%8E%87</loc>
+    <lastmod>{{ site.time }}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://www.zwlme.com/tag/%E5%B1%8F%E5%B9%95</loc>
     <lastmod>{{ site.time }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
