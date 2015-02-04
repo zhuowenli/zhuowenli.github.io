@@ -3,7 +3,7 @@
 * @Email:  531840344@qq.com
 * @Date:   2014-11-22 11:59:50
 * @Last Modified by:   卓文理 www.zwlme.com
-* @Last Modified time: 2014-11-26 13:49:57
+* @Last Modified time: 2015-02-04 14:37:31
 */
 
 (function(){
@@ -147,9 +147,9 @@
 
 
 	window.addEventListener('scroll',scrollPage);
-	header.addEventListener('touchstart',touchStart);
-	header.addEventListener('touchmove',touchMove);
-	header.addEventListener('touchend',touchEnd);
+	// header.addEventListener('touchstart',touchStart);
+	// header.addEventListener('touchmove',touchMove);
+	// header.addEventListener('touchend',touchEnd);
 	// 文章翻页
 	trigger.addEventListener('click',function(){toggle('reveal')});
 })();

@@ -126,6 +126,8 @@ PhoneGap3.x 官方有很多插件可以使用，下列是这些插件的列表�
 > PhoneGap入门教程(3) - 原生插件安装和管理
 >
 > [PhoneGap入门教程(4) - 电量变化侦测]({{ site.SITE_PATH }}/frontend/phonegap-getting-started-tutorial-4.html)
+>
+> [PhoneGap入门教程(5) - 程序内置浏览器窗口]({{ site.SITE_PATH }}/frontend/phonegap-getting-started-tutorial-5.html)
 
 <br>
 
