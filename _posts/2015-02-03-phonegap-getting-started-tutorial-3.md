@@ -11,13 +11,13 @@ PhoneGap需要通过插件来实现访问设备本地API的功能，PhoneGap1.x 
 
 ##安装和管理插件
 
-一旦需要某个插件，可以用`phonegap plugin add`命令将这个插件添加到项目中，语法格式如下：
+一旦需要某个插件，可以用`phonegap plugin add`命令将这个插件添加到工程中，语法格式如下：
 
 ```html
 phonegap plugin add 插件完全限定名
 ```
 
-例如，“设备基本信息”插件的完全限定名是`org.apache.cordova.device`，那么就可以使用下列命名添加（注意先`cd`到项目目录）
+例如，“设备基本信息”插件的完全限定名是`org.apache.cordova.device`，那么就可以使用下列命名添加（注意先`cd`到工程目录）
 
 ```html
 phonegap plugin add org.apache.cordova.device
@@ -27,7 +27,7 @@ phonegap plugin add org.apache.cordova.device
 
 ###查看开发环境中安装的插件
 
-现在，在Eclipse中刷新项目，就可以在src目录下看到新增的插件类Device.java。并且在 www\plugins\ 目录下新增了目录：org.apache.cordova.device\www。在其下还有一个名为 device.js 的文件，这个文件包含了用于调用该插件API的JavaScript文件。
+现在，在Eclipse中刷新工程，就可以在src目录下看到新增的插件类Device.java。并且在 www\plugins\ 目录下新增了目录：org.apache.cordova.device\www。在其下还有一个名为 device.js 的文件，这个文件包含了用于调用该插件API的JavaScript文件。
 
 ![][img2]
 
@@ -71,7 +71,7 @@ module.exports.metadata =
 ###查看和删除插件
 
 
-如果想删除已经安装的插件，可以用`phonegap plugin remove`命令将这个插件从项目中删除，语法格式如下：
+如果想删除已经安装的插件，可以用`phonegap plugin remove`命令将这个插件从工程中删除，语法格式如下：
 
 ```html
 phonegap plugin remove 插件完全限定名
@@ -119,11 +119,13 @@ PhoneGap3.x 官方有很多插件可以使用，下列是这些插件的列表�
 
 > 相关文章:
 >
-> [PhoneGap入门教程(1) - 环境安装与配置]({{ site.SITE_PATH }}/frontend/`phonegap-getting-started-tutorial-1.html)
+> [PhoneGap入门教程(1) - 环境安装与配置]({{ site.SITE_PATH }}/frontend/phonegap-getting-started-tutorial-1.html)
 >
-> [PhoneGap入门教程(2) - 内核事件和基本用法]({{ site.SITE_PATH }}/fronten`d/phonegap-getting-started-tutorial-2.html)
+> [PhoneGap入门教程(2) - 内核事件和基本用法]({{ site.SITE_PATH }}/frontend/phonegap-getting-started-tutorial-2.html)
 >
 > PhoneGap入门教程(3) - 原生插件安装和管理
+>
+> [PhoneGap入门教程(4) - 电量变化侦测]({{ site.SITE_PATH }}/frontend/phonegap-getting-started-tutorial-4.html)
 
 <br>
 

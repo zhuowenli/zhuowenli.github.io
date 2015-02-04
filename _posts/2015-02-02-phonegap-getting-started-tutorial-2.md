@@ -198,6 +198,8 @@ document.addEventListener("volumedownbutton", yourCallbackFunction, false);
 > PhoneGap入门教程(2) - 内核事件和基本用法
 >
 > [PhoneGap入门教程(3) - 原生插件安装和管理]({{ site.SITE_PATH }}/frontend/phonegap-getting-started-tutorial-3.html)
+>
+> [PhoneGap入门教程(4) - 电量变化侦测]({{ site.SITE_PATH }}/frontend/phonegap-getting-started-tutorial-4.html)
 
 <br>
 
