@@ -1,13 +1,13 @@
 ---
 layout: post
-title: PhoneGap入门教程(1) - 环境安装与配置
+title: PhoneGap入门教程(1) - 环境搭建与配置
 subline: PhoneGap Getting Started Tutorial
 categories: frontend
 tags: [PhoneGap, NodeJS, Android, Webapp]
 img: 27
 ---
 
-phonegap就是一种中间件技术，可以通过搭建一个webview来执行网页程序，并且可以提供调用底层API的接口。本教程将会介绍如何在windows下开发android应用。IOS版本有时间另外讲。
+PhoneGap就是一种中间件技术，可以通过搭建一个webview来执行网页程序，并且可以提供调用底层API的接口。本教程将会介绍如何在windows下开发android应用。IOS版本有时间另外讲。
 
 ##PhoneGap安装与配置
 
