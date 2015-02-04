@@ -3,7 +3,7 @@
 * @Email:  531840344@qq.com
 * @Date:   2014-11-26 13:34:04
 * @Last Modified by:   卓文理 www.zwlme.com
-* @Last Modified time: 2014-11-26 13:53:41
+* @Last Modified time: 2015-02-04 15:04:50
 */
 
 (function () {
@@ -50,6 +50,10 @@
 				classie.add(document.body, 'layout-switch');
 			}
 			onEndHeaderAnimation();
+
+			setTimeout(function() {
+				loading.remove();
+			}, 800);
 		};
 	}
 
