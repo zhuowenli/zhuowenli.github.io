@@ -4,7 +4,7 @@
 * @Email:  531840344@qq.com
 * @Date:   2014-11-20 16:52:57
 * @Last Modified by:   卓文理 www.zwlme.com
-* @Last Modified time: 2015-02-04 14:54:37
+* @Last Modified time: 2015-02-04 15:34:07
 */
 
 @import 'icon';
@@ -470,10 +470,6 @@ $green: #39A239;
 					left: 0;
 					width: 100%;
 					height: auto;
-					@include transition(all 15s linear);
-					&:hover{
-						@include transform(scale(1.5));
-					}
 				}
 			}
 			.entry-intro{
@@ -1158,9 +1154,6 @@ $green: #39A239;
 					background: #fff;
 					img{
 						position: relative;
-						&:hover{
-							transform: initial;
-						}
 					}
 				}
 			}
@@ -1251,131 +1244,9 @@ $green: #39A239;
 //-----------------------------------------------------
 
 
-// 类型: 圣诞节专题
+// 类型: 冬天皮肤
 // 说明: 
 //-----------------------------------------------------
-	@include keyframes(falling) {
-		0% {
-			@include transform(translate3d(0,0,0) rotate(0));
-		}
-		100% {
-			@include transform(translate3d(0,1500px,0) rotate(360deg));
-		}
-	}
-	#snowflakesContainer {
-		position: fixed;
-		top: 0;
-		bottom: 0;
-		width: 100%;
-		pointer-events: none;
-		overflow: hidden;
-		z-index: 2000;
-		.snowflake{
-			position: absolute;	
-			display: inline-block;
-			background: #fff;
-			opacity: 0.5;
-			height: 7px;
-			width: 7px;
-			@include border-radius(50%);
-			@include animation(falling 7.7s linear 2s infinite);
-		}
-		.snowflakeSizeLRG{
-			height: 11px;
-			width: 11px;
-			@include transform-origin(left -30px);
-		}
-		.snowflakeSizeMED{
-			height: 9px;
-			width: 9px;
-			@include transform-origin(left -30px);
-		}
-		.snowflakeSizeSM{
-			height: 5px;
-			width: 5px;
-			@include transform-origin(-30px 0);
-		}
-		.snowflakeSpeedSlow{
-			@include animation-duration(7.1s);
-			@include animation-iteration-count(infinite);
-			@include transform-origin(-10px -20px);
-		}
-		.snowflakeSpeedMed{
-			@include animation-duration(6.6s);
-			@include animation-iteration-count(infinite);
-			@include transform-origin(-10px -20px);
-		}
-		.snowflakeSpeedFast{
-			@include animation-duration(5.9s);
-			@include animation-iteration-count(infinite);
-			@include transform-origin(-10px -20px);
-		}
-		.snowflakeOpacityFaint {
-			opacity: 0.1;
-		}
-		.snowflakeOpacityLight {
-			opacity: 0.3;
-		}
-		.snowflakeOpacityDark {
-			opacity: 0.7;
-		}
-		.snowflakeDelay1 {
-			@include animation-delay(3.4s);
-		}
-		.snowflakeDelay2 {
-			@include animation-delay(1.5s);
-		}
-		.snowflakeDelay3 {
-			@include animation-delay(4.6s);
-		}
-		.snowflakeDelay4 {
-			@include animation-delay(6.3s);
-		}
-		.snowflakeDelay5 {
-			@include animation-delay(0.4s);
-		}
-		.snowflakeDelay6 {
-			@include animation-delay(8.1s);
-		}
-		.snowflakeSizeLRG.snowflakeDelay2 {-webkit-animation-timing-function:ease-in-out;}
-		.snowflakeSizeLRG.snowflakeDelay1 {-webkit-animation-timing-function:ease-out;}
-		.snowflakeSizeLRG.snowflakeDelay2 {-moz-animation-timing-function:ease-in-out;}
-		.snowflakeSizeLRG.snowflakeDelay1 {-moz-animation-timing-function:ease-out;}
-		.snowflakeSpeedMed.snowflakeDelay2 {opacity: 0.5}
-		.snowflakeSpeedMed.snowflakeDelay1 {opacity: 0.3}
-		.snowflakeSpeedFast.snowflakeDelay2 {opacity: 0.7}
-		.snowflakeSpeedFast.snowflakeDelay1 {
-			opacity: 0.6;
-			-webkit-animation-timing-function:ease-in;
-			-webkit-transform-origin: left 10px;
-			-moz-animation-timing-function:ease-in;
-			-moz-transform-origin: left 10px;
-		}
-		.snowflakeSpeedSlow {
-			opacity: 0.8
-		}
-	}
-	.santa{
-		position: absolute;
-		top: 1000px;
-		left: 5%;
-		width: 15.75em;
-		height: 14em;
-		background:transparent url('../img/santa.png') no-repeat;
-		background-size: 100% 100%;
-		pointer-events:none;
-		z-index: 3000;
-	}
-	.snowman{
-		position: absolute;
-		bottom: 108px;
-		right: 5%;
-		width: 17.5em;
-		height: 15.75em;
-		background:transparent url('../img/snowman.png') no-repeat;
-		background-size: 100% 100%;
-		pointer-events:none;
-	}
 	.tree{
 		position: absolute;
 		top: 108px;

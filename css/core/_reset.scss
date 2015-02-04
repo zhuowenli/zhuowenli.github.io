@@ -89,7 +89,7 @@ body {
 // 2. Improves readability when focused and also mouse hovered in all browsers
 a {
     background: transparent;// 1
-
+    -webkit-tap-highlight-color: transparent;
     // 2
     &:hover,
     &:active {
