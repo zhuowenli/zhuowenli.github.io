@@ -3,7 +3,7 @@
 * @Email:  531840344@qq.com
 * @Date:   2014-11-22 11:59:50
 * @Last Modified by:   卓文理 www.zwlme.com
-* @Last Modified time: 2015-02-04 14:37:31
+* @Last Modified time: 2015-02-04 14:45:59
 */
 
 (function(){
@@ -46,32 +46,17 @@
 		}
 	}
 
-	// 移动设备touch事件监听
-	function touchStart(e) {
-		var touch = event.touches[0];
-		startY = touch.pageY;
+	
+	function touchmove(e) {
+		preventDefault(e);
+		toggle('reveal');
 	}
-	function touchMove(e) {
-		var touch = event.touches[0];
-		endY = startY - touch.pageY;
-	}
-	function touchEnd(e) {
-		if (endY > 50) {
-			toggle('reveal')
-		};
-	}
-
-	// 
-	// function touchmove(e) {
-	// 	preventDefault(e);
-	// 	// toggle('reveal');
-	// }
 
 	// 
 	function disable_scroll() {
 		window.onmousewheel = document.onmousewheel = wheel;
 		document.onkeydown    = keydown;
-		// document.body.ontouchmove = touchmove;
+		document.body.ontouchmove = touchmove;
 	}
 
 	// 文章页
@@ -147,9 +132,6 @@
 
 
 	window.addEventListener('scroll',scrollPage);
-	// header.addEventListener('touchstart',touchStart);
-	// header.addEventListener('touchmove',touchMove);
-	// header.addEventListener('touchend',touchEnd);
 	// 文章翻页
 	trigger.addEventListener('click',function(){toggle('reveal')});
 })();
