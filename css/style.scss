@@ -4,7 +4,7 @@
 * @Email:  531840344@qq.com
 * @Date:   2014-11-20 16:52:57
 * @Last Modified by:   卓文理 www.zwlme.com
-* @Last Modified time: 2015-02-04 14:35:32
+* @Last Modified time: 2015-02-04 14:42:21
 */
 
 @import 'icon';
@@ -240,8 +240,8 @@ $green: #39A239;
 		#loading{
 			@include animation(animLoadedHeader 1s cubic-bezier(0.7,0,0.3,1) forwards);
 		}
-		.ld-logo,.ld-loader{
-			opacity: 1;
+		#loading, .ld-logo, .ld-loader{
+			opacity: 0;
 		}
 		.ld-logo{
 			@include transform-origin(50% 0);
