@@ -4,7 +4,7 @@
 * @Email:  531840344@qq.com
 * @Date:   2014-11-20 16:52:57
 * @Last Modified by:   卓文理 www.zwlme.com
-* @Last Modified time: 2015-02-04 14:42:21
+* @Last Modified time: 2015-02-04 14:54:37
 */
 
 @import 'icon';
@@ -147,7 +147,7 @@ $green: #39A239;
 	@include keyframes(animLoadedHeader){
 		to{
 			opacity: 0;
-			@include transform(translate3d(0,-100%,0) scale3d(0.3,0.3,1));
+			@include transform(translate3d(0,-150%,0) scale3d(0.3,0.3,1));
 		}
 	}
 
@@ -239,9 +239,11 @@ $green: #39A239;
 		}
 		#loading{
 			@include animation(animLoadedHeader 1s cubic-bezier(0.7,0,0.3,1) forwards);
+			pointer-events: none;
 		}
-		#loading, .ld-logo, .ld-loader{
-			opacity: 0;
+		.ld-logo, .ld-loader{
+			opacity: 1;
+			pointer-events: none;
 		}
 		.ld-logo{
 			@include transform-origin(50% 0);
