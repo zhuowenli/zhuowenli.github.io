@@ -4,7 +4,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:mobile="http://www.baidu.com/schemas/sitemap-mobile/1/"> 
   <url>
     <loc>{{ site.SITE_PATH }}</loc>
-    <lastmod>{{ site.time }}</lastmod>
+    <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <data>
@@ -16,7 +16,7 @@
 {% for post in site.posts limit:20 %}
   <url>
     <loc>{{ site.SITE_PATH }}{{ post.url }}</loc>
-    <lastmod>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</lastmod>
+    <lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <data>
@@ -29,7 +29,7 @@
 {% for post in site.pages limit:20 %}
   <url>
     <loc>{{ site.SITE_PATH }}{{ post.url }}</loc>
-    <lastmod>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</lastmod>
+    <lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <data>
