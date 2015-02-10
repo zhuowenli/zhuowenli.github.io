@@ -10,7 +10,7 @@ PhoneGap可以获取设备的相关信息。并且，在事件处理和其他操
 
 ##获取设备的基本信息
 
-设备信息插件的完全限定名是`org.apache.cordova.device`，可以使用下列命令进行安装。
+设备信息插件的完全限定名是`org.apache.cordova.device`，可以使用下列命令进行安装
 
 ```html
 cordova plugin add org.apache.cordova.device
@@ -18,7 +18,7 @@ cordova plugin add org.apache.cordova.device
 
 一旦安装了插件，就可以使用该插件公开的几个属性。这几个属性使用`window.device`对象可以访问，这些属性包含了设备硬件信息和软件相关信息：
 
-- `device.cordova`： 获取Cordova版本号
+- `device.cordova`： 获取Cordova版本号。
 - `device.platform`： 获取设备的操作系统名称。例如"Android"、"BlackBerry 10"、"iOS"、"WinCE"、"Tizen"等。
     
     ```js
