@@ -10,7 +10,7 @@ PhoneGap可以获取设备的相关信息。并且，在事件处理和其他操
 
 ##获取设备的基本信息
 
-设备信息插件的完全限定名是`org.apache.cordova.device`，可以使用下列命令进行安装
+设备信息插件的完全限定名是`org.apache.cordova.device`，可以使用下列命令进行安装。
 
 ```html
 cordova plugin add org.apache.cordova.device
@@ -243,8 +243,8 @@ navigator.notification.beep(2);
 ```js
 navigator.vibrate(time)
 ```
-or
 
+or
 
 ```js
 navigator.vibrate([time])
