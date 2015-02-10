@@ -7,6 +7,10 @@ tags: [PhoneGap, NodeJS, Android, Webapp]
 img: 27
 ---
 
+PhoneGap是一能够让你用普通的web技术编写出能够轻松调用API接口和进入应用商店的HTML5应用开发平台。
+
+是唯一的一个支持7个平台的开源移动框架。它的优势是无以伦比的：开发成本低——据估算，至多Native App的五分之一！
+
 PhoneGap就是一种中间件技术，可以通过搭建一个webview来执行网页程序，并且可以提供调用底层API的接口。本教程将会介绍如何在windows下开发android应用。IOS版本有时间另外讲。
 
 ##PhoneGap安装与配置
@@ -214,3 +218,5 @@ ok, 配置成功了。 接下来可以在菜单栏点击“Run As > Android Appl
 > [PhoneGap入门教程(4) - 电量变化侦测]({{ site.SITE_PATH }}/frontend/phonegap-getting-started-tutorial-4.html)
 >
 > [PhoneGap入门教程(5) - 程序内置浏览器窗口]({{ site.SITE_PATH }}/frontend/phonegap-getting-started-tutorial-5.html)
+>
+> [PhoneGap入门教程(6) - 设备信息和系统提示]({{ site.SITE_PATH }}/frontend/phonegap-getting-started-tutorial-6.html)

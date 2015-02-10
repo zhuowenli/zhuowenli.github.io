@@ -53,7 +53,7 @@ var ref = window.open(url, target, options);
 举个栗子：
 
 ```js
-// 使用绝对路径
+// 使用绝对路径 
 var ref  = window.open('http://zwlme.com', '_blank', 'location=yes');
 // URL存在Unicode字符，因此应该用encodeURI()进行编码
 var ref2 = window.open(encodeURI('http://www.baidu.com/s?wd=卓文理'), '_blank', 'location=yes');
@@ -188,6 +188,8 @@ ref.addEventListener('loadstop', function() {
 > [PhoneGap入门教程(4) - 电量变化侦测]({{ site.SITE_PATH }}/frontend/phonegap-getting-started-tutorial-4.html)
 >
 > PhoneGap入门教程(5) - 程序内置浏览器窗口
+>
+> [PhoneGap入门教程(6) - 设备信息和系统提示]({{ site.SITE_PATH }}/frontend/phonegap-getting-started-tutorial-6.html)
 
 <br>
 

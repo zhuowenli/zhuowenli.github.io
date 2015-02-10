@@ -95,12 +95,14 @@ PhoneGap3.x 官方有很多插件可以使用，下列是这些插件的列表�
 - `org.apache.cordova.device-motion      `   重力加速计
 - `org.apache.cordova.device-orientation `   罗盘（指南针）  
 - **`org.apache.cordova.geolocation        `**   地理定位
+
 - **`org.apache.cordova.camera             `**   照相机
 - `org.apache.cordova.media-capture      `   捕获照片、视频 
 - `org.apache.cordova.media              `   媒体播放
 - **`org.apache.cordova.file               `**   文件系统管理
 - `org.apache.cordova.file-transfer      `   文件传输
 - **`org.apache.cordova.dialogs            `**   对话框
+
 - `org.apache.cordova.vibration          `   振动
 - `org.apache.cordova.contacts           `   联系人管理
 - `org.apache.cordova.globalization      `   全球化
@@ -128,6 +130,8 @@ PhoneGap3.x 官方有很多插件可以使用，下列是这些插件的列表�
 > [PhoneGap入门教程(4) - 电量变化侦测]({{ site.SITE_PATH }}/frontend/phonegap-getting-started-tutorial-4.html)
 >
 > [PhoneGap入门教程(5) - 程序内置浏览器窗口]({{ site.SITE_PATH }}/frontend/phonegap-getting-started-tutorial-5.html)
+>
+> [PhoneGap入门教程(6) - 设备信息和系统提示]({{ site.SITE_PATH }}/frontend/phonegap-getting-started-tutorial-6.html)
 
 <br>
 
