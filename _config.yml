@@ -1,4 +1,4 @@
-BASE_PATH: 
+BASE_PATH:
 SITE_PATH: http://www.zwlme.com
 paginate: 10 # pagination based on number of posts
 paginate_path: "page:num" #pagination generated sub path format
@@ -7,8 +7,8 @@ permalink: /:categories/:title.html
 
 markdown: redcarpet
 
-# highlighter: rouge
-highlighter: pygments
+highlighter: rouge
+# highlighter: pygments
 
 name: 卓文理
 title: 卓文理
