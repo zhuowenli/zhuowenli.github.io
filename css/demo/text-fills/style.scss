@@ -1,0 +1,166 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Open Sans Extrabold'), local('OpenSans-Extrabold'), url(https://fonts-gstatic.lug.ustc.edu.cn/s/opensans/v10/EInbV5DfGHOiMmvb1Xr-hiUUniRZcd_wq8DYmIfsw2A.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+
+@import '../../base';
+
+/*!
+* @Author: 卓文理 www.zwlme.com
+* @Email:  531840344@qq.com
+* @Date:   2015-03-07 10:30:12
+* @Last Modified by:   卓文理 www.zwlme.com
+* @Last Modified time: 2015-03-07 16:55:33
+*/
+
+
+$colors: #551F7A, #BA2799, #D9587A, #FFDD00, #FFF3A1;
+$max: length($colors);
+
+$time: 2s;
+$time-step: $time/$max;
+
+@include keyframes(stroke) {
+  50% {
+    stroke-width: 8;
+  }
+}
+
+@include keyframes(stroke2) {
+  100% {
+    stroke-dashoffset: -400;
+  }
+}
+
+@include keyframes(stripes) {
+  100% {
+    background-position: 0 -50px;
+  }
+}
+
+.demo{
+	margin: 2em auto;
+	padding: 2em;
+	max-width: 100%;
+	width: 100% !important;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	background: #fff;
+	overflow: hidden;
+	.text{
+		font: 12.5em/1 Open Sans, Impact;
+		text-transform: uppercase;
+	}
+	.box-with-text{
+		background-repeat: repeat;
+		background-position: 50% 50%;
+		background-size: cover;
+		white-space: nowrap;
+		text-align: center;
+		text-transform: uppercase;
+		font: 12.5em/1 Open Sans, Impact;
+	}
+	.demo1{
+		background-image:url('img/1.jpg');
+		-webkit-text-fill-color: transparent;
+		-webkit-background-clip: text;
+	}
+	.demo2{
+		background-image: -webkit-linear-gradient(crimson 50%, #FD0 50%);
+		background-repeat: repeat;
+		background-position: 0 0;
+		background-size: 100% 50px;
+		-webkit-text-fill-color: transparent;
+		-webkit-background-clip: text;
+		@include animation(stripes 2s linear infinite);
+	}
+	svg{
+		.text1 {
+			font: 12.5em/1 Open Sans, Impact;
+			text-transform: uppercase;
+			fill: #222;
+		}
+		.text2 {
+			font: 12.5em/1 Open Sans, Impact;
+			text-transform: uppercase;
+			fill: url(#gr-simple);
+		}
+		.text3 {
+			font: 12.5em/1 Open Sans, Impact;
+			text-transform: uppercase;
+			fill: url(#gr-radial);
+		}
+	}
+	.demo3{
+		.text{
+			fill: url(#p-spots);
+			stroke: #1D4259;
+			stroke-width: 5;
+			stroke-opacity: .5;
+		}
+		/* Colorize pattern */
+		.g-spots circle:nth-child(5n + 1) {
+		  fill: #1D4259;
+		}
+		.g-spots circle:nth-child(5n + 2) {
+		  fill: #0A7373;
+		}
+		.g-spots circle:nth-child(5n + 3) {
+		  fill: #30BF7C;
+		}
+		.g-spots circle:nth-child(5n + 4) {
+		  fill: #BAF266;
+		}
+		.g-spots circle:nth-child(5n + 5) {
+		  fill: #EEF272;
+		}
+	}
+	.demo4{
+		.text{
+			fill: url(#p-stars);
+			stroke: #551F7A;
+			stroke-width: 3;
+		}
+
+		.g-stars polygon {
+			stroke-width: 0;
+			-webkit-animation: stroke 2s infinite;
+			animation: stroke 2s infinite;
+
+			@for $item from 1 through $max {
+				&:nth-child(#{$max}n + #{$item}){
+					$color: nth($colors, $item);
+					fill: $color;
+					stroke: $color;
+					animation-delay: -($time-step*$item);
+				}
+			}
+		}
+	}
+	.demo5{
+		.text {
+			fill: url(#p-fire);
+		}
+	}
+	.demo6{
+		.text {
+			fill: none;
+			stroke-width: 6;
+			stroke-linejoin: round;
+			stroke-dasharray: 70 330;
+			stroke-dashoffset: 0;
+			@include animation(stroke2 6s infinite linear);
+			@for $item from 1 through $max {
+				&:nth-child(#{$max}n + #{$item}){
+					$color: nth($colors, $item);
+					stroke: $color;
+					@include animation-delay(#{-(1.2 * $item)}s);
+				}
+			}
+		}
+	}
+}
