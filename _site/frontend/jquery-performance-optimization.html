@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+    <link rel="dns-prefetch" href="//disqus.com"/>
+    <link rel="dns-prefetch" href="//a.disquscdn.com"/>
+
+    <meta name="Keywords" content="卓文理,前端,前端开发,网页设计,交互设计,github-page,jekyll,javascript,jquery"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    
+    <meta name="author" content="卓文理">
+
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon.png">
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-72.png" sizes="72x72" />
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-76.png" sizes="76x76" />
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-114.png" sizes="114x114" />
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-120.png" sizes="120x120" />
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-152.png" sizes="152x152" />
+    <link href="/res/img/icon.png" rel="Shortcut Icon" type="image/x-icon"/>
+
+    <title>jQuery性能优化 | 卓文理</title>
+
+    
+    <link rel="stylesheet" href="/res/css/style.css">
+    <script type="text/javascript" src="/res/js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+    <div id="container" class="container modify">
+        <main id="postPage" class="page post-page post-detail">
+                <div class="post-menu">
+        <a href="/" class="uplevel">
+            <span class="arrow">‹</span>
+            <strong class="logo">
+                <span class="a">卓</span>
+                <span class="b">文</span>
+                <span class="c">理</span>
+            </strong>
+            <h1>前端开发</h1>
+        </a>
+        <ul class="stats">
+            <li>
+                <p>本站站长</p>
+                <p><a target="_blank" href="http://www.zwlme.com">卓文理</a></p>
+            </li>
+            <li>
+                <p>联系方式</p>
+                <p><a target="_blank" href="mailto:531840344@qq.com">531840344@qq.com</a></p>
+            </li>
+        </ul>
+    </div>
+            <div class="post-container">
+                <div class="article">
+                    <a href="/frontend" class="back">
+                        <span class="arrow">&lt;</span>
+                        <span class="text">返回目录</span>
+                    </a>
+                    <header class="article-info">
+                        <h1>jQuery性能优化</h1>
+                    </header>
+                    <div class="article-body">
+                        <p>人脑不是机器，记忆都会退化，我们需要文档辅助作知识沉淀</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s2">"input[checked='checked']"</span><span class="p">);</span>  <span class="c1">// 比较快</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">"input:checked"</span><span class="p">);</span> <span class="c1">// 比较慢</span>
+</code></pre></div>
+<h4>合理使用选择器</h4>
+
+<ul>
+<li><p>id和标签选择器最快，因为直接调用原生API</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s2">"#box"</span><span class="p">);</span> <span class="c1">// document.getElementById | document.querySelector</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">"div"</span><span class="p">);</span>  <span class="c1">// document.getElementsByTagName</span>
+</code></pre></div></li>
+<li><p>类选择器在低版本浏览器比较慢，伪元素、属性选择器在不支持<code>querySelector</code>的浏览器很慢</p></li>
+<li><p>尽可能优先使用符合CSS语法规范的CSS选择器表达式，以此来避免使用jQuery自定义的选择器表达式。因为当jQuery遇到单个id
+，标签名，选择器就会快速调用浏览器支持的DOM方法查询</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s2">"input[checked='checked']"</span><span class="p">);</span>  <span class="c1">// 比较快</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">"input:checked"</span><span class="p">);</span> <span class="c1">// 比较慢</span>
+</code></pre></div></li>
+<li><p>优先选择<code>$.fn.find</code>查找子元素，因为<code>find</code>之前的选择器并没有使用jQuery自带的<code>Sizzie</code>选择器引擎，而是使用元素API查找元素</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s2">"#parent"</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s2">".child"</span><span class="p">);</span> <span class="c1">// 最快</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">".child,$("</span><span class="err">#</span><span class="nx">parent</span><span class="s2">")"</span><span class="p">);</span> <span class="c1">// 较快，内部会转换成第一条语句的形式，性能有一定损耗</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">"#parent .child"</span><span class="p">);</span> <span class="c1">// 不如上一个语句快</span>
+</code></pre></div></li>
+<li><p>使用组合时，尽可能使右端更明确，因为Sizzie引擎是从右到左匹配的</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s2">".foo div.bar"</span><span class="p">);</span> <span class="c1">// 快</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">"div.foo .bar"</span><span class="p">);</span> <span class="c1">// 较慢</span>
+</code></pre></div></li>
+<li><p>避免过度具体，简洁的DOM结构也有助于提升选择器性能</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s2">".foo .baz"</span><span class="p">);</span> <span class="c1">// 快</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">".foo .bar .baz"</span><span class="p">)</span> <span class="c1">// 慢</span>
+</code></pre></div></li>
+<li><p>尽量避免使用通配符选择器</p></li>
+</ul>
+
+<h4>尽可能少创建jQuery对象</h4>
+
+<ul>
+<li>如<code>document.getElementById(&#39;nav&#39;)</code>，比<code>$(&quot;#nav&quot;)</code>快</li>
+<li><p>如获取元素id</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s2">"div"</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="c1">//生成了个jQuery对象</span>
+    <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'id'</span><span class="p">);</span>
+    <span class="c1">//酱紫更直接</span>
+    <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre></div></li>
+<li><p>使用链式调用缓存jQuery对象</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"user"</span> <span class="na">class=</span><span class="s">"none"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"name"</span><span class="nt">&gt;&lt;/p&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"city"</span><span class="nt">&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s2">"#user"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">'.name'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">'zhangsan'</span><span class="p">).</span><span class="nx">end</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">'.city'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">'xiamen'</span><span class="p">).</span><span class="nx">end</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">'none'</span><span class="p">);</span>
+</code></pre></div></li>
+<li><p>做好jQuery对象的缓存</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">box</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">".box"</span><span class="p">);</span>
+<span class="nx">box</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">'&gt; .cls1'</span><span class="p">);</span>
+<span class="nx">box</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">'&gt; .cls2'</span><span class="p">);</span>
+</code></pre></div></li>
+</ul>
+
+<h4>避免频繁操作DOM</h4>
+
+<ul>
+<li><p>复杂操作把元素从DOM移除在操作</p></p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">$el</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'.box'</span><span class="p">).</span><span class="nx">detach</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">$p</span>  <span class="o">=</span> <span class="nx">$el</span><span class="p">.</span><span class="nx">parent</span><span class="p">();</span>
+
+<span class="c1">// do something...</span>
+
+<span class="nx">$p</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">$el</span><span class="p">);</span>
+</code></pre></div></li>
+<li><p>在循环外执行DOM修改</p></p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// 较好的做法</span>
+<span class="kd">var</span> <span class="nx">frag</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">creatElementFragment</span><span class="p">();</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="nx">el</span><span class="p">){</span>
+    <span class="nx">flag</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">el</span><span class="p">);</span>
+<span class="p">})</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'.box'</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">addendChild</span><span class="p">(</span><span class="nx">flag</span><span class="p">);</span>
+
+<span class="c1">//性能差</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="nx">el</span><span class="p">){</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'.box'</span><span class="p">).</span><span class="nx">prepend</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">));</span>
+<span class="p">})</span>
+</code></pre></div></li>
+</ul>
+
+<h4>使用事件代理</h4>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s1">'ul'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span><span class="nx">li</span><span class="p">,</span><span class="nx">fn</span><span class="p">);</span> <span class="c1">// 较好</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'ul li'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span><span class="nx">fn</span><span class="p">);</span> <span class="c1">// 较差</span>
+</code></pre></div>
+<p>使用事件代理（委托），当有新元素添加进来的时候，不需要在为它绑定事件，这里有<a target="_black" href="http://zhuowenli.qiniudn.com/wordpress/demo/event-delegation.html">demo</a>可以查看效果。</p>
+
+                    </div>
+                </div>
+                <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'zhuowenli'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+                        <footer class="footer">
+            <p class="copyright">© 2015 卓文理 · <a href="/about/" class="about">关于本站</a> · Powered by <a href="http://github.com" class="powered">GitHub</a> &amp; <a href="http://jekyllcn.com" class="powered">Jekyll</a></p>
+        </footer>
+            </div>
+            <div class="post-backdrop"></div>
+        </main>
+
+        <script type="text/javascript" src="/res/js/index.js"></script>
+        <script type="text/javascript">
+            app.init();
+        </script>
+    </div>
+</body>
+</html>

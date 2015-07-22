@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+    <link rel="dns-prefetch" href="//disqus.com"/>
+    <link rel="dns-prefetch" href="//a.disquscdn.com"/>
+
+    <meta name="Keywords" content="卓文理,前端,前端开发,网页设计,交互设计,inheritance,prototype chain,javascript"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    
+    <meta name="author" content="卓文理">
+
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon.png">
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-72.png" sizes="72x72" />
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-76.png" sizes="76x76" />
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-114.png" sizes="114x114" />
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-120.png" sizes="120x120" />
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-152.png" sizes="152x152" />
+    <link href="/res/img/icon.png" rel="Shortcut Icon" type="image/x-icon"/>
+
+    <title>深入理解继承与原型链 | 卓文理</title>
+
+    
+    <link rel="stylesheet" href="/res/css/style.css">
+    <script type="text/javascript" src="/res/js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+    <div id="container" class="container modify">
+        <main id="postPage" class="page post-page post-detail">
+                <div class="post-menu">
+        <a href="/" class="uplevel">
+            <span class="arrow">‹</span>
+            <strong class="logo">
+                <span class="a">卓</span>
+                <span class="b">文</span>
+                <span class="c">理</span>
+            </strong>
+            <h1>前端开发</h1>
+        </a>
+        <ul class="stats">
+            <li>
+                <p>本站站长</p>
+                <p><a target="_blank" href="http://www.zwlme.com">卓文理</a></p>
+            </li>
+            <li>
+                <p>联系方式</p>
+                <p><a target="_blank" href="mailto:531840344@qq.com">531840344@qq.com</a></p>
+            </li>
+        </ul>
+    </div>
+            <div class="post-container">
+                <div class="article">
+                    <a href="/frontend" class="back">
+                        <span class="arrow">&lt;</span>
+                        <span class="text">返回目录</span>
+                    </a>
+                    <header class="article-info">
+                        <h1>深入理解继承与原型链</h1>
+                    </header>
+                    <div class="article-body">
+                        <p>对于那些熟悉基于类的面向对象语言（java或c++）的开发者来说，javascript的语法是比较怪异的。由于javascript是一门动态语言，而且它没有类的概念（虽然<code>class</code>是个保留字，不能作为变量名来使用）。</p>
+
+<p>继承方面，javascript中每个对象都有一个内部私有链接指向另一个对象，这个对象就是原对象的<strong>原型</strong>，这个原型也有自己的原型，知道对象的原型为<code>null</code>为止（也就是没有原型）。这种一级一级的链结构就称为<strong>原型链</strong>。</p>
+
+<p>虽然这会被称为javascript的弱点之一，实际上这种原型继承的模式要比经典的继承模型还要强大。虽然在原型模型上构建一个经典模型是相当繁琐的，但是采用其他方式实现则会更加困难。</p>
+
+<h3>基于原型链的继承</h3>
+
+<h4>继承属性</h4>
+
+<p>javascript对象有两种不同的属性，一种是对象自身的属性，另外一种是继承于原型链上的属性。下面代码演示了当访问一个对象时发生的行为。</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// 假定我们有个对象o，并且o所在的原型链如下：</span>
+<span class="c1">// {a:1,b:2} ---&gt; {b:3,c:4} ---&gt; null</span>
+<span class="c1">// 'a'和'b'是o自身的属性</span>
+
+<span class="c1">// 该例中，用"对象.[[Prototype]]"来表示对象的原型</span>
+<span class="c1">// 这只是一个纯粹的符号（ECMAScript标准中也是这样使用），不能在实际代码中使用</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// 1</span>
+<span class="c1">// a是o的自身属性吗？是的，该属性值为1</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">b</span><span class="p">);</span> <span class="c1">// 2</span>
+<span class="c1">// b是o的自身属性吗？是的，该属性值为2</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">c</span><span class="p">);</span> <span class="c1">// 4</span>
+<span class="c1">// c是o的自身属性吗？不是，那看看o.[[Prototype]]有没有？</span>
+<span class="c1">// c是o.[[Prototype]]的自身属性吗？是的，该属性值为4</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">d</span><span class="p">);</span> <span class="c1">// undefined</span>
+<span class="c1">// d是o的自身属性吗？不是，那看看o.[[Prototype]]上有没有？</span>
+<span class="c1">// d是o.[[Prototype]]的自身属性吗？不是，那看看o.[[Prototype]].[[Prototype]]上有没有？</span>
+<span class="c1">// o.[[Prototype]].[[Prototype]]为null，原型链已到顶端，没有d属性，返回undefined</span>
+</code></pre></div>
+<h4>继承方法</h4>
+
+<p>javascript并没有真正的“方法”，javascript中只有函数，而且任何函数都可以添加到对象上作为对象的属性。继承的函数与其他的属性是基本没有差别的，包括“属性遮蔽”（这种情况相当于其他语言的重写）。</p>
+
+<p>当继承的函数被调用时，<code>this</code>指向的继承的对象，而不是函数被声明的原型对象。</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">a</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="na">m</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">b</span><span class="p">){</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">m</span><span class="p">());</span> <span class="c1">// 3</span>
+<span class="c1">// 当调用 o.m 时，'this'指向了o</span>
+
+<span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">o</span><span class="p">);</span>
+<span class="c1">// p是一个对象，p.[[Prototype]]是o</span>
+
+<span class="nx">p</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span> <span class="c1">// 创建p的自身属性是a</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">m</span><span class="p">());</span> <span class="c1">// 13</span>
+<span class="c1">//调用p.m()时，'this'指向 p ，'this.a'是12</span>
+</code></pre></div>
+<h3>使用不同的方法来创建对象和生成原型链</h3>
+
+<h4>使用普通语法创建对象</h4>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="na">a</span><span class="p">:</span> <span class="mi">1</span><span class="p">};</span>
+
+<span class="c1">// o这个对象继承了Object.prototype上面的所有属性</span>
+<span class="c1">// 所以可以这样使用 o.hasOwnProperty('a')</span>
+<span class="c1">// hasOwnProperty是Object.prototype的自身属性</span>
+<span class="c1">// Object.prototype的原型是null，如下：</span>
+<span class="c1">// o ---&gt; Object.prototype ---&gt; null</span>
+
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"yo"</span><span class="p">,</span><span class="s2">"whadup"</span><span class="p">,</span><span class="s2">"?"</span><span class="p">];</span>
+
+<span class="c1">// 数组都继承于Array.prototype（indexOf，fprEach，等方法都是从它继承而来）</span>
+<span class="c1">// 原型链如下：</span>
+<span class="c1">// a ---&gt; Array.prototype ---&gt; Object.prototype ---&gt; null</span>
+
+<span class="kd">function</span> <span class="nx">f</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 函数都继承于Function.prototype（call，bind，等方法都是从它继承而来）</span>
+<span class="c1">// 原型链如下：</span>
+<span class="c1">// f ---&gt; Function.prototype ---&gt; Object.prototype ---&gt; null</span>
+</code></pre></div>
+<h4>使用构造方法创建对象</h4>
+
+<p>在javascript中，构造方法其实就是一个普通函数，当使用<code>new</code>操作符来使用这个函数时，他就可以成为构造方法（构造函数）。</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">Graph</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">vertexes</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">edges</span>    <span class="o">=</span> <span class="p">[];</span>
+<span class="p">}</span>
+
+<span class="nx">Graph</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">addVertex</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">v</span><span class="p">){</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">vertexts</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">v</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">g</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Graph</span><span class="p">();</span>
+<span class="c1">// g是生成的对象，他的自身属性有'vertexes'和'edges'</span>
+<span class="c1">// 在g被实例化时，g.[[Prototype]]指向了Graph.prototype</span>
+</code></pre></div>
+<h4>使用Object.create创建对象</h4>
+
+<p>ECMAScript 5中引入了一个新方法：<code>Object.create</code>，可以调用这个方法来创建一个新对象，新对象的原型就是调用create方法时传入的第一个参数：</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">{</span><span class="na">a</span><span class="p">:</span> <span class="mi">1</span><span class="p">};</span>
+<span class="c1">// a ---&gt; Object.prototype ---&gt; null</span>
+
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+<span class="c1">// b ---&gt; a ---&gt; Object.prototype ---&gt; null</span>
+
+<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span>
+<span class="c1">// c ---&gt; b ---&gt; a ---&gt; Object.prototype ---&gt; null</span>
+
+<span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+<span class="c1">// d ---&gt; null</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">);</span> <span class="c1">// undefined , 因为d没有继承Object.prototype</span>
+</code></pre></div>
+<h3>性能</h3>
+
+<p>在原型链上查找属性比较耗时，对性能有副作用，这在性能要求苛刻的情况下很重要。另外试图访问不存在的属性时会遍历整个原型链。</p>
+
+<p>遍历对象的属性时，原型链上的每个属性都是可枚举的。</p>
+
+<p>检测对象的属性是定义在自身上还是原型链上，有必要使用<code>hasOwnProperty</code>方法，该方法所有对象继承自<code>Object.prototype</code>。</p>
+
+<p><code>hasOwnProperty</code>是javascript中唯一一个只涉及自身属性而不会遍历原型链的方法。</p>
+
+<div class="note">
+    <p>注意：仅仅通过判断值是否为<code>undefined</code>还不足以检测一个属性是否存在，一个属性可能恰好存在而其值为<code>undefined</code>。</p>
+</div>
+
+<h3>不好的实践：扩展原生对象的原型</h3>
+
+<p>一个经常使用的不好实践是扩展<code>Object.prototype</code>或者其他内置对象的原型。</p>
+
+<p>该技术被称为<code>monkey patchind</code>，他破坏了对象的封装性。虽然一些流行的框架（如Prototype.js）在使用该技术，但是该技术依然不是最好的实践，附加的非标准方法使得内置的类型混乱。</p>
+
+<p>扩展内置对象原型的唯一正当理由是移植较新的javascript引擎的特性，如<code>Arrey.forEach</code>。</p>
+
+<h3>结论</h3>
+
+<p>在编写使用到原型继承模型的复杂代码前理解原型继承模型十分重要。同时，还要清楚代码中原型链的长度，并在必要时结束原型链，以避免可能存在的性能问题。更进一步，除非为了兼容新的javascript特性，否则永远不要扩展原生对象的原型。</p>
+
+                    </div>
+                </div>
+                <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'zhuowenli'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+                        <footer class="footer">
+            <p class="copyright">© 2015 卓文理 · <a href="/about/" class="about">关于本站</a> · Powered by <a href="http://github.com" class="powered">GitHub</a> &amp; <a href="http://jekyllcn.com" class="powered">Jekyll</a></p>
+        </footer>
+            </div>
+            <div class="post-backdrop"></div>
+        </main>
+
+        <script type="text/javascript" src="/res/js/index.js"></script>
+        <script type="text/javascript">
+            app.init();
+        </script>
+    </div>
+</body>
+</html>

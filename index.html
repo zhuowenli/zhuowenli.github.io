@@ -1,0 +1,142 @@
+---
+layout: default
+---
+<div id="homePage" class="page home-page show-frontend">
+    <h1 class="logo home-logo">
+        <span class="a">卓</span>
+        <span class="b">文</span>
+        <span class="c">理</span>
+    </h1>
+    <ul id="selectNav" class="select-nav">
+        <span class="selection"></span>
+        <li class="frontend">
+            <a href="/frontend/">
+                <strong>前端开发</strong>
+                <span class="alive icon">
+                    <span class="bar a"></span>
+                    <span class="bar b"></span>
+                    <span class="bar c"></span>
+                </span>
+                <small>Frontend &amp; Technology</small>
+            </a>
+        </li>
+        <li class="design">
+            <a href="/design/">
+                <strong>设计网摘</strong>
+                <small>Web Design</small>
+            </a>
+        </li>
+        <li class="diary">
+            <a href="/diary/">
+                <strong>生活日志</strong>
+                <small>Something With My Life</small>
+            </a>
+        </li>
+    </ul>
+    <div class="spinner spinning">
+        <span class="rings">
+            <span class="ring zero"></span>
+            <span class="ring one"></span>
+            <span class="ring two"></span>
+            <span class="ring three"></span>
+        </span>
+        <div class="preview-frontend">
+            <span class="preview-mini" data-class="frontend">
+                <span class="symbol">
+                    <span class="text">前端开发</span>
+                </span>
+            </span>
+            <span class="preview-full">
+                <span class="circle backdrop"></span>
+                <span class="circle backdrop two"></span>
+                <span class="circle backdrop three"></span>
+                <a href="#" class="circle">
+                    <span class="the-circle"></span>
+                    <strong>{{ site.tags.javascript.size }}</strong>
+                    <small>Javascript</small>
+                </a>
+                <a href="#" class="two circle">
+                    <span class="the-circle"></span>
+                    <strong>{{ site.tags.css3.size }}</strong>
+                    <small>CSS3</small>
+                </a>
+                <a href="#" class="three circle">
+                    <span class="the-circle"></span>
+                    <strong>{{ site.tags.PhoneGap.size }}</strong>
+                    <small>PhoneGap</small>
+                </a>
+            </span>
+        </div>
+        <div class="preview-design">
+            <span class="preview-mini" data-class="design">
+                <span class="symbol">
+                    <span class="text">设计网摘</span>
+                </span>
+            </span>
+            <span class="preview-full">
+                <span class="big-circle backdrop"></span>
+                <a href="#" class="big-circle">
+                    <span class="the-circle"></span>
+                    <strong>{{ site.categories.design.size }}</strong>
+                    <small>Design post</small>
+                </a>
+            </span>
+        </div>
+        <div class="preview-diary">
+            <span class="preview-mini" data-class="diary">
+                <span class="symbol">
+                    <span class="text">生活日志</span>
+                </span>
+            </span>
+            <span class="preview-full">
+                <span class="big-circle backdrop"></span>
+                <a href="#" class="big-circle">
+                    <span class="the-circle"></span>
+                    <strong>{{ site.categories.diary.size }}</strong>
+                    <small>diary post</small>
+                </a>
+            </span>
+        </div>
+    </div>
+    <div class="spinner stationary">
+        <div class="preview spinner-frontend">
+            <div class="map-content">
+                <span class="the-map"></span>
+                <span class="bilp">
+                    <span class="bilp-ring one"></span>
+                    <span class="bilp-ring two"></span>
+                    <span class="bilp-ring three"></span>
+                    <span class="center"></span>
+                </span>
+            </div>
+            <div class="detail">
+                <h3>前端开发</h3>
+                <h4>XiaMen, China</h4>
+            </div>
+        </div>
+        <div class="preview spinner-design">
+            <a href="/design/" class="preview-logo"></a>
+            <div class="detail">
+                <h3>设计网摘</h3>
+                <h4>Web Design &amp; Social Bookmark</h4>
+            </div>
+        </div>
+        <div class="preview spinner-diary">
+            <div class="preview-article">
+                <h2>生活日志</h2>
+                <p>I am happy to do this stuff. Welcome and enjoy!</p>
+                <a href="/diary/" class="goto">Read More</a>
+            </div>
+        </div>
+    </div>
+    <footer class="home-footer">
+        <p class="copyright">
+            <a href="/about/">关于本站</a>
+        </p>
+    </footer>
+</div>
+
+<script type="text/javascript" src="/res/js/index.js"></script>
+<script type="text/javascript">
+    app.init();
+</script>

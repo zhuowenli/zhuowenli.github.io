@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+    <link rel="dns-prefetch" href="//disqus.com"/>
+    <link rel="dns-prefetch" href="//a.disquscdn.com"/>
+
+    <meta name="Keywords" content="卓文理,前端,前端开发,网页设计,交互设计,PhoneGap,Android,Webapp,javascript"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    
+    <meta name="author" content="卓文理">
+
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon.png">
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-72.png" sizes="72x72" />
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-76.png" sizes="76x76" />
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-114.png" sizes="114x114" />
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-120.png" sizes="120x120" />
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-152.png" sizes="152x152" />
+    <link href="/res/img/icon.png" rel="Shortcut Icon" type="image/x-icon"/>
+
+    <title>PhoneGap入门教程(5) - 程序内置浏览器窗口 | 卓文理</title>
+
+    
+    <link rel="stylesheet" href="/res/css/style.css">
+    <script type="text/javascript" src="/res/js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+    <div id="container" class="container modify">
+        <main id="postPage" class="page post-page post-detail">
+                <div class="post-menu">
+        <a href="/" class="uplevel">
+            <span class="arrow">‹</span>
+            <strong class="logo">
+                <span class="a">卓</span>
+                <span class="b">文</span>
+                <span class="c">理</span>
+            </strong>
+            <h1>前端开发</h1>
+        </a>
+        <ul class="stats">
+            <li>
+                <p>本站站长</p>
+                <p><a target="_blank" href="http://www.zwlme.com">卓文理</a></p>
+            </li>
+            <li>
+                <p>联系方式</p>
+                <p><a target="_blank" href="mailto:531840344@qq.com">531840344@qq.com</a></p>
+            </li>
+        </ul>
+    </div>
+            <div class="post-container">
+                <div class="article">
+                    <a href="/frontend" class="back">
+                        <span class="arrow">&lt;</span>
+                        <span class="text">返回目录</span>
+                    </a>
+                    <header class="article-info">
+                        <h1>PhoneGap入门教程(5) - 程序内置浏览器窗口</h1>
+                    </header>
+                    <div class="article-body">
+                        <p>使用<code>window.open()</code>方法可以让用户在应用程序内显示一个浏览器窗口，但是PhoneGap重写了这个方法。该方法与BOM（浏览器对象模型）的<code>window.open()</code>方法有很大的不同，其中一个最大的不同是该方法返回了一个<code>InAppBrowser</code>对象，用于引用这个新打开的窗口，从而可以在应用程序内控制这个窗口。</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">ref</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">'http://zwlme.com'</span><span class="p">,</span> <span class="s1">'_blank'</span><span class="p">,</span> <span class="s1">'location=yes'</span><span class="p">);</span>
+</code></pre></div>
+<p>这个新打开的窗口是一个<code>InAppBrowser</code>实例，一般称之为InAppBrowser窗口。</p>
+
+<p><code>InAppBrowser</code>浏览器插件的完全限定名是<code>org.apache.cordova.inappbrowser</code>，可以使用下列命令安装插件</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html">cordova plugin add org.apache.cordova.inappbrowser
+</code></pre></div>
+<h2>打开一个新的窗口</h2>
+
+<p>当然，使用<code>window.open()</code>方法不当会在一个新的<code>InAppBrowser</code>实例中打开一个URL，也可以在当前浏览器或者在系统浏览器中打开一个URL。</p>
+
+<p>该方法的语法格式如下。</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">ref</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">target</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
+</code></pre></div>
+<ul>
+<li><strong>ref</strong>: 返回的<code>InAppBrowser</code>实例，使用它可以进一步的操作这个窗口</li>
+<li><strong>url</strong>: 指定要加载的URL地址(String)。如果URL包含Unicode字符，首先使用<code>encodeURI()</code>进行编码。</li>
+<li><p><strong>target</strong>: 指定加载的URL到目标位置，这个参数是可选的。默认是<code>_self</code>。</p>
+
+<ul>
+<li><code>_self</code>: 如果URL在白名单列表中，在Cordova WebView中打开URL，负责在<code>InAppBrowser</code>窗口中打开。</li>
+<li><code>_blank</code>: 在<code>InAppBrowser</code>窗口中打开</li>
+<li><code>_system</code>: 在系统浏览器中打开</li>
+</ul></li>
+<li><p><strong>option</strong>: 参数可选。指定功能项，各功能之间使用逗号隔开，且不能包含空格。默认的值是<code>location=yes</code></p>
+
+<ul>
+<li><code>location</code>: 用来设置<code>InAppBrowser</code>窗口是否出现地址栏。可选值为<code>yes</code>和<code>no</code>。</li>
+</ul>
+
+<p>Android还可以设置下列功能项：</p>
+
+<ul>
+<li><code>closebuttoncaption</code>: 用来设置Done按钮显示的文字。</li>
+<li><code>hidden</code>: 如果设置<code>yes</code>，则会先加载网页但是不显示出来。然后可以调用<code>show()</code>方法来显示该网页。虽然加载是不显示的，但加载完成后会触发加载完成事件。默认值为<code>no</code>，表示正常加载和显示。</li>
+<li><code>clearcache</code>: 如果设为<code>yes</code>，表示将会首先清除Cookies，然后加载网页。默认值为<code>no</code>。</li>
+<li><code>clearsessioncache</code>: 如果设为<code>yes</code>，表示将会首先清除Session，然后加载网页。默认值为<code>no</code>。</li>
+</ul></li>
+</ul>
+
+<p>举个栗子：</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// 使用绝对路径 </span>
+<span class="kd">var</span> <span class="nx">ref</span>  <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">'http://zwlme.com'</span><span class="p">,</span> <span class="s1">'_blank'</span><span class="p">,</span> <span class="s1">'location=yes'</span><span class="p">);</span>
+<span class="c1">// URL存在Unicode字符，因此应该用encodeURI()进行编码</span>
+<span class="kd">var</span> <span class="nx">ref2</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nb">encodeURI</span><span class="p">(</span><span class="s1">'http://www.baidu.com/s?wd=卓文理'</span><span class="p">),</span> <span class="s1">'_blank'</span><span class="p">,</span> <span class="s1">'location=yes'</span><span class="p">);</span>
+<span class="c1">// 使用相对地址</span>
+<span class="kd">var</span> <span class="nx">ref</span>  <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">'next.html'</span><span class="p">,</span> <span class="s1">'_self'</span><span class="p">);</span>
+</code></pre></div>
+<h2>关闭窗口</h2>
+
+<p>可以使用<code>colse()</code>方法来关闭这个窗口。</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">ref</span><span class="p">.</span><span class="nx">close</span><span class="p">()</span>
+</code></pre></div>
+<p>例如下列代码，可以实现窗口在打开5秒后关闭：</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">onDeviceReady</span><span class="p">(){</span>
+    <span class="c1">// 打开一个窗口</span>
+    <span class="kd">var</span> <span class="nx">ref</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">'http://zwlme.com'</span><span class="p">,</span> <span class="s1">'_blank'</span><span class="p">,</span> <span class="s1">'location=yes'</span><span class="p">);</span>
+    <span class="c1">// 打开5秒后关闭</span>
+    <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">ref</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+    <span class="p">},</span><span class="mi">5000</span><span class="p">);</span>    
+<span class="p">}</span>
+</code></pre></div>
+<h2>显示隐藏的网页</h2>
+
+<p>打开网页时功能项<code>hidden</code>被设置为<code>yes</code>，则会先加载网页但是不显示出来。要想随后显示可以调用<code>show()</code>方法来实现。</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">ref</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">'http://apache.org'</span><span class="p">,</span> <span class="s1">'_blank'</span><span class="p">,</span> <span class="s1">'hidden=yes'</span><span class="p">);</span>
+<span class="c1">// 一段时间后...</span>
+<span class="nx">ref</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
+</code></pre></div>
+<h2>事件处理</h2>
+
+<p>也可以使用<code>addEventListener()</code>和<code>removeEventListener()</code>监控和管理新窗口的事件。共有如下几个事件可以监听：</p>
+
+<ul>
+<li><strong>loadstart</strong>: 当<code>InAppBrowser</code>窗口开始加载一个URL时触发该事件</li>
+<li><strong>loadstop</strong>:  当<code>InAppBrowser</code>窗口完成加载一个URL时触发该事件</li>
+<li><strong>loaderror</strong>: 当<code>InAppBrowser</code>窗口加载一个URL出错时触发该事件</li>
+<li><strong>exit</strong>:      当<code>InAppBrowser</code>窗口关闭时触发该事件</li>
+</ul>
+
+<p><code>addEventListener</code>事件处理器包含一个参数，该参数是一个<code>InAppBrowserEvent</code>对象，该对象有如下属性：</p>
+
+<ul>
+<li><p><strong>type</strong>:    事件名，可以是<code>loadstart</code>, <code>loadstop</code>, <code>loaderror</code>, 或 <code>exit</code>。 <em>(String)</em></p></li>
+<li><p><strong>url</strong>:     加载的URL地址。 <em>(String)</em></p></li>
+<li><p><strong>code</strong>:    返回出错代码，仅适用于<code>loaderror</code>事件。 <em>(Number)</em></p></li>
+<li><p><strong>message</strong>: 返回出错消息，进适用于<code>loaderror</code>事件。 <em>(String)</em></p></li>
+</ul>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// 打开一个窗口</span>
+<span class="kd">var</span> <span class="nx">ref</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">'http://zwlme.com'</span><span class="p">,</span> <span class="s1">'_blank'</span><span class="p">,</span> <span class="s1">'location=yes'</span><span class="p">);</span>
+
+<span class="c1">// 注册loadstart事件监听</span>
+<span class="nx">ref</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'loadstart'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">url</span><span class="p">);</span> <span class="p">});</span>
+
+<span class="c1">// 注册loadstop事件监听</span>
+<span class="nx">ref</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'loadstop'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">url</span><span class="p">);</span> <span class="p">});</span>
+
+<span class="c1">// 注册exit事件监听</span>
+<span class="nx">ref</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'exit'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">type</span><span class="p">);</span> <span class="p">});</span>
+</code></pre></div>
+<h2>JavaScript脚本注入</h2>
+
+<p><code>executeScript()</code>方法可以将一个JavaScript代码注入<code>InAppBrowser</code>窗口并执行，语法格式如下。</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">ref</span><span class="p">.</span><span class="nx">executeScript</span><span class="p">(</span><span class="nx">details</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
+</code></pre></div>
+<p>参数<code>ref</code>是返回的<code>InAppBrowser</code>实例，参数<code>details</code>定义要注入的JavaScript代码详细信息，该参数是一个<code>Object</code>，可以定义两个属性，属性要么是<code>file</code>，要么是<code>code</code>。</p>
+
+<ul>
+<li><strong>file</strong>: 指定一个JavaScript文件地址，这个文件中的代码将会注入到当前<code>InAppBrowser</code>窗口。</li>
+<li><strong>code</strong>: 指定一个JavaScript代码字符串，这段代码将会注入到当前<code>InAppBrowser</code>窗口。</li>
+</ul>
+
+<p>参数<code>callback</code>定义执行注入后的回调函数。如果插入的类型是<code>code</code>，<code>callback</code>函数将会被传递进一个参数（这个参数是一个<code>Array</code>类型），这是代码执行的返回值。对于多行代码，仅包含最后一行代码的返回值。</p>
+
+<p>这个方法一般都应该在文档加载完成后被执行，例如下列代码，当文档加载完成后把一个JavaScript文件注入到当前加载的页面：</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">ref</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">'http://zwlme.com'</span><span class="p">,</span> <span class="s1">'_blank'</span><span class="p">,</span> <span class="s1">'location=yes'</span><span class="p">);</span>
+<span class="nx">ref</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'loadstop'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">ref</span><span class="p">.</span><span class="nx">executeScript</span><span class="p">({</span><span class="na">file</span><span class="p">:</span> <span class="s2">"myscript.js"</span><span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+<h2>CSS样式注入</h2>
+
+<p><code>insertCSS()</code>方法可以将一个CSS样式注入<code>InAppBrowser</code>窗口，语法格式如下。</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">ref</span><span class="p">.</span><span class="nx">insertCSS</span><span class="p">(</span><span class="nx">details</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
+</code></pre></div>
+<p>参数<code>ref</code>是返回的<code>InAppBrowser</code>实例，参数<code>details</code>定义要注入的CSS样式代码详细信息，该参数是一个<code>Object</code>，可以定义两个属性，属性要么是<code>file</code>，要么是<code>code</code>。</p>
+
+<ul>
+<li><strong>file</strong>: 指定一个CSS样式文件地址，这个文件中的代码将会注入到当前<code>InAppBrowser</code>窗口。</li>
+<li><strong>code</strong>: 指定一个CSS样式代码字符串，这段代码将会注入到当前<code>InAppBrowser</code>窗口。</li>
+</ul>
+
+<p>参数<code>callback</code>定义执行注入后的回调函数。</p>
+
+<p>这个方法一般都应该在文档加载完成后被执行，例如下列代码，当文档加载完成后把一个CSS样式文件注入到当前加载的页面：</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">ref</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">'http://zwlme.com'</span><span class="p">,</span> <span class="s1">'_blank'</span><span class="p">,</span> <span class="s1">'location=yes'</span><span class="p">);</span>
+<span class="nx">ref</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'loadstop'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">ref</span><span class="p">.</span><span class="nx">insertCSS</span><span class="p">({</span><span class="na">file</span><span class="p">:</span> <span class="s2">"mystyles.css"</span><span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+<hr>
+
+<blockquote>
+<p>相关文章:</p>
+
+<p><a href="http://www.zwlme.com/frontend/phonegap-getting-started-tutorial-1.html">PhoneGap入门教程(1) - 环境安装与配置</a></p>
+
+<p><a href="http://www.zwlme.com/frontend/phonegap-getting-started-tutorial-2.html">PhoneGap入门教程(2) - 内核事件和基本用法</a></p>
+
+<p><a href="http://www.zwlme.com/frontend/phonegap-getting-started-tutorial-3.html">PhoneGap入门教程(3) - 原生插件安装和管理</a></p>
+
+<p><a href="http://www.zwlme.com/frontend/phonegap-getting-started-tutorial-4.html">PhoneGap入门教程(4) - 电量变化侦测</a></p>
+
+<p>PhoneGap入门教程(5) - 程序内置浏览器窗口</p>
+
+<p><a href="http://www.zwlme.com/frontend/phonegap-getting-started-tutorial-6.html">PhoneGap入门教程(6) - 设备信息和系统提示</a></p>
+</blockquote>
+
+<p><br></p>
+
+<blockquote>
+<p>参考资料：</p>
+
+<p><a href="http://cordova.apache.org/docs/en/3.3.0/cordova_inappbrowser_inappbrowser.md.html">Apache Cordova Documentation - InAppBrowser</a></p>
+</blockquote>
+
+                    </div>
+                </div>
+                <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'zhuowenli'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+                        <footer class="footer">
+            <p class="copyright">© 2015 卓文理 · <a href="/about/" class="about">关于本站</a> · Powered by <a href="http://github.com" class="powered">GitHub</a> &amp; <a href="http://jekyllcn.com" class="powered">Jekyll</a></p>
+        </footer>
+            </div>
+            <div class="post-backdrop"></div>
+        </main>
+
+        <script type="text/javascript" src="/res/js/index.js"></script>
+        <script type="text/javascript">
+            app.init();
+        </script>
+    </div>
+</body>
+</html>

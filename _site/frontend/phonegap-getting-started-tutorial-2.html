@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+    <link rel="dns-prefetch" href="//disqus.com"/>
+    <link rel="dns-prefetch" href="//a.disquscdn.com"/>
+
+    <meta name="Keywords" content="卓文理,前端,前端开发,网页设计,交互设计,PhoneGap,Android,Webapp,javascript"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    
+    <meta name="author" content="卓文理">
+
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon.png">
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-72.png" sizes="72x72" />
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-76.png" sizes="76x76" />
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-114.png" sizes="114x114" />
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-120.png" sizes="120x120" />
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-152.png" sizes="152x152" />
+    <link href="/res/img/icon.png" rel="Shortcut Icon" type="image/x-icon"/>
+
+    <title>PhoneGap入门教程(2) - 内核事件和基本用法 | 卓文理</title>
+
+    
+    <link rel="stylesheet" href="/res/css/style.css">
+    <script type="text/javascript" src="/res/js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+    <div id="container" class="container modify">
+        <main id="postPage" class="page post-page post-detail">
+                <div class="post-menu">
+        <a href="/" class="uplevel">
+            <span class="arrow">‹</span>
+            <strong class="logo">
+                <span class="a">卓</span>
+                <span class="b">文</span>
+                <span class="c">理</span>
+            </strong>
+            <h1>前端开发</h1>
+        </a>
+        <ul class="stats">
+            <li>
+                <p>本站站长</p>
+                <p><a target="_blank" href="http://www.zwlme.com">卓文理</a></p>
+            </li>
+            <li>
+                <p>联系方式</p>
+                <p><a target="_blank" href="mailto:531840344@qq.com">531840344@qq.com</a></p>
+            </li>
+        </ul>
+    </div>
+            <div class="post-container">
+                <div class="article">
+                    <a href="/frontend" class="back">
+                        <span class="arrow">&lt;</span>
+                        <span class="text">返回目录</span>
+                    </a>
+                    <header class="article-info">
+                        <h1>PhoneGap入门教程(2) - 内核事件和基本用法</h1>
+                    </header>
+                    <div class="article-body">
+                        <p>PhoneGap的大量操作都是通过响应事件来完成，在PhoneGap的整个生命周期内有很多内建的事件。</p>
+
+<p>通过事件处理，可以获取设备的信息，并根据这些信息来实现一个应用程序。</p>
+
+<h2>PhoneGap基本开发</h2>
+
+<p>一旦创建了工程，PhoneGap的开发就变得非常简单，只需要编写 www 目录下的index.html文件就可以进行开发了。对于Android工程，这个目录的位置在F:\kypapp\platforms\android\assets\www下。</p>
+
+<p>在开发的过程中，需要引用的相关资源，例如图片、CSS样式文件、JS文件等，这些文件也必须放在www目录及其子目录底下才正被正常调用。</p>
+
+<p>打开index.html，你会发现这是一个标准的html5文档。不同的是必须引用cordova.js这个文件，这是网页与设备实现交互功能的关键。</p>
+
+<p>phonegap.js同cordova.js是一致的，可以引用任意一个。还有cordova_plugins.js文件也是必须引用的，这个是很重要的文件，用于定义插件列表。</p>
+
+<p>其他不需要的资源就可以删掉了。</p>
+
+<h2>事件处理</h2>
+
+<p>PhoneGap的整个生命周期可能产生下面所列的事件，这些事件默认是内置的，无需安装插件。</p>
+
+<ul>
+<li>deviceready：PhoneGap在完全载入时，将触发该事件</li>
+<li>pause：      当应用程序放在后台运行时，将触发该事件</li>
+<li>resume：     当应用程序从后台恢复到前台时，将触发该事件。</li>
+<li>backbutton： 在使用者按後退按钮时，将触发该事件。</li>
+<li>menubutton： 在使用者按功能表按钮时，将触发该事件。</li>
+<li>searchbutton：當使用者按 Android 上的搜尋按钮时，将触发该事件。</li>
+<li>startcallbutton： 當使用者按下開始呼叫按钮时，将触发该事件。</li>
+<li>endcallbutton：   當使用者按下結束通話按钮时，将触发该事件。</li>
+<li>volumedownbutton：当按下volume down调低音量按钮时触发事件</li>
+<li>volumeupbutton：  当按下volume up调高音量按钮时触发事件</li>
+</ul>
+
+<p>但是，并不是所有的设备都支持这些事件，有一些可能是设备不支持，或者有的手机没有搜索、通话等按钮。</p>
+
+<h3>内核事件</h3>
+
+<p>内核事件是设备运行时产生的包括<code>deviceready</code>、<code>pause</code>、<code>resume</code>事件。</p>
+
+<h4>deviceready事件</h4>
+
+<p>只有当PhoneGap被完全加载才会触发该事件，对于任何一个PhoneGap应用程序来说，这个事件都十分重要，是一定会使用的。</p>
+
+<p>为了安全起见，应该在DOM加载完毕后使用<code>document.addEventListener</code>附加<code>deviceready</code>事件监听器。</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"deviceready"</span><span class="p">,</span> <span class="nx">onDeviceReady</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">onDeviceReady</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Now safe to use device APIs</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>完整实例：</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;</span>Hello World<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"app"</span><span class="nt">&gt;&lt;/div&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"cordova.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+            <span class="c1">// 当DOM加载完毕，注册deviceready事件监听</span>
+            <span class="kd">function</span> <span class="nx">onLoad</span><span class="p">()</span> <span class="p">{</span>
+                <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"deviceready"</span><span class="p">,</span> <span class="nx">onDeviceReady</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="c1">// 注册事件监听</span>
+            <span class="kd">function</span> <span class="nx">onDeviceReady</span><span class="p">()</span> <span class="p">{</span>
+                <span class="c1">//...</span>
+            <span class="p">}</span>
+            <span class="nx">onLoad</span><span class="p">();</span>
+        <span class="nt">&lt;/script&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+<h4>pause和resume事件</h4>
+
+<p>当程序被放到后台的时候执行pause事件，当程序从后台恢复到前台执行的时候将触发resume事件。</p>
+
+<p>注册相应的监听，可以用于处理相应的事件：</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">onLoad</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 当DOM加载完毕，注册deviceready事件监听</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"deviceready"</span><span class="p">,</span> <span class="nx">onDeviceReady</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">onDeviceReady</span><span class="p">(){</span>
+    <span class="c1">// 注册事件监听</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"pause"</span><span class="p">,</span> <span class="nx">onPause</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"resume"</span><span class="p">,</span> <span class="nx">onResume</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// 处理pause事件</span>
+<span class="kd">function</span> <span class="nx">onPause</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"-------------------pause-------------------"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// 处理resume事件</span>
+<span class="kd">function</span> <span class="nx">onResume</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"-------------------resume-------------------"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3>侦听设备按键</h3>
+
+<p>一些设备带有功能键，如标准安卓设备就带有菜单键、返回键、搜索键等。在安卓4.0后可以取消上下左右、通话、搜索等按键。PhoneGap应用程序可以检测这些按键是否被点击，通过事件处理程序就可以自定义对这些操作的响应。</p>
+
+<h4>backbutton事件</h4>
+
+<p>当用户点击后退按键时触发该事件，注意不是所有设备都提供了返回按键，因此一些设备不支持该事件。</p>
+
+<p>当点击后退按钮时，系统一般会有一个默认的响应行为。如果想重写该行为，可以通过注册一个事件监听器来监听该行为。</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"backbutton"</span><span class="p">,</span> <span class="nx">yourCallbackFunction</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+</code></pre></div>
+<p>如果注册了该事件，默认的行为将会被取消掉。例如在Android系统上，点击后退按钮可以把程序放到后台，但是注册该事件后此默认行为将会被取消掉。</p>
+
+<p>iOS没有后退键，所以不支持该程序。</p>
+
+<h4>menubutton事件</h4>
+
+<p>当用户点击菜单按键时触发该事件，注意不是所有设备都提供了返回按键，因此一些设备不支持该事件。</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"menubutton"</span><span class="p">,</span> <span class="nx">yourCallbackFunction</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+</code></pre></div>
+<p>iOS没有菜单键，所以不支持该程序。</p>
+
+<h4>searchbutton事件</h4>
+
+<p>当用户点击搜索按键时触发该事件，注意不是所有设备都提供了返回按键，因此一些设备不支持该事件。</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"searchbutton"</span><span class="p">,</span> <span class="nx">yourCallbackFunction</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+</code></pre></div>
+<p>iOS没有搜索键，所以不支持该程序。</p>
+
+<h4>startcallbutton事件</h4>
+
+<p>当用户点击通话按键时触发该事件，注意不是所有设备都提供了返回按键，因此一些设备不支持该事件。</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"startcallbutton"</span><span class="p">,</span> <span class="nx">yourCallbackFunction</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+</code></pre></div>
+<p>注意，该事件仅适用于BlackBerry(OS10.0+)，Android和iOS不支持该事件。</p>
+
+<h4>endcallbutton事件</h4>
+
+<p>当用户点击挂机按键（即通话结束键）时触发该事件，注意不是所有设备都提供了返回按键，因此一些设备不支持该事件。</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"endcallbutton"</span><span class="p">,</span> <span class="nx">yourCallbackFunction</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+</code></pre></div>
+<p>注意，该事件仅适用于BlackBerry(OS10.0+)，Android和iOS不支持该事件。</p>
+
+<h4>volumeupbutton事件</h4>
+
+<p>当用户点击调高音量按键时触发该事件，注意不是所有设备都提供了返回按键，因此一些设备不支持该事件。</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"volumeupbutton"</span><span class="p">,</span> <span class="nx">yourCallbackFunction</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+</code></pre></div>
+<p>注意，该事件仅适用于BlackBerry(OS10.0+)，Android和iOS不支持该事件。</p>
+
+<h4>volumedownbutton事件</h4>
+
+<p>当用户点击调低音量按键时触发该事件，注意不是所有设备都提供了返回按键，因此一些设备不支持该事件。</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"volumedownbutton"</span><span class="p">,</span> <span class="nx">yourCallbackFunction</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+</code></pre></div>
+<p>注意，该事件仅适用于BlackBerry(OS10.0+)，Android和iOS不支持该事件。</p>
+
+<hr>
+
+<blockquote>
+<p>相关文章:</p>
+
+<p><a href="http://www.zwlme.com/frontend/phonegap-getting-started-tutorial-1.html">PhoneGap入门教程(1) - 环境安装与配置</a></p>
+
+<p>PhoneGap入门教程(2) - 内核事件和基本用法</p>
+
+<p><a href="http://www.zwlme.com/frontend/phonegap-getting-started-tutorial-3.html">PhoneGap入门教程(3) - 原生插件安装和管理</a></p>
+
+<p><a href="http://www.zwlme.com/frontend/phonegap-getting-started-tutorial-4.html">PhoneGap入门教程(4) - 电量变化侦测</a></p>
+
+<p><a href="http://www.zwlme.com/frontend/phonegap-getting-started-tutorial-5.html">PhoneGap入门教程(5) - 程序内置浏览器窗口</a></p>
+
+<p><a href="http://www.zwlme.com/frontend/phonegap-getting-started-tutorial-6.html">PhoneGap入门教程(6) - 设备信息和系统提示</a></p>
+</blockquote>
+
+<p><br></p>
+
+<blockquote>
+<p>参考资料：</p>
+
+<p><a href="http://cordova.apache.org/docs/zh/3.1.0/cordova_events_events.md.html#deviceready">Apache Cordova Documentation</a></p>
+</blockquote>
+
+                    </div>
+                </div>
+                <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'zhuowenli'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+                        <footer class="footer">
+            <p class="copyright">© 2015 卓文理 · <a href="/about/" class="about">关于本站</a> · Powered by <a href="http://github.com" class="powered">GitHub</a> &amp; <a href="http://jekyllcn.com" class="powered">Jekyll</a></p>
+        </footer>
+            </div>
+            <div class="post-backdrop"></div>
+        </main>
+
+        <script type="text/javascript" src="/res/js/index.js"></script>
+        <script type="text/javascript">
+            app.init();
+        </script>
+    </div>
+</body>
+</html>

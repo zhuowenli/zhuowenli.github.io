@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+    <link rel="dns-prefetch" href="//disqus.com"/>
+    <link rel="dns-prefetch" href="//a.disquscdn.com"/>
+
+    <meta name="Keywords" content="卓文理,前端,前端开发,网页设计,交互设计,sublime,plugin"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    
+    <meta name="author" content="卓文理">
+
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon.png">
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-72.png" sizes="72x72" />
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-76.png" sizes="76x76" />
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-114.png" sizes="114x114" />
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-120.png" sizes="120x120" />
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-152.png" sizes="152x152" />
+    <link href="/res/img/icon.png" rel="Shortcut Icon" type="image/x-icon"/>
+
+    <title>sublime前端必备插件 | 卓文理</title>
+
+    
+    <link rel="stylesheet" href="/res/css/style.css">
+    <script type="text/javascript" src="/res/js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+    <div id="container" class="container modify">
+        <main id="postPage" class="page post-page post-detail">
+                <div class="post-menu">
+        <a href="/" class="uplevel">
+            <span class="arrow">‹</span>
+            <strong class="logo">
+                <span class="a">卓</span>
+                <span class="b">文</span>
+                <span class="c">理</span>
+            </strong>
+            <h1>前端开发</h1>
+        </a>
+        <ul class="stats">
+            <li>
+                <p>本站站长</p>
+                <p><a target="_blank" href="http://www.zwlme.com">卓文理</a></p>
+            </li>
+            <li>
+                <p>联系方式</p>
+                <p><a target="_blank" href="mailto:531840344@qq.com">531840344@qq.com</a></p>
+            </li>
+        </ul>
+    </div>
+            <div class="post-container">
+                <div class="article">
+                    <a href="/diary" class="back">
+                        <span class="arrow">&lt;</span>
+                        <span class="text">返回目录</span>
+                    </a>
+                    <header class="article-info">
+                        <h1>sublime前端必备插件</h1>
+                    </header>
+                    <div class="article-body">
+                        <p>代码编辑器或者文本编辑器，对于程序员来说，就像剑与战士一样，谁都想拥有一把可以随心驾驭且锋利无比的宝剑，而每一位程序员，同样会去追求最适合自己的强大、灵活的编辑器，相信你和我一样，都不会例外。</p>
+
+<p>不得不说，sublime简直是前端开发人员日常居家旅行杀人放火的必备神器。小巧绿色且速度非常快，跨平台支持Win/Mac/Linux，支持32与64位，支持各种流行编程语言的语法高亮、代码补全等，而且有着很多其他编辑器没有的超酷的特性，让它的好用达到了前所未有的程度。</p>
+
+<p>sublime不是免费的，但可以永久免费使用，只是在保存的时候，偶尔会弹出要你购买注册的对话框，仅此而已。</p>
+
+<h2>插件介绍</h2>
+
+<h4>Package Control</h4>
+
+<p>功能：安装包管理</p>
+
+<p>简介：sublime插件控制台，提供添加、删除、禁用、查找插件等功能</p>
+
+<p>使用：https://sublime.wbond.net/installation</p>
+
+<p>安装方法：</p>
+
+<p><code>CTRL+`</code> ，出现控制台
+粘贴以下代码至控制台</p>
+
+<p>ST2：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">import urllib2,os; pf='Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler( ))); open( os.path.join( ipp, pf), 'wb' ).write( urllib2.urlopen( 'http://sublime.wbond.net/' +pf.replace( ' ','%20' )).read()); print( 'Please restart Sublime Text to finish installation')
+</code></pre></div>
+<p>ST3：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())
+</code></pre></div>
+<p>其他方法：</p>
+
+<p>如果以上方法不能安装，请使用下面的方法</p>
+
+<ol>
+<li>选择菜单：Preferences &gt; Browse Packages</li>
+<li>打开sublime插件安装包文件夹</li>
+<li>下载文件并复制到打开的文件夹</li>
+<li>重启sublime</li>
+</ol>
+
+<h4>Emmet</h4>
+
+<p>功能：编码快捷键，前端必备</p>
+
+<p>简介：Emmet作为zen coding的升级版，对于前端来说，可是必备插件，如果你对它还不太熟悉，可以在其官网（<a href="http://docs.emmet.io/">http://docs.emmet.io/</a>）上看下具体的演示视频。</p>
+
+<p>使用：教程-<a href="http://docs.emmet.io/cheat-sheet/">http://docs.emmet.io/cheat-sheet/</a>、<a href="http://peters-playground.com/Emmet-Css-Snippets-for-Sublime-Text-2/">http://peters-playground.com/Emmet-Css-Snippets-for-Sublime-Text-2/</a></p>
+
+<p><img src="/img/post/sublime/1.gif" alt=""></p>
+
+<h4>JSFormat</h4>
+
+<p>功能：Javascript的代码格式化插件</p>
+
+<p>简介：很多网站的JS代码都进行了压缩，一行式的甚至混淆压缩，这让我们看起来很吃力。而这个插件能帮我们把原始代码进行格式的整理，包括换行和缩进等等，是代码一目了然，更快读懂~</p>
+
+<p>使用：在已压缩的JS文件中，右键选择jsFormat或者使用默认快捷键（<code>Ctrl+Alt+F</code>）</p>
+
+<p><img src="/img/post/sublime/2.gif" alt=""></p>
+
+<h4>Alignment</h4>
+
+<p>功能：<code>=</code>号对齐</p>
+
+<p>简介：变量定义太多，长短不一，可一键对齐</p>
+
+<p>使用：默认快捷键<code>Ctrl+Alt+A</code>和QQ截屏冲突，可设置其他快捷键如：<code>Ctrl+Shift+Alt+A</code>；先选择要对齐的文本</p>
+
+<p><img src="/img/post/sublime/3.gif" alt=""></p>
+
+<h4>Clipboard History</h4>
+
+<p>功能：粘贴板历史记录</p>
+
+<p>简介：方便使用复制/剪切的内容</p>
+
+<p>使用：</p>
+
+<ul>
+<li><code>Ctrl+alt+v</code>：显示历史记录</li>
+<li><code>Ctrl+alt+d</code>：清空历史记录</li>
+<li><code>Ctrl+shift+v</code>：粘贴上一条记录（最旧）</li>
+<li><code>Ctrl+shift+alt+v</code>：粘贴下一条记录（最新）</li>
+</ul>
+
+<p><img src="/img/post/sublime/4.gif" alt=""></p>
+
+<h4>Bracket Highlighter</h4>
+
+<p>功能：代码匹配</p>
+
+<p>简介：可匹配<code>[]</code>, <code>()</code>, <code>{}</code>, <code>“”</code>, <code>”</code>, <code>&lt;tag&gt;&lt;/tag&gt;</code>，高亮标记，便于查看起始和结束标记</p>
+
+<p>使用：点击对应代码即可</p>
+
+<p><img src="/img/post/sublime/5.gif" alt=""></p>
+
+<h4>jQuery</h4>
+
+<p>功能：jQ函数提示</p>
+
+<p>简介：快捷输入jQ函数，是偷懒的好方法</p>
+
+<p><img src="/img/post/sublime/6.gif" alt=""></p>
+
+<h4>Doc​Blockr</h4>
+
+<p>功能：生成优美注释</p>
+
+<p>简介：标准的注释，包括函数名、参数、返回值等，并以多行显示，手动写比较麻烦</p>
+
+<p>使用：输入<code>/*</code>、<code>/**</code>然后回车，还有很多用法，请参照</p>
+
+<p>https://sublime.wbond.net/packages/DocBlockr</p>
+
+<p><img src="/img/post/sublime/7.gif" alt=""></p>
+
+<h4>ConvertToUTF8</h4>
+
+<p>功能：文件转码成utf-8</p>
+
+<p>简介：通过本插件，您可以编辑并保存目前编码不被 Sublime Text 支持的文件，特别是中日韩用户使用的 GB2312，GBK，BIG5，EUC-KR，EUC-JP ，ANSI等。ConvertToUTF8 同时支持 Sublime Text 2 和 3。</p>
+
+<p>使用：安装插件后自动转换为utf-8格式</p>
+
+<p><img src="/img/post/sublime/8.gif" alt=""></p>
+
+<h4>AutoFileName</h4>
+
+<p>功能：快捷输入文件名</p>
+
+<p>简介：自动完成文件名的输入，如图片选取</p>
+
+<p>使用：输入<code>/</code>即可看到相对于本项目文件夹的其他文件</p>
+
+<p><img src="/img/post/sublime/9.gif" alt=""></p>
+
+<h4>IMESupport</h4>
+
+<p>功能：sublime中文输入法</p>
+
+<p>简介：还在纠结 Sublime Text 中文输入法不能跟随光标吗？试试「IMESupport 」这个插件吧！目前只支持 Windows，在搜索等界面不能很好的跟随光标。</p>
+
+<p>使用：<code>Ctrl + Shift + P</code> → 输入pci → 输入IMESupport → 回车</p>
+
+<p><img src="/img/post/sublime/10.gif" alt=""></p>
+
+<h4>Trailing spaces</h4>
+
+<p>功能：检测并一键去除代码中多余的空格</p>
+
+<p>简介：还在纠结代码中有多余的空格而显得代码不规范？或是有处女座情节？次插件帮你实现发现多余空格、一键删除空格、保存时自动删除多余空格，让你的代码规范清爽起来</p>
+
+<p>使用：安装插件并重启，即可自动提示多余空格。一键删除多余空格：<code>CTRL+SHITF+T</code>（需配置），更多配置请点击标题。快捷键配置：在Preferences / Key Bindings – User加上代码（数组内）</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html">{ "keys": ["ctrl+shift+t"], "command": "delete_trailing_spaces" }
+</code></pre></div>
+<p><img src="/img/post/sublime/11.gif" alt=""></p>
+
+<h4>GBK Encoding Support</h4>
+
+<p>功能：中文识别</p>
+
+<p>简介：Sublime Text 2可识别UTF-8格式的中文，不识别GBK和ANSI，因此打开很多含中文的文档都会出现乱码。可以通过安装插件GBK Support,来识别GBK和ANSI。</p>
+
+<p>使用：</p>
+
+<ul>
+<li>Open a GBK File</li>
+<li>Save file with GBK encoding</li>
+<li>Change file encoding from utf8 to GBK or GBK to utf8</li>
+</ul>
+
+<p><img src="/img/post/sublime/12.jpg" alt=""></p>
+
+                    </div>
+                </div>
+                <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'zhuowenli'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+                        <footer class="footer">
+            <p class="copyright">© 2015 卓文理 · <a href="/about/" class="about">关于本站</a> · Powered by <a href="http://github.com" class="powered">GitHub</a> &amp; <a href="http://jekyllcn.com" class="powered">Jekyll</a></p>
+        </footer>
+            </div>
+            <div class="post-backdrop"></div>
+        </main>
+
+        <script type="text/javascript" src="/res/js/index.js"></script>
+        <script type="text/javascript">
+            app.init();
+        </script>
+    </div>
+</body>
+</html>

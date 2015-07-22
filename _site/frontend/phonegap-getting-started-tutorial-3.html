@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+    <link rel="dns-prefetch" href="//disqus.com"/>
+    <link rel="dns-prefetch" href="//a.disquscdn.com"/>
+
+    <meta name="Keywords" content="卓文理,前端,前端开发,网页设计,交互设计,PhoneGap,Android,Webapp,javascript"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    
+    <meta name="author" content="卓文理">
+
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon.png">
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-72.png" sizes="72x72" />
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-76.png" sizes="76x76" />
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-114.png" sizes="114x114" />
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-120.png" sizes="120x120" />
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-152.png" sizes="152x152" />
+    <link href="/res/img/icon.png" rel="Shortcut Icon" type="image/x-icon"/>
+
+    <title>PhoneGap入门教程(3) - 原生插件安装和管理 | 卓文理</title>
+
+    
+    <link rel="stylesheet" href="/res/css/style.css">
+    <script type="text/javascript" src="/res/js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+    <div id="container" class="container modify">
+        <main id="postPage" class="page post-page post-detail">
+                <div class="post-menu">
+        <a href="/" class="uplevel">
+            <span class="arrow">‹</span>
+            <strong class="logo">
+                <span class="a">卓</span>
+                <span class="b">文</span>
+                <span class="c">理</span>
+            </strong>
+            <h1>前端开发</h1>
+        </a>
+        <ul class="stats">
+            <li>
+                <p>本站站长</p>
+                <p><a target="_blank" href="http://www.zwlme.com">卓文理</a></p>
+            </li>
+            <li>
+                <p>联系方式</p>
+                <p><a target="_blank" href="mailto:531840344@qq.com">531840344@qq.com</a></p>
+            </li>
+        </ul>
+    </div>
+            <div class="post-container">
+                <div class="article">
+                    <a href="/frontend" class="back">
+                        <span class="arrow">&lt;</span>
+                        <span class="text">返回目录</span>
+                    </a>
+                    <header class="article-info">
+                        <h1>PhoneGap入门教程(3) - 原生插件安装和管理</h1>
+                    </header>
+                    <div class="article-body">
+                        <p>PhoneGap需要通过插件来实现访问设备本地API的功能，PhoneGap1.x 和 PhoneGap2.x 都内置了许多插件。 但是实践表明，并不是所有的应用程序都会用到这么多的插件，所以PhoneGap3.x将插件独立出来，有需要才安装。</p>
+
+<h2>安装和管理插件</h2>
+
+<p>一旦需要某个插件，可以用<code>phonegap plugin add</code>命令将这个插件添加到工程中，语法格式如下：</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html">phonegap plugin add 插件完全限定名
+</code></pre></div>
+<p>例如，“设备基本信息”插件的完全限定名是<code>org.apache.cordova.device</code>，那么就可以使用下列命名添加（注意先<code>cd</code>到工程目录）</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html">phonegap plugin add org.apache.cordova.device
+</code></pre></div>
+<p><img src="/img/post/PhoneGap-3/1.png" alt=""></p>
+
+<h3>查看开发环境中安装的插件</h3>
+
+<p>现在，在Eclipse中刷新工程，就可以在src目录下看到新增的插件类Device.java。并且在 www\plugins\ 目录下新增了目录：org.apache.cordova.device\www。在其下还有一个名为 device.js 的文件，这个文件包含了用于调用该插件API的JavaScript文件。</p>
+
+<p><img src="/img/post/PhoneGap-3/2.png" alt=""></p>
+
+<p>并且，在res/xml/config.xml 配置文件中会添加对插件的引用，<code>feature</code>节点表明这是一个插件</p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;feature</span> <span class="na">name=</span><span class="s">"Device"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;param</span> <span class="na">name=</span><span class="s">"android-package"</span> <span class="na">value=</span><span class="s">"org.apache.cordova.device.Device"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/feature&gt;</span>
+</code></pre></div>
+<p>并且，在www目录下的 cordova_plugins.js 文件中，也可以看到被改变的JavaScript代码，这些代码用于注册新的插件。</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">cordova</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">'cordova/plugin_list'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">require</span><span class="p">,</span> <span class="nx">exports</span><span class="p">,</span> <span class="nx">module</span><span class="p">)</span> <span class="p">{</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">"file"</span><span class="p">:</span> <span class="s2">"plugins/org.apache.cordova.device/www/device.js"</span><span class="p">,</span>
+        <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"org.apache.cordova.device.device"</span><span class="p">,</span>
+        <span class="s2">"clobbers"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">"device"</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">];</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="p">.</span><span class="nx">metadata</span> <span class="o">=</span> 
+<span class="c1">// TOP OF METADATA</span>
+<span class="p">{</span>
+    <span class="s2">"org.apache.cordova.device"</span><span class="p">:</span> <span class="s2">"0.2.13"</span>
+<span class="p">}</span>
+<span class="c1">// BOTTOM OF METADATA</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>注意，在Android上使用某些插件的功能就必须添加授权，例如震动功能等。如果使用了<code>phonegap plugin add</code>命令来安装震动功能插件，右击AndroidManifest.xml 并选择 Open With &gt; Text Editer 打开该文件，就可以看到<code>uses-sdk</code>元素和<code>application</code>元素之间的权限设置。</p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="c">&lt;!-- 允许程序访问震动设备 --&gt;</span>
+<span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.premission.VIBRATE"</span> <span class="nt">/&gt;</span>
+</code></pre></div>
+<h3>查看和删除插件</h3>
+
+<p>如果想删除已经安装的插件，可以用<code>phonegap plugin remove</code>命令将这个插件从工程中删除，语法格式如下：</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html">phonegap plugin remove 插件完全限定名
+</code></pre></div>
+<p>在删除之前，可以使用如下命令查看已经安装的插件</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html">phonegap plugin list
+</code></pre></div>
+<p><img src="/img/post/PhoneGap-3/3.png" alt=""></p>
+
+<h3>PhoneGap3.x原生插件功能目录</h3>
+
+<p>PhoneGap3.x 官方有很多插件可以使用，下列是这些插件的列表极其功能的简单说明（<strong>加粗</strong>为热门插件）</p>
+
+<ul>
+<li><strong><code>org.apache.cordova.device</code></strong>   设备基本信息</li>
+<li><strong><code>org.apache.cordova.network-information</code></strong>   网络连接事件</li>
+<li><code>org.apache.cordova.battery-status</code>   电量侦测事件</li>
+<li><code>org.apache.cordova.device-motion</code>   重力加速计</li>
+<li><code>org.apache.cordova.device-orientation</code>   罗盘（指南针）<br></li>
+<li><p><strong><code>org.apache.cordova.geolocation</code></strong>   地理定位</p></li>
+<li><p><strong><code>org.apache.cordova.camera</code></strong>   照相机</p></li>
+<li><p><code>org.apache.cordova.media-capture</code>   捕获照片、视频 </p></li>
+<li><p><code>org.apache.cordova.media</code>   媒体播放</p></li>
+<li><p><strong><code>org.apache.cordova.file</code></strong>   文件系统管理</p></li>
+<li><p><code>org.apache.cordova.file-transfer</code>   文件传输</p></li>
+<li><p><strong><code>org.apache.cordova.dialogs</code></strong>   对话框</p></li>
+<li><p><code>org.apache.cordova.vibration</code>   振动</p></li>
+<li><p><code>org.apache.cordova.contacts</code>   联系人管理</p></li>
+<li><p><code>org.apache.cordova.globalization</code>   全球化</p></li>
+<li><p><strong><code>org.apache.cordova.splashscreen</code></strong>   启动屏幕</p></li>
+<li><p><strong><code>org.apache.cordova.inappbrowser</code></strong>   内置浏览器窗口</p></li>
+<li><p><strong><code>org.apache.cordova.console</code></strong>   调试主控台</p></li>
+</ul>
+
+<p>同时，可以从下面的网址查询PhoneGap3.x适用的第三方插件，这些第三方插件也可以用<code>phonegap plugin</code>命令进行管理。</p>
+
+<p><a href="http://plugins.cordova.io/">http://plugins.cordova.io/</a></p>
+
+<hr>
+
+<blockquote>
+<p>相关文章:</p>
+
+<p><a href="http://www.zwlme.com/frontend/phonegap-getting-started-tutorial-1.html">PhoneGap入门教程(1) - 环境安装与配置</a></p>
+
+<p><a href="http://www.zwlme.com/frontend/phonegap-getting-started-tutorial-2.html">PhoneGap入门教程(2) - 内核事件和基本用法</a></p>
+
+<p>PhoneGap入门教程(3) - 原生插件安装和管理</p>
+
+<p><a href="http://www.zwlme.com/frontend/phonegap-getting-started-tutorial-4.html">PhoneGap入门教程(4) - 电量变化侦测</a></p>
+
+<p><a href="http://www.zwlme.com/frontend/phonegap-getting-started-tutorial-5.html">PhoneGap入门教程(5) - 程序内置浏览器窗口</a></p>
+
+<p><a href="http://www.zwlme.com/frontend/phonegap-getting-started-tutorial-6.html">PhoneGap入门教程(6) - 设备信息和系统提示</a></p>
+</blockquote>
+
+<p><br></p>
+
+<blockquote>
+<p>参考资料：</p>
+
+<p><a href="http://plugins.cordova.io/">Cordova Plugin Registry</a></p>
+</blockquote>
+
+                    </div>
+                </div>
+                <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'zhuowenli'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+                        <footer class="footer">
+            <p class="copyright">© 2015 卓文理 · <a href="/about/" class="about">关于本站</a> · Powered by <a href="http://github.com" class="powered">GitHub</a> &amp; <a href="http://jekyllcn.com" class="powered">Jekyll</a></p>
+        </footer>
+            </div>
+            <div class="post-backdrop"></div>
+        </main>
+
+        <script type="text/javascript" src="/res/js/index.js"></script>
+        <script type="text/javascript">
+            app.init();
+        </script>
+    </div>
+</body>
+</html>

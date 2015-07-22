@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+    <link rel="dns-prefetch" href="//disqus.com"/>
+    <link rel="dns-prefetch" href="//a.disquscdn.com"/>
+
+    <meta name="Keywords" content="卓文理,前端,前端开发,网页设计,交互设计,css,css3"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    
+    <meta name="author" content="卓文理">
+
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon.png">
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-72.png" sizes="72x72" />
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-76.png" sizes="76x76" />
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-114.png" sizes="114x114" />
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-120.png" sizes="120x120" />
+    <link rel="apple-touch-icon-precomposed" href="/res/img/icon-152.png" sizes="152x152" />
+    <link href="/res/img/icon.png" rel="Shortcut Icon" type="image/x-icon"/>
+
+    <title>CSS Shape | 卓文理</title>
+
+    
+    <link rel="stylesheet" href="/res/css/style.css">
+    <script type="text/javascript" src="/res/js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+    <div id="container" class="container modify">
+        <main id="postPage" class="page post-page post-detail">
+                <div class="post-menu">
+        <a href="/" class="uplevel">
+            <span class="arrow">‹</span>
+            <strong class="logo">
+                <span class="a">卓</span>
+                <span class="b">文</span>
+                <span class="c">理</span>
+            </strong>
+            <h1>前端开发</h1>
+        </a>
+        <ul class="stats">
+            <li>
+                <p>本站站长</p>
+                <p><a target="_blank" href="http://www.zwlme.com">卓文理</a></p>
+            </li>
+            <li>
+                <p>联系方式</p>
+                <p><a target="_blank" href="mailto:531840344@qq.com">531840344@qq.com</a></p>
+            </li>
+        </ul>
+    </div>
+            <div class="post-container">
+                <div class="article">
+                    <a href="/frontend" class="back">
+                        <span class="arrow">&lt;</span>
+                        <span class="text">返回目录</span>
+                    </a>
+                    <header class="article-info">
+                        <h1>CSS Shape</h1>
+                    </header>
+                    <div class="article-body">
+                        <p>方框套方框：这就是目前网页的样子。长久以来，我们努力尝试使用CSS来创建<a href="https://css-tricks.com/examples/ShapesOfCSS/">几何形状</a>来突破这种限制。但是这些形状无法影响其包含内容的形状。同样，元素的形状也无法被其他元素所影响。</p>
+
+<p>2012年中旬，由Adobe提出的<a href="http://blogs.adobe.com/webplatform/category/features/css-shapes/">CSS Shape</a>规范打破了这个限制。该规范的目标是为设计师提供一种新的方式，改变任意复杂形状周围或者内部内容布局。这些事情之情从来没有被实现过，JavaScript也没有。</p>
+
+<p>例如，注意看在下面这个设计中文本环绕圆形图片的样子。没有形状的话，文本变成长方形——抛弃了精致的边缘，这种精致可不是把设计带到了下一个高度。</p>
+
+<figure class="img">
+
+    <img src="http://alistapart.com/d/394/shape-outside-example.jpg" alt="">
+
+    <figcaption>
+        注意例子中文本是如何环绕圆形的那个碗的。通过CSS Shape，我们可以在网页上创建类似的设计。
+    </figcaption>
+</figure>
+
+<p>接下来我们一起来看看Shape是如何工作，并开始使用它们。</p>
+
+<h2>浏览器支持</h2>
+
+<p>目前只有Webkit Nightly和Chrome Canary支持CSS Shape，但是它的Model Level 1已经是Candidate Recommendation（候选推荐）了，因此在规范中定义的属性和语法已经很稳定了。看来要不了多久其他浏览器也会实现CSS Shape。本Level的规范主要聚焦在几个Shape属性，这些属性主要规定了形状周围的内容该如何环绕。更具体地说，它主要聚焦在<code>shape-outside</code>属性和其相关的属性。</p>
+
+<p>结合其他一些最新的特性，例如<a href="http://www.w3.org/TR/css-masking/">Clipping与Masking</a>、<a href="http://www.w3.org/TR/filter-effects-1/">CSS Filters</a>和<a href="http://dev.w3.org/fxtf/compositing-1/">Compositing与Blending</a>，无需借助像Photosho或者InDesign这样 的图像编辑器，CSS Shape允许我们创造更漂亮更精致的设计。</p>
+
+<p>新版的CSS Shape规范也会聚焦形状内部的内容。例如，现在可以很轻松地使用CSS创建一个菱形：只需把元素旋转45度，然后把元素里面的内容旋转回来，相对页面是横向的。但是其形状没法受到其容器菱形的影响，因此还是矩形的。如果CSS Shape的<code>shape-inside</code>属性实现了，我们就可以让内容也是菱形的，要实现下这图这样的布局就没什么不可能了。</p>
+
+<figure class="img">
+
+    <img src="http://alistapart.com/d/394/rhombic.jpg" alt="">
+
+    <figcaption>
+        很快，CSS Shape将支持定义内部文本的形状，比如这些菱形，与它的容器边缘保持一致，而不溢出或者被截断。
+    </figcaption>
+</figure>
+
+<p>为了在Chrome Canary中使用CSS Shape，你需要开启试验特性标记。如果你不知道怎么打开，可以看看Adobe博客上的<a href="http://html.adobe.com/webplatform/enable/">这篇</a>参考。</p>
+
+<h2>创建CSS Shape</h2>
+
+<p>你可以使用Shape属性来给元素添加形状。你需要给Shape属性传递一个Shape函数。你可以给这个Shape函数传递参数来定义元素的形状。</p>
+
+<p><img src="http://alistapart.com/d/394/shape-rule.png" alt=""></p>
+
+<p>可以使用下面这几个函数来定义形状：</p>
+
+<ul>
+<li><code>circle()</code></li>
+<li><code>ellipse()</code></li>
+<li><code>inset()</code></li>
+<li><code>polygon()</code></li>
+</ul>
+
+<p>每个形状都由一组坐标定义。有些函数接受坐标点作为参数，另外一些接受偏移量——但是最终它们都把形状当做元素上一系列的点来描绘。在下面的例子中，我们将为大家讲解每个方法所接受的参数。</p>
+
+<p>一个形状还可以通过提取图片的一个Alpha通道来定义。如果把一张图片传递给Shape属性，浏览器就会基于<code>shape-image-threshold</code>提取形状。形状的定义基于图片上每一个点的Alpha通道是否高于临界值。不过图片必须是<a href="http://caniuse.com/cors">CORS compatible</a>的。无论何种原因（比如图片不存在），只要图片不能正常显示，就不会产生形状。</p>
+
+<p>可接受上面这些函数作为值的Shape属性有：</p>
+
+<ul>
+<li><code>shape-outside</code>：限制形状周围的内容</li>
+<li><code>shape-inside</code>：限制形状内部的内容</li>
+</ul>
+
+<p>可以把<code>shape-margin</code>和<code>shape-outside</code>属性结合使用，定义形状周围的<code>margin</code>，以此隔开浮动的内容和形状，在形状和内容之间留出更多的空间。与<code>shape-outside</code>和<code>shape-margin</code>对应一样，<code>shape-inside</code>有对应的<code>shape-padding</code>属性，用来添加内间距。</p>
+
+<p>一行代码就可以使用Shape属性和函数来定义一个形状：</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.element</span> <span class="p">{</span>
+    <span class="py">shape-outside</span><span class="p">:</span> <span class="nb">circle</span><span class="p">();</span> <span class="c">/* content will flow around the circle defined on the element */</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>或者：</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.element</span> <span class="p">{</span>
+    <span class="py">shape-outside</span><span class="p">:</span> <span class="sx">url(path/to/image-with-shape.png)</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>但是。。。</p>
+
+<p>要让这行CSS生效，必须满足两个条件：</p>
+
+<ul>
+<li><p><strong>元素必须是浮动的</strong>。新版的CSS Shape可以循序我们定义一个非浮动元素的形状，但是现在还不行；</p></li>
+<li><p><strong>元素必须有确定的尺寸</strong>。元素的宽度和高度被用来建立这个元素上的坐标系统。</p></li>
+</ul>
+
+<p>看上面函数的定义，形状都是由一组坐标定义的。因为这些点是坐标，所以需要坐标系统，这样浏览器才知道把这些点放在元素的什么位置上。因此，加上下面这段代码上面的例子就可以正常工作。</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.element</span> <span class="p">{</span>
+    <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">10em</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">15em</span><span class="p">;</span>
+    <span class="py">shape-outside</span><span class="p">:</span> <span class="nb">circle</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>给定固有的维数并不会影响响应性（随后我们进行更深入的探讨）。</p>
+
+<p>既然形状是由一系列带坐标的点定义的，那更改这些点的坐标就可以相应的更改形状。举个例子，下面的六边形是使用<code>polygon()</code>这个方法创建的。整个形状由六个点构成。更改黄点的横坐标将会影响产生的形状，应用了此形状元素的内部或者外部的内容布局方式也会受到影响。</p>
+
+<figure class="img">
+
+    <img src="http://alistapart.com/d/394/shape-points.png" alt="">
+
+    <figcaption>
+        如果元素右浮动，且应用了这个形状，当在polygon()函数中黄点的横坐标变化的时候，在元素左侧的内容的浮动方式也会改变。
+    </figcaption>
+</figure>
+
+<h2>Shape的Reference Box</h2>
+
+<p>CSS Shape在一个Reference Box（参考框）里被定义和创建，这个Box用来绘制在元素上的形状。除了元素的宽高之外，元素的和模型——外边界Box、内容Box、内边界Box和边框Box——也会作为元素上形状大小的参考。</p>
+
+<p>默认把外边界Box作为参考——因此，如果你应用了形状的元素的底部有外边界，则形状会延伸到外边jie上，而不是元素的边框区域。如果你想使用其他Box值，你可以在形状函数之后指定，然后传递给Shape属性。</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">shape-outside</span><span class="o">:</span> <span class="nt">circle</span><span class="o">(</span><span class="nt">250px</span> <span class="nt">at</span> <span class="nt">50</span><span class="o">%</span> <span class="nt">50</span><span class="o">%)</span> <span class="nt">padding-box</span><span class="o">;</span>
+</code></pre></div>
+<p>上面这条规则中的<code>padding-box</code>关键字，把形状限定在了元素的内边框Box中。<code>circle()</code>函数定义了一个环状的形状，包括这个形状的大小和在这个元素上的位置。</p>
+
+<h2>使用Shape函数定义Shape</h2>
+
+<p>我们从把信息环绕在圆形的头像上开始，我们常常在用户信息或者推荐中用到。</p>
+
+<figure class="img">
+
+    <img src="http://alistapart.com/d/394/demo-user-profile-screenshot.png" alt="">
+
+    <figcaption>
+        我们从把信息环绕在圆形的头像上开始，我们常常在用户信息或者推荐中用到。
+    </figcaption>
+</figure>
+
+<p>使用CSS Shape，让文本环绕圆形的用户头像。文本将不再是长方形的。</p>
+
+<p>使用<code>circle()</code>函数给头像添加一个圆形：</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://api.randomuser.me/0.3.2/portraits/men/7.jpg"</span> <span class="na">alt=</span><span class="s">"profile image"</span> <span class="nt">/&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum itaque nam blanditiis eveniet enim eligendi quae adipisci?<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>Assumenda blanditiis voluptas tempore porro quibusdam beatae deleniti quod asperiores sapiente dolorem error! Quo nam quasi soluta reprehenderit laudantium optio ipsam ducimus consequatur enim fuga quibusdam mollitia nesciunt modi.<span class="nt">&lt;/p&gt;</span>
+</code></pre></div>
+<p>你可能会问，“为什么不使用<code>border-radius</code>来做出图片的圆角？”答案就是<code>border-radius</code>无法影响元素周围或者内部的内容的布局。它只能影响元素的边框和背景。背景区域会被裁剪成圆角，但是它功能仅限于此。元素内部的内容任然是矩形的，而且周围的内容还是把元素当做一个矩形的存在——本质上它还是。</p>
+
+<p>我们使用<code>border-radius</code>让图片变圆——我们通常都是这样让图片等其他元素变圆的。</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">img</span> <span class="p">{</span>
+    <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">150px</span><span class="p">;</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">150px</span><span class="p">;</span>
+    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">50%</span><span class="p">;</span>
+    <span class="nl">margin-right</span><span class="p">:</span> <span class="m">15px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<figure class="img">
+
+    <img src="http://alistapart.com/d/394/demo-user-profile-screenshot-incomplete.png" alt="">
+
+    <figcaption>
+        不添加CSS Shape，文本任然把图片当做矩形的，因此还是围绕成一个矩形，而不是圆的。
+    </figcaption>
+</figure>
+
+<p>在不支持CSS Shape属性的浏览器中，原型图片周围的内容就像环绕在一个不是圆形的图片周围。这就是在较老浏览器中CSS Shape降级的效果。</p>
+
+<p>为了改变内容布局以适应特定的形状，我们使用Shape属性：</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">img</span> <span class="p">{</span>
+    <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">150px</span><span class="p">;</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">150px</span><span class="p">;</span>
+    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">50%</span><span class="p">;</span>
+
+    <span class="py">shape-outside</span><span class="p">:</span> <span class="nb">circle</span><span class="p">();</span>
+    <span class="py">shape-margin</span><span class="p">:</span> <span class="m">15px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>有了这些代码，文本会看到一个圆的形状在图片上，环绕之，就像第一张截图那样（你可以在<a href="http://codepen.io/SaraSoueidan/pen/af3d2ae9fbe4205035822e4878fb1f54/">这里看到</a>）。在不支持的浏览器中，将降级为第二张图显示的哪样。</p>
+
+<p>你可以像上面那样使用<code>circle()</code>函数，也可以传递参数给它。下面是它的语法：</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">circle</span><span class="o">()</span> <span class="o">=</span> <span class="nt">circle</span><span class="o">(</span> <span class="o">[&lt;</span><span class="nt">shape-radius</span><span class="o">&gt;]?</span> <span class="o">[</span><span class="nt">at</span> <span class="o">&lt;</span><span class="nt">position</span><span class="o">&gt;]?</span> <span class="o">)</span>
+</code></pre></div>
+<p>问号标示这些参数是可选的。省略的参数将会被浏览器使用默认值补全。如果你直接使用<code>circle()</code>而未指定圆形的位置，它会定义一个放在元素正中间的圆形。</p>
+
+<p>你可以指定圆形的半径，什么单位都可以（<code>px</code>、<code>em</code>、<code>pt</code>等等）。你甚至可以指定使用<code>closest-side</code>或者<code>furthest-side</code>作为半径，<code>closest-side</code>是默认值，即浏览器会把从中点到最近边的长度作为圆形的半径。<code>furthest-side</code>则是使用中心到最远边的距离。</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">shape-outside</span><span class="o">:</span> <span class="nt">circle</span><span class="o">(</span><span class="nt">farthest-side</span> <span class="nt">at</span> <span class="nt">25</span><span class="o">%</span> <span class="nt">25</span><span class="o">%);</span> <span class="c">/* defines a circle whose radius is half the length of the longest side, positioned at the point of coordinates 25% 25% on the element’s coordinate system*/</span>
+
+<span class="nt">shape-inside</span><span class="o">:</span> <span class="nt">circle</span><span class="o">(</span><span class="nt">250px</span> <span class="nt">at</span> <span class="nt">500px</span> <span class="nt">300px</span><span class="o">);</span>     <span class="c">/* defines a circle whose center is positioned at 500px horizontally and 300px vertically, with a radius of 250px */</span>
+</code></pre></div>
+<figure class="img">
+
+    <img src="http://alistapart.com/d/394/closest-side-farthest-side.png" alt="">
+
+</figure>
+
+<p><code>eclipse()</code>函数与<code>circle()</code>还是函数是一样，除了接受两个半径参数以外（后者是一个参数列表）——一个是x轴的半径，一个是y轴的——是一直的。</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">ellipse</span><span class="o">()</span> <span class="o">=</span> <span class="nt">ellipse</span><span class="o">(</span> <span class="o">[&lt;</span><span class="nt">shape-radius</span><span class="o">&gt;</span><span class="p">{</span><span class="err">2</span><span class="p">}</span><span class="o">]?</span> <span class="o">[</span><span class="nt">at</span> <span class="o">&lt;</span><span class="nt">position</span><span class="o">&gt;]?</span> <span class="o">)</span>
+</code></pre></div>
+<p>与<code>circle</code>和<code>eclipse</code>没有直接的关系，<code>inset()</code>函数再元素内部创建一个矩形。既然元素本身就是矩形的，我们当然不需要更多的矩形。<code>inset()</code>实际上可以帮助我们在元素内部创建一个带有圆角的矩形。文本内容可以环绕在圆角周围。</p>
+
+<p><img src="http://alistapart.com/d/394/inset-example.png" alt=""></p>
+
+<p><code>inset()</code>函数接受1到4个值指定从参考Box边缘向内的距离。这可以控制这个矩形在元素内部的位置。这个函数还接受一个可选参数，设置内部矩形的圆角。且圆角的设置于<code>border-radius</code>的方法一致，使用一到四个值，于关键字<code>round</code>结合在一起。</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">inset</span><span class="o">()</span> <span class="o">=</span> <span class="nt">inset</span><span class="o">(</span> <span class="nt">offset</span><span class="p">{</span><span class="err">1,4</span><span class="p">}</span> <span class="o">[</span><span class="nt">round</span> <span class="o">&lt;</span><span class="nt">border-radius</span><span class="o">&gt;]?</span> <span class="o">)</span>
+</code></pre></div>
+<p>在一个浮动的元素中创建一个带圆角的矩形：</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.element</span> <span class="p">{</span>
+    <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">250px</span><span class="p">;</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">150px</span><span class="p">;</span>
+    <span class="py">shape-outside</span><span class="p">:</span> <span class="nb">inset</span><span class="p">(</span><span class="m">0px</span> <span class="n">round</span> <span class="m">100px</span><span class="p">)</span> <span class="n">border-box</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><a href="http://codepen.io/SaraSoueidan/debug/05e7894a0a7dbffed0a1c9f5e0840ec9/">在这里</a>查看实际的例子。</p>
+
+<p>最后一个Shape函数是<code>polygon()</code>，它可以是用任意数量的点来定义更加复杂的形状。这个函数接受一系列的坐标，每个坐标定义多边形的一个边角，合在一起组成整个图形。</p>
+
+<p>在下面的例子中，一张右浮动的图片使用<code>viewport</code>单位，占满了整个屏幕。我们希望左侧的文本可以沿着图片内部的沙漏浮动，因此，我们使用<code>polygon()</code>函数在图片上定义了一个不规则的的图形。</p>
+
+<p><img src="http://alistapart.com/d/394/polygon-example-incomplete.png" alt=""></p>
+
+<p>图片的CSS：</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">img</span><span class="nc">.right</span> <span class="p">{</span>
+    <span class="nl">float</span><span class="p">:</span> <span class="nb">right</span><span class="p">;</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">100vh</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="n">calc</span><span class="p">(</span><span class="m">100vh</span> <span class="err">+</span> <span class="m">100vh</span><span class="p">/</span><span class="m">4</span><span class="p">);</span>
+    <span class="py">shape-outside</span><span class="p">:</span> <span class="n">polygon</span><span class="p">(</span><span class="m">40%</span> <span class="m">0</span><span class="p">,</span> <span class="m">100%</span> <span class="m">0</span><span class="p">,</span> <span class="m">100%</span> <span class="m">100%</span><span class="p">,</span> <span class="m">40%</span> <span class="m">100%</span><span class="p">,</span> <span class="m">45%</span> <span class="m">60%</span><span class="p">,</span> <span class="m">45%</span> <span class="m">40%</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>你可以使用长度单位或者百分比来定义边角的坐标，我使用的是百分比。</p>
+
+<p>这段代码就是显示出图片的效果，你可以看到，Shape函数无法影响形状外的图片。事实上，一个形状除了影响内容的浮动之外无法对元素造成其他任何影响，不管这个元素是图片还是容器或者其他的什么。</p>
+
+<p>为了让我们创建的多边形更有存在感，我们需要把形状之外的图片抠掉。这就需要<a href="http://www.w3.org/TR/2014/WD-css-masking-1-20140213/">CSS Masking</a>模块的<code>clip-path</code>属性来帮忙了。</p>
+
+<p><code>clip-path</code>属性接受同样的Shape函数和参数座位形状属性。如果我们把传递给<code>shape-outside</code>的多边形传递给<code>clip-path</code>属性，它会把形状之外的图片全部抠掉。</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">img</span><span class="nc">.right</span> <span class="p">{</span>
+    <span class="nl">float</span><span class="p">:</span> <span class="nb">right</span><span class="p">;</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">100vh</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="n">calc</span><span class="p">(</span><span class="m">100vh</span> <span class="err">+</span> <span class="m">100vh</span><span class="p">/</span><span class="m">4</span><span class="p">);</span>
+    <span class="py">shape-outside</span><span class="p">:</span> <span class="n">polygon</span><span class="p">(</span><span class="m">40%</span> <span class="m">0</span><span class="p">,</span> <span class="m">100%</span> <span class="m">0</span><span class="p">,</span> <span class="m">100%</span> <span class="m">100%</span><span class="p">,</span> <span class="m">40%</span> <span class="m">100%</span><span class="p">,</span> <span class="m">45%</span> <span class="m">60%</span><span class="p">,</span> <span class="m">45%</span> <span class="m">40%</span><span class="p">);</span>
+    <span class="c">/* clip the image to the defined shape */</span>
+    <span class="nl">clip-path</span><span class="p">:</span> <span class="n">polygon</span><span class="p">(</span><span class="m">40%</span> <span class="m">0</span><span class="p">,</span> <span class="m">100%</span> <span class="m">0</span><span class="p">,</span> <span class="m">100%</span> <span class="m">100%</span><span class="p">,</span> <span class="m">40%</span> <span class="m">100%</span><span class="p">,</span> <span class="m">45%</span> <span class="m">60%</span><span class="p">,</span> <span class="m">45%</span> <span class="m">40%</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>看效果：</p>
+
+<p><img src="http://alistapart.com/d/394/polygon-example-finished.png" alt=""></p>
+
+<p>目前，使用<code>clip-path</code>还需要使用前缀，这个例子<code>clip-path</code>使用了<code>-webkit-</code>前缀，因此可以在Chrome中工作，你点击查看<a href="http://codepen.io/SaraSoueidan/pen/04a4c8380e4aa5a8e6a2b0014b2db198/">demo</a>。</p>
+
+<p><code>clip-pat</code>h属性确实是Shape属性的好伙伴，因为它可以帮助凸显被创建的形状，抠掉元素上所有不再形状内部的部分。你自然会经常发现把<code>clip-path</code>的Shape属性结合使用。</p>
+
+<p><code>polygon()</code>函数还接受一个可以可选的参数<code>fill</code>，有两个值，<code>nonzero</code>和<code>evenodd</code>。指明如何对待多边形自己内部的交错区域。更多信息可以查看<a href="http://www.w3.org/TR/SVG/painting.html#FillRuleProperty">SVG fill-rule</a>。</p>
+
+<h2>使用图片定义Shape</h2>
+
+<p>使用图片来确定一个形状，需要用到这张图片的alpha通道，浏览器可以据此提取出图形。</p>
+
+<p>像素的alpha通道的值是否超过某个临界值，这是定义形状的依据。默认的临界值是0.0（完全透明），你也可以通过<code>shape-image-threshold</code>属性来定义。因此，所有不透明的像素点都是形状的一部分。</p>
+
+<p>有可能，新版的CSS Shape不但可以使用alpha通道，还可以使用亮度。果真如此的话，<code>shape-image-threhold</code>将被扩展，支持亮度或者alpha通道，基于不同状态间的切换。</p>
+
+<p>我们将使用下面这张图，定义元素的形状，让文本环绕之：</p>
+
+<p><img src="http://alistapart.com/d/394/leaf.png" alt=""></p>
+
+<p>使用<code>shape-outside</code>属性，传递一个<code>url()</code>值，指向我们想要的图片。</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.leaf-shaped-element</span> <span class="p">{</span>
+    <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">400px</span><span class="p">;</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">400px</span><span class="p">;</span>
+    <span class="py">shape-outside</span><span class="p">:</span> <span class="sx">url(leaf.png)</span><span class="p">;</span>
+    <span class="py">shape-margin</span><span class="p">:</span> <span class="m">15px</span><span class="p">;</span>
+    <span class="py">shape-image-threshold</span><span class="p">:</span> <span class="m">0.5</span><span class="p">;</span>
+    <span class="nl">background</span><span class="p">:</span> <span class="m">#009966</span> <span class="sx">url(path/to/background-image.jpg)</span><span class="p">;</span>
+    <span class="py">mask-image</span><span class="p">:</span> <span class="sx">url(leaf.png)</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>当然，如果元素有背景图片的话，需要把形状之外的部分去掉。不过<code>clip-path</code>无法接受一张带透明度的图片座位参数，我们 可以使用Masking Module的<code>mask-image</code>（需要对应的前缀）属性来实现。看看效果：</p>
+
+<p><img src="http://alistapart.com/d/394/shape-image-example.png" alt=""></p>
+
+<p>如果你需要创建一个复杂的形状，推荐你使用图片来定义。你可以通过Photoshop来定义alpha通道，比起手动指定定点方便多了。</p>
+
+<p>还有，如果你元素上又多个浮动或者多个被排除的区域，你更愿意使用图片而不是形状。因为，至少是现在，你无法在一个元素上定义多个形状。但是如果图片包含多个区域，浏览器可以把这些区域提取出来并使用之。</p>
+
+<h2>响应式设计中的CSS Shape</h2>
+
+<p>CSS Shape可以适应响应式布局么？在目前的规范中，<code>shape-outside</code>已经可以满足了。因为它允许你使用百分比或者其他长度单位来指定元素的尺寸，而且形状也可以使用百分比（即形状函数的参数接收百分比）来定义。这意味着带着<code>shape-outside</code>的元素可以是响应式的，与其他使用百分比尺寸实现伸缩的方式没什么区别。</p>
+
+<p>不过<code>shape-inside</code>还不是响应式的，原因是它被推迟到了Module Level 2中。当前版本中不尽人意的地方将在下一版本中解决。</p>
+
+<h2>Shape工具</h2>
+
+<p>使用Shape函数创建复杂形状令人生畏，尤其是使用<code>ploygon()</code>使用很多点很多左边来创建形状。这要感谢Adobe的Web平台开发组正在开发一个可交互的工具简化这个工作。Bear Travis已经创建了<a href="http://betravis.github.io/shape-tools/">一组Shape工具</a>，帮助我们可视化地创建形状，并帮助我们生成Shape函数，这很有用，但是它也有局限，在你想基于一张图来创建形状时，因为目前你没法往工具中插入一张图，然后为它创建一个形状。</p>
+
+<p>Adobe Web平台开发组开发出了一个更高级，交互式的Shape工具。这个工具最近作为<a href="http://brackets.io/">Brackets编辑器</a>的一个插件<a href="http://blogs.adobe.com/webplatform/2014/04/17/css-shapes-editor-in-brackets/">公布出来</a>，Brackets编辑器是Adobe团队打造的一个免费编辑器。它允许你直接在浏览器中可视化地编辑图形，还包含一个预览版的功能——在你在页面上编辑图形的同时，更新编辑器中的样式表。这给你提供了直接视觉反馈，可以让你看到你的形状是如何与页面上的其他元素交互的。</p>
+
+<figure class="img">
+
+    <img src="http://alistapart.com/d/394/shapes-polygon.gif" alt="">
+
+    <figcaption>
+        使用Brackets的预览模式，在右边的浏览器中编辑多边形。截图由Razvan Caliman提供。
+    </figcaption>
+</figure>
+
+<p>这个工具不可或缺，因为它大大简化了形状的创建、编辑和调试。 Razvan Caliman再Brackets的博客上发布了<a href="http://blog.brackets.io/2014/04/17/css-shapes-editor/">一篇文章</a>，说明如何再Brackets中使用Shape编辑器。</p>
+
+<h2>未来：CSS Exclusion</h2>
+
+<p>CSS Shape规范实际上包括CSS Shape和Exclusion两个草案，不过这两个草案是分开的。CSS Shape定义shape-inside和shape-outside属性，而CSS Exclusion则定义那些允许文本环绕在非浮动元素周围的属性。这些元素可能是绝对定位的元素。这使得内容从四面八方环绕真个形状成为可能，就如下面这张图所示：</p>
+
+<figure class="img">
+
+    <img src="http://alistapart.com/d/394/exclusion-example.jpg" alt="">
+
+    <figcaption>
+        将来，CSS Exclusion允许我们像引文一样让文本环绕着形状，如这张杂志的布局所示。引文甚至可以是圆形的，文本也可以很好的环绕在它周围。图片来自[Justin Thomas Kay](http://cargocollective.com/justinthomaskay)
+    </figcaption>
+</figure>
+
+<p>类似的布局，具有形状的元素绝对定位在文本在中间——四面都有文本环绕——将来也没什么不可能。</p>
+
+<h2>将来的CSS Shape</h2>
+
+<p>目前的CSS Shape规范只是第一步，很快，会有新的选项，我们有更多的控制，创建形状，让文本填充在形状里面，或者环绕在其四周。让模型到活的设计更加方便，只需要简单的几行代码就行。目前，草案编辑把注意力放在发布<code>shape-outside</code>上，到2014年底，你将会看到有更多的浏览器支持CSS Shape。</p>
+
+<p>现在你就可以使用CSS Shape，作为渐进增强的一部分，确保在不支持的浏览器中可以优雅的降级。我最近开始把它们用在<a href="http://sarasoueidan.com/">我自己的网站</a>上，降级很”正常”。对于更加复杂的设计，你可以使用脚本来检测浏览器是否支持Shape，提供降级方案。你也可以使用<a href="https://github.com/Modernizr/Modernizr/blob/master/feature-detects/css/shapes.js">这段脚本</a>扩展<a href="http://modernizr.com/">Modernizr</a>的测试集，来测试浏览器是否支持<code>shape-outside</code>，也可以直接下载一份自定义的包含了这个测试的版本。</p>
+
+<p>CSS Shape填平了印刷排版和Web设计之间的沟壑。本文中的示例都很简单，不过你应该学到的这些基础，有助于你实现像杂志或者海报一样复杂的设计——无需担心你还需要针对屏幕重新设计。无论你在寻找什么——从<a href="http://sarasoueidan.com/blog/css-shapes/">非矩形布局</a>到<a href="http://sarasoueidan.com/blog/animating-css-shapes/">Shape动画</a>——马上开始实验吧。</p>
+
+<p>原文：<a href="http://alistapart.com/article/css-shapes-101">CSS Shapes 101 · An A List Apart Article</a></p>
+
+<p>作者：<a href="http://sarasoueidan.com/">SARA SOUEIDAN</a></p>
+
+                    </div>
+                </div>
+                <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'zhuowenli'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+                        <footer class="footer">
+            <p class="copyright">© 2015 卓文理 · <a href="/about/" class="about">关于本站</a> · Powered by <a href="http://github.com" class="powered">GitHub</a> &amp; <a href="http://jekyllcn.com" class="powered">Jekyll</a></p>
+        </footer>
+            </div>
+            <div class="post-backdrop"></div>
+        </main>
+
+        <script type="text/javascript" src="/res/js/index.js"></script>
+        <script type="text/javascript">
+            app.init();
+        </script>
+    </div>
+</body>
+</html>
