@@ -83,7 +83,7 @@
 <h2>渲染(render)</h2>
 
 <p>第一步是渲染虚拟元素（React 元素或 component）。注意，虚拟元素只存在于内存中，必须显式地告诉 React 将它渲染到浏览器上。</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">React</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">img</span> <span class="nx">src</span><span class="o">=</span><span class="s1">'http://www.zhuowenli.com/res/img/icon.png'</span> <span class="o">/&gt;</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">React</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">img</span> <span class="nx">src</span><span class="o">=</span><span class="s1">&#39;http://www.zhuowenli.com/res/img/icon.png&#39;</span> <span class="o">/&gt;</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">)</span>
 </code></pre></div>
 <p>查看代码：<a href="http://jsbin.com/detime/6/edit">JSBin</a></p>
 
@@ -93,10 +93,9 @@
 
 <p>组件是 React 的精髓所在。它们是自定义的 React 元素，通常有一些功能和结构定义。</p>
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">Photo</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
-
-  <span class="na">render</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">img</span> <span class="nx">src</span><span class="o">=</span><span class="s1">'http://www.zhuowenli.com/res/img/icon.png'</span> <span class="o">/&gt;</span>
-  <span class="p">}</span>
+    <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="o">&lt;</span><span class="nx">img</span> <span class="nx">src</span><span class="o">=</span><span class="s1">&#39;http://www.zhuowenli.com/res/img/icon.png&#39;</span> <span class="o">/&gt;</span>
+    <span class="p">}</span>
 <span class="p">});</span>
 
 <span class="nx">React</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Photo</span> <span class="o">/&gt;</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
@@ -113,22 +112,17 @@
 
 <p>可以把属性看做组件的配置参数，看起来非常像 HTML 属性。</p>
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">Photo</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
-
-  <span class="na">render</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="p">(</span>
-
-
-<span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s1">'photo'</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="nx">img</span> <span class="nx">src</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">imageURL</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
-</span>        <span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">caption</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/span&gt; </span><span class="err"> 
-</span>      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>
-
-    <span class="p">);</span>  
-  <span class="p">}</span>
+    <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s1">&#39;photo&#39;</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">img</span> <span class="nx">src</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">imageURL</span><span class="p">}</span> <span class="o">/&gt;</span>
+                <span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">caption</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/span&gt;</span>
+            <span class="o">&lt;</span><span class="err">/div&gt;</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
 <span class="p">});</span>
 
-<span class="nx">React</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Photo</span> <span class="nx">imageURL</span><span class="o">=</span><span class="s1">'http://www.zhuowenli.com/res/img/icon.png'</span> <span class="nx">caption</span><span class="o">=</span><span class="s1">'Logo!'</span> <span class="o">/&gt;</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="nx">React</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Photo</span> <span class="nx">imageURL</span><span class="o">=</span><span class="s1">&#39;http://www.zhuowenli.com/res/img/icon.png&#39;</span> <span class="nx">caption</span><span class="o">=</span><span class="s1">&#39;Logo!&#39;</span> <span class="o">/&gt;</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
 </code></pre></div>
 <p>查看代码：<a href="http://jsbin.com/detime/8/edit">JSBin</a></p>
 
@@ -142,37 +136,37 @@
 
 <p>状态对象用来记录随时可能变化的数据。</p>
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">Photo</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
-  <span class="na">toggleLiked</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
-      <span class="na">liked</span><span class="p">:</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">liked</span>
-    <span class="p">});</span>
-  <span class="p">},</span>
+    <span class="nx">toggleLiked</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
+            <span class="nx">liked</span><span class="o">:</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">liked</span>
+        <span class="p">});</span>
+    <span class="p">},</span>
 
-  <span class="na">getInitialState</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="p">{</span>
-      <span class="na">liked</span><span class="p">:</span> <span class="kc">false</span>
-    <span class="p">};</span>
-  <span class="p">},</span>
+    <span class="nx">getInitialState</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="nx">liked</span><span class="o">:</span> <span class="kc">false</span>
+        <span class="p">};</span>
+    <span class="p">},</span>
 
-  <span class="na">render</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">buttonClass</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">liked</span> <span class="p">?</span> <span class="s1">'active'</span> <span class="p">:</span> <span class="s1">''</span><span class="p">;</span>
+    <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">buttonClass</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">liked</span> <span class="o">?</span> <span class="s1">&#39;active&#39;</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
 
-    <span class="k">return</span> <span class="p">(</span>
-      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s1">'photo'</span><span class="o">&gt;</span>
-        <span class="o">&lt;</span><span class="nx">img</span> <span class="nx">src</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">src</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
-</span>
-        <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s1">'bar'</span><span class="o">&gt;</span>
-          <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">toggoleLiked</span><span class="p">}</span> <span class="nx">className</span><span class="o">=</span><span class="p">{</span><span class="nx">buttonClass</span><span class="p">}</span><span class="o">&gt;</span>
-            <span class="err">♥</span>
-          <span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
-</span>          <span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">caption</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/span</span><span class="err">&gt;
-</span>        <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
-</span>    <span class="p">);</span>
-  <span class="p">}</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s1">&#39;photo&#39;</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">img</span> <span class="nx">src</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">src</span><span class="p">}</span> <span class="o">/&gt;</span>
+
+                <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">toggoleLiked</span><span class="p">}</span> <span class="nx">className</span><span class="o">=</span><span class="p">{</span><span class="nx">buttonClass</span><span class="p">}</span><span class="o">&gt;</span>
+                        <span class="err">♥</span>
+                    <span class="o">&lt;</span><span class="err">/button&gt;</span>
+                    <span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">caption</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/span&gt;</span>
+                <span class="o">&lt;</span><span class="err">/div&gt;</span>
+            <span class="o">&lt;</span><span class="err">/div&gt;</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
 <span class="p">});</span>
 
-<span class="nx">React</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Photo</span> <span class="nx">src</span><span class="o">=</span><span class="s1">'http://www.zhuowenli.com/res/img/icon.png'</span> <span class="nx">caption</span><span class="o">=</span><span class="s1">'Logo!'</span><span class="p">)</span> <span class="o">/&gt;</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+<span class="nx">React</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Photo</span> <span class="nx">src</span><span class="o">=</span><span class="s1">&#39;http://www.zhuowenli.com/res/img/icon.png&#39;</span> <span class="nx">caption</span><span class="o">=</span><span class="s1">&#39;Logo!&#39;</span><span class="p">)</span> <span class="o">/&gt;</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
 </code></pre></div>
 <p>查看代码：<a href="http://jsbin.com/detime/3/edit">JSBin</a></p>
 
@@ -201,70 +195,67 @@
 <h2>组合组件(Composition)</h2>
 
 <p>将一些小的组件(components)链接起来形成一个大的组合组件。例如 <code>Photo</code> 组件可以用在 <code>PhotoGallery</code> 组件中，如下：</p>
-<div class="highlight"><pre><code class="language-" data-lang="">var Photo = React.createClass({
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">Photo</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+    <span class="nx">toggleLiked</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
+            <span class="nx">liked</span><span class="o">:</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">liked</span>
+        <span class="p">});</span>
+    <span class="p">},</span>
 
-  toggleLiked: function() {
-    this.setState({
-      liked: !this.state.liked
-    });
-  },
+    <span class="nx">getInitialState</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="nx">liked</span><span class="o">:</span> <span class="kc">false</span>
+        <span class="p">};</span>
+    <span class="p">},</span>
 
-  getInitialState: function() {
-    return {
-      liked: false
-    };
-  },
+    <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">buttonClass</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">liked</span> <span class="o">?</span> <span class="s1">&#39;active&#39;</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
 
-  render: function() {
-    var buttonClass = this.state.liked ? 'active' : '';
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s1">&#39;photo&#39;</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">img</span> <span class="nx">src</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">src</span><span class="p">}</span> <span class="o">/&gt;</span>
 
-    return (
-      &lt;div className='photo'&gt;
-        &lt;img src={this.props.src} /&gt;
+                <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">toggleLiked</span><span class="p">}</span> <span class="nx">className</span><span class="o">=</span><span class="p">{</span><span class="nx">buttonClass</span><span class="p">}</span><span class="o">&gt;</span>
+                        <span class="err">♥</span>
+                    <span class="o">&lt;</span><span class="err">/button&gt;</span>
+                    <span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">caption</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/span&gt;</span>
+                <span class="o">&lt;</span><span class="err">/div&gt;</span>
+            <span class="o">&lt;</span><span class="err">/div&gt;</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
 
-        &lt;div className='bar'&gt;
-          &lt;button onClick={this.toggleLiked} className={buttonClass}&gt;
-            ♥
-          &lt;/button&gt;
-          &lt;span&gt;{this.props.caption}&lt;/span&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    );
-  }
-});
+<span class="kd">var</span> <span class="nx">PhotoGallery</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+    <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">photos</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">photos</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">photo</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="o">&lt;</span><span class="nx">Photo</span> <span class="nx">src</span><span class="o">=</span><span class="p">{</span><span class="nx">photo</span><span class="p">.</span><span class="nx">url</span><span class="p">}</span> <span class="nx">caption</span><span class="o">=</span><span class="p">{</span><span class="nx">photo</span><span class="p">.</span><span class="nx">caption</span><span class="p">}</span> <span class="o">/&gt;</span>
+        <span class="p">});</span>
 
-var PhotoGallery = React.createClass({
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s1">&#39;photo-gallery&#39;</span><span class="o">&gt;</span>
+                <span class="p">{</span><span class="nx">photos</span><span class="p">}</span>
+            <span class="o">&lt;</span><span class="err">/div&gt;</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
 
-  render: function() {
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://www.zhuowenli.com/res/img/icon.png&#39;</span><span class="p">,</span>
+        <span class="nx">caption</span><span class="o">:</span> <span class="s1">&#39;Logo!&#39;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://www.zhuowenli.com/res/img/icon-72.png&#39;</span><span class="p">,</span>
+        <span class="nx">caption</span><span class="o">:</span> <span class="s1">&#39;Small Logo&#39;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://www.zhuowenli.com/res/img/icon-152.png&#39;</span><span class="p">,</span>
+        <span class="nx">caption</span><span class="o">:</span> <span class="s1">&#39;Large Logo&#39;</span>
+    <span class="p">}</span>
+<span class="p">];</span>
 
-    var photos = this.props.photos.map(function(photo) {
-      return &lt;Photo src={photo.url} caption={photo.caption} /&gt;
-    });
-
-    return (
-      &lt;div className='photo-gallery'&gt;
-        {photos}
-      &lt;/div&gt;
-    );
-  }
-});
-
-var data = [
-  {
-    url: 'http://www.zhuowenli.com/res/img/icon.png',
-    caption: 'Logo!'
-  },
-  {
-    url: 'http://www.zhuowenli.com/res/img/icon-72.png',
-    caption: 'Small Logo'
-  },
-  {
-    url: 'http://www.zhuowenli.com/res/img/icon-152.png',
-    caption: 'Large Logo'
-  }
-];
-
-React.render(&lt;PhotoGallery photos={data} /&gt;, document.body);
+<span class="nx">React</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">PhotoGallery</span> <span class="nx">photos</span><span class="o">=</span><span class="p">{</span><span class="nx">data</span><span class="p">}</span> <span class="o">/&gt;</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
 </code></pre></div>
 <p>查看代码：<a href="http://jsbin.com/detime/10/edit">JSBin</a></p>
 

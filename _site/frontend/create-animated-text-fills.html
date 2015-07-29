@@ -81,15 +81,15 @@
 <p>这个方式可能是我们脑海里第一个蹦出来的想法，虽然只有WebKit内核的浏览器支持，所以要加上<code>-webkit-</code>前缀。</p>
 
 <p>html标签如下：</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"box-with-text"</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;box-with-text&quot;</span><span class="nt">&gt;</span>
     Text
 <span class="nt">&lt;/div&gt;</span>
 </code></pre></div>
 <p>CSS是这样的：</p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.box-with-text</span><span class="p">{</span>
-    <span class="nl">background-image</span><span class="p">:</span><span class="sx">url('img/1.jpg')</span><span class="p">;</span>
-    <span class="nl">-webkit-text-fill-color</span><span class="p">:</span> <span class="nb">transparent</span><span class="p">;</span>
-    <span class="nl">-webkit-background-clip</span><span class="p">:</span> <span class="nb">text</span><span class="p">;</span>
+    <span class="k">background-image</span><span class="o">:</span><span class="sx">url(&#39;img/1.jpg&#39;)</span><span class="p">;</span>
+    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="k">text</span><span class="o">-</span><span class="n">fill</span><span class="o">-</span><span class="k">color</span><span class="o">:</span> <span class="k">transparent</span><span class="p">;</span>
+    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="k">background</span><span class="o">-</span><span class="k">clip</span><span class="o">:</span> <span class="k">text</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>效果如下：</p>
@@ -104,30 +104,30 @@
 
 <p>但我们可以用CSS渐变与-webkit-前缀以除去非Webkit的浏览器的背景：</p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.box-with-text</span><span class="p">{</span>
-    <span class="nl">background-image</span><span class="p">:</span><span class="n">-webkit-linear-gradient</span><span class="p">(</span><span class="nb">transparent</span><span class="p">,</span> <span class="nb">transparent</span><span class="p">),</span>
-                             <span class="sx">url('img/1.jpg')</span><span class="p">;</span>
-    <span class="nl">-webkit-text-fill-color</span><span class="p">:</span> <span class="nb">transparent</span><span class="p">;</span>
-    <span class="nl">-webkit-background-clip</span><span class="p">:</span> <span class="nb">text</span><span class="p">;</span>
+    <span class="k">background-image</span><span class="o">:-</span><span class="n">webkit</span><span class="o">-</span><span class="n">linear</span><span class="o">-</span><span class="n">gradient</span><span class="p">(</span><span class="k">transparent</span><span class="o">,</span> <span class="k">transparent</span><span class="p">)</span><span class="o">,</span>
+                             <span class="sx">url(&#39;img/1.jpg&#39;)</span><span class="p">;</span>
+    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="k">text</span><span class="o">-</span><span class="n">fill</span><span class="o">-</span><span class="k">color</span><span class="o">:</span> <span class="k">transparent</span><span class="p">;</span>
+    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="k">background</span><span class="o">-</span><span class="k">clip</span><span class="o">:</span> <span class="k">text</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>不支持的浏览器将完全忽略了整个字符串，我们能够避免完全显示的背景图像。这简单的一招将使我们能够解决非Webkit内核的浏览器，如果我们不希望显示的图像话。</p>
 
 <p>如果我们要实现填充动画，CSS可以实现。但是我们CSS动画只能实现改变背景的位置和大小，不能平滑地改变颜色。效果如图</p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="o">//</span> <span class="nt">scss</span>
-<span class="k">@include</span> <span class="n">keyframes</span><span class="p">(</span><span class="n">stripes</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">@include</span> <span class="nt">keyframes</span><span class="o">(</span><span class="nt">stripes</span><span class="o">)</span> <span class="p">{</span>
   <span class="nt">100</span><span class="o">%</span> <span class="p">{</span>
-    <span class="nl">background-position</span><span class="p">:</span> <span class="m">0</span> <span class="m">-50px</span><span class="p">;</span>
+    <span class="k">background-position</span><span class="o">:</span> <span class="m">0</span> <span class="m">-50px</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="nc">.box-with-text</span><span class="p">{</span>
-    <span class="nl">background-image</span><span class="p">:</span> <span class="n">-webkit-linear-gradient</span><span class="p">(</span><span class="no">crimson</span> <span class="m">50%</span><span class="p">,</span> <span class="m">#FD0</span> <span class="m">50%</span><span class="p">);</span>
-    <span class="nl">background-repeat</span><span class="p">:</span> <span class="nb">repeat</span><span class="p">;</span>
-    <span class="nl">background-position</span><span class="p">:</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span>
-    <span class="nl">background-size</span><span class="p">:</span> <span class="m">100%</span> <span class="m">50px</span><span class="p">;</span>
-    <span class="nl">-webkit-text-fill-color</span><span class="p">:</span> <span class="nb">transparent</span><span class="p">;</span>
-    <span class="nl">-webkit-background-clip</span><span class="p">:</span> <span class="nb">text</span><span class="p">;</span>
-    <span class="err">@include</span> <span class="err">animation(stripes</span> <span class="err">2s</span> <span class="err">linear</span> <span class="err">infinite);</span>
+    <span class="k">background-image</span><span class="o">:</span> <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">linear</span><span class="o">-</span><span class="n">gradient</span><span class="p">(</span><span class="nb">crimson</span> <span class="m">50%</span><span class="o">,</span> <span class="m">#FD0</span> <span class="m">50%</span><span class="p">);</span>
+    <span class="k">background-repeat</span><span class="o">:</span> <span class="k">repeat</span><span class="p">;</span>
+    <span class="k">background-position</span><span class="o">:</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">background</span><span class="o">-</span><span class="k">size</span><span class="o">:</span> <span class="m">100%</span> <span class="m">50px</span><span class="p">;</span>
+    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="k">text</span><span class="o">-</span><span class="n">fill</span><span class="o">-</span><span class="k">color</span><span class="o">:</span> <span class="k">transparent</span><span class="p">;</span>
+    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="k">background</span><span class="o">-</span><span class="k">clip</span><span class="o">:</span> <span class="k">text</span><span class="p">;</span>
+    <span class="o">@</span><span class="n">include</span> <span class="n">animation</span><span class="p">(</span><span class="n">stripes</span> <span class="m">2s</span> <span class="n">linear</span> <span class="n">infinite</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <div class="demo">
@@ -155,8 +155,8 @@
 <p>如果你不了解SVG，建议你阅读<a href="http://www.w3.org/TR/SVG/">SVG规范</a>，或者其他<a href="https://docs.webplatform.org/wiki/svg/tutorials">SVG教程</a>等。</p>
 
 <p>html使用方法如下：</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;svg</span> <span class="na">viewBox=</span><span class="s">"0 0 600 300"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;text</span> <span class="na">text-anchor=</span><span class="s">"middle"</span> <span class="na">x=</span><span class="s">"50%"</span> <span class="na">y=</span><span class="s">"50%"</span> <span class="na">dy=</span><span class="s">".35em"</span> <span class="na">class=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;svg</span> <span class="na">viewBox=</span><span class="s">&quot;0 0 600 300&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;text</span> <span class="na">text-anchor=</span><span class="s">&quot;middle&quot;</span> <span class="na">x=</span><span class="s">&quot;50%&quot;</span> <span class="na">y=</span><span class="s">&quot;50%&quot;</span> <span class="na">dy=</span><span class="s">&quot;.35em&quot;</span> <span class="na">class=</span><span class="s">&quot;text&quot;</span><span class="nt">&gt;</span>
         Text
     <span class="nt">&lt;/text&gt;</span>
 <span class="nt">&lt;/svg&gt;</span>
@@ -172,21 +172,21 @@
 </div>
 
 <p>在SVG中添加一个简单的linearGradient标签：</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;svg</span> <span class="na">viewBox=</span><span class="s">"0 0 600 300"</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;svg</span> <span class="na">viewBox=</span><span class="s">&quot;0 0 600 300&quot;</span><span class="nt">&gt;</span>
     <span class="c">&lt;!-- Gradient --&gt;</span>
-    <span class="nt">&lt;linearGradient</span> <span class="na">id=</span><span class="s">"gr-simple"</span> <span class="na">x1=</span><span class="s">"0"</span> <span class="na">y1=</span><span class="s">"0"</span> <span class="na">x2=</span><span class="s">"100%"</span> <span class="na">y2=</span><span class="s">"100%"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;stop</span> <span class="na">stop-color=</span><span class="s">"hsl(50, 100%, 70%)"</span> <span class="na">offset=</span><span class="s">"10%"</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;stop</span> <span class="na">stop-color=</span><span class="s">"hsl(320, 100%, 50%)"</span> <span class="na">offset=</span><span class="s">"90%"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;linearGradient</span> <span class="na">id=</span><span class="s">&quot;gr-simple&quot;</span> <span class="na">x1=</span><span class="s">&quot;0&quot;</span> <span class="na">y1=</span><span class="s">&quot;0&quot;</span> <span class="na">x2=</span><span class="s">&quot;100%&quot;</span> <span class="na">y2=</span><span class="s">&quot;100%&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;stop</span> <span class="na">stop-color=</span><span class="s">&quot;hsl(50, 100%, 70%)&quot;</span> <span class="na">offset=</span><span class="s">&quot;10%&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;stop</span> <span class="na">stop-color=</span><span class="s">&quot;hsl(320, 100%, 50%)&quot;</span> <span class="na">offset=</span><span class="s">&quot;90%&quot;</span><span class="nt">/&gt;</span>
     <span class="nt">&lt;/linearGradient&gt;</span>
     <span class="c">&lt;!-- text --&gt;</span>
-    <span class="nt">&lt;text</span> <span class="na">text-anchor=</span><span class="s">"middle"</span> <span class="na">x=</span><span class="s">"50%"</span> <span class="na">y=</span><span class="s">"50%"</span> <span class="na">dy=</span><span class="s">".35em"</span> <span class="na">class=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;text</span> <span class="na">text-anchor=</span><span class="s">&quot;middle&quot;</span> <span class="na">x=</span><span class="s">&quot;50%&quot;</span> <span class="na">y=</span><span class="s">&quot;50%&quot;</span> <span class="na">dy=</span><span class="s">&quot;.35em&quot;</span> <span class="na">class=</span><span class="s">&quot;text&quot;</span><span class="nt">&gt;</span>
         Text
     <span class="nt">&lt;/text&gt;</span>
 <span class="nt">&lt;/svg&gt;</span>
 </code></pre></div><div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.text</span> <span class="p">{</span>
-    <span class="nl">font</span><span class="p">:</span> <span class="m">12.5em</span><span class="p">/</span><span class="m">1</span> <span class="n">Open</span> <span class="n">Sans</span><span class="p">,</span> <span class="n">Impact</span><span class="p">;</span>
-    <span class="nl">text-transform</span><span class="p">:</span> <span class="nb">uppercase</span><span class="p">;</span>
-    <span class="py">fill</span><span class="p">:</span> <span class="sx">url(#gr-simple)</span><span class="p">;</span>
+    <span class="k">font</span><span class="o">:</span> <span class="m">12.5em</span><span class="o">/</span><span class="m">1</span> <span class="n">Open</span> <span class="n">Sans</span><span class="o">,</span> <span class="n">Impact</span><span class="p">;</span>
+    <span class="k">text-transform</span><span class="o">:</span> <span class="k">uppercase</span><span class="p">;</span>
+    <span class="n">fill</span><span class="o">:</span> <span class="sx">url(#gr-simple)</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>就可以实现渐变填充的效果：</p>
@@ -208,34 +208,34 @@
 <p>想了解更多关于<code>gradients</code>的知识可以阅读<a href="http://www.sitepoint.com/author/jtrythall/">Joni Trythall</a>的文章<a href="http://www.sitepoint.com/getting-started-svg-gradients/">Getting Started with SVG Gradients</a></p>
 
 <p>使用<code>fill</code>来填充颜色的方式也可以直接写在<code>text</code>的属性<code>fill</code>上，要使用<code>gradients</code>是必须定义ID，并且将之插入到<code>url()</code>中。</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;svg</span> <span class="na">viewBox=</span><span class="s">"0 0 600 300"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;text</span> <span class="na">text-anchor=</span><span class="s">"middle"</span> <span class="na">x=</span><span class="s">"50%"</span> <span class="na">y=</span><span class="s">"50%"</span> <span class="na">dy=</span><span class="s">".35em"</span> <span class="na">class=</span><span class="s">"text"</span> <span class="na">fill=</span><span class="s">"url(#gr-simple)"</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;svg</span> <span class="na">viewBox=</span><span class="s">&quot;0 0 600 300&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;text</span> <span class="na">text-anchor=</span><span class="s">&quot;middle&quot;</span> <span class="na">x=</span><span class="s">&quot;50%&quot;</span> <span class="na">y=</span><span class="s">&quot;50%&quot;</span> <span class="na">dy=</span><span class="s">&quot;.35em&quot;</span> <span class="na">class=</span><span class="s">&quot;text&quot;</span> <span class="na">fill=</span><span class="s">&quot;url(#gr-simple)&quot;</span><span class="nt">&gt;</span>
         Text
     <span class="nt">&lt;/text&gt;</span>
 <span class="nt">&lt;/svg&gt;</span>
 </code></pre></div>
 <p>当然，你喜欢使用css的话也行。</p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.text</span> <span class="p">{</span>
-    <span class="py">fill</span><span class="p">:</span> <span class="sx">url(#gr-simple)</span><span class="p">;</span>
+    <span class="n">fill</span><span class="o">:</span> <span class="sx">url(#gr-simple)</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>我们可以设置<code>gradient</code>的字体颜色，但是我们需要使用SMIL来控制<code>gradient</code>的其他属性</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- Gradient --&gt;</span>
-<span class="nt">&lt;radialGradient</span> <span class="na">id=</span><span class="s">"gr-radial"</span>
-    <span class="na">cx=</span><span class="s">"50%"</span> <span class="na">cy=</span><span class="s">"50%"</span> <span class="na">r=</span><span class="s">"70%"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;radialGradient</span> <span class="na">id=</span><span class="s">&quot;gr-radial&quot;</span>
+    <span class="na">cx=</span><span class="s">&quot;50%&quot;</span> <span class="na">cy=</span><span class="s">&quot;50%&quot;</span> <span class="na">r=</span><span class="s">&quot;70%&quot;</span><span class="nt">&gt;</span>
 
     <span class="c">&lt;!-- Animation for radius of gradient --&gt;</span>
-    <span class="nt">&lt;animate</span> <span class="na">attributeName=</span><span class="s">"r"</span>
-             <span class="na">values=</span><span class="s">"0%;150%;100%;0%"</span>
-             <span class="na">dur=</span><span class="s">"5s"</span> <span class="na">repeatCount=</span><span class="s">"indefinite"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;animate</span> <span class="na">attributeName=</span><span class="s">&quot;r&quot;</span>
+             <span class="na">values=</span><span class="s">&quot;0%;150%;100%;0%&quot;</span>
+             <span class="na">dur=</span><span class="s">&quot;5s&quot;</span> <span class="na">repeatCount=</span><span class="s">&quot;indefinite&quot;</span> <span class="nt">/&gt;</span>
 
     <span class="c">&lt;!-- Animation for colors of stop-color --&gt;</span>
-    <span class="nt">&lt;stop</span> <span class="na">stop-color=</span><span class="s">"#FFF"</span> <span class="na">offset=</span><span class="s">"0"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;animate</span> <span class="na">attributeName=</span><span class="s">"stop-color"</span>
-             <span class="na">values=</span><span class="s">"#333;#FFF;#FFF;#333"</span>
-             <span class="na">dur=</span><span class="s">"5s"</span> <span class="na">repeatCount=</span><span class="s">"indefinite"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;stop</span> <span class="na">stop-color=</span><span class="s">&quot;#FFF&quot;</span> <span class="na">offset=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;animate</span> <span class="na">attributeName=</span><span class="s">&quot;stop-color&quot;</span>
+             <span class="na">values=</span><span class="s">&quot;#333;#FFF;#FFF;#333&quot;</span>
+             <span class="na">dur=</span><span class="s">&quot;5s&quot;</span> <span class="na">repeatCount=</span><span class="s">&quot;indefinite&quot;</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/stop&gt;</span>
-    <span class="nt">&lt;stop</span> <span class="na">stop-color=</span><span class="s">"rgba(55,55,55,0)"</span> <span class="na">offset=</span><span class="s">"100%"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;stop</span> <span class="na">stop-color=</span><span class="s">&quot;rgba(55,55,55,0)&quot;</span> <span class="na">offset=</span><span class="s">&quot;100%&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/radialGradient&gt;</span>
 </code></pre></div>
 <p>效果如下</p>
@@ -285,115 +285,115 @@
 </div>
 
 <p><code>&lt;pattern&gt;</code>标签的代码如下：</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;pattern</span> <span class="na">id=</span><span class="s">"p-spots"</span> <span class="na">viewBox=</span><span class="s">"0 0 80 80"</span> <span class="na">patternUnits=</span><span class="s">"userSpaceOnUse"</span> <span class="na">width=</span><span class="s">"60"</span> <span class="na">height=</span><span class="s">"60"</span> <span class="na">x=</span><span class="s">"5"</span> <span class="na">y=</span><span class="s">"5"</span> <span class="nt">&gt;</span>
-    <span class="nt">&lt;g</span> <span class="na">class=</span><span class="s">"g-spots"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;circle</span> <span class="na">r=</span><span class="s">"5"</span> <span class="na">cx=</span><span class="s">"10"</span> <span class="na">cy=</span><span class="s">"10"</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;circle</span> <span class="na">r=</span><span class="s">"7"</span> <span class="na">cx=</span><span class="s">"30"</span> <span class="na">cy=</span><span class="s">"30"</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;circle</span> <span class="na">r=</span><span class="s">"5"</span> <span class="na">cx=</span><span class="s">"50"</span> <span class="na">cy=</span><span class="s">"10"</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;circle</span> <span class="na">r=</span><span class="s">"9"</span> <span class="na">cx=</span><span class="s">"70"</span> <span class="na">cy=</span><span class="s">"30"</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;circle</span> <span class="na">r=</span><span class="s">"11"</span> <span class="na">cx=</span><span class="s">"50"</span> <span class="na">cy=</span><span class="s">"50"</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;circle</span> <span class="na">r=</span><span class="s">"5"</span> <span class="na">cx=</span><span class="s">"10"</span> <span class="na">cy=</span><span class="s">"50"</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;circle</span> <span class="na">r=</span><span class="s">"7"</span> <span class="na">cx=</span><span class="s">"30"</span> <span class="na">cy=</span><span class="s">"70"</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;circle</span> <span class="na">r=</span><span class="s">"9"</span> <span class="na">cx=</span><span class="s">"70"</span> <span class="na">cy=</span><span class="s">"70"</span><span class="nt">/&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;pattern</span> <span class="na">id=</span><span class="s">&quot;p-spots&quot;</span> <span class="na">viewBox=</span><span class="s">&quot;0 0 80 80&quot;</span> <span class="na">patternUnits=</span><span class="s">&quot;userSpaceOnUse&quot;</span> <span class="na">width=</span><span class="s">&quot;60&quot;</span> <span class="na">height=</span><span class="s">&quot;60&quot;</span> <span class="na">x=</span><span class="s">&quot;5&quot;</span> <span class="na">y=</span><span class="s">&quot;5&quot;</span> <span class="nt">&gt;</span>
+    <span class="nt">&lt;g</span> <span class="na">class=</span><span class="s">&quot;g-spots&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;circle</span> <span class="na">r=</span><span class="s">&quot;5&quot;</span> <span class="na">cx=</span><span class="s">&quot;10&quot;</span> <span class="na">cy=</span><span class="s">&quot;10&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;circle</span> <span class="na">r=</span><span class="s">&quot;7&quot;</span> <span class="na">cx=</span><span class="s">&quot;30&quot;</span> <span class="na">cy=</span><span class="s">&quot;30&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;circle</span> <span class="na">r=</span><span class="s">&quot;5&quot;</span> <span class="na">cx=</span><span class="s">&quot;50&quot;</span> <span class="na">cy=</span><span class="s">&quot;10&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;circle</span> <span class="na">r=</span><span class="s">&quot;9&quot;</span> <span class="na">cx=</span><span class="s">&quot;70&quot;</span> <span class="na">cy=</span><span class="s">&quot;30&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;circle</span> <span class="na">r=</span><span class="s">&quot;11&quot;</span> <span class="na">cx=</span><span class="s">&quot;50&quot;</span> <span class="na">cy=</span><span class="s">&quot;50&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;circle</span> <span class="na">r=</span><span class="s">&quot;5&quot;</span> <span class="na">cx=</span><span class="s">&quot;10&quot;</span> <span class="na">cy=</span><span class="s">&quot;50&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;circle</span> <span class="na">r=</span><span class="s">&quot;7&quot;</span> <span class="na">cx=</span><span class="s">&quot;30&quot;</span> <span class="na">cy=</span><span class="s">&quot;70&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;circle</span> <span class="na">r=</span><span class="s">&quot;9&quot;</span> <span class="na">cx=</span><span class="s">&quot;70&quot;</span> <span class="na">cy=</span><span class="s">&quot;70&quot;</span><span class="nt">/&gt;</span>
     <span class="nt">&lt;/g&gt;</span>
 <span class="nt">&lt;/pattern&gt;</span>
 </code></pre></div>
 <p>这里仅定义了圆的大小和位置，样式需要在css中定义。或者使用sass：</p>
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">//scss
-</span><span class="nv">$colors</span><span class="p">:</span> <span class="mh">#1D4259</span><span class="o">,</span> <span class="mh">#0A7373</span><span class="o">,</span> <span class="mh">#30BF7C</span><span class="o">,</span> <span class="mh">#BAF266</span><span class="o">,</span> <span class="mh">#EEF272</span><span class="p">;</span>
-<span class="nv">$max</span><span class="p">:</span> <span class="nf">length</span><span class="p">(</span><span class="nv">$colors</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">//scss</span>
+<span class="nv">$colors</span><span class="o">:</span> <span class="mh">#1D4259</span><span class="o">,</span> <span class="mh">#0A7373</span><span class="o">,</span> <span class="mh">#30BF7C</span><span class="o">,</span> <span class="mh">#BAF266</span><span class="o">,</span> <span class="mh">#EEF272</span><span class="p">;</span>
+<span class="nv">$max</span><span class="o">:</span> <span class="nf">length</span><span class="p">(</span><span class="nv">$colors</span><span class="p">);</span>
 
 <span class="nc">.g-spots</span> <span class="nt">circle</span> <span class="p">{</span>
-    <span class="k">@for</span> <span class="nv">$item</span> <span class="ow">from</span> <span class="m">1</span> <span class="ow">through</span> <span class="nv">$max</span> <span class="p">{</span>
-        <span class="k">&amp;</span><span class="nd">:nth-child</span><span class="o">(</span><span class="si">#{</span><span class="nv">$max</span><span class="si">}</span><span class="nt">n</span> <span class="o">+</span> <span class="si">#{</span><span class="nv">$item</span><span class="si">}</span><span class="o">)</span><span class="p">{</span>
-            <span class="na">fill</span><span class="p">:</span> <span class="nf">nth</span><span class="p">(</span><span class="nv">$colors</span><span class="o">,</span> <span class="nv">$item</span><span class="p">);</span>
+    <span class="k">@for</span> <span class="nv">$item</span> <span class="ow">from</span> <span class="mi">1</span> <span class="ow">through</span> <span class="nv">$max</span> <span class="p">{</span>
+        <span class="k">&amp;</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nn">#</span><span class="p">{</span><span class="err">$</span><span class="nt">max</span><span class="p">}</span><span class="nt">n</span> <span class="o">+</span> <span class="nn">#</span><span class="p">{</span><span class="err">$</span><span class="nt">item</span><span class="p">}</span><span class="o">)</span><span class="p">{</span>
+            <span class="na">fill</span><span class="o">:</span> <span class="nf">nth</span><span class="p">(</span><span class="nv">$colors</span><span class="o">,</span> <span class="nv">$item</span><span class="p">);</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>这样就会生成下面的css：</p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.g-spots</span> <span class="nt">circle</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nt">5n</span> <span class="o">+</span> <span class="nt">1</span><span class="o">)</span> <span class="p">{</span>
-    <span class="py">fill</span><span class="p">:</span> <span class="m">#1D4259</span><span class="p">;</span>
+    <span class="n">fill</span><span class="o">:</span> <span class="m">#1D4259</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nc">.g-spots</span> <span class="nt">circle</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nt">5n</span> <span class="o">+</span> <span class="nt">2</span><span class="o">)</span> <span class="p">{</span>
-    <span class="py">fill</span><span class="p">:</span> <span class="m">#0A7373</span><span class="p">;</span>
+    <span class="n">fill</span><span class="o">:</span> <span class="m">#0A7373</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nc">.g-spots</span> <span class="nt">circle</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nt">5n</span> <span class="o">+</span> <span class="nt">3</span><span class="o">)</span> <span class="p">{</span>
-    <span class="py">fill</span><span class="p">:</span> <span class="m">#30BF7C</span><span class="p">;</span>
+    <span class="n">fill</span><span class="o">:</span> <span class="m">#30BF7C</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nc">.g-spots</span> <span class="nt">circle</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nt">5n</span> <span class="o">+</span> <span class="nt">4</span><span class="o">)</span> <span class="p">{</span>
-    <span class="py">fill</span><span class="p">:</span> <span class="m">#BAF266</span><span class="p">;</span>
+    <span class="n">fill</span><span class="o">:</span> <span class="m">#BAF266</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nc">.g-spots</span> <span class="nt">circle</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nt">5n</span> <span class="o">+</span> <span class="nt">5</span><span class="o">)</span> <span class="p">{</span>
-    <span class="py">fill</span><span class="p">:</span> <span class="m">#EEF272</span><span class="p">;</span>
+    <span class="n">fill</span><span class="o">:</span> <span class="m">#EEF272</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>想了解更多有关于SVG patterns的，可以阅读<a href="https://developer.mozilla.org/zh-TW/docs/Web/SVG/Tutorial/%E5%9B%BE%E6%A1%88">MDN-SVG教程</a>相关文章。</p>
 
 <p>我是使用sass来做css的预编译的，所以可以很方便的指定动画的延时。代码如下：</p>
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// scss
-</span><span class="nv">$colors</span><span class="p">:</span> <span class="mh">#551F7A</span><span class="o">,</span> <span class="mh">#BA2799</span><span class="o">,</span> <span class="mh">#D9587A</span><span class="o">,</span> <span class="mh">#FFDD00</span><span class="o">,</span> <span class="mh">#FFF3A1</span><span class="p">;</span>
-<span class="nv">$max</span><span class="p">:</span> <span class="nf">length</span><span class="p">(</span><span class="nv">$colors</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// scss</span>
+<span class="nv">$colors</span><span class="o">:</span> <span class="mh">#551F7A</span><span class="o">,</span> <span class="mh">#BA2799</span><span class="o">,</span> <span class="mh">#D9587A</span><span class="o">,</span> <span class="mh">#FFDD00</span><span class="o">,</span> <span class="mh">#FFF3A1</span><span class="p">;</span>
+<span class="nv">$max</span><span class="o">:</span> <span class="nf">length</span><span class="p">(</span><span class="nv">$colors</span><span class="p">);</span>
 
-<span class="nv">$time</span><span class="p">:</span> <span class="m">2s</span><span class="p">;</span>
-<span class="nv">$time-step</span><span class="p">:</span> <span class="nv">$time</span><span class="o">/</span><span class="nv">$max</span><span class="p">;</span>
+<span class="nv">$time</span><span class="o">:</span> <span class="mi">2</span><span class="kt">s</span><span class="p">;</span>
+<span class="nv">$time-step</span><span class="o">:</span> <span class="nv">$time</span><span class="o">/</span><span class="nv">$max</span><span class="p">;</span>
 
 <span class="nc">.g-stars</span> <span class="nt">polygon</span> <span class="p">{</span>
-  <span class="na">stroke-width</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-  <span class="nl">animation</span><span class="p">:</span> <span class="n">stroke</span> <span class="nv">$time</span> <span class="n">infinite</span><span class="p">;</span>
+  <span class="na">stroke-width</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="na">animation</span><span class="o">:</span> <span class="n">stroke</span> <span class="nv">$time</span> <span class="n">infinite</span><span class="p">;</span>
 
-  <span class="k">@for</span> <span class="nv">$item</span> <span class="ow">from</span> <span class="m">1</span> <span class="ow">through</span> <span class="nv">$max</span> <span class="p">{</span>
-    <span class="k">&amp;</span><span class="nd">:nth-child</span><span class="o">(</span><span class="si">#{</span><span class="nv">$max</span><span class="si">}</span><span class="nt">n</span> <span class="o">+</span> <span class="si">#{</span><span class="nv">$item</span><span class="si">}</span><span class="o">)</span><span class="p">{</span>
-      <span class="nv">$color</span><span class="p">:</span> <span class="nf">nth</span><span class="p">(</span><span class="nv">$colors</span><span class="o">,</span> <span class="nv">$item</span><span class="p">);</span>
-      <span class="na">fill</span><span class="p">:</span> <span class="nv">$color</span><span class="p">;</span>
-      <span class="na">stroke</span><span class="p">:</span> <span class="nv">$color</span><span class="p">;</span>
-      <span class="nl">animation-delay</span><span class="p">:</span> <span class="nf">-</span><span class="p">(</span><span class="nv">$time-step</span><span class="o">*</span><span class="nv">$item</span><span class="p">);</span>
+  <span class="k">@for</span> <span class="nv">$item</span> <span class="ow">from</span> <span class="mi">1</span> <span class="ow">through</span> <span class="nv">$max</span> <span class="p">{</span>
+    <span class="k">&amp;</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nn">#</span><span class="p">{</span><span class="err">$</span><span class="nt">max</span><span class="p">}</span><span class="nt">n</span> <span class="o">+</span> <span class="nn">#</span><span class="p">{</span><span class="err">$</span><span class="nt">item</span><span class="p">}</span><span class="o">)</span><span class="p">{</span>
+      <span class="nv">$color</span><span class="o">:</span> <span class="nf">nth</span><span class="p">(</span><span class="nv">$colors</span><span class="o">,</span> <span class="nv">$item</span><span class="p">);</span>
+      <span class="na">fill</span><span class="o">:</span> <span class="nv">$color</span><span class="p">;</span>
+      <span class="na">stroke</span><span class="o">:</span> <span class="nv">$color</span><span class="p">;</span>
+      <span class="na">animation-delay</span><span class="o">:</span> <span class="nf">-</span><span class="p">(</span><span class="nv">$time-step</span><span class="o">*</span><span class="nv">$item</span><span class="p">);</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="k">@keyframes</span> <span class="nt">stroke</span> <span class="p">{</span>
-    <span class="nt">50</span><span class="nv">%</span> <span class="p">{</span>
-        <span class="na">stroke-width</span><span class="p">:</span> <span class="m">10</span><span class="p">;</span>
+    <span class="nt">50</span><span class="err">%</span> <span class="p">{</span>
+        <span class="na">stroke-width</span><span class="o">:</span> <span class="mi">10</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>// 编译后的css</p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="o">//</span> <span class="nt">css</span>
 <span class="nc">.g-stars</span> <span class="nt">polygon</span> <span class="p">{</span>
-    <span class="py">stroke-width</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-    <span class="nl">animation</span><span class="p">:</span> <span class="n">stroke</span> <span class="m">2s</span> <span class="n">infinite</span><span class="p">;</span>
+    <span class="n">stroke</span><span class="o">-</span><span class="k">width</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="n">animation</span><span class="o">:</span> <span class="n">stroke</span> <span class="m">2s</span> <span class="n">infinite</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nc">.g-stars</span> <span class="nt">polygon</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nt">5n</span> <span class="o">+</span> <span class="nt">1</span><span class="o">)</span> <span class="p">{</span>
-    <span class="py">fill</span><span class="p">:</span> <span class="m">#551F7A</span><span class="p">;</span>
-    <span class="py">stroke</span><span class="p">:</span> <span class="m">#551F7A</span><span class="p">;</span>
-    <span class="nl">animation-delay</span><span class="p">:</span> <span class="m">-0.4s</span><span class="p">;</span>
+    <span class="n">fill</span><span class="o">:</span> <span class="m">#551F7A</span><span class="p">;</span>
+    <span class="n">stroke</span><span class="o">:</span> <span class="m">#551F7A</span><span class="p">;</span>
+    <span class="n">animation</span><span class="o">-</span><span class="n">delay</span><span class="o">:</span> <span class="m">-0.4s</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nc">.g-stars</span> <span class="nt">polygon</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nt">5n</span> <span class="o">+</span> <span class="nt">2</span><span class="o">)</span> <span class="p">{</span>
-    <span class="py">fill</span><span class="p">:</span> <span class="m">#BA2799</span><span class="p">;</span>
-    <span class="py">stroke</span><span class="p">:</span> <span class="m">#BA2799</span><span class="p">;</span>
-    <span class="nl">animation-delay</span><span class="p">:</span> <span class="m">-0.8s</span><span class="p">;</span>
+    <span class="n">fill</span><span class="o">:</span> <span class="m">#BA2799</span><span class="p">;</span>
+    <span class="n">stroke</span><span class="o">:</span> <span class="m">#BA2799</span><span class="p">;</span>
+    <span class="n">animation</span><span class="o">-</span><span class="n">delay</span><span class="o">:</span> <span class="m">-0.8s</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nc">.g-stars</span> <span class="nt">polygon</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nt">5n</span> <span class="o">+</span> <span class="nt">3</span><span class="o">)</span> <span class="p">{</span>
-    <span class="py">fill</span><span class="p">:</span> <span class="m">#D9587A</span><span class="p">;</span>
-    <span class="py">stroke</span><span class="p">:</span> <span class="m">#D9587A</span><span class="p">;</span>
-    <span class="nl">animation-delay</span><span class="p">:</span> <span class="m">-1.2s</span><span class="p">;</span>
+    <span class="n">fill</span><span class="o">:</span> <span class="m">#D9587A</span><span class="p">;</span>
+    <span class="n">stroke</span><span class="o">:</span> <span class="m">#D9587A</span><span class="p">;</span>
+    <span class="n">animation</span><span class="o">-</span><span class="n">delay</span><span class="o">:</span> <span class="m">-1.2s</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nc">.g-stars</span> <span class="nt">polygon</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nt">5n</span> <span class="o">+</span> <span class="nt">4</span><span class="o">)</span> <span class="p">{</span>
-    <span class="py">fill</span><span class="p">:</span> <span class="m">#FFDD00</span><span class="p">;</span>
-    <span class="py">stroke</span><span class="p">:</span> <span class="m">#FFDD00</span><span class="p">;</span>
-    <span class="nl">animation-delay</span><span class="p">:</span> <span class="m">-1.6s</span><span class="p">;</span>
+    <span class="n">fill</span><span class="o">:</span> <span class="m">#FFDD00</span><span class="p">;</span>
+    <span class="n">stroke</span><span class="o">:</span> <span class="m">#FFDD00</span><span class="p">;</span>
+    <span class="n">animation</span><span class="o">-</span><span class="n">delay</span><span class="o">:</span> <span class="m">-1.6s</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nc">.g-stars</span> <span class="nt">polygon</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nt">5n</span> <span class="o">+</span> <span class="nt">5</span><span class="o">)</span> <span class="p">{</span>
-    <span class="py">fill</span><span class="p">:</span> <span class="m">#FFF3A1</span><span class="p">;</span>
-    <span class="py">stroke</span><span class="p">:</span> <span class="m">#FFF3A1</span><span class="p">;</span>
-    <span class="nl">animation-delay</span><span class="p">:</span> <span class="m">-2s</span><span class="p">;</span>
+    <span class="n">fill</span><span class="o">:</span> <span class="m">#FFF3A1</span><span class="p">;</span>
+    <span class="n">stroke</span><span class="o">:</span> <span class="m">#FFF3A1</span><span class="p">;</span>
+    <span class="n">animation</span><span class="o">-</span><span class="n">delay</span><span class="o">:</span> <span class="m">-2s</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="k">@keyframes</span> <span class="n">stroke</span> <span class="p">{</span>
+<span class="k">@keyframes</span> <span class="nt">stroke</span> <span class="p">{</span>
     <span class="nt">50</span><span class="o">%</span> <span class="p">{</span>
-        <span class="py">stroke-width</span><span class="p">:</span> <span class="m">10</span><span class="p">;</span>
+        <span class="n">stroke</span><span class="o">-</span><span class="k">width</span><span class="o">:</span> <span class="m">10</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -448,8 +448,8 @@
 </div>
 
 <p>pattern中用来使用图片的方法如下：</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;pattern</span> <span class="na">id=</span><span class="s">"p-fire"</span> <span class="na">viewBox=</span><span class="s">"30 100 186 200"</span> <span class="na">patternUnits=</span><span class="s">"userSpaceOnUse"</span> <span class="na">width=</span><span class="s">"216"</span> <span class="na">height=</span><span class="s">"200"</span> <span class="na">x=</span><span class="s">"-70"</span> <span class="na">y=</span><span class="s">"35"</span> <span class="nt">&gt;</span>
-    <span class="nt">&lt;image</span> <span class="na">xlink:href=</span><span class="s">"/img/post/AnimateTextFills/fire.gif"</span> <span class="na">width=</span><span class="s">"256"</span> <span class="na">height=</span><span class="s">"300"</span><span class="nt">/&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;pattern</span> <span class="na">id=</span><span class="s">&quot;p-fire&quot;</span> <span class="na">viewBox=</span><span class="s">&quot;30 100 186 200&quot;</span> <span class="na">patternUnits=</span><span class="s">&quot;userSpaceOnUse&quot;</span> <span class="na">width=</span><span class="s">&quot;216&quot;</span> <span class="na">height=</span><span class="s">&quot;200&quot;</span> <span class="na">x=</span><span class="s">&quot;-70&quot;</span> <span class="na">y=</span><span class="s">&quot;35&quot;</span> <span class="nt">&gt;</span>
+    <span class="nt">&lt;image</span> <span class="na">xlink:href=</span><span class="s">&quot;/img/post/AnimateTextFills/fire.gif&quot;</span> <span class="na">width=</span><span class="s">&quot;256&quot;</span> <span class="na">height=</span><span class="s">&quot;300&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/pattern&gt;</span>
 </code></pre></div>
 <p>不同于<code>background-clip</code>，文本文字将正确的显示在最新的浏览器。</p>
@@ -460,9 +460,9 @@
 
 <p>如图，实现这样的效果可以使用如下代码：</p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.box-with-text</span> <span class="p">{</span>
-    <span class="nl">text-shadow</span><span class="p">:</span> <span class="m">-0px</span> <span class="m">-0px</span> <span class="m">0</span> <span class="no">yellowgreen</span><span class="p">,</span> <span class="m">0px</span> <span class="m">-0px</span> <span class="m">0</span> <span class="no">yellowgreen</span><span class="p">,</span> <span class="m">0px</span> <span class="m">0px</span> <span class="m">0</span> <span class="no">yellowgreen</span><span class="p">,</span> <span class="m">-0px</span> <span class="m">0px</span> <span class="m">0</span> <span class="no">yellowgreen</span><span class="p">,</span> <span class="m">-1px</span> <span class="m">-1px</span> <span class="m">0</span> <span class="no">yellowgreen</span><span class="p">,</span> <span class="m">1px</span> <span class="m">-1px</span> <span class="m">0</span> <span class="no">yellowgreen</span><span class="p">,</span> <span class="m">1px</span> <span class="m">1px</span> <span class="m">0</span> <span class="no">yellowgreen</span><span class="p">,</span> <span class="m">-1px</span> <span class="m">1px</span> <span class="m">0</span> <span class="no">yellowgreen</span><span class="p">,</span> <span class="m">-2px</span> <span class="m">-2px</span> <span class="m">0</span> <span class="no">yellowgreen</span><span class="p">,</span> <span class="m">2px</span> <span class="m">-2px</span> <span class="m">0</span> <span class="no">yellowgreen</span><span class="p">,</span> <span class="m">2px</span> <span class="m">2px</span> <span class="m">0</span> <span class="no">yellowgreen</span><span class="p">,</span> <span class="m">-2px</span> <span class="m">2px</span> <span class="m">0</span> <span class="no">yellowgreen</span><span class="p">,</span> <span class="m">0</span> <span class="m">5px</span> <span class="m">15px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.2</span><span class="p">);</span>
-    <span class="nl">font</span><span class="p">:</span> <span class="m">26vmax</span><span class="p">/</span><span class="m">.85</span> <span class="n">Open</span> <span class="n">Sans</span><span class="p">,</span> <span class="n">Impact</span><span class="p">;</span>
-    <span class="nl">color</span><span class="p">:</span> <span class="m">#FFF</span><span class="p">;</span>
+    <span class="k">text-shadow</span><span class="o">:</span> <span class="m">-0px</span> <span class="m">-0px</span> <span class="m">0</span> <span class="nb">yellowgreen</span><span class="o">,</span> <span class="m">0px</span> <span class="m">-0px</span> <span class="m">0</span> <span class="nb">yellowgreen</span><span class="o">,</span> <span class="m">0px</span> <span class="m">0px</span> <span class="m">0</span> <span class="nb">yellowgreen</span><span class="o">,</span> <span class="m">-0px</span> <span class="m">0px</span> <span class="m">0</span> <span class="nb">yellowgreen</span><span class="o">,</span> <span class="m">-1px</span> <span class="m">-1px</span> <span class="m">0</span> <span class="nb">yellowgreen</span><span class="o">,</span> <span class="m">1px</span> <span class="m">-1px</span> <span class="m">0</span> <span class="nb">yellowgreen</span><span class="o">,</span> <span class="m">1px</span> <span class="m">1px</span> <span class="m">0</span> <span class="nb">yellowgreen</span><span class="o">,</span> <span class="m">-1px</span> <span class="m">1px</span> <span class="m">0</span> <span class="nb">yellowgreen</span><span class="o">,</span> <span class="m">-2px</span> <span class="m">-2px</span> <span class="m">0</span> <span class="nb">yellowgreen</span><span class="o">,</span> <span class="m">2px</span> <span class="m">-2px</span> <span class="m">0</span> <span class="nb">yellowgreen</span><span class="o">,</span> <span class="m">2px</span> <span class="m">2px</span> <span class="m">0</span> <span class="nb">yellowgreen</span><span class="o">,</span> <span class="m">-2px</span> <span class="m">2px</span> <span class="m">0</span> <span class="nb">yellowgreen</span><span class="o">,</span> <span class="m">0</span> <span class="m">5px</span> <span class="m">15px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">.</span><span class="m">2</span><span class="p">);</span>
+    <span class="k">font</span><span class="o">:</span> <span class="m">26</span><span class="n">vmax</span><span class="o">/.</span><span class="m">85</span> <span class="n">Open</span> <span class="n">Sans</span><span class="o">,</span> <span class="n">Impact</span><span class="p">;</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#FFF</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>用text-shadow实现起来确实非常的繁琐，而且代码相当的臃肿。</p>
@@ -485,87 +485,87 @@
 </div>
 
 <p>对于这种类型的<code>stroke</code>，我们需要把许多颜色置入到文本中，可以使用下面的方法来实现。。</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"demo"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;svg</span> <span class="na">viewBox=</span><span class="s">"0 0 600 300"</span> <span class="na">class=</span><span class="s">"demo6"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;symbol</span> <span class="na">id=</span><span class="s">"s-text"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;text</span> <span class="na">text-anchor=</span><span class="s">"middle"</span> <span class="na">x=</span><span class="s">"50%"</span> <span class="na">y=</span><span class="s">"50%"</span> <span class="na">dy=</span><span class="s">".35em"</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;demo&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;svg</span> <span class="na">viewBox=</span><span class="s">&quot;0 0 600 300&quot;</span> <span class="na">class=</span><span class="s">&quot;demo6&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;symbol</span> <span class="na">id=</span><span class="s">&quot;s-text&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;text</span> <span class="na">text-anchor=</span><span class="s">&quot;middle&quot;</span> <span class="na">x=</span><span class="s">&quot;50%&quot;</span> <span class="na">y=</span><span class="s">&quot;50%&quot;</span> <span class="na">dy=</span><span class="s">&quot;.35em&quot;</span><span class="nt">&gt;</span>
                 Text
             <span class="nt">&lt;/text&gt;</span>
         <span class="nt">&lt;/symbol&gt;</span>
         <span class="c">&lt;!-- 复制多个文本 --&gt;</span>
-        <span class="nt">&lt;use</span> <span class="na">xlink:href=</span><span class="s">"#s-text"</span> <span class="na">class=</span><span class="s">"text"</span><span class="nt">&gt;&lt;/use&gt;</span>
-        <span class="nt">&lt;use</span> <span class="na">xlink:href=</span><span class="s">"#s-text"</span> <span class="na">class=</span><span class="s">"text"</span><span class="nt">&gt;&lt;/use&gt;</span>
-        <span class="nt">&lt;use</span> <span class="na">xlink:href=</span><span class="s">"#s-text"</span> <span class="na">class=</span><span class="s">"text"</span><span class="nt">&gt;&lt;/use&gt;</span>
-        <span class="nt">&lt;use</span> <span class="na">xlink:href=</span><span class="s">"#s-text"</span> <span class="na">class=</span><span class="s">"text"</span><span class="nt">&gt;&lt;/use&gt;</span>
-        <span class="nt">&lt;use</span> <span class="na">xlink:href=</span><span class="s">"#s-text"</span> <span class="na">class=</span><span class="s">"text"</span><span class="nt">&gt;&lt;/use&gt;</span>
+        <span class="nt">&lt;use</span> <span class="na">xlink:href=</span><span class="s">&quot;#s-text&quot;</span> <span class="na">class=</span><span class="s">&quot;text&quot;</span><span class="nt">&gt;&lt;/use&gt;</span>
+        <span class="nt">&lt;use</span> <span class="na">xlink:href=</span><span class="s">&quot;#s-text&quot;</span> <span class="na">class=</span><span class="s">&quot;text&quot;</span><span class="nt">&gt;&lt;/use&gt;</span>
+        <span class="nt">&lt;use</span> <span class="na">xlink:href=</span><span class="s">&quot;#s-text&quot;</span> <span class="na">class=</span><span class="s">&quot;text&quot;</span><span class="nt">&gt;&lt;/use&gt;</span>
+        <span class="nt">&lt;use</span> <span class="na">xlink:href=</span><span class="s">&quot;#s-text&quot;</span> <span class="na">class=</span><span class="s">&quot;text&quot;</span><span class="nt">&gt;&lt;/use&gt;</span>
+        <span class="nt">&lt;use</span> <span class="na">xlink:href=</span><span class="s">&quot;#s-text&quot;</span> <span class="na">class=</span><span class="s">&quot;text&quot;</span><span class="nt">&gt;&lt;/use&gt;</span>
     <span class="nt">&lt;/svg&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </code></pre></div>
 <p>用样式控制颜色和动画</p>
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$colors</span><span class="p">:</span> <span class="mh">#551F7A</span><span class="o">,</span> <span class="mh">#BA2799</span><span class="o">,</span> <span class="mh">#D9587A</span><span class="o">,</span> <span class="mh">#FFDD00</span><span class="o">,</span> <span class="mh">#FFF3A1</span><span class="p">;</span>
-<span class="nv">$max</span><span class="p">:</span> <span class="nf">length</span><span class="p">(</span><span class="nv">$colors</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$colors</span><span class="o">:</span> <span class="mh">#551F7A</span><span class="o">,</span> <span class="mh">#BA2799</span><span class="o">,</span> <span class="mh">#D9587A</span><span class="o">,</span> <span class="mh">#FFDD00</span><span class="o">,</span> <span class="mh">#FFF3A1</span><span class="p">;</span>
+<span class="nv">$max</span><span class="o">:</span> <span class="nf">length</span><span class="p">(</span><span class="nv">$colors</span><span class="p">);</span>
 
-<span class="k">@include</span> <span class="nd">keyframes</span><span class="p">(</span><span class="n">stroke2</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nt">100</span><span class="nv">%</span> <span class="p">{</span>
-    <span class="na">stroke-dashoffset</span><span class="p">:</span> <span class="m">-400</span><span class="p">;</span>
+<span class="k">@include</span><span class="nd"> keyframes</span><span class="p">(</span><span class="n">stroke2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nt">100</span><span class="err">%</span> <span class="p">{</span>
+    <span class="na">stroke-dashoffset</span><span class="o">:</span> <span class="mi">-400</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="c1">//scss
-</span><span class="nc">.text</span> <span class="p">{</span>
-    <span class="na">fill</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
-    <span class="na">stroke-width</span><span class="p">:</span> <span class="m">6</span><span class="p">;</span>
-    <span class="na">stroke-linejoin</span><span class="p">:</span> <span class="n">round</span><span class="p">;</span>
-    <span class="na">stroke-dasharray</span><span class="p">:</span> <span class="m">70</span> <span class="m">330</span><span class="p">;</span>
-    <span class="na">stroke-dashoffset</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-    <span class="k">@include</span> <span class="nd">animation</span><span class="p">(</span><span class="n">stroke2</span> <span class="m">6s</span> <span class="n">infinite</span> <span class="n">linear</span><span class="p">);</span>
-    <span class="k">@for</span> <span class="nv">$item</span> <span class="ow">from</span> <span class="m">1</span> <span class="ow">through</span> <span class="nv">$max</span> <span class="p">{</span>
-        <span class="k">&amp;</span><span class="nd">:nth-child</span><span class="o">(</span><span class="si">#{</span><span class="nv">$max</span><span class="si">}</span><span class="nt">n</span> <span class="o">+</span> <span class="si">#{</span><span class="nv">$item</span><span class="si">}</span><span class="o">)</span><span class="p">{</span>
-            <span class="nv">$color</span><span class="p">:</span> <span class="nf">nth</span><span class="p">(</span><span class="nv">$colors</span><span class="o">,</span> <span class="nv">$item</span><span class="p">);</span>
-            <span class="na">stroke</span><span class="p">:</span> <span class="nv">$color</span><span class="p">;</span>
-            <span class="k">@include</span> <span class="nd">animation-delay</span><span class="p">(</span><span class="si">#{</span><span class="nf">-</span><span class="p">(</span><span class="m">1</span><span class="mi">.2</span> <span class="o">*</span> <span class="nv">$item</span><span class="p">)</span><span class="si">}</span><span class="n">s</span><span class="p">);</span>
+<span class="c1">//scss</span>
+<span class="nc">.text</span> <span class="p">{</span>
+    <span class="na">fill</span><span class="o">:</span> <span class="no">none</span><span class="p">;</span>
+    <span class="na">stroke-width</span><span class="o">:</span> <span class="mi">6</span><span class="p">;</span>
+    <span class="na">stroke-linejoin</span><span class="o">:</span> <span class="n">round</span><span class="p">;</span>
+    <span class="na">stroke-dasharray</span><span class="o">:</span> <span class="mi">70</span> <span class="mi">330</span><span class="p">;</span>
+    <span class="na">stroke-dashoffset</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">@include</span><span class="nd"> animation</span><span class="p">(</span><span class="n">stroke2</span> <span class="mi">6</span><span class="kt">s</span> <span class="n">infinite</span> <span class="n">linear</span><span class="p">);</span>
+    <span class="k">@for</span> <span class="nv">$item</span> <span class="ow">from</span> <span class="mi">1</span> <span class="ow">through</span> <span class="nv">$max</span> <span class="p">{</span>
+        <span class="k">&amp;</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nn">#</span><span class="p">{</span><span class="err">$</span><span class="nt">max</span><span class="p">}</span><span class="nt">n</span> <span class="o">+</span> <span class="nn">#</span><span class="p">{</span><span class="err">$</span><span class="nt">item</span><span class="p">}</span><span class="o">)</span><span class="p">{</span>
+            <span class="nv">$color</span><span class="o">:</span> <span class="nf">nth</span><span class="p">(</span><span class="nv">$colors</span><span class="o">,</span> <span class="nv">$item</span><span class="p">);</span>
+            <span class="na">stroke</span><span class="o">:</span> <span class="nv">$color</span><span class="p">;</span>
+            <span class="k">@include</span><span class="nd"> animation-delay</span><span class="p">(</span><span class="si">#{</span><span class="nf">-</span><span class="p">(</span><span class="mi">1</span><span class="mf">.2</span> <span class="o">*</span> <span class="nv">$item</span><span class="p">)</span><span class="si">}</span><span class="n">s</span><span class="p">);</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>编译出来的css就是这样：</p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.text</span> <span class="p">{</span>
-  <span class="py">fill</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
-  <span class="py">stroke-width</span><span class="p">:</span> <span class="m">6</span><span class="p">;</span>
-  <span class="py">stroke-linejoin</span><span class="p">:</span> <span class="n">round</span><span class="p">;</span>
-  <span class="py">stroke-dasharray</span><span class="p">:</span> <span class="m">70</span> <span class="m">330</span><span class="p">;</span>
-  <span class="py">stroke-dashoffset</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-  <span class="nl">animation</span><span class="p">:</span> <span class="n">stroke2</span> <span class="m">6s</span> <span class="n">infinite</span> <span class="n">linear</span><span class="p">;</span>
+  <span class="n">fill</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="n">stroke</span><span class="o">-</span><span class="k">width</span><span class="o">:</span> <span class="m">6</span><span class="p">;</span>
+  <span class="n">stroke</span><span class="o">-</span><span class="n">linejoin</span><span class="o">:</span> <span class="n">round</span><span class="p">;</span>
+  <span class="n">stroke</span><span class="o">-</span><span class="n">dasharray</span><span class="o">:</span> <span class="m">70</span> <span class="m">330</span><span class="p">;</span>
+  <span class="n">stroke</span><span class="o">-</span><span class="n">dashoffset</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="n">animation</span><span class="o">:</span> <span class="n">stroke2</span> <span class="m">6s</span> <span class="n">infinite</span> <span class="n">linear</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nc">.text</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nt">5n</span> <span class="o">+</span> <span class="nt">1</span><span class="o">)</span> <span class="p">{</span>
-  <span class="py">stroke</span><span class="p">:</span> <span class="m">#551F7A</span><span class="p">;</span>
-  <span class="nl">animation-delay</span><span class="p">:</span> <span class="m">-1.2s</span><span class="p">;</span>
+  <span class="n">stroke</span><span class="o">:</span> <span class="m">#551F7A</span><span class="p">;</span>
+  <span class="n">animation</span><span class="o">-</span><span class="n">delay</span><span class="o">:</span> <span class="m">-1.2s</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nc">.text</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nt">5n</span> <span class="o">+</span> <span class="nt">2</span><span class="o">)</span> <span class="p">{</span>
-  <span class="py">stroke</span><span class="p">:</span> <span class="m">#BA2799</span><span class="p">;</span>
-  <span class="nl">animation-delay</span><span class="p">:</span> <span class="m">-2.4s</span><span class="p">;</span>
+  <span class="n">stroke</span><span class="o">:</span> <span class="m">#BA2799</span><span class="p">;</span>
+  <span class="n">animation</span><span class="o">-</span><span class="n">delay</span><span class="o">:</span> <span class="m">-2.4s</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nc">.text</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nt">5n</span> <span class="o">+</span> <span class="nt">3</span><span class="o">)</span> <span class="p">{</span>
-  <span class="py">stroke</span><span class="p">:</span> <span class="m">#D9587A</span><span class="p">;</span>
-  <span class="nl">animation-delay</span><span class="p">:</span> <span class="m">-3.6s</span><span class="p">;</span>
+  <span class="n">stroke</span><span class="o">:</span> <span class="m">#D9587A</span><span class="p">;</span>
+  <span class="n">animation</span><span class="o">-</span><span class="n">delay</span><span class="o">:</span> <span class="m">-3.6s</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nc">.text</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nt">5n</span> <span class="o">+</span> <span class="nt">4</span><span class="o">)</span> <span class="p">{</span>
-  <span class="py">stroke</span><span class="p">:</span> <span class="m">#FFDD00</span><span class="p">;</span>
-  <span class="nl">animation-delay</span><span class="p">:</span> <span class="m">-4.8s</span><span class="p">;</span>
+  <span class="n">stroke</span><span class="o">:</span> <span class="m">#FFDD00</span><span class="p">;</span>
+  <span class="n">animation</span><span class="o">-</span><span class="n">delay</span><span class="o">:</span> <span class="m">-4.8s</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nc">.text</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nt">5n</span> <span class="o">+</span> <span class="nt">5</span><span class="o">)</span> <span class="p">{</span>
-  <span class="py">stroke</span><span class="p">:</span> <span class="m">#FFF3A1</span><span class="p">;</span>
-  <span class="nl">animation-delay</span><span class="p">:</span> <span class="m">-6s</span><span class="p">;</span>
+  <span class="n">stroke</span><span class="o">:</span> <span class="m">#FFF3A1</span><span class="p">;</span>
+  <span class="n">animation</span><span class="o">-</span><span class="n">delay</span><span class="o">:</span> <span class="m">-6s</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="k">@keyframes</span> <span class="n">stroke</span> <span class="p">{</span>
+<span class="k">@keyframes</span> <span class="nt">stroke</span> <span class="p">{</span>
   <span class="nt">100</span><span class="o">%</span> <span class="p">{</span>
-    <span class="py">stroke-dashoffset</span><span class="p">:</span> <span class="m">-400</span><span class="p">;</span>
+    <span class="n">stroke</span><span class="o">-</span><span class="n">dashoffset</span><span class="o">:</span> <span class="m">-400</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>

@@ -106,7 +106,7 @@
 <p>只有当PhoneGap被完全加载才会触发该事件，对于任何一个PhoneGap应用程序来说，这个事件都十分重要，是一定会使用的。</p>
 
 <p>为了安全起见，应该在DOM加载完毕后使用<code>document.addEventListener</code>附加<code>deviceready</code>事件监听器。</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"deviceready"</span><span class="p">,</span> <span class="nx">onDeviceReady</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;deviceready&quot;</span><span class="p">,</span> <span class="nx">onDeviceReady</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
 
 <span class="kd">function</span> <span class="nx">onDeviceReady</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// Now safe to use device APIs</span>
@@ -119,12 +119,12 @@
         <span class="nt">&lt;title&gt;</span>Hello World<span class="nt">&lt;/title&gt;</span>
     <span class="nt">&lt;/head&gt;</span>
     <span class="nt">&lt;body&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"app"</span><span class="nt">&gt;&lt;/div&gt;</span>
-        <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"cordova.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-        <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;app&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;cordova.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
             <span class="c1">// 当DOM加载完毕，注册deviceready事件监听</span>
             <span class="kd">function</span> <span class="nx">onLoad</span><span class="p">()</span> <span class="p">{</span>
-                <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"deviceready"</span><span class="p">,</span> <span class="nx">onDeviceReady</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+                <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;deviceready&quot;</span><span class="p">,</span> <span class="nx">onDeviceReady</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
             <span class="p">}</span>
             <span class="c1">// 注册事件监听</span>
             <span class="kd">function</span> <span class="nx">onDeviceReady</span><span class="p">()</span> <span class="p">{</span>
@@ -142,20 +142,20 @@
 <p>注册相应的监听，可以用于处理相应的事件：</p>
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">onLoad</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// 当DOM加载完毕，注册deviceready事件监听</span>
-    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"deviceready"</span><span class="p">,</span> <span class="nx">onDeviceReady</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;deviceready&quot;</span><span class="p">,</span> <span class="nx">onDeviceReady</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="kd">function</span> <span class="nx">onDeviceReady</span><span class="p">(){</span>
     <span class="c1">// 注册事件监听</span>
-    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"pause"</span><span class="p">,</span> <span class="nx">onPause</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
-    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"resume"</span><span class="p">,</span> <span class="nx">onResume</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;pause&quot;</span><span class="p">,</span> <span class="nx">onPause</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;resume&quot;</span><span class="p">,</span> <span class="nx">onResume</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="c1">// 处理pause事件</span>
 <span class="kd">function</span> <span class="nx">onPause</span><span class="p">(){</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"-------------------pause-------------------"</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;-------------------pause-------------------&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="c1">// 处理resume事件</span>
 <span class="kd">function</span> <span class="nx">onResume</span><span class="p">(){</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"-------------------resume-------------------"</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;-------------------resume-------------------&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3>侦听设备按键</h3>
@@ -167,7 +167,7 @@
 <p>当用户点击后退按键时触发该事件，注意不是所有设备都提供了返回按键，因此一些设备不支持该事件。</p>
 
 <p>当点击后退按钮时，系统一般会有一个默认的响应行为。如果想重写该行为，可以通过注册一个事件监听器来监听该行为。</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"backbutton"</span><span class="p">,</span> <span class="nx">yourCallbackFunction</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;backbutton&quot;</span><span class="p">,</span> <span class="nx">yourCallbackFunction</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
 </code></pre></div>
 <p>如果注册了该事件，默认的行为将会被取消掉。例如在Android系统上，点击后退按钮可以把程序放到后台，但是注册该事件后此默认行为将会被取消掉。</p>
 
@@ -176,42 +176,42 @@
 <h4>menubutton事件</h4>
 
 <p>当用户点击菜单按键时触发该事件，注意不是所有设备都提供了返回按键，因此一些设备不支持该事件。</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"menubutton"</span><span class="p">,</span> <span class="nx">yourCallbackFunction</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;menubutton&quot;</span><span class="p">,</span> <span class="nx">yourCallbackFunction</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
 </code></pre></div>
 <p>iOS没有菜单键，所以不支持该程序。</p>
 
 <h4>searchbutton事件</h4>
 
 <p>当用户点击搜索按键时触发该事件，注意不是所有设备都提供了返回按键，因此一些设备不支持该事件。</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"searchbutton"</span><span class="p">,</span> <span class="nx">yourCallbackFunction</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;searchbutton&quot;</span><span class="p">,</span> <span class="nx">yourCallbackFunction</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
 </code></pre></div>
 <p>iOS没有搜索键，所以不支持该程序。</p>
 
 <h4>startcallbutton事件</h4>
 
 <p>当用户点击通话按键时触发该事件，注意不是所有设备都提供了返回按键，因此一些设备不支持该事件。</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"startcallbutton"</span><span class="p">,</span> <span class="nx">yourCallbackFunction</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;startcallbutton&quot;</span><span class="p">,</span> <span class="nx">yourCallbackFunction</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
 </code></pre></div>
 <p>注意，该事件仅适用于BlackBerry(OS10.0+)，Android和iOS不支持该事件。</p>
 
 <h4>endcallbutton事件</h4>
 
 <p>当用户点击挂机按键（即通话结束键）时触发该事件，注意不是所有设备都提供了返回按键，因此一些设备不支持该事件。</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"endcallbutton"</span><span class="p">,</span> <span class="nx">yourCallbackFunction</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;endcallbutton&quot;</span><span class="p">,</span> <span class="nx">yourCallbackFunction</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
 </code></pre></div>
 <p>注意，该事件仅适用于BlackBerry(OS10.0+)，Android和iOS不支持该事件。</p>
 
 <h4>volumeupbutton事件</h4>
 
 <p>当用户点击调高音量按键时触发该事件，注意不是所有设备都提供了返回按键，因此一些设备不支持该事件。</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"volumeupbutton"</span><span class="p">,</span> <span class="nx">yourCallbackFunction</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;volumeupbutton&quot;</span><span class="p">,</span> <span class="nx">yourCallbackFunction</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
 </code></pre></div>
 <p>注意，该事件仅适用于BlackBerry(OS10.0+)，Android和iOS不支持该事件。</p>
 
 <h4>volumedownbutton事件</h4>
 
 <p>当用户点击调低音量按键时触发该事件，注意不是所有设备都提供了返回按键，因此一些设备不支持该事件。</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"volumedownbutton"</span><span class="p">,</span> <span class="nx">yourCallbackFunction</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;volumedownbutton&quot;</span><span class="p">,</span> <span class="nx">yourCallbackFunction</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
 </code></pre></div>
 <p>注意，该事件仅适用于BlackBerry(OS10.0+)，Android和iOS不支持该事件。</p>
 

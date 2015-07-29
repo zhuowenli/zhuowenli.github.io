@@ -81,32 +81,32 @@
 <p><img src="/img/post/PhoneGap-3/2.png" alt=""></p>
 
 <p>并且，在res/xml/config.xml 配置文件中会添加对插件的引用，<code>feature</code>节点表明这是一个插件</p>
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;feature</span> <span class="na">name=</span><span class="s">"Device"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;param</span> <span class="na">name=</span><span class="s">"android-package"</span> <span class="na">value=</span><span class="s">"org.apache.cordova.device.Device"</span> <span class="nt">/&gt;</span>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;feature</span> <span class="na">name=</span><span class="s">&quot;Device&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;param</span> <span class="na">name=</span><span class="s">&quot;android-package&quot;</span> <span class="na">value=</span><span class="s">&quot;org.apache.cordova.device.Device&quot;</span> <span class="nt">/&gt;</span>
 <span class="nt">&lt;/feature&gt;</span>
 </code></pre></div>
 <p>并且，在www目录下的 cordova_plugins.js 文件中，也可以看到被改变的JavaScript代码，这些代码用于注册新的插件。</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">cordova</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">'cordova/plugin_list'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">require</span><span class="p">,</span> <span class="nx">exports</span><span class="p">,</span> <span class="nx">module</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">cordova</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;cordova/plugin_list&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">require</span><span class="p">,</span> <span class="nx">exports</span><span class="p">,</span> <span class="nx">module</span><span class="p">)</span> <span class="p">{</span>
 <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">{</span>
-        <span class="s2">"file"</span><span class="p">:</span> <span class="s2">"plugins/org.apache.cordova.device/www/device.js"</span><span class="p">,</span>
-        <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"org.apache.cordova.device.device"</span><span class="p">,</span>
-        <span class="s2">"clobbers"</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s2">"device"</span>
+        <span class="s2">&quot;file&quot;</span><span class="o">:</span> <span class="s2">&quot;plugins/org.apache.cordova.device/www/device.js&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;org.apache.cordova.device.device&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;clobbers&quot;</span><span class="o">:</span> <span class="p">[</span>
+            <span class="s2">&quot;device&quot;</span>
         <span class="p">]</span>
     <span class="p">}</span>
 <span class="p">];</span>
 <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="p">.</span><span class="nx">metadata</span> <span class="o">=</span> 
 <span class="c1">// TOP OF METADATA</span>
 <span class="p">{</span>
-    <span class="s2">"org.apache.cordova.device"</span><span class="p">:</span> <span class="s2">"0.2.13"</span>
+    <span class="s2">&quot;org.apache.cordova.device&quot;</span><span class="o">:</span> <span class="s2">&quot;0.2.13&quot;</span>
 <span class="p">}</span>
 <span class="c1">// BOTTOM OF METADATA</span>
 <span class="p">});</span>
 </code></pre></div>
 <p>注意，在Android上使用某些插件的功能就必须添加授权，例如震动功能等。如果使用了<code>phonegap plugin add</code>命令来安装震动功能插件，右击AndroidManifest.xml 并选择 Open With &gt; Text Editer 打开该文件，就可以看到<code>uses-sdk</code>元素和<code>application</code>元素之间的权限设置。</p>
 <div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="c">&lt;!-- 允许程序访问震动设备 --&gt;</span>
-<span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.premission.VIBRATE"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">&quot;android.premission.VIBRATE&quot;</span> <span class="nt">/&gt;</span>
 </code></pre></div>
 <h3>查看和删除插件</h3>
 

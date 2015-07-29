@@ -71,14 +71,14 @@
 <h4>表现形式</h4>
 
 <p>如下弹窗，最外层竖直水平居中。内容动态加载。</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;section</span> <span class="na">id=</span><span class="s">"pop"</span> <span class="na">class=</span><span class="s">"pop"</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;section</span> <span class="na">id=</span><span class="s">&quot;pop&quot;</span> <span class="na">class=</span><span class="s">&quot;pop&quot;</span><span class="nt">&gt;</span>
     <span class="c">&lt;!-- add more --&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">html</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+</code></pre></div><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
 
-<span class="nx">html</span> <span class="o">+=</span> <span class="s1">'&lt;div&gt;......&lt;/div&gt;'</span><span class="p">;</span>
+<span class="nx">html</span> <span class="o">+=</span> <span class="s1">&#39;&lt;div&gt;......&lt;/div&gt;&#39;</span><span class="p">;</span>
 
-<span class="nx">$</span><span class="p">(</span><span class="s1">'section#pop'</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">html</span><span class="p">);</span>  <span class="c1">// 填充弹窗</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;section#pop&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">html</span><span class="p">);</span>  <span class="c1">// 填充弹窗</span>
 <span class="nx">openPop</span><span class="p">();</span>  <span class="c1">// 显示弹窗</span>
 </code></pre></div>
 <p>在iphone下会出现如下bug:</p>
@@ -96,10 +96,10 @@
 <h4>解决办法</h4>
 
 <p>可以连同最外层的<code>section#pop</code>一起填充进去。例如：</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">html</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
-<span class="nx">html</span> <span class="o">+=</span> <span class="s1">'&lt;section id="pop-location" class="pop_state"&gt;'</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="nx">html</span> <span class="o">+=</span> <span class="s1">&#39;&lt;section id=&quot;pop-location&quot; class=&quot;pop_state&quot;&gt;&#39;</span><span class="p">;</span>
 <span class="nx">html</span> <span class="o">+=</span> <span class="p">......</span>
-<span class="nx">html</span> <span class="o">+=</span> <span class="s1">'&lt;/section&gt;'</span>
+<span class="nx">html</span> <span class="o">+=</span> <span class="s1">&#39;&lt;/section&gt;&#39;</span>
 <span class="nx">_content</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">html</span><span class="p">);</span>  <span class="c1">// 填充弹窗</span>
 <span class="nx">openPop</span><span class="p">();</span>  <span class="c1">// 显示弹窗</span>
 </code></pre></div>

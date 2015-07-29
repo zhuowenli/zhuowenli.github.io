@@ -84,10 +84,10 @@
 粘贴以下代码至控制台</p>
 
 <p>ST2：</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">import urllib2,os; pf='Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler( ))); open( os.path.join( ipp, pf), 'wb' ).write( urllib2.urlopen( 'http://sublime.wbond.net/' +pf.replace( ' ','%20' )).read()); print( 'Please restart Sublime Text to finish installation')
+<div class="highlight"><pre><code class="language-text" data-lang="text">import urllib2,os; pf=&#39;Package Control.sublime-package&#39;; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler( ))); open( os.path.join( ipp, pf), &#39;wb&#39; ).write( urllib2.urlopen( &#39;http://sublime.wbond.net/&#39; +pf.replace( &#39; &#39;,&#39;%20&#39; )).read()); print( &#39;Please restart Sublime Text to finish installation&#39;)
 </code></pre></div>
 <p>ST3：</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())
+<div class="highlight"><pre><code class="language-text" data-lang="text">import urllib.request,os; pf = &#39;Package Control.sublime-package&#39;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), &#39;wb&#39;).write(urllib.request.urlopen( &#39;http://sublime.wbond.net/&#39; + pf.replace(&#39; &#39;,&#39;%20&#39;)).read())
 </code></pre></div>
 <p>其他方法：</p>
 
@@ -214,7 +214,7 @@
 <p>简介：还在纠结代码中有多余的空格而显得代码不规范？或是有处女座情节？次插件帮你实现发现多余空格、一键删除空格、保存时自动删除多余空格，让你的代码规范清爽起来</p>
 
 <p>使用：安装插件并重启，即可自动提示多余空格。一键删除多余空格：<code>CTRL+SHITF+T</code>（需配置），更多配置请点击标题。快捷键配置：在Preferences / Key Bindings – User加上代码（数组内）</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html">{ "keys": ["ctrl+shift+t"], "command": "delete_trailing_spaces" }
+<div class="highlight"><pre><code class="language-html" data-lang="html">{ &quot;keys&quot;: [&quot;ctrl+shift+t&quot;], &quot;command&quot;: &quot;delete_trailing_spaces&quot; }
 </code></pre></div>
 <p><img src="/img/post/sublime/11.gif" alt=""></p>
 

@@ -91,8 +91,8 @@
 <p>
     让我们来看一个最简单的实现方法。如果你使用jQuery，那么你就可以直接使用jQuery中的<code>one()</code>事件来创建一个一次性事件了。
 </p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s2">"#myElement"</span><span class="p">).</span><span class="nx">one</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span>
-    <span class="nx">alert</span><span class="p">(</span><span class="s2">"该事件只会被执行一次！"</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#myElement&quot;</span><span class="p">).</span><span class="nx">one</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;该事件只会被执行一次！&quot;</span><span class="p">);</span>
 <span class="p">})</span>
 </code></pre></div>
 <p>
@@ -104,13 +104,13 @@
 <p>
     如果你使用原生的javascript，任何移除自身的处理函数都可以直接使用一条简单的代码。
 </p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"myElement"</span><span class="p">).</span><span class="nx">addEventListenter</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span><span class="nx">handler</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;myElement&quot;</span><span class="p">).</span><span class="nx">addEventListenter</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="nx">handler</span><span class="p">);</span>
 <span class="c1">// handler函数</span>
 <span class="kd">function</span> <span class="nx">handler</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
     <span class="c1">// 移除这个函数</span>
     <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">removeEventListenter</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">type</span><span class="p">,</span><span class="nx">auguments</span><span class="p">.</span><span class="nx">callee</span><span class="p">);</span>
 
-    <span class="nx">alert</span><span class="p">(</span><span class="s2">"该事件只会被执行一次！"</span><span class="p">);</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;该事件只会被执行一次！&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>
@@ -151,10 +151,10 @@
     我们现在就可以使用这个函数了，当我们需要创建一次性处理程序：
 </p>
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// 调用onetime函数</span>
-<span class="nx">onetime</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"myElement"</span><span class="p">),</span><span class="s2">"click"</span><span class="p">,</span><span class="nx">handler</span><span class="p">);</span>
+<span class="nx">onetime</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;myElement&quot;</span><span class="p">),</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="nx">handler</span><span class="p">);</span>
 <span class="c1">// handler函数</span>
 <span class="kd">function</span> <span class="nx">handler</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">alert</span><span class="p">(</span><span class="s2">"该事件只会被执行一次！"</span><span class="p">);</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;该事件只会被执行一次！&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>

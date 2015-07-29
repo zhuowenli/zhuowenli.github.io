@@ -128,12 +128,12 @@
 
 <p>一行代码就可以使用Shape属性和函数来定义一个形状：</p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.element</span> <span class="p">{</span>
-    <span class="py">shape-outside</span><span class="p">:</span> <span class="nb">circle</span><span class="p">();</span> <span class="c">/* content will flow around the circle defined on the element */</span>
+    <span class="n">shape</span><span class="o">-</span><span class="k">outside</span><span class="o">:</span> <span class="k">circle</span><span class="p">();</span> <span class="c">/* content will flow around the circle defined on the element */</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>或者：</p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.element</span> <span class="p">{</span>
-    <span class="py">shape-outside</span><span class="p">:</span> <span class="sx">url(path/to/image-with-shape.png)</span><span class="p">;</span>
+    <span class="n">shape</span><span class="o">-</span><span class="k">outside</span><span class="o">:</span> <span class="sx">url(path/to/image-with-shape.png)</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>但是。。。</p>
@@ -147,10 +147,10 @@
 
 <p>看上面函数的定义，形状都是由一组坐标定义的。因为这些点是坐标，所以需要坐标系统，这样浏览器才知道把这些点放在元素的什么位置上。因此，加上下面这段代码上面的例子就可以正常工作。</p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.element</span> <span class="p">{</span>
-    <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
-    <span class="nl">height</span><span class="p">:</span> <span class="m">10em</span><span class="p">;</span>
-    <span class="nl">width</span><span class="p">:</span> <span class="m">15em</span><span class="p">;</span>
-    <span class="py">shape-outside</span><span class="p">:</span> <span class="nb">circle</span><span class="p">();</span>
+    <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">10em</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">15em</span><span class="p">;</span>
+    <span class="n">shape</span><span class="o">-</span><span class="k">outside</span><span class="o">:</span> <span class="k">circle</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>给定固有的维数并不会影响响应性（随后我们进行更深入的探讨）。</p>
@@ -191,7 +191,7 @@
 <p>使用CSS Shape，让文本环绕圆形的用户头像。文本将不再是长方形的。</p>
 
 <p>使用<code>circle()</code>函数给头像添加一个圆形：</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://api.randomuser.me/0.3.2/portraits/men/7.jpg"</span> <span class="na">alt=</span><span class="s">"profile image"</span> <span class="nt">/&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;http://api.randomuser.me/0.3.2/portraits/men/7.jpg&quot;</span> <span class="na">alt=</span><span class="s">&quot;profile image&quot;</span> <span class="nt">/&gt;</span>
 
 <span class="nt">&lt;p&gt;</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum itaque nam blanditiis eveniet enim eligendi quae adipisci?<span class="nt">&lt;/p&gt;</span>
 
@@ -201,11 +201,11 @@
 
 <p>我们使用<code>border-radius</code>让图片变圆——我们通常都是这样让图片等其他元素变圆的。</p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">img</span> <span class="p">{</span>
-    <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
-    <span class="nl">width</span><span class="p">:</span> <span class="m">150px</span><span class="p">;</span>
-    <span class="nl">height</span><span class="p">:</span> <span class="m">150px</span><span class="p">;</span>
-    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">50%</span><span class="p">;</span>
-    <span class="nl">margin-right</span><span class="p">:</span> <span class="m">15px</span><span class="p">;</span>
+    <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">150px</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">150px</span><span class="p">;</span>
+    <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">50%</span><span class="p">;</span>
+    <span class="k">margin-right</span><span class="o">:</span> <span class="m">15px</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <figure class="img">
@@ -221,13 +221,13 @@
 
 <p>为了改变内容布局以适应特定的形状，我们使用Shape属性：</p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">img</span> <span class="p">{</span>
-    <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
-    <span class="nl">width</span><span class="p">:</span> <span class="m">150px</span><span class="p">;</span>
-    <span class="nl">height</span><span class="p">:</span> <span class="m">150px</span><span class="p">;</span>
-    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">50%</span><span class="p">;</span>
+    <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">150px</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">150px</span><span class="p">;</span>
+    <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">50%</span><span class="p">;</span>
 
-    <span class="py">shape-outside</span><span class="p">:</span> <span class="nb">circle</span><span class="p">();</span>
-    <span class="py">shape-margin</span><span class="p">:</span> <span class="m">15px</span><span class="p">;</span>
+    <span class="n">shape</span><span class="o">-</span><span class="k">outside</span><span class="o">:</span> <span class="k">circle</span><span class="p">();</span>
+    <span class="n">shape</span><span class="o">-</span><span class="k">margin</span><span class="o">:</span> <span class="m">15px</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>有了这些代码，文本会看到一个圆的形状在图片上，环绕之，就像第一张截图那样（你可以在<a href="http://codepen.io/SaraSoueidan/pen/af3d2ae9fbe4205035822e4878fb1f54/">这里看到</a>）。在不支持的浏览器中，将降级为第二张图显示的哪样。</p>
@@ -249,21 +249,21 @@
 </figure>
 
 <p><code>eclipse()</code>函数与<code>circle()</code>还是函数是一样，除了接受两个半径参数以外（后者是一个参数列表）——一个是x轴的半径，一个是y轴的——是一直的。</p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">ellipse</span><span class="o">()</span> <span class="o">=</span> <span class="nt">ellipse</span><span class="o">(</span> <span class="o">[&lt;</span><span class="nt">shape-radius</span><span class="o">&gt;</span><span class="p">{</span><span class="err">2</span><span class="p">}</span><span class="o">]?</span> <span class="o">[</span><span class="nt">at</span> <span class="o">&lt;</span><span class="nt">position</span><span class="o">&gt;]?</span> <span class="o">)</span>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">ellipse</span><span class="o">()</span> <span class="o">=</span> <span class="nt">ellipse</span><span class="o">(</span> <span class="o">[&lt;</span><span class="nt">shape-radius</span><span class="o">&gt;</span><span class="p">{</span><span class="m">2</span><span class="p">}</span><span class="o">]?</span> <span class="o">[</span><span class="nt">at</span> <span class="o">&lt;</span><span class="nt">position</span><span class="o">&gt;]?</span> <span class="o">)</span>
 </code></pre></div>
 <p>与<code>circle</code>和<code>eclipse</code>没有直接的关系，<code>inset()</code>函数再元素内部创建一个矩形。既然元素本身就是矩形的，我们当然不需要更多的矩形。<code>inset()</code>实际上可以帮助我们在元素内部创建一个带有圆角的矩形。文本内容可以环绕在圆角周围。</p>
 
 <p><img src="http://alistapart.com/d/394/inset-example.png" alt=""></p>
 
 <p><code>inset()</code>函数接受1到4个值指定从参考Box边缘向内的距离。这可以控制这个矩形在元素内部的位置。这个函数还接受一个可选参数，设置内部矩形的圆角。且圆角的设置于<code>border-radius</code>的方法一致，使用一到四个值，于关键字<code>round</code>结合在一起。</p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">inset</span><span class="o">()</span> <span class="o">=</span> <span class="nt">inset</span><span class="o">(</span> <span class="nt">offset</span><span class="p">{</span><span class="err">1,4</span><span class="p">}</span> <span class="o">[</span><span class="nt">round</span> <span class="o">&lt;</span><span class="nt">border-radius</span><span class="o">&gt;]?</span> <span class="o">)</span>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">inset</span><span class="o">()</span> <span class="o">=</span> <span class="nt">inset</span><span class="o">(</span> <span class="nt">offset</span><span class="p">{</span><span class="m">1</span><span class="o">,</span><span class="m">4</span><span class="p">}</span> <span class="o">[</span><span class="nt">round</span> <span class="o">&lt;</span><span class="nt">border-radius</span><span class="o">&gt;]?</span> <span class="o">)</span>
 </code></pre></div>
 <p>在一个浮动的元素中创建一个带圆角的矩形：</p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.element</span> <span class="p">{</span>
-    <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
-    <span class="nl">width</span><span class="p">:</span> <span class="m">250px</span><span class="p">;</span>
-    <span class="nl">height</span><span class="p">:</span> <span class="m">150px</span><span class="p">;</span>
-    <span class="py">shape-outside</span><span class="p">:</span> <span class="nb">inset</span><span class="p">(</span><span class="m">0px</span> <span class="n">round</span> <span class="m">100px</span><span class="p">)</span> <span class="n">border-box</span><span class="p">;</span>
+    <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">250px</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">150px</span><span class="p">;</span>
+    <span class="n">shape</span><span class="o">-</span><span class="k">outside</span><span class="o">:</span> <span class="k">inset</span><span class="p">(</span><span class="m">0px</span> <span class="n">round</span> <span class="m">100px</span><span class="p">)</span> <span class="k">border</span><span class="o">-</span><span class="n">box</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><a href="http://codepen.io/SaraSoueidan/debug/05e7894a0a7dbffed0a1c9f5e0840ec9/">在这里</a>查看实际的例子。</p>
@@ -276,10 +276,10 @@
 
 <p>图片的CSS：</p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">img</span><span class="nc">.right</span> <span class="p">{</span>
-    <span class="nl">float</span><span class="p">:</span> <span class="nb">right</span><span class="p">;</span>
-    <span class="nl">height</span><span class="p">:</span> <span class="m">100vh</span><span class="p">;</span>
-    <span class="nl">width</span><span class="p">:</span> <span class="n">calc</span><span class="p">(</span><span class="m">100vh</span> <span class="err">+</span> <span class="m">100vh</span><span class="p">/</span><span class="m">4</span><span class="p">);</span>
-    <span class="py">shape-outside</span><span class="p">:</span> <span class="n">polygon</span><span class="p">(</span><span class="m">40%</span> <span class="m">0</span><span class="p">,</span> <span class="m">100%</span> <span class="m">0</span><span class="p">,</span> <span class="m">100%</span> <span class="m">100%</span><span class="p">,</span> <span class="m">40%</span> <span class="m">100%</span><span class="p">,</span> <span class="m">45%</span> <span class="m">60%</span><span class="p">,</span> <span class="m">45%</span> <span class="m">40%</span><span class="p">);</span>
+    <span class="k">float</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">100</span><span class="n">vh</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="n">calc</span><span class="p">(</span><span class="m">100</span><span class="n">vh</span> <span class="o">+</span> <span class="m">100</span><span class="n">vh</span><span class="o">/</span><span class="m">4</span><span class="p">);</span>
+    <span class="n">shape</span><span class="o">-</span><span class="k">outside</span><span class="o">:</span> <span class="n">polygon</span><span class="p">(</span><span class="m">40%</span> <span class="m">0</span><span class="o">,</span> <span class="m">100%</span> <span class="m">0</span><span class="o">,</span> <span class="m">100%</span> <span class="m">100%</span><span class="o">,</span> <span class="m">40%</span> <span class="m">100%</span><span class="o">,</span> <span class="m">45%</span> <span class="m">60%</span><span class="o">,</span> <span class="m">45%</span> <span class="m">40%</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>你可以使用长度单位或者百分比来定义边角的坐标，我使用的是百分比。</p>
@@ -290,12 +290,12 @@
 
 <p><code>clip-path</code>属性接受同样的Shape函数和参数座位形状属性。如果我们把传递给<code>shape-outside</code>的多边形传递给<code>clip-path</code>属性，它会把形状之外的图片全部抠掉。</p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">img</span><span class="nc">.right</span> <span class="p">{</span>
-    <span class="nl">float</span><span class="p">:</span> <span class="nb">right</span><span class="p">;</span>
-    <span class="nl">height</span><span class="p">:</span> <span class="m">100vh</span><span class="p">;</span>
-    <span class="nl">width</span><span class="p">:</span> <span class="n">calc</span><span class="p">(</span><span class="m">100vh</span> <span class="err">+</span> <span class="m">100vh</span><span class="p">/</span><span class="m">4</span><span class="p">);</span>
-    <span class="py">shape-outside</span><span class="p">:</span> <span class="n">polygon</span><span class="p">(</span><span class="m">40%</span> <span class="m">0</span><span class="p">,</span> <span class="m">100%</span> <span class="m">0</span><span class="p">,</span> <span class="m">100%</span> <span class="m">100%</span><span class="p">,</span> <span class="m">40%</span> <span class="m">100%</span><span class="p">,</span> <span class="m">45%</span> <span class="m">60%</span><span class="p">,</span> <span class="m">45%</span> <span class="m">40%</span><span class="p">);</span>
+    <span class="k">float</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">100</span><span class="n">vh</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="n">calc</span><span class="p">(</span><span class="m">100</span><span class="n">vh</span> <span class="o">+</span> <span class="m">100</span><span class="n">vh</span><span class="o">/</span><span class="m">4</span><span class="p">);</span>
+    <span class="n">shape</span><span class="o">-</span><span class="k">outside</span><span class="o">:</span> <span class="n">polygon</span><span class="p">(</span><span class="m">40%</span> <span class="m">0</span><span class="o">,</span> <span class="m">100%</span> <span class="m">0</span><span class="o">,</span> <span class="m">100%</span> <span class="m">100%</span><span class="o">,</span> <span class="m">40%</span> <span class="m">100%</span><span class="o">,</span> <span class="m">45%</span> <span class="m">60%</span><span class="o">,</span> <span class="m">45%</span> <span class="m">40%</span><span class="p">);</span>
     <span class="c">/* clip the image to the defined shape */</span>
-    <span class="nl">clip-path</span><span class="p">:</span> <span class="n">polygon</span><span class="p">(</span><span class="m">40%</span> <span class="m">0</span><span class="p">,</span> <span class="m">100%</span> <span class="m">0</span><span class="p">,</span> <span class="m">100%</span> <span class="m">100%</span><span class="p">,</span> <span class="m">40%</span> <span class="m">100%</span><span class="p">,</span> <span class="m">45%</span> <span class="m">60%</span><span class="p">,</span> <span class="m">45%</span> <span class="m">40%</span><span class="p">);</span>
+    <span class="k">clip</span><span class="o">-</span><span class="n">path</span><span class="o">:</span> <span class="n">polygon</span><span class="p">(</span><span class="m">40%</span> <span class="m">0</span><span class="o">,</span> <span class="m">100%</span> <span class="m">0</span><span class="o">,</span> <span class="m">100%</span> <span class="m">100%</span><span class="o">,</span> <span class="m">40%</span> <span class="m">100%</span><span class="o">,</span> <span class="m">45%</span> <span class="m">60%</span><span class="o">,</span> <span class="m">45%</span> <span class="m">40%</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>看效果：</p>
@@ -322,14 +322,14 @@
 
 <p>使用<code>shape-outside</code>属性，传递一个<code>url()</code>值，指向我们想要的图片。</p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.leaf-shaped-element</span> <span class="p">{</span>
-    <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
-    <span class="nl">width</span><span class="p">:</span> <span class="m">400px</span><span class="p">;</span>
-    <span class="nl">height</span><span class="p">:</span> <span class="m">400px</span><span class="p">;</span>
-    <span class="py">shape-outside</span><span class="p">:</span> <span class="sx">url(leaf.png)</span><span class="p">;</span>
-    <span class="py">shape-margin</span><span class="p">:</span> <span class="m">15px</span><span class="p">;</span>
-    <span class="py">shape-image-threshold</span><span class="p">:</span> <span class="m">0.5</span><span class="p">;</span>
-    <span class="nl">background</span><span class="p">:</span> <span class="m">#009966</span> <span class="sx">url(path/to/background-image.jpg)</span><span class="p">;</span>
-    <span class="py">mask-image</span><span class="p">:</span> <span class="sx">url(leaf.png)</span><span class="p">;</span>
+    <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">400px</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">400px</span><span class="p">;</span>
+    <span class="n">shape</span><span class="o">-</span><span class="k">outside</span><span class="o">:</span> <span class="sx">url(leaf.png)</span><span class="p">;</span>
+    <span class="n">shape</span><span class="o">-</span><span class="k">margin</span><span class="o">:</span> <span class="m">15px</span><span class="p">;</span>
+    <span class="n">shape</span><span class="o">-</span><span class="n">image</span><span class="o">-</span><span class="n">threshold</span><span class="o">:</span> <span class="m">0</span><span class="o">.</span><span class="m">5</span><span class="p">;</span>
+    <span class="k">background</span><span class="o">:</span> <span class="m">#009966</span> <span class="sx">url(path/to/background-image.jpg)</span><span class="p">;</span>
+    <span class="n">mask</span><span class="o">-</span><span class="n">image</span><span class="o">:</span> <span class="sx">url(leaf.png)</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>当然，如果元素有背景图片的话，需要把形状之外的部分去掉。不过<code>clip-path</code>无法接受一张带透明度的图片座位参数，我们 可以使用Masking Module的<code>mask-image</code>（需要对应的前缀）属性来实现。看看效果：</p>

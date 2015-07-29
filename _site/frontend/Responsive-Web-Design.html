@@ -125,13 +125,13 @@
 <h2>使用媒体查询(media query)</h2>
 
 <p>自从<code>CSS2.1</code>以来。我们的样式表逐渐从<a href="http://www.w3.org/TR/CSS21/media.html">媒体类型</a>中取得了一些终端设备的意识。如果你曾经写过一个<a href="http://alistapart.com/article/goingtoprint">打印样式表</a>，那你已经熟悉这个概念了：</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"core.css"</span> <span class="na">media=</span><span class="s">"screen"</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"print.css"</span> <span class="na">media=</span><span class="s">"print"</span><span class="nt">/&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;core.css&quot;</span> <span class="na">media=</span><span class="s">&quot;screen&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;print.css&quot;</span> <span class="na">media=</span><span class="s">&quot;print&quot;</span><span class="nt">/&gt;</span>
 </code></pre></div>
 <p>为了能使设计的适用范围不仅局限于格式整齐的打印件，CSS的规范中包括了相当多的可适用媒体类别， 分别为各种特定的互联网终端设备所设计。但是，大多数浏览器和设备从未真正接受了W3C的规范，许多的媒体类型不完全被执行，或者完全忽略。</p>
 
 <p>值得庆幸的是W3C在CSS3的规范中创建了媒体查询（"<a href="http://www.w3.org/TR/css3-mediaqueries/">media queries</a>")，用以在媒体类别的基础上加以改善。从而提高与不同媒体类型的兼容性。媒体查询不仅允许我们针对某些类别的设备，并且可以检查正在渲染工作中的设备的物理特性。例如，随着移动WebKit的普及，媒体查询可以用来指定iPhone，Android手机等等的样式表。具体方法是在<code>link</code>中加上这样一个<code>media</code>：</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">media=</span><span class="s">"screen and (max-device-width: 480px)"</span> <span class="na">href=</span><span class="s">"shetland.css"</span><span class="nt">/&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">media=</span><span class="s">&quot;screen and (max-device-width: 480px)&quot;</span> <span class="na">href=</span><span class="s">&quot;shetland.css&quot;</span><span class="nt">/&gt;</span>
 </code></pre></div>
 <p>查询中包含两个组成部分：</p>
 
@@ -147,21 +147,21 @@
 <p>
     设计师们以往也试验过具有分辨率意识的布局，不过那些试验大多依赖于JavaScript驱动的方法，比如 Cameron Adams 的 <a href="http://www.themaninblue.com/experiment/ResolutionLayout/">Resolution layout</a>。然而媒体查询则明确地提供了<a href="http://www.w3.org/TR/css3-mediaqueries/#media1">一系列媒体属性</a>，不仅仅是屏幕分辨率而已，从而大大地扩展了查询的可能范围。并且，你还可以用一次查询同时检验多项属性的数值，用关键词and把多个查询内容连接在一起：
 </p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"css"</span> <span class="na">media=</span><span class="s">"screen and (max-device-width: 480px) and (resolution: 163dpi)"</span> <span class="na">href=</span><span class="s">"shetland.css"</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;css&quot;</span> <span class="na">media=</span><span class="s">&quot;screen and (max-device-width: 480px) and (resolution: 163dpi)&quot;</span> <span class="na">href=</span><span class="s">&quot;shetland.css&quot;</span><span class="nt">&gt;</span>
 </code></pre></div>
 <p>
     除此之外，我们不仅能够把媒体查询放置在<code>link</code>之中，还可以用<code>@media</code>在CSS样式表内进行媒体查询：
 </p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="k">@media</span> <span class="n">screen</span> <span class="n">and</span> <span class="p">(</span><span class="n">max-device-width</span><span class="p">:</span> <span class="m">480px</span><span class="p">){</span>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="k">@media</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">max-device-width</span><span class="o">:</span> <span class="nt">480px</span><span class="o">)</span><span class="p">{</span>
     <span class="nc">.column</span><span class="p">{</span>
-        <span class="nl">float</span><span class="p">:</span><span class="nb">none</span><span class="p">;</span>
+        <span class="k">float</span><span class="o">:</span><span class="k">none</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>
     或者作为<code>@import</code>输入指令的一部分：
 </p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="k">@import</span> <span class="sx">url("shetland.css")</span> <span class="n">screen</span> <span class="n">and</span> <span class="p">(</span><span class="n">max-device-width</span><span class="p">:</span> <span class="m">480px</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="k">@import</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&quot;shetland.css&quot;</span><span class="o">)</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">max-device-width</span><span class="o">:</span> <span class="nt">480px</span><span class="o">)</span><span class="p">;</span>
 </code></pre></div>
 <p>
     以上的每一个例子，效果其实都是一样的：一旦设备通过媒体查询的检验，相关的CSS样式表即施加到源码上。媒体查询简言之就是条件注释（<a href="http://msdn.microsoft.com/en-us/library/ms537512(VS.85).aspx">conditional comments</a>）。不同的是我们并非针对某个浏览器的某个版本，而是随着设计布局逐渐超越其初始的理想分辨率，对产生的问题进行有意识的矫正罢了。
@@ -171,12 +171,12 @@
 
 <p>来看看我们最初的设计的页面中的那些基本图片吧。在默认状态的布局下，相关的CSS是这样的：</p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.figure</span> <span class="p">{</span>
-    <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
-    <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="m">3.317535545023696682%</span> <span class="m">1.5em</span> <span class="m">0</span><span class="p">;</span>   <span class="c">/* 21px / 633px */</span>
-    <span class="nl">width</span><span class="p">:</span> <span class="m">31.121642969984202211%</span><span class="p">;</span>             <span class="c">/* 197px / 633px */</span>
+    <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+    <span class="k">margin</span><span class="o">:</span> <span class="m">0</span> <span class="m">3.317535545023696682%</span> <span class="m">1.5em</span> <span class="m">0</span><span class="p">;</span>   <span class="c">/* 21px / 633px */</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">31.121642969984202211%</span><span class="p">;</span>             <span class="c">/* 197px / 633px */</span>
 <span class="p">}</span>
 <span class="nt">li</span><span class="nf">#f-mycroft</span><span class="o">,</span><span class="nt">li</span><span class="nf">#f-winter</span> <span class="p">{</span>
-    <span class="nl">margin-right</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">margin-right</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>在这里我省略了一些字体上的定义而把焦点集中在布局上：每一个<code>.figure</code>类别的图片元素都定义在包含其在内的栏宽的三分之一左右，最右边的两个图片（<code>li#f-mycroft和li#f-winter</code>）的右侧外边距（<code>margin</code>）定为零。这个设置只要在viewport的大小与初始设计目标比较没有太大改变的情况下都能呈现得比较好。有了媒体查询，我们就可以作与分辨率相关的局部调整，使设计方案能更好地适应显示设备的变化。</p>
@@ -184,23 +184,23 @@
 <p>
     首先，我们把视区在某一分辨率界限值（比如说<code>600px</code>）以下的页面作线性调整。所以在样式表的下方我们加上一段<code>@media</code>定义，如下：
 </p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="k">@media</span> <span class="n">screen</span> <span class="n">and</span> <span class="p">(</span><span class="n">max-width</span><span class="p">:</span> <span class="m">600px</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="k">@media</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">max-width</span><span class="o">:</span> <span class="nt">600px</span><span class="o">)</span> <span class="p">{</span>
     <span class="nc">.mast</span><span class="o">,</span><span class="nc">.intro</span><span class="o">,</span><span class="nc">.main</span><span class="o">,</span><span class="nc">.footer</span> <span class="p">{</span>
-        <span class="nl">float</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
-        <span class="nl">width</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
+        <span class="k">float</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+        <span class="k">width</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>
     如果你在一个标准的现代台式电脑浏览器内打开我们更新了的<a href="http://www.alistapart.com/d/responsive-web-design/ex/ex-site-linearize.html">设计页面</a>，将视窗缩小到<code>600px</code>以下，媒体查询会取消页面主要元素的悬浮属性，并将其依照文件顺序竖向堆叠起来。这样，我们的设计的小型版就成型了，只是其中的图片仍旧不能智能地伸缩。如果我们引进另一个媒体查询，便能够做出相应的改变了：
 </p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="k">@media</span> <span class="n">screen</span> <span class="n">and</span> <span class="p">(</span><span class="n">max-width</span><span class="p">:</span> <span class="m">400px</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="k">@media</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">max-width</span><span class="o">:</span> <span class="nt">400px</span><span class="o">)</span> <span class="p">{</span>
     <span class="nc">.figure</span><span class="o">,</span><span class="nt">li</span><span class="nf">#f-mycroft</span> <span class="p">{</span>
-        <span class="nl">margin-right</span><span class="p">:</span> <span class="m">3.317535545023696682%</span><span class="p">;</span>    <span class="c">/* 21px / 633px */</span>
-        <span class="nl">width</span><span class="p">:</span> <span class="m">48.341232227488151658%</span><span class="p">;</span>          <span class="c">/* 306px / 633px */</span>
+        <span class="k">margin-right</span><span class="o">:</span> <span class="m">3.317535545023696682%</span><span class="p">;</span>    <span class="c">/* 21px / 633px */</span>
+        <span class="k">width</span><span class="o">:</span> <span class="m">48.341232227488151658%</span><span class="p">;</span>          <span class="c">/* 306px / 633px */</span>
     <span class="p">}</span>
     <span class="nt">li</span><span class="nf">#f-watson</span><span class="o">,</span><span class="nt">li</span><span class="nf">#f-moriarty</span> <span class="p">{</span>
-        <span class="nl">margin-right</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+        <span class="k">margin-right</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -220,10 +220,10 @@
 <p>
     事实上，我们也可以用同样的方法来处理宽屏的情况。在高分辨率下可以采用<a href="http://d.alistapart.com/responsive-web-design/ex/ex-site-larger.html">六个一排的方式</a>排列所有的图片：
 </p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="k">@media</span> <span class="n">screen</span> <span class="n">and</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">1300px</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="k">@media</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">min-width</span><span class="o">:</span> <span class="nt">1300px</span><span class="o">)</span> <span class="p">{</span>
     <span class="nc">.figure</span><span class="o">,</span><span class="nt">li</span><span class="nf">#f-mycroft</span> <span class="p">{</span>
-        <span class="nl">margin-right</span><span class="p">:</span> <span class="m">3.317535545023696682%</span><span class="p">;</span>    <span class="c">/* 21px / 633px */</span>
-        <span class="nl">width</span><span class="p">:</span> <span class="m">13.902053712480252764%</span><span class="p">;</span>          <span class="c">/* 88px / 633px */</span>
+        <span class="k">margin-right</span><span class="o">:</span> <span class="m">3.317535545023696682%</span><span class="p">;</span>    <span class="c">/* 21px / 633px */</span>
+        <span class="k">width</span><span class="o">:</span> <span class="m">13.902053712480252764%</span><span class="p">;</span>          <span class="c">/* 88px / 633px */</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>

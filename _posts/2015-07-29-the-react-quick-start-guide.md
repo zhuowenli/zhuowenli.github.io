@@ -42,10 +42,9 @@ React.render(<img src='http://www.zhuowenli.com/res/img/icon.png' />, document.b
 
 ```js
 var Photo = React.createClass({
-
-  render: function() {
-    return <img src='http://www.zhuowenli.com/res/img/icon.png' />
-  }
+    render: function() {
+        return <img src='http://www.zhuowenli.com/res/img/icon.png' />
+    }
 });
 
 React.render(<Photo />, document.body);
@@ -65,19 +64,14 @@ React.render(<Photo />, document.body);
 
 ```js
 var Photo = React.createClass({
-
-  render: function() {
-    return (
-
-
-<div className='photo'>
-        <img src={this.props.imageURL} />
-        <span>{this.props.caption}</span>  
-      </div>
-
-
-    );  
-  }
+    render: function() {
+        return (
+            <div className='photo'>
+                <img src={this.props.imageURL} />
+                <span>{this.props.caption}</span>
+            </div>
+        );
+    }
 });
 
 React.render(<Photo imageURL='http://www.zhuowenli.com/res/img/icon.png' caption='Logo!' />, document.body);
@@ -98,34 +92,34 @@ React.render(<Photo imageURL='http://www.zhuowenli.com/res/img/icon.png' caption
 
 ```js
 var Photo = React.createClass({
-  toggleLiked: function() {
-    this.setState({
-      liked: !this.state.liked
-    });
-  },
+    toggleLiked: function() {
+        this.setState({
+            liked: !this.state.liked
+        });
+    },
 
-  getInitialState: function() {
-    return {
-      liked: false
-    };
-  },
+    getInitialState: function() {
+        return {
+            liked: false
+        };
+    },
 
-  render: function() {
-    var buttonClass = this.state.liked ? 'active' : '';
+    render: function() {
+        var buttonClass = this.state.liked ? 'active' : '';
 
-    return (
-      <div className='photo'>
-        <img src={this.props.src} />
+        return (
+            <div className='photo'>
+                <img src={this.props.src} />
 
-        <div className='bar'>
-          <button onClick={this.toggoleLiked} className={buttonClass}>
-            ♥
-          </button>
-          <span>{this.props.caption}</span>
-        </div>
-      </div>
-    );
-  }
+                <div className='bar'>
+                    <button onClick={this.toggoleLiked} className={buttonClass}>
+                        ♥
+                    </button>
+                    <span>{this.props.caption}</span>
+                </div>
+            </div>
+        );
+    }
 });
 
 React.render(<Photo src='http://www.zhuowenli.com/res/img/icon.png' caption='Logo!') />, document.body);
@@ -158,68 +152,65 @@ React.render(<Photo src='http://www.zhuowenli.com/res/img/icon.png' caption='Log
 
 将一些小的组件(components)链接起来形成一个大的组合组件。例如 `Photo` 组件可以用在 `PhotoGallery` 组件中，如下：
 
-```
+```js
 var Photo = React.createClass({
+    toggleLiked: function() {
+        this.setState({
+            liked: !this.state.liked
+        });
+    },
 
-  toggleLiked: function() {
-    this.setState({
-      liked: !this.state.liked
-    });
-  },
+    getInitialState: function() {
+        return {
+            liked: false
+        };
+    },
 
-  getInitialState: function() {
-    return {
-      liked: false
-    };
-  },
+    render: function() {
+        var buttonClass = this.state.liked ? 'active' : '';
 
-  render: function() {
-    var buttonClass = this.state.liked ? 'active' : '';
+        return (
+            <div className='photo'>
+                <img src={this.props.src} />
 
-    return (
-      <div className='photo'>
-        <img src={this.props.src} />
-
-        <div className='bar'>
-          <button onClick={this.toggleLiked} className={buttonClass}>
-            ♥
-          </button>
-          <span>{this.props.caption}</span>
-        </div>
-      </div>
-    );
-  }
+                <div className='bar'>
+                    <button onClick={this.toggleLiked} className={buttonClass}>
+                        ♥
+                    </button>
+                    <span>{this.props.caption}</span>
+                </div>
+            </div>
+        );
+    }
 });
 
 var PhotoGallery = React.createClass({
+    render: function() {
+        var photos = this.props.photos.map(function(photo) {
+            return <Photo src={photo.url} caption={photo.caption} />
+        });
 
-  render: function() {
-
-    var photos = this.props.photos.map(function(photo) {
-      return <Photo src={photo.url} caption={photo.caption} />
-    });
-
-    return (
-      <div className='photo-gallery'>
-        {photos}
-      </div>
-    );
-  }
+        return (
+            <div className='photo-gallery'>
+                {photos}
+            </div>
+        );
+    }
 });
 
 var data = [
-  {
-    url: 'http://www.zhuowenli.com/res/img/icon.png',
-    caption: 'Logo!'
-  },
-  {
-    url: 'http://www.zhuowenli.com/res/img/icon-72.png',
-    caption: 'Small Logo'
-  },
-  {
-    url: 'http://www.zhuowenli.com/res/img/icon-152.png',
-    caption: 'Large Logo'
-  }
+    {
+        url: 'http://www.zhuowenli.com/res/img/icon.png',
+        caption: 'Logo!'
+    },
+    {
+        url: 'http://www.zhuowenli.com/res/img/icon-72.png',
+        caption: 'Small Logo'
+    },
+    {
+        url: 'http://www.zhuowenli.com/res/img/icon-152.png',
+        caption: 'Large Logo'
+    }
 ];
 
 React.render(<PhotoGallery photos={data} />, document.body);

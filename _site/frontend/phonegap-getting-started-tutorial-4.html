@@ -80,7 +80,7 @@
 <h3>batterystatus事件</h3>
 
 <p>当程序侦测到电量至少发生1%的改变时，触发该事件。另外，当设备连接或断开电源也会触发该事件。</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"batterystatus"</span><span class="p">,</span> <span class="nx">yourCallbackFunction</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;batterystatus&quot;</span><span class="p">,</span> <span class="nx">yourCallbackFunction</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
 </code></pre></div>
 <p>事件处理程序包含一个参数，该参数是一个对象，该对象包含以下两个属性：</p>
 
@@ -90,16 +90,16 @@
 </ul>
 
 <p>例如下面的代码，用于监控电源状态：</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"batterystatus"</span><span class="p">,</span> <span class="nx">onBatteryStatus</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;batterystatus&quot;</span><span class="p">,</span> <span class="nx">onBatteryStatus</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
 
 <span class="kd">function</span> <span class="nx">onBatteryStatus</span><span class="p">(</span><span class="nx">info</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"电池电量: "</span> <span class="o">+</span> <span class="nx">info</span><span class="p">.</span><span class="nx">level</span> <span class="o">+</span> <span class="s2">" 是否充电: "</span> <span class="o">+</span> <span class="nx">info</span><span class="p">.</span><span class="nx">isPlugged</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;电池电量: &quot;</span> <span class="o">+</span> <span class="nx">info</span><span class="p">.</span><span class="nx">level</span> <span class="o">+</span> <span class="s2">&quot; 是否充电: &quot;</span> <span class="o">+</span> <span class="nx">info</span><span class="p">.</span><span class="nx">isPlugged</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3>batterycritical事件</h3>
 
 <p>当程序侦测到电量降低到临界点时，触发该事件。临界点的值由设备指定。</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"batterycritical"</span><span class="p">,</span> <span class="nx">yourCallbackFunction</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;batterycritical&quot;</span><span class="p">,</span> <span class="nx">yourCallbackFunction</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
 </code></pre></div>
 <p>事件处理程序包含一个参数，该参数是一个对象，该对象包含以下两个属性：</p>
 
@@ -107,16 +107,16 @@
 <li><p>level: 获取电池电量的百分比(值范围是0-100). (Number)</p></li>
 <li><p>isPlugged: 表示是否连接电源. (Boolean)</p></li>
 </ul>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"batterycritical"</span><span class="p">,</span> <span class="nx">onBatteryCritical</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;batterycritical&quot;</span><span class="p">,</span> <span class="nx">onBatteryCritical</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
 
 <span class="kd">function</span> <span class="nx">onBatteryCritical</span><span class="p">(</span><span class="nx">info</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">alert</span><span class="p">(</span><span class="s2">"电池电量过低，仅剩 "</span> <span class="o">+</span> <span class="nx">info</span><span class="p">.</span><span class="nx">level</span> <span class="o">+</span> <span class="s2">"%\n快去充电吧!"</span><span class="p">);</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;电池电量过低，仅剩 &quot;</span> <span class="o">+</span> <span class="nx">info</span><span class="p">.</span><span class="nx">level</span> <span class="o">+</span> <span class="s2">&quot;%\n快去充电吧!&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3>batterylow事件</h3>
 
 <p>当程序侦测到电量降低到一个较低水平值时，触发该事件。水平值由设备指定。</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"batterylow"</span><span class="p">,</span> <span class="nx">yourCallbackFunction</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;batterylow&quot;</span><span class="p">,</span> <span class="nx">yourCallbackFunction</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
 </code></pre></div>
 <p>事件处理程序包含一个参数，该参数是一个对象，该对象包含以下两个属性：</p>
 
@@ -124,10 +124,10 @@
 <li><p>level: 获取电池电量的百分比(值范围是0-100). (Number)</p></li>
 <li><p>isPlugged: 表示是否连接电源. (Boolean)</p></li>
 </ul>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"batterylow"</span><span class="p">,</span> <span class="nx">onBatteryLow</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;batterylow&quot;</span><span class="p">,</span> <span class="nx">onBatteryLow</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
 
 <span class="kd">function</span> <span class="nx">onBatteryLow</span><span class="p">(</span><span class="nx">info</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">alert</span><span class="p">(</span><span class="s2">"电池电量过低，仅剩 "</span> <span class="o">+</span> <span class="nx">info</span><span class="p">.</span><span class="nx">level</span> <span class="o">+</span> <span class="s2">"%"</span><span class="p">);</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;电池电量过低，仅剩 &quot;</span> <span class="o">+</span> <span class="nx">info</span><span class="p">.</span><span class="nx">level</span> <span class="o">+</span> <span class="s2">&quot;%&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <hr>

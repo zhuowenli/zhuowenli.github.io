@@ -80,14 +80,14 @@
 
 <p>例如，有一个链接在鼠标<code>hover</code>时会有下划线，当我们在打印时需要把下滑线显示出来：</p>
 <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nt">a</span><span class="p">{</span>
-    <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+    <span class="na">text-decoration</span><span class="o">:</span> <span class="no">none</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nt">a</span><span class="nd">:hover</span><span class="o">,</span> <span class="nt">a</span><span class="nd">:focus</span><span class="p">{</span>
-    <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">underline</span><span class="p">;</span>
+    <span class="na">text-decoration</span><span class="o">:</span> <span class="no">underline</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="k">@media</span> <span class="p">(</span><span class="n">update-frequency</span><span class="o">:</span> <span class="nb">none</span><span class="p">){</span>  <span class="c1">// 打印等设备
-</span>    <span class="nt">a</span><span class="p">{</span>
-        <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">underline</span><span class="p">;</span>
+<span class="k">@media</span> <span class="o">(</span><span class="nt">update-frequency</span><span class="nd">:</span> <span class="nt">none</span><span class="o">)</span><span class="p">{</span>  <span class="c1">// 打印等设备</span>
+    <span class="nt">a</span><span class="p">{</span>
+        <span class="na">text-decoration</span><span class="o">:</span> <span class="no">underline</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -106,14 +106,14 @@
 <p>这个查询看起来不错，不过实际操作起来是非常有难度的，因为很难界定。用户代理必须自己设定光亮的阀值，不同光感组件精度不同，而且手机自有的调亮功能也会影响到准确性，更不要说电子墨水在强光下的反而效果优秀了。所以，就目前而言这个特性显得比较空泛。</p>
 
 <p>下面是一个根据环境光来控制页面显示模式的demo：</p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="k">@media</span> <span class="p">(</span><span class="n">light-level</span><span class="p">:</span> <span class="nb">normal</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nt">p</span> <span class="p">{</span> <span class="nl">background</span><span class="p">:</span> <span class="sx">url("texture.jpg")</span><span class="p">;</span> <span class="nl">color</span><span class="p">:</span> <span class="m">#333</span> <span class="p">}</span>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="k">@media</span> <span class="o">(</span><span class="nt">light-level</span><span class="o">:</span> <span class="nt">normal</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nt">p</span> <span class="p">{</span> <span class="k">background</span><span class="o">:</span> <span class="sx">url(&quot;texture.jpg&quot;)</span><span class="p">;</span> <span class="k">color</span><span class="o">:</span> <span class="m">#333</span> <span class="p">}</span>
 <span class="p">}</span>
-<span class="k">@media</span> <span class="p">(</span><span class="n">light-level</span><span class="p">:</span> <span class="n">dim</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nt">p</span> <span class="p">{</span> <span class="nl">background</span><span class="p">:</span> <span class="m">#222</span><span class="p">;</span> <span class="nl">color</span><span class="p">:</span> <span class="m">#ccc</span> <span class="p">}</span>
+<span class="k">@media</span> <span class="o">(</span><span class="nt">light-level</span><span class="o">:</span> <span class="nt">dim</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nt">p</span> <span class="p">{</span> <span class="k">background</span><span class="o">:</span> <span class="m">#222</span><span class="p">;</span> <span class="k">color</span><span class="o">:</span> <span class="m">#ccc</span> <span class="p">}</span>
 <span class="p">}</span>
-<span class="k">@media</span> <span class="p">(</span><span class="n">light-level</span><span class="p">:</span> <span class="n">washed</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nt">p</span> <span class="p">{</span> <span class="nl">background</span><span class="p">:</span> <span class="no">white</span><span class="p">;</span> <span class="nl">color</span><span class="p">:</span> <span class="no">black</span><span class="p">;</span> <span class="nl">font-size</span><span class="p">:</span> <span class="m">2em</span><span class="p">;</span> <span class="p">}</span>
+<span class="k">@media</span> <span class="o">(</span><span class="nt">light-level</span><span class="o">:</span> <span class="nt">washed</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nt">p</span> <span class="p">{</span> <span class="k">background</span><span class="o">:</span> <span class="nb">white</span><span class="p">;</span> <span class="k">color</span><span class="o">:</span> <span class="nb">black</span><span class="p">;</span> <span class="k">font-size</span><span class="o">:</span> <span class="m">2em</span><span class="p">;</span> <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <h1>scripting (脚本能力)</h1>
@@ -147,11 +147,11 @@
 <p>并且，缩放不影响值的判断。</p>
 
 <p>现在，我们就可以更为直观地放大我们的按钮了：</p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="k">@media</span> <span class="p">(</span><span class="nb">pointer</span><span class="p">:</span><span class="n">coarse</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="err">"</span><span class="nt">checkbox</span><span class="err">"</span><span class="o">],</span> <span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="err">"</span><span class="nt">radio</span><span class="err">"</span><span class="o">]</span> <span class="p">{</span>
-        <span class="nl">min-width</span><span class="p">:</span><span class="m">30px</span><span class="p">;</span>
-        <span class="nl">min-height</span><span class="p">:</span><span class="m">40px</span><span class="p">;</span>
-        <span class="nl">background</span><span class="p">:</span><span class="nb">transparent</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="k">@media</span> <span class="o">(</span><span class="nt">pointer</span><span class="nd">:coarse</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="s2">&quot;checkbox&quot;</span><span class="o">],</span> <span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="s2">&quot;radio&quot;</span><span class="o">]</span> <span class="p">{</span>
+        <span class="k">min-width</span><span class="o">:</span><span class="m">30px</span><span class="p">;</span>
+        <span class="k">min-height</span><span class="o">:</span><span class="m">40px</span><span class="p">;</span>
+        <span class="k">background</span><span class="o">:</span><span class="k">transparent</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -168,10 +168,10 @@
 </ul>
 
 <p>当设备支持hover时，使用悬停来激活下拉菜单：</p>
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="k">@media</span> <span class="p">(</span><span class="n">hover</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nc">.menu</span> <span class="o">&gt;</span> <span class="nt">li</span>        <span class="p">{</span><span class="nl">display</span><span class="p">:</span><span class="n">inline-block</span><span class="p">;}</span>
-    <span class="nc">.menu</span> <span class="nt">ul</span>          <span class="p">{</span><span class="nl">display</span><span class="p">:</span><span class="nb">none</span><span class="p">;</span> <span class="nl">position</span><span class="p">:</span><span class="nb">absolute</span><span class="p">;}</span>
-    <span class="nc">.menu</span> <span class="nt">li</span><span class="nd">:hover</span> <span class="nt">ul</span> <span class="p">{</span><span class="nl">display</span><span class="p">:</span><span class="nb">block</span><span class="p">;</span> <span class="nl">list-style</span><span class="p">:</span><span class="nb">none</span><span class="p">;</span> <span class="nl">padding</span><span class="p">:</span><span class="m">0</span><span class="p">;}</span>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="k">@media</span> <span class="o">(</span><span class="nt">hover</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nc">.menu</span> <span class="o">&gt;</span> <span class="nt">li</span>        <span class="p">{</span><span class="k">display</span><span class="o">:</span><span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;}</span>
+    <span class="nc">.menu</span> <span class="nt">ul</span>          <span class="p">{</span><span class="k">display</span><span class="o">:</span><span class="k">none</span><span class="p">;</span> <span class="k">position</span><span class="o">:</span><span class="k">absolute</span><span class="p">;}</span>
+    <span class="nc">.menu</span> <span class="nt">li</span><span class="nd">:hover</span> <span class="nt">ul</span> <span class="p">{</span><span class="k">display</span><span class="o">:</span><span class="k">block</span><span class="p">;</span> <span class="k">list-style</span><span class="o">:</span><span class="k">none</span><span class="p">;</span> <span class="k">padding</span><span class="o">:</span><span class="m">0</span><span class="p">;}</span>
     <span class="c">/* ... */</span>
 <span class="p">}</span>
 </code></pre></div>

@@ -66,17 +66,17 @@
 
 <p>假设现在我们有一个小型的Js库，目的是用来增加一个数字：</p>
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">jspy</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="na">count</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nx">count</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
 
-    <span class="na">incrementCount</span><span class="p">:</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">incrementCount</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">count</span><span class="o">++</span><span class="p">;</span>
     <span class="p">},</span>
 
-    <span class="na">decrementCount</span><span class="p">:</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">decrementCount</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">count</span><span class="o">--</span><span class="p">;</span>
     <span class="p">},</span>
 
-    <span class="na">getCount</span><span class="p">:</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">getCount</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
         <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">count</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">};</span>
@@ -96,8 +96,8 @@
     <span class="p">}</span>
 
     <span class="k">return</span> <span class="p">{</span>
-        <span class="na">incrementCount</span> <span class="p">:</span> <span class="nx">incrementCount</span><span class="p">,</span>
-        <span class="na">getCount</span> <span class="p">:</span> <span class="nx">getCount</span>
+        <span class="nx">incrementCount</span> <span class="o">:</span> <span class="nx">incrementCount</span><span class="p">,</span>
+        <span class="nx">getCount</span> <span class="o">:</span> <span class="nx">getCount</span>
     <span class="p">};</span>
 <span class="p">})();</span>
 </code></pre></div>
@@ -117,10 +117,10 @@
     <span class="kd">var</span> <span class="nx">_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
     <span class="k">return</span> <span class="p">{</span>
-        <span class="na">incrementCount</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">incrementCount</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
             <span class="nx">_count</span><span class="o">++</span><span class="p">;</span>
         <span class="p">},</span>
-        <span class="na">getCount</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">getCount</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
             <span class="k">return</span> <span class="nx">_count</span><span class="p">;</span>
         <span class="p">}</span>
     <span class="p">}</span>
@@ -139,9 +139,9 @@
         <span class="k">return</span> <span class="nx">_count</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="p">{</span>
-        <span class="na">add</span> <span class="p">:</span> <span class="nx">incrementCount</span><span class="p">,</span>
-        <span class="na">reset</span> <span class="p">:</span> <span class="nx">incrementCount</span><span class="p">,</span>
-        <span class="na">get</span> <span class="p">:</span> <span class="nx">getCount</span>
+        <span class="nx">add</span> <span class="o">:</span> <span class="nx">incrementCount</span><span class="p">,</span>
+        <span class="nx">reset</span> <span class="o">:</span> <span class="nx">incrementCount</span><span class="p">,</span>
+        <span class="nx">get</span> <span class="o">:</span> <span class="nx">getCount</span>
     <span class="p">};</span>
 <span class="p">})();</span>
 </code></pre></div>

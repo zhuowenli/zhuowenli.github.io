@@ -73,21 +73,21 @@
 <p>首先先上html结构：</p>
 
 <p>SVG进度条有两个路径，并且重叠在一起。上面的<code>.ld-loader-circlebg</code>作为背景使用，而<code>.ld-loader-circle</code>则是用来显示加载的进度值。</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"container"</span> <span class="na">class=</span><span class="s">"container modify"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"loading"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ld-logo"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"ld-inner"</span> <span class="na">viewBox=</span><span class="s">"0 0 612 792"</span> <span class="na">enable-background=</span><span class="s">"new 0 0 612 792"</span> <span class="na">xml:space=</span><span class="s">"preserve"</span> <span class="na">style=</span><span class="s">"height:250px;"</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;polyline</span> <span class="na">fill=</span><span class="s">"#39A239"</span> <span class="na">points=</span><span class="s">"506.6,217.5 171,217.5 171,241.7 395.1,241.7 141.7,523.7 171,523.7 431.6,241.7 506.6,241.8 506.6,258.2 260.8,523.7 268.1,523.7 461.8,523.7 461.8,596.6 126.2,596.6 126.2,620.7 484.2,620.7 484.6,523.9 506.6,523.7 506.6,645.1 103.8,645.1 103.8,572.9 439.4,572.9 439.4,548.3 216,548.3 209.5,548.3 469.8,265.8 439.4,265.8 178.3,548.3 103.6,548.3 103.6,532.5 350.7,265.8 149,265.8 149,193.2 484.2,193.2 484.1,168.7 126.2,168.7 126.2,265.8 103.4,265.8 103.4,145 506.6,145 "</span><span class="nt">/&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;container&quot;</span> <span class="na">class=</span><span class="s">&quot;container modify&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;loading&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;ld-logo&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">&quot;ld-inner&quot;</span> <span class="na">viewBox=</span><span class="s">&quot;0 0 612 792&quot;</span> <span class="na">enable-background=</span><span class="s">&quot;new 0 0 612 792&quot;</span> <span class="na">xml:space=</span><span class="s">&quot;preserve&quot;</span> <span class="na">style=</span><span class="s">&quot;height:250px;&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;polyline</span> <span class="na">fill=</span><span class="s">&quot;#39A239&quot;</span> <span class="na">points=</span><span class="s">&quot;506.6,217.5 171,217.5 171,241.7 395.1,241.7 141.7,523.7 171,523.7 431.6,241.7 506.6,241.8 506.6,258.2 260.8,523.7 268.1,523.7 461.8,523.7 461.8,596.6 126.2,596.6 126.2,620.7 484.2,620.7 484.6,523.9 506.6,523.7 506.6,645.1 103.8,645.1 103.8,572.9 439.4,572.9 439.4,548.3 216,548.3 209.5,548.3 469.8,265.8 439.4,265.8 178.3,548.3 103.6,548.3 103.6,532.5 350.7,265.8 149,265.8 149,193.2 484.2,193.2 484.1,168.7 126.2,168.7 126.2,265.8 103.4,265.8 103.4,145 506.6,145 &quot;</span><span class="nt">/&gt;</span>
             <span class="nt">&lt;/svg&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ld-loader"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"ld-inner"</span> <span class="na">width=</span><span class="s">"60px"</span> <span class="na">height=</span><span class="s">"60px"</span> <span class="na">viewBox=</span><span class="s">"0 0 80 80"</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;path</span> <span class="na">class=</span><span class="s">"ld-loader-circlebg"</span> <span class="na">d=</span><span class="s">"M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"</span><span class="nt">/&gt;</span>
-                <span class="nt">&lt;path</span> <span class="na">id=</span><span class="s">"ld-loader-circle"</span> <span class="na">class=</span><span class="s">"ld-loader-circle"</span> <span class="na">d=</span><span class="s">"M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;ld-loader&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">&quot;ld-inner&quot;</span> <span class="na">width=</span><span class="s">&quot;60px&quot;</span> <span class="na">height=</span><span class="s">&quot;60px&quot;</span> <span class="na">viewBox=</span><span class="s">&quot;0 0 80 80&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;path</span> <span class="na">class=</span><span class="s">&quot;ld-loader-circlebg&quot;</span> <span class="na">d=</span><span class="s">&quot;M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z&quot;</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;path</span> <span class="na">id=</span><span class="s">&quot;ld-loader-circle&quot;</span> <span class="na">class=</span><span class="s">&quot;ld-loader-circle&quot;</span> <span class="na">d=</span><span class="s">&quot;M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z&quot;</span><span class="nt">/&gt;</span>
             <span class="nt">&lt;/svg&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"content"</span> <span class="na">class=</span><span class="s">"content"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;content&quot;</span> <span class="na">class=</span><span class="s">&quot;content&quot;</span><span class="nt">&gt;</span>
         <span class="c">&lt;!-- more content --&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
@@ -98,39 +98,39 @@
 
 <p><em>下面是<a href="http://www.sass-lang.com/">SCSS</a>的代码，你所看到的<code>@include</code>等等是我定义好的方法，如批量添加加<code>-webkit-</code>,<code>-moz-</code>等浏览器前缀的方法等等。</em></p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nf">#loading</span><span class="p">{</span>
-    <span class="nl">position</span><span class="p">:</span> <span class="nb">fixed</span><span class="p">;</span>
-    <span class="nl">top</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-    <span class="nl">z-index</span><span class="p">:</span> <span class="m">8000</span><span class="p">;</span>
-    <span class="nl">min-height</span><span class="p">:</span> <span class="m">480px</span><span class="p">;</span>
-    <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
-    <span class="nl">height</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
-    <span class="nl">background</span><span class="p">:</span> <span class="m">#f1f1f1</span><span class="p">;</span>
+    <span class="k">position</span><span class="o">:</span> <span class="k">fixed</span><span class="p">;</span>
+    <span class="k">top</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">z-index</span><span class="o">:</span> <span class="m">8000</span><span class="p">;</span>
+    <span class="k">min-height</span><span class="o">:</span> <span class="m">480px</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">100%</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">100%</span><span class="p">;</span>
+    <span class="k">background</span><span class="o">:</span> <span class="m">#f1f1f1</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>设置logo和进度条的位置。我们使用百分比来设置居中和高度。因为我们可能不知道logo的大小。</p>
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">//scss
-</span><span class="nc">.ld-logo</span><span class="o">,</span><span class="nc">.ld-loader</span><span class="p">{</span>
-    <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
-    <span class="nl">left</span><span class="p">:</span> <span class="m">50%</span><span class="p">;</span>
-    <span class="nl">opacity</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-    <span class="nl">cursor</span><span class="p">:</span> <span class="nb">default</span><span class="p">;</span>
-    <span class="nt">pointer-events</span><span class="nd">:none</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">//scss</span>
+<span class="nc">.ld-logo</span><span class="o">,</span><span class="nc">.ld-loader</span><span class="p">{</span>
+    <span class="na">position</span><span class="o">:</span> <span class="no">absolute</span><span class="p">;</span>
+    <span class="na">left</span><span class="o">:</span> <span class="mi">50</span><span class="kt">%</span><span class="p">;</span>
+    <span class="na">opacity</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="na">cursor</span><span class="o">:</span> <span class="no">default</span><span class="p">;</span>
+    <span class="nt">pointer-events</span><span class="nd">:none</span><span class="o">;</span>
 <span class="p">}</span>
 <span class="nc">.ld-logo</span><span class="p">{</span>
-    <span class="k">@include</span> <span class="nd">inline-block</span><span class="p">;</span>
-    <span class="nl">top</span><span class="p">:</span> <span class="m">40%</span><span class="p">;</span>
-    <span class="k">@include</span> <span class="nd">transform</span><span class="p">(</span><span class="nf">translate3d</span><span class="p">(</span><span class="m">-50%</span><span class="o">,-</span><span class="m">50%</span><span class="o">,</span><span class="m">0</span><span class="p">));</span>
-    <span class="k">@include</span> <span class="nd">transition</span><span class="p">(</span><span class="n">opacity</span> <span class="m">0</span><span class="mi">.3s</span> <span class="nf">cubic-bezier</span><span class="p">(</span><span class="m">0</span><span class="mi">.7</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="mi">.3</span><span class="o">,</span><span class="m">1</span><span class="p">));</span>
+    <span class="k">@include</span><span class="nd"> inline-block</span><span class="p">;</span>
+    <span class="na">top</span><span class="o">:</span> <span class="mi">40</span><span class="kt">%</span><span class="p">;</span>
+    <span class="k">@include</span><span class="nd"> transform</span><span class="p">(</span><span class="nf">translate3d</span><span class="p">(</span><span class="mi">-50</span><span class="kt">%</span><span class="o">,-</span><span class="mi">50</span><span class="kt">%</span><span class="o">,</span><span class="mi">0</span><span class="p">));</span>
+    <span class="k">@include</span><span class="nd"> transition</span><span class="p">(</span><span class="no">opacity</span> <span class="mi">0</span><span class="mf">.3</span><span class="kt">s</span> <span class="nf">cubic-bezier</span><span class="p">(</span><span class="mi">0</span><span class="mf">.7</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="mf">.3</span><span class="o">,</span><span class="mi">1</span><span class="p">));</span>
 <span class="p">}</span>
 <span class="nc">.ld-loader</span><span class="p">{</span>
-    <span class="nl">bottom</span><span class="p">:</span> <span class="m">20%</span><span class="p">;</span>
-    <span class="k">@include</span> <span class="nd">transform</span><span class="p">(</span><span class="nf">translate3d</span><span class="p">(</span><span class="m">-50%</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="p">));</span>
+    <span class="na">bottom</span><span class="o">:</span> <span class="mi">20</span><span class="kt">%</span><span class="p">;</span>
+    <span class="k">@include</span><span class="nd"> transform</span><span class="p">(</span><span class="nf">translate3d</span><span class="p">(</span><span class="mi">-50</span><span class="kt">%</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>SVG我们给他一个<code>ld-inner</code>的class，让他成为块级元素，并且水平居中。</p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.ld-inner</span><span class="p">{</span>
-    <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
-    <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="nb">auto</span><span class="p">;</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+    <span class="k">margin</span><span class="o">:</span> <span class="m">0</span> <span class="k">auto</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>SVG进度条默认不要填充颜色，设置<code>stroke-width</code>为6，底层的颜色是<code>#ddd</code>，顶层的颜色为<code>#39A239</code>，然后给<code>.ld-loader-circle</code>的<code>stroke-dashoffset</code>添加一个<code>0.2s</code>过渡动画。</p>
@@ -139,106 +139,106 @@
 <li><code>fill</code>: 填充颜色用</li>
 <li><code>stroke</code>: 轮廓，可以理解为类似边框</li>
 </ul>
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// scss
-</span><span class="nc">.ld-loader</span> <span class="nt">svg</span> <span class="nt">path</span><span class="p">{</span>
-    <span class="nt">fill</span><span class="nd">:none</span><span class="p">;</span>
-    <span class="na">stroke-width</span><span class="p">:</span> <span class="m">6</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// scss</span>
+<span class="nc">.ld-loader</span> <span class="nt">svg</span> <span class="nt">path</span><span class="p">{</span>
+    <span class="nt">fill</span><span class="nd">:none</span><span class="o">;</span>
+    <span class="nt">stroke-width</span><span class="nd">:</span> <span class="nt">6</span><span class="o">;</span>
     <span class="k">&amp;</span><span class="nc">.ld-loader-circlebg</span><span class="p">{</span>
-        <span class="na">stroke</span><span class="p">:</span> <span class="mh">#ddd</span><span class="p">;</span>
+        <span class="na">stroke</span><span class="o">:</span> <span class="mh">#ddd</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="k">&amp;</span><span class="nc">.ld-loader-circle</span><span class="p">{</span>
-        <span class="k">@include</span> <span class="nd">transition</span><span class="p">(</span><span class="n">stroke-dashoffset</span> <span class="m">0</span><span class="mi">.2s</span><span class="p">);</span>
-        <span class="na">stroke</span><span class="p">:</span> <span class="mh">#39A239</span><span class="p">;</span>
+        <span class="k">@include</span><span class="nd"> transition</span><span class="p">(</span><span class="n">stroke-dashoffset</span> <span class="mi">0</span><span class="mf">.2</span><span class="kt">s</span><span class="p">);</span>
+        <span class="na">stroke</span><span class="o">:</span> <span class="mh">#39A239</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>动画加载中，也就是首次打开页面时的动画效果。</p>
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// scss
-</span><span class="nc">.loading</span><span class="p">{</span>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// scss</span>
+<span class="nc">.loading</span><span class="p">{</span>
     <span class="nc">.ld-logo</span><span class="o">,</span><span class="nc">.ld-loader</span><span class="p">{</span>
-        <span class="nl">opacity</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
+        <span class="na">opacity</span><span class="o">:</span> <span class="mi">1</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="nc">.ld-logo</span><span class="p">{</span>
-        <span class="k">@include</span> <span class="nd">animation</span><span class="p">(</span><span class="n">animInitialLogo</span> <span class="m">0</span><span class="mi">.5s</span> <span class="nf">cubic-bezier</span><span class="p">(</span><span class="m">0</span><span class="mi">.7</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="mi">.3</span><span class="o">,</span><span class="m">1</span><span class="p">)</span> <span class="nb">both</span><span class="p">);</span>
+        <span class="k">@include</span><span class="nd"> animation</span><span class="p">(</span><span class="n">animInitialLogo</span> <span class="mi">0</span><span class="mf">.5</span><span class="kt">s</span> <span class="nf">cubic-bezier</span><span class="p">(</span><span class="mi">0</span><span class="mf">.7</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="mf">.3</span><span class="o">,</span><span class="mi">1</span><span class="p">)</span> <span class="no">both</span><span class="p">);</span>
     <span class="p">}</span>
     <span class="nc">.ld-loader</span><span class="p">{</span>
-        <span class="k">@include</span> <span class="nd">animation</span><span class="p">(</span><span class="n">animInitialLoader</span> <span class="m">0</span><span class="mi">.5s</span> <span class="nf">cubic-bezier</span><span class="p">(</span><span class="m">0</span><span class="mi">.7</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="mi">.3</span><span class="o">,</span><span class="m">1</span><span class="p">)</span> <span class="nb">both</span><span class="p">);</span>
+        <span class="k">@include</span><span class="nd"> animation</span><span class="p">(</span><span class="n">animInitialLoader</span> <span class="mi">0</span><span class="mf">.5</span><span class="kt">s</span> <span class="nf">cubic-bezier</span><span class="p">(</span><span class="mi">0</span><span class="mf">.7</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="mf">.3</span><span class="o">,</span><span class="mi">1</span><span class="p">)</span> <span class="no">both</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>上面既然使用了<code>animation</code>动画，那么接下来就是<code>keyframes</code>这个帧动画出马了。</p>
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// scss
-// 初始化logo动画
-</span><span class="k">@include</span> <span class="nd">keyframes</span><span class="p">(</span><span class="n">animInitialLogo</span><span class="p">){</span>
-    <span class="nt">from</span> <span class="p">{</span> <span class="nl">opacity</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span> <span class="p">}</span>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// scss</span>
+<span class="c1">// 初始化logo动画</span>
+<span class="k">@include</span><span class="nd"> keyframes</span><span class="p">(</span><span class="n">animInitialLogo</span><span class="p">){</span>
+    <span class="nt">from</span> <span class="p">{</span> <span class="na">opacity</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span> <span class="p">}</span>
 <span class="p">}</span>
-<span class="c1">// logo结束动画
-</span><span class="k">@include</span> <span class="nd">keyframes</span><span class="p">(</span><span class="n">animLoadedLogo</span><span class="p">){</span>
+<span class="c1">// logo结束动画</span>
+<span class="k">@include</span><span class="nd"> keyframes</span><span class="p">(</span><span class="n">animLoadedLogo</span><span class="p">){</span>
     <span class="nt">to</span><span class="p">{</span>
-        <span class="k">@include</span> <span class="nd">transform</span><span class="p">(</span><span class="nf">translate3d</span><span class="p">(</span><span class="m">-50%</span><span class="o">,</span><span class="m">100%</span><span class="o">,</span><span class="m">0</span><span class="p">)</span> <span class="nf">translate3d</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">50px</span><span class="o">,</span><span class="m">0</span><span class="p">)</span> <span class="nf">scale3d</span><span class="p">(</span><span class="m">0</span><span class="mi">.65</span><span class="o">,</span><span class="m">0</span><span class="mi">.65</span><span class="o">,</span><span class="m">1</span><span class="p">));</span>
+        <span class="k">@include</span><span class="nd"> transform</span><span class="p">(</span><span class="nf">translate3d</span><span class="p">(</span><span class="mi">-50</span><span class="kt">%</span><span class="o">,</span><span class="mi">100</span><span class="kt">%</span><span class="o">,</span><span class="mi">0</span><span class="p">)</span> <span class="nf">translate3d</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">50</span><span class="kt">px</span><span class="o">,</span><span class="mi">0</span><span class="p">)</span> <span class="nf">scale3d</span><span class="p">(</span><span class="mi">0</span><span class="mf">.65</span><span class="o">,</span><span class="mi">0</span><span class="mf">.65</span><span class="o">,</span><span class="mi">1</span><span class="p">));</span>
     <span class="p">}</span>
 <span class="p">}</span>
-<span class="c1">// 初始化loader动画
-</span><span class="k">@include</span> <span class="nd">keyframes</span><span class="p">(</span><span class="n">animInitialLoader</span><span class="p">){</span>
+<span class="c1">// 初始化loader动画</span>
+<span class="k">@include</span><span class="nd"> keyframes</span><span class="p">(</span><span class="n">animInitialLoader</span><span class="p">){</span>
     <span class="nt">from</span><span class="p">{</span>
-        <span class="nl">opacity</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-        <span class="k">@include</span> <span class="nd">transform</span><span class="p">(</span><span class="nf">translate3d</span><span class="p">(</span><span class="m">-50%</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="p">)</span> <span class="nf">scale3d</span><span class="p">(</span><span class="m">0</span><span class="mi">.5</span><span class="o">,</span><span class="m">0</span><span class="mi">.5</span><span class="o">,</span><span class="m">1</span><span class="p">));</span>
+        <span class="na">opacity</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">@include</span><span class="nd"> transform</span><span class="p">(</span><span class="nf">translate3d</span><span class="p">(</span><span class="mi">-50</span><span class="kt">%</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="p">)</span> <span class="nf">scale3d</span><span class="p">(</span><span class="mi">0</span><span class="mf">.5</span><span class="o">,</span><span class="mi">0</span><span class="mf">.5</span><span class="o">,</span><span class="mi">1</span><span class="p">));</span>
     <span class="p">}</span>
 <span class="p">}</span>
-<span class="c1">// loader结束动画
-</span><span class="k">@include</span> <span class="nd">keyframes</span><span class="p">(</span><span class="n">animLoadedLoader</span><span class="p">){</span>
+<span class="c1">// loader结束动画</span>
+<span class="k">@include</span><span class="nd"> keyframes</span><span class="p">(</span><span class="n">animLoadedLoader</span><span class="p">){</span>
     <span class="nt">to</span><span class="p">{</span>
-        <span class="nl">opacity</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-        <span class="k">@include</span> <span class="nd">transform</span><span class="p">(</span><span class="nf">translate3d</span><span class="p">(</span><span class="m">-50%</span><span class="o">,-</span><span class="m">100%</span><span class="o">,</span><span class="m">0</span><span class="p">)</span> <span class="nf">scale3d</span><span class="p">(</span><span class="m">0</span><span class="mi">.3</span><span class="o">,</span><span class="m">0</span><span class="mi">.3</span><span class="o">,</span><span class="m">1</span><span class="p">));</span>
+        <span class="na">opacity</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">@include</span><span class="nd"> transform</span><span class="p">(</span><span class="nf">translate3d</span><span class="p">(</span><span class="mi">-50</span><span class="kt">%</span><span class="o">,-</span><span class="mi">100</span><span class="kt">%</span><span class="o">,</span><span class="mi">0</span><span class="p">)</span> <span class="nf">scale3d</span><span class="p">(</span><span class="mi">0</span><span class="mf">.3</span><span class="o">,</span><span class="mi">0</span><span class="mf">.3</span><span class="o">,</span><span class="mi">1</span><span class="p">));</span>
     <span class="p">}</span>
 <span class="p">}</span>
-<span class="c1">// 隐藏至头部的动画
-</span><span class="k">@include</span> <span class="nd">keyframes</span><span class="p">(</span><span class="n">animLoadedHeader</span><span class="p">){</span>
+<span class="c1">// 隐藏至头部的动画</span>
+<span class="k">@include</span><span class="nd"> keyframes</span><span class="p">(</span><span class="n">animLoadedHeader</span><span class="p">){</span>
     <span class="nt">to</span><span class="p">{</span>
-        <span class="nl">opacity</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-        <span class="k">@include</span> <span class="nd">transform</span><span class="p">(</span><span class="nf">translate3d</span><span class="p">(</span><span class="m">0</span><span class="o">,-</span><span class="m">100%</span><span class="o">,</span><span class="m">0</span><span class="p">)</span> <span class="nf">scale3d</span><span class="p">(</span><span class="m">0</span><span class="mi">.3</span><span class="o">,</span><span class="m">0</span><span class="mi">.3</span><span class="o">,</span><span class="m">1</span><span class="p">));</span>
+        <span class="na">opacity</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">@include</span><span class="nd"> transform</span><span class="p">(</span><span class="nf">translate3d</span><span class="p">(</span><span class="mi">0</span><span class="o">,-</span><span class="mi">100</span><span class="kt">%</span><span class="o">,</span><span class="mi">0</span><span class="p">)</span> <span class="nf">scale3d</span><span class="p">(</span><span class="mi">0</span><span class="mf">.3</span><span class="o">,</span><span class="mi">0</span><span class="mf">.3</span><span class="o">,</span><span class="mi">1</span><span class="p">));</span>
     <span class="p">}</span>
 <span class="p">}</span>
-<span class="c1">// 显示内容
-</span><span class="k">@include</span> <span class="nd">keyframes</span><span class="p">(</span><span class="n">animLoadedContent</span><span class="p">){</span>
+<span class="c1">// 显示内容</span>
+<span class="k">@include</span><span class="nd"> keyframes</span><span class="p">(</span><span class="n">animLoadedContent</span><span class="p">){</span>
     <span class="nt">from</span><span class="p">{</span>
-        <span class="nl">opacity</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-        <span class="k">@include</span> <span class="nd">transform</span><span class="p">(</span><span class="nf">scale3d</span><span class="p">(</span><span class="m">0</span><span class="mi">.3</span><span class="o">,</span><span class="m">0</span><span class="mi">.3</span><span class="o">,</span><span class="m">1</span><span class="p">));</span>
+        <span class="na">opacity</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">@include</span><span class="nd"> transform</span><span class="p">(</span><span class="nf">scale3d</span><span class="p">(</span><span class="mi">0</span><span class="mf">.3</span><span class="o">,</span><span class="mi">0</span><span class="mf">.3</span><span class="o">,</span><span class="mi">1</span><span class="p">));</span>
     <span class="p">}</span>
 <span class="p">}</span>
-<span class="c1">// scss的`%placeholders`占位符，可以用`@extend`来继承这个内容
-</span><span class="nv">%animLoadedContent</span><span class="p">{</span>
-    <span class="k">@include</span> <span class="nd">animation</span><span class="p">(</span><span class="n">animLoadedContent</span> <span class="m">1s</span> <span class="nf">cubic-bezier</span><span class="p">(</span><span class="m">0</span><span class="mi">.7</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="mi">.3</span><span class="o">,</span><span class="m">1</span><span class="p">)</span> <span class="nb">both</span><span class="p">);</span>
-    <span class="k">@include</span> <span class="nd">transition-delay</span><span class="p">(</span><span class="m">0</span><span class="mi">.15s</span><span class="p">);</span>
+<span class="c1">// scss的`%placeholders`占位符，可以用`@extend`来继承这个内容</span>
+<span class="err">%</span><span class="nt">animLoadedContent</span><span class="p">{</span>
+    <span class="k">@include</span><span class="nd"> animation</span><span class="p">(</span><span class="n">animLoadedContent</span> <span class="mi">1</span><span class="kt">s</span> <span class="nf">cubic-bezier</span><span class="p">(</span><span class="mi">0</span><span class="mf">.7</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="mf">.3</span><span class="o">,</span><span class="mi">1</span><span class="p">)</span> <span class="no">both</span><span class="p">);</span>
+    <span class="k">@include</span><span class="nd"> transition-delay</span><span class="p">(</span><span class="mi">0</span><span class="mf">.15</span><span class="kt">s</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>loading加载完成后，就需要把logo跟loader隐藏掉。并且把<code>#loading</code>这个loading页面向上隐藏掉，同时把正文内容从下往上显示出来。</p>
-<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// scss
-</span><span class="nc">.loaded</span><span class="p">{</span>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// scss</span>
+<span class="nc">.loaded</span><span class="p">{</span>
     <span class="nc">.content</span> <span class="p">{</span>
         <span class="nc">.article</span><span class="p">{</span>
-            <span class="k">@extend</span> <span class="nv">%animLoadedContent</span><span class="p">;</span>
+            <span class="k">@extend</span> <span class="err">%</span><span class="nt">animLoadedContent</span><span class="o">;</span>
         <span class="p">}</span>
         <span class="nc">.header</span> <span class="nt">h1</span><span class="o">,</span><span class="nc">.post-header</span> <span class="nt">h1</span><span class="p">{</span>
-            <span class="k">@extend</span> <span class="nv">%animLoadedContent</span><span class="p">;</span>
+            <span class="k">@extend</span> <span class="err">%</span><span class="nt">animLoadedContent</span><span class="o">;</span>
         <span class="p">}</span>
         <span class="nc">.header</span> <span class="nt">h2</span><span class="p">{</span>
-            <span class="k">@extend</span> <span class="nv">%animLoadedContent</span><span class="p">;</span>
-            <span class="nl">line-height</span><span class="p">:</span> <span class="m">1</span><span class="mi">.5</span><span class="p">;</span>
+            <span class="k">@extend</span> <span class="err">%</span><span class="nt">animLoadedContent</span><span class="o">;</span>
+            <span class="nt">line-height</span><span class="nd">:</span> <span class="nt">1</span><span class="nc">.5</span><span class="o">;</span>
         <span class="p">}</span>
     <span class="p">}</span>
     <span class="nn">#loading</span><span class="p">{</span>
-        <span class="k">@include</span> <span class="nd">animation</span><span class="p">(</span><span class="n">animLoadedHeader</span> <span class="m">1s</span> <span class="nf">cubic-bezier</span><span class="p">(</span><span class="m">0</span><span class="mi">.7</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="mi">.3</span><span class="o">,</span><span class="m">1</span><span class="p">)</span> <span class="n">forwards</span><span class="p">);</span>
+        <span class="k">@include</span><span class="nd"> animation</span><span class="p">(</span><span class="n">animLoadedHeader</span> <span class="mi">1</span><span class="kt">s</span> <span class="nf">cubic-bezier</span><span class="p">(</span><span class="mi">0</span><span class="mf">.7</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="mf">.3</span><span class="o">,</span><span class="mi">1</span><span class="p">)</span> <span class="n">forwards</span><span class="p">);</span>
     <span class="p">}</span>
     <span class="nc">.ld-logo</span><span class="o">,</span><span class="nc">.ld-loader</span><span class="p">{</span>
-        <span class="nl">opacity</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
+        <span class="na">opacity</span><span class="o">:</span> <span class="mi">1</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="nc">.ld-logo</span><span class="p">{</span>
-        <span class="k">@include</span> <span class="nd">transform-origin</span><span class="p">(</span><span class="m">50%</span> <span class="m">0</span><span class="p">);</span>
-        <span class="k">@include</span> <span class="nd">animation</span><span class="p">(</span><span class="n">animLoadedLogo</span> <span class="m">1s</span> <span class="nf">cubic-bezier</span><span class="p">(</span><span class="m">0</span><span class="mi">.7</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="mi">.3</span><span class="o">,</span><span class="m">1</span><span class="p">)</span> <span class="n">forwards</span><span class="p">);</span>
+        <span class="k">@include</span><span class="nd"> transform-origin</span><span class="p">(</span><span class="mi">50</span><span class="kt">%</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="k">@include</span><span class="nd"> animation</span><span class="p">(</span><span class="n">animLoadedLogo</span> <span class="mi">1</span><span class="kt">s</span> <span class="nf">cubic-bezier</span><span class="p">(</span><span class="mi">0</span><span class="mf">.7</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="mf">.3</span><span class="o">,</span><span class="mi">1</span><span class="p">)</span> <span class="n">forwards</span><span class="p">);</span>
     <span class="p">}</span>
     <span class="nc">.ld-loader</span><span class="p">{</span>
-        <span class="k">@include</span> <span class="nd">animation</span><span class="p">(</span><span class="n">animLoadedLoader</span> <span class="m">1s</span> <span class="nf">cubic-bezier</span><span class="p">(</span><span class="m">0</span><span class="mi">.7</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="mi">.3</span><span class="o">,</span><span class="m">1</span><span class="p">)</span> <span class="n">forwards</span><span class="p">);</span>
+        <span class="k">@include</span><span class="nd"> animation</span><span class="p">(</span><span class="n">animLoadedLoader</span> <span class="mi">1</span><span class="kt">s</span> <span class="nf">cubic-bezier</span><span class="p">(</span><span class="mi">0</span><span class="mf">.7</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="mf">.3</span><span class="o">,</span><span class="mi">1</span><span class="p">)</span> <span class="n">forwards</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -266,14 +266,14 @@
 
     <span class="nx">PathLoader</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">setProgress</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">val</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">_draw</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">callback</span> <span class="o">&amp;&amp;</span> <span class="k">typeof</span> <span class="nx">callback</span> <span class="o">===</span> <span class="s1">'function'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">callback</span> <span class="o">&amp;&amp;</span> <span class="k">typeof</span> <span class="nx">callback</span> <span class="o">===</span> <span class="s1">&#39;function&#39;</span><span class="p">)</span> <span class="p">{</span>
             <span class="c1">// 设置延时，使得最后的加载进度条动画效果可见。</span>
             <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
         <span class="p">};</span>
     <span class="p">};</span>
 
     <span class="nx">PathLoader</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">setProgressFn</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">fn</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">fn</span> <span class="o">===</span> <span class="s1">'function'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">fn</span> <span class="o">===</span> <span class="s1">&#39;function&#39;</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">fn</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
         <span class="p">};</span>
     <span class="p">};</span>
@@ -289,12 +289,12 @@
         <span class="kd">var</span> <span class="nx">progress</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
             <span class="nx">interval</span> <span class="o">=</span> <span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
                 <span class="nx">instance</span><span class="p">.</span><span class="nx">setProgress</span><span class="p">(</span><span class="nx">progress</span><span class="p">);</span>
-                <span class="k">if</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="s2">"interactive"</span> <span class="o">||</span> <span class="nb">document</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="s2">"loading"</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="s2">&quot;interactive&quot;</span> <span class="o">||</span> <span class="nb">document</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="s2">&quot;loading&quot;</span><span class="p">)</span> <span class="p">{</span>
                     <span class="nx">progress</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">progress</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
                     <span class="nx">instance</span><span class="p">.</span><span class="nx">setProgress</span><span class="p">(</span><span class="nx">progress</span><span class="p">);</span>
                     <span class="nx">PageLoaded</span><span class="p">(</span><span class="nx">progress</span><span class="p">,</span><span class="nx">interval</span><span class="p">);</span>
                 <span class="p">};</span>
-                <span class="k">if</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="s2">"complete"</span> <span class="o">||</span> <span class="nb">document</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="s2">"Loaded"</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="s2">&quot;complete&quot;</span> <span class="o">||</span> <span class="nb">document</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="s2">&quot;Loaded&quot;</span><span class="p">)</span> <span class="p">{</span>
                     <span class="nx">progress</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">progress</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
                     <span class="nx">PageLoaded</span><span class="p">(</span><span class="nx">progress</span><span class="p">,</span><span class="nx">interval</span><span class="p">);</span>
                 <span class="p">};</span>
@@ -304,14 +304,14 @@
 <span class="p">}</span>
 </code></pre></div>
 <p>接下来，我们将这个文件命名为pageLoading.js，首先，我们先初始化和缓存一些变量。</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">container</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'container'</span><span class="p">),</span>
-    <span class="nx">loading</span>   <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'loading'</span><span class="p">),</span>
-    <span class="nx">loader</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">PathLoader</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'ld-loader-circle'</span><span class="p">));</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">container</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;container&#39;</span><span class="p">),</span>
+    <span class="nx">loading</span>   <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;loading&#39;</span><span class="p">),</span>
+    <span class="nx">loader</span>    <span class="o">=</span> <span class="k">new</span> <span class="nx">PathLoader</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;ld-loader-circle&#39;</span><span class="p">));</span>
 </code></pre></div>
 <p>当loading动画正在加载的时候，需要阻止页面滚动。并且给<code>.container</code>添加一个<code>loading</code>的class。然后执行上方的<code>startLoading()</code>方法。</p>
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">init</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'scroll'</span><span class="p">,</span><span class="nx">disableScroll</span><span class="p">);</span>
-    <span class="nx">classie</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span><span class="s1">'loading'</span><span class="p">);</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;scroll&#39;</span><span class="p">,</span><span class="nx">disableScroll</span><span class="p">);</span>
+    <span class="nx">classie</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span><span class="s1">&#39;loading&#39;</span><span class="p">);</span>
     <span class="nx">startLoading</span><span class="p">();</span>
 <span class="p">}</span>
 <span class="c1">// 阻止滚动</span>
@@ -323,13 +323,13 @@
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// 页面加载完成</span>
 <span class="kd">function</span> <span class="nx">PageLoaded</span><span class="p">(</span><span class="nx">progress</span><span class="p">,</span><span class="nx">interval</span><span class="p">){</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">progress</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">classie</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span><span class="s1">'loading'</span><span class="p">);</span>
-        <span class="nx">classie</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span><span class="s1">'loaded'</span><span class="p">);</span>
+        <span class="nx">classie</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span><span class="s1">&#39;loading&#39;</span><span class="p">);</span>
+        <span class="nx">classie</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span><span class="s1">&#39;loaded&#39;</span><span class="p">);</span>
         <span class="nx">clearInterval</span><span class="p">(</span><span class="nx">interval</span><span class="p">);</span>
 
         <span class="kd">var</span> <span class="nx">onEndHeaderAnimation</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">ev</span><span class="p">){</span>
-            <span class="nb">window</span><span class="p">.</span><span class="nx">removeEventListener</span><span class="p">(</span><span class="s1">'scroll'</span><span class="p">,</span><span class="nx">disableScroll</span><span class="p">);</span>
-            <span class="nx">classie</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">,</span> <span class="s1">'layout-switch'</span><span class="p">);</span>
+            <span class="nb">window</span><span class="p">.</span><span class="nx">removeEventListener</span><span class="p">(</span><span class="s1">&#39;scroll&#39;</span><span class="p">,</span><span class="nx">disableScroll</span><span class="p">);</span>
+            <span class="nx">classie</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">,</span> <span class="s1">&#39;layout-switch&#39;</span><span class="p">);</span>
         <span class="p">}</span>
         <span class="nx">onEndHeaderAnimation</span><span class="p">();</span>
     <span class="p">};</span>

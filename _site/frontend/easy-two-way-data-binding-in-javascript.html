@@ -95,22 +95,22 @@
     <span class="c1">// 使用一个简单的jQuery对象作为简单的订阅者、发布者</span>
     <span class="kd">var</span> <span class="nx">pubSub</span> <span class="o">=</span> <span class="nx">jQuery</span><span class="p">({});</span>
 
-    <span class="c1">// 我们希望一个data元素可以在表单中指明绑定：data-bind-&lt;object_id&gt;="&lt;property_name&gt;"</span>
-    <span class="kd">var</span> <span class="nx">data_attr</span> <span class="o">=</span> <span class="s2">"bind-"</span> <span class="o">+</span> <span class="nx">object_id</span><span class="p">,</span>
-        <span class="nx">message</span>   <span class="o">=</span> <span class="nx">object_id</span> <span class="o">+</span> <span class="s2">":keyup"</span><span class="p">;</span>
+    <span class="c1">// 我们希望一个data元素可以在表单中指明绑定：data-bind-&lt;object_id&gt;=&quot;&lt;property_name&gt;&quot;</span>
+    <span class="kd">var</span> <span class="nx">data_attr</span> <span class="o">=</span> <span class="s2">&quot;bind-&quot;</span> <span class="o">+</span> <span class="nx">object_id</span><span class="p">,</span>
+        <span class="nx">message</span>   <span class="o">=</span> <span class="nx">object_id</span> <span class="o">+</span> <span class="s2">&quot;:keyup&quot;</span><span class="p">;</span>
 
     <span class="c1">// 使用data-binding属性和代理来监听哪个元素上发生了变化事件</span>
     <span class="c1">// 以便能够“广播”到所有的关联对象</span>
-    <span class="nx">jQuery</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">"keyup"</span><span class="p">,</span><span class="s2">"[data-"</span> <span class="o">+</span> <span class="nx">data_attr</span> <span class="o">+</span> <span class="s2">"]"</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+    <span class="nx">jQuery</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;keyup&quot;</span><span class="p">,</span><span class="s2">&quot;[data-&quot;</span> <span class="o">+</span> <span class="nx">data_attr</span> <span class="o">+</span> <span class="s2">&quot;]&quot;</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
         <span class="kd">var</span> <span class="nx">$input</span> <span class="o">=</span> <span class="nx">jQuery</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
         <span class="nx">pubSub</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="nx">message</span><span class="p">,[</span><span class="nx">$input</span><span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="nx">data_attr</span><span class="p">),</span><span class="nx">$input</span><span class="p">.</span><span class="nx">val</span><span class="p">()]);</span>
     <span class="p">})</span>
 
     <span class="c1">// pubSub将变化传播到所有绑定的元素，设置input标签的值或者其他标签的HTML内容</span>
     <span class="nx">pubSub</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span><span class="nx">prop_name</span><span class="p">,</span><span class="nx">new_val</span><span class="p">){</span>
-        <span class="nx">jQuery</span><span class="p">(</span><span class="s2">"[data-"</span> <span class="o">+</span> <span class="nx">data_attr</span> <span class="o">+</span> <span class="s2">"="</span> <span class="o">+</span> <span class="nx">prop_name</span> <span class="o">+</span> <span class="s2">"]"</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">jQuery</span><span class="p">(</span><span class="s2">&quot;[data-&quot;</span> <span class="o">+</span> <span class="nx">data_attr</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span> <span class="o">+</span> <span class="nx">prop_name</span> <span class="o">+</span> <span class="s2">&quot;]&quot;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
             <span class="kd">var</span> <span class="nx">$bound</span> <span class="o">=</span> <span class="nx">jQuery</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
-            <span class="k">if</span> <span class="p">(</span><span class="nx">$bound</span><span class="p">.</span><span class="nx">is</span><span class="p">(</span><span class="s2">"input,textarea,select"</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">$bound</span><span class="p">.</span><span class="nx">is</span><span class="p">(</span><span class="s2">&quot;input,textarea,select&quot;</span><span class="p">))</span> <span class="p">{</span>
                 <span class="nx">$bound</span><span class="p">.</span><span class="nx">val</span><span class="p">(</span><span class="nx">new_val</span><span class="p">);</span>
             <span class="p">}</span><span class="k">else</span><span class="p">{</span>
                 <span class="nx">$bound</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="nx">new_val</span><span class="p">);</span>
@@ -127,22 +127,22 @@
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">User</span><span class="p">(</span><span class="nx">uid</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">binder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DataBinder</span><span class="p">(</span><span class="nx">uid</span><span class="p">),</span>
         <span class="nx">user</span>   <span class="o">=</span> <span class="p">{</span>
-            <span class="na">attribute</span> <span class="p">:</span> <span class="p">{},</span>
+            <span class="nx">attribute</span> <span class="o">:</span> <span class="p">{},</span>
 
             <span class="c1">// 属性设置器使用数据绑定器pubSub来发布</span>
-            <span class="na">set</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">attr_name</span><span class="p">,</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">set</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">attr_name</span><span class="p">,</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
                 <span class="k">this</span><span class="p">.</span><span class="nx">attribute</span><span class="p">[</span><span class="nx">attr_name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">val</span><span class="p">;</span>
-                <span class="nx">binder</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="nx">uid</span> <span class="o">+</span> <span class="s2">":keyup"</span><span class="p">,[</span><span class="nx">attr_name</span><span class="p">,</span><span class="nx">val</span><span class="p">,</span><span class="k">this</span><span class="p">]);</span>
+                <span class="nx">binder</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="nx">uid</span> <span class="o">+</span> <span class="s2">&quot;:keyup&quot;</span><span class="p">,[</span><span class="nx">attr_name</span><span class="p">,</span><span class="nx">val</span><span class="p">,</span><span class="k">this</span><span class="p">]);</span>
             <span class="p">},</span>
 
-            <span class="na">get</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">attr_name</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">get</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">attr_name</span><span class="p">)</span> <span class="p">{</span>
                 <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">attribute</span><span class="p">[</span><span class="nx">attr_name</span><span class="p">];</span>
             <span class="p">},</span>
 
-            <span class="na">_binder</span> <span class="p">:</span> <span class="nx">binder</span>
+            <span class="nx">_binder</span> <span class="o">:</span> <span class="nx">binder</span>
         <span class="p">};</span>
 
-    <span class="nx">binder</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">uid</span> <span class="o">+</span> <span class="s2">":keyup"</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span><span class="nx">attr_name</span><span class="p">,</span><span class="nx">new_val</span><span class="p">,</span><span class="nx">initiator</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">binder</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">uid</span> <span class="o">+</span> <span class="s2">&quot;:keyup&quot;</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span><span class="nx">attr_name</span><span class="p">,</span><span class="nx">new_val</span><span class="p">,</span><span class="nx">initiator</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">initiator</span> <span class="o">!==</span> <span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">user</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">attr_name</span><span class="p">,</span><span class="nx">new_val</span><span class="p">);</span>
         <span class="p">}</span>
@@ -156,12 +156,12 @@
 </p>
 <div class="highlight"><pre><code class="language-html" data-lang="html">// HTML
 
-<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">data-bind-1=</span><span class="s">"name"</span> <span class="nt">&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">data-bind-1=</span><span class="s">"name"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">data-bind-1=</span><span class="s">&quot;name&quot;</span> <span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">data-bind-1=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
 </code></pre></div><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// JavaScript 调用</span>
 
 <span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="nx">user</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">"name"</span><span class="p">,</span><span class="s2">"asd"</span><span class="p">);</span>
+<span class="nx">user</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="s2">&quot;asd&quot;</span><span class="p">);</span>
 </code></pre></div>
 <p>
     input字段的值会自动反映反映出<code>user</code>对象的<code>name</code>属性。反之亦然。
@@ -177,12 +177,12 @@
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">DataBinder</span><span class="p">(</span><span class="nx">object_id</span><span class="p">){</span>
     <span class="c1">// 创建一个简单的pubSub对象</span>
     <span class="kd">var</span> <span class="nx">pubSub</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="na">callbacks</span><span class="p">:</span> <span class="p">{},</span>
-            <span class="na">on</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">msg</span><span class="p">,</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">callbacks</span><span class="o">:</span> <span class="p">{},</span>
+            <span class="nx">on</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">msg</span><span class="p">,</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
                 <span class="k">this</span><span class="p">.</span><span class="nx">callbacks</span><span class="p">[</span><span class="nx">msg</span><span class="p">]</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">callbacks</span><span class="p">[</span><span class="nx">msg</span><span class="p">]</span> <span class="o">||</span> <span class="p">[];</span>
                 <span class="k">this</span><span class="p">.</span><span class="nx">callbacks</span><span class="p">[</span><span class="nx">msg</span><span class="p">].</span><span class="nx">push</span><span class="p">(</span><span class="nx">callback</span><span class="p">);</span>
             <span class="p">},</span>
-            <span class="na">publish</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">publish</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
                 <span class="k">this</span><span class="p">.</span><span class="nx">callbacks</span><span class="p">[</span><span class="nx">msg</span><span class="p">]</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">callbacks</span><span class="p">[</span><span class="nx">msg</span><span class="p">]</span> <span class="o">||</span> <span class="p">[];</span>
                 <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="nx">len</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">callbacks</span><span class="p">[</span><span class="nx">msg</span><span class="p">].</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">len</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
                     <span class="k">this</span><span class="p">.</span><span class="nx">callbacks</span><span class="p">[</span><span class="nx">msg</span><span class="p">][</span><span class="nx">i</span><span class="p">].</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="nx">arguments</span><span class="p">);</span>
@@ -190,34 +190,34 @@
             <span class="p">}</span>
         <span class="p">},</span>
 
-        <span class="nx">data_attr</span> <span class="o">=</span> <span class="s2">"data-bind-"</span> <span class="o">+</span> <span class="nx">object_id</span><span class="p">,</span>
-        <span class="nx">message</span>   <span class="o">=</span> <span class="nx">object_id</span> <span class="o">+</span> <span class="s2">":change"</span><span class="p">,</span>
+        <span class="nx">data_attr</span> <span class="o">=</span> <span class="s2">&quot;data-bind-&quot;</span> <span class="o">+</span> <span class="nx">object_id</span><span class="p">,</span>
+        <span class="nx">message</span>   <span class="o">=</span> <span class="nx">object_id</span> <span class="o">+</span> <span class="s2">&quot;:change&quot;</span><span class="p">,</span>
 
         <span class="nx">changeHandler</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
             <span class="kd">var</span> <span class="nx">target</span>    <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span> <span class="o">||</span> <span class="nx">event</span><span class="p">.</span><span class="nx">srcElement</span><span class="p">,</span> <span class="c1">// IE8兼容</span>
                 <span class="nx">prop_name</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="nx">data_attr</span><span class="p">);</span>
 
-            <span class="k">if</span> <span class="p">(</span><span class="nx">prop_name</span> <span class="o">&amp;&amp;</span> <span class="nx">prop_name</span> <span class="o">!==</span> <span class="s2">""</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">prop_name</span> <span class="o">&amp;&amp;</span> <span class="nx">prop_name</span> <span class="o">!==</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="p">{</span>
                 <span class="nx">pubSub</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span><span class="nx">prop_name</span><span class="p">,</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
             <span class="p">}</span>
         <span class="p">};</span>
 
     <span class="c1">// 监听事件变化，并代理到pubSub</span>
     <span class="k">if</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"keyup"</span><span class="p">,</span><span class="nx">changeHandler</span><span class="p">,</span><span class="kc">false</span><span class="p">);</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;keyup&quot;</span><span class="p">,</span><span class="nx">changeHandler</span><span class="p">,</span><span class="kc">false</span><span class="p">);</span>
     <span class="p">}</span> <span class="k">else</span><span class="p">{</span>
         <span class="c1">// IE8使用attachEvent而不是addEventListenter</span>
-        <span class="nb">document</span><span class="p">.</span><span class="nx">attachEvent</span><span class="p">(</span><span class="s2">"onkeyup"</span><span class="p">,</span><span class="nx">changeHandler</span><span class="p">);</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">attachEvent</span><span class="p">(</span><span class="s2">&quot;onkeyup&quot;</span><span class="p">,</span><span class="nx">changeHandler</span><span class="p">);</span>
     <span class="p">};</span>
 
     <span class="c1">// pubSub将变化传播到所有绑定元素</span>
     <span class="nx">pubSub</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span><span class="nx">prop_name</span><span class="p">,</span><span class="nx">new_val</span><span class="p">){</span>
-        <span class="kd">var</span> <span class="nx">elements</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">"["</span> <span class="o">+</span> <span class="nx">data_attr</span> <span class="o">+</span> <span class="s2">"="</span> <span class="o">+</span><span class="nx">prop_name</span> <span class="o">+</span> <span class="s2">"]"</span><span class="p">),</span>
+        <span class="kd">var</span> <span class="nx">elements</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">&quot;[&quot;</span> <span class="o">+</span> <span class="nx">data_attr</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span> <span class="o">+</span><span class="nx">prop_name</span> <span class="o">+</span> <span class="s2">&quot;]&quot;</span><span class="p">),</span>
             <span class="nx">tag_name</span><span class="p">;</span>
         <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="nx">len</span> <span class="o">=</span> <span class="nx">elements</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">len</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">tag_name</span> <span class="o">=</span> <span class="nx">elements</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">tagName</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">();</span>
 
-            <span class="k">if</span> <span class="p">(</span><span class="nx">tag_name</span> <span class="o">===</span> <span class="s2">"input"</span> <span class="o">||</span> <span class="nx">tag_name</span> <span class="o">===</span> <span class="s2">"textarea"</span> <span class="o">||</span> <span class="nx">tag_name</span> <span class="o">===</span> <span class="s2">"select"</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">tag_name</span> <span class="o">===</span> <span class="s2">&quot;input&quot;</span> <span class="o">||</span> <span class="nx">tag_name</span> <span class="o">===</span> <span class="s2">&quot;textarea&quot;</span> <span class="o">||</span> <span class="nx">tag_name</span> <span class="o">===</span> <span class="s2">&quot;select&quot;</span><span class="p">)</span> <span class="p">{</span>
                 <span class="nx">elements</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">new_val</span><span class="p">;</span>
             <span class="p">}</span> <span class="k">else</span><span class="p">{</span>
                 <span class="nx">elements</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">new_val</span><span class="p">;</span>
@@ -234,22 +234,22 @@
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">User</span><span class="p">(</span><span class="nx">uid</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">binder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DataBinder</span><span class="p">(</span><span class="nx">uid</span><span class="p">),</span>
         <span class="nx">user</span>   <span class="o">=</span> <span class="p">{</span>
-            <span class="na">attribute</span> <span class="p">:</span> <span class="p">{},</span>
+            <span class="nx">attribute</span> <span class="o">:</span> <span class="p">{},</span>
 
             <span class="c1">// 属性设置器使用数据绑定器pubSub来发布</span>
-            <span class="na">set</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">attr_name</span><span class="p">,</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">set</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">attr_name</span><span class="p">,</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
                 <span class="k">this</span><span class="p">.</span><span class="nx">attribute</span><span class="p">[</span><span class="nx">attr_name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">val</span><span class="p">;</span>
-                <span class="nx">binder</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="nx">uid</span> <span class="o">+</span> <span class="s2">":change"</span><span class="p">,</span><span class="nx">attr_name</span><span class="p">,</span><span class="nx">val</span><span class="p">,</span><span class="k">this</span><span class="p">);</span>
+                <span class="nx">binder</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="nx">uid</span> <span class="o">+</span> <span class="s2">&quot;:change&quot;</span><span class="p">,</span><span class="nx">attr_name</span><span class="p">,</span><span class="nx">val</span><span class="p">,</span><span class="k">this</span><span class="p">);</span>
             <span class="p">},</span>
 
-            <span class="na">get</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">attr_name</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">get</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">attr_name</span><span class="p">)</span> <span class="p">{</span>
                 <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">attribute</span><span class="p">[</span><span class="nx">attr_name</span><span class="p">];</span>
             <span class="p">},</span>
 
-            <span class="na">_binder</span> <span class="p">:</span> <span class="nx">binder</span>
+            <span class="nx">_binder</span> <span class="o">:</span> <span class="nx">binder</span>
         <span class="p">};</span>
 
-    <span class="nx">binder</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">uid</span> <span class="o">+</span> <span class="s2">":change"</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span><span class="nx">attr_name</span><span class="p">,</span><span class="nx">new_val</span><span class="p">,</span><span class="nx">initiator</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">binder</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">uid</span> <span class="o">+</span> <span class="s2">&quot;:change&quot;</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span><span class="nx">attr_name</span><span class="p">,</span><span class="nx">new_val</span><span class="p">,</span><span class="nx">initiator</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">initiator</span> <span class="o">!==</span> <span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">user</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">attr_name</span><span class="p">,</span><span class="nx">new_val</span><span class="p">);</span>
         <span class="p">}</span>

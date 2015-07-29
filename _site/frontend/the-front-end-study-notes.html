@@ -132,7 +132,7 @@ console.log(n.toString(2)); // 快速进制转换
 </code></p></li>
 <li><p>对象 -&gt; 简单类型（参考<a href="http://www.ituring.com.cn/article/53351">JavaScript 类型转换</a>）</p></li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">1. 隐式转换：除Date外，统统是先 `valueOf`、再 `toString`（`Date` 在 `+` 和 `==` 时优先转化为字串）：
+<div class="highlight"><pre><code class="language-text" data-lang="text">1. 隐式转换：除Date外，统统是先 `valueOf`、再 `toString`（`Date` 在 `+` 和 `==` 时优先转化为字串）：
 ``` javascript
 [] + 1; // 1
 ```
@@ -188,10 +188,10 @@ var target = e.target || e.srcElement;
 </ul></li>
 <li><p>生成js对象：</p></li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">1. 类JSON的对象字面量：简单直观，但不适用于复杂的对象（类）
+<div class="highlight"><pre><code class="language-text" data-lang="text">1. 类JSON的对象字面量：简单直观，但不适用于复杂的对象（类）
 ``` javascript
 var Preson = {
-    name: 'xiaoming',
+    name: &#39;xiaoming&#39;,
     age: 15
 };
 ```
@@ -202,10 +202,10 @@ var Person = function(name, age) {
     // 全部标记为私有成员
     this.name = name;
     this.age = age;
-    this.city = 'shen zhen';
+    this.city = &#39;shen zhen&#39;;
 };
-var xm = new Person('xiaoming', 15);
-var xl = new Person('xiaoli;, 20);
+var xm = new Person(&#39;xiaoming&#39;, 15);
+var xl = new Person(&#39;xiaoli;, 20);
 ```
 
 3. 原型`prototype`模式：每次实例化只增加私有的对象属性（或方法）到实例中，所有实例的公有属性（或方法）指向同一个内存地址
@@ -215,13 +215,13 @@ var Person = function(name, age) {
     this.name = name;
     this.age = age;
 };
-Person.prototype.city = 'shen zhen';// 共有成员
+Person.prototype.city = &#39;shen zhen&#39;;// 共有成员
 ```
 </code></pre></div>
 <ul>
 <li>对象的继承</li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">1. 非构造函数的继承：继承可以简单使用对象之间的深、浅拷贝
+<div class="highlight"><pre><code class="language-text" data-lang="text">1. 非构造函数的继承：继承可以简单使用对象之间的深、浅拷贝
 
 2. 构造函数的继承：大多是基于原型的继承，但是阅读性差，也不利于扩展
 
@@ -239,11 +239,11 @@ Person.prototype.city = 'shen zhen';// 共有成员
     2. 子类prototype引用父类的prototype
     ``` javascript
     function A() {}
-    A.prototype.propA = 'a';
-    A.prototype.propB = 'b';
+    A.prototype.propA = &#39;a&#39;;
+    A.prototype.propB = &#39;b&#39;;
     function B() {}
     B.prototype = A.prototype; // 原型链引用，改成B.prototype = new A();可以解决引用的问题
-    B.prototype.propB = 'B'; // 函数重载
+    B.prototype.propB = &#39;B&#39;; // 函数重载
     B.prototype.constructor = B;
     var b = new B();
     ```
@@ -259,8 +259,8 @@ Person.prototype.city = 'shen zhen';// 共有成员
         sub.super = sup.prototype;// 保存原构造函数
         _f = null;
     }
-    A.prototype.propA = 'a';
-    A.prototype.propB = 'b';
+    A.prototype.propA = &#39;a&#39;;
+    A.prototype.propB = &#39;b&#39;;
     function B() {}
     extend(B, A);
     ```
@@ -297,9 +297,9 @@ Person.prototype.city = 'shen zhen';// 共有成员
             this._super(gender);
             this.name = name;
         },
-        role: 'teacher',
+        role: &#39;teacher&#39;,
         speek: function() {
-            console.log('Hello, i am a %s.', this.role);
+            console.log(&#39;Hello, i am a %s.&#39;, this.role);
         }
     });
     var Student = Person.extend({
@@ -307,9 +307,9 @@ Person.prototype.city = 'shen zhen';// 共有成员
             this._super(gender);
             this.name = name;
         },
-        role: 'student',
+        role: &#39;student&#39;,
         speek: function() {
-            console.log('Hello, i am a %s.', this.role);
+            console.log(&#39;Hello, i am a %s.&#39;, this.role);
         }
     });
     ```
@@ -668,9 +668,9 @@ $(&#39;.box&#39;)[0].appendChild(flag);
 </ul>
 
 <h6>使用事件代理</h6>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s1">'ul li'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="nx">fn</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;ul li&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="nx">fn</span><span class="p">);</span>
 <span class="c1">// better</span>
-<span class="nx">$</span><span class="p">(</span><span class="s1">'ul'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="s1">'li'</span><span class="p">,</span> <span class="nx">fn</span><span class="p">);</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;ul&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="s1">&#39;li&#39;</span><span class="p">,</span> <span class="nx">fn</span><span class="p">);</span>
 </code></pre></div>
 <p>使用事件代理（委托），当有新元素添加进来的时候，不需要再为它绑定事件，这里有<a href="http://jsfiddle.net/chemdemo/xy46G/2/">demo</a>可以查看效果。</p>
 

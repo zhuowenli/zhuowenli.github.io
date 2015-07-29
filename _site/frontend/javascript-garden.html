@@ -93,8 +93,8 @@
 <h2>对象使用和属性</h2>
 
 <p>JavaScript 中所有变量都是对象，除了两个例外 <a href="#core.undefined"><code>null</code></a> 和 <a href="#core.undefined"><code>undefined</code></a>。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">false.toString(); // 'false'
-[1, 2, 3].toString(); // '1,2,3'
+<div class="highlight"><pre><code class="language-text" data-lang="text">false.toString(); // &#39;false&#39;
+[1, 2, 3].toString(); // &#39;1,2,3&#39;
 
 function Foo(){}
 Foo.bar = 1;
@@ -102,10 +102,10 @@ Foo.bar; // 1
 </code></pre></div>
 <p>一个常见的误解是数字的字面值（literal）不是对象。这是因为 JavaScript 解析器的一个错误，
 它试图将<em>点操作符</em>解析为浮点数字面值的一部分。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">2.toString(); // 出错：SyntaxError
+<div class="highlight"><pre><code class="language-text" data-lang="text">2.toString(); // 出错：SyntaxError
 </code></pre></div>
 <p>有很多变通方法可以让数字的字面值看起来像对象。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">2..toString(); // 第二个点号可以正常解析
+<div class="highlight"><pre><code class="language-text" data-lang="text">2..toString(); // 第二个点号可以正常解析
 2 .toString(); // 注意点号前面的空格
 (2).toString(); // 2先被计算
 </code></pre></div>
@@ -115,23 +115,23 @@ Foo.bar; // 1
 
 <p>使用对象的字面语法 - <code>{}</code> - 可以创建一个简单对象。这个新创建的对象从 <code>Object.prototype</code>
 <a href="#object.prototype">继承</a>下面，没有任何<a href="#object.hasownproperty">自定义属性</a>。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">var foo = {}; // 一个空对象
+<div class="highlight"><pre><code class="language-text" data-lang="text">var foo = {}; // 一个空对象
 
-// 一个新对象，拥有一个值为12的自定义属性'test'
+// 一个新对象，拥有一个值为12的自定义属性&#39;test&#39;
 var bar = {test: 12}; 
 </code></pre></div>
 <h3>访问属性</h3>
 
 <p>有两种方式来访问对象的属性，点操作符或者中括号操作符。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">var foo = {name: 'kitten'}
+<div class="highlight"><pre><code class="language-text" data-lang="text">var foo = {name: &#39;kitten&#39;}
 foo.name; // kitten
-foo['name']; // kitten
+foo[&#39;name&#39;]; // kitten
 
-var get = 'name';
+var get = &#39;name&#39;;
 foo[get]; // kitten
 
 foo.1234; // SyntaxError
-foo['1234']; // works
+foo[&#39;1234&#39;]; // works
 </code></pre></div>
 <p>两种语法是等价的，但是中括号操作符在下面两种情况下依然有效
  - 动态设置属性
@@ -145,7 +145,7 @@ foo['1234']; // works
 
 <p>删除属性的唯一方法是使用 <code>delete</code> 操作符；设置属性为 <code>undefined</code> 或者 <code>null</code> 并不能真正的删除属性，
 而<strong>仅仅</strong>是移除了属性和值的关联。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">var obj = {
+<div class="highlight"><pre><code class="language-text" data-lang="text">var obj = {
     bar: 1,
     foo: 2,
     baz: 3
@@ -156,16 +156,16 @@ delete obj.baz;
 
 for(var i in obj) {
     if (obj.hasOwnProperty(i)) {
-        console.log(i, '' + obj[i]);
+        console.log(i, &#39;&#39; + obj[i]);
     }
 }
 </code></pre></div>
 <p>上面的输出结果有 <code>bar undefined</code> 和 <code>foo null</code> - 只有 <code>baz</code> 被真正的删除了，所以从输出结果中消失。</p>
 
 <h3>属性名的语法</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">var test = {
-    'case': 'I am a keyword so I must be notated as a string',
-    delete: 'I am a keyword too so me' // 出错：SyntaxError
+<div class="highlight"><pre><code class="language-text" data-lang="text">var test = {
+    &#39;case&#39;: &#39;I am a keyword so I must be notated as a string&#39;,
+    delete: &#39;I am a keyword too so me&#39; // 出错：SyntaxError
 };
 </code></pre></div>
 <p>对象的属性名可以使用字符串或者普通字符声明。但是由于 JavaScript 解析器的另一个错误设计，
@@ -191,7 +191,7 @@ other way around is a far more difficult task.)</p>
 <p><strong>注意:</strong> 简单的使用 <code>Bar.prototype = Foo.prototype</code> 将会导致两个对象共享<strong>相同</strong>的原型。
 因此，改变任意一个对象的原型都会影响到另一个对象的原型，在大多数情况下这不是希望的结果。</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-" data-lang="">function Foo() {
+<div class="highlight"><pre><code class="language-text" data-lang="text">function Foo() {
     this.value = 42;
 }
 Foo.prototype = {
@@ -202,7 +202,7 @@ function Bar() {}
 
 // 设置Bar的prototype属性为Foo的实例对象
 Bar.prototype = new Foo();
-Bar.prototype.foo = 'Hello World';
+Bar.prototype.foo = &#39;Hello World&#39;;
 
 // 修正Bar.prototype.constructor为Bar本身
 Bar.prototype.constructor = Bar;
@@ -212,7 +212,7 @@ var test = new Bar() // 创建Bar的一个新实例
 // 原型链
 test [Bar的实例]
     Bar.prototype [Foo的实例] 
-        { foo: 'Hello World' }
+        { foo: &#39;Hello World&#39; }
         Foo.prototype
             {method: ...};
             Object.prototype
@@ -238,7 +238,7 @@ test [Bar的实例]
 
 <p>当原型属性用来创建原型链时，可以把<strong>任何</strong>类型的值赋给它（prototype）。
 然而将原子类型赋给 prototype 的操作将会被忽略。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">function Foo() {}
+<div class="highlight"><pre><code class="language-text" data-lang="text">function Foo() {}
 Foo.prototype = 1; // 无效
 </code></pre></div>
 <p>而将对象赋值给 prototype，正如上面的例子所示，将会动态的创建原型链。</p>
@@ -275,7 +275,7 @@ Foo.prototype = 1; // 无效
 <blockquote>
 <p><strong>注意:</strong> <code>for in</code> 循环<strong>不会</strong>遍历那些 <code>enumerable</code> 设置为 <code>false</code> 的属性；比如数组的 <code>length</code> 属性。</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-" data-lang="">// 修改 Object.prototype
+<div class="highlight"><pre><code class="language-text" data-lang="text">// 修改 Object.prototype
 Object.prototype.bar = 1;
 
 var foo = {moo: 2};
@@ -293,8 +293,8 @@ for(var i in foo) {
 <h2>对象使用和属性</h2>
 
 <p>JavaScript 中所有变量都是对象，除了两个例外 <a href="#core.undefined"><code>null</code></a> 和 <a href="#core.undefined"><code>undefined</code></a>。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">false.toString(); // 'false'
-[1, 2, 3].toString(); // '1,2,3'
+<div class="highlight"><pre><code class="language-text" data-lang="text">false.toString(); // &#39;false&#39;
+[1, 2, 3].toString(); // &#39;1,2,3&#39;
 
 function Foo(){}
 Foo.bar = 1;
@@ -302,10 +302,10 @@ Foo.bar; // 1
 </code></pre></div>
 <p>一个常见的误解是数字的字面值（literal）不是对象。这是因为 JavaScript 解析器的一个错误，
 它试图将<em>点操作符</em>解析为浮点数字面值的一部分。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">2.toString(); // 出错：SyntaxError
+<div class="highlight"><pre><code class="language-text" data-lang="text">2.toString(); // 出错：SyntaxError
 </code></pre></div>
 <p>有很多变通方法可以让数字的字面值看起来像对象。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">2..toString(); // 第二个点号可以正常解析
+<div class="highlight"><pre><code class="language-text" data-lang="text">2..toString(); // 第二个点号可以正常解析
 2 .toString(); // 注意点号前面的空格
 (2).toString(); // 2先被计算
 </code></pre></div>
@@ -315,23 +315,23 @@ Foo.bar; // 1
 
 <p>使用对象的字面语法 - <code>{}</code> - 可以创建一个简单对象。这个新创建的对象从 <code>Object.prototype</code>
 <a href="#object.prototype">继承</a>下面，没有任何<a href="#object.hasownproperty">自定义属性</a>。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">var foo = {}; // 一个空对象
+<div class="highlight"><pre><code class="language-text" data-lang="text">var foo = {}; // 一个空对象
 
-// 一个新对象，拥有一个值为12的自定义属性'test'
+// 一个新对象，拥有一个值为12的自定义属性&#39;test&#39;
 var bar = {test: 12}; 
 </code></pre></div>
 <h3>访问属性</h3>
 
 <p>有两种方式来访问对象的属性，点操作符或者中括号操作符。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">var foo = {name: 'kitten'}
+<div class="highlight"><pre><code class="language-text" data-lang="text">var foo = {name: &#39;kitten&#39;}
 foo.name; // kitten
-foo['name']; // kitten
+foo[&#39;name&#39;]; // kitten
 
-var get = 'name';
+var get = &#39;name&#39;;
 foo[get]; // kitten
 
 foo.1234; // SyntaxError
-foo['1234']; // works
+foo[&#39;1234&#39;]; // works
 </code></pre></div>
 <p>两种语法是等价的，但是中括号操作符在下面两种情况下依然有效
  - 动态设置属性
@@ -345,7 +345,7 @@ foo['1234']; // works
 
 <p>删除属性的唯一方法是使用 <code>delete</code> 操作符；设置属性为 <code>undefined</code> 或者 <code>null</code> 并不能真正的删除属性，
 而<strong>仅仅</strong>是移除了属性和值的关联。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">var obj = {
+<div class="highlight"><pre><code class="language-text" data-lang="text">var obj = {
     bar: 1,
     foo: 2,
     baz: 3
@@ -356,16 +356,16 @@ delete obj.baz;
 
 for(var i in obj) {
     if (obj.hasOwnProperty(i)) {
-        console.log(i, '' + obj[i]);
+        console.log(i, &#39;&#39; + obj[i]);
     }
 }
 </code></pre></div>
 <p>上面的输出结果有 <code>bar undefined</code> 和 <code>foo null</code> - 只有 <code>baz</code> 被真正的删除了，所以从输出结果中消失。</p>
 
 <h3>属性名的语法</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">var test = {
-    'case': 'I am a keyword so I must be notated as a string',
-    delete: 'I am a keyword too so me' // 出错：SyntaxError
+<div class="highlight"><pre><code class="language-text" data-lang="text">var test = {
+    &#39;case&#39;: &#39;I am a keyword so I must be notated as a string&#39;,
+    delete: &#39;I am a keyword too so me&#39; // 出错：SyntaxError
 };
 </code></pre></div>
 <p>对象的属性名可以使用字符串或者普通字符声明。但是由于 JavaScript 解析器的另一个错误设计，
@@ -375,7 +375,7 @@ for(var i in obj) {
 必须使用<em>字符串字面值</em>声明方式。</p>
 
 <h3>使用 <code>hasOwnProperty</code> 过滤</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">// foo 变量是上例中的
+<div class="highlight"><pre><code class="language-text" data-lang="text">// foo 变量是上例中的
 for(var i in foo) {
     if (foo.hasOwnProperty(i)) {
         console.log(i);
@@ -400,18 +400,18 @@ for(var i in foo) {
 一个常见的用法是把<em>匿名函数</em>作为回调函数传递到异步函数中。</p>
 
 <h3>函数声明</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">function foo() {}
+<div class="highlight"><pre><code class="language-text" data-lang="text">function foo() {}
 </code></pre></div>
 <p>上面的方法会在执行前被 <a href="#function.scopes">解析(hoisted)</a>，因此它存在于当前上下文的<em>任意</em>一个地方，
 即使在函数定义体的上面被调用也是对的。 </p>
-<div class="highlight"><pre><code class="language-" data-lang="">foo(); // 正常运行，因为foo在代码运行前已经被创建
+<div class="highlight"><pre><code class="language-text" data-lang="text">foo(); // 正常运行，因为foo在代码运行前已经被创建
 function foo() {}
 </code></pre></div>
 <h3>函数赋值表达式</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">var foo = function() {};
+<div class="highlight"><pre><code class="language-text" data-lang="text">var foo = function() {};
 </code></pre></div>
 <p>这个例子把一个<em>匿名</em>的函数赋值给变量 <code>foo</code>。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">foo; // 'undefined'
+<div class="highlight"><pre><code class="language-text" data-lang="text">foo; // &#39;undefined&#39;
 foo(); // 出错：TypeError
 var foo = function() {};
 </code></pre></div>
@@ -422,7 +422,7 @@ var foo = function() {};
 <h3>命名函数的赋值表达式</h3>
 
 <p>另外一个特殊的情况是将命名函数赋值给一个变量。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">var foo = function bar() {
+<div class="highlight"><pre><code class="language-text" data-lang="text">var foo = function bar() {
     bar(); // 正常运行
 }
 bar(); // 出错：ReferenceError
@@ -442,7 +442,7 @@ bar(); // 出错：ReferenceError
 在<strong>五</strong>种不同的情况下 ，<code>this</code> 指向的各不相同。</p>
 
 <h3>全局范围内</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">this;
+<div class="highlight"><pre><code class="language-text" data-lang="text">this;
 </code></pre></div>
 <p>当在全部范围内使用 <code>this</code>，它将会指向<em>全局</em>对象。</p>
 
@@ -451,7 +451,7 @@ bar(); // 出错：ReferenceError
 </blockquote>
 
 <h3>函数调用</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">foo();
+<div class="highlight"><pre><code class="language-text" data-lang="text">foo();
 </code></pre></div>
 <p>这里 <code>this</code> 也会指向<em>全局</em>对象。</p>
 
@@ -461,18 +461,18 @@ bar(); // 出错：ReferenceError
 </blockquote>
 
 <h3>方法调用</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">test.foo(); 
+<div class="highlight"><pre><code class="language-text" data-lang="text">test.foo(); 
 </code></pre></div>
 <p>这个例子中，<code>this</code> 指向 <code>test</code> 对象。</p>
 
 <h3>调用构造函数</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">new foo(); 
+<div class="highlight"><pre><code class="language-text" data-lang="text">new foo(); 
 </code></pre></div>
 <p>如果函数倾向于和 <code>new</code> 关键词一块使用，则我们称这个函数是 <a href="#function.constructors">构造函数</a>。
 在函数内部，<code>this</code> 指向<em>新创建</em>的对象。</p>
 
 <h3>显式的设置 <code>this</code></h3>
-<div class="highlight"><pre><code class="language-" data-lang="">function foo(a, b, c) {}
+<div class="highlight"><pre><code class="language-text" data-lang="text">function foo(a, b, c) {}
 
 var bar = {};
 foo.apply(bar, [1, 2, 3]); // 数组将会被扩展，如下所示
@@ -493,7 +493,7 @@ foo.call(bar, 1, 2, 3); // 传递到foo的参数是：a = 1, b = 2, c = 3
 
 <p>尽管大部分的情况都说的过去，不过第一个规则（<strong><a href="http://cnblogs.com/sanshi/">译者注</a>：</strong>这里指的应该是第二个规则，也就是直接调用函数时，<code>this</code> 指向全局对象）
 被认为是JavaScript语言另一个错误设计的地方，因为它<strong>从来</strong>就没有实际的用途。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">Foo.method = function() {
+<div class="highlight"><pre><code class="language-text" data-lang="text">Foo.method = function() {
     function test() {
         // this 将会被设置为全局对象（译者注：浏览器环境中也就是 window 对象）
     }
@@ -503,7 +503,7 @@ foo.call(bar, 1, 2, 3); // 传递到foo的参数是：a = 1, b = 2, c = 3
 <p>一个常见的误解是 <code>test</code> 中的 <code>this</code> 将会指向 <code>Foo</code> 对象，实际上<strong>不是</strong>这样子的。</p>
 
 <p>为了在 <code>test</code> 中获取对 <code>Foo</code> 对象的引用，我们需要在 <code>method</code> 函数内部创建一个局部变量指向 <code>Foo</code> 对象。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">Foo.method = function() {
+<div class="highlight"><pre><code class="language-text" data-lang="text">Foo.method = function() {
     var that = this;
     function test() {
         // 使用 that 来指向 Foo 对象
@@ -517,13 +517,13 @@ foo.call(bar, 1, 2, 3); // 传递到foo的参数是：a = 1, b = 2, c = 3
 <h3>方法的赋值表达式</h3>
 
 <p>另一个看起来奇怪的地方是函数别名，也就是将一个方法<strong>赋值</strong>给一个变量。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">var test = someObject.methodTest;
+<div class="highlight"><pre><code class="language-text" data-lang="text">var test = someObject.methodTest;
 test();
 </code></pre></div>
 <p>上例中，<code>test</code> 就像一个普通的函数被调用；因此，函数内的 <code>this</code> 将不再被指向到 <code>someObject</code> 对象。</p>
 
 <p>虽然 <code>this</code> 的晚绑定特性似乎并不友好，但这确实是<a href="#object.prototype">基于原型继承</a>赖以生存的土壤。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">function Foo() {}
+<div class="highlight"><pre><code class="language-text" data-lang="text">function Foo() {}
 Foo.prototype.method = function() {};
 
 function Bar() {}
@@ -539,7 +539,7 @@ new Bar().method();
 因为 <a href="#function.scopes">函数</a> 是 JavaScript 中唯一拥有自身作用域的结构，因此闭包的创建依赖于函数。</p>
 
 <h3>模拟私有变量</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">function Counter(start) {
+<div class="highlight"><pre><code class="language-text" data-lang="text">function Counter(start) {
     var count = start;
     return {
         increment: function() {
@@ -563,7 +563,7 @@ foo.get(); // 5
 
 <p>因为 JavaScript 中不可以对作用域进行引用或赋值，因此没有办法在外部访问 <code>count</code> 变量。
 唯一的途径就是通过那两个闭包。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">var foo = new Counter(4);
+<div class="highlight"><pre><code class="language-text" data-lang="text">var foo = new Counter(4);
 foo.hack = function() {
     count = 1337;
 };
@@ -574,7 +574,7 @@ foo.hack = function() {
 <h3>循环中的闭包</h3>
 
 <p>一个常见的错误出现在循环中使用闭包，假设我们需要在每次循环中调用循环序号</p>
-<div class="highlight"><pre><code class="language-" data-lang="">for(var i = 0; i &lt; 10; i++) {
+<div class="highlight"><pre><code class="language-text" data-lang="text">for(var i = 0; i &lt; 10; i++) {
     setTimeout(function() {
         console.log(i);  
     }, 1000);
@@ -589,7 +589,7 @@ foo.hack = function() {
 <h3>避免引用错误</h3>
 
 <p>为了正确的获得循环序号，最好使用 <a href="#function.scopes">匿名包装器</a>（<strong><a href="http://cnblogs.com/sanshi/">译者注</a>：</strong>其实就是我们通常说的自执行匿名函数）。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">for(var i = 0; i &lt; 10; i++) {
+<div class="highlight"><pre><code class="language-text" data-lang="text">for(var i = 0; i &lt; 10; i++) {
     (function(e) {
         setTimeout(function() {
             console.log(e);  
@@ -602,7 +602,7 @@ foo.hack = function() {
 <p>当传递给 <code>setTimeout</code> 的匿名函数执行时，它就拥有了对 <code>e</code> 的引用，而这个值是<strong>不会</strong>被循环改变的。</p>
 
 <p>有另一个方法完成同样的工作，那就是从匿名包装器中返回一个函数。这和上面的代码效果一样。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">for(var i = 0; i &lt; 10; i++) {
+<div class="highlight"><pre><code class="language-text" data-lang="text">for(var i = 0; i &lt; 10; i++) {
     setTimeout((function(e) {
         return function() {
             console.log(e);
@@ -629,14 +629,14 @@ foo.hack = function() {
 <h3>转化为数组</h3>
 
 <p>下面的代码将会创建一个新的数组，包含所有 <code>arguments</code> 对象中的元素。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">Array.prototype.slice.call(arguments);
+<div class="highlight"><pre><code class="language-text" data-lang="text">Array.prototype.slice.call(arguments);
 </code></pre></div>
 <p>这个转化比较<strong>慢</strong>，在性能不好的代码中<strong>不推荐</strong>这种做法。</p>
 
 <h3>传递参数</h3>
 
 <p>下面是将参数从一个函数传递到另一个函数的推荐做法。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">function foo() {
+<div class="highlight"><pre><code class="language-text" data-lang="text">function foo() {
     bar.apply(null, arguments);
 }
 function bar(a, b, c) {
@@ -644,13 +644,13 @@ function bar(a, b, c) {
 }
 </code></pre></div>
 <p>另一个技巧是同时使用 <code>call</code> 和 <code>apply</code>，创建一个快速的解绑定包装器。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">function Foo() {}
+<div class="highlight"><pre><code class="language-text" data-lang="text">function Foo() {}
 
 Foo.prototype.method = function(a, b, c) {
     console.log(this, a, b, c);
 };
 
-// 创建一个解绑定的 "method"
+// 创建一个解绑定的 &quot;method&quot;
 // 输入参数为: this, arg1, arg2...argN
 Foo.method = function() {
 
@@ -659,7 +659,7 @@ Foo.method = function() {
 };
 </code></pre></div>
 <p><strong><a href="http://cnblogs.com/sanshi/">译者注</a></strong>：上面的 <code>Foo.method</code> 函数和下面代码的效果是一样的:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">Foo.method = function() {
+<div class="highlight"><pre><code class="language-text" data-lang="text">Foo.method = function() {
     var args = Array.prototype.slice.call(arguments);
     Foo.prototype.method.apply(args[0], args.slice(1));
 };
@@ -669,7 +669,7 @@ Foo.method = function() {
 <p><code>arguments</code> 对象为其内部属性以及函数形式参数创建 <em>getter</em> 和 <em>setter</em> 方法。</p>
 
 <p>因此，改变形参的值会影响到 <code>arguments</code> 对象的值，反之亦然。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">function foo(a, b, c) {
+<div class="highlight"><pre><code class="language-text" data-lang="text">function foo(a, b, c) {
     arguments[0] = 2;
     a; // 2                                                           
 
@@ -694,9 +694,9 @@ foo(1, 2, 3);
 </blockquote>
 
 <p><strong><a href="http://cnblogs.com/sanshi/">译者注</a>：</strong>在 <a href="https://developer.mozilla.org/en/JavaScript/Strict_mode">MDC</a> 中对 <code>strict mode</code> 模式下 <code>arguments</code> 的描述有助于我们的理解，请看下面代码：</p>
-<div class="highlight"><pre><code class="language-" data-lang="">// 阐述在 ES5 的严格模式下 `arguments` 的特性
+<div class="highlight"><pre><code class="language-text" data-lang="text">// 阐述在 ES5 的严格模式下 `arguments` 的特性
 function f(a) {
-  "use strict";
+  &quot;use strict&quot;;
   a = 42;
   return [a, arguments[0]];
 }
@@ -705,7 +705,7 @@ assert(pair[0] === 42);
 assert(pair[1] === 17);
 </code></pre></div>
 <p>然而，的确有一种情况会显著的影响现代 JavaScript 引擎的性能。这就是使用 <code>arguments.callee</code>。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">function foo() {
+<div class="highlight"><pre><code class="language-text" data-lang="text">function foo() {
     arguments.callee; // do something with this function object
     arguments.callee.caller; // and the calling function object
 }
@@ -735,7 +735,7 @@ function bigLoop() {
 这个<strong>新创建</strong>的对象的 <a href="#object.prototype"><code>prototype</code></a> 被指向到构造函数的 <code>prototype</code>。</p>
 
 <p>如果被调用的函数没有显式的 <code>return</code> 表达式，则隐式的会返回 <code>this</code> 对象 - 也就是新创建的对象。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">function Foo() {
+<div class="highlight"><pre><code class="language-text" data-lang="text">function Foo() {
     this.bla = 1;
 }
 
@@ -748,7 +748,7 @@ var test = new Foo();
 <p>上面代码把 <code>Foo</code> 作为构造函数调用，并设置新创建对象的 <code>prototype</code> 为 <code>Foo.prototype</code>。</p>
 
 <p>显式的 <code>return</code> 表达式将会影响返回结果，但<strong>仅限</strong>于返回的是一个对象。                                 </p>
-<div class="highlight"><pre><code class="language-" data-lang="">function Bar() {
+<div class="highlight"><pre><code class="language-text" data-lang="text">function Bar() {
     return 2;
 }
 new Bar(); // 返回新创建的对象
@@ -764,17 +764,17 @@ new Test(); // 返回的对象
 </code></pre></div>
 <p><strong><a href="http://cnblogs.com/sanshi/">译者注</a>：</strong><code>new Bar()</code> 返回的是新创建的对象，而不是数字的字面值 2。
 因此 <code>new Bar().constructor === Bar</code>，但是如果返回的是数字对象，结果就不同了，如下所示</p>
-<div class="highlight"><pre><code class="language-" data-lang="">function Bar() {
+<div class="highlight"><pre><code class="language-text" data-lang="text">function Bar() {
     return new Number(2);
 }
 new Bar().constructor === Number
 </code></pre></div>
 <p><strong><a href="http://cnblogs.com/sanshi/">译者注</a>：</strong>这里得到的 <code>new Test()</code>是函数返回的对象，而不是通过<code>new</code>关键字新创建的对象，因此：</p>
-<div class="highlight"><pre><code class="language-" data-lang="">(new Test()).value === undefined
+<div class="highlight"><pre><code class="language-text" data-lang="text">(new Test()).value === undefined
 (new Test()).foo === 1
 </code></pre></div>
 <p>如果 <code>new</code> 被遗漏了，则函数<strong>不会</strong>返回新创建的对象。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">function Foo() {
+<div class="highlight"><pre><code class="language-text" data-lang="text">function Foo() {
     this.bla = 1; // 获取设置全局参数
 }
 Foo(); // undefined
@@ -785,7 +785,7 @@ Foo(); // undefined
 <h3>工厂模式</h3>
 
 <p>为了不使用 <code>new</code> 关键字，构造函数必须显式的返回一个值。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">function Bar() {
+<div class="highlight"><pre><code class="language-text" data-lang="text">function Bar() {
     var value = 1;
     return {
         method: function() {
@@ -809,22 +809,22 @@ Bar();
 <p>在上面的例子中，使用或者不使用 <code>new</code> 关键字没有功能性的区别。</p>
 
 <p><strong><a href="http://cnblogs.com/sanshi/">译者注</a>：</strong>上面两种方式创建的对象不能访问 <code>Bar</code> 原型链上的属性，如下所示：</p>
-<div class="highlight"><pre><code class="language-" data-lang="">var bar1 = new Bar();
-typeof(bar1.method); // "function"
-typeof(bar1.foo); // "undefined"
+<div class="highlight"><pre><code class="language-text" data-lang="text">var bar1 = new Bar();
+typeof(bar1.method); // &quot;function&quot;
+typeof(bar1.foo); // &quot;undefined&quot;
 
 var bar2 = Bar();
-typeof(bar2.method); // "function"
-typeof(bar2.foo); // "undefined"
+typeof(bar2.method); // &quot;function&quot;
+typeof(bar2.foo); // &quot;undefined&quot;
 </code></pre></div>
 <h3>通过工厂模式创建新对象</h3>
 
 <p>我们常听到的一条忠告是<strong>不要</strong>使用 <code>new</code> 关键字来调用函数，因为如果忘记使用它就会导致错误。</p>
 
 <p>为了创建新对象，我们可以创建一个工厂方法，并且在方法内构造一个新对象。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">function Foo() {
+<div class="highlight"><pre><code class="language-text" data-lang="text">function Foo() {
     var obj = {};
-    obj.value = 'blub';
+    obj.value = &#39;blub&#39;;
 
     var private = 2;
     obj.someMethod = function(value) {
@@ -855,7 +855,7 @@ typeof(bar2.foo); // "undefined"
 
 <p>尽管 JavaScript 支持一对花括号创建的代码段，但是并不支持块级作用域；
 而仅仅支持 <em>函数作用域</em>。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">function test() { // 一个作用域
+<div class="highlight"><pre><code class="language-text" data-lang="text">function test() { // 一个作用域
     for(var i = 0; i &lt; 10; i++) { // 不是一个作用域
         // count
     }
@@ -868,7 +868,7 @@ typeof(bar2.foo); // "undefined"
 </blockquote>
 
 <p><strong><a href="http://cnblogs.com/sanshi/">译者注</a>：</strong>如果 <code>return</code> 对象的左括号和 <code>return</code> 不在一行上就会出错。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">// 译者注：下面输出 undefined
+<div class="highlight"><pre><code class="language-text" data-lang="text">// 译者注：下面输出 undefined
 function add(a, b) {
     return 
         a + b;
@@ -881,16 +881,16 @@ console.log(add(1, 2));
 如果到达全局作用域但是这个变量仍未找到，则会抛出 <code>ReferenceError</code> 异常。</p>
 
 <h3>隐式的全局变量</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">// 脚本 A
-foo = '42';
+<div class="highlight"><pre><code class="language-text" data-lang="text">// 脚本 A
+foo = &#39;42&#39;;
 
 // 脚本 B
-var foo = '42'
+var foo = &#39;42&#39;
 </code></pre></div>
 <p>上面两段脚本效果<strong>不同</strong>。脚本 A 在<em>全局</em>作用域内定义了变量 <code>foo</code>，而脚本 B 在<em>当前</em>作用域内定义变量 <code>foo</code>。</p>
 
 <p>再次强调，上面的效果<strong>完全不同</strong>，不使用 <code>var</code> 声明变量将会导致隐式的全局变量产生。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">// 全局作用域
+<div class="highlight"><pre><code class="language-text" data-lang="text">// 全局作用域
 var foo = 42;
 function test() {
     // 局部作用域
@@ -901,7 +901,7 @@ foo; // 21
 </code></pre></div>
 <p>在函数 <code>test</code> 内不使用 <code>var</code> 关键字声明 <code>foo</code> 变量将会覆盖外部的同名变量。
 起初这看起来并不是大问题，但是当有成千上万行代码时，不使用 <code>var</code> 声明变量将会带来难以跟踪的 BUG。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">// 全局作用域
+<div class="highlight"><pre><code class="language-text" data-lang="text">// 全局作用域
 var items = [/* 数组 */];
 for(var i = 0; i &lt; 10; i++) {
     subLoop();
@@ -921,7 +921,7 @@ function subLoop() {
 <h3>局部变量</h3>
 
 <p>JavaScript 中局部变量只可能通过两种方式声明，一个是作为<a href="#function">函数</a>参数，另一个是通过 <code>var</code> 关键字声明。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">// 全局变量
+<div class="highlight"><pre><code class="language-text" data-lang="text">// 全局变量
 var foo = 1;
 var bar = 2;
 var i = 2;
@@ -940,7 +940,7 @@ test(10);
 <h3>变量声明提升（Hoisting）</h3>
 
 <p>JavaScript 会<strong>提升</strong>变量声明。这意味着 <code>var</code> 表达式和 <code>function</code> 声明都将会被提升到当前作用域的顶部。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">bar();
+<div class="highlight"><pre><code class="language-text" data-lang="text">bar();
 var bar = function() {};
 var someValue = 42;
 
@@ -958,8 +958,8 @@ function test(data) {
 }
 </code></pre></div>
 <p>上面代码在运行之前将会被转化。JavaScript 将会把 <code>var</code> 表达式和 <code>function</code> 声明提升到当前作用域的顶部。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">// var 表达式被移动到这里
-var bar, someValue; // 缺省值是 'undefined'
+<div class="highlight"><pre><code class="language-text" data-lang="text">// var 表达式被移动到这里
+var bar, someValue; // 缺省值是 &#39;undefined&#39;
 
 // 函数声明也会提升
 function test(data) {
@@ -975,7 +975,7 @@ function test(data) {
     }
 }
 
-bar(); // 出错：TypeError，因为 bar 依然是 'undefined'
+bar(); // 出错：TypeError，因为 bar 依然是 &#39;undefined&#39;
 someValue = 42; // 赋值语句不会被提升规则（hoisting）影响
 bar = function() {};
 
@@ -986,13 +986,13 @@ test();
 <p>在原来代码中，<code>if</code> 表达式看起来修改了<em>全部变量</em> <code>goo</code>，实际上在提升规则被应用后，却是在修改<em>局部变量</em>。</p>
 
 <p>如果没有提升规则（hoisting）的知识，下面的代码看起来会抛出异常 <code>ReferenceError</code>。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">// 检查 SomeImportantThing 是否已经被初始化
+<div class="highlight"><pre><code class="language-text" data-lang="text">// 检查 SomeImportantThing 是否已经被初始化
 if (!SomeImportantThing) {
     var SomeImportantThing = {};
 }
 </code></pre></div>
 <p>实际上，上面的代码正常运行，因为 <code>var</code> 表达式会被提升到<em>全局作用域</em>的顶部。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">var SomeImportantThing;
+<div class="highlight"><pre><code class="language-text" data-lang="text">var SomeImportantThing;
 
 // 其它一些代码，可能会初始化 SomeImportantThing，也可能不会
 
@@ -1002,12 +1002,12 @@ if (!SomeImportantThing) {
 }
 </code></pre></div>
 <p><strong><a href="http://cnblogs.com/sanshi/">译者注</a>：</strong>在 Nettuts+ 网站有一篇介绍 hoisting 的<a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array">文章</a>，其中的代码很有启发性。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">// 译者注：来自 Nettuts+ 的一段代码，生动的阐述了 JavaScript 中变量声明提升规则
-var myvar = 'my value';  
+<div class="highlight"><pre><code class="language-text" data-lang="text">// 译者注：来自 Nettuts+ 的一段代码，生动的阐述了 JavaScript 中变量声明提升规则
+var myvar = &#39;my value&#39;;  
 
 (function() {  
     alert(myvar); // undefined  
-    var myvar = 'local value';  
+    var myvar = &#39;local value&#39;;  
 })();  
 </code></pre></div>
 <h3>名称解析顺序</h3>
@@ -1032,7 +1032,7 @@ var myvar = 'my value';
 <h3>命名空间</h3>
 
 <p>只有一个全局作用域导致的常见错误是命名冲突。在 JavaScript中，这可以通过 <em>匿名包装器</em> 轻松解决。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">(function() {
+<div class="highlight"><pre><code class="language-text" data-lang="text">(function() {
     // 函数创建一个命名空间
 
     window.foo = function() {
@@ -1042,13 +1042,13 @@ var myvar = 'my value';
 })(); // 立即执行此匿名函数
 </code></pre></div>
 <p>匿名函数被认为是 <a href="#function">表达式</a>；因此为了可调用性，它们首先会被执行。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">( // 小括号内的函数首先被执行
+<div class="highlight"><pre><code class="language-text" data-lang="text">( // 小括号内的函数首先被执行
 function() {}
 ) // 并且返回函数对象
 () // 调用上面的执行结果，也就是函数对象
 </code></pre></div>
 <p>有一些其他的调用函数表达式的方法，比如下面的两种方式语法不同，但是效果一模一样。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">// 另外两种方式
+<div class="highlight"><pre><code class="language-text" data-lang="text">// 另外两种方式
 +function(){}();
 (function(){}());
 </code></pre></div>
@@ -1077,7 +1077,7 @@ JavaScript 中只有<a href="#object.general">对象</a> 来管理键值的对�
 <h3>遍历</h3>
 
 <p>为了达到遍历数组的最佳性能，推荐使用经典的 <code>for</code> 循环。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">var list = [1, 2, 3, 4, 5, ...... 100000000];
+<div class="highlight"><pre><code class="language-text" data-lang="text">var list = [1, 2, 3, 4, 5, ...... 100000000];
 for(var i = 0, l = list.length; i &lt; l; i++) {
     console.log(list[i]);
 }
@@ -1092,7 +1092,7 @@ for(var i = 0, l = list.length; i &lt; l; i++) {
 <h3><code>length</code> 属性</h3>
 
 <p><code>length</code> 属性的 <em>getter</em> 方式会简单的返回数组的长度，而 <em>setter</em> 方式会<strong>截断</strong>数组。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">var foo = [1, 2, 3, 4, 5, 6];
+<div class="highlight"><pre><code class="language-text" data-lang="text">var foo = [1, 2, 3, 4, 5, 6];
 foo.length = 3;
 foo; // [1, 2, 3]
 
@@ -1103,7 +1103,7 @@ foo; // [1, 2, 3]
 在 Firebug 中查看此时 <code>foo</code> 的值是： <code>[1, 2, 3, undefined, undefined, undefined]</code>
 但是这个结果并不准确，如果你在 Chrome 的控制台查看 <code>foo</code> 的结果，你会发现是这样的： <code>[1, 2, 3]</code>
 因为在 JavaScript 中 <code>undefined</code> 是一个变量，注意是变量不是关键字，因此上面两个结果的意义是完全不相同的。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">// 译者注：为了验证，我们来执行下面代码，看序号 5 是否存在于 foo 中。
+<div class="highlight"><pre><code class="language-text" data-lang="text">// 译者注：为了验证，我们来执行下面代码，看序号 5 是否存在于 foo 中。
 5 in foo; // 不管在 Firebug 或者 Chrome 都返回 false
 foo[5] = undefined;
 5 in foo; // 不管在 Firebug 或者 Chrome 都返回 true
@@ -1118,12 +1118,12 @@ foo[5] = undefined;
 <h2><code>Array</code> 构造函数</h2>
 
 <p>由于 <code>Array</code> 的构造函数在如何处理参数时有点模棱两可，因此总是推荐使用数组的字面语法 - <code>[]</code> - 来创建数组。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">[1, 2, 3]; // 结果: [1, 2, 3]
+<div class="highlight"><pre><code class="language-text" data-lang="text">[1, 2, 3]; // 结果: [1, 2, 3]
 new Array(1, 2, 3); // 结果: [1, 2, 3]
 
 [3]; // 结果: [3]
 new Array(3); // 结果: [] 
-new Array('3') // 结果: ['3']
+new Array(&#39;3&#39;) // 结果: [&#39;3&#39;]
 
 // 译者注：因此下面的代码将会使人很迷惑
 new Array(3, 4, 5); // 结果: [3, 4, 5] 
@@ -1139,12 +1139,12 @@ new Array(3) // 结果: []，此数组长度为 3
 <blockquote>
 <p><strong>译者注：</strong>在 Firebug 中，你会看到 <code>[undefined, undefined, undefined]</code>，这其实是不对的。在上一节有详细的分析。</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-" data-lang="">var arr = new Array(3);
+<div class="highlight"><pre><code class="language-text" data-lang="text">var arr = new Array(3);
 arr[1]; // undefined
 1 in arr; // false, 数组还没有生成
 </code></pre></div>
 <p>这种优先于设置数组长度属性的做法只在少数几种情况下有用，比如需要循环字符串，可以避免 <code>for</code> 循环的麻烦。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">new Array(count + 1).join(stringToRepeat);
+<div class="highlight"><pre><code class="language-text" data-lang="text">new Array(count + 1).join(stringToRepeat);
 </code></pre></div>
 <blockquote>
 <p><strong>译者注：</strong> <code>new Array(3).join(&#39;#&#39;)</code> 将会返回 <code>##</code></p>
@@ -1165,15 +1165,15 @@ arr[1]; // undefined
 <p>等于操作符由两个等号组成：<code>==</code></p>
 
 <p>JavaScript 是<em>弱类型</em>语言，这就意味着，等于操作符会为了比较两个值而进行<strong>强制类型转换</strong>。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">""           ==   "0"           // false
-0            ==   ""            // true
-0            ==   "0"           // true
-false        ==   "false"       // false
-false        ==   "0"           // true
+<div class="highlight"><pre><code class="language-text" data-lang="text">&quot;&quot;           ==   &quot;0&quot;           // false
+0            ==   &quot;&quot;            // true
+0            ==   &quot;0&quot;           // true
+false        ==   &quot;false&quot;       // false
+false        ==   &quot;0&quot;           // true
 false        ==   undefined     // false
 false        ==   null          // false
 null         ==   undefined     // true
-" \t\r\n"    ==   0             // true
+&quot; \t\r\n&quot;    ==   0             // true
 </code></pre></div>
 <p>上面的表格展示了强制类型转换，这也是使用 <code>==</code> 被广泛认为是不好编程习惯的主要原因，
 由于它的复杂转换规则，会导致难以跟踪的问题。</p>
@@ -1185,27 +1185,27 @@ null         ==   undefined     // true
 <p>严格等于操作符由<strong>三</strong>个等号组成：<code>===</code></p>
 
 <p>不像普通的等于操作符，严格等于操作符<strong>不会</strong>进行强制类型转换。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">""           ===   "0"           // false
-0            ===   ""            // false
-0            ===   "0"           // false
-false        ===   "false"       // false
-false        ===   "0"           // false
+<div class="highlight"><pre><code class="language-text" data-lang="text">&quot;&quot;           ===   &quot;0&quot;           // false
+0            ===   &quot;&quot;            // false
+0            ===   &quot;0&quot;           // false
+false        ===   &quot;false&quot;       // false
+false        ===   &quot;0&quot;           // false
 false        ===   undefined     // false
 false        ===   null          // false
 null         ===   undefined     // false
-" \t\r\n"    ===   0             // false
+&quot; \t\r\n&quot;    ===   0             // false
 </code></pre></div>
 <p>上面的结果更加清晰并有利于代码的分析。如果两个操作数类型不同就肯定不相等也有助于性能的提升。</p>
 
 <h3>比较对象</h3>
 
 <p>虽然 <code>==</code> 和 <code>===</code> 操作符都是等于操作符，但是当其中有一个操作数为对象时，行为就不同了。</p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="p">{}</span><span class="w"> </span><span class="err">===</span><span class="w"> </span><span class="p">{}</span><span class="err">;</span><span class="w">                   </span><span class="err">//</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span><span class="err">new</span><span class="w"> </span><span class="err">String('foo')</span><span class="w"> </span><span class="err">===</span><span class="w"> </span><span class="err">'foo';</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span><span class="err">new</span><span class="w"> </span><span class="err">Number(</span><span class="mi">10</span><span class="err">)</span><span class="w"> </span><span class="err">===</span><span class="w"> </span><span class="mi">10</span><span class="err">;</span><span class="w">       </span><span class="err">//</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span><span class="err">var</span><span class="w"> </span><span class="err">foo</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">{}</span><span class="err">;</span><span class="w">
-</span><span class="err">foo</span><span class="w"> </span><span class="err">===</span><span class="w"> </span><span class="err">foo;</span><span class="w">                 </span><span class="err">//</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></code></pre></div>
+<div class="highlight"><pre><code class="language-text" data-lang="text">{} === {};                   // false
+new String(&#39;foo&#39;) === &#39;foo&#39;; // false
+new Number(10) === 10;       // false
+var foo = {};
+foo === foo;                 // true
+</code></pre></div>
 <p>这里等于操作符比较的<strong>不是</strong>值是否相等，而是是否属于同一个<strong>身份</strong>；也就是说，只有对象的同一个实例才被认为是相等的。
 这有点像 Python 中的 <code>is</code> 和 C 中的指针比较。</p>
 
@@ -1233,10 +1233,10 @@ null         ===   undefined     // false
 </blockquote>
 
 <h3>JavaScript 类型表格</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">Value               Class      Type
+<div class="highlight"><pre><code class="language-text" data-lang="text">Value               Class      Type
 -------------------------------------
-"foo"               String     string
-new String("foo")   String     object
+&quot;foo&quot;               String     string
+new String(&quot;foo&quot;)   String     object
 1.2                 Number     number
 new Number(1.2)     Number     object
 true                Boolean    boolean
@@ -1245,9 +1245,9 @@ new Date()          Date       object
 new Error()         Error      object
 [1,2,3]             Array      object
 new Array(1, 2, 3)  Array      object
-new Function("")    Function   function
+new Function(&quot;&quot;)    Function   function
 /abc/g              RegExp     object (function in Nitro/V8)
-new RegExp("meow")  RegExp     object (function in Nitro/V8)
+new RegExp(&quot;meow&quot;)  RegExp     object (function in Nitro/V8)
 {}                  Object     object
 new Object()        Object     object
 </code></pre></div>
@@ -1266,20 +1266,20 @@ new Object()        Object     object
 <h3>对象的类定义</h3>
 
 <p>JavaScript 标准文档只给出了一种获取 <code>[[Class]]</code> 值的方法，那就是使用 <code>Object.prototype.toString</code>。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">function is(type, obj) {
+<div class="highlight"><pre><code class="language-text" data-lang="text">function is(type, obj) {
     var clas = Object.prototype.toString.call(obj).slice(8, -1);
     return obj !== undefined &amp;&amp; obj !== null &amp;&amp; clas === type;
 }
 
-is('String', 'test'); // true
-is('String', new String('test')); // true
+is(&#39;String&#39;, &#39;test&#39;); // true
+is(&#39;String&#39;, new String(&#39;test&#39;)); // true
 </code></pre></div>
 <p>上面例子中，<code>Object.prototype.toString</code> 方法被调用，<a href="#function.this">this</a> 被设置为了需要获取 <code>[[Class]]</code> 值的对象。</p>
 
 <p><strong><a href="http://cnblogs.com/sanshi/">译者注</a>：</strong><code>Object.prototype.toString</code> 返回一种标准格式字符串，所以上例可以通过 <code>slice</code> 截取指定位置的字符串，如下所示：</p>
-<div class="highlight"><pre><code class="language-" data-lang="">Object.prototype.toString.call([])  // "[object Array]"
-Object.prototype.toString.call({})  // "[object Object]"
-Object.prototype.toString.call(2)   // "[object Number]"
+<div class="highlight"><pre><code class="language-text" data-lang="text">Object.prototype.toString.call([])  // &quot;[object Array]&quot;
+Object.prototype.toString.call({})  // &quot;[object Object]&quot;
+Object.prototype.toString.call(2)   // &quot;[object Number]&quot;
 </code></pre></div>
 <blockquote>
 <p><strong>ES5 提示:</strong> 在 ECMAScript 5 中，为了方便，对 <code>null</code> 和 <code>undefined</code> 调用 <code>Object.prototype.toString</code> 方法，
@@ -1287,16 +1287,16 @@ Object.prototype.toString.call(2)   // "[object Number]"
 </blockquote>
 
 <p><strong><a href="http://cnblogs.com/sanshi/">译者注</a>：</strong>这种变化可以从 IE8 和 Firefox 4 中看出区别，如下所示：</p>
-<div class="highlight"><pre><code class="language-" data-lang="">// IE8
-Object.prototype.toString.call(null)    // "[object Object]"
-Object.prototype.toString.call(undefined)   // "[object Object]"
+<div class="highlight"><pre><code class="language-text" data-lang="text">// IE8
+Object.prototype.toString.call(null)    // &quot;[object Object]&quot;
+Object.prototype.toString.call(undefined)   // &quot;[object Object]&quot;
 
 // Firefox 4
-Object.prototype.toString.call(null)    // "[object Null]"
-Object.prototype.toString.call(undefined)   // "[object Undefined]"
+Object.prototype.toString.call(null)    // &quot;[object Null]&quot;
+Object.prototype.toString.call(undefined)   // &quot;[object Undefined]&quot;
 </code></pre></div>
 <h3>测试为定义变量</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">typeof foo !== 'undefined'
+<div class="highlight"><pre><code class="language-text" data-lang="text">typeof foo !== &#39;undefined&#39;
 </code></pre></div>
 <p>上面代码会检测 <code>foo</code> 是否已经定义；如果没有定义而直接使用会导致 <code>ReferenceError</code> 的异常。
 这是 <code>typeof</code> 唯一有用的地方。</p>
@@ -1315,7 +1315,7 @@ Object.prototype.toString.call(undefined)   // "[object Undefined]"
 如果用来比较内置类型，将会和 <a href="#types.typeof"><code>typeof</code> 操作符</a> 一样用处不大。</p>
 
 <h3>比较自定义对象</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">function Foo() {}
+<div class="highlight"><pre><code class="language-text" data-lang="text">function Foo() {}
 function Bar() {}
 Bar.prototype = new Foo();
 
@@ -1327,11 +1327,11 @@ Bar.prototype = Foo;
 new Bar() instanceof Foo; // false
 </code></pre></div>
 <h3><code>instanceof</code> 比较内置类型</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">new String('foo') instanceof String; // true
-new String('foo') instanceof Object; // true
+<div class="highlight"><pre><code class="language-text" data-lang="text">new String(&#39;foo&#39;) instanceof String; // true
+new String(&#39;foo&#39;) instanceof Object; // true
 
-'foo' instanceof String; // false
-'foo' instanceof Object; // false
+&#39;foo&#39; instanceof String; // false
+&#39;foo&#39; instanceof Object; // false
 </code></pre></div>
 <p>有一点需要注意，<code>instanceof</code> 用来比较属于不同 JavaScript 上下文的对象（比如，浏览器中不同的文档结构）时将会出错，
 因为它们的构造函数不会是同一个对象。</p>
@@ -1344,18 +1344,18 @@ new String('foo') instanceof Object; // true
 <h2>类型转换</h2>
 
 <p>JavaScript 是<em>弱类型</em>语言，所以会在<strong>任何</strong>可能的情况下应用<em>强制类型转换</em>。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">// 下面的比较结果是：true
+<div class="highlight"><pre><code class="language-text" data-lang="text">// 下面的比较结果是：true
 new Number(10) == 10; // Number.toString() 返回的字符串被再次转换为数字
 
-10 == '10';           // 字符串被转换为数字
-10 == '+10 ';         // 同上
-10 == '010';          // 同上 
+10 == &#39;10&#39;;           // 字符串被转换为数字
+10 == &#39;+10 &#39;;         // 同上
+10 == &#39;010&#39;;          // 同上 
 isNaN(null) == false; // null 被转换为数字 0
                       // 0 当然不是一个 NaN（译者注：否定之否定）
 
 // 下面的比较结果是：false
 10 == 010;
-10 == '-10';
+10 == &#39;-10&#39;;
 </code></pre></div>
 <blockquote>
 <p><strong>ES5 提示:</strong> 以 <code>0</code> 开头的数字字面值会被作为八进制数字解析。
@@ -1368,7 +1368,7 @@ isNaN(null) == false; // null 被转换为数字 0
 <h3>内置类型的构造函数</h3>
 
 <p>内置类型（比如 <code>Number</code> 和 <code>String</code>）的构造函数在被调用时，使用或者不使用 <code>new</code> 的结果完全不同。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">new Number(10) === 10;     // False, 对象与数字的比较
+<div class="highlight"><pre><code class="language-text" data-lang="text">new Number(10) === 10;     // False, 对象与数字的比较
 Number(10) === 10;         // True, 数字与数字的比较
 new Number(10) + 0 === 10; // True, 由于隐式的类型转换
 </code></pre></div>
@@ -1380,32 +1380,32 @@ new Number(10) + 0 === 10; // True, 由于隐式的类型转换
 <p>最好的选择是把要比较的值<strong>显式</strong>的转换为三种可能的类型之一。</p>
 
 <h3>转换为字符串</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">'' + 10 === '10'; // true
+<div class="highlight"><pre><code class="language-text" data-lang="text">&#39;&#39; + 10 === &#39;10&#39;; // true
 </code></pre></div>
 <p>将一个值加上空字符串可以轻松转换为字符串类型。</p>
 
 <h3>转换为数字</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">+'10' === 10; // true
+<div class="highlight"><pre><code class="language-text" data-lang="text">+&#39;10&#39; === 10; // true
 </code></pre></div>
 <p>使用<strong>一元</strong>的加号操作符，可以把字符串转换为数字。</p>
 
 <p><strong><a href="http://cnblogs.com/sanshi/">译者注</a>：</strong>字符串转换为数字的常用方法：</p>
-<div class="highlight"><pre><code class="language-" data-lang="">+'010' === 10
-Number('010') === 10
-parseInt('010', 10) === 10  // 用来转换为整数
+<div class="highlight"><pre><code class="language-text" data-lang="text">+&#39;010&#39; === 10
+Number(&#39;010&#39;) === 10
+parseInt(&#39;010&#39;, 10) === 10  // 用来转换为整数
 
-+'010.2' === 10.2
-Number('010.2') === 10.2
-parseInt('010.2', 10) === 10
++&#39;010.2&#39; === 10.2
+Number(&#39;010.2&#39;) === 10.2
+parseInt(&#39;010.2&#39;, 10) === 10
 </code></pre></div>
 <h3>转换为布尔型</h3>
 
 <p>通过使用 <strong>否</strong> 操作符两次，可以把一个值转换为布尔型。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">!!'foo';   // true
-!!'';      // false
-!!'0';     // true
-!!'1';     // true
-!!'-1'     // true
+<div class="highlight"><pre><code class="language-text" data-lang="text">!!&#39;foo&#39;;   // true
+!!&#39;&#39;;      // false
+!!&#39;0&#39;;     // true
+!!&#39;1&#39;;     // true
+!!&#39;-1&#39;     // true
 !!{};      // true
 !!true;    // true
 </code></pre></div>
@@ -1414,28 +1414,28 @@ parseInt('010.2', 10) === 10
 <h2>为什么不要使用 <code>eval</code></h2>
 
 <p><code>eval</code> 函数会在当前作用域中执行一段 JavaScript 代码字符串。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">var foo = 1;
+<div class="highlight"><pre><code class="language-text" data-lang="text">var foo = 1;
 function test() {
     var foo = 2;
-    eval('foo = 3');
+    eval(&#39;foo = 3&#39;);
     return foo;
 }
 test(); // 3
 foo; // 1
 </code></pre></div>
 <p>但是 <code>eval</code> 只在被<strong>直接</strong>调用并且调用函数就是 <code>eval</code> 本身时，才在当前作用域中执行。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">var foo = 1;
+<div class="highlight"><pre><code class="language-text" data-lang="text">var foo = 1;
 function test() {
     var foo = 2;
     var bar = eval;
-    bar('foo = 3');
+    bar(&#39;foo = 3&#39;);
     return foo;
 }
 test(); // 2
 foo; // 3
 </code></pre></div>
 <p><strong><a href="http://cnblogs.com/sanshi/">译者注</a>：</strong>上面的代码等价于在全局作用域中调用 <code>eval</code>，和下面两种写法效果一样：</p>
-<div class="highlight"><pre><code class="language-" data-lang="">// 写法一：直接调用全局作用域下的 foo 变量
+<div class="highlight"><pre><code class="language-text" data-lang="text">// 写法一：直接调用全局作用域下的 foo 变量
 var foo = 1;
 function test() {
     var foo = 2;
@@ -1449,7 +1449,7 @@ foo; // 3
 var foo = 1;
 function test() {
     var foo = 2;
-    eval.call(window, 'foo = 3');
+    eval.call(window, &#39;foo = 3&#39;);
     return foo;
 }
 test(); // 2
@@ -1509,19 +1509,19 @@ foo; // 3
 
 <p>为了避免可能对 <code>undefined</code> 值的改变，一个常用的技巧是使用一个传递到<a href="#function.scopes">匿名包装器</a>的额外参数。
 在调用时，这个参数不会获取任何值。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">var undefined = 123;
+<div class="highlight"><pre><code class="language-text" data-lang="text">var undefined = 123;
 (function(something, foo, undefined) {
     // 局部作用域里的 undefined 变量重新获得了 `undefined` 值
 
-})('Hello World', 42);
+})(&#39;Hello World&#39;, 42);
 </code></pre></div>
 <p>另外一种达到相同目的方法是在函数内使用变量声明。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">var undefined = 123;
+<div class="highlight"><pre><code class="language-text" data-lang="text">var undefined = 123;
 (function(something, foo) {
     var undefined;
     ...
 
-})('Hello World', 42);
+})(&#39;Hello World&#39;, 42);
 </code></pre></div>
 <p>这里唯一的区别是，在压缩后并且函数内没有其它需要使用 <code>var</code> 声明变量的情况下，这个版本的代码会多出 4 个字节的代码。</p>
 
@@ -1544,12 +1544,12 @@ foo; // 3
 
 <p>JavaScript 不是一个没有分号的语言，恰恰相反上它需要分号来就解析源代码。
 因此 JavaScript 解析器在遇到由于缺少分号导致的解析错误时，会<strong>自动</strong>在源代码中插入分号。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">var foo = function() {
+<div class="highlight"><pre><code class="language-text" data-lang="text">var foo = function() {
 } // 解析错误，分号丢失
 test()
 </code></pre></div>
 <p>自动插入分号，解析器重新解析。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">var foo = function() {
+<div class="highlight"><pre><code class="language-text" data-lang="text">var foo = function() {
 }; // 没有错误，解析继续
 test()
 </code></pre></div>
@@ -1558,17 +1558,17 @@ test()
 <h3>工作原理</h3>
 
 <p>下面的代码没有分号，因此解析器需要自己判断需要在哪些地方插入分号。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">(function(window, undefined) {
+<div class="highlight"><pre><code class="language-text" data-lang="text">(function(window, undefined) {
     function test(options) {
-        log('testing!')
+        log(&#39;testing!&#39;)
 
         (options.list || []).forEach(function(i) {
 
         })
 
         options.value.test(
-            'long string to pass here',
-            'and another long string to pass'
+            &#39;long string to pass here&#39;,
+            &#39;and another long string to pass&#39;
         )
 
         return
@@ -1585,17 +1585,17 @@ test()
 })(window)
 </code></pre></div>
 <p>下面是解析器&quot;猜测&quot;的结果。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">(function(window, undefined) {
+<div class="highlight"><pre><code class="language-text" data-lang="text">(function(window, undefined) {
     function test(options) {
 
         // 没有插入分号，两行被合并为一行
-        log('testing!')(options.list || []).forEach(function(i) {
+        log(&#39;testing!&#39;)(options.list || []).forEach(function(i) {
 
         }); // &lt;- 插入分号
 
         options.value.test(
-            'long string to pass here',
-            'and another long string to pass'
+            &#39;long string to pass here&#39;,
+            &#39;and another long string to pass&#39;
         ); // &lt;- 插入分号
 
         return; // &lt;- 插入分号, 改变了 return 表达式的行为
@@ -1620,11 +1620,11 @@ test()
 <h3>前置括号</h3>
 
 <p>在前置括号的情况下，解析器<strong>不会</strong>自动插入分号。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">log('testing!')
+<div class="highlight"><pre><code class="language-text" data-lang="text">log(&#39;testing!&#39;)
 (options.list || []).forEach(function(i) {})
 </code></pre></div>
 <p>上面代码被解析器转换为一行。</p>
-<div class="highlight"><pre><code class="language-" data-lang="">log('testing!')(options.list || []).forEach(function(i) {})
+<div class="highlight"><pre><code class="language-text" data-lang="text">log(&#39;testing!&#39;)(options.list || []).forEach(function(i) {})
 </code></pre></div>
 <p><code>log</code> 函数的执行结果<strong>极大</strong>可能<strong>不是</strong>函数；这种情况下就会出现 <code>TypeError</code> 的错误，详细错误信息可能是 <code>undefined is not a function</code>。</p>
 

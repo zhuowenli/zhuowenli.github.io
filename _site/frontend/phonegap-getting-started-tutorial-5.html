@@ -63,7 +63,7 @@
                     </header>
                     <div class="article-body">
                         <p>使用<code>window.open()</code>方法可以让用户在应用程序内显示一个浏览器窗口，但是PhoneGap重写了这个方法。该方法与BOM（浏览器对象模型）的<code>window.open()</code>方法有很大的不同，其中一个最大的不同是该方法返回了一个<code>InAppBrowser</code>对象，用于引用这个新打开的窗口，从而可以在应用程序内控制这个窗口。</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">ref</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">'http://zwlme.com'</span><span class="p">,</span> <span class="s1">'_blank'</span><span class="p">,</span> <span class="s1">'location=yes'</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">ref</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;http://zwlme.com&#39;</span><span class="p">,</span> <span class="s1">&#39;_blank&#39;</span><span class="p">,</span> <span class="s1">&#39;location=yes&#39;</span><span class="p">);</span>
 </code></pre></div>
 <p>这个新打开的窗口是一个<code>InAppBrowser</code>实例，一般称之为InAppBrowser窗口。</p>
 
@@ -105,11 +105,11 @@
 
 <p>举个栗子：</p>
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// 使用绝对路径 </span>
-<span class="kd">var</span> <span class="nx">ref</span>  <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">'http://zwlme.com'</span><span class="p">,</span> <span class="s1">'_blank'</span><span class="p">,</span> <span class="s1">'location=yes'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">ref</span>  <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;http://zwlme.com&#39;</span><span class="p">,</span> <span class="s1">&#39;_blank&#39;</span><span class="p">,</span> <span class="s1">&#39;location=yes&#39;</span><span class="p">);</span>
 <span class="c1">// URL存在Unicode字符，因此应该用encodeURI()进行编码</span>
-<span class="kd">var</span> <span class="nx">ref2</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nb">encodeURI</span><span class="p">(</span><span class="s1">'http://www.baidu.com/s?wd=卓文理'</span><span class="p">),</span> <span class="s1">'_blank'</span><span class="p">,</span> <span class="s1">'location=yes'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">ref2</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nb">encodeURI</span><span class="p">(</span><span class="s1">&#39;http://www.baidu.com/s?wd=卓文理&#39;</span><span class="p">),</span> <span class="s1">&#39;_blank&#39;</span><span class="p">,</span> <span class="s1">&#39;location=yes&#39;</span><span class="p">);</span>
 <span class="c1">// 使用相对地址</span>
-<span class="kd">var</span> <span class="nx">ref</span>  <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">'next.html'</span><span class="p">,</span> <span class="s1">'_self'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">ref</span>  <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;next.html&#39;</span><span class="p">,</span> <span class="s1">&#39;_self&#39;</span><span class="p">);</span>
 </code></pre></div>
 <h2>关闭窗口</h2>
 
@@ -119,7 +119,7 @@
 <p>例如下列代码，可以实现窗口在打开5秒后关闭：</p>
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">onDeviceReady</span><span class="p">(){</span>
     <span class="c1">// 打开一个窗口</span>
-    <span class="kd">var</span> <span class="nx">ref</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">'http://zwlme.com'</span><span class="p">,</span> <span class="s1">'_blank'</span><span class="p">,</span> <span class="s1">'location=yes'</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">ref</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;http://zwlme.com&#39;</span><span class="p">,</span> <span class="s1">&#39;_blank&#39;</span><span class="p">,</span> <span class="s1">&#39;location=yes&#39;</span><span class="p">);</span>
     <span class="c1">// 打开5秒后关闭</span>
     <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
         <span class="nx">ref</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
@@ -129,7 +129,7 @@
 <h2>显示隐藏的网页</h2>
 
 <p>打开网页时功能项<code>hidden</code>被设置为<code>yes</code>，则会先加载网页但是不显示出来。要想随后显示可以调用<code>show()</code>方法来实现。</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">ref</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">'http://apache.org'</span><span class="p">,</span> <span class="s1">'_blank'</span><span class="p">,</span> <span class="s1">'hidden=yes'</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">ref</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;http://apache.org&#39;</span><span class="p">,</span> <span class="s1">&#39;_blank&#39;</span><span class="p">,</span> <span class="s1">&#39;hidden=yes&#39;</span><span class="p">);</span>
 <span class="c1">// 一段时间后...</span>
 <span class="nx">ref</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
 </code></pre></div>
@@ -153,16 +153,16 @@
 <li><p><strong>message</strong>: 返回出错消息，进适用于<code>loaderror</code>事件。 <em>(String)</em></p></li>
 </ul>
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// 打开一个窗口</span>
-<span class="kd">var</span> <span class="nx">ref</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">'http://zwlme.com'</span><span class="p">,</span> <span class="s1">'_blank'</span><span class="p">,</span> <span class="s1">'location=yes'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">ref</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;http://zwlme.com&#39;</span><span class="p">,</span> <span class="s1">&#39;_blank&#39;</span><span class="p">,</span> <span class="s1">&#39;location=yes&#39;</span><span class="p">);</span>
 
 <span class="c1">// 注册loadstart事件监听</span>
-<span class="nx">ref</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'loadstart'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">url</span><span class="p">);</span> <span class="p">});</span>
+<span class="nx">ref</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;loadstart&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">url</span><span class="p">);</span> <span class="p">});</span>
 
 <span class="c1">// 注册loadstop事件监听</span>
-<span class="nx">ref</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'loadstop'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">url</span><span class="p">);</span> <span class="p">});</span>
+<span class="nx">ref</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;loadstop&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">url</span><span class="p">);</span> <span class="p">});</span>
 
 <span class="c1">// 注册exit事件监听</span>
-<span class="nx">ref</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'exit'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">type</span><span class="p">);</span> <span class="p">});</span>
+<span class="nx">ref</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;exit&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">type</span><span class="p">);</span> <span class="p">});</span>
 </code></pre></div>
 <h2>JavaScript脚本注入</h2>
 
@@ -179,9 +179,9 @@
 <p>参数<code>callback</code>定义执行注入后的回调函数。如果插入的类型是<code>code</code>，<code>callback</code>函数将会被传递进一个参数（这个参数是一个<code>Array</code>类型），这是代码执行的返回值。对于多行代码，仅包含最后一行代码的返回值。</p>
 
 <p>这个方法一般都应该在文档加载完成后被执行，例如下列代码，当文档加载完成后把一个JavaScript文件注入到当前加载的页面：</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">ref</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">'http://zwlme.com'</span><span class="p">,</span> <span class="s1">'_blank'</span><span class="p">,</span> <span class="s1">'location=yes'</span><span class="p">);</span>
-<span class="nx">ref</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'loadstop'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">ref</span><span class="p">.</span><span class="nx">executeScript</span><span class="p">({</span><span class="na">file</span><span class="p">:</span> <span class="s2">"myscript.js"</span><span class="p">});</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">ref</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;http://zwlme.com&#39;</span><span class="p">,</span> <span class="s1">&#39;_blank&#39;</span><span class="p">,</span> <span class="s1">&#39;location=yes&#39;</span><span class="p">);</span>
+<span class="nx">ref</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;loadstop&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">ref</span><span class="p">.</span><span class="nx">executeScript</span><span class="p">({</span><span class="nx">file</span><span class="o">:</span> <span class="s2">&quot;myscript.js&quot;</span><span class="p">});</span>
 <span class="p">});</span>
 </code></pre></div>
 <h2>CSS样式注入</h2>
@@ -199,9 +199,9 @@
 <p>参数<code>callback</code>定义执行注入后的回调函数。</p>
 
 <p>这个方法一般都应该在文档加载完成后被执行，例如下列代码，当文档加载完成后把一个CSS样式文件注入到当前加载的页面：</p>
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">ref</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">'http://zwlme.com'</span><span class="p">,</span> <span class="s1">'_blank'</span><span class="p">,</span> <span class="s1">'location=yes'</span><span class="p">);</span>
-<span class="nx">ref</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'loadstop'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">ref</span><span class="p">.</span><span class="nx">insertCSS</span><span class="p">({</span><span class="na">file</span><span class="p">:</span> <span class="s2">"mystyles.css"</span><span class="p">});</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">ref</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;http://zwlme.com&#39;</span><span class="p">,</span> <span class="s1">&#39;_blank&#39;</span><span class="p">,</span> <span class="s1">&#39;location=yes&#39;</span><span class="p">);</span>
+<span class="nx">ref</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;loadstop&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">ref</span><span class="p">.</span><span class="nx">insertCSS</span><span class="p">({</span><span class="nx">file</span><span class="o">:</span> <span class="s2">&quot;mystyles.css&quot;</span><span class="p">});</span>
 <span class="p">});</span>
 </code></pre></div>
 <hr>

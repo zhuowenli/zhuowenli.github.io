@@ -72,8 +72,8 @@
 
 <p>你可能觉得实现效果非常简单，只需要以下代码：</p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nf">#lightbox</span><span class="p">{</span>
-    <span class="nl">background</span><span class="p">:</span> <span class="no">white</span><span class="p">;</span>
-    <span class="nl">border</span><span class="p">:</span> <span class="m">20px</span> <span class="nb">solid</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.3</span><span class="p">);</span>
+    <span class="k">background</span><span class="o">:</span> <span class="nb">white</span><span class="p">;</span>
+    <span class="k">border</span><span class="o">:</span> <span class="m">20px</span> <span class="k">solid</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">.</span><span class="m">3</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>
@@ -92,17 +92,17 @@
     幸运的是，CSS3有个属性拯救了我们！这个属性就是<code>background-clip</code>，它正是用来指定在一个盒模型中，究竟哪一部分能够用来显示背景。它做的事儿正如它的名字一样：<code>background-clip</code>（背景剪裁）。它可以将盒子的指定部分的背景裁去。这一属性可以有三个值，而且也可以加上浏览器前缀。以下就是该属性的三种设置。你不用同时使用如下代码，这里仅是为了显示方便而已：
 </p>
 <div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nf">#lightbox</span> <span class="p">{</span>
-<span class="nl">-moz-background-clip</span><span class="p">:</span> <span class="n">border</span><span class="p">;</span> <span class="c">/* Firefox 3.6 */</span>
-<span class="nl">-webkit-background-clip</span><span class="p">:</span> <span class="n">border</span><span class="p">;</span> <span class="c">/* Safari 4? Chrome 6? */</span>
-<span class="nl">background-clip</span><span class="p">:</span> <span class="n">border-box</span><span class="p">;</span> <span class="c">/* Firefox 4, Safari 5, Opera 10, IE 9 */</span>
+<span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="k">background</span><span class="o">-</span><span class="k">clip</span><span class="o">:</span> <span class="k">border</span><span class="p">;</span> <span class="c">/* Firefox 3.6 */</span>
+<span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="k">background</span><span class="o">-</span><span class="k">clip</span><span class="o">:</span> <span class="k">border</span><span class="p">;</span> <span class="c">/* Safari 4? Chrome 6? */</span>
+<span class="k">background</span><span class="o">-</span><span class="k">clip</span><span class="o">:</span> <span class="k">border</span><span class="o">-</span><span class="n">box</span><span class="p">;</span> <span class="c">/* Firefox 4, Safari 5, Opera 10, IE 9 */</span>
 
-<span class="nl">-moz-background-clip</span><span class="p">:</span> <span class="n">padding</span><span class="p">;</span> <span class="c">/* Firefox 3.6 */</span>
-<span class="nl">-webkit-background-clip</span><span class="p">:</span> <span class="n">padding</span><span class="p">;</span> <span class="c">/* Safari 4? Chrome 6? */</span>
-<span class="nl">background-clip</span><span class="p">:</span> <span class="n">padding-box</span><span class="p">;</span> <span class="c">/* Firefox 4, Safari 5, Opera 10, IE 9 */</span>
+<span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="k">background</span><span class="o">-</span><span class="k">clip</span><span class="o">:</span> <span class="k">padding</span><span class="p">;</span> <span class="c">/* Firefox 3.6 */</span>
+<span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="k">background</span><span class="o">-</span><span class="k">clip</span><span class="o">:</span> <span class="k">padding</span><span class="p">;</span> <span class="c">/* Safari 4? Chrome 6? */</span>
+<span class="k">background</span><span class="o">-</span><span class="k">clip</span><span class="o">:</span> <span class="k">padding</span><span class="o">-</span><span class="n">box</span><span class="p">;</span> <span class="c">/* Firefox 4, Safari 5, Opera 10, IE 9 */</span>
 
-<span class="nl">-moz-background-clip</span><span class="p">:</span> <span class="n">content</span><span class="p">;</span> <span class="c">/* Firefox 3.6 */</span>
-<span class="nl">-webkit-background-clip</span><span class="p">:</span> <span class="n">content</span><span class="p">;</span> <span class="c">/* Safari 4? Chrome 6? */</span>
-<span class="nl">background-clip</span><span class="p">:</span> <span class="n">content-box</span><span class="p">;</span> <span class="c">/* Firefox 4, Safari 5, Opera 10, IE 9 */</span><span class="p">}</span>
+<span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="k">background</span><span class="o">-</span><span class="k">clip</span><span class="o">:</span> <span class="k">content</span><span class="p">;</span> <span class="c">/* Firefox 3.6 */</span>
+<span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="k">background</span><span class="o">-</span><span class="k">clip</span><span class="o">:</span> <span class="k">content</span><span class="p">;</span> <span class="c">/* Safari 4? Chrome 6? */</span>
+<span class="k">background</span><span class="o">-</span><span class="k">clip</span><span class="o">:</span> <span class="k">content</span><span class="o">-</span><span class="n">box</span><span class="p">;</span> <span class="c">/* Firefox 4, Safari 5, Opera 10, IE 9 */</span><span class="p">}</span>
 </code></pre></div>
 <p>
     以下是图示：

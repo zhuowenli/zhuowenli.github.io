@@ -63,34 +63,34 @@
                     </header>
                     <div class="article-body">
                         <p>人脑不是机器，记忆都会退化，我们需要文档辅助作知识沉淀</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s2">"input[checked='checked']"</span><span class="p">);</span>  <span class="c1">// 比较快</span>
-<span class="nx">$</span><span class="p">(</span><span class="s2">"input:checked"</span><span class="p">);</span> <span class="c1">// 比较慢</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;input[checked=&#39;checked&#39;]&quot;</span><span class="p">);</span>  <span class="c1">// 比较快</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">&quot;input:checked&quot;</span><span class="p">);</span> <span class="c1">// 比较慢</span>
 </code></pre></div>
 <h4>合理使用选择器</h4>
 
 <ul>
 <li><p>id和标签选择器最快，因为直接调用原生API</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s2">"#box"</span><span class="p">);</span> <span class="c1">// document.getElementById | document.querySelector</span>
-<span class="nx">$</span><span class="p">(</span><span class="s2">"div"</span><span class="p">);</span>  <span class="c1">// document.getElementsByTagName</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#box&quot;</span><span class="p">);</span> <span class="c1">// document.getElementById | document.querySelector</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">);</span>  <span class="c1">// document.getElementsByTagName</span>
 </code></pre></div></li>
 <li><p>类选择器在低版本浏览器比较慢，伪元素、属性选择器在不支持<code>querySelector</code>的浏览器很慢</p></li>
 <li><p>尽可能优先使用符合CSS语法规范的CSS选择器表达式，以此来避免使用jQuery自定义的选择器表达式。因为当jQuery遇到单个id
 ，标签名，选择器就会快速调用浏览器支持的DOM方法查询</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s2">"input[checked='checked']"</span><span class="p">);</span>  <span class="c1">// 比较快</span>
-<span class="nx">$</span><span class="p">(</span><span class="s2">"input:checked"</span><span class="p">);</span> <span class="c1">// 比较慢</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;input[checked=&#39;checked&#39;]&quot;</span><span class="p">);</span>  <span class="c1">// 比较快</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">&quot;input:checked&quot;</span><span class="p">);</span> <span class="c1">// 比较慢</span>
 </code></pre></div></li>
 <li><p>优先选择<code>$.fn.find</code>查找子元素，因为<code>find</code>之前的选择器并没有使用jQuery自带的<code>Sizzie</code>选择器引擎，而是使用元素API查找元素</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s2">"#parent"</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s2">".child"</span><span class="p">);</span> <span class="c1">// 最快</span>
-<span class="nx">$</span><span class="p">(</span><span class="s2">".child,$("</span><span class="err">#</span><span class="nx">parent</span><span class="s2">")"</span><span class="p">);</span> <span class="c1">// 较快，内部会转换成第一条语句的形式，性能有一定损耗</span>
-<span class="nx">$</span><span class="p">(</span><span class="s2">"#parent .child"</span><span class="p">);</span> <span class="c1">// 不如上一个语句快</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#parent&quot;</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s2">&quot;.child&quot;</span><span class="p">);</span> <span class="c1">// 最快</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.child,$(&quot;</span><span class="err">#</span><span class="nx">parent</span><span class="s2">&quot;)&quot;</span><span class="p">);</span> <span class="c1">// 较快，内部会转换成第一条语句的形式，性能有一定损耗</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#parent .child&quot;</span><span class="p">);</span> <span class="c1">// 不如上一个语句快</span>
 </code></pre></div></li>
 <li><p>使用组合时，尽可能使右端更明确，因为Sizzie引擎是从右到左匹配的</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s2">".foo div.bar"</span><span class="p">);</span> <span class="c1">// 快</span>
-<span class="nx">$</span><span class="p">(</span><span class="s2">"div.foo .bar"</span><span class="p">);</span> <span class="c1">// 较慢</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.foo div.bar&quot;</span><span class="p">);</span> <span class="c1">// 快</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">&quot;div.foo .bar&quot;</span><span class="p">);</span> <span class="c1">// 较慢</span>
 </code></pre></div></li>
 <li><p>避免过度具体，简洁的DOM结构也有助于提升选择器性能</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s2">".foo .baz"</span><span class="p">);</span> <span class="c1">// 快</span>
-<span class="nx">$</span><span class="p">(</span><span class="s2">".foo .bar .baz"</span><span class="p">)</span> <span class="c1">// 慢</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.foo .baz&quot;</span><span class="p">);</span> <span class="c1">// 快</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.foo .bar .baz&quot;</span><span class="p">)</span> <span class="c1">// 慢</span>
 </code></pre></div></li>
 <li><p>尽量避免使用通配符选择器</p></li>
 </ul>
@@ -100,27 +100,27 @@
 <ul>
 <li>如<code>document.getElementById(&#39;nav&#39;)</code>，比<code>$(&quot;#nav&quot;)</code>快</li>
 <li><p>如获取元素id</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s2">"div"</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
     <span class="c1">//生成了个jQuery对象</span>
-    <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'id'</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
     <span class="c1">//酱紫更直接</span>
     <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
 <span class="p">});</span>
 </code></pre></div></li>
 <li><p>使用链式调用缓存jQuery对象</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"user"</span> <span class="na">class=</span><span class="s">"none"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"name"</span><span class="nt">&gt;&lt;/p&gt;</span>
-    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"city"</span><span class="nt">&gt;&lt;/p&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;user&quot;</span> <span class="na">class=</span><span class="s">&quot;none&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;&lt;/p&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;city&quot;</span><span class="nt">&gt;&lt;/p&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-</code></pre></div><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s2">"#user"</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">'.name'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">'zhangsan'</span><span class="p">).</span><span class="nx">end</span><span class="p">()</span>
-    <span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">'.city'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">'xiamen'</span><span class="p">).</span><span class="nx">end</span><span class="p">()</span>
-    <span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">'none'</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#user&quot;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.name&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">&#39;zhangsan&#39;</span><span class="p">).</span><span class="nx">end</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.city&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">&#39;xiamen&#39;</span><span class="p">).</span><span class="nx">end</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">);</span>
 </code></pre></div></li>
 <li><p>做好jQuery对象的缓存</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">box</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">".box"</span><span class="p">);</span>
-<span class="nx">box</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">'&gt; .cls1'</span><span class="p">);</span>
-<span class="nx">box</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">'&gt; .cls2'</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">box</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.box&quot;</span><span class="p">);</span>
+<span class="nx">box</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;&gt; .cls1&#39;</span><span class="p">);</span>
+<span class="nx">box</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;&gt; .cls2&#39;</span><span class="p">);</span>
 </code></pre></div></li>
 </ul>
 
@@ -128,7 +128,7 @@
 
 <ul>
 <li><p>复杂操作把元素从DOM移除在操作</p></p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">$el</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'.box'</span><span class="p">).</span><span class="nx">detach</span><span class="p">();</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">$el</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.box&#39;</span><span class="p">).</span><span class="nx">detach</span><span class="p">();</span>
 <span class="kd">var</span> <span class="nx">$p</span>  <span class="o">=</span> <span class="nx">$el</span><span class="p">.</span><span class="nx">parent</span><span class="p">();</span>
 
 <span class="c1">// do something...</span>
@@ -141,18 +141,18 @@
 <span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="nx">el</span><span class="p">){</span>
     <span class="nx">flag</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">el</span><span class="p">);</span>
 <span class="p">})</span>
-<span class="nx">$</span><span class="p">(</span><span class="s1">'.box'</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">addendChild</span><span class="p">(</span><span class="nx">flag</span><span class="p">);</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.box&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">addendChild</span><span class="p">(</span><span class="nx">flag</span><span class="p">);</span>
 
 <span class="c1">//性能差</span>
 <span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="nx">el</span><span class="p">){</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">'.box'</span><span class="p">).</span><span class="nx">prepend</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">));</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.box&#39;</span><span class="p">).</span><span class="nx">prepend</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">));</span>
 <span class="p">})</span>
 </code></pre></div></li>
 </ul>
 
 <h4>使用事件代理</h4>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s1">'ul'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span><span class="nx">li</span><span class="p">,</span><span class="nx">fn</span><span class="p">);</span> <span class="c1">// 较好</span>
-<span class="nx">$</span><span class="p">(</span><span class="s1">'ul li'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span><span class="nx">fn</span><span class="p">);</span> <span class="c1">// 较差</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;ul&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="nx">li</span><span class="p">,</span><span class="nx">fn</span><span class="p">);</span> <span class="c1">// 较好</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;ul li&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="nx">fn</span><span class="p">);</span> <span class="c1">// 较差</span>
 </code></pre></div>
 <p>使用事件代理（委托），当有新元素添加进来的时候，不需要在为它绑定事件，这里有<a target="_black" href="http://zhuowenli.qiniudn.com/wordpress/demo/event-delegation.html">demo</a>可以查看效果。</p>
 
