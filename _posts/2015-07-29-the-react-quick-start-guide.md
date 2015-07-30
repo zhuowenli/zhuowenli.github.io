@@ -8,6 +8,13 @@ tags: [javascript, react]
 
 这篇文章将概括性的介绍一下如何用 ReactJS 进行开发。我将介绍一些基础知识，不会有过于深入的分析。你可以结合这些[代码](https://github.com/zhuowenli/react-starter-kit)阅读本文。
 
+<div class="atom">
+  <div class="oval oval-forward"></div>
+  <div class="oval oval-backward"></div>
+  <div class="oval oval-horizontal"></div>
+  <div class="circle"></div>
+</div>
+
 ##概念
 
 React 的 API 非常少，简单、易懂、易用。在正式开始之前先介绍几个概念，一个一个来。
@@ -226,3 +233,13 @@ React.render(<PhotoGallery photos={data} />, document.body);
 
 如果本文有什么错误之处，欢迎在下方评论，或者给我提 pull request。尽情给我发邮件吧，我很乐意效劳。
 
+P.S - 如果你准备开发一个更复杂的 React 应用，推荐阅读 [Flux 入门教程](http://www.zhuowenli.com/frontend/the-flux-quick-start-guide.html)。
+
+<style type="text/css">
+    .atom { position: relative; width: 200px; height: 200px; margin: 100px auto -50px;}
+    .oval { width: 200px; height: 75px; border: 5px solid #61DAFB; border-radius: 50%; }
+    .oval-forward { -moz-transform: rotate(65deg); -ms-transform: rotate(65deg); -webkit-transform: rotate(65deg); transform: rotate(65deg); }
+    .oval-backward { margin-top: -75px; -moz-transform: rotate(-65deg); -ms-transform: rotate(-65deg); -webkit-transform: rotate(-65deg); transform: rotate(-65deg); }
+    .oval-horizontal { margin-top: -75px; }
+    .circle { width: 40px; height: 40px; background: #61DAFB; border-radius: 40px; position: absolute; top: 19px; left: 80px; -moz-animation: pulse 2s ease-in-out infinite; -ms-animation: pulse 2s ease-in-out infinite; -webkit-animation: pulse 2s ease-in-out infinite; animation: pulse 2s ease-in-out infinite; }
+</style>

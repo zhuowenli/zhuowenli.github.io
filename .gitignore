@@ -1,4 +1,20 @@
-node_modules
-*.DS_Store
-
 .DS_Store
+composer.phar
+Thumbs.db
+/**/.cache/
+/**/*.log
+
+
+#bower
+bower_components
+
+# npm
+node_modules
+npm-debug.log
+
+#sass
+.sass-cache
+*.css.map
+config.codekit
+
+dump.rdb
