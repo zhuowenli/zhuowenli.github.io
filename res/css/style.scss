@@ -1342,11 +1342,11 @@ body{
                 border-bottom: 1px solid #eee
             }
             h3 {
-                font-size: 1.5em;
+                font-size: 1.35em;
                 line-height: 1.43
             }
             h4 {
-                font-size: 1.25em
+                font-size: 1.2em
             }
             h5 {
                 font-size: 1em
@@ -1362,6 +1362,9 @@ body{
             p{
                 text-indent: 2em;
                 padding: 0;
+            }
+            b, strong{
+                color: #000;
             }
             hr {
                 height: 4px;

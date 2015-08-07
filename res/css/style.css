@@ -1455,10 +1455,10 @@ body {
       line-height: 1.225;
       border-bottom: 1px solid #eee; }
     .article .article-body h3 {
-      font-size: 1.5em;
+      font-size: 1.35em;
       line-height: 1.43; }
     .article .article-body h4 {
-      font-size: 1.25em; }
+      font-size: 1.2em; }
     .article .article-body h5 {
       font-size: 1em; }
     .article .article-body h6 {
@@ -1470,6 +1470,8 @@ body {
     .article .article-body p {
       text-indent: 2em;
       padding: 0; }
+    .article .article-body b, .article .article-body strong {
+      color: #000; }
     .article .article-body hr {
       height: 4px;
       padding: 0;

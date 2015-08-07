@@ -21,3 +21,7 @@ author:
   bio: 我在这里，高清有码！
 
 rss_path: rss.xml
+
+include:      []
+exclude:      ["*.codekit", "*.lock"]
+keep_files:   [".git"]

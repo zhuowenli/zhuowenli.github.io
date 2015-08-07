@@ -1,18 +1,22 @@
 .DS_Store
+*.lock
 composer.phar
 Thumbs.db
 /**/.cache/
 /**/*.log
+/**/*.lock
 
+# exclude
+_site/
 
-#bower
+# bower
 bower_components
 
 # npm
 node_modules
 npm-debug.log
 
-#sass
+# sass
 .sass-cache
 *.css.map
 config.codekit
