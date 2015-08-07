@@ -102,6 +102,8 @@ MAC默认带有ruby的运行环境了，这个步骤可以跳过。
 
 至于在windows下，可以使用[Rubyinstaller](http://rubyinstaller.org/downloads/)安装。windows的安装还是一如既往的“无脑”，不多说了。
 
+至于Linux下可以参考[如何快速正确的安装 Ruby, Rails 运行环境](https://ruby-china.org/wiki/install_ruby_guide)。
+
 _附：[ruby安装说明](http://www.ruby-lang.org/zh_cn/downloads/)_
 
 如果想要快速体验ruby开发，可以参考：[20分钟体验 Ruby](http://www.ruby-lang.org/zh_cn/documentation/quickstart/)
