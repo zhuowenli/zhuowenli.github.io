@@ -1,27 +1,29 @@
 ---
 layout: post
-title:  通过GitHub Pages创建个人博客
+title:  通过GitHub Pages创建博客（一）
 subline: Build GitHub Blog Pages
 categories: frontend
 tags: [github, github pages, jekyll]
 ---
 
-本文将会教你如何在GitHub上创建自己的博客或主页。事实上网上有很多相关的文章，这里只是把自己在使用GitHub开发过程中的经验和总结分享给大家，方便大家逐步开始GitHub之旅。
+本系列文章将会教你如何通过GitHub，在GitHub上创建自己的博客或者项目主页。这里只是把自己在使用GitHub开发过程中的经验和总结分享给大家，方便大家逐步开始GitHub之旅。
 
-GitHub不仅为程序员提供了免费源代码托管空间，还为程序员提供了一个社交平台。不但允许大家在GitHub上创建自己的博客网站或主页（github pages），并且免费，不限流量，还可以绑定自己的域名。
+[GitHub](https://github.com/)不仅为程序员提供了免费源代码托管空间，还为程序员提供了一个社交平台。不但允许大家在GitHub上创建自己的博客网站或主页（[github pages](https://pages.github.com/)），并且免费，不限流量，还可以绑定自己的域名。
 
 但是GitHub提供的主页实际上是基于GitHub的源代码实现的，所以只支持上传静态的网页，不能在上面创建真正的博客系统。不过，万幸的是，GitHub支持一种叫[jekyll](http://jekyllcn.com/)的静态页面模板引擎，也就是说只要上传符合jekyll规范的文件，GitHub会用这种模板引擎为你转化静态页面和网站。
 
 ##关于jekyll
 
-在开始之前，有必要详细总结一下这个jekyll是什么。上面提到了它实际上是一个模板转化引擎。它同时也是GitHub上的一个开源项目：[Jekyll](https://github.com/jekyll/jekyll)
+这个jekyll到底是什么？
 
-jekyll本身基于__Ruby__，它实际上也可以看成是一种模板引擎[liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers)的扩展。jekyll对__liquid__的主要扩展在于两点：
+实际上jekyll本质上就是一个**模板转化引擎**。同时它也是GitHub上的一个开源项目：[Jekyll](https://github.com/jekyll/jekyll)
 
-- 内建专用于博客网站的对象，可以在模板中引用这些对象：page、site等
+jekyll本身基于Ruby，也可以看成是一种模板引擎[liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers)的扩展。jekyll对liquid的主要扩展在于两点：
+
+- 内建专用于博客网站的对象，可以在模板中引用这些对象：`page`、`site`等
 - 对liquid进行了扩展，方便构建博客网站
 
-类似其他的模板引擎一样，标记是模板引擎解析的关键，liquid设计了如下两种标记：
+类似其他的模板引擎一样，**标记**是模板引擎解析的关键，liquid设计了如下两种标记：
 
 {% raw %}
 - `{{ }}`：此标记表征的是将其中的变量转化成文本
@@ -30,27 +32,27 @@ jekyll本身基于__Ruby__，它实际上也可以看成是一种模板引擎[li
 
 显而易见的是，有了这种标记的支持，再加上jekyll内建的对象，构建网站就方便不少了。
 
-可能有朋友会更其他的服务器端脚本语言比较，比如`jsp`、`php`…，但是一定要记得的是，jekyll对模板的解析仅仅只有一次，它的目标就是将模板一次性的转化成静态网站，而不是上述的动态网站脚本语言。
+可能有朋友会更其他的服务器端脚本语言比较，比如`jsp`、`php`…，但是一定要记得的是，jekyll对模板的解析仅仅只有一次，它的目的就是将模板一次性的转化成静态网站，而不是上述的动态网站脚本语言。
 
 更多内容可以去阅读jekyll的[帮助文档][jekyllcn]，或者GitHub
 
 ##关于GitHub-Pages
 
-github-page是一个免费的静态网站托管平台，由github提供，它具有以下特点：
+github-pages是一个免费的静态网站托管平台，由github提供，它具有以下几个特点：
 
-- 免空间费，免流量费
+- 无限免费空间，无限免费流量
 - 具有项目主页和个人主页两种选择
 - 支持页面生成，可以使用jekyll来布局页面，使用markdown来书写正文
 - 可以自定义域名
 
-对于普通的博主来说，用哪种并无所谓，本系列文章将采用项目主页。更多关于主页类型，请参见：[User, Organization and Project Pages](https://help.github.com/articles/user-organization-and-project-pages "https://help.github.com/articles/user-organization-and-project-pages")
+对于普通的博主来说，用项目主页或者个人主页并无所谓。更多关于主页类型，请参见：[User, Organization and Project Pages](https://help.github.com/articles/user-organization-and-project-pages "https://help.github.com/articles/user-organization-and-project-pages")
 
-GitHub-Pages**仅仅**为我们提供了**静态页面的托管**，不要说不能用wordpress，连基本的评论，访问统计都得自己想办法（幸好都有解决方案，在下面会慢慢介绍）。
+github-pages**仅仅**为我们提供了**静态页面的托管**，不要说不能用wordpress，连基本的评论，访问统计都得自己想办法（幸好都有解决方案，接下去我们会慢慢介绍）。
 
 
 ###创建项目仓库
 
-在创建博客之前，还需要用已有的帐号创建一个项目。在Git中，项目被称为仓库(Repository)，仓库顾名思义，当然可以包含代码或者非代码。将来我们的网页或者模板实际上都是保存在这个仓库中的。
+在创建博客之前，还需要用自己的帐号创建一个项目。在Git中，项目被称为仓库(Repository)，仓库顾名思义，当然可以包含代码或者非代码。将来我们的网页或者模板实际上都是保存在这个仓库中的。
 
 登录后，访问[https://github.com/new](https://github.com/new)，创建仓库。
 
@@ -94,9 +96,13 @@ brew install git
 
 ###安装Ruby
 
-jekyll本身基于Ruby开发，因此，想要在本地构建一个测试环境需要具有Ruby的开发和运行环境。MAC默认带有ruby的运行环境了，这个步骤可以跳过。至于在windows下，可以使用[Rubyinstaller](http://rubyinstaller.org/downloads/)安装。[ruby安装说明](http://www.ruby-lang.org/zh_cn/downloads/)
+jekyll本身基于Ruby开发，因此，想要在本地构建一个测试环境需要具有Ruby的开发和运行环境。
 
-windows的安装还是一如既往的“无脑”，不多说了。
+MAC默认带有ruby的运行环境了，这个步骤可以跳过。
+
+至于在windows下，可以使用[Rubyinstaller](http://rubyinstaller.org/downloads/)安装。windows的安装还是一如既往的“无脑”，不多说了。
+
+_附：[ruby安装说明](http://www.ruby-lang.org/zh_cn/downloads/)_
 
 如果想要快速体验ruby开发，可以参考：[20分钟体验 Ruby](http://www.ruby-lang.org/zh_cn/documentation/quickstart/)
 
@@ -104,7 +110,7 @@ windows的安装还是一如既往的“无脑”，不多说了。
 
 Ruby Rails 3 中引入Bundle来管理项目中所有gem依赖，该命令只能在一个含有Gemfile的目录下执行。这里使用Bundle，可以很方便的帮我们安装好那些乱七八糟的环境。
 
-直接使用下面命令即可：
+打开你安装好的`Git Bash`，或者MAC下的`终端`。然后直接使用下面命令安装即可：
 
 ```bash
 $ gem install bundle
@@ -112,7 +118,7 @@ $ gem install bundle
 
 ###Gemfile和Bundle安装
 
-在根目录下创建一个叫`Gemfile`的文件，注意没有后缀，打开文件，输入
+在根目录下创建一个叫`Gemfile`的文件，注意没有后缀，打开文件，输入以下内容：
 
 ```bash
 source 'http://ruby.taobao.org/'
@@ -125,7 +131,7 @@ gem 'github-pages'
 $ bundle install
 ```
 
-命令会根据当前目录下的Gemfile，安装所需要的所有软件。这一步所安装的东西，可以说跟github本身的环境是完全一致的，所以可以确保本地如果没有错误，上传后也不会有错误。而且可以在将来使用下面命令，随时更新环境，十分方便
+该命令会根据当前目录下的Gemfile，安装所需要的所有软件。这一步所安装的东西，可以说跟github本身的环境是完全一致的，所以可以确保本地如果没有错误，上传后也不会有错误。而且可以在将来使用下面命令，随时更新环境，十分方便。
 
 ```bash
 $ bundle update
@@ -146,7 +152,7 @@ $ cd zhuowenli.github.io
 ```
 
 
-使用下面命令，就启动本地服务：
+使用下面命令，就可以启动本地服务：
 
 ```bash
 $ bundle exec jekyll serve
@@ -159,6 +165,10 @@ $ bundle exec jekyll serve
 jekyll此时会在localhost的4000端口监听http请求，用浏览器访问[http://localhost:4000/][localhost]，本地的页面出现了！
 
 ![][localhost:4000]
+
+至此，我们就知道了如何创建一个博客站，并且在线上及本地环境运行。接下来我会继续教大家如何从无到有一步一步的自定义创建博客，组织编辑内容，域名解析，评论统计等等。
+
+敬请期待~
 
 [localhost:4000]:{{site.BASE_PATH}}/img/post/github-pages/localhost.png
 [themes]:{{site.BASE_PATH}}/img/post/github-pages/themes.png
