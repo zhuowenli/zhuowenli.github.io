@@ -781,7 +781,9 @@ body{
             padding: 0 10em 0 0;
             -webkit-font-smoothing: antialiased;
         }
+        // 查看更多
         .read-more{
+            position: relative;
             border: 1px solid #4690ef;
             border-radius: 3px;
             color: #136ce1;
@@ -789,16 +791,33 @@ body{
             margin: 8px 0 0 0;
             padding: 4px 8px;
             text-decoration: none;
+            @include transition(all 0.4s cubic-bezier(0.2, 1, 0.3, 1));
+            &:before{
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #4690ef;
+                z-index: -1;
+                opacity: 0;
+                @include transform(scale3d(0.7, 1, 1));
+                @include transition(all 0.4s cubic-bezier(0.2, 1, 0.3, 1));
+            }
             &:hover{
-                background: #599bf1;
                 color: #fff;
+                &:before{
+                    opacity: 1;
+                    @include transform(translate3d(0, 0, 0));
+                }
             }
         }
     }
     .uplevel{
         display: block;
         margin: 24px 0 0px 0;
-        padding: 8px 0 32px 0;
+        padding: 8px 0 0 0;
         transition: all 200ms ease-out;
         .arrow{
             color: #495269;
@@ -833,12 +852,13 @@ body{
                 transition-delay: 0ms!important;
             }
         }
-        h1{
+        h2{
             color: #00bff3;
             display: inline-block;
             font: 15px/24px "Lucida Grande",verdana,$fontCn,sans-serif;
             letter-spacing: 3px;
             margin: 0 0 0 42px;
+            padding-bottom: 32px;
             text-transform: uppercase;
             vertical-align: middle;
         }
@@ -850,6 +870,23 @@ body{
                 color: tint(#495269, 10%);
                 @include transform(translateX(-5px));
             }
+        }
+    }
+    .back-menu{
+        opacity: 0.8;
+        transition: all 300ms linear;
+        h2{
+            color: #00bff3;
+            display: inline-block;
+            font: 15px/24px "Lucida Grande",verdana,$fontCn,sans-serif;
+            letter-spacing: 3px;
+            margin: 0 0 0 42px;
+            padding-bottom: 32px;
+            text-transform: uppercase;
+            vertical-align: middle;
+        }
+        &:hover{
+            opacity: 1;
         }
     }
 //-----------------------------------------------------
@@ -1265,7 +1302,7 @@ body{
 //-----------------------------------------------------
 
 // 类型: 正文内容
-// 说明: 
+// 说明:
 //-----------------------------------------------------
     .article{
         opacity: 0;
@@ -1283,7 +1320,7 @@ body{
                 opacity: 0.55;
             }
             .arrow{
-                color: #b1bac6;
+                color: #888;
                 display: block;
                 float: left;
                 font-size: 20px;
@@ -1296,7 +1333,7 @@ body{
                 display: block;
                 font-weight: bold;
                 letter-spacing: 0.3em;
-                margin: 0 0 0 24px;
+                margin: 0 0 0 12px;
             }
         }
         .article-info{
