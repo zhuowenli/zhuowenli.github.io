@@ -11,6 +11,6 @@ img: 2
 
 请用上下左右箭头or空格键等操作。
 
-<a class="entry-more" target="_blank" href="http://www.zwlme.com/share/mobile-interactive/"><img src="http://zhuowenli-data.stor.sinaapp.com/images/2014/08/mobile-design-interactive.png" alt="" width="960" height="537" /></a>
+<a class="entry-more" target="_blank" href="http://www.zwlme.com/share/mobile-interactive/"><img src="{{ site.qiniu }}/2014/08/05/mobile-design-interactive.png?imageView2/2/w/960"/></a>
 
 

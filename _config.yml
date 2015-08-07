@@ -1,5 +1,7 @@
 BASE_PATH:
 SITE_PATH: http://www.zwlme.com
+qiniu: http://zhuowenli.qiniudn.com
+
 paginate: 30 # pagination based on number of posts
 paginate_path: "page:num" #pagination generated sub path format
 encoding: utf-8

@@ -188,16 +188,16 @@ https://sublime.wbond.net/packages/DocBlockr
 ![][img12]
 
 
-[img1]: {{site.BASE_PATH}}/img/post/sublime/1.gif
-[img2]: {{site.BASE_PATH}}/img/post/sublime/2.gif
-[img3]: {{site.BASE_PATH}}/img/post/sublime/3.gif
-[img4]: {{site.BASE_PATH}}/img/post/sublime/4.gif
-[img5]: {{site.BASE_PATH}}/img/post/sublime/5.gif
-[img6]: {{site.BASE_PATH}}/img/post/sublime/6.gif
-[img7]: {{site.BASE_PATH}}/img/post/sublime/7.gif
-[img8]: {{site.BASE_PATH}}/img/post/sublime/8.gif
-[img9]: {{site.BASE_PATH}}/img/post/sublime/9.gif
-[img10]: {{site.BASE_PATH}}/img/post/sublime/10.gif
-[img11]: {{site.BASE_PATH}}/img/post/sublime/11.gif
-[img12]: {{site.BASE_PATH}}/img/post/sublime/12.jpg
+[img1]: {{site.qiniu}}/2015/03/06/1.gif
+[img2]: {{site.qiniu}}/2015/03/06/2.gif
+[img3]: {{site.qiniu}}/2015/03/06/3.gif
+[img4]: {{site.qiniu}}/2015/03/06/4.gif
+[img5]: {{site.qiniu}}/2015/03/06/5.gif
+[img6]: {{site.qiniu}}/2015/03/06/6.gif
+[img7]: {{site.qiniu}}/2015/03/06/7.gif
+[img8]: {{site.qiniu}}/2015/03/06/8.gif
+[img9]: {{site.qiniu}}/2015/03/06/9.gif
+[img10]: {{site.qiniu}}/2015/03/06/10.gif
+[img11]: {{site.qiniu}}/2015/03/06/11.gif
+[img12]: {{site.qiniu}}/2015/03/06/12.jpg
 

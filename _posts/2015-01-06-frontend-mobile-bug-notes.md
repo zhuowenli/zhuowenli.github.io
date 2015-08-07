@@ -85,5 +85,5 @@ openPop();  // 显示弹窗
 
 
 
-[img1]: {{ site.BASE_PATH }}/img/post/BugNotes/1.png
-[img2]: {{ site.BASE_PATH }}/img/post/BugNotes/2.png
+[img1]: {{ site.qiniu }}/2015/01/06/1.png
+[img2]: {{ site.qiniu }}/2015/01/06/2.png

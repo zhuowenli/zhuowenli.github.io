@@ -23,7 +23,7 @@ SVG采用的是使用文本来定义图形，这种文档结构非常适合于�
 
 现代浏览器基本上都支持SVG：[查看](http://caniuse.com/#search=svg)
 
-![]({{ site.BASE_PATH }}/img/post/SVGButton/1.png)
+![]({{ site.qiniu }}/2015/01/07/1.png)
 
 ok，接下来进入正文。
 
@@ -70,11 +70,11 @@ SVG放到`span.button`标签里面，用`data-morph-active`来保存点击后的
 我们可以通过API的路径工具来画一个形状出来。
 
 
-![]({{ site.BASE_PATH }}/img/post/SVGButton/2.png)
+![]({{ site.qiniu }}/2015/01/07/2.png)
 
 导出SVG文件。然后，通过编辑器打开这个SVG文件。就可以看到是一个类似XML的代码，接下来复制粘贴就行了。
 
-![]({{ site.BASE_PATH }}/img/post/SVGButton/3.png)
+![]({{ site.qiniu }}/2015/01/07/3.png)
 
 `span.button`通过绝对路径放入`a.nav-link`，并且宽高100%。当svg原始宽高大于外层固定的宽高时，它会按比例压缩大小。
 

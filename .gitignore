@@ -8,6 +8,8 @@ Thumbs.db
 
 # exclude
 _site/
+_img/
+qrsync.json
 
 # bower
 bower_components
