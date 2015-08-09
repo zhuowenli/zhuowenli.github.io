@@ -1000,7 +1000,6 @@ body {
     color: #555;
     font: 14px/1.6 "Lucida Grande",verdana,sans-serif;
     margin: 0 0 16px 0;
-    padding: 0 10em 0 0;
     -webkit-font-smoothing: antialiased; }
   .article .read-more {
     position: relative;
@@ -1506,6 +1505,8 @@ body {
     .article .article-body p {
       text-indent: 2em;
       padding: 0; }
+      .article .article-body p img {
+        margin-left: -2em; }
     .article .article-body b, .article .article-body strong {
       color: #000; }
     .article .article-body hr {
@@ -1639,3 +1640,50 @@ body {
   .spinner {
     right: 45%;
     margin-right: -250px; } }
+@media screen and (max-width: 800px) {
+  .post-page .post-menu {
+    position: static;
+    width: 100%; }
+    .post-page .post-menu .uplevel {
+      margin: 0; }
+      .post-page .post-menu .uplevel h2 {
+        display: none; }
+    .post-page .post-menu .stats {
+      display: none; }
+  .post-page .post-container {
+    position: static;
+    background: #fff;
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0); }
+  .post-page .post-backdrop {
+    display: none; }
+
+  .post-detail .post-menu {
+    display: none; }
+
+  .loading .post-page:not(.post-detail) .post-container, .loaded .post-page:not(.post-detail) .post-container {
+    -webkit-transform: translateX(0);
+    transform: translateX(0); }
+  .loading .post-page.post-detail .post-container, .loaded .post-page.post-detail .post-container {
+    opacity: 1; } }
+@media screen and (max-width: 640px) {
+  .post-page .post-container .article {
+    padding: 2em; }
+    .post-page .post-container .article h1 {
+      font-size: 1.75em; }
+    .post-page .post-container .article h2 {
+      font-size: 1.5em; }
+    .post-page .post-container .article h3 {
+      font-size: 1.25em; }
+  .post-page .post-container .footer {
+    padding: 2em; }
+
+  #disqus_thread {
+    padding: 2em; } }
+@media screen and (max-width: 400px) {
+  .post-page .post-container .article, .post-page .post-container .footer {
+    padding: 1em; }
+
+  #disqus_thread {
+    padding: 1em; } }
