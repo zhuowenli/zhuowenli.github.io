@@ -40,6 +40,10 @@ var app = {
                     clearInterval(interval);
                 };
             },50);
+        var article = $('.article-body');
+        if (article.html()) {
+            article.find('a').attr('target', '_blank');
+        };
     },
     bindLinkJump: function(){
         var body = $('body'),
