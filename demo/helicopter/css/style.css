@@ -1,12 +1,8 @@
 @charset "UTF-8";
-/*!
-* @Author: 卓文理
-* @Email:  531840344@qq.com
-* @Site:   www.zwlme.com
-* @Date:   2015-05-22 14:55:38
-* @Last Modified by:   卓文理
-* @Last Modified time: 2015-05-26 16:19:34
-*/
+/**
+ * @author: 卓文理
+ * @email : 531840344@qq.com
+ */
 /*
 KISSY CSS Reset
 理念：清除和重置是紧密不可分的
@@ -224,7 +220,7 @@ body {
     position: absolute;
     width: 194px;
     height: 71px;
-    background: transparent url("../../img/helicopter/body.png") left top no-repeat;
+    background: transparent url("../img/body.png") left top no-repeat;
     -webkit-transition: all 0.8s ease-in-out;
     transition: all 0.8s ease-in-out;
     z-index: 80; }
@@ -322,7 +318,7 @@ body {
 .helicopters .house {
   width: 100%;
   height: 100%;
-  background: transparent url("../../img/helicopter/hospital.png") center bottom no-repeat; }
+  background: transparent url("../img/hospital.png") center bottom no-repeat; }
 .helicopters.action .helicopter .spoiler .bar {
   -webkit-animation: rotationZ 1s linear infinite;
   animation: rotationZ 1s linear infinite; }

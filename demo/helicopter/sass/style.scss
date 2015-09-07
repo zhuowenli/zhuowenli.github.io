@@ -1,14 +1,10 @@
 @charset "utf-8";
-/*!
-* @Author: 卓文理
-* @Email:  531840344@qq.com
-* @Site:   www.zwlme.com
-* @Date:   2015-05-22 14:55:38
-* @Last Modified by:   卓文理
-* @Last Modified time: 2015-05-26 16:19:28
-*/
+/**
+ * @author: 卓文理
+ * @email : 531840344@qq.com
+ */
 
-@import '../../lib/sass/base';
+@import 'base';
 
 html{
 	height: 100%;
@@ -98,7 +94,6 @@ $yellow: #ffb50c;
 $gray: #484757;
 $red: #bf3616;
 
-
 .helicopters{
 	.helicopter{
 		position: absolute;
@@ -111,7 +106,7 @@ $red: #bf3616;
 			position: absolute;
 			width: 194px;
 			height: 71px;
-			background:transparent url('../../img/helicopter/body.png') left top no-repeat;
+			background:transparent url('../img/body.png') left top no-repeat;
 			@include transition(all 0.8s ease-in-out);
 			z-index: 80;
 		}
@@ -226,7 +221,7 @@ $red: #bf3616;
 	.house{
 		width: 100%;
 		height: 100%;
-		background:transparent url('../../img/helicopter/hospital.png') center bottom no-repeat;
+		background:transparent url('../img/hospital.png') center bottom no-repeat;
 	}
 	&.action{
 		.helicopter .spoiler .bar{
