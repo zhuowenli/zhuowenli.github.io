@@ -364,7 +364,7 @@ console.log(window.x); // 1
 
     * 服务器返回的请求响应文本：`xhr.responseText`
 
-* RUST API：`POST`, `GET`, `PUT`, `DELETE`
+* REST API：`POST`, `GET`, `PUT`, `DELETE`
 
     * GET：更多的用于**读**操作，参数暴露到url，（服务器端可能对）url长度有限制
 
