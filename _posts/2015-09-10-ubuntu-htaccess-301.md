@@ -3,7 +3,7 @@ layout: post
 title: Ubuntu下使用.htaccess实现301重定向
 subline: Ubuntu .htaccess 301
 categories: diary
-tags: [ubuntu, 301, htaccess]
+tags: [ubuntu, 301, htaccess, lamp]
 ---
 
 最近在[DigitalOcean][DigitalOcean]搞了台服务器(一个月只要$5哟~)，顺便把博客迁移到这上面。博主有两个域名：[zwlme.com][zwlme]、[zhuowenli.com][zhuowenli]，然后就想让所有的域名都可以直接跳转到[www.zhuowenli.com][zhuowenli]这个主域名上。
