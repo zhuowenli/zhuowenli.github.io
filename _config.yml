@@ -24,6 +24,6 @@ author:
 
 rss_path: rss.xml
 
-include:      []
+include:      [".htaccess"]
 exclude:      ["*.codekit", "*.lock"]
 keep_files:   [".git"]
