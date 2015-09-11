@@ -1590,6 +1590,10 @@ body {
       background: transparent;
       border: 0;
       font: 14px Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+    .article .article-body iframe {
+      width: 100%;
+      height: auto;
+      min-height: 380px; }
     .article .article-body .highlight {
       margin-bottom: 16px; }
       .article .article-body .highlight pre {

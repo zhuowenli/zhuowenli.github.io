@@ -1509,6 +1509,14 @@ body{
                 border: 0;
                 font: 14px Consolas, "Liberation Mono", Menlo, Courier, monospace;
             }
+            // iframe
+            iframe{
+                width: 100%;
+                height: auto;
+                min-height: 380px;
+            }
+
+            // 代码高亮
             .highlight {
                 margin-bottom: 16px;
                 pre {
