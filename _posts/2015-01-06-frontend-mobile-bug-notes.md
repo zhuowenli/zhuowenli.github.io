@@ -57,7 +57,21 @@ _content.append(html);  // 填充弹窗
 openPop();  // 显示弹窗
 ```
 
-<hr>
+### 移动端:active伪类事件失效
+
+####BUG原因
+
+Safari Mobile 默认不使用`:active` 状态，除非元素上或`<body>`上有一个`touchstart` 事件处理器。
+
+相关链接：[https://developer.mozilla.org/zh-CN/docs/Web/CSS/%3Aactive](https://developer.mozilla.org/zh-CN/docs/Web/CSS/%3Aactive)
+
+####解决办法
+
+```
+document.body.addEventListener('touchstart', function () {});
+```
+
+-----------------
 
 
 ##Android
@@ -70,16 +84,13 @@ openPop();  // 显示弹窗
 
 ![][img2]
 
-<h4>BUG原因</h4>
+####BUG原因
 
 部分手机浏览器不支持 **&#xe + 3位16进制** 的Unicode字符，如`&#xe61a;`
 
 ####解决办法
 
 把字体图标编码制作成 **&#xe + 4位16进制** 即可，如`&#xe601a`;
-
-
-
 
 
 
