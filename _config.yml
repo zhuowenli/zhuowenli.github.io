@@ -25,5 +25,5 @@ author:
 rss_path: rss.xml
 
 include:      [".htaccess"]
-exclude:      ["*.codekit", "*.lock"]
+exclude:      ["*.codekit", "*.lock", "Gulpfile.js", "Gemfile", "LICENSE", "node_modules"]
 keep_files:   [".git"]
