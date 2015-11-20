@@ -187,6 +187,24 @@ https://sublime.wbond.net/packages/DocBlockr
 
 ![][img12]
 
+####CSSREM
+
+功能：px值转rem
+
+简介：一个CSS的px值转rem值的Sublime Text 3自动完成插件。
+
+使用：
+
+参数配置文件：Sublime Text -> Preferences -> Package Settings -> cssrem
+
+- `px_to_rem` - px转rem的单位比例，默认为40。
+- `max_rem_fraction_length` - px转rem的小数部分的最大长度。默认为6。
+- `available_file_types` - 启用此插件的文件类型。默认为：[".css", ".less", ".sass"]。
+
+[https://github.com/flashlizi/cssrem](https://github.com/flashlizi/cssrem)
+
+![][img13]
+
 
 [img1]: {{site.qiniu}}/2015/03/06/1.gif
 [img2]: {{site.qiniu}}/2015/03/06/2.gif
@@ -200,4 +218,5 @@ https://sublime.wbond.net/packages/DocBlockr
 [img10]: {{site.qiniu}}/2015/03/06/10.gif
 [img11]: {{site.qiniu}}/2015/03/06/11.gif
 [img12]: {{site.qiniu}}/2015/03/06/12.jpg
+[img13]: {{site.qiniu}}/2015/03/06/13.gif
 

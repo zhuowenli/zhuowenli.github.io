@@ -9,6 +9,7 @@ Thumbs.db
 # exclude
 _site/
 _img/
+qrsync
 qrsync.json
 
 # bower
