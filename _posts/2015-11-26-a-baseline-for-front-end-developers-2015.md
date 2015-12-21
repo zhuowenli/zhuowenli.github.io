@@ -6,12 +6,7 @@ categories: frontend
 tags: [javascript, front-end]
 ---
 
-原文：[A Baseline for Front-End ‘JS’ Developers: 2015](http://rmurphey.com/blog/2015/03/23/a-baseline-for-front-end-developers-2015/)
-翻译：MrSunny
-链接：[http://zhuanlan.zhihu.com/FrontendMagazine/20002850](http://zhuanlan.zhihu.com/FrontendMagazine/20002850)
-来源：[知乎](http://zhuanlan.zhihu.com/FrontendMagazine/20002850)
-
-上次我写[《前端工程师必知必会》]()已经是三年前了，那是我写过最火的文章了。三年了，我仍然会在Twitter上收到关于这篇文章的消息。
+上次我写[《前端工程师必知必会》](http://rmurphey.com/blog/2012/04/12/a-baseline-for-front-end-developers/)已经是三年前了，那是我写过最火的文章了。三年了，我仍然会在Twitter上收到关于这篇文章的消息。
 
 从2012年到现在，一篇文章都没发过让我觉得有点羞羞哒。三年是一段很长的时间，很多东西都发生了改变。2012年，我鼓励同学们去学习浏览器开发者工具和模块化；虽然有很多同学会觉得CSS预编译和客户端模板引擎并不靠谱，但我仍然想要说一说它们；还有JSHint，虽然有#getoffmylawn（滚出我的地盘）的警告，但依然无法阻止JSHint成为一个受欢迎的理念（准确的说，JSLint真的（只是）存在过）。
 
@@ -97,3 +92,14 @@ Broccoli 已经得到了 ember-cli 的采纳，我觉得他们的配对可能会
 ## 最后
 
 感谢 Paul, Alex, Adam, Ralph 对本文的 Review，感谢他们毫不吝啬的指出我的不足之处，并给我提了很好的意见。就这样，祝你好运。也许，三年之后我们会再见。
+
+-----------------------
+
+原文：[A Baseline for Front-End ‘JS’ Developers: 2015](http://rmurphey.com/blog/2015/03/23/a-baseline-for-front-end-developers-2015/)
+
+翻译：MrSunny
+
+链接：[http://zhuanlan.zhihu.com/FrontendMagazine/20002850](http://zhuanlan.zhihu.com/FrontendMagazine/20002850)
+
+来源：[知乎](http://zhuanlan.zhihu.com/FrontendMagazine/20002850)
+
