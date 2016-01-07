@@ -6,11 +6,13 @@
 
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var plumber = require('gulp-plumber');
 
 gulp.task('styles', function() {
     gulp.src('res/**/*.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('.'))
+        .pipe(plumber({errorHandler: function(e){console.log(e);this.emit('end');}}))
+        .pipe(sass())
+        .pipe(gulp.dest('res/'))
 });
 
 //Watch task
