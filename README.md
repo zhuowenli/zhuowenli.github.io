@@ -1,13 +1,15 @@
 # www.zhuowenli.com
 
+> [3.0正在开发中，敬请期待...](https://github.com/zhuowenli/zhuowenli.github.io/tree/3.0)
+
 这是[www.zhuowenli.com](http://www.zhuowenli.com) 这个博客站的所有代码。
 
 欢迎大家star或者fork。
 
-如果遇到什么问题，你可以向我：
+如果遇到什么问题，你可以随时：
 
-- 使用 [Issues](https://github.com/zhuowenli/zhuowenli.github.io/issues)
-- 提 [Pull Requests](https://github.com/zhuowenli/zhuowenli.github.io/pulls)
+- [Issues](https://github.com/zhuowenli/zhuowenli.github.io/issues)
+- [Pull Requests](https://github.com/zhuowenli/zhuowenli.github.io/pulls)
 
 ## 环境搭建
 
