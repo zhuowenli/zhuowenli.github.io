@@ -25,3 +25,6 @@ npm-debug.log
 config.codekit
 
 dump.rdb
+
+# build
+build/

@@ -1,27 +1,27 @@
 {
   "name": "zhuowenli.github.io",
-  "version": "1.0.0",
-  "description": "这是[www.zhuowenli.com](http://www.zhuowenli.com) 这个博客站的所有代码。",
-  "main": "index.html",
+  "version": "3.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "babel src --out-dir build && node ./bin/www",
+    "build": "babel src --out-dir build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/zhuowenli/zhuowenli.github.io.git"
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "^2.2.0",
+    "express": "~4.13.1",
+    "jade": "~1.11.0",
+    "morgan": "~1.6.1",
+    "serve-favicon": "~2.3.0"
   },
-  "keywords": [
-    "zhuowenli"
-  ],
-  "author": "zhuowenli",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/zhuowenli/zhuowenli.github.io/issues"
-  },
-  "homepage": "https://github.com/zhuowenli/zhuowenli.github.io/",
   "devDependencies": {
-    "gulp": "^3.9.0",
-    "gulp-plumber": "^1.0.1",
-    "gulp-sass": "^2.1.1"
+    "babel-cli": "^6.6.5",
+    "babel-core": "^6.7.4",
+    "babel-plugin-transform-es2015-destructuring": "^6.6.5",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.7.4",
+    "babel-plugin-transform-es2015-parameters": "^6.7.0",
+    "babel-plugin-transform-es2015-spread": "^6.6.5",
+    "babel-plugin-transform-strict-mode": "^6.6.5"
   }
 }
