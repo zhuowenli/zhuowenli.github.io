@@ -5,8 +5,8 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
-const routes = require('./routes/index');
-const users = require('./routes/users');
+const webRouter = require('./routes/web_router');
+const apiRouter = require('./routes/api_router');
 
 const app = express();
 
@@ -22,8 +22,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
+// 相关路由
+app.use('/', webRouter);
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

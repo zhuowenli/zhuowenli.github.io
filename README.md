@@ -2,7 +2,7 @@
 
 出于某种莫名的冲♂动，本人打算弃用jekyll，重新整合网站的架构。
 
-新的网站将采用NodeJS + Express + MySQL/MongoDB + Jade作为技术驱动。网站托放在我那台经久不用的米国VPS上。
+新的网站将采用NodeJS + Express + MongoDB + Jade作为技术驱动。网站托放在我那台经久不用的米国VPS上。
 
 ## Quick Start
 
