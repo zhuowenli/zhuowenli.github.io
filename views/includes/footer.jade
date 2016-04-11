@@ -1,0 +1,8 @@
+footer.footer
+    .zz
+        .copyright
+            p= site.copyright
+            p.subtitle= site.subtitle
+        ul.social
+            each href, tar in social
+                a(class= tar, href= href)

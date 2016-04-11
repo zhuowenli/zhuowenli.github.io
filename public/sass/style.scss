@@ -1,0 +1,38 @@
+@charset 'utf-8';
+/**
+ * @author: 卓文理
+ * @email : 531840344@qq.com
+ * @site  : www.zhuowenli.com
+ */
+
+@import "../../node_modules/sass-core/base";
+@import "./common/common";
+
+
+.zz{
+    width: 100%;
+    max-width: 1168px;
+    margin: 0 auto;
+}
+
+// 底部
+.footer{
+    background: #f2f2f2;
+    padding: rem(80px) 0;
+    .copyright{
+        p{
+            margin: 0;
+            line-height: rem(40px);
+            font-size: rem(20px);
+            color: #333;
+        }
+        .subtitle{
+            color: #999;
+            font-style: italic;
+            font-weight: lighter;
+        }
+    }
+    .social{
+
+    }
+}

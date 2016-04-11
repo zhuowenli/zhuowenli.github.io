@@ -1,0 +1,36 @@
+@charset 'utf-8';
+/**
+ * @author: 卓文理
+ * @email : 531840344@qq.com
+ * @site  : www.zhuowenli.com
+ */
+
+$fontsize: 16px;
+
+// px to rem
+// 将px转换成rem，计算公式：(320 / 16) / 2 + 'rem' = 10rem;
+// 改变$fontsize可以更改默认转换比例
+//-----------------------------------------------------
+@function rem($set, $get: $fontsize){
+    @return #{($set / $get) / 2}rem;
+}
+
+// 多行文本超出...
+@mixin text-line($num: 1){
+  display: -webkit-box;
+  -webkit-line-clamp: $num;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+  overflow: hidden;
+}
+
+
+html{
+    font-size: $fontsize;
+}
+
+@include min-screen(1168px){
+    html{
+        font-size: $fontsize * 2;
+    }
+};

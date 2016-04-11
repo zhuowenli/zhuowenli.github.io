@@ -1,4 +1,3 @@
-const EventProxy = require('eventproxy');
 const models     = require('../models');
 const {Post}     = models;
 const _          = require('lodash');
@@ -34,21 +33,7 @@ exports.getPostByQuery = (query, option, callback) => {
             return callback(null, []);
         }
 
-        let proxy = new EventProxy();
-
-        proxy.after('post_ready', posts.length, () => {
-            posts = _.compact(posts);
-            return callback(null, posts);
-        });
-        proxy.fail(callback);
-
-        _.forEach(posts, (post, i) => {
-            // if (post.status != 1) {
-            //     posts[i] = null;
-            // }
-
-            proxy.emit('post_ready');
-        });
+        return callback(null, posts);
     });
 }
 

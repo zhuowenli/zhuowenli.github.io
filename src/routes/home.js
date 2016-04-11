@@ -12,7 +12,11 @@ exports.index = (req, res, callback) => {
     Post.getPostByQuery(query, options, (err, post) => {
         console.log('err: ', err);
         console.log('post: ', post);
-        res.render('index', { name: post });
+        res.render('index', {
+            name: post,
+            site: config.site,
+            social: config.social
+        });
     });
 
     // let data = {
