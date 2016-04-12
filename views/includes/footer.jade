@@ -1,10 +1,10 @@
 footer.footer
     .zz
         .copyright
-            p= site.copyright
-            p.subtitle= site.subtitle
+            p= config.site.copyright
+            p.subtitle= config.site.subtitle
         ul.social
-            each href, tar in social
+            each href, tar in config.social
                 if href
                     a(class="icon icon-#{tar}" target="_blank" href= href)
                 else

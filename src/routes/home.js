@@ -14,8 +14,7 @@ exports.index = (req, res, callback) => {
         console.log('post: ', post);
         res.render('index', {
             name: post,
-            site: config.site,
-            social: config.social
+            config: config
         });
     });
 

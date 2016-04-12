@@ -437,6 +437,9 @@ html {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
+html {
+  font-family: 'PingHei', 'PingFang SC', 'Helvetica Neue', 'Helvetica', 'STHeitiSC-Light', 'Microsoft YaHei', 'WenQuanYi Micro Hei', 'Arial', sans-serif; }
+
 .zz {
   position: relative;
   width: 100%;
