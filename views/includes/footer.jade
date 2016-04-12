@@ -5,4 +5,7 @@ footer.footer
             p.subtitle= site.subtitle
         ul.social
             each href, tar in social
-                a(class= tar, href= href)
+                if href
+                    a(class="icon icon-#{tar}" target="_blank" href= href)
+                else
+                    a(class="icon icon-#{tar}")

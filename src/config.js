@@ -23,7 +23,9 @@ let config = {
     // 社交信息
     social: {
         github: 'https://github.com/zhuowenli',
-        zhihu: 'https://www.zhihu.com/people/zhuowenli'
+        zhihu: 'https://www.zhihu.com/people/zhuowenli',
+        weibo: 'http://weibo.com/u/2173490394',
+        wechat: ''
     },
 
     // mongodb 配置
