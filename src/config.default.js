@@ -1,3 +1,9 @@
+/**
+ * @author: 卓文理
+ * @email : 531840344@qq.com
+ * @site  : www.zhuowenli.com
+ */
+
 const path = require('path');
 
 let config = {
