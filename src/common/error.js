@@ -1,4 +1,5 @@
 const config = require('../config');
+const common = require('./common');
 
 exports.catch404 = (req, res, next) => {
     let err = new Error('Not Found');
@@ -13,6 +14,7 @@ exports.errorPage = (err, req, res, next) => {
     res.render('error', {
         message: err.message,
         error: _err,
-        config: config
+        config: config,
+        matchPath: (url) => common.matchPath(req, url)
     });
 };

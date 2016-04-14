@@ -7,11 +7,33 @@
 var gulp = require('gulp'),
     sass   = require('gulp-sass'),
     plumber = require('gulp-plumber');
+var nodemon    = require('gulp-nodemon');
+var livereload = require('gulp-livereload');
 
 var exec = require('child_process').exec;
 
+var nodemonConfig = '';
+
+gulp.task('serve', function() {
+    livereload.listen();
+
+    return nodemon({
+        script: './bin/www',
+        watch : './src/',
+        ext: "js",
+        env: { 'NODE_ENV': 'development' }
+    })
+    .on('start', function () {
+        console.log('nodemon start!')
+        setTimeout(function () {
+            livereload();
+            console.log('Reload done!')
+        }, 1000)
+    });
+});
+
 gulp.task('babel', function(cb){
-    exec('babel src --out-dir build', function(err, stdout, stderr){
+    return exec('babel src --out-dir build', function(err, stdout, stderr){
         console.log(stdout);
         console.log(stderr);
         cb(err);
@@ -26,7 +48,7 @@ gulp.task('sass', function() {
         .pipe(gulp.dest('./public/css/'));
 });
 
-gulp.task('default', function(){
-    gulp.watch('./public/sass/*.scss', ['sass']);
+gulp.task('default', ['serve'], function(){
+    gulp.watch('./public/sass/**/*.scss', ['sass']);
     gulp.watch(['./src/**/*.js'], ['babel']);
 });

@@ -1,3 +1,6 @@
+@import "./font";
+@import "./reset";
+
 // common
 
 $fontsize: 16px;
@@ -18,7 +21,6 @@ $fontsize: 16px;
   word-break: break-all;
   overflow: hidden;
 }
-
 
 html{
     font-size: $fontsize;

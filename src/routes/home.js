@@ -1,5 +1,6 @@
 const {Post} = require('../proxy');
 const config = require('../config');
+const common = require('../common/common');
 
 exports.index = (req, res, callback) => {
     let page = parseInt(req.query.page, 10) || 1;
@@ -9,12 +10,14 @@ exports.index = (req, res, callback) => {
     let limit = config.per_page;
     let options = {skip: (page - 1) * limit, limit: limit};
 
+
     Post.getPostByQuery(query, options, (err, post) => {
-        console.log('err: ', err);
-        console.log('post: ', post);
+        // console.log('err: ', err);
+        // console.log('post: ', post);
         res.render('index', {
             name: post,
-            config: config
+            config: config,
+            matchPath: (url) => common.matchPath(req, url)
         });
     });
 

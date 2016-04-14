@@ -6,6 +6,13 @@
     url('../font/iconfont.svg?t=1460466307#iconfont') format('svg'); /* iOS 4.1- */
 }
 
+@font-face {
+    font-family:'PingHei';
+    font-style:normal;
+    font-weight:200;
+    src:url("../font/PingHei-light.woff") format("woff");
+}
+
 .icon {
     font-family:"iconfont" !important;
     font-size:16px;

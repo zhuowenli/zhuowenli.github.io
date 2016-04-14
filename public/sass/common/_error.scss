@@ -1,0 +1,30 @@
+// error
+.error{
+    min-height: rem(500px);
+    padding: rem(30px) 0;
+    background: transparent url('../img/meow.png') right top no-repeat;
+    background-size: rem(627px);
+    h1{
+        position: relative;
+        font-size: rem(36px);
+        font-weight: normal;
+        margin-bottom: rem(100px);
+        &:after{
+            content: '';
+            position: absolute;
+            bottom: rem(-50px);
+            left: 0;
+            display: block;
+            width: rem(100px);
+            height: rem(2px);
+            background: #dfdfdf;
+        }
+    }
+    p{
+        font-size: rem(24px);
+    }
+    pre{
+        font-size: rem(20px);
+        padding: rem(50px) 0;
+    }
+}

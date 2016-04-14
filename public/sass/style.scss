@@ -5,18 +5,30 @@
  * @site  : www.zhuowenli.com
  */
 
-@import "./common/reset";
-@import "./common/font";
-
 @import "../../node_modules/sass-core/function";
+
 @import "./common/common";
+@import "./common/header";
+@import "./common/footer";
+@import "./common/error";
 
 *, *:before, *:after{
     @include box-sizing;
 }
 
 html{
-    font-family: 'PingHei', 'PingFang SC', 'Helvetica Neue', 'Helvetica', 'STHeitiSC-Light', 'Microsoft YaHei', 'WenQuanYi Micro Hei', 'Arial', sans-serif;
+    font-family: 'PingHei',
+                 'Helvetica Neue',      // OSX，English
+                 'Helvetica',
+                 "PingFang SC",         // OSX，苹方（华康信凭黑）
+                 "Hiragino Sans GB",    // OSX，冬青黑体
+                 'STHeitiSC-Light',     // OSX，华文黑体
+                 "Source Han Sans CN",  // 思源黑体
+                 "Source Han Sans SC",  // 思源黑体
+                 'Microsoft YaHei',     // Win，微软雅黑
+                 'WenQuanYi Micro Hei', // Linux，文泉驿微米黑
+                 'Arial',               // Win
+                 sans-serif;
 }
 
 .zz{
@@ -27,64 +39,22 @@ html{
     @include clearfix;
 }
 
-// 底部
-.footer{
-    background: #f2f2f2;
-    padding: rem(80px) 0;
-    .copyright{
-        display: inline-block;
-        p{
-            margin: 0;
-            line-height: rem(40px);
-            font-size: rem(20px);
-            color: #333;
-        }
-        .subtitle{
-            color: #999;
-            font-style: italic;
-            font-weight: lighter;
-        }
-    }
-    .social{
-        float: right;
-        font-size: 0;
-        .icon{
-            position: relative;
-            display: inline-block;
-            width: rem(80px);
-            height: rem(80px);
-            line-height: rem(80px);
-            margin-left: rem(20px);
-            font-size: rem(30px);
-            text-align: center;
-            @include border-radius(50%);
-            color: #fff;
-            background: rgba(#000, 0.1);
-            @include transition(all 0.2s ease-in-out);
-            cursor: pointer;
-            &:after{
-                content: '';
-                position: absolute;
-                top: -7px;
-                left: -7px;
-                right: -7px;
-                bottom: -7px;
-                padding: 7px;
-                @include border-radius(50%);
-                @include box-shadow(0 0 0 4px #fff);
-                @include transition(all 0.2s ease-in-out);
-                @include transform(scale(1.2));
-                pointer-events: none;
-                opacity: 0;
-            }
-            &:hover{
-                background: #fff;
-                color: #f2f2f2;
-                &:after{
-                    opacity: 1;
-                    @include transform(scale(1));
-                }
-            }
-        }
-    }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
