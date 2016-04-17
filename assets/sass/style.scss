@@ -7,6 +7,8 @@
 
 @import "../../node_modules/sass-core/function";
 
+@import "./common/font";
+@import "./common/reset";
 @import "./common/common";
 @import "./common/header";
 @import "./common/footer";
@@ -29,7 +31,14 @@ html{
                  'WenQuanYi Micro Hei', // Linux，文泉驿微米黑
                  'Arial',               // Win
                  sans-serif;
+    font-size: $fontsize;
 }
+
+@include min-screen(1168px){
+    html{
+        font-size: $fontsize * 2;
+    }
+};
 
 .zz{
     position: relative;

@@ -606,13 +606,6 @@ textarea {
   font: inherit;
   /* 2 */ }
 
-html {
-  font-size: 16px; }
-
-@media screen and (min-width: 1168px) {
-  html {
-    font-size: 32px; } }
-
 .header {
   height: 7.5rem;
   padding: 2.1875rem 0; }
@@ -787,7 +780,12 @@ html {
   box-sizing: border-box; }
 
 html {
-  font-family: "PingHei", "Helvetica Neue", "Helvetica", "PingFang SC", "Hiragino Sans GB", "STHeitiSC-Light", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "WenQuanYi Micro Hei", "Arial", sans-serif; }
+  font-family: "PingHei", "Helvetica Neue", "Helvetica", "PingFang SC", "Hiragino Sans GB", "STHeitiSC-Light", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "WenQuanYi Micro Hei", "Arial", sans-serif;
+  font-size: 16px; }
+
+@media screen and (min-width: 1168px) {
+  html {
+    font-size: 32px; } }
 
 .zz {
   position: relative;

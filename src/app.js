@@ -17,12 +17,12 @@ app.set('views', path.join(__dirname, '..', 'views'));
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
-app.use(favicon(path.join(__dirname, '..', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, '..', 'favicon.png')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(express.static(path.join(__dirname, '..', 'assets')));
 
 // 相关路由
 app.use('/', webRouter);

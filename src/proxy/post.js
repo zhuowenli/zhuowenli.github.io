@@ -33,7 +33,26 @@ exports.getPostByQuery = (query, option, callback) => {
             return callback(null, []);
         }
 
-        return callback(null, posts);
+        let promises = [];
+
+        _.forEach(posts, (post) => {
+            let promise = new Promise((resolve, reject) => {
+                if (!post.like_count) {
+                    post.like_count = 0;
+                }
+                if (!post.cover) {
+                    post.cover = '';
+                }
+
+                resolve(post);
+            });
+
+            promises.push(promise);
+        });
+
+        Promise.all(promises).then(() => {
+            return callback(null, posts);
+        });
     });
 }
 
@@ -54,8 +73,8 @@ exports.addPost = (data, callback) => {
     _.assign(data, {
         status: 0,
         category: data.category || 3,
-        created_time: parseInt(new Date().getTime() / 1000),
-        updated_time: parseInt(new Date().getTime() / 1000)
+        created_time: parseInt(new Date().getTime()),
+        updated_time: parseInt(new Date().getTime())
     });
 
     _.assign(post, data);

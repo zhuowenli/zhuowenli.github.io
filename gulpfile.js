@@ -42,13 +42,13 @@ gulp.task('babel', function(cb){
 
 gulp.task('sass', function() {
     //编译sass
-    return gulp.src('./public/sass/*.scss')
+    return gulp.src('./assets/sass/*.scss')
         .pipe(plumber({errorHandler: function(e){console.log(e);this.emit('end');}}))
         .pipe(sass())
-        .pipe(gulp.dest('./public/css/'));
+        .pipe(gulp.dest('./assets/css/'));
 });
 
 gulp.task('default', ['serve'], function(){
-    gulp.watch('./public/sass/**/*.scss', ['sass']);
+    gulp.watch('./assets/sass/**/*.scss', ['sass']);
     gulp.watch(['./src/**/*.js'], ['babel']);
 });

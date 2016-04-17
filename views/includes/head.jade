@@ -8,3 +8,7 @@ head
     meta(name="author", content= config.post.author)
     title= title || config.site.name
     link(rel='shortcut icon', href='favicon.ico')
+    link(rel='stylesheet', href='/css/style.css')
+    if styles
+        each style in styles
+            link(rel="stylesheet", href="/css/#{style}.css")

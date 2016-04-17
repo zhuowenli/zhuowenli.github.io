@@ -1,5 +1,18 @@
 extends layout
 
 block content
-    div #{post}
+    .zz
+        .index
+            .articles
+                each post in posts
+                    article
+                        a(href="")
+                            if post.cover
+                                img(src= post.cover, alt="")
+                            .title= post.title
+                            if post.excerpt
+                                .excerpt= post.excerpt
+                            .infos
+                                span.meta= post.created_time
+                                span.like= post.like_count
 

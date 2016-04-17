@@ -1,8 +1,4 @@
-@import "./font";
-@import "./reset";
-
 // common
-
 $fontsize: 16px;
 
 // px to rem
@@ -21,13 +17,3 @@ $fontsize: 16px;
   word-break: break-all;
   overflow: hidden;
 }
-
-html{
-    font-size: $fontsize;
-}
-
-@include min-screen(1168px){
-    html{
-        font-size: $fontsize * 2;
-    }
-};
