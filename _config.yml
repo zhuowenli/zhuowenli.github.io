@@ -7,10 +7,14 @@ paginate_path: "page:num" #pagination generated sub path format
 encoding: utf-8
 permalink: /:categories/:title.html
 
-markdown: redcarpet
+# markdown: redcarpet
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
 # highlighter: rouge
-highlighter: pygments
+#highlighter: pygments
 
 name: 卓文理
 title: 卓文理
