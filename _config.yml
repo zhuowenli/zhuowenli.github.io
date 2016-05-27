@@ -7,14 +7,14 @@ paginate_path: "page:num" #pagination generated sub path format
 encoding: utf-8
 permalink: /:categories/:title.html
 
-# markdown: redcarpet
-
+# jekyll 3.x
 kramdown:
   input: GFM
   syntax_highlighter: rouge
 
-# highlighter: rouge
-#highlighter: pygments
+# jekyll 2.x
+# markdown: redcarpet
+# highlighter: pygments
 
 name: 卓文理
 title: 卓文理
