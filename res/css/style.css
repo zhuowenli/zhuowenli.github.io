@@ -1651,9 +1651,9 @@ body {
       width: 100%;
       height: auto;
       min-height: 380px; }
-    .article .article-body .highlight {
+    .article .article-body .highlighter-rouge {
       margin-bottom: 16px; }
-      .article .article-body .highlight pre {
+      .article .article-body .highlighter-rouge pre {
         padding: 16px;
         overflow: auto;
         font-size: 85%;
