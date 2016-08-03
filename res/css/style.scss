@@ -773,7 +773,7 @@ body{
         }
         p, ul, ol {
             color: #333;
-            font-size: 14px;
+            font-size: 15px;
             line-height: 1.6;
             margin: 0 0 16px 0;
             -webkit-font-smoothing: antialiased;
@@ -1454,6 +1454,9 @@ body{
                 }
                 &>:last-child {
                     margin-bottom: 0
+                }
+                p{
+                    text-indent: 0
                 }
             }
 

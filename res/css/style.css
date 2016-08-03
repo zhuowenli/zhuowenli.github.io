@@ -1020,7 +1020,7 @@ body {
         color: #136ce1; }
   .article p, .article ul, .article ol {
     color: #333;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.6;
     margin: 0 0 16px 0;
     -webkit-font-smoothing: antialiased; }
@@ -1604,6 +1604,8 @@ body {
         margin-top: 0; }
       .article .article-body blockquote > :last-child {
         margin-bottom: 0; }
+      .article .article-body blockquote p {
+        text-indent: 0; }
     .article .article-body table {
       display: block;
       width: 100%;
