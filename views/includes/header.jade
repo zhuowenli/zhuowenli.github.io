@@ -1,8 +1,0 @@
-header.header
-    .zz
-        .logo= config.site.name
-        nav.nav
-            ul
-                each item in config.site.menu
-                    li.item(class= {active: matchPath(item.url)})
-                        a(href= item.url)= item.name

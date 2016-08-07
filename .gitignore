@@ -9,6 +9,7 @@ Thumbs.db
 # exclude
 _site/
 _img/
+_posts/
 qrsync
 qrsync.json
 
