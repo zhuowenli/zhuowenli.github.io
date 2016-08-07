@@ -5,7 +5,7 @@
  */
 'use strict';
 
-var lodash = require('lodash');
+const lodash = require('lodash');
 
 module.exports = function(db) {
 
@@ -13,7 +13,7 @@ module.exports = function(db) {
         page: 1,
         pageSize: 20,
         fetchItems: function(queryOptions, pagerOptions, fetchOptions) {
-            var self = this;
+            const self = this;
 
             // fix queryOptions
             if(!queryOptions) {
@@ -21,38 +21,44 @@ module.exports = function(db) {
             }
 
             // pagination
-            var pageSize = +pagerOptions.page_size || this.pageSize;
-            var ret = lodash.merge({
-                total: 0,
-                total_pages: 0,
-                page_size: this.pageSize,
-                page: this.page,
-                items: []
-            }, pagerOptions);
+            const pageSize = Number(pagerOptions.per_page) || this.pageSize;
+            const ret = {
+                code: 0,
+                data: [],
+                metadata: {
+                    total: 0,
+                    total_pages: 0,
+                    per_page: this.pageSize,
+                    page: this.page,
+                },
+                timestamp: new Date().getTime()
+            };
+
+            lodash.merge(ret.metadata, pagerOptions);
 
             return this.query(queryOptions).count('*')
-            .then(total => {
-                var minPage = 1;
-                var totalPages = Math.ceil(total / pageSize);
+                .then(total => {
+                    const minPage = 1;
+                    const totalPages = Math.ceil(total / pageSize);
 
-                ret.page = Math.max(minPage, Math.min(totalPages, ret.page));
-                ret.total_pages = totalPages;
-                ret.page_size = pageSize;
-                ret.total = total;
-            })
-            .then(() => {
-                return self.query(queryOptions)
-                .query({
-                    offset: (ret.page - 1) * pageSize,
-                    limit: pageSize
+                    ret.metadata.page = Math.max(minPage, ret.metadata.page);
+                    ret.metadata.total_pages = totalPages;
+                    ret.metadata.per_page = pageSize;
+                    ret.metadata.total = total;
                 })
-                .fetch(fetchOptions);
-            })
-            .then(items => {
-                ret.items = items;
+                .then(() => {
+                    return self.query(queryOptions)
+                    .query({
+                        offset: (ret.metadata.page - 1) * pageSize,
+                        limit: pageSize
+                    })
+                    .fetch(fetchOptions);
+                })
+                .then(data => {
+                    ret.data = data;
 
-                return ret;
-            });
+                    return ret;
+                });
         }
     });
 

@@ -6,7 +6,7 @@
 'use strict';
 
 var models = {
-    Feedback: require('./feedback'),
+    Users: require('./users'),
 };
 
 module.exports = models;

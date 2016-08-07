@@ -6,7 +6,7 @@
 'use strict';
 
 var ctrls = [
-    require('./v1/index'),
+    require('./v1/users'),
 ];
 
 module.exports = ctrls;

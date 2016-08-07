@@ -12,7 +12,7 @@ var serve = require('koa-static');
 var Router = require('koa-router');
 var bodyParser = require('koa-bodyparser');
 var koaqs = require('koa-qs');
-var ctrls = require('./controllers/api');
+var ctrls = require('./controllers/api/index.js');
 
 var app = koa();
 
@@ -39,7 +39,7 @@ app.use(views(viewsPath, {
 // init router
 var router = app.router = new Router();
 app.router.api = new Router({
-    prefix: '/v1'
+    // prefix: '/v1'
 });
 
 // init ctrls

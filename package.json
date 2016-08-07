@@ -1,13 +1,11 @@
 {
-  "name": "lottery",
-  "version": "0.0.1",
+  "name": "zhuowenli.github.io",
+  "version": "1.0.0",
   "description": "lottery",
   "main": "app/app.js",
   "scripts": {
-    "dev": "nodemon --debug -w app app/app",
-    "start": "pm2 start app/app.js",
-    "jobs": "pm2 start app/jobs/server",
-    "test": "node test/index.js"
+    "dev": "nodemon --debug --watch app app/app",
+    "start": "pm2 start app/app.js"
   },
   "author": "卓文理",
   "license": "ISC",
