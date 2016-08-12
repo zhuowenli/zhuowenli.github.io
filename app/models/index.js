@@ -5,8 +5,11 @@
 */
 'use strict';
 
-var models = {
-    Users: require('./users'),
+const models = {
+    User: require('./user'),
+    Post: require('./post'),
+    Category: require('./category'),
+    Image: require('./image'),
 };
 
 module.exports = models;

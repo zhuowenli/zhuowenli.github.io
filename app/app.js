@@ -23,9 +23,11 @@ app.keys = ['rgmcPAPv6SunV7QM'];
 app.use(session(app));
 
 // subApps
+const env = process.env;
 var subApps = app.subApps = {
-    admin: compose(require('./admin').middleware),
-    api: compose(require('./api').middleware),
+    [env.ADMIN_HOST]: compose(require('./admin')),
+    [env.API_HOST]: compose(require('./api')),
+    [env.WWW_HOST]: compose(require('./www'))
 };
 app.use(function *(next) {
     var subAppName = 'www';

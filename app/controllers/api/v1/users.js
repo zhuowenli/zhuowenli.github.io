@@ -7,7 +7,7 @@
 
 exports.init = function(app) {
     const router = app.router;
-    const User = app.models.Users;
+    const User = app.models.User;
     const Users = app.db.Collection.extend({
         model: User
     });

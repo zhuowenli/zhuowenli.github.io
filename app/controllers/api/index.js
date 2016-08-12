@@ -7,6 +7,7 @@
 
 var ctrls = [
     require('./v1/users'),
+    require('./v1/posts'),
 ];
 
 module.exports = ctrls;

@@ -5,13 +5,13 @@
 */
 'use strict';
 
-var knexfile = require('../knexfile');
-var knex = require('knex')(
+const knexfile = require('../knexfile');
+const knex = require('knex')(
     knexfile[process.env.NODE_ENV]
 );
-var bookshelf = require('bookshelf');
+const bookshelf = require('bookshelf');
 
-var db = bookshelf(knex);
+const db = bookshelf(knex);
 
 // https://github.com/tgriesser/bookshelf/wiki/Plugin:-Model-Registry
 db.plugin('registry');
