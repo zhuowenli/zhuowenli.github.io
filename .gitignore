@@ -30,3 +30,4 @@ dump.rdb
 # build
 build/
 /**/config.js
+app.js.map
