@@ -15,4 +15,10 @@ exports.init = function(app) {
             env: app.env
         });
     });
+
+    router.get(/\/(frontend|design|diary|about|contact)/img, function *() {
+        yield this.render('index', {
+            env: app.env
+        });
+    });
 };

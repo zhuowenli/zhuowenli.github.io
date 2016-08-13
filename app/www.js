@@ -5,17 +5,17 @@
 */
 'use strict';
 
-var koa = require('koa');
-var path = require('path');
-var views = require('koa-views');
-var serve = require('koa-static');
-var Router = require('koa-router');
-var bodyParser = require('koa-bodyparser');
-var koaqs = require('koa-qs');
-var ctrls = require('./controllers/www');
+const koa = require('koa');
+const path = require('path');
+const views = require('koa-views');
+const serve = require('koa-static');
+const Router = require('koa-router');
+const bodyParser = require('koa-bodyparser');
+const koaqs = require('koa-qs');
+const ctrls = require('./controllers/www');
 const cors = require('koa-cors');
 
-var app = koa();
+const app = koa();
 
 app.log = require('./services/logger');
 
@@ -26,7 +26,7 @@ app.db = require('./db');
 app.models = require('./models');
 
 // init router
-var router = app.router = new Router();
+const router = app.router = new Router();
 app.router.api = new Router({
     prefix: '/api'
 });
@@ -44,18 +44,12 @@ app.use(cors());
 // app.use(oauth.session());
 
 // init views
-var viewsPath = path.join(__dirname, '../views/www/dist/');
+const viewsPath = path.join(__dirname, '../views/www/');
 app.use(views(viewsPath, {
     map: {
         html: 'ejs'
     }
 }));
-
-// init router
-var router = app.router = new Router();
-app.router.api = new Router({
-    prefix: '/api'
-});
 
 // init ctrls
 ctrls.forEach(ctrl => {

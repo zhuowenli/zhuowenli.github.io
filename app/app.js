@@ -9,45 +9,48 @@
 require('dotenv-safe').load();
 
 // koa
-var koa = require('koa');
-var onerror = require('koa-onerror');
-var compose = require('koa-compose');
-var favicon = require('koa-favicon');
-var session = require('koa-session');
+const koa = require('koa');
+const onerror = require('koa-onerror');
+const favicon = require('koa-favicon');
+const session = require('koa-session');
+const logger = require('./services/logger');
+const compose = require('./utils/mw-compose');
+const ResponseData = require('./lib/response-data');
 
 // init app, whit proxy
-var app = koa();
+const app = koa();
 app.proxy = true;
 
 app.keys = ['rgmcPAPv6SunV7QM'];
 app.use(session(app));
 
-// subApps
 const env = process.env;
-var subApps = app.subApps = {
+const subApps = app.subApps = {
     [env.ADMIN_HOST]: compose(require('./admin')),
     [env.API_HOST]: compose(require('./api')),
     [env.WWW_HOST]: compose(require('./www'))
 };
+
+app.use(function *(next){
+    const key = 'X-Meiya-Reqid';
+
+    let reqId;
+    if (this.request.get(key)) {
+        reqId = this.request.get(key);
+    } else {
+        reqId = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = Math.random()*16|0, v = c === 'x' ? r : (r&0x3|0x8);
+            return v.toString(16);
+        });
+    }
+    this.response.set(key, reqId);
+    yield next;
+});
+
 app.use(function *(next) {
-    var subAppName = 'www';
-    switch (this.hostname){
-        case process.env.ADMIN_HOST:
-            subAppName = 'admin';
-            break;
-        case process.env.API_HOST:
-            subAppName = 'api';
-            break;
-    }
+    const subApp = subApps[this.hostname] || subApps[env.WWW_HOST];
 
-    app.subApp = null;
-    if(subApps[subAppName]) {
-        app.subApp = subAppName;
-
-        return yield subApps[subAppName].call(this, next);
-    }
-
-    return yield next;
+    yield subApp.call(this, next);
 });
 
 // favicon
@@ -64,41 +67,35 @@ app.use(function *(){
 
 // Error handle
 onerror(app, {
-    json: function(err) {
-        var data = err.data || {};
-        var statusCode = err.status;
-
-        // Boom error
-        if(err.output) {
-            statusCode = err.output.statusCode;
-        }
-
-        data.status = statusCode || 500;
-        if(!data.message) {
-            data.message = err.message;
-        }
+    accepts: function() {
+        return 'json';
+    },
+    all: function(err) {
+        const ret = new ResponseData(err);
 
         if(app.env === 'development') {
-            data.stack = err.stack.split('\n');
+            ret.stack = err.stack.split('\n');
         }
 
-        this.status = data.status;
-        this.body = data;
+        let statusCode = err.status || err.statusCode || ret.code;
+
+        this.status = statusCode || 500;
+        this.body = ret;
     }
 });
 
 // Error report
-if(app.env !== 'development') {
-    app.on('error', function(err) {
-        console.error('App error:', err);
-    });
-}
+app.on('error', function(err) {
+    logger.error('[App error]', err);
+});
+
 
 // start up
-var port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 app.listen(port);
 console.log('Server listening:', port);
 
 // exports
 module.exports = app;
+

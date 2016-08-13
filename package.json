@@ -4,7 +4,7 @@
   "description": "lottery",
   "main": "app/app.js",
   "scripts": {
-    "dev": "nodemon --debug --watch app app/app",
+    "dev": "nodemon --debug -w app app/app",
     "start": "pm2 start app/app.js"
   },
   "author": "卓文理",

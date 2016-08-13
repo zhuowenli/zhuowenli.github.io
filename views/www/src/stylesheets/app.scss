@@ -1,0 +1,103 @@
+@charset "UTF-8";
+/**
+ * @author: 卓文理
+ * @email : 531840344@qq.com
+ * @desc  : Description
+ */
+
+
+@import "../../node_modules/sass-core/base";
+@import "./common";
+
+@font-face {
+    font-family: icon;
+    src: url(../../statics/font/icon.eot);
+    src: url(../../statics/font/icon.eot#iefix2oa9qo) format('embedded-opentype'),
+         url(../../statics/font/icon.woff) format('woff'),
+         url(../../statics/font/icon.ttf) format('truetype');
+    font-weight: 400;
+    font-style: normal
+}
+
+
+html{
+    font-family: 'Helvetica Neue',      // OSX，English
+                 'Helvetica',
+                 "PingFang SC",         // OSX，苹方（华康信凭黑）
+                 "Hiragino Sans GB",    // OSX，冬青黑体
+                 'STHeitiSC-Light',     // OSX，华文黑体
+                 "Source Han Sans CN",  // 思源黑体
+                 "Source Han Sans SC",  // 思源黑体
+                 'Microsoft YaHei',     // Win，微软雅黑
+                 'WenQuanYi Micro Hei', // Linux，文泉驿微米黑
+                 'Arial',               // Win
+                 sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+*, *:before, *:after{
+    outline: 0;
+    -webkit-tap-highlight-color: transparent;
+    @include box-sizing;
+}
+
+html, body, .container{
+    height: 100%;
+    width: 100%;
+}
+
+html{
+    overflow: hidden;
+}
+
+body{
+    background-color: rgba(6, 7, 9, 1);
+}
+
+.container{
+    position: relative;
+    max-width: 1520px;
+    margin: 0 auto;
+    opacity: 1;
+}
+
+@keyframes pikapika {
+    0% { opacity: 0.96 }
+    100% { opacity: 1 }
+}
+.main-slidebar, .main-center, .main-right, .graph{
+    @include animation(pikapika 0.05s linear infinite alternate);
+    @include animation-fill-mode(forwards);
+}
+
+.hide, .hidechild > * {
+    opacity: 0 !important;
+    @include transition(all .5s ease-in-out);
+}
+.showsplash{
+    .main-center, .graph{
+        .hide, .hidechild > * {
+            opacity: 1 !important
+        }
+    }
+}
+.showsidebar{
+    .btn, .hide, .hidechild > * {
+        opacity: 1 !important
+    }
+}
+
+.main-content{
+    padding-left: 380px;
+}
+
+.table{
+    display: table;
+    width: 100%;
+    .cell{
+        position: relative;
+        display: table-cell;
+        vertical-align: middle;
+    }
+}
