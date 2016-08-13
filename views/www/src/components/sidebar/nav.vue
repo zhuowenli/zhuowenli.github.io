@@ -33,7 +33,7 @@
             Hr
         },
         data() {
-            const MENU = [
+            const MENUS = [
                 {
                     name: 'home',
                     url: '/'
@@ -56,7 +56,7 @@
             ];
 
             return {
-                menus: MENU
+                menus: MENUS
             }
         },
         ready(){

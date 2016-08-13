@@ -4,7 +4,7 @@
         <div class="audio-btn"><svg viewBox="0 0 7 8.1"><polygon points="0,0 7,4 0,8.1 "/></svg></div>
         <hr></hr>
         <canvas class="audio-visual"></canvas>
-        <audio class="audio-bgm" autobuffer autoloop loop><source src="/statics/media/black.mp3"></audio>
+        <!-- <audio class="audio-bgm" autobuffer autoloop loop><source src="/statics/media/black.mp3"></audio> -->
     </div>
 </template>
 

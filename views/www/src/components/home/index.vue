@@ -1,6 +1,5 @@
 <template>
     <div class="home">
-        <a v-link="'pay'">goto Pay</a>
     </div>
 </template>
 
@@ -11,9 +10,6 @@
         data () {
             return {
             }
-        },
-        events: {
-
         }
     }
 </script>
