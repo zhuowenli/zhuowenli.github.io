@@ -66,16 +66,16 @@
     // 更多用法参见 `knex -h`
     ```
 
-8. 启动项目
+8. Nginx 配置
+
+   如果需要可以参考项目 `nginx.conf.example`
+
+9. 启动项目
 
    ```
    npm run dev // dev 环境
    npm start // 线上环境
    ```
-
-9. Nginx 配置
-
-   如果需要可以参考项目 `nginx.conf.example`
 
 
 ## 目录结构
