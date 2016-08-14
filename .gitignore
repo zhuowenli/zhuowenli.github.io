@@ -9,6 +9,7 @@ Thumbs.db
 # exclude
 _site/
 _img/
+_posts/
 qrsync
 qrsync.json
 
@@ -25,3 +26,8 @@ npm-debug.log
 config.codekit
 
 dump.rdb
+
+# build
+build/
+/**/config.js
+app.js.map
