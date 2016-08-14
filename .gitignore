@@ -12,6 +12,7 @@ _img/
 _posts/
 qrsync
 qrsync.json
+.env
 
 # bower
 bower_components
