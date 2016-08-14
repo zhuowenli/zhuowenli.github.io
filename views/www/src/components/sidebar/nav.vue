@@ -28,6 +28,8 @@
     import Hr from '../ui/hr.vue';
     import {TimelineLite, Power4} from 'gsap/src/uncompressed/TweenMax.js';
 
+    const BTNCOLOR = ['rgba(255,255,255,0.5)', 'rgba(255,255,255,0)'];
+
     export default {
         components: {
             Hr
@@ -60,7 +62,6 @@
             }
         },
         ready(){
-            const BTNCOLOR = ['rgba(255,255,255,0.5)', 'rgba(255,255,255,0)'];
             $(document).on({
                 mouseenter:function(){
                     const $this = $(this);

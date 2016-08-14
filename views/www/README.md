@@ -13,7 +13,7 @@
 2. 启动项目
 
    ```
-   npm start
+   npm run dev
    ```
 
 ## 目录结构

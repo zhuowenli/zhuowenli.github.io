@@ -1,15 +1,18 @@
 <template>
-    <div class="container" v-el:$container>
+    <div class="container">
         <section-sidebar
             :hide="hide">
         </section-sidebar>
 
         <section class="main-content">
-            <router-view
-                transition="app"
-                transition-mode="out-in"
-                keep-alive>
-            </router-view>
+            <div class="loadmask"><div class="body"><div class="dotted"></div></div></div>
+            <div class="main">
+                <router-view
+                    transition="app"
+                    transition-mode="out-in"
+                    keep-alive>
+                </router-view>
+            </div>
         </section>
 
         <side-left :on="sideon"></side-left>
@@ -32,18 +35,17 @@
             return {
                 authenticating: false,
                 sideon: false,
+                fetch: true
             }
-        },
-        events: {
         },
         ready() {
             const that = this;
 
-            const $html = document.getElementsByTagName('html')[0];
-            const $container = that.$els.$container;
+            const $html = $('html');
+            const $container = $('.container');
 
             setTimeout(function() {
-                $html.classList.add('loaded');
+                $html.addClass('loaded');
             }, 100);
 
             setTimeout(function() {
@@ -53,13 +55,13 @@
 
             function loadedAnimate() {
 
-                $container.classList.add('hideprogress');
+                $container.addClass('hideprogress');
 
                 setTimeout(function() {
-                    $container.classList.add('showborder', 'hideexpand', 'showsidebar');
+                    $container.addClass('showborder hideexpand showsidebar');
 
                     setTimeout(function() {
-                        $container.classList.add('hideborder');
+                        $container.addClass('hideborder');
                     }, 600);
 
                     setTimeout(function() {
@@ -85,10 +87,75 @@
                     }, 1100);
                 }, 1000);
             }
+
+            const $wW = $('.wW');
+            const $wH = $('.wH');
+            const $loadmask = $('.loadmask');
+            const $sidebar = $('.main-sidebar');
+            const $right = $('.main-right');
+            const $main = $('.main');
+
+            setSize();
+
+            function setSize(){
+                const windowWidth = window.innerWidth;
+                const windowHeight = window.innerHeight;
+                const leftWidth = $sidebar.width() + 80;
+                const rightWidth = $right.width() + 80;
+                const subpageWidth = $container.width() - leftWidth;
+
+                $wW.text(windowWidth);
+                $wH.text(windowHeight);
+
+                $loadmask.css({
+                    'width': subpageWidth,
+                    'height': windowHeight
+                });
+                $main.css({
+                    'width': subpageWidth,
+                    'height': windowHeight
+                });
+            }
+
+            $(window).resize(function() {
+                setTimeout(function() {
+                    setSize();
+                }, 500);
+            });
         },
     }
 </script>
 
 <style lang="scss">
     @import "./ui/index";
+
+    .loadmask {
+        position: absolute;
+        top: 0;
+        left: 380px;
+        z-index: 10;
+        display: block;
+        .body{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            .dotted {
+                position: absolute;
+                top: -200px;
+                left: 0;
+                width: 100%;
+                height: 200px;
+                background-image: url("../../statics/img/bg-dotted.png");
+                background-size: 30px;
+                background-attachment: fixed;
+                transition: all 1.5s;
+            }
+        }
+    }
+
+    .fetch{
+        .loadmask .body .dotted{
+            top: 120%;
+        }
+    }
 </style>

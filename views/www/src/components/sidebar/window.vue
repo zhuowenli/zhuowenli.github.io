@@ -17,26 +17,6 @@
     export default {
         components: {
             Hr,
-        },
-        ready() {
-            const $wW = $('.wW');
-            const $wH = $('.wH');
-
-            setSize();
-
-            function setSize(){
-                const windowWidth = window.innerWidth;
-                const windowHeight = window.innerHeight;
-
-                $wW.text(windowWidth);
-                $wH.text(windowHeight);
-            }
-
-            $(window).resize(function() {
-                setTimeout(function() {
-                    setSize();
-                }, 500);
-            });
         }
     }
 </script>

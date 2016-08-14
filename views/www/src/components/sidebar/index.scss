@@ -26,6 +26,19 @@
         top: -10px;
         margin-top: 0;
     }
+    .side-chart .chart{
+        &:nth-child(3) {
+            display: none;
+        }
+    }
+};
+
+@include max-screen-height(740px){
+    .side-chart .chart{
+        &:nth-child(1) {
+            display: none;
+        }
+    }
 };
 
 .btn{
