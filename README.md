@@ -1,6 +1,6 @@
-## 3.0
+## 博客3.0
 
-这是[http://www.zhuowenli.com](http://www.zhuowenli.com) 这个博客站的所有代码。
+[http://www.zhuowenli.com](http://www.zhuowenli.com)
 
 ## Quick Start
 
@@ -52,8 +52,9 @@
 
     执行此操作前请确认自己机器数据库服务已正常运行，
     另外由于 `bookshelf` 默认采用 JSON 标准格式存储日期，如果使用 mysql 请关闭严格模式：
-    https://github.com/TryGhost/Ghost/issues/5050#issuecomment-83613536
-    http://dba.stackexchange.com/questions/48704/mysql-5-6-datetime-incorrect-datetime-value-2013-08-25t1700000000-with-er
+
+    - https://github.com/TryGhost/Ghost/issues/5050#issuecomment-83613536
+    - http://dba.stackexchange.com/questions/48704/mysql-5-6-datetime-incorrect-datetime-value-2013-08-25t1700000000-with-er
 
     ```
     // 表结构
@@ -74,7 +75,7 @@
 
 9. Nginx 配置
 
-   如果需要可以参考项目 `xx.nginx.conf.example`
+   如果需要可以参考项目 `nginx.conf.example`
 
 
 ## 目录结构
