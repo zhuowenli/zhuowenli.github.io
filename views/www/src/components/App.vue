@@ -6,7 +6,7 @@
 
         <section class="main-content">
             <div class="loadmask"><div class="body"><div class="dotted"></div></div></div>
-            <div class="main">
+            <div class="main hide">
                 <router-view
                     transition="app"
                     transition-mode="out-in"
@@ -51,7 +51,7 @@
             setTimeout(function() {
                 that.$set('sideon', true);
                 loadedAnimate();
-            }, 1200);
+            }, 1000);
 
             function loadedAnimate() {
 

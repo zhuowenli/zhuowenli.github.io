@@ -72,11 +72,11 @@
 	
 	var _routerConfig = __webpack_require__(13);
 	
-	var _filter = __webpack_require__(51);
+	var _filter = __webpack_require__(54);
 	
 	var _filter2 = _interopRequireDefault(_filter);
 	
-	var _App = __webpack_require__(52);
+	var _App = __webpack_require__(55);
 	
 	var _App2 = _interopRequireDefault(_App);
 	
@@ -89,7 +89,8 @@
 	
 	var router = new _vueRouter2.default({
 	  history: true,
-	  saveScrollPosition: true
+	  saveScrollPosition: true,
+	  transitionOnLoad: true
 	});
 	
 	(0, _routerConfig.routerConfig)(router);
@@ -14767,19 +14768,19 @@
 	
 	var _index6 = _interopRequireDefault(_index5);
 	
-	var _index7 = __webpack_require__(33);
+	var _index7 = __webpack_require__(36);
 	
 	var _index8 = _interopRequireDefault(_index7);
 	
-	var _index9 = __webpack_require__(38);
+	var _index9 = __webpack_require__(41);
 	
 	var _index10 = _interopRequireDefault(_index9);
 	
-	var _index11 = __webpack_require__(43);
+	var _index11 = __webpack_require__(46);
 	
 	var _index12 = _interopRequireDefault(_index11);
 	
-	var _ = __webpack_require__(48);
+	var _ = __webpack_require__(51);
 	
 	var _2 = _interopRequireDefault(_);
 	
@@ -14881,7 +14882,7 @@
 	
 	
 	// module
-	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 	
 	// exports
 
@@ -15135,7 +15136,14 @@
 	                $html.removeClass('fetch');
 	            }, 1000);
 	
+	            setTimeout(function () {
+	                $('.main').css('opacity', 1);
+	            }, 2000);
+	
 	            transition.next();
+	        },
+	        deactivate: function deactivate() {
+	            $('.main').css('opacity', 0);
 	        }
 	    }
 	};
@@ -15243,12 +15251,12 @@
 
 	var __vue_script__, __vue_template__
 	__webpack_require__(26)
-	__vue_script__ = __webpack_require__(31)
+	__vue_script__ = __webpack_require__(34)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/design/index.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(32)
+	__vue_template__ = __webpack_require__(35)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -15301,7 +15309,7 @@
 	
 	
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n.main {\n  width: 800px;\n  position: absolute;\n  height: 800px;\n  left: 380px;\n  top: 0;\n  z-index: 9997;\n  background: url(" + __webpack_require__(28) + ") fixed;\n  background-size: 30px; }\n  .main .design {\n    height: 100%; }\n  .main .scroll {\n    padding: 0;\n    overflow-x: hidden;\n    height: 100%;\n    width: 100%; }\n  .main .scrollinside {\n    padding: 45px 0 0 40px;\n    width: 100%;\n    max-width: 910px;\n    margin: 0 auto; }\n  .main .insidetitle {\n    padding: 0 50px; }\n    .main .insidetitle .number {\n      width: 200px;\n      height: 270px;\n      line-height: 1;\n      text-align: left;\n      font-size: 140px;\n      color: #fff;\n      font-weight: 700;\n      text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); }\n    .main .insidetitle .pagetitle {\n      font-size: 50px;\n      letter-spacing: 5px;\n      font-weight: 700;\n      line-height: 1;\n      color: #fff;\n      text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); }\n    .main .insidetitle h2 {\n      color: #fff;\n      letter-spacing: 3px;\n      font-size: 22px;\n      padding: 8px 0 0;\n      text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5); }\n\n.mCSB_inside > .mCSB_container {\n  margin-right: 0; }\n\n.mCSB_scrollTools {\n  left: 0;\n  margin: 40px 0;\n  width: 30px;\n  box-sizing: border-box; }\n\n.mCSB_scrollTools .mCSB_draggerContainer {\n  background: url(" + __webpack_require__(29) + ");\n  background-size: 30px; }\n\n.mCSB_scrollTools .mCSB_draggerRail {\n  width: 1px;\n  border-radius: 0; }\n\n.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {\n  background: none !important;\n  width: 11px;\n  border-radius: 0;\n  position: relative;\n  box-sizing: border-box; }\n\n.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar:after {\n  content: '';\n  width: 16px;\n  height: 16px;\n  background-size: 16px;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  display: block;\n  z-index: 1;\n  margin: -8px 0 0 -8px; }\n\n.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {\n  border: 1px solid rgba(255, 255, 255, 0.2); }\n\n.mCSB_scrollTools .mCSB_draggerRail {\n  background: rgba(255, 255, 255, 0.02); }\n\n.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar:after {\n  background-image: url(" + __webpack_require__(30) + "); }\n\n.entry {\n  position: relative;\n  padding: 50px; }\n\n.entry h2 {\n  text-transform: uppercase;\n  font-size: 20px;\n  letter-spacing: 1px;\n  padding-bottom: 50px; }\n\n.entry .scroll {\n  height: 360px;\n  margin-bottom: 50px; }\n\n.entrydetail {\n  font-size: 12px;\n  letter-spacing: 1px;\n  padding: 0 0 0 60px; }\n\n.entrydetail .cell {\n  vertical-align: top;\n  font-weight: bold;\n  line-height: 2em;\n  padding-bottom: 30px; }\n\n.entrydetail .cell:first-child {\n  width: 160px; }\n\n.entrybtn {\n  display: block;\n  font-size: 16px;\n  font-weight: bold;\n  text-align: center;\n  width: 300px;\n  position: absolute;\n  right: 0;\n  bottom: 0;\n  z-index: 3;\n  line-height: 66px;\n  letter-spacing: 2px; }\n\n.entry .bg {\n  width: 100%;\n  height: 580px;\n  position: absolute;\n  top: 0;\n  left: 0; }\n\n.entry .bgL {\n  width: 135px;\n  background-repeat: no-repeat;\n  background-size: 135px; }\n\n.entry .bgM {\n  background-repeat: repeat-x;\n  background-size: 2px; }\n\n.entry .bgR {\n  width: 400px;\n  background-repeat: no-repeat;\n  background-size: 400px; }\n\n.entry .scrollside {\n  position: absolute;\n  left: 45px;\n  top: 126px; }\n\n.entry .scrollside.bottom {\n  position: absolute;\n  left: 36px;\n  top: auto;\n  bottom: 100px; }\n\n.entry .mCSB_scrollTools .mCSB_draggerContainer {\n  background: none; }\n\n.entry .mCSB_scrollTools {\n  margin: 0; }\n\n.entry h2 {\n  color: rgba(255, 255, 255, 0.3); }\n\n.entry .bgL {\n  background-image: url(" + __webpack_require__(96) + "); }\n\n.entry .bgM {\n  background-image: url(" + __webpack_require__(98) + "); }\n\n.entry .bgR {\n  background-image: url(" + __webpack_require__(97) + "); }\n", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n.main {\n  width: 800px;\n  position: absolute;\n  height: 800px;\n  left: 380px;\n  top: 0;\n  z-index: 9997;\n  background: url(" + __webpack_require__(28) + ") fixed;\n  background-size: 30px; }\n  .main .design {\n    height: 100%; }\n  .main .scroll {\n    padding: 0;\n    overflow-x: hidden;\n    height: 100%;\n    width: 100%; }\n  .main .scrollinside {\n    padding: 45px 0 0 40px;\n    width: 100%;\n    max-width: 910px;\n    margin: 0 auto; }\n  .main .insidetitle {\n    padding: 0 50px; }\n    .main .insidetitle .number {\n      width: 200px;\n      height: 270px;\n      line-height: 1;\n      text-align: left;\n      font-size: 140px;\n      color: #fff;\n      font-weight: 700;\n      text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); }\n    .main .insidetitle .pagetitle {\n      font-size: 50px;\n      letter-spacing: 5px;\n      font-weight: 700;\n      line-height: 1;\n      color: #fff;\n      text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); }\n    .main .insidetitle h2 {\n      color: #fff;\n      letter-spacing: 3px;\n      font-size: 22px;\n      padding: 8px 0 0;\n      text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5); }\n  .main .entrybtn {\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    display: block;\n    width: 300px;\n    font-size: 16px;\n    font-weight: 700;\n    text-align: center;\n    z-index: 3;\n    line-height: 66px;\n    letter-spacing: 2px;\n    color: #fff;\n    text-transform: uppercase; }\n\n.mCSB_inside > .mCSB_container {\n  margin-right: 0; }\n\n.mCSB_scrollTools {\n  left: 0;\n  margin: 40px 0;\n  width: 30px;\n  box-sizing: border-box; }\n\n.mCSB_scrollTools .mCSB_draggerContainer {\n  background: url(" + __webpack_require__(29) + ");\n  background-size: 30px; }\n\n.mCSB_scrollTools .mCSB_draggerRail {\n  width: 1px;\n  border-radius: 0; }\n\n.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {\n  background: none !important;\n  width: 11px;\n  border-radius: 0;\n  position: relative;\n  box-sizing: border-box; }\n\n.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar:after {\n  content: '';\n  width: 16px;\n  height: 16px;\n  background-size: 16px;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  display: block;\n  z-index: 1;\n  margin: -8px 0 0 -8px; }\n\n.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {\n  border: 1px solid rgba(255, 255, 255, 0.2); }\n\n.mCSB_scrollTools .mCSB_draggerRail {\n  background: rgba(255, 255, 255, 0.02); }\n\n.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar:after {\n  background-image: url(" + __webpack_require__(30) + "); }\n\n.entry {\n  position: relative;\n  padding: 50px; }\n\n.entry h2 {\n  text-transform: uppercase;\n  font-size: 20px;\n  letter-spacing: 1px;\n  padding-bottom: 50px;\n  line-height: 24px; }\n\n.entry .scroll {\n  height: 360px;\n  margin-bottom: 50px; }\n\n.entrydetail {\n  font-size: 12px;\n  letter-spacing: 1px;\n  padding: 0 0 0 60px; }\n\n.entrydetail .cell {\n  vertical-align: top;\n  font-weight: bold;\n  line-height: 2em;\n  padding-bottom: 30px; }\n\n.entrydetail .cell:first-child {\n  width: 160px; }\n\n.entrybtn {\n  display: block;\n  font-size: 16px;\n  font-weight: bold;\n  text-align: center;\n  width: 300px;\n  position: absolute;\n  right: 0;\n  bottom: 0;\n  z-index: 3;\n  line-height: 66px;\n  letter-spacing: 2px; }\n\n.entry .bg {\n  width: 100%;\n  height: 580px;\n  position: absolute;\n  top: 0;\n  left: 0; }\n\n.entry .bgL {\n  width: 135px;\n  background-repeat: no-repeat;\n  background-size: 135px; }\n\n.entry .bgM {\n  background-repeat: repeat-x;\n  background-size: 2px; }\n\n.entry .bgR {\n  width: 400px;\n  background-repeat: no-repeat;\n  background-size: 400px; }\n\n.entry .scrollside {\n  position: absolute;\n  left: 45px;\n  top: 126px; }\n\n.entry .scrollside.bottom {\n  position: absolute;\n  left: 36px;\n  top: auto;\n  bottom: 100px; }\n\n.entry .mCSB_scrollTools .mCSB_draggerContainer {\n  background: none; }\n\n.entry .mCSB_scrollTools {\n  margin: 0; }\n\n.entry h2 {\n  color: rgba(255, 255, 255, 0.3); }\n\n.entry .bgL {\n  background-image: url(" + __webpack_require__(31) + "); }\n\n.entry .bgM {\n  background-image: url(" + __webpack_require__(32) + "); }\n\n.entry .bgR {\n  background-image: url(" + __webpack_require__(33) + "); }\n", ""]);
 	
 	// exports
 
@@ -15326,6 +15334,24 @@
 
 /***/ },
 /* 31 */
+/***/ function(module, exports) {
+
+	module.exports = "data:image/png;base64,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"
+
+/***/ },
+/* 32 */
+/***/ function(module, exports) {
+
+	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAASICAAAAAARpzESAAAAAnRSTlMA/1uRIrUAAAAsSURBVHgB7dhBAQAQEACwE0z/VgAEuPc+C7HSI+JQPx0AACABAAAAAMCzJhh04oU1xI2dAwAAAABJRU5ErkJggg=="
+
+/***/ },
+/* 33 */
+/***/ function(module, exports) {
+
+	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAASICAMAAADcRltXAAAA21BMVEUAAAB6enp6enp6enp6enp6enp6enp6eno9PT12dnZ6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enoTnS81AAAASXRSTlMABpHt7pD/iP//3BwQJeMk5NQV0+ot68sPyfA38cEKvvVC9ray+U76qgOl/Fv9ngGX/ml3eIF5mImmQDo90NF8xTZ+dhImayyUWVATXgAACjdJREFUeAHt14Vh5EgQQNES9ZiZl5nB7GOG/CPaCUBtGNBJvvdy+AUBt1OUVV0W0QZo0tgo/m8WbgUWU/8tLQsEgUxQCHRxYjUrfba6phD+uye97v2Tvr6hEFAITFzI5lYA2UK2FQIKAYWAQkAhMIRCgPWdfCHA7p5CQCEwcSH7BwFkCzlUCCgEFAJDKAQUAgoBdo/yhQAPHk5cCCgEFPLocWSBQp4MoRBQCCgEFAIKAYUAD57mCwGePZ+4EFAIKORFEVmgkJdF9B8oBBQCCgGFgEKAZ6/yhQCv30xcCCgEFPL2XWSBQt4PoRBQCCgEFAIKAYUArz8oBPI+flIIKGRiKOTzl4AshXxVCCgEFAIKAYWAQmAIPh4rBPJOkkJAIRNDIU1AnkJGASgEFAIKAYWAQkAhMHCnCoFrnCnkeijkPCBPIWcBKAQUAgqBDl2kFEDGikBAICAQEAgIBAQCAgGBgEBAIIBAQCAgEBAICAQEAgIBgYBAQCCAQEAgIBAQCAgEBAICAYGAQACBgEBAICAQEAgIBAQCAgGBgEAAgYBAQCAgEBAICAQEAgIBgQACAYGAQEAgIBAQCAgEBAICAYEAAgGBgEBAICAQEAgIBAQCAgEEMgYCAYGAQEAgIBAQCAgEBAICAQQCAgGBgEBAICAQEAgIBAQCAgEEAgIBgYBAugMCAYGAQEAgIBAQCAgEBAICAQQCAgGBgEBAICAQEAgIBAQCAgEEAgIBgYBAQCAgEBAICAQEAggEBAICAYGAQEAgIBAQCAgEBAIIBAQCAgGBgEBAICAQEAgIBBAICAQEAgIBgYBAQCAgEBAICAQQCAgEBAICAYGAQEAgIBAQCFBcplQW0QZo0tgo2gBVGqtiEiAQcGJdRRugKOvak54FCwsBCAQEAgIBgYBAQCAgEBAICAQQCAgEBAICAYGAQEAgIBAQCAgEEAgIBAQCAgGBgEBAICAQEAggEBAICAQEAgIBgYBAQCAgEBAIIBAQCAgEBAICAYGAQEAgIBBAICAQEAgIBAQCAgGBgEBAICAQQCAgEBAICAQEAgIBgYBAQCCAQEAgIBAQCAgEBAICAYGAQEAggEBAICAQEAgIBAQCAgGBgEBAIIBAQCAgEBAICAQEAgIBgYBAAIGAQEAgIBAQCAgEBAICAYGAQACBgEBAICAQEAgIBAQCAgGBAAIBgYBAQCAgEBAICAQEAgIBgQACAYGAQEAgIBAQCAgEBAICAQQCAgGBgEBAICAQEAgIBAQCAgEEAgIBgYBAQCAgEBAICAQEAggEBAICAYGAQEAgIBAQCAgEBAIIBAQCAgGBgEBAICAQEAgIBAQCCAQEAgIBgYBAQCAgEBAICAQQCAgEBAICAYGAQEAgIBAQCAgEEAgIBAQCAgGBgEBAICAQEAggEBAICAQEAgIBgYBAQCAgEBAIIBAQCAgEBAICAYGAQEAgIBBAICAQEAgIBAQCAgGBgEBAICAQQCAgEBAICAQEAgIBgYBAQCCAQEAgIBAQCAgEBAICAYGAQEAggEBAICAQEAgIBAQCAgGBgEBAIIBAQCAgEBAICAQEAgIBgYBAAIGAQEAgIBAQCAgEBAICAYGAQACBgEBAICAQEAgIBAQCAgGBAAIBgYBAQCAgEBAICAQEAgIBgQACAYGAQEAgIBAQCAgEBAICAQQCAgGBgEBAICAQEAgIBAQCAgEEAgIBgYBAQCAgEBAICAQEAggEBAICAYGAQEAgIBAQCAgEBAIIBAQCAgGBgEBAICAQEAgIBAQCCAQEAgIBgYBAQCAgEBAICAQQCAgEBAICAYGAQEAgIBAQCAgEEAgIBAQCAgGBgEBAICAQEAggEBAICAQEAgIBgYBAQCAgEBAIIBAQCAgEBAICAYGAQEAgIBBAICAQEAgIBAQCAgGBgEBAICAQQCAgEBAICAQEAgIBgYBAQCCAQEAgIBAQCAgEBAICAYGAQEAggEBAICAQEAgIBAQCAgGBgEBAIIBAQCAgEBAICAQEAgIBgYBAAIGAQEAgIBAQCAgEBAICAYGAQACBgEBAICAQEAgIBAQCAgGBAAIBgYBAQCAgEBAICAQEAgIBgQACAYGAQEAgIBAQCAgEBAICAQQCAgGBgEBAICAQEAgIBAQCAgEEAgIBgYBAQCAgEBAICAQEAggEBAICAYGAQEAgIBAQCAgEBAIIBAQCAgGBgEBAICAQEAgIBAQCCAQEAgIBgYBAQCAgEBAICAQQCAgEBAICAYGAQEAgIBAQCAgEEAgIBAQCAgGBgEBAICAQEAjQ60BAICAQEAgIBAQCCAQEAgIBgYBAQCAgEBAICAQEAggEBAICAYGAQEAgIBAQCAgEEAgIBAQCAgGBgEBAICAQEAgIBBAICAQEAgIBgYBAQCAgEBAIIBAQCAgEBAICAYGAQEAgIBAQCCAQEAgIBAQCAgGBgEBAICAQoCgXF8sigDZNGhsF0KZKY1UAAoFJTqyrANoUlynlnnRgJaUABAICAYGAQEAgIBAQCAgEBAIIBAQCAgGBgEBAICAQEAgIBAQCCAQEAgIBgYBAQCAgEBAICAQQCAgEBAICAYGAQEAgIBAQCAgEEAgIBAQCAgGBgEBAICAQEAjQEgggEBAICAQEAgIBgYBAQCAgEBAIIBAQCAgEBAICAYGAQEAgIBBAICAQEAgIBAQCAgGBgEBAICAQQCAgEBAICAQEAgIBgYBAQCCAQEAgIBAQCAgEBAICAYGAQEAgwGACAYGAQEAgIBAQCCAQEAgIBAQCAgGBgEBAICAQEAggEBAICAQEAgIBgYBAQCAgEEAgIBAQCAgEBAICAYGAQEAgIBBAICAQEAgIBAQCAgGBgEBAIIBAQCAgEBAICAQEAgIBgYBAQCCAQEAgIBAQCAgEBAICAYGAQACBBAgEBAICAYGAQEAgIBAQCAgEEAgIBAQCAgGBgEBAICAQEAgIBBAICAQEAgIBgYBAQCAgEBAIIBAQCAgEBAICAYGAQEAgIBAQCCAQEAgIBAQCAgGBgEBAICAQQCAgEBAICAQEAgIBgYBAQCAgEEAgIBAQCAgEBAICAYGAQEAggEBAICAQEAgIBAQCAgGBgECKsqrLIkAgbZo09t33PfZDwJwCWbjRYuq9UcCs/XiXQD781F8/z74QePAwPbn9iXUVPXYyj0LQx+NbPul1y5OuEPTRMYWgD4Wgj+6dKQR9KAR9KAR9KAR9KKR76EMh6EMh6EMh6KPrQn4J0Ee+kLOAHvShEPShEPShEPTxa7YPhaCPw4MYGoWgD4WgD4WgD4WgD4WgD4WgD4XAb9k+FAK7ez3pQyHoQyHoQyHoQyHoQyHog98VwjV9MFII+lAI+lAI+lAI+lAI+lAI+lAI+rgfhfwReehDISfREfShEPShEPShEPSBQvSx/WegEHJ9bAVDKwR9KAR9KAR9KAR9KAR9KAR9oBD+yvaBQljf6E8fCkEfCkEfCkEfCvl75T7jH31MV8h9xzR98G+6Bvr4Bn0NTUhFGmizAAAAAElFTkSuQmCC"
+
+/***/ },
+/* 34 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -15359,29 +15385,36 @@
 	                $html.removeClass('fetch');
 	            }, 1000);
 	
+	            setTimeout(function () {
+	                $('.main').animate({ opacity: 1 }, 500);
+	            }, 1300);
+	
 	            transition.next();
+	        },
+	        deactivate: function deactivate() {
+	            $('.main').animate({ opacity: 0 }, 300);
 	        }
 	    }
 	};
 
 /***/ },
-/* 32 */
+/* 35 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"design\">\n    <div class=\"scroll\">\n        <div class=\"mCustomScrollbar\" data-mcs-theme=\"dark\">\n            <section>\n                <div class=\"scrollinside\">\n\n                    <div class=\"insidetitle table\">\n                        <div class=\"cell number\">\n                            <div>03</div>\n                        </div>\n                        <div class=\"cell\">\n                            <h1 class=\"pagetitle\">DESIGN</h1>\n                            <h2>Web Design.</h2>\n                        </div>\n                    </div>\n\n                    <span class=\"s60\"></span>\n\n                    <div class=\"entry\">\n                        <div class=\"header\">\n                            <h2>SERVER ENGINEER</h2>\n                        </div>\n\n                        <div class=\"scroll\">\n                            <div class=\"mCustomScrollbar\" data-mcs-theme=\"dark\">\n                                <div class=\"table entrydetail\">\n                                    <div class=\"row\">\n                                        <div class=\"cell\">募集背景</div>\n                                        <div class=\"cell\"><p class=\"p1\">新規プロジェクトの立ち上げ、既存サービスの国内拡大や海外展開に伴う事業拡大のため、コアとなるメンバーを募集します。</p>\n                                        </div>\n                                    </div>\n                                    <div class=\"row\">\n                                        <div class=\"cell\">業務内容</div>\n                                        <div class=\"cell\">\n                                            <p class=\"p1\">新規及び国内外の既存サービスのサーバーインフラ開発と運用をお任せします。</p>\n                                            <p class=\"p1\">サーバーサイド設計・開発・運用担当として、まずは国外、海外含め既存プロジェクトに関わって頂きます。</p>\n                                            <p class=\"p1\">国内180万人以上、同カテゴリ内ではトップクラスの売上を誇るサービスとなります。</p>\n                                            <p class=\"p1\">その後、スキルやご希望に合わせてプロジェクト内容や規模を相談しながら決めていきます。</p>\n                                        </div>\n                                    </div>\n                                    <div class=\"row\">\n                                        <div class=\"cell\">応募資格</div>\n                                        <div class=\"cell\"><p class=\"p1\">【必須要件】</p>\n                                            <p class=\"p1\">■PHPなどを用いたWebアプリケーションの設計・開発経験</p>\n                                            <p class=\"p1\">■Linux/RDBMSの基礎知識</p>\n                                            <p class=\"p1\">■データベースの構築・運用経験</p>\n                                            <p class=\"p1\">■サーバー構築経験</p>\n                                            <p class=\"p1\">&nbsp;</p>\n                                            <p class=\"p1\">【歓迎要件】</p>\n                                            <p class=\"p1\">■ソーシャルゲーム等のサーバー構築/運用経験</p>\n                                            <p class=\"p1\">■大規模ユーザーサービスのサーバー構築/運用経験</p>\n                                            <p class=\"p1\">■海外サーバー構築、運用経験</p>\n                                            <p class=\"p1\">■その他言語の知識・経験</p>\n                                            <p class=\"p1\">■ネットワーク構築・運用経験</p>\n                                            <p class=\"p1\">■WEBサイトのコーディング</p>\n                                            <p class=\"p1\">（今後サーバサイドだけでなく、フロントサイドもいずれやりたいという方も歓迎します）</p>\n                                        </div>\n                                    </div>\n                                    <div class=\"row\">\n                                        <div class=\"cell\">雇用区分</div>\n                                        <div class=\"cell\"><p>正社員</p></div>\n                                    </div>\n                                    <div class=\"row\">\n                                        <div class=\"cell\">想定年収</div>\n                                        <div class=\"cell\"><p class=\"p1\">300万円～800万円</p>\n                                        <p class=\"p1\">※ご経験・スキルを考慮して決定いたします。</p>\n                                        </div>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n\n                        <div class=\"footer\">\n                            <a class=\"entrybtn\">ENTRY</a>\n                        </div>\n\n                        <div class=\"bg table\">\n                            <div class=\"bgL cell\"></div>\n                            <div class=\"bgM cell\"></div>\n                            <div class=\"bgR cell\"></div>\n                        </div>\n\n                    </div>\n                    <span class=\"s90\"></span>\n                </div>\n            </section>\n        </div>\n    </div>\n</div>\n";
+	module.exports = "\n<div class=\"design\">\n    <div class=\"scroll\">\n        <div class=\"mCustomScrollbar\" data-mcs-theme=\"dark\">\n            <section>\n                <div class=\"scrollinside\">\n\n                    <div class=\"insidetitle table\">\n                        <div class=\"cell number\">\n                            <div>03</div>\n                        </div>\n                        <div class=\"cell\">\n                            <h1 class=\"pagetitle\">DESIGN</h1>\n                            <h2>Web Design.</h2>\n                        </div>\n                    </div>\n\n                    <span class=\"s60\"></span>\n\n                    <div class=\"entry\">\n                        <div class=\"header\">\n                            <h2>SERVER ENGINEER</h2>\n                        </div>\n\n                        <div class=\"scroll\">\n                            <div class=\"mCustomScrollbar\" data-mcs-theme=\"dark\">\n                                <div class=\"table entrydetail\">\n                                    <div class=\"row\">\n                                        <div class=\"cell\">募集背景</div>\n                                        <div class=\"cell\"><p class=\"p1\">新規プロジェクトの立ち上げ、既存サービスの国内拡大や海外展開に伴う事業拡大のため、コアとなるメンバーを募集します。</p>\n                                        </div>\n                                    </div>\n                                    <div class=\"row\">\n                                        <div class=\"cell\">業務内容</div>\n                                        <div class=\"cell\">\n                                            <p class=\"p1\">新規及び国内外の既存サービスのサーバーインフラ開発と運用をお任せします。</p>\n                                            <p class=\"p1\">サーバーサイド設計・開発・運用担当として、まずは国外、海外含め既存プロジェクトに関わって頂きます。</p>\n                                            <p class=\"p1\">国内180万人以上、同カテゴリ内ではトップクラスの売上を誇るサービスとなります。</p>\n                                            <p class=\"p1\">その後、スキルやご希望に合わせてプロジェクト内容や規模を相談しながら決めていきます。</p>\n                                        </div>\n                                    </div>\n                                    <div class=\"row\">\n                                        <div class=\"cell\">応募資格</div>\n                                        <div class=\"cell\"><p class=\"p1\">【必須要件】</p>\n                                            <p class=\"p1\">■PHPなどを用いたWebアプリケーションの設計・開発経験</p>\n                                            <p class=\"p1\">■Linux/RDBMSの基礎知識</p>\n                                            <p class=\"p1\">■データベースの構築・運用経験</p>\n                                            <p class=\"p1\">■サーバー構築経験</p>\n                                            <p class=\"p1\">&nbsp;</p>\n                                            <p class=\"p1\">【歓迎要件】</p>\n                                            <p class=\"p1\">■ソーシャルゲーム等のサーバー構築/運用経験</p>\n                                            <p class=\"p1\">■大規模ユーザーサービスのサーバー構築/運用経験</p>\n                                            <p class=\"p1\">■海外サーバー構築、運用経験</p>\n                                            <p class=\"p1\">■その他言語の知識・経験</p>\n                                            <p class=\"p1\">■ネットワーク構築・運用経験</p>\n                                            <p class=\"p1\">■WEBサイトのコーディング</p>\n                                            <p class=\"p1\">（今後サーバサイドだけでなく、フロントサイドもいずれやりたいという方も歓迎します）</p>\n                                        </div>\n                                    </div>\n                                    <div class=\"row\">\n                                        <div class=\"cell\">雇用区分</div>\n                                        <div class=\"cell\"><p>正社員</p></div>\n                                    </div>\n                                    <div class=\"row\">\n                                        <div class=\"cell\">想定年収</div>\n                                        <div class=\"cell\"><p class=\"p1\">300万円～800万円</p>\n                                        <p class=\"p1\">※ご経験・スキルを考慮して決定いたします。</p>\n                                        </div>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n\n                        <div class=\"footer\">\n                            <a class=\"entrybtn\" v-link=\"'/design/1'\">readme more</a>\n                        </div>\n\n                        <div class=\"bg table\">\n                            <div class=\"bgL cell\"></div>\n                            <div class=\"bgM cell\"></div>\n                            <div class=\"bgR cell\"></div>\n                        </div>\n\n                    </div>\n                    <span class=\"s90\"></span>\n                </div>\n            </section>\n        </div>\n    </div>\n</div>\n";
 
 /***/ },
-/* 33 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(34)
-	__vue_script__ = __webpack_require__(36)
+	__webpack_require__(37)
+	__vue_script__ = __webpack_require__(39)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/diary/index.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(37)
+	__vue_template__ = __webpack_require__(40)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -15400,13 +15433,13 @@
 	})()}
 
 /***/ },
-/* 34 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(35);
+	var content = __webpack_require__(38);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(17)(content, {});
@@ -15426,7 +15459,7 @@
 	}
 
 /***/ },
-/* 35 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(4)();
@@ -15440,7 +15473,7 @@
 
 
 /***/ },
-/* 36 */
+/* 39 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -15456,23 +15489,23 @@
 	};
 
 /***/ },
-/* 37 */
+/* 40 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"diary\">\n</div>\n";
 
 /***/ },
-/* 38 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(39)
-	__vue_script__ = __webpack_require__(41)
+	__webpack_require__(42)
+	__vue_script__ = __webpack_require__(44)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/about/index.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(42)
+	__vue_template__ = __webpack_require__(45)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -15491,13 +15524,13 @@
 	})()}
 
 /***/ },
-/* 39 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(40);
+	var content = __webpack_require__(43);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(17)(content, {});
@@ -15517,7 +15550,7 @@
 	}
 
 /***/ },
-/* 40 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(4)();
@@ -15531,7 +15564,7 @@
 
 
 /***/ },
-/* 41 */
+/* 44 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -15547,23 +15580,23 @@
 	};
 
 /***/ },
-/* 42 */
+/* 45 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"about\">\n</div>\n";
 
 /***/ },
-/* 43 */
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(44)
-	__vue_script__ = __webpack_require__(46)
+	__webpack_require__(47)
+	__vue_script__ = __webpack_require__(49)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/contact/index.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(47)
+	__vue_template__ = __webpack_require__(50)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -15582,13 +15615,13 @@
 	})()}
 
 /***/ },
-/* 44 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(45);
+	var content = __webpack_require__(48);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(17)(content, {});
@@ -15608,7 +15641,7 @@
 	}
 
 /***/ },
-/* 45 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(4)();
@@ -15622,7 +15655,7 @@
 
 
 /***/ },
-/* 46 */
+/* 49 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -15638,22 +15671,22 @@
 	};
 
 /***/ },
-/* 47 */
+/* 50 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"contact\">\n</div>\n";
 
 /***/ },
-/* 48 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(49)
+	__vue_script__ = __webpack_require__(52)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/404.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(50)
+	__vue_template__ = __webpack_require__(53)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -15672,7 +15705,7 @@
 	})()}
 
 /***/ },
-/* 49 */
+/* 52 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -15685,13 +15718,13 @@
 	};
 
 /***/ },
-/* 50 */
+/* 53 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div>\n    <p>页面找不到啦~</p>\n</div>\n";
 
 /***/ },
-/* 51 */
+/* 54 */
 /***/ function(module, exports) {
 
 	
@@ -15733,17 +15766,17 @@
 	};
 
 /***/ },
-/* 52 */
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(53)
-	__vue_script__ = __webpack_require__(56)
+	__webpack_require__(56)
+	__vue_script__ = __webpack_require__(59)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/App.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(95)
+	__vue_template__ = __webpack_require__(98)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -15762,13 +15795,13 @@
 	})()}
 
 /***/ },
-/* 53 */
+/* 56 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(54);
+	var content = __webpack_require__(57);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(17)(content, {});
@@ -15788,7 +15821,7 @@
 	}
 
 /***/ },
-/* 54 */
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(4)();
@@ -15796,19 +15829,19 @@
 	
 	
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n.expand {\n  position: absolute;\n  top: 50%;\n  left: -85px;\n  opacity: 0.5;\n  margin-top: -432.5px; }\n  .expand.leftside {\n    -webkit-transform: translate(200px, 0);\n    transform: translate(200px, 0); }\n  .expand.rightside {\n    right: -85px;\n    left: auto;\n    -webkit-transform: translate(-240px, 0);\n    transform: translate(-240px, 0); }\n  .expand svg {\n    height: 865px;\n    width: 62px;\n    vertical-align: bottom; }\n  .expand .st0 {\n    stroke: rgba(255, 255, 255, 0.7); }\n  .expand .st2 {\n    fill: none;\n    stroke-linecap: round;\n    stroke-miterlimit: 10; }\n  .expand .st0, .expand .st1 {\n    fill: none;\n    stroke-miterlimit: 10; }\n  .expand .st1, .expand .st2 {\n    stroke: rgba(255, 255, 255, 0.5); }\n  .expand.on path {\n    -webkit-transition: all 0.8s;\n    transition: all 0.8s;\n    stroke-dashoffset: 0 !important; }\n\n.hideexpand .expand.leftside, .hideexpand .expand.rightside {\n  -webkit-transition: all .5s ease-in-out;\n  transition: all .5s ease-in-out;\n  -webkit-transform: translate(0, 0);\n  transform: translate(0, 0); }\n\n.hideborder .expand {\n  opacity: 0.5; }\n\n.vr {\n  position: absolute;\n  top: 0;\n  height: 100%;\n  width: 3px;\n  overflow: hidden; }\n  .vr.left {\n    left: 0; }\n  .vr.right {\n    right: 2px; }\n  .vr > div {\n    position: relative;\n    width: 1px;\n    height: 100%; }\n  .vr .b {\n    position: absolute;\n    top: 0;\n    width: 1px;\n    height: 100%;\n    margin-left: 1px;\n    background: rgba(255, 255, 255, 0.5);\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s;\n    -webkit-transform: translate3d(0, -100%, 0);\n    transform: translate3d(0, -100%, 0); }\n  .vr .d {\n    position: absolute;\n    height: 3px;\n    width: 3px;\n    border-radius: 3px;\n    opacity: 0;\n    background: rgba(255, 255, 255, 0.5);\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s; }\n  .vr .top {\n    top: 0; }\n  .vr .bottom {\n    bottom: 0; }\n\n.hr {\n  position: absolute;\n  width: 100%;\n  height: 3px;\n  overflow: hidden; }\n  .hr > div {\n    width: 100%;\n    position: relative;\n    height: 1px; }\n  .hr .b {\n    display: block;\n    position: absolute;\n    top: 1px;\n    height: 1px;\n    width: 100%;\n    background: rgba(255, 255, 255, 0.5);\n    -webkit-transform: translate3d(-100%, 0, 0);\n    transform: translate3d(-100%, 0, 0);\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s; }\n  .hr .d {\n    display: block;\n    position: absolute;\n    height: 3px;\n    width: 3px;\n    background: rgba(255, 255, 255, 0.5);\n    opacity: 0;\n    border-radius: 3px;\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s; }\n  .hr .left {\n    left: 0; }\n  .hr .right {\n    right: 0; }\n  .hr.dark span {\n    background: white; }\n\n.showborder .vr > div .b, .showborder .hr > div .b {\n  -webkit-transform: translate3d(0, 0, 0);\n  transform: translate3d(0, 0, 0); }\n\n.showborder .vr > div .d, .showborder .hr > div .d {\n  opacity: 1; }\n\n.hideborder .hr > div .b {\n  -webkit-transform: translate3d(100%, 0, 0);\n  transform: translate3d(100%, 0, 0); }\n\n.hideborder .hr > div .d {\n  opacity: 0; }\n\n.hideborder .vr > div .b {\n  -webkit-transform: translate3d(0, 100%, 0);\n  transform: translate3d(0, 100%, 0); }\n\n.hideborder .vr > div .d {\n  opacity: 0; }\n\n.loadmask {\n  position: absolute;\n  top: 0;\n  left: 380px;\n  z-index: 10;\n  display: block; }\n  .loadmask .body {\n    position: relative;\n    width: 100%;\n    height: 100%; }\n    .loadmask .body .dotted {\n      position: absolute;\n      top: -200px;\n      left: 0;\n      width: 100%;\n      height: 200px;\n      background-image: url(" + __webpack_require__(55) + ");\n      background-size: 30px;\n      background-attachment: fixed;\n      -webkit-transition: all 1.5s;\n      transition: all 1.5s; }\n\n.fetch .loadmask .body .dotted {\n  top: 120%; }\n", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n.expand {\n  position: absolute;\n  top: 50%;\n  left: -85px;\n  opacity: 0.5;\n  margin-top: -432.5px; }\n  .expand.leftside {\n    -webkit-transform: translate(200px, 0);\n    transform: translate(200px, 0); }\n  .expand.rightside {\n    right: -85px;\n    left: auto;\n    -webkit-transform: translate(-240px, 0);\n    transform: translate(-240px, 0); }\n  .expand svg {\n    height: 865px;\n    width: 62px;\n    vertical-align: bottom; }\n  .expand .st0 {\n    stroke: rgba(255, 255, 255, 0.7); }\n  .expand .st2 {\n    fill: none;\n    stroke-linecap: round;\n    stroke-miterlimit: 10; }\n  .expand .st0, .expand .st1 {\n    fill: none;\n    stroke-miterlimit: 10; }\n  .expand .st1, .expand .st2 {\n    stroke: rgba(255, 255, 255, 0.5); }\n  .expand.on path {\n    -webkit-transition: all 0.8s;\n    transition: all 0.8s;\n    stroke-dashoffset: 0 !important; }\n\n.hideexpand .expand.leftside, .hideexpand .expand.rightside {\n  -webkit-transition: all .5s ease-in-out;\n  transition: all .5s ease-in-out;\n  -webkit-transform: translate(0, 0);\n  transform: translate(0, 0); }\n\n.hideborder .expand {\n  opacity: 0.5; }\n\n.vr {\n  position: absolute;\n  top: 0;\n  height: 100%;\n  width: 3px;\n  overflow: hidden; }\n  .vr.left {\n    left: 0; }\n  .vr.right {\n    right: 2px; }\n  .vr > div {\n    position: relative;\n    width: 1px;\n    height: 100%; }\n  .vr .b {\n    position: absolute;\n    top: 0;\n    width: 1px;\n    height: 100%;\n    margin-left: 1px;\n    background: rgba(255, 255, 255, 0.5);\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s;\n    -webkit-transform: translate3d(0, -100%, 0);\n    transform: translate3d(0, -100%, 0); }\n  .vr .d {\n    position: absolute;\n    height: 3px;\n    width: 3px;\n    border-radius: 3px;\n    opacity: 0;\n    background: rgba(255, 255, 255, 0.5);\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s; }\n  .vr .top {\n    top: 0; }\n  .vr .bottom {\n    bottom: 0; }\n\n.hr {\n  position: absolute;\n  width: 100%;\n  height: 3px;\n  overflow: hidden; }\n  .hr > div {\n    width: 100%;\n    position: relative;\n    height: 1px; }\n  .hr .b {\n    display: block;\n    position: absolute;\n    top: 1px;\n    height: 1px;\n    width: 100%;\n    background: rgba(255, 255, 255, 0.5);\n    -webkit-transform: translate3d(-100%, 0, 0);\n    transform: translate3d(-100%, 0, 0);\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s; }\n  .hr .d {\n    display: block;\n    position: absolute;\n    height: 3px;\n    width: 3px;\n    background: rgba(255, 255, 255, 0.5);\n    opacity: 0;\n    border-radius: 3px;\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s; }\n  .hr .left {\n    left: 0; }\n  .hr .right {\n    right: 0; }\n  .hr.dark span {\n    background: white; }\n\n.showborder .vr > div .b, .showborder .hr > div .b {\n  -webkit-transform: translate3d(0, 0, 0);\n  transform: translate3d(0, 0, 0); }\n\n.showborder .vr > div .d, .showborder .hr > div .d {\n  opacity: 1; }\n\n.hideborder .hr > div .b {\n  -webkit-transform: translate3d(100%, 0, 0);\n  transform: translate3d(100%, 0, 0); }\n\n.hideborder .hr > div .d {\n  opacity: 0; }\n\n.hideborder .vr > div .b {\n  -webkit-transform: translate3d(0, 100%, 0);\n  transform: translate3d(0, 100%, 0); }\n\n.hideborder .vr > div .d {\n  opacity: 0; }\n\n.loadmask {\n  position: absolute;\n  top: 0;\n  left: 380px;\n  z-index: 10;\n  display: block; }\n  .loadmask .body {\n    position: relative;\n    width: 100%;\n    height: 100%; }\n    .loadmask .body .dotted {\n      position: absolute;\n      top: -200px;\n      left: 0;\n      width: 100%;\n      height: 200px;\n      background-image: url(" + __webpack_require__(58) + ");\n      background-size: 30px;\n      background-attachment: fixed;\n      -webkit-transition: all 1.5s;\n      transition: all 1.5s; }\n\n.fetch .loadmask .body .dotted {\n  top: 120%; }\n", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 55 */
+/* 58 */
 /***/ function(module, exports) {
 
 	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8AQMAAAAAMksxAAAABlBMVEXf9f/f9f/awkaRAAAAAnRSTlMAgJsrThgAAAASSURBVChTY2AYBaiAGYMxUgEACD0AB0gqVlUAAAAASUVORK5CYII="
 
 /***/ },
-/* 56 */
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15817,15 +15850,15 @@
 	    value: true
 	});
 	
-	var _sideLeft = __webpack_require__(57);
+	var _sideLeft = __webpack_require__(60);
 	
 	var _sideLeft2 = _interopRequireDefault(_sideLeft);
 	
-	var _sideRight = __webpack_require__(60);
+	var _sideRight = __webpack_require__(63);
 	
 	var _sideRight2 = _interopRequireDefault(_sideRight);
 	
-	var _index = __webpack_require__(63);
+	var _index = __webpack_require__(66);
 	
 	var _index2 = _interopRequireDefault(_index);
 	
@@ -15857,7 +15890,7 @@
 	        setTimeout(function () {
 	            that.$set('sideon', true);
 	            loadedAnimate();
-	        }, 1200);
+	        }, 1000);
 	
 	        function loadedAnimate() {
 	
@@ -15932,55 +15965,6 @@
 	};
 
 /***/ },
-/* 57 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(58)
-	if (__vue_script__ &&
-	    __vue_script__.__esModule &&
-	    Object.keys(__vue_script__).length > 1) {
-	  console.warn("[vue-loader] src/components/ui/side-left.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(59)
-	module.exports = __vue_script__ || {}
-	if (module.exports.__esModule) module.exports = module.exports.default
-	if (__vue_template__) {
-	(typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports).template = __vue_template__
-	}
-	if (false) {(function () {  module.hot.accept()
-	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), false)
-	  if (!hotAPI.compatible) return
-	  var id = "_v-6c42d334/side-left.vue"
-	  if (!module.hot.data) {
-	    hotAPI.createRecord(id, module.exports)
-	  } else {
-	    hotAPI.update(id, module.exports, __vue_template__)
-	  }
-	})()}
-
-/***/ },
-/* 58 */
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.default = {
-	    props: {
-	        on: Boolean
-	    }
-	};
-
-/***/ },
-/* 59 */
-/***/ function(module, exports) {
-
-	module.exports = "\n<aside class=\"expand leftside\" :class=\"{on: on}\">\n    <svg viewBox=\"0 0 62.5 866\">\n        <path class=\"st0\" d=\"M17.5,0.5H36v141l-10,10v560l10,10v144H17.5\" style=\"transition-delay: 0s; -webkit-transition-delay: 0s; stroke-dashoffset: 910.284301757813px; stroke-dasharray: 910.284301757813px;\"></path>\n        <path class=\"st1\" d=\"M43,723v142.5h19.5\" style=\"transition-delay: 0.05s; -webkit-transition-delay: 0.05s; stroke-dashoffset: 162px; stroke-dasharray: 162px;\"></path>\n        <path class=\"st1\" d=\"M43,143V0.5h19.5\" style=\"transition-delay: 0.1s; -webkit-transition-delay: 0.1s; stroke-dashoffset: 162px; stroke-dasharray: 162px;\"></path>\n        <path class=\"st1\" d=\"M25.7,231.7C16,269.8,9,308.8,4.9,348.8c-2.9,28-4.4,56.4-4.4,85.2c0,28.8,1.5,57.3,4.4,85.4\n            C9,559.3,16,598.3,25.7,636.3\" style=\"transition-delay: 0.15s; -webkit-transition-delay: 0.15s; stroke-dashoffset: 408.787078857422px; stroke-dasharray: 408.787078857422px;\"></path>\n        <line class=\"st2\" x1=\"15.5\" y1=\"275.5\" x2=\"25.5\" y2=\"275.5\"></line>\n        <line class=\"st2\" x1=\"15.5\" y1=\"591.5\" x2=\"25.5\" y2=\"591.5\"></line>\n        <path class=\"st1\" d=\"M25,802.5c0-8.4,0-20,0-20h4v20H25z\" style=\"transition-delay: 0.2s; -webkit-transition-delay: 0.2s; stroke-dashoffset: 48px; stroke-dasharray: 48px;\"></path>\n        <path class=\"st1\" d=\"M25,853.5c0-8.7,0-40,0-40h4v40H25z\" style=\"transition-delay: 0.25s; -webkit-transition-delay: 0.25s; stroke-dashoffset: 88px; stroke-dasharray: 88px;\"></path>\n    </svg>\n</aside>\n";
-
-/***/ },
 /* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -15989,7 +15973,7 @@
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
-	  console.warn("[vue-loader] src/components/ui/side-right.vue: named exports in *.vue files are ignored.")}
+	  console.warn("[vue-loader] src/components/ui/side-left.vue: named exports in *.vue files are ignored.")}
 	__vue_template__ = __webpack_require__(62)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
@@ -16000,7 +15984,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-a18d5f66/side-right.vue"
+	  var id = "_v-6c42d334/side-left.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -16027,20 +16011,69 @@
 /* 62 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<aside class=\"expand rightside\" :class=\"{on: on}\">\n    <svg viewBox=\"0 0 62.5 866\">\n        <path class=\"st0\" d=\"M45.5,0.5H27v141l10,10v560l-10,10v144h18.5\" style=\"transition-delay: 0.3s; -webkit-transition-delay: 0.3s; stroke-dashoffset: 910.284301757813px; stroke-dasharray: 910.284301757813px;\"></path>\n        <path class=\"st1\" d=\"M20,723v142.5H0.5\" style=\"transition-delay: 0.35s; -webkit-transition-delay: 0.35s; stroke-dashoffset: 162px; stroke-dasharray: 162px;\"></path>\n        <path class=\"st1\" d=\"M20,143V0.5H0.5\" style=\"transition-delay: 0.4s; -webkit-transition-delay: 0.4s; stroke-dashoffset: 162px; stroke-dasharray: 162px;\"></path>\n        <path class=\"st1\" d=\"M37.3,231.7c9.6,38,16.6,77.1,20.8,117.1c2.9,28,4.4,56.4,4.4,85.2c0,28.8-1.5,57.3-4.4,85.4 C54,559.3,47,598.3,37.3,636.3\" style=\"transition-delay: 0.45s; -webkit-transition-delay: 0.45s; stroke-dashoffset: 408.780639648438px; stroke-dasharray: 408.780639648438px;\"></path>\n        <line class=\"st2\" x1=\"47.5\" y1=\"275.5\" x2=\"37.5\" y2=\"275.5\"></line>\n        <line class=\"st2\" x1=\"47.5\" y1=\"591.5\" x2=\"37.5\" y2=\"591.5\"></line>\n        <path class=\"st1\" d=\"M38,802.5c0-8.4,0-20,0-20h-4v20H38z\" style=\"transition-delay: 0.5s; -webkit-transition-delay: 0.5s; stroke-dashoffset: 48px; stroke-dasharray: 48px;\"></path>\n        <path class=\"st1\" d=\"M38,853.5c0-8.7,0-40,0-40h-4v40H38z\" style=\"transition-delay: 0.55s; -webkit-transition-delay: 0.55s; stroke-dashoffset: 88px; stroke-dasharray: 88px;\"></path>\n    </svg>\n</aside>\n";
+	module.exports = "\n<aside class=\"expand leftside\" :class=\"{on: on}\">\n    <svg viewBox=\"0 0 62.5 866\">\n        <path class=\"st0\" d=\"M17.5,0.5H36v141l-10,10v560l10,10v144H17.5\" style=\"transition-delay: 0s; -webkit-transition-delay: 0s; stroke-dashoffset: 910.284301757813px; stroke-dasharray: 910.284301757813px;\"></path>\n        <path class=\"st1\" d=\"M43,723v142.5h19.5\" style=\"transition-delay: 0.05s; -webkit-transition-delay: 0.05s; stroke-dashoffset: 162px; stroke-dasharray: 162px;\"></path>\n        <path class=\"st1\" d=\"M43,143V0.5h19.5\" style=\"transition-delay: 0.1s; -webkit-transition-delay: 0.1s; stroke-dashoffset: 162px; stroke-dasharray: 162px;\"></path>\n        <path class=\"st1\" d=\"M25.7,231.7C16,269.8,9,308.8,4.9,348.8c-2.9,28-4.4,56.4-4.4,85.2c0,28.8,1.5,57.3,4.4,85.4\n            C9,559.3,16,598.3,25.7,636.3\" style=\"transition-delay: 0.15s; -webkit-transition-delay: 0.15s; stroke-dashoffset: 408.787078857422px; stroke-dasharray: 408.787078857422px;\"></path>\n        <line class=\"st2\" x1=\"15.5\" y1=\"275.5\" x2=\"25.5\" y2=\"275.5\"></line>\n        <line class=\"st2\" x1=\"15.5\" y1=\"591.5\" x2=\"25.5\" y2=\"591.5\"></line>\n        <path class=\"st1\" d=\"M25,802.5c0-8.4,0-20,0-20h4v20H25z\" style=\"transition-delay: 0.2s; -webkit-transition-delay: 0.2s; stroke-dashoffset: 48px; stroke-dasharray: 48px;\"></path>\n        <path class=\"st1\" d=\"M25,853.5c0-8.7,0-40,0-40h4v40H25z\" style=\"transition-delay: 0.25s; -webkit-transition-delay: 0.25s; stroke-dashoffset: 88px; stroke-dasharray: 88px;\"></path>\n    </svg>\n</aside>\n";
 
 /***/ },
 /* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(64)
-	__vue_script__ = __webpack_require__(66)
+	__vue_script__ = __webpack_require__(64)
+	if (__vue_script__ &&
+	    __vue_script__.__esModule &&
+	    Object.keys(__vue_script__).length > 1) {
+	  console.warn("[vue-loader] src/components/ui/side-right.vue: named exports in *.vue files are ignored.")}
+	__vue_template__ = __webpack_require__(65)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) {
+	(typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports).template = __vue_template__
+	}
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  var id = "_v-a18d5f66/side-right.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 64 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = {
+	    props: {
+	        on: Boolean
+	    }
+	};
+
+/***/ },
+/* 65 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<aside class=\"expand rightside\" :class=\"{on: on}\">\n    <svg viewBox=\"0 0 62.5 866\">\n        <path class=\"st0\" d=\"M45.5,0.5H27v141l10,10v560l-10,10v144h18.5\" style=\"transition-delay: 0.3s; -webkit-transition-delay: 0.3s; stroke-dashoffset: 910.284301757813px; stroke-dasharray: 910.284301757813px;\"></path>\n        <path class=\"st1\" d=\"M20,723v142.5H0.5\" style=\"transition-delay: 0.35s; -webkit-transition-delay: 0.35s; stroke-dashoffset: 162px; stroke-dasharray: 162px;\"></path>\n        <path class=\"st1\" d=\"M20,143V0.5H0.5\" style=\"transition-delay: 0.4s; -webkit-transition-delay: 0.4s; stroke-dashoffset: 162px; stroke-dasharray: 162px;\"></path>\n        <path class=\"st1\" d=\"M37.3,231.7c9.6,38,16.6,77.1,20.8,117.1c2.9,28,4.4,56.4,4.4,85.2c0,28.8-1.5,57.3-4.4,85.4 C54,559.3,47,598.3,37.3,636.3\" style=\"transition-delay: 0.45s; -webkit-transition-delay: 0.45s; stroke-dashoffset: 408.780639648438px; stroke-dasharray: 408.780639648438px;\"></path>\n        <line class=\"st2\" x1=\"47.5\" y1=\"275.5\" x2=\"37.5\" y2=\"275.5\"></line>\n        <line class=\"st2\" x1=\"47.5\" y1=\"591.5\" x2=\"37.5\" y2=\"591.5\"></line>\n        <path class=\"st1\" d=\"M38,802.5c0-8.4,0-20,0-20h-4v20H38z\" style=\"transition-delay: 0.5s; -webkit-transition-delay: 0.5s; stroke-dashoffset: 48px; stroke-dasharray: 48px;\"></path>\n        <path class=\"st1\" d=\"M38,853.5c0-8.7,0-40,0-40h-4v40H38z\" style=\"transition-delay: 0.55s; -webkit-transition-delay: 0.55s; stroke-dashoffset: 88px; stroke-dasharray: 88px;\"></path>\n    </svg>\n</aside>\n";
+
+/***/ },
+/* 66 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(67)
+	__vue_script__ = __webpack_require__(69)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/sidebar/index.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(94)
+	__vue_template__ = __webpack_require__(97)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -16059,13 +16092,13 @@
 	})()}
 
 /***/ },
-/* 64 */
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(65);
+	var content = __webpack_require__(68);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(17)(content, {});
@@ -16085,7 +16118,7 @@
 	}
 
 /***/ },
-/* 65 */
+/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(4)();
@@ -16099,7 +16132,7 @@
 
 
 /***/ },
-/* 66 */
+/* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16108,31 +16141,31 @@
 	    value: true
 	});
 	
-	var _weather = __webpack_require__(67);
+	var _weather = __webpack_require__(70);
 	
 	var _weather2 = _interopRequireDefault(_weather);
 	
-	var _subtitle = __webpack_require__(68);
+	var _subtitle = __webpack_require__(71);
 	
 	var _subtitle2 = _interopRequireDefault(_subtitle);
 	
-	var _logo = __webpack_require__(74);
+	var _logo = __webpack_require__(77);
 	
 	var _logo2 = _interopRequireDefault(_logo);
 	
-	var _nav = __webpack_require__(77);
+	var _nav = __webpack_require__(80);
 	
 	var _nav2 = _interopRequireDefault(_nav);
 	
-	var _chart = __webpack_require__(82);
+	var _chart = __webpack_require__(85);
 	
 	var _chart2 = _interopRequireDefault(_chart);
 	
-	var _window = __webpack_require__(88);
+	var _window = __webpack_require__(91);
 	
 	var _window2 = _interopRequireDefault(_window);
 	
-	var _sns = __webpack_require__(91);
+	var _sns = __webpack_require__(94);
 	
 	var _sns2 = _interopRequireDefault(_sns);
 	
@@ -16150,7 +16183,7 @@
 	};
 
 /***/ },
-/* 67 */
+/* 70 */
 /***/ function(module, exports) {
 
 	
@@ -16168,16 +16201,16 @@
 	};
 
 /***/ },
-/* 68 */
+/* 71 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(69)
+	__vue_script__ = __webpack_require__(72)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/sidebar/subtitle.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(73)
+	__vue_template__ = __webpack_require__(76)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -16196,7 +16229,7 @@
 	})()}
 
 /***/ },
-/* 69 */
+/* 72 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16205,7 +16238,7 @@
 	    value: true
 	});
 	
-	var _hr = __webpack_require__(70);
+	var _hr = __webpack_require__(73);
 	
 	var _hr2 = _interopRequireDefault(_hr);
 	
@@ -16218,16 +16251,16 @@
 	};
 
 /***/ },
-/* 70 */
+/* 73 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(71)
+	__vue_script__ = __webpack_require__(74)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/ui/hr.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(72)
+	__vue_template__ = __webpack_require__(75)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -16246,7 +16279,7 @@
 	})()}
 
 /***/ },
-/* 71 */
+/* 74 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -16272,28 +16305,28 @@
 	};
 
 /***/ },
-/* 72 */
+/* 75 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"hr\" :class=\"{dark: dark}\">\n    <div>\n        <span class=\"b\"></span>\n        <span v-if=\"left\" class=\"d left\"></span>\n        <span v-if=\"right\" class=\"d right\"></span>\n    </div>\n</div>\n";
 
 /***/ },
-/* 73 */
+/* 76 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"side-subtitle\">\n    <hr></hr>\n    <h2>\n        <p class=\"hide first\">Welcome and enjoy!</p>\n        <p class=\"hide second\">web design and front-end posts.</p>\n    </h2>\n    <hr></hr>\n</div>\n";
 
 /***/ },
-/* 74 */
+/* 77 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(75)
+	__vue_script__ = __webpack_require__(78)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/sidebar/logo.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(76)
+	__vue_template__ = __webpack_require__(79)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -16312,7 +16345,7 @@
 	})()}
 
 /***/ },
-/* 75 */
+/* 78 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16321,11 +16354,11 @@
 	    value: true
 	});
 	
-	var _hr = __webpack_require__(70);
+	var _hr = __webpack_require__(73);
 	
 	var _hr2 = _interopRequireDefault(_hr);
 	
-	var _weather = __webpack_require__(67);
+	var _weather = __webpack_require__(70);
 	
 	var _weather2 = _interopRequireDefault(_weather);
 	
@@ -16386,22 +16419,22 @@
 	};
 
 /***/ },
-/* 76 */
+/* 79 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"side-logo\">\n    <div class=\"logo-left\">\n        <a class=\"logo link hide\" v-link=\"'/'\">\n            <svg viewBox=\"0 0 500 500\">\n                <polyline points=\"413.9,104.2 139.7,104.2 139.7,123.9 322.8,123.9 115.8,354.3 139.7,354.3 352.6,123.9 413.9,124 413.9,137.4 213.1,354.3 219,354.3 377.3,354.3 377.3,413.9 103.1,413.9 103.1,433.6 395.6,433.6 395.9,354.5 413.9,354.3 413.9,453.5 84.8,453.5 84.8,394.5 359,394.5 359,374.4 176.5,374.4 171.2,374.4 383.8,143.6 359,143.6 145.7,374.4 84.6,374.4 84.6,361.5 286.5,143.6 121.7,143.6 121.7,84.3 395.6,84.3 395.5,64.3 103.1,64.3 103.1,143.6 84.5,143.6 84.5,44.9 413.9,44.9 \"/>\n            </svg>\n        </a>\n        <hr :dark=\"true\" :right=\"false\"></hr>\n    </div>\n    <div class=\"logo-right\">\n        <div class=\"format hide\">Xiamen, Fujian, China</div>\n        <div class=\"temp\">\n            <div class=\"cell\">\n                <hr></hr>\n                <p class=\"today hide\">{{now | date \"yyyy.MM.dd\"}}</p>\n                <hr></hr>\n            </div>\n            <div class=\"cell\">\n                <hr :dark=\"true\" :left=\"false\"></hr>\n                <p class=\"weather icon hide\"></p>\n                <hr :dark=\"true\" :left=\"false\"></hr>\n            </div>\n        </div>\n        <div class=\"tenji\">\n            <div class=\"tenjibody\">\n                <svg viewBox=\"0 0 171 23\" class=\"hidechild\"> <circle class=\"st0\" cx=\"1.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"17.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"25.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"33.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"41.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"49.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"57.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"65.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"73.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"105.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"129.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"145.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"153.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"161.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"1.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"9.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"17.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"33.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"57.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"65.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"73.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"81.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"105.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"121.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"129.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"137.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"145.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"153.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"161.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"169.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"1.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"9.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"17.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"25.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"33.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"41.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"73.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"81.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"97.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"113.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"137.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"9.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"81.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"89.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"97.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"113.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"121.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"137.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"169.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"25.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"41.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"49.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"89.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"97.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"113.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"49.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"57.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"65.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"89.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"105.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"121.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"129.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"145.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"153.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"161.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"169.5\" cy=\"1.5\" r=\"1.5\"/> </svg>\n            </div>\n        </div>\n        <hr></hr>\n    </div>\n</div>\n";
 
 /***/ },
-/* 77 */
+/* 80 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(78)
+	__vue_script__ = __webpack_require__(81)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/sidebar/nav.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(81)
+	__vue_template__ = __webpack_require__(84)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -16420,7 +16453,7 @@
 	})()}
 
 /***/ },
-/* 78 */
+/* 81 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16429,11 +16462,11 @@
 	    value: true
 	});
 	
-	var _hr = __webpack_require__(70);
+	var _hr = __webpack_require__(73);
 	
 	var _hr2 = _interopRequireDefault(_hr);
 	
-	var _TweenMax = __webpack_require__(79);
+	var _TweenMax = __webpack_require__(82);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -16449,19 +16482,19 @@
 	            url: '/'
 	        }, {
 	            name: 'front end',
-	            url: 'frontend'
+	            url: '/frontend'
 	        }, {
 	            name: 'design',
-	            url: 'design'
+	            url: '/design'
 	        }, {
 	            name: 'diary',
-	            url: 'diary'
+	            url: '/diary'
 	        }, {
 	            name: 'about',
-	            url: 'about'
+	            url: '/about'
 	        }, {
 	            name: 'contact',
-	            url: 'contact'
+	            url: '/contact'
 	        }];
 	
 	        return {
@@ -16494,7 +16527,7 @@
 	};
 
 /***/ },
-/* 79 */
+/* 82 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global) {/*!
@@ -22486,7 +22519,7 @@
 							if (global) {
 								_globals[n] = _exports[n] = cl; //provides a way to avoid global namespace pollution. By default, the main classes like TweenLite, Power1, Strong, etc. are added to window unless a GreenSockGlobals is defined. So if you want to have things added to a custom object instead, just do something like window.GreenSockGlobals = {} before loading any GreenSock files. You can even set up an alias like window.GreenSockGlobals = windows.gs = {} so that you can access everything like gs.TweenLite. Also remember that ALL classes are added to the window.com.greensock object (in their respective packages, like com.greensock.easing.Power1, com.greensock.TweenLite, etc.)
 								hasModule = (typeof(module) !== "undefined" && module.exports);
-								if (!hasModule && "function" === "function" && __webpack_require__(80)){ //AMD
+								if (!hasModule && "function" === "function" && __webpack_require__(83)){ //AMD
 									!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() { return cl; }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 								} else if (hasModule){ //node
 									if (ns === moduleName) {
@@ -24300,7 +24333,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 80 */
+/* 83 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
@@ -24308,22 +24341,22 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ },
-/* 81 */
+/* 84 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<nav class=\"side-nav\">\n    <div class=\"title table\">\n        <div class=\"cell\">\n            <hr></hr>\n            <h3 class=\"emp hide\">MENU</h3>\n            <hr></hr>\n        </div>\n        <div class=\"cell\">\n            <hr :dark=\"true\" :left=\"false\"></hr>\n            <span class=\"emp hide\"></span>\n            <hr :dark=\"true\" :left=\"false\"></hr>\n        </div>\n    </div>\n    <ul>\n        <a v-for=\"(i, menu) in menus\" v-link=\"menu.url\" class=\"link btn\">\n            <span class=\"hide num\">0{{i + 1}}</span>\n            <span class=\"hide name\">{{menu.name | uppercase}}</span>\n            <span class=\"hide lefttop\"></span>\n            <span class=\"hide rightbottom\"></span>\n            <div class=\"light hidechild\"><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span></div>\n        </a>\n    </ul>\n</nav>\n";
 
 /***/ },
-/* 82 */
+/* 85 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(83)
+	__vue_script__ = __webpack_require__(86)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/sidebar/chart.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(87)
+	__vue_template__ = __webpack_require__(90)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -24342,7 +24375,7 @@
 	})()}
 
 /***/ },
-/* 83 */
+/* 86 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24351,11 +24384,11 @@
 	    value: true
 	});
 	
-	var _hr = __webpack_require__(70);
+	var _hr = __webpack_require__(73);
 	
 	var _hr2 = _interopRequireDefault(_hr);
 	
-	var _vr = __webpack_require__(84);
+	var _vr = __webpack_require__(87);
 	
 	var _vr2 = _interopRequireDefault(_vr);
 	
@@ -24369,16 +24402,16 @@
 	};
 
 /***/ },
-/* 84 */
+/* 87 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(85)
+	__vue_script__ = __webpack_require__(88)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/ui/vr.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(86)
+	__vue_template__ = __webpack_require__(89)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -24397,7 +24430,7 @@
 	})()}
 
 /***/ },
-/* 85 */
+/* 88 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -24424,28 +24457,28 @@
 	};
 
 /***/ },
-/* 86 */
+/* 89 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"vr {{class}}\">\n    <div>\n        <span class=\"b\"></span>\n        <span v-if=\"top\" class=\"d top\"></span>\n        <span v-if=\"bottom\" class=\"d bottom\"></span>\n    </div>\n</div>\n";
 
 /***/ },
-/* 87 */
+/* 90 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"side-chart\">\n    <div class=\"chart\">\n        <vr :class=\"'left'\"></vr>\n        <div class=\"graphics table\">\n            <div class=\"cell\">\n                <svg class=\"svg-graphics\" viewBox=\"0 0 188.3 44.2\">\n                    <g class=\"line hide\">\n                        <line x1=\"0.5\" y1=\"39.2\" x2=\"187.8\" y2=\"39.2\"/>\n                    </g>\n                    <g>\n                        <path class=\"hide pathline st1\" d=\"M187.8,39.2c0,0-6.6-6.6-18.6-14.1c-12-7.5-21.8-15-37.1-5.3S112.4,29.1,88,30.7s-25.6,8.6-45.3,8.5H0.5\"/>\n                        <path class=\"hide pathline st0\" d=\"M0.5,39.2c0,0,43.8-4,65.9-7.3c31-4.5,33.3-31.5,50.4-31.5c19,0,23.7,24.9,43.1,24.9 c19.4,0,21.3,13.8,27.8,13.8\"/>\n                    </g>\n                    <g class=\"base hide\">\n                        <line x1=\"187.8\" y1=\"34.2\" x2=\"187.8\" y2=\"44.2\"/>\n                        <line x1=\"0.5\" y1=\"34.2\" x2=\"0.5\" y2=\"44.2\"/>\n                        <line x1=\"94.5\" y1=\"36.2\" x2=\"94.5\" y2=\"42.2\"/>\n                    </g>\n                </svg>\n                <span class=\"hide unit tx-l\">0:00</span>\n                <span class=\"hide unit tx-c\">12:00</span>\n                <span class=\"hide unit tx-r\">24:00</span>\n            </div>\n            <div class=\"cell hide\">\n                <div class=\"chart-line\">\n                    <p>CLOCK IN</p>\n                    <div class=\"line st0\"><span></span></div>\n                </div>\n                <div class=\"chart-line\">\n                    <p>CLOCK OUT</p>\n                    <div class=\"line st1\"><span></span></div>\n                </div>\n            </div>\n        </div>\n        <vr :class=\"'right'\"></vr>\n    </div>\n    <div class=\"chart\">\n        <div class=\"malefemale\">\n            <span class=\"hide unit tx-l\">MALE</span>\n            <span class=\"hide unit tx-r\">FEMALE</span>\n            <div class=\"hide bar cf\">\n                <span class=\"m\"></span>\n                <span class=\"f\"></span>\n            </div>\n        </div>\n        <div class=\"tenjibody\">\n            <svg viewBox=\"0 0 299.5 23\" class=\"hidechild\"> <circle class=\"st0\" cx=\"1.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"9.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"17.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"25.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"33.6\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"73.6\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"81.6\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"97.7\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"113.7\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"137.7\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"129.7\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"145.8\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"153.8\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"161.8\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"169.8\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"201.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"209.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"225.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"241.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"266\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"298\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"1.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"17.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"25.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"33.6\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"41.6\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"73.6\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"49.6\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"57.6\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"65.6\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"105.7\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"129.7\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"145.8\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"153.8\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"161.8\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"169.8\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"177.8\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"185.8\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"193.8\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"201.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"257.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"274\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"290\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"233.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"282\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"1.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"9.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"17.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"33.6\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"73.6\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"81.6\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"137.7\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"57.6\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"65.6\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"105.7\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"121.7\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"129.7\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"145.8\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"161.8\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"185.8\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"193.8\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"201.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"209.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"249.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"257.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"274\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"290\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"233.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"41.6\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"49.6\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"57.6\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"65.6\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"89.7\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"105.7\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"121.7\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"177.8\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"185.8\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"193.8\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"217.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"249.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"257.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"274\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"290\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"233.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"282\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"9.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"81.6\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"97.7\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"113.7\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"137.7\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"89.7\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"121.7\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"209.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"217.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"249.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"225.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"241.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"266\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"298\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"25.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"41.6\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"97.7\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"113.7\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"49.6\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"89.7\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"153.8\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"169.8\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"177.8\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"217.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"225.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"241.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"266\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"282\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"298\" cy=\"21.5\" r=\"1.5\"/></svg>\n        </div>\n    </div>\n    <div class=\"chart\">\n        <vr :class=\"'left'\"></vr>\n        <vr :class=\"'right'\"></vr>\n        <div class=\"graphics age table\">\n            <div class=\"cell\">\n                <h4 class=\"hide\">AGE</h4>\n                <div class=\"svg-graphics\">\n                    <svg viewBox=\"0 0 279.6 37.5\">\n                        <g class=\"hide line\">\n                            <line x1=\"0.5\" y1=\"32.5\" x2=\"279.1\" y2=\"32.5\"/>\n                        </g>\n                        <path class=\"pathline hide st0\" d=\"M0,31.7c0,0,17.6-5.9,26.2-6.8C65.4,20.7,64.4,0.6,86.1,0.6c19.6,0,25,19,63.9,25.3c36,5.8,59.9,5.8,59.9,5.8 c26.3,0,69.7,0,69.7,0\"/>\n                        <g class=\"hide base\">\n                            <line x1=\"279.1\" y1=\"27.5\" x2=\"279.1\" y2=\"37.5\"/>\n                            <line x1=\"0.5\" y1=\"27.5\" x2=\"0.5\" y2=\"37.5\"/>\n                            <line x1=\"139\" y1=\"29.5\" x2=\"139\" y2=\"35.5\"/>\n                        </g>\n                    </svg>\n                </div>\n                <span class=\"hide unit tx-l\">20</span>\n                <span class=\"hide unit tx-r\">50</span>\n            </div>\n        </div><!-- .svgGraphics -->\n    </div>\n</div>\n";
 
 /***/ },
-/* 88 */
+/* 91 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(89)
+	__vue_script__ = __webpack_require__(92)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/sidebar/window.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(90)
+	__vue_template__ = __webpack_require__(93)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -24464,7 +24497,7 @@
 	})()}
 
 /***/ },
-/* 89 */
+/* 92 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24473,7 +24506,7 @@
 	    value: true
 	});
 	
-	var _hr = __webpack_require__(70);
+	var _hr = __webpack_require__(73);
 	
 	var _hr2 = _interopRequireDefault(_hr);
 	
@@ -24486,22 +24519,22 @@
 	};
 
 /***/ },
-/* 90 */
+/* 93 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"site-window\">\n    <hr></hr>\n    <div class=\"body\">\n        <span class=\"hide high\">WIDTH</span>\n        <span class=\"hide wW\">000</span>\n        <span class=\"hide high\">HEIGHT</span>\n        <span class=\"hide wH\">000</span>\n    </div>\n    <hr></hr>\n</div>\n";
 
 /***/ },
-/* 91 */
+/* 94 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(92)
+	__vue_script__ = __webpack_require__(95)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/sidebar/sns.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(93)
+	__vue_template__ = __webpack_require__(96)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -24520,7 +24553,7 @@
 	})()}
 
 /***/ },
-/* 92 */
+/* 95 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24529,7 +24562,7 @@
 	    value: true
 	});
 	
-	var _hr = __webpack_require__(70);
+	var _hr = __webpack_require__(73);
 	
 	var _hr2 = _interopRequireDefault(_hr);
 	
@@ -24542,40 +24575,22 @@
 	};
 
 /***/ },
-/* 93 */
+/* 96 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"site-sns\">\n    <div class=\"body\">\n        <a href=\"https://github.com/zhuowenli\" target=\"_blank\" class=\"btn link on\">\n            <span class=\"hide name\">github</span>\n            <span class=\"lefttop\"></span>\n            <span class=\"rightbottom\"></span>\n        </a>\n        <a href=\"https://www.zhihu.com/people/zhuowenli\" target=\"_blank\" class=\"btn link\">\n            <span class=\"hide name\">zhihu</span>\n            <span class=\"lefttop\"></span>\n            <span class=\"rightbottom\"></span>\n        </a>\n        <a href=\"https://github.com/zhuowenli/zhuowenli.github.io\" target=\"_blank\" class=\"btn link\">\n            <span class=\"hide name\">fork me</span>\n            <span class=\"lefttop\"></span>\n            <span class=\"rightbottom\"></span>\n        </a>\n    </div>\n    <hr></hr>\n</div>\n";
 
 /***/ },
-/* 94 */
+/* 97 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<section class=\"main-sidebar\">\n    <side-subtitle></side-subtitle>\n    <side-logo></side-logo>\n    <side-nav></side-nav>\n    <side-chart></side-chart>\n    <side-window></side-window>\n    <side-sns></side-sns>\n</section>\n";
 
 /***/ },
-/* 95 */
-/***/ function(module, exports) {
-
-	module.exports = "\n<div class=\"container\">\n    <section-sidebar\n        :hide=\"hide\">\n    </section-sidebar>\n\n    <section class=\"main-content\">\n        <div class=\"loadmask\"><div class=\"body\"><div class=\"dotted\"></div></div></div>\n        <div class=\"main\">\n            <router-view\n                transition=\"app\"\n                transition-mode=\"out-in\"\n                keep-alive>\n            </router-view>\n        </div>\n    </section>\n\n    <side-left :on=\"sideon\"></side-left>\n    <side-right :on=\"sideon\"></side-right>\n</div>\n";
-
-/***/ },
-/* 96 */
-/***/ function(module, exports) {
-
-	module.exports = "data:image/png;base64,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"
-
-/***/ },
-/* 97 */
-/***/ function(module, exports) {
-
-	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAASICAMAAADcRltXAAAA21BMVEUAAAB6enp6enp6enp6enp6enp6enp6eno9PT12dnZ6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enp6enoTnS81AAAASXRSTlMABpHt7pD/iP//3BwQJeMk5NQV0+ot68sPyfA38cEKvvVC9ray+U76qgOl/Fv9ngGX/ml3eIF5mImmQDo90NF8xTZ+dhImayyUWVATXgAACjdJREFUeAHt14Vh5EgQQNES9ZiZl5nB7GOG/CPaCUBtGNBJvvdy+AUBt1OUVV0W0QZo0tgo/m8WbgUWU/8tLQsEgUxQCHRxYjUrfba6phD+uye97v2Tvr6hEFAITFzI5lYA2UK2FQIKAYWAQkAhMIRCgPWdfCHA7p5CQCEwcSH7BwFkCzlUCCgEFAJDKAQUAgoBdo/yhQAPHk5cCCgEFPLocWSBQp4MoRBQCCgEFAIKAYUAD57mCwGePZ+4EFAIKORFEVmgkJdF9B8oBBQCCgGFgEKAZ6/yhQCv30xcCCgEFPL2XWSBQt4PoRBQCCgEFAIKAYUArz8oBPI+flIIKGRiKOTzl4AshXxVCCgEFAIKAYWAQmAIPh4rBPJOkkJAIRNDIU1AnkJGASgEFAIKAYWAQkAhMHCnCoFrnCnkeijkPCBPIWcBKAQUAgqBDl2kFEDGikBAICAQEAgIBAQCAgGBgEBAIIBAQCAgEBAICAQEAgIBgYBAQCCAQEAgIBAQCAgEBAICAYGAQACBgEBAICAQEAgIBAQCAgGBgEAAgYBAQCAgEBAICAQEAgIBgQACAYGAQEAgIBAQCAgEBAICAYEAAgGBgEBAICAQEAgIBAQCAgEEMgYCAYGAQEAgIBAQCAgEBAICAQQCAgGBgEBAICAQEAgIBAQCAgEEAgIBgYBAugMCAYGAQEAgIBAQCAgEBAICAQQCAgGBgEBAICAQEAgIBAQCAgEEAgIBgYBAQCAgEBAICAQEAggEBAICAYGAQEAgIBAQCAgEBAIIBAQCAgGBgEBAICAQEAgIBBAICAQEAgIBgYBAQCAgEBAICAQQCAgEBAICAYGAQEAgIBAQCFBcplQW0QZo0tgo2gBVGqtiEiAQcGJdRRugKOvak54FCwsBCAQEAgIBgYBAQCAgEBAICAQQCAgEBAICAYGAQEAgIBAQCAgEEAgIBAQCAgGBgEBAICAQEAggEBAICAQEAgIBgYBAQCAgEBAIIBAQCAgEBAICAYGAQEAgIBBAICAQEAgIBAQCAgGBgEBAICAQQCAgEBAICAQEAgIBgYBAQCCAQEAgIBAQCAgEBAICAYGAQEAggEBAICAQEAgIBAQCAgGBgEBAIIBAQCAgEBAICAQEAgIBgYBAAIGAQEAgIBAQCAgEBAICAYGAQACBgEBAICAQEAgIBAQCAgGBAAIBgYBAQCAgEBAICAQEAgIBgQACAYGAQEAgIBAQCAgEBAICAQQCAgGBgEBAICAQEAgIBAQCAgEEAgIBgYBAQCAgEBAICAQEAggEBAICAYGAQEAgIBAQCAgEBAIIBAQCAgGBgEBAICAQEAgIBAQCCAQEAgIBgYBAQCAgEBAICAQQCAgEBAICAYGAQEAgIBAQCAgEEAgIBAQCAgGBgEBAICAQEAggEBAICAQEAgIBgYBAQCAgEBAIIBAQCAgEBAICAYGAQEAgIBBAICAQEAgIBAQCAgGBgEBAICAQQCAgEBAICAQEAgIBgYBAQCCAQEAgIBAQCAgEBAICAYGAQEAggEBAICAQEAgIBAQCAgGBgEBAIIBAQCAgEBAICAQEAgIBgYBAAIGAQEAgIBAQCAgEBAICAYGAQACBgEBAICAQEAgIBAQCAgGBAAIBgYBAQCAgEBAICAQEAgIBgQACAYGAQEAgIBAQCAgEBAICAQQCAgGBgEBAICAQEAgIBAQCAgEEAgIBgYBAQCAgEBAICAQEAggEBAICAYGAQEAgIBAQCAgEBAIIBAQCAgGBgEBAICAQEAgIBAQCCAQEAgIBgYBAQCAgEBAICAQQCAgEBAICAYGAQEAgIBAQCAgEEAgIBAQCAgGBgEBAICAQEAggEBAICAQEAgIBgYBAQCAgEBAIIBAQCAgEBAICAYGAQEAgIBBAICAQEAgIBAQCAgGBgEBAICAQQCAgEBAICAQEAgIBgYBAQCCAQEAgIBAQCAgEBAICAYGAQEAggEBAICAQEAgIBAQCAgGBgEBAIIBAQCAgEBAICAQEAgIBgYBAAIGAQEAgIBAQCAgEBAICAYGAQACBgEBAICAQEAgIBAQCAgGBAAIBgYBAQCAgEBAICAQEAgIBgQACAYGAQEAgIBAQCAgEBAICAQQCAgGBgEBAICAQEAgIBAQCAgEEAgIBgYBAQCAgEBAICAQEAggEBAICAYGAQEAgIBAQCAgEBAIIBAQCAgGBgEBAICAQEAgIBAQCCAQEAgIBgYBAQCAgEBAICAQQCAgEBAICAYGAQEAgIBAQCAgEEAgIBAQCAgGBgEBAICAQEAjQ60BAICAQEAgIBAQCCAQEAgIBgYBAQCAgEBAICAQEAggEBAICAYGAQEAgIBAQCAgEEAgIBAQCAgGBgEBAICAQEAgIBBAICAQEAgIBgYBAQCAgEBAIIBAQCAgEBAICAYGAQEAgIBAQCCAQEAgIBAQCAgGBgEBAICAQoCgXF8sigDZNGhsF0KZKY1UAAoFJTqyrANoUlynlnnRgJaUABAICAYGAQEAgIBAQCAgEBAIIBAQCAgGBgEBAICAQEAgIBAQCCAQEAgIBgYBAQCAgEBAICAQQCAgEBAICAYGAQEAgIBAQCAgEEAgIBAQCAgGBgEBAICAQEAjQEgggEBAICAQEAgIBgYBAQCAgEBAIIBAQCAgEBAICAYGAQEAgIBBAICAQEAgIBAQCAgGBgEBAICAQQCAgEBAICAQEAgIBgYBAQCCAQEAgIBAQCAgEBAICAYGAQEAgwGACAYGAQEAgIBAQCCAQEAgIBAQCAgGBgEBAICAQEAggEBAICAQEAgIBgYBAQCAgEEAgIBAQCAgEBAICAYGAQEAgIBBAICAQEAgIBAQCAgGBgEBAIIBAQCAgEBAICAQEAgIBgYBAQCCAQEAgIBAQCAgEBAICAYGAQACBBAgEBAICAYGAQEAgIBAQCAgEEAgIBAQCAgGBgEBAICAQEAgIBBAICAQEAgIBgYBAQCAgEBAIIBAQCAgEBAICAYGAQEAgIBAQCCAQEAgIBAQCAgGBgEBAICAQQCAgEBAICAQEAgIBgYBAQCAgEEAgIBAQCAgEBAICAYGAQEAggEBAICAQEAgIBAQCAgGBgECKsqrLIkAgbZo09t33PfZDwJwCWbjRYuq9UcCs/XiXQD781F8/z74QePAwPbn9iXUVPXYyj0LQx+NbPul1y5OuEPTRMYWgD4Wgj+6dKQR9KAR9KAR9KAR9KKR76EMh6EMh6EMh6KPrQn4J0Ee+kLOAHvShEPShEPShEPTxa7YPhaCPw4MYGoWgD4WgD4WgD4WgD4WgD4WgD4XAb9k+FAK7ez3pQyHoQyHoQyHoQyHoQyHog98VwjV9MFII+lAI+lAI+lAI+lAI+lAI+lAI+rgfhfwReehDISfREfShEPShEPShEPSBQvSx/WegEHJ9bAVDKwR9KAR9KAR9KAR9KAR9KAR9oBD+yvaBQljf6E8fCkEfCkEfCkEfCvl75T7jH31MV8h9xzR98G+6Bvr4Bn0NTUhFGmizAAAAAElFTkSuQmCC"
-
-/***/ },
 /* 98 */
 /***/ function(module, exports) {
 
-	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAASICAAAAAARpzESAAAAAnRSTlMA/1uRIrUAAAAsSURBVHgB7dhBAQAQEACwE0z/VgAEuPc+C7HSI+JQPx0AACABAAAAAMCzJhh04oU1xI2dAwAAAABJRU5ErkJggg=="
+	module.exports = "\n<div class=\"container\">\n    <section-sidebar\n        :hide=\"hide\">\n    </section-sidebar>\n\n    <section class=\"main-content\">\n        <div class=\"loadmask\"><div class=\"body\"><div class=\"dotted\"></div></div></div>\n        <div class=\"main hide\">\n            <router-view\n                transition=\"app\"\n                transition-mode=\"out-in\"\n                keep-alive>\n            </router-view>\n        </div>\n    </section>\n\n    <side-left :on=\"sideon\"></side-left>\n    <side-right :on=\"sideon\"></side-right>\n</div>\n";
 
 /***/ }
 /******/ ]);

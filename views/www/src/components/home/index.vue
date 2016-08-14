@@ -16,14 +16,21 @@
         ready() {
         },
         route: {
-            activate: function (transition) {
+            activate(transition) {
                 $html.addClass('fetch');
 
                 setTimeout(function() {
                     $html.removeClass('fetch');
                 }, 1000);
 
-                transition.next()
+                setTimeout(function() {
+                    $('.main').css('opacity', 1);
+                }, 2000);
+
+                transition.next();
+            },
+            deactivate() {
+                $('.main').css('opacity', 0);
             }
         }
     }

@@ -72,7 +72,7 @@
                             </div>
 
                             <div class="footer">
-                                <a class="entrybtn">ENTRY</a>
+                                <a class="entrybtn" v-link="'/design/1'">readme more</a>
                             </div>
 
                             <div class="bg table">
@@ -104,21 +104,28 @@
             $(".scroll").mCustomScrollbar({
                 axis:"y",
                 scrollInertia:100,
-                callbacks:{
-                    whileScrolling:function(){
+                callbacks: {
+                    whileScrolling() {
                     }
                 }
             });
         },
         route: {
-            activate: function (transition) {
+            activate(transition) {
                 $html.addClass('fetch');
 
                 setTimeout(function() {
                     $html.removeClass('fetch');
                 }, 1000);
 
-                transition.next()
+                setTimeout(function() {
+                    $('.main').animate({ opacity: 1 }, 500);
+                }, 1300);
+
+                transition.next();
+            },
+            deactivate() {
+                $('.main').animate({ opacity: 0 }, 300);
             }
         }
     }

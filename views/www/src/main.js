@@ -25,7 +25,8 @@ Vue.use(VueFilter);
 // Set up a new router
 var router = new Router({
     history: true,
-    saveScrollPosition: true
+    saveScrollPosition: true,
+    transitionOnLoad: true
 });
 
 // Route config

@@ -41,19 +41,19 @@
                     url: '/'
                 }, {
                     name: 'front end',
-                    url: 'frontend'
+                    url: '/frontend'
                 }, {
                     name: 'design',
-                    url: 'design'
+                    url: '/design'
                 }, {
                     name: 'diary',
-                    url: 'diary'
+                    url: '/diary'
                 }, {
                     name: 'about',
-                    url: 'about'
+                    url: '/about'
                 }, {
                     name: 'contact',
-                    url: 'contact'
+                    url: '/contact'
                 }
             ];
 
