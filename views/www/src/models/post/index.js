@@ -5,13 +5,16 @@
  */
 'use strict';
 
+import Promise from 'bluebird';
+
 module.exports =  {
-    getPost(ctx) {
-        return ctx.$http.get(`http://api.openweathermap.org/data/2.5/weather`, {
-            params: {
-                q: 'Xiamen,cn',
-                appid: '1d3c089b6c07ff9d310991b93cd8b0c4'
-            }
+    getPosts(ctx, options) {
+        return new Promise((resolve, reject) => {
+            setTimeout(function() {
+                resolve(ctx.$http.get(`/api/posts`, {
+                    params: options
+                }));
+            }, 1000);
         });
     }
 }

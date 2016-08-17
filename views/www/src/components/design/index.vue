@@ -88,6 +88,8 @@
 </template>
 
 <script>
+    import PostModels from '../../models/post/';
+
     const $html = $('html');
 
     export default {
@@ -111,13 +113,23 @@
             activate(transition) {
                 $html.addClass('fetch');
 
-                setTimeout(function() {
-                    $html.removeClass('fetch');
-                }, 1000);
+                return PostModels
+                    .getPosts(this, {
+                        page: 1,
+                        per_page: 30,
+                        category_id: 2
+                    })
+                    .then(res => {
+                        const {data} = res.data;
 
-                setTimeout(function() {
-                    $('.main').animate({ opacity: 1 }, 500);
-                }, 1300);
+                        $html.removeClass('fetch');
+
+                        setTimeout(function() {
+                            $('.main').animate({ opacity: 1 }, 500);
+                        }, 300);
+                    }, res => {
+                        const {data} = res.data;
+                    });
 
                 transition.next();
             },

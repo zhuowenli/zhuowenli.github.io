@@ -15356,13 +15356,19 @@
 
 /***/ },
 /* 34 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	
+	var _post = __webpack_require__(101);
+	
+	var _post2 = _interopRequireDefault(_post);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var $html = $('html');
 	
@@ -15385,13 +15391,22 @@
 	        activate: function activate(transition) {
 	            $html.addClass('fetch');
 	
-	            setTimeout(function () {
-	                $html.removeClass('fetch');
-	            }, 1000);
+	            return _post2.default.getPosts(this, {
+	                page: 1,
+	                per_page: 30,
+	                category_id: 2
+	            }).then(function (res) {
+	                var data = res.data.data;
 	
-	            setTimeout(function () {
-	                $('.main').animate({ opacity: 1 }, 500);
-	            }, 1300);
+	
+	                $html.removeClass('fetch');
+	
+	                setTimeout(function () {
+	                    $('.main').animate({ opacity: 1 }, 500);
+	                }, 300);
+	            }, function (res) {
+	                var data = res.data.data;
+	            });
 	
 	            transition.next();
 	        },
@@ -30159,6 +30174,31 @@
 	  delete immediateIds[id];
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(100).setImmediate, __webpack_require__(100).clearImmediate))
+
+/***/ },
+/* 101 */
+/***/ function(module, exports, __webpack_require__) {
+
+	
+	'use strict';
+	
+	var _bluebird = __webpack_require__(99);
+	
+	var _bluebird2 = _interopRequireDefault(_bluebird);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	module.exports = {
+	    getPosts: function getPosts(ctx, options) {
+	        return new _bluebird2.default(function (resolve, reject) {
+	            setTimeout(function () {
+	                resolve(ctx.$http.get('/api/posts', {
+	                    params: options
+	                }));
+	            }, 1000);
+	        });
+	    }
+	};
 
 /***/ }
 /******/ ]);
