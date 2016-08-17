@@ -4,7 +4,6 @@
             <div class="mCustomScrollbar" data-mcs-theme="dark">
                 <section>
                     <div class="scrollinside">
-
                         <div class="insidetitle table">
                             <div class="cell number">
                                 <div>03</div>
@@ -15,11 +14,17 @@
                             </div>
                         </div>
 
-                        <span class="s60"></span>
-
                         <div class="entry">
+                            <div class="bg table">
+                                <div class="bgL cell"></div>
+                                <div class="bgM cell"></div>
+                                <div class="bgR cell"></div>
+                            </div>
+
                             <div class="header">
+                                <a v-link="'/design/1'">
                                 <h2>SERVER ENGINEER</h2>
+                                </a>
                             </div>
 
                             <div class="scroll">
@@ -74,15 +79,7 @@
                             <div class="footer">
                                 <a class="entrybtn" v-link="'/design/1'">readme more</a>
                             </div>
-
-                            <div class="bg table">
-                                <div class="bgL cell"></div>
-                                <div class="bgM cell"></div>
-                                <div class="bgR cell"></div>
-                            </div>
-
                         </div>
-                        <span class="s90"></span>
                     </div>
                 </section>
             </div>

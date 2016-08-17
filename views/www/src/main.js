@@ -14,6 +14,7 @@ import {routerConfig} from './router-config.js';
 import VueFilter from './services/filter.js';
 
 import App from './components/App.vue';
+import Promise from "bluebird";
 
 // Install plugins
 Vue.use(Router);
