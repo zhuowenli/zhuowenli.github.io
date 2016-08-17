@@ -25,23 +25,12 @@ app.db = require('./db');
 // init models
 app.models = require('./models');
 
-// init router
-const router = app.router = new Router();
-app.router.api = new Router({
-    prefix: '/api'
-});
-
 koaqs(app);
 // bodyParser
 app.use(bodyParser());
 
 // 响应头允许夸域
 app.use(cors());
-
-// 登录相关
-// var oauth = require('./oauth');
-// app.use(oauth.initialize());
-// app.use(oauth.session());
 
 // init views
 const viewsPath = path.join(__dirname, '../views/www/');
@@ -50,6 +39,12 @@ app.use(views(viewsPath, {
         html: 'ejs'
     }
 }));
+
+// init router
+const router = app.router = new Router();
+app.router.api = new Router({
+    prefix: '/api'
+});
 
 // init ctrls
 ctrls.forEach(ctrl => {

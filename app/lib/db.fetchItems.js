@@ -5,7 +5,8 @@
  */
 'use strict';
 
-const lodash = require('lodash');
+const _ = require('lodash');
+const ResponseData = require('./response-data');
 
 module.exports = function(db) {
 
@@ -13,43 +14,48 @@ module.exports = function(db) {
         page: 1,
         pageSize: 20,
         fetchItems: function(queryOptions, pagerOptions, fetchOptions) {
-            const self = this;
+            const that = this;
 
-            // fix queryOptions
+            // fix options
             if(!queryOptions) {
                 queryOptions = {};
             }
+            if(!pagerOptions) {
+                pagerOptions = {};
+            }
 
             // pagination
-            const pageSize = Number(pagerOptions.per_page) || this.pageSize;
-            const ret = {
-                code: 0,
-                data: [],
-                metadata: {
-                    total: 0,
-                    total_pages: 0,
-                    per_page: this.pageSize,
-                    page: this.page,
-                },
-                timestamp: new Date().getTime()
+            let pageSize = +pagerOptions.page_size || this.pageSize;
+            let page = +pagerOptions.page || +pagerOptions.current_page || this.page;
+
+            const metadata = {
+                total: 0,
+                total_pages: 0,
+                per_page: pageSize,
+                page: page,
             };
 
-            lodash.merge(ret.metadata, pagerOptions);
+            let ret = new ResponseData({
+                code: 200,
+                metadata: metadata
+            });
 
             return this.query(queryOptions).count('*')
                 .then(total => {
                     const minPage = 1;
                     const totalPages = Math.ceil(total / pageSize);
 
-                    ret.metadata.page = Math.max(minPage, ret.metadata.page);
-                    ret.metadata.total_pages = totalPages;
-                    ret.metadata.per_page = pageSize;
-                    ret.metadata.total = total;
+                    _.assign(metadata, {
+                        page: Math.max(minPage, metadata.page),
+                        total_pages: totalPages,
+                        per_page: pageSize,
+                        total: total,
+                    });
                 })
                 .then(() => {
-                    return self.query(queryOptions)
+                    return that.query(queryOptions)
                     .query({
-                        offset: (ret.metadata.page - 1) * pageSize,
+                        offset: (metadata.page - 1) * pageSize,
                         limit: pageSize
                     })
                     .fetch(fetchOptions);

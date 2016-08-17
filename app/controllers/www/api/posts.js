@@ -12,7 +12,7 @@ exports.init = function(app) {
         model: Post
     });
 
-    router.api.get('/posts', function *() {
+    router.get('/api/posts', function *() {
         let query = this.query;
         let posts = Posts.forge();
 

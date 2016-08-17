@@ -1,7 +1,7 @@
-/**
- * @description 统一返回数据
- *
- * @author xiaomi
+/*
+ * @Author: 卓文理
+ * @Email : 531840344@qq.com
+ * @Desc  : 统一返回数据
  */
 'use strict';
 

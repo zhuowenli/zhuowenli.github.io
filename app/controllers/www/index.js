@@ -5,6 +5,8 @@
  */
 
 var ctrls = [
+    require('./api/posts'),
+    require('./api/users'),
     require('./index/index'),
 ];
 

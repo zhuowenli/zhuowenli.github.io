@@ -12,7 +12,7 @@ exports.init = function(app) {
         model: User
     });
 
-    router.api.get('/users', function *() {
+    router.get('/api/users', function *() {
         let query = this.query;
         let users = Users.forge();
 
