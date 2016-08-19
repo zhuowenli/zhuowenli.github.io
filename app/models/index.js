@@ -10,6 +10,8 @@ const models = {
     Post: require('./post'),
     Category: require('./category'),
     Image: require('./image'),
+    Tag: require('./tag'),
+    Taglog: require('./tag_log'),
 };
 
 module.exports = models;
