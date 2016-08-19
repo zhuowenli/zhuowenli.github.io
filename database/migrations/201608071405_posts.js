@@ -5,7 +5,8 @@
  */
 'use strict';
 
-exports.up = function (knex, Promise) {
+exports.up = function (knex) {
+
     return knex.schema.createTable('posts', table => {
         table.increments().primary();
 
@@ -18,12 +19,13 @@ exports.up = function (knex, Promise) {
         table.integer('category_id').defaultTo(1).notNull().unsigned().comment('分类id');
         table.integer('like_count').unsigned().comment('喜欢数');
         table.integer('view_count').unsigned().comment('浏览数');
+        table.timestamp('release_at').defaultTo(knex.fn.now()).notNullable().comment('发表时间');
 
         table.timestamps();
     });
 };
 
-exports.down = function (knex, Promise) {
+exports.down = function (knex) {
     return knex.schema
         .dropTableIfExists('posts');
 };

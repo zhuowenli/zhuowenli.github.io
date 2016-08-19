@@ -44,18 +44,23 @@ exports.init = function(app) {
     router.post('/api/posts', function *() {
         const postData = this.request.body;
         const data = {};
-        let {title, categories, tags, content, created_at} = postData;
+        let {title, categories, tags, content, release_at} = postData;
         let category_id = 3;
 
         if (categories) {
+            categories = categories.trim();
             category_id = CATES[categories] || 3;
         }
+
+        // release_at = new Date(release_at).getTime();
+        content = content ? content.trim() : '';
+        title = title ? title.trim() : '';
 
         _.assign(data, {
             title,
             content,
             category_id,
-            created_at,
+            release_at,
             priority: 0,
             status: 0,
             user_id: 1,
@@ -69,7 +74,7 @@ exports.init = function(app) {
             tags = tags.split(',');
         }
 
-        if (tags.length && typeof tags == 'object') {
+        if (tags && tags.length && typeof tags == 'object') {
             function saveTags(value) {
                 return new Promise((resolve, reject) => {
                     Tag.forge({
@@ -90,6 +95,8 @@ exports.init = function(app) {
             }
 
             yield Promise.map(tags, value => {
+                value = value.trim();
+
                 let tag = Tag.where(qb => {
                         qb.where('name', value);
                     })

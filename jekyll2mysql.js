@@ -11,7 +11,13 @@ const fecha = require('fecha');
 
 const fs = require('fs');
 const path = require('path');
+const http = require('http');
+const querystring = require('querystring');
 
+const menuDir = './_posts/'; // md文件存储目录
+
+
+// 读取文件
 const readFile = filename => {
     return new Promise((resolve, reject) => {
         let callback = (err, res) => {
@@ -26,6 +32,7 @@ const readFile = filename => {
     });
 }
 
+// 分析文件内容
 const analysisFile = filename => {
     const post = {};
 
@@ -58,8 +65,10 @@ const analysisFile = filename => {
                 if (!res.length) reject();
 
                 const matters = res.match(/^---\n[\w\W]*---\n/g);
-                const content = res.replace(/^---\n[\w\W]*---(\s*)(\n*)/g, '');
-                const create_at = matchDate(filename);
+                const release_at = matchDate(filename);
+                let content = res.replace(/^---\n[\w\W]*---(\s*)(\n*)/g, '');
+                content = content.replace('{{ site.qiniu }}', 'http://zhuowenli.qiniudn.com');
+                content = content.replace('{{site.qiniu}}', 'http://zhuowenli.qiniudn.com');
 
                 if (matters && matters.length) {
                     const matter = matters[0];
@@ -67,15 +76,15 @@ const analysisFile = filename => {
                     _.assign(post, {
                         title: matchMatters(matter, 'title') || '没有标题',
                         categories: matchMatters(matter, 'categories'),
-                        tags: matchMatters(matter, 'tags').replace(/\[|\]/ig, '').split(/,/),
+                        tags: matchMatters(matter, 'tags').replace(/\[|\]/ig, ''),
                         content,
-                        create_at,
+                        release_at,
                     });
                 } else {
                     _.assign(post, {
                         title: '没有标题',
                         content,
-                        create_at,
+                        release_at,
                     });
                 }
 
@@ -87,13 +96,14 @@ const analysisFile = filename => {
     });
 }
 
+// 获取目录下所有文件，并执行文件分析。
 function readAllFiles() {
-    const lists = fs.readdirSync('./_posts/');
+    const lists = fs.readdirSync(menuDir);
     let data = [];
 
     return new Promise((resolve, reject) => {
-        Promise.map(lists, (filename) => {
-            return analysisFile(`./_posts/${filename}`)
+        Promise.each(lists, (filename, i) => {
+            return analysisFile(path.join(menuDir, filename))
                 .then(res => {
                     data.push(res);
                 }, res => {
@@ -101,14 +111,67 @@ function readAllFiles() {
                 });
         })
         .then((res) => {
+            console.log('> 资源加载完毕');
             resolve(data);
         });
     });
 }
 
-readAllFiles()
-    .then((res) => {
-        console.log(res);
+function runPost(data, callback) {
+
+    const postData = querystring.stringify(data);
+
+    // const api = 'http://www.zhuowenli.cn/api/posts'; // API接口
+    const options = {
+        hostname: 'www.zhuowenli.cn',
+        port: '80',
+        path: '/api/posts',
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-length': Buffer.byteLength(postData)
+        }
+    }
+
+    const req = http.request(options, res => {
+        let data = '';
+        let dataLen = 0;
+
+        res.setEncoding('utf8');
+        res.on('data', function(chunk) {
+                dataLen += chunk.length;
+                data += chunk.toString();
+            })
+            .on('end', function() {
+                // console.log(data);
+            });
+
+        callback();
     });
 
+    req.on('error', function(e) {
+        console.log('problem with request: ' + e.message);
+    });
+
+    req.write(postData);
+
+    req.end();
+}
+
+function init() {
+    console.log('> 资源加载中...');
+
+    readAllFiles()
+        .then((res) => {
+            console.log('> 资源上传中...');
+
+            res.map((data, i) => {
+                runPost(data, () => {
+                    console.log(`> 第${i + 1}篇文章上传成功`);
+                });
+            });
+        });
+}
+
+init();
 

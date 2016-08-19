@@ -14,7 +14,7 @@
                             </div>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" v-for='item in data'>
                             <div class="bg table">
                                 <div class="bgL cell"></div>
                                 <div class="bgM cell"></div>
@@ -22,62 +22,21 @@
                             </div>
 
                             <div class="header">
-                                <a v-link="'/design/1'">
-                                <h2>SERVER ENGINEER</h2>
+                                <a v-link="'/design/' + item.id">
+                                    <h2>{{item.title}}</h2>
                                 </a>
                             </div>
 
                             <div class="scroll">
                                 <div class="mCustomScrollbar" data-mcs-theme="dark">
                                     <div class="table entrydetail">
-                                        <div class="row">
-                                            <div class="cell">募集背景</div>
-                                            <div class="cell"><p class="p1">新規プロジェクトの立ち上げ、既存サービスの国内拡大や海外展開に伴う事業拡大のため、コアとなるメンバーを募集します。</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="cell">業務内容</div>
-                                            <div class="cell">
-                                                <p class="p1">新規及び国内外の既存サービスのサーバーインフラ開発と運用をお任せします。</p>
-                                                <p class="p1">サーバーサイド設計・開発・運用担当として、まずは国外、海外含め既存プロジェクトに関わって頂きます。</p>
-                                                <p class="p1">国内180万人以上、同カテゴリ内ではトップクラスの売上を誇るサービスとなります。</p>
-                                                <p class="p1">その後、スキルやご希望に合わせてプロジェクト内容や規模を相談しながら決めていきます。</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="cell">応募資格</div>
-                                            <div class="cell"><p class="p1">【必須要件】</p>
-                                                <p class="p1">■PHPなどを用いたWebアプリケーションの設計・開発経験</p>
-                                                <p class="p1">■Linux/RDBMSの基礎知識</p>
-                                                <p class="p1">■データベースの構築・運用経験</p>
-                                                <p class="p1">■サーバー構築経験</p>
-                                                <p class="p1">&nbsp;</p>
-                                                <p class="p1">【歓迎要件】</p>
-                                                <p class="p1">■ソーシャルゲーム等のサーバー構築/運用経験</p>
-                                                <p class="p1">■大規模ユーザーサービスのサーバー構築/運用経験</p>
-                                                <p class="p1">■海外サーバー構築、運用経験</p>
-                                                <p class="p1">■その他言語の知識・経験</p>
-                                                <p class="p1">■ネットワーク構築・運用経験</p>
-                                                <p class="p1">■WEBサイトのコーディング</p>
-                                                <p class="p1">（今後サーバサイドだけでなく、フロントサイドもいずれやりたいという方も歓迎します）</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="cell">雇用区分</div>
-                                            <div class="cell"><p>正社員</p></div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="cell">想定年収</div>
-                                            <div class="cell"><p class="p1">300万円～800万円</p>
-                                            <p class="p1">※ご経験・スキルを考慮して決定いたします。</p>
-                                            </div>
-                                        </div>
+                                        <div v-html="item.content | marked"></div>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="footer">
-                                <a class="entrybtn" v-link="'/design/1'">readme more</a>
+                                <a class="entrybtn" v-link="'/design/' + item.id">readme more</a>
                             </div>
                         </div>
                     </div>
@@ -89,6 +48,7 @@
 
 <script>
     import PostModels from '../../models/post/';
+    import marked from 'marked';
 
     const $html = $('html');
 
@@ -97,7 +57,11 @@
         },
         data () {
             return {
+                data: []
             }
+        },
+        filters: {
+            marked
         },
         ready() {
             $(".scroll").mCustomScrollbar({
@@ -111,6 +75,7 @@
         },
         route: {
             activate(transition) {
+                const that = this;
                 $html.addClass('fetch');
 
                 return PostModels
@@ -123,6 +88,7 @@
                         const {data} = res.data;
 
                         $html.removeClass('fetch');
+                        that.$set('data', data);
 
                         setTimeout(function() {
                             $('.main').animate({ opacity: 1 }, 500);

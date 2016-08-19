@@ -124,14 +124,13 @@
             font-size: 12px;
             letter-spacing: 1px;
             padding:0 0 0 60px;
-            .cell {
-                vertical-align: top;
-                font-weight: bold;
-                line-height: 2em;
-                padding-bottom: 30px;
-                &:first-child {
-                    width: 160px;
-                }
+            color: rgba(#fff, .8);
+            img{
+                width: 100%;
+                height: auto;
+            }
+            a{
+                color: #fff;
             }
         }
     }
