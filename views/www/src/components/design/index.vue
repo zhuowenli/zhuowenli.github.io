@@ -66,11 +66,7 @@
         ready() {
             $(".scroll").mCustomScrollbar({
                 axis:"y",
-                scrollInertia:100,
-                callbacks: {
-                    whileScrolling() {
-                    }
-                }
+                scrollInertia:100
             });
         },
         route: {

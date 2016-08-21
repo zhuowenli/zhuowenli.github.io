@@ -30,13 +30,23 @@ exports.init = function(app) {
                     qb.where('category_id', query.category_id);
                 }
 
-                qb.orderBy('id', 'asc'); //desc
+                qb.orderBy('id', 'desc'); //desc
             }, {
                 page: query.page,
                 per_page: query.per_page,
             }, {
                 withRelated: ['category']
             });
+
+        posts.data.models.map(post => {
+            let content = post.get('content');
+
+            content = content
+                    ? content.match(/(^.*?(\r?\n|\r)){0,8}/m)[0] + '...'
+                    : '';
+
+            post.set('content', content);
+        });
 
         this.body = posts;
     });
