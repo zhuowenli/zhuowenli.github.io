@@ -4,8 +4,8 @@
 
 ## 技术栈
 
-后端：Node.js + koa + MySQL + knex
-前端：Vue.js + Vue Router + Webpack + ES2015
+- 后端：Node.js + koa + MySQL + knex
+- 前端：Vue.js + Vue Router + Webpack + ES2015
 
 ## Quick Start
 
