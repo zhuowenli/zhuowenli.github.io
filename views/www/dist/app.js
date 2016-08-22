@@ -58,25 +58,25 @@
 	
 	var _app2 = _interopRequireDefault(_app);
 	
-	var _vue = __webpack_require__(15);
+	var _vue = __webpack_require__(9);
 	
 	var _vue2 = _interopRequireDefault(_vue);
 	
-	var _vueResource = __webpack_require__(17);
+	var _vueResource = __webpack_require__(11);
 	
 	var _vueResource2 = _interopRequireDefault(_vueResource);
 	
-	var _vueRouter = __webpack_require__(18);
+	var _vueRouter = __webpack_require__(12);
 	
 	var _vueRouter2 = _interopRequireDefault(_vueRouter);
 	
-	var _routerConfig = __webpack_require__(19);
+	var _routerConfig = __webpack_require__(13);
 	
-	var _filter = __webpack_require__(59);
+	var _filter = __webpack_require__(51);
 	
 	var _filter2 = _interopRequireDefault(_filter);
 	
-	var _App = __webpack_require__(60);
+	var _App = __webpack_require__(52);
 	
 	var _App2 = _interopRequireDefault(_App);
 	
@@ -115,7 +115,7 @@
 	var content = __webpack_require__(3);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(14)(content, {});
+	var update = __webpack_require__(8)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -140,7 +140,7 @@
 	
 	
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n/**\n * 1. Set default font family to sans-serif.\n * 2. Prevent iOS text size adjust after orientation change, without disabling\n *    user zoom.\n * 0. sassCore's style\n */\nhtml {\n  font-family: sans-serif;\n  /* 1 */\n  -ms-text-size-adjust: 100%;\n  /* 2 */\n  -webkit-text-size-adjust: 100%;\n  /* 2 */\n  overflow-y: scroll;\n  /* 0 */\n  -webkit-overflow-scrolling: touch;\n  /* 0 */ }\n\n/**\n * 1. Remove default margin\n * 0. sassCore's style.\n */\nbody {\n  margin: 0;\n  /* 1 */\n  font-size: 14px;\n  /* 0 */\n  line-height: 1.5;\n  /* 0 */\n  color: #333;\n  /* 0 */\n  background-color: #fff;\n  /* 0 */ }\n\n/* HTML5 display definitions\n   ========================================================================== */\n/**\n * Correct `block` display not defined for any HTML5 element in IE 8/9.\n * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.\n * Correct `block` display not defined for `main` in IE 11.\n */\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmain,\nnav,\nsection,\nsummary {\n  display: block; }\n\n/**\n * 1. Correct `inline-block` display not defined in IE 8/9.\n * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.\n * 3. Correct `inline-block` display in IE 6/7.\n */\naudio,\ncanvas,\nprogress,\nvideo {\n  display: inline-block;\n  /* 1 */\n  vertical-align: baseline;\n  /* 2 */\n  *display: inline;\n  /* 3 */\n  *zoom: 1;\n  /* 3 */ }\n\n/**\n * Prevent modern browsers from displaying `audio` without controls.\n * Remove excess height in iOS 5 devices.\n */\naudio:not([controls]) {\n  display: none;\n  height: 0; }\n\n/**\n * Address `[hidden]` styling not present in IE 8/9/10.\n * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.\n */\n[hidden],\ntemplate {\n  display: none; }\n\n/* Links\n   ========================================================================== */\n/**\n * 1. Remove the gray background color from active links in IE 10.\n * 2. Improve readability when focused and also mouse hovered in all browsers.\n * 0. sassCore's style.\n */\na {\n  background: transparent;\n  /* 1 */\n  /* 0 */\n  text-decoration: none;\n  color: #08c; }\n  a:active, a:hover {\n    outline: 0;\n    /* 2 */ }\n  a:hover {\n    color: #006699; }\n\n/* Text-level semantics\n   ========================================================================== */\n/**\n * Address styling not present in IE 8/9/10/11, Safari, and Chrome.\n */\nabbr[title] {\n  border-bottom: 1px dotted; }\n\n/**\n * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.\n */\nb,\nstrong {\n  font-weight: bold; }\n\n/**\n * Address styling not present in Safari and Chrome.\n */\ndfn {\n  font-style: italic; }\n\n/**\n * Address styling not present in IE 8/9.\n */\nmark {\n  background: #ff0;\n  color: #000; }\n\n/**\n * Address inconsistent and variable font size in all browsers.\n */\nsmall {\n  font-size: 80%; }\n\n/**\n * Prevent `sub` and `sup` affecting `line-height` in all browsers.\n */\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline; }\n\nsup {\n  top: -0.5em; }\n\nsub {\n  bottom: -0.25em; }\n\n/* Embedded content\n   ========================================================================== */\n/**\n * 1. Remove border when inside `a` element in IE 8/9/10.\n * 2. Improve image quality when scaled in IE 7.\n * 0. sassCore's style.\n */\nimg {\n  border: 0;\n  /* 1 */\n  vertical-align: middle;\n  /* 0 */\n  -ms-interpolation-mode: bicubic;\n  /* 2 */ }\n\n/**\n * Correct overflow not hidden in IE 9/10/11.\n */\nsvg:not(:root) {\n  overflow: hidden; }\n\n/* Grouping content\n   ========================================================================== */\n/**\n * Address differences between Firefox and other browsers.\n */\nhr {\n  -moz-box-sizing: content-box;\n  box-sizing: content-box;\n  height: 0; }\n\n/**\n * 1. Contain overflow in all browsers.\n * 2. Improve readability of pre-formatted text in all browsers.\n */\npre {\n  overflow: auto;\n  /* 1 */\n  white-space: pre;\n  /* 2 */\n  white-space: pre-wrap;\n  /* 2 */\n  word-wrap: break-word;\n  /* 2 */ }\n\n/**\n * 1. Address odd `em`-unit font size rendering in all browsers.\n * 2. Correct font family set oddly in IE 6, Safari 4/5, and Chrome.\n */\ncode,\nkbd,\npre,\nsamp {\n  font-family: monospace, monospace;\n  /* 1 */\n  _font-family: 'courier new', monospace;\n  /* 1 */\n  font-size: 1em;\n  /* 2 */ }\n\n/* Forms\n   ========================================================================== */\n/**\n * Known limitation: by default, Chrome and Safari on OS X allow very limited\n * styling of `select`, unless a `border` property is set.\n */\n/**\n * 1. Correct color not being inherited.\n *    Known issue: affects color of disabled elements.\n * 2. Correct font properties not being inherited.\n * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.\n */\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  color: inherit;\n  /* 1 */\n  font: inherit;\n  /* 2 */\n  margin: 0;\n  /* 3 */ }\n\n/**\n * Address `overflow` set to `hidden` in IE 8/9/10/11.\n */\nbutton {\n  overflow: visible; }\n\n/**\n * Address inconsistent `text-transform` inheritance for `button` and `select`.\n * All other form control elements do not inherit `text-transform` values.\n * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.\n * Correct `select` style inheritance in Firefox.\n */\nbutton,\nselect {\n  text-transform: none; }\n\n/**\n * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`\n *    and `video` controls.\n * 2. Correct inability to style clickable `input` types in iOS.\n * 3. Improve usability and consistency of cursor style between image-type\n *    `input` and others.\n * 4. Remove inner spacing in IE 7 without affecting normal text inputs.\n *    Known issue: inner spacing remains in IE 6.\n */\nbutton,\nhtml input[type=\"button\"],\ninput[type=\"reset\"],\ninput[type=\"submit\"] {\n  -webkit-appearance: button;\n  /* 2 */\n  cursor: pointer;\n  /* 3 */\n  *overflow: visible;\n  /* 4 */ }\n\n/**\n * Re-set default cursor for disabled elements.\n */\nbutton[disabled],\nhtml input[disabled] {\n  cursor: default; }\n\n/**\n * Remove inner padding and border in Firefox 4+.\n */\nbutton::-moz-focus-inner,\ninput::-moz-focus-inner {\n  border: 0;\n  padding: 0; }\n\n/**\n * Address Firefox 4+ setting `line-height` on `input` using `!important` in\n * the UA stylesheet.\n */\ninput {\n  line-height: normal; }\n\n/**\n * It's recommended that you don't attempt to style these elements.\n * Firefox's implementation doesn't respect box-sizing, padding, or width.\n *\n * 1. Address box sizing set to `content-box` in IE 8/9/10.\n * 2. Remove excess padding in IE 8/9/10.\n * 3. Remove excess padding in IE 7.\n *    Known issue: excess padding remains in IE 6.\n */\ninput[type=\"checkbox\"],\ninput[type=\"radio\"] {\n  box-sizing: border-box;\n  /* 1 */\n  padding: 0;\n  /* 2 */\n  *height: 13px;\n  /* 3 */\n  *width: 13px;\n  /* 3 */ }\n\n/**\n * Fix the cursor style for Chrome's increment/decrement buttons. For certain\n * `font-size` values of the `input`, it causes the cursor style of the\n * decrement button to change from `default` to `text`.\n */\ninput[type=\"number\"]::-webkit-inner-spin-button,\ninput[type=\"number\"]::-webkit-outer-spin-button {\n  height: auto; }\n\n/**\n * 1. Address `appearance` set to `searchfield` in Safari and Chrome.\n * 2. Address `box-sizing` set to `border-box` in Safari and Chrome\n *    (include `-moz` to future-proof).\n */\ninput[type=\"search\"] {\n  -webkit-appearance: textfield;\n  /* 1 */\n  -moz-box-sizing: content-box;\n  -webkit-box-sizing: content-box;\n  /* 2 */\n  box-sizing: content-box; }\n\n/**\n * Remove inner padding and search cancel button in Safari and Chrome on OS X.\n * Safari (but not Chrome) clips the cancel button when the search input has\n * padding (and `textfield` appearance).\n */\ninput[type=\"search\"]::-webkit-search-cancel-button,\ninput[type=\"search\"]::-webkit-search-decoration {\n  -webkit-appearance: none; }\n\n/**\n * Define consistent border, margin, and padding.\n */\nfieldset {\n  border: 1px solid #c0c0c0;\n  margin: 0 2px;\n  padding: 0.35em 0.625em 0.75em; }\n\n/**\n * 1. Correct `color` not being inherited in IE 8/9/10/11.\n * 2. Remove padding so people aren't caught out if they zero out fieldsets.\n * 3. Correct alignment displayed oddly in IE 6/7.\n */\nlegend {\n  border: 0;\n  /* 1 */\n  padding: 0;\n  /* 2 */\n  *margin-left: -7px;\n  /* 3 */ }\n\n/**\n * 1. Remove default vertical scrollbar in IE 8/9/10/11.\n * 0. sassCore's style\n */\ntextarea {\n  overflow: auto;\n  /* 1 */\n  resize: vertical;\n  /* 0 */ }\n\n/**\n * Don't inherit the `font-weight` (applied by a rule above).\n * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.\n */\noptgroup {\n  font-weight: bold; }\n\n/* Tables\n   ========================================================================== */\n/**\n * Remove most spacing between table cells.\n */\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\ntd,\nth {\n  padding: 0; }\n\n/**\n * Address CSS quotes not supported in IE 6/7.\n */\nq {\n  quotes: none; }\n\nhtml,\nbutton,\ninput,\nselect,\ntextarea {\n  font-family: \"Helvetica Neue\", Helvetica, Tahoma, sans-serif; }\n\nh1, h2, h3, h4, h5, h6, p, figure, form, blockquote {\n  margin: 0; }\n\nul, ol, li, dl, dd {\n  margin: 0;\n  padding: 0; }\n\nul, ol {\n  list-style: none outside none; }\n\nh1, h2, h3 {\n  line-height: 2;\n  font-weight: normal; }\n\nh1 {\n  font-size: 21px; }\n\nh2 {\n  font-size: 18.2px; }\n\nh3 {\n  font-size: 16.38px; }\n\nh4 {\n  font-size: 14px; }\n\nh5, h6 {\n  font-size: 11.9px;\n  text-transform: uppercase; }\n\ninput:-moz-placeholder,\ntextarea:-moz-placeholder {\n  color: #ccc; }\n\ninput::-moz-placeholder,\ntextarea::-moz-placeholder {\n  color: #ccc; }\n\ninput:-ms-input-placeholder,\ntextarea:-ms-input-placeholder {\n  color: #ccc; }\n\ninput::-webkit-input-placeholder,\ntextarea::-webkit-input-placeholder {\n  color: #ccc; }\n\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n@font-face {\n  font-family: icon;\n  src: url(" + __webpack_require__(5) + ");\n  src: url(" + __webpack_require__(5) + "#iefix2oa9qo) format(\"embedded-opentype\"), url(" + __webpack_require__(6) + ") format(\"woff\"), url(" + __webpack_require__(7) + ") format(\"truetype\");\n  font-weight: 400;\n  font-style: normal; }\n\nhtml {\n  font-family: \"Helvetica Neue\", \"Helvetica\", \"PingFang SC\", \"Hiragino Sans GB\", \"STHeitiSC-Light\", \"Source Han Sans CN\", \"Source Han Sans SC\", \"Microsoft YaHei\", \"WenQuanYi Micro Hei\", \"Arial\", sans-serif;\n  font-size: 16px;\n  font-weight: 300; }\n\n*, *:before, *:after {\n  outline: 0;\n  -webkit-tap-highlight-color: transparent;\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box; }\n\nhtml, body, .container {\n  height: 100%;\n  width: 100%; }\n\nhtml {\n  overflow: hidden; }\n\nbody {\n  background-color: #060709; }\n\n.container {\n  position: relative;\n  max-width: 1520px;\n  margin: 0 auto;\n  opacity: 1; }\n\n@keyframes pikapika {\n  0% {\n    opacity: 0.96; }\n  100% {\n    opacity: 1; } }\n\n.main-slidebar, .main-center, .main-right, .graph {\n  -webkit-animation: pikapika 0.05s linear infinite alternate;\n  animation: pikapika 0.05s linear infinite alternate;\n  -webkit-animation-fill-mode: forwards;\n  animation-fill-mode: forwards; }\n\n.hide, .hidechild > * {\n  opacity: 0 !important;\n  -webkit-transition: all 0.5s ease-in-out;\n  transition: all 0.5s ease-in-out; }\n\n.showsplash .main-center .hide, .showsplash .main-center .hidechild > *, .showsplash .graph .hide, .showsplash .graph .hidechild > * {\n  opacity: 1 !important; }\n\n.showsidebar .btn, .showsidebar .hide, .showsidebar .hidechild > * {\n  opacity: 1 !important; }\n\n.main-content {\n  padding-left: 380px; }\n\n.table {\n  display: table;\n  width: 100%; }\n  .table .cell {\n    position: relative;\n    display: table-cell;\n    vertical-align: middle; }\n\n.main {\n  width: 800px;\n  position: absolute;\n  height: 800px;\n  left: 380px;\n  top: 0;\n  z-index: 9997;\n  background: url(" + __webpack_require__(8) + ") fixed;\n  background-size: 30px; }\n  .main .scroll {\n    padding: 0;\n    overflow-x: hidden;\n    height: 100%;\n    width: 100%; }\n  .main .scrollinside {\n    padding: 45px 0 0 40px;\n    width: 100%;\n    max-width: 910px;\n    margin: 0 auto; }\n  .main .banner {\n    margin-bottom: 60px; }\n    .main .banner img {\n      width: 100%;\n      height: auto; }\n  .main .insidetitle {\n    padding: 0 50px;\n    margin-bottom: 60px; }\n    .main .insidetitle .number {\n      width: 200px;\n      height: 270px;\n      line-height: 1;\n      text-align: left;\n      font-size: 140px;\n      color: #fff;\n      font-weight: 700;\n      text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); }\n    .main .insidetitle .pagetitle {\n      font-size: 50px;\n      letter-spacing: 5px;\n      text-transform: uppercase;\n      font-weight: 700;\n      line-height: 1;\n      color: #fff;\n      text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); }\n    .main .insidetitle h2 {\n      color: #fff;\n      letter-spacing: 3px;\n      font-size: 22px;\n      padding: 8px 0 0;\n      text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5); }\n  .main .entrybtn {\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    display: block;\n    width: 300px;\n    font-size: 16px;\n    font-weight: 700;\n    text-align: center;\n    z-index: 3;\n    line-height: 66px;\n    letter-spacing: 2px;\n    color: #fff;\n    text-transform: uppercase; }\n\n.mCSB_inside > .mCSB_container {\n  margin-right: 0; }\n\n.mCSB_scrollTools {\n  left: 0;\n  margin: 40px 0;\n  width: 30px;\n  box-sizing: border-box; }\n  .mCSB_scrollTools .mCSB_draggerContainer {\n    background: url(" + __webpack_require__(9) + ");\n    background-size: 30px; }\n  .mCSB_scrollTools .mCSB_draggerRail {\n    width: 1px;\n    border-radius: 0;\n    background: rgba(255, 255, 255, 0.02); }\n  .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {\n    background: none !important;\n    width: 11px;\n    border-radius: 0;\n    position: relative;\n    box-sizing: border-box; }\n  .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar:after {\n    content: '';\n    width: 16px;\n    height: 16px;\n    background-size: 16px;\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    display: block;\n    z-index: 1;\n    margin: -8px 0 0 -8px; }\n  .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {\n    border: 1px solid rgba(255, 255, 255, 0.2); }\n  .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar:after {\n    background-image: url(" + __webpack_require__(10) + "); }\n\n.entry {\n  position: relative;\n  padding: 50px;\n  margin-bottom: 90px; }\n  .entry .header {\n    position: relative;\n    z-index: 2; }\n    .entry .header a {\n      display: block; }\n    .entry .header h2 {\n      font-size: 20px;\n      letter-spacing: 1px;\n      padding-bottom: 50px;\n      line-height: 24px;\n      color: #fff; }\n  .entry .scroll {\n    position: relative;\n    height: 180px;\n    margin-bottom: 50px;\n    z-index: 2; }\n    .entry .scroll .entrydetail {\n      font-size: 12px;\n      letter-spacing: 1px;\n      padding: 0 0 0 60px;\n      color: rgba(255, 255, 255, 0.8); }\n      .entry .scroll .entrydetail img {\n        width: 100%;\n        height: auto; }\n      .entry .scroll .entrydetail a {\n        color: #fff; }\n  .entry .bg {\n    width: 100%;\n    height: 400px;\n    position: absolute;\n    top: 0;\n    left: 0; }\n  .entry .bgL {\n    width: 135px;\n    background-repeat: no-repeat;\n    background-size: 135px; }\n  .entry .bgM {\n    background-repeat: repeat-x;\n    background-size: 2px; }\n  .entry .bgR {\n    width: 400px;\n    background-repeat: no-repeat;\n    background-size: 400px; }\n  .entry .mCSB_scrollTools .mCSB_draggerContainer {\n    background: none; }\n  .entry .mCSB_scrollTools {\n    margin: 0; }\n  .entry .bgL {\n    background-image: url(" + __webpack_require__(11) + "); }\n  .entry .bgM {\n    background-image: url(" + __webpack_require__(12) + "); }\n  .entry .bgR {\n    background-image: url(" + __webpack_require__(13) + "); }\n  .entry .entrybtn {\n    display: block;\n    font-size: 16px;\n    font-weight: bold;\n    text-align: center;\n    width: 300px;\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    z-index: 3;\n    line-height: 66px;\n    letter-spacing: 2px; }\n", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n/**\n * 1. Set default font family to sans-serif.\n * 2. Prevent iOS text size adjust after orientation change, without disabling\n *    user zoom.\n * 0. sassCore's style\n */\nhtml {\n  font-family: sans-serif;\n  /* 1 */\n  -ms-text-size-adjust: 100%;\n  /* 2 */\n  -webkit-text-size-adjust: 100%;\n  /* 2 */\n  overflow-y: scroll;\n  /* 0 */\n  -webkit-overflow-scrolling: touch;\n  /* 0 */ }\n\n/**\n * 1. Remove default margin\n * 0. sassCore's style.\n */\nbody {\n  margin: 0;\n  /* 1 */\n  font-size: 14px;\n  /* 0 */\n  line-height: 1.5;\n  /* 0 */\n  color: #333;\n  /* 0 */\n  background-color: #fff;\n  /* 0 */ }\n\n/* HTML5 display definitions\n   ========================================================================== */\n/**\n * Correct `block` display not defined for any HTML5 element in IE 8/9.\n * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.\n * Correct `block` display not defined for `main` in IE 11.\n */\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmain,\nnav,\nsection,\nsummary {\n  display: block; }\n\n/**\n * 1. Correct `inline-block` display not defined in IE 8/9.\n * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.\n * 3. Correct `inline-block` display in IE 6/7.\n */\naudio,\ncanvas,\nprogress,\nvideo {\n  display: inline-block;\n  /* 1 */\n  vertical-align: baseline;\n  /* 2 */\n  *display: inline;\n  /* 3 */\n  *zoom: 1;\n  /* 3 */ }\n\n/**\n * Prevent modern browsers from displaying `audio` without controls.\n * Remove excess height in iOS 5 devices.\n */\naudio:not([controls]) {\n  display: none;\n  height: 0; }\n\n/**\n * Address `[hidden]` styling not present in IE 8/9/10.\n * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.\n */\n[hidden],\ntemplate {\n  display: none; }\n\n/* Links\n   ========================================================================== */\n/**\n * 1. Remove the gray background color from active links in IE 10.\n * 2. Improve readability when focused and also mouse hovered in all browsers.\n * 0. sassCore's style.\n */\na {\n  background: transparent;\n  /* 1 */\n  /* 0 */\n  text-decoration: none;\n  color: #08c; }\n  a:active, a:hover {\n    outline: 0;\n    /* 2 */ }\n  a:hover {\n    color: #006699; }\n\n/* Text-level semantics\n   ========================================================================== */\n/**\n * Address styling not present in IE 8/9/10/11, Safari, and Chrome.\n */\nabbr[title] {\n  border-bottom: 1px dotted; }\n\n/**\n * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.\n */\nb,\nstrong {\n  font-weight: bold; }\n\n/**\n * Address styling not present in Safari and Chrome.\n */\ndfn {\n  font-style: italic; }\n\n/**\n * Address styling not present in IE 8/9.\n */\nmark {\n  background: #ff0;\n  color: #000; }\n\n/**\n * Address inconsistent and variable font size in all browsers.\n */\nsmall {\n  font-size: 80%; }\n\n/**\n * Prevent `sub` and `sup` affecting `line-height` in all browsers.\n */\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline; }\n\nsup {\n  top: -0.5em; }\n\nsub {\n  bottom: -0.25em; }\n\n/* Embedded content\n   ========================================================================== */\n/**\n * 1. Remove border when inside `a` element in IE 8/9/10.\n * 2. Improve image quality when scaled in IE 7.\n * 0. sassCore's style.\n */\nimg {\n  border: 0;\n  /* 1 */\n  vertical-align: middle;\n  /* 0 */\n  -ms-interpolation-mode: bicubic;\n  /* 2 */ }\n\n/**\n * Correct overflow not hidden in IE 9/10/11.\n */\nsvg:not(:root) {\n  overflow: hidden; }\n\n/* Grouping content\n   ========================================================================== */\n/**\n * Address differences between Firefox and other browsers.\n */\nhr {\n  -moz-box-sizing: content-box;\n  box-sizing: content-box;\n  height: 0; }\n\n/**\n * 1. Contain overflow in all browsers.\n * 2. Improve readability of pre-formatted text in all browsers.\n */\npre {\n  overflow: auto;\n  /* 1 */\n  white-space: pre;\n  /* 2 */\n  white-space: pre-wrap;\n  /* 2 */\n  word-wrap: break-word;\n  /* 2 */ }\n\n/**\n * 1. Address odd `em`-unit font size rendering in all browsers.\n * 2. Correct font family set oddly in IE 6, Safari 4/5, and Chrome.\n */\ncode,\nkbd,\npre,\nsamp {\n  font-family: monospace, monospace;\n  /* 1 */\n  _font-family: 'courier new', monospace;\n  /* 1 */\n  font-size: 1em;\n  /* 2 */ }\n\n/* Forms\n   ========================================================================== */\n/**\n * Known limitation: by default, Chrome and Safari on OS X allow very limited\n * styling of `select`, unless a `border` property is set.\n */\n/**\n * 1. Correct color not being inherited.\n *    Known issue: affects color of disabled elements.\n * 2. Correct font properties not being inherited.\n * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.\n */\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  color: inherit;\n  /* 1 */\n  font: inherit;\n  /* 2 */\n  margin: 0;\n  /* 3 */ }\n\n/**\n * Address `overflow` set to `hidden` in IE 8/9/10/11.\n */\nbutton {\n  overflow: visible; }\n\n/**\n * Address inconsistent `text-transform` inheritance for `button` and `select`.\n * All other form control elements do not inherit `text-transform` values.\n * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.\n * Correct `select` style inheritance in Firefox.\n */\nbutton,\nselect {\n  text-transform: none; }\n\n/**\n * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`\n *    and `video` controls.\n * 2. Correct inability to style clickable `input` types in iOS.\n * 3. Improve usability and consistency of cursor style between image-type\n *    `input` and others.\n * 4. Remove inner spacing in IE 7 without affecting normal text inputs.\n *    Known issue: inner spacing remains in IE 6.\n */\nbutton,\nhtml input[type=\"button\"],\ninput[type=\"reset\"],\ninput[type=\"submit\"] {\n  -webkit-appearance: button;\n  /* 2 */\n  cursor: pointer;\n  /* 3 */\n  *overflow: visible;\n  /* 4 */ }\n\n/**\n * Re-set default cursor for disabled elements.\n */\nbutton[disabled],\nhtml input[disabled] {\n  cursor: default; }\n\n/**\n * Remove inner padding and border in Firefox 4+.\n */\nbutton::-moz-focus-inner,\ninput::-moz-focus-inner {\n  border: 0;\n  padding: 0; }\n\n/**\n * Address Firefox 4+ setting `line-height` on `input` using `!important` in\n * the UA stylesheet.\n */\ninput {\n  line-height: normal; }\n\n/**\n * It's recommended that you don't attempt to style these elements.\n * Firefox's implementation doesn't respect box-sizing, padding, or width.\n *\n * 1. Address box sizing set to `content-box` in IE 8/9/10.\n * 2. Remove excess padding in IE 8/9/10.\n * 3. Remove excess padding in IE 7.\n *    Known issue: excess padding remains in IE 6.\n */\ninput[type=\"checkbox\"],\ninput[type=\"radio\"] {\n  box-sizing: border-box;\n  /* 1 */\n  padding: 0;\n  /* 2 */\n  *height: 13px;\n  /* 3 */\n  *width: 13px;\n  /* 3 */ }\n\n/**\n * Fix the cursor style for Chrome's increment/decrement buttons. For certain\n * `font-size` values of the `input`, it causes the cursor style of the\n * decrement button to change from `default` to `text`.\n */\ninput[type=\"number\"]::-webkit-inner-spin-button,\ninput[type=\"number\"]::-webkit-outer-spin-button {\n  height: auto; }\n\n/**\n * 1. Address `appearance` set to `searchfield` in Safari and Chrome.\n * 2. Address `box-sizing` set to `border-box` in Safari and Chrome\n *    (include `-moz` to future-proof).\n */\ninput[type=\"search\"] {\n  -webkit-appearance: textfield;\n  /* 1 */\n  -moz-box-sizing: content-box;\n  -webkit-box-sizing: content-box;\n  /* 2 */\n  box-sizing: content-box; }\n\n/**\n * Remove inner padding and search cancel button in Safari and Chrome on OS X.\n * Safari (but not Chrome) clips the cancel button when the search input has\n * padding (and `textfield` appearance).\n */\ninput[type=\"search\"]::-webkit-search-cancel-button,\ninput[type=\"search\"]::-webkit-search-decoration {\n  -webkit-appearance: none; }\n\n/**\n * Define consistent border, margin, and padding.\n */\nfieldset {\n  border: 1px solid #c0c0c0;\n  margin: 0 2px;\n  padding: 0.35em 0.625em 0.75em; }\n\n/**\n * 1. Correct `color` not being inherited in IE 8/9/10/11.\n * 2. Remove padding so people aren't caught out if they zero out fieldsets.\n * 3. Correct alignment displayed oddly in IE 6/7.\n */\nlegend {\n  border: 0;\n  /* 1 */\n  padding: 0;\n  /* 2 */\n  *margin-left: -7px;\n  /* 3 */ }\n\n/**\n * 1. Remove default vertical scrollbar in IE 8/9/10/11.\n * 0. sassCore's style\n */\ntextarea {\n  overflow: auto;\n  /* 1 */\n  resize: vertical;\n  /* 0 */ }\n\n/**\n * Don't inherit the `font-weight` (applied by a rule above).\n * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.\n */\noptgroup {\n  font-weight: bold; }\n\n/* Tables\n   ========================================================================== */\n/**\n * Remove most spacing between table cells.\n */\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\ntd,\nth {\n  padding: 0; }\n\n/**\n * Address CSS quotes not supported in IE 6/7.\n */\nq {\n  quotes: none; }\n\nhtml,\nbutton,\ninput,\nselect,\ntextarea {\n  font-family: \"Helvetica Neue\", Helvetica, Tahoma, sans-serif; }\n\nh1, h2, h3, h4, h5, h6, p, figure, form, blockquote {\n  margin: 0; }\n\nul, ol, li, dl, dd {\n  margin: 0;\n  padding: 0; }\n\nul, ol {\n  list-style: none outside none; }\n\nh1, h2, h3 {\n  line-height: 2;\n  font-weight: normal; }\n\nh1 {\n  font-size: 21px; }\n\nh2 {\n  font-size: 18.2px; }\n\nh3 {\n  font-size: 16.38px; }\n\nh4 {\n  font-size: 14px; }\n\nh5, h6 {\n  font-size: 11.9px;\n  text-transform: uppercase; }\n\ninput:-moz-placeholder,\ntextarea:-moz-placeholder {\n  color: #ccc; }\n\ninput::-moz-placeholder,\ntextarea::-moz-placeholder {\n  color: #ccc; }\n\ninput:-ms-input-placeholder,\ntextarea:-ms-input-placeholder {\n  color: #ccc; }\n\ninput::-webkit-input-placeholder,\ntextarea::-webkit-input-placeholder {\n  color: #ccc; }\n\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n@font-face {\n  font-family: icon;\n  src: url(" + __webpack_require__(5) + ");\n  src: url(" + __webpack_require__(5) + "#iefix2oa9qo) format(\"embedded-opentype\"), url(" + __webpack_require__(6) + ") format(\"woff\"), url(" + __webpack_require__(7) + ") format(\"truetype\");\n  font-weight: 400;\n  font-style: normal; }\n\nhtml {\n  font-family: \"Helvetica Neue\", \"Helvetica\", \"PingFang SC\", \"Hiragino Sans GB\", \"STHeitiSC-Light\", \"Source Han Sans CN\", \"Source Han Sans SC\", \"Microsoft YaHei\", \"WenQuanYi Micro Hei\", \"Arial\", sans-serif;\n  font-size: 16px;\n  font-weight: 300; }\n\n*, *:before, *:after {\n  outline: 0;\n  -webkit-tap-highlight-color: transparent;\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box; }\n\nhtml, body, .container {\n  height: 100%;\n  width: 100%; }\n\nhtml {\n  overflow: hidden; }\n\nbody {\n  background-color: #060709; }\n\n.container {\n  position: relative;\n  max-width: 1520px;\n  margin: 0 auto;\n  opacity: 1; }\n\n@keyframes pikapika {\n  0% {\n    opacity: 0.96; }\n  100% {\n    opacity: 1; } }\n\n.main-slidebar, .main-center, .main-right, .graph {\n  -webkit-animation: pikapika 0.05s linear infinite alternate;\n  animation: pikapika 0.05s linear infinite alternate;\n  -webkit-animation-fill-mode: forwards;\n  animation-fill-mode: forwards; }\n\n.hide, .hidechild > * {\n  opacity: 0 !important;\n  -webkit-transition: all 0.5s ease-in-out;\n  transition: all 0.5s ease-in-out; }\n\n.showsplash .main-center .hide, .showsplash .main-center .hidechild > *, .showsplash .graph .hide, .showsplash .graph .hidechild > * {\n  opacity: 1 !important; }\n\n.showsidebar .btn, .showsidebar .hide, .showsidebar .hidechild > * {\n  opacity: 1 !important; }\n\n.main-content {\n  padding-left: 380px; }\n\n.table {\n  display: table;\n  width: 100%; }\n  .table .cell {\n    position: relative;\n    display: table-cell;\n    vertical-align: middle; }\n", ""]);
 	
 	// exports
 
@@ -221,42 +221,6 @@
 
 /***/ },
 /* 8 */
-/***/ function(module, exports) {
-
-	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8AQMAAAAAMksxAAAABlBMVEXf9f/f9f/awkaRAAAAAnRSTlMAM8lDrC4AAAASSURBVChTY2AYBaiAGYMxUgEACD0AB0gqVlUAAAAASUVORK5CYII="
-
-/***/ },
-/* 9 */
-/***/ function(module, exports) {
-
-	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAADAAgMAAAAlwuiDAAAACVBMVEUAAAAlLTA0QEXI1dkHAAAAA3RSTlMA/01hPwSBAAAAM0lEQVR4Ae3PBwHAIBQFsdfF0gcmv0m2CnpxEG1f6bJ065+SmST+/Pnz58+f/9n48+ffAGRaENArHzACAAAAAElFTkSuQmCC"
-
-/***/ },
-/* 10 */
-/***/ function(module, exports) {
-
-	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAABmUlEQVR4AaXUNXrcUBSG4T88WIV6wwKCWoShVVrDKqwyqFTuPOadqA2DVmGqwpwvA+fRXCvX8mj0avAyHvnQIqTDcw743n0OeE6HkJZGwRSbfMbnM5tMqQg1nvCDIj+IqcmPSd4xinfecXCTfYbeEhFwnVr3uU5A1E0Z2ufm/zM/xJCyJA+WeI/hEHcU1J2sXRVgB0NKfZgcY1jVKVjFEA8X76cl7ciMNIqfNg02LeG9RpRNeEsS7ezYLGtELGVHqy1CbOOUwxwJn7pPwqxysk0NxYb9XNExPMD1QMewYukb4rn9DORglrw5OQgs9bk4sp9X5CAhL5GDK5Z6pOzyXJKDj+R9lINLlvpj9AY++RuoPIWTFnFu1EWsvI1FB2mehM/dJ2FOObzJDpJzlJc0IhYZ+EJbEltlL1MW+rYsGo19naerBZSnbkhLMeyMHNIaJwXV9yz6l84fVP1h/Q0RAde40H2uERDxujCs2yhSRpEyJT9qxPykyE9iairCNJt8wecrW0xrFLS4xzovOORn9zns/lrvprTk8Q9+jbd6nllwOAAAAABJRU5ErkJggg=="
-
-/***/ },
-/* 11 */
-/***/ function(module, exports) {
-
-	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAMgCAYAAADSiIzKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NjlEQTEwODg1QzkxMTFFNjkzQkRBMjZGMTA2MTQ5RTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NjlEQTEwODk1QzkxMTFFNjkzQkRBMjZGMTA2MTQ5RTgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2OURBMTA4NjVDOTExMUU2OTNCREEyNkYxMDYxNDlFOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo2OURBMTA4NzVDOTExMUU2OTNCREEyNkYxMDYxNDlFOCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PgP+1UAAAAy+SURBVHja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"
-
-/***/ },
-/* 12 */
-/***/ function(module, exports) {
-
-	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAMgCAYAAAAEJMPDAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RkE3M0EyNTE1QzkxMTFFNjkzQkRBMjZGMTA2MTQ5RTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RkE3M0EyNTI1QzkxMTFFNjkzQkRBMjZGMTA2MTQ5RTgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2OURBMTA4QTVDOTExMUU2OTNCREEyNkYxMDYxNDlFOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpGQTczQTI1MDVDOTExMUU2OTNCREEyNkYxMDYxNDlFOCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PvAxATgAAABcSURBVHja7NuxCcAwDARAyXgt7T+WbHchIYX7e1Bz8I36z6rqeGTEKx+Y+/KuAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8A9nrHC5b8ju9kIAQCwBBgAYXQv2QPwq4wAAAABJRU5ErkJggg=="
-
-/***/ },
-/* 13 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "/dist/static/bg-recruit-R.d9632ab.png";
-
-/***/ },
-/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -508,7 +472,7 @@
 
 
 /***/ },
-/* 15 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, process) {/*!
@@ -10585,10 +10549,10 @@
 	}, 0);
 	
 	module.exports = Vue;
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(16)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(10)))
 
 /***/ },
-/* 16 */
+/* 10 */
 /***/ function(module, exports) {
 
 	// shim for using process in browser
@@ -10754,7 +10718,7 @@
 
 
 /***/ },
-/* 17 */
+/* 11 */
 /***/ function(module, exports) {
 
 	/*!
@@ -12071,7 +12035,7 @@
 	module.exports = plugin;
 
 /***/ },
-/* 18 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*!
@@ -14785,7 +14749,7 @@
 	}));
 
 /***/ },
-/* 19 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -14796,31 +14760,27 @@
 	});
 	exports.routerConfig = routerConfig;
 	
-	var _index = __webpack_require__(20);
+	var _index = __webpack_require__(14);
 	
 	var _index2 = _interopRequireDefault(_index);
 	
-	var _index3 = __webpack_require__(26);
+	var _index3 = __webpack_require__(20);
 	
 	var _index4 = _interopRequireDefault(_index3);
 	
-	var _index5 = __webpack_require__(36);
+	var _detail = __webpack_require__(35);
+	
+	var _detail2 = _interopRequireDefault(_detail);
+	
+	var _index5 = __webpack_require__(38);
 	
 	var _index6 = _interopRequireDefault(_index5);
 	
-	var _index7 = __webpack_require__(41);
+	var _index7 = __webpack_require__(43);
 	
 	var _index8 = _interopRequireDefault(_index7);
 	
-	var _index9 = __webpack_require__(46);
-	
-	var _index10 = _interopRequireDefault(_index9);
-	
-	var _index11 = __webpack_require__(51);
-	
-	var _index12 = _interopRequireDefault(_index11);
-	
-	var _ = __webpack_require__(56);
+	var _ = __webpack_require__(48);
 	
 	var _2 = _interopRequireDefault(_);
 	
@@ -14835,41 +14795,37 @@
 	            name: 'home',
 	            component: _index2.default
 	        },
-	        '/frontend': {
-	            name: 'frontend',
+	        '/:type': {
+	            name: 'posts',
 	            component: _index4.default
 	        },
-	        '/design': {
-	            name: 'design',
-	            component: _index6.default
-	        },
-	        '/diary': {
-	            name: 'diary',
-	            component: _index8.default
+	        '/:type/:id': {
+	            name: 'detail',
+	            component: _detail2.default
 	        },
 	        '/about': {
 	            name: 'about',
-	            component: _index10.default
+	            component: _index6.default
 	        },
 	        '/contact': {
 	            name: 'contact',
-	            component: _index12.default
+	            component: _index8.default
 	        }
 	    });
 	}
 
 /***/ },
-/* 20 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(21)
-	__vue_script__ = __webpack_require__(24)
+	__webpack_require__(15)
+	__vue_script__ = __webpack_require__(18)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/home/index.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(25)
+	__vue_template__ = __webpack_require__(19)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -14888,16 +14844,16 @@
 	})()}
 
 /***/ },
-/* 21 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(22);
+	var content = __webpack_require__(16);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(23)(content, {});
+	var update = __webpack_require__(17)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -14914,7 +14870,7 @@
 	}
 
 /***/ },
-/* 22 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(4)();
@@ -14928,7 +14884,7 @@
 
 
 /***/ },
-/* 23 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -15150,7 +15106,7 @@
 
 
 /***/ },
-/* 24 */
+/* 18 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -15189,22 +15145,22 @@
 	};
 
 /***/ },
-/* 25 */
+/* 19 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"home\">\n</div>\n";
 
 /***/ },
-/* 26 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(27)
+	__webpack_require__(21)
 	__vue_script__ = __webpack_require__(29)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
-	  console.warn("[vue-loader] src/components/frontend/index.vue: named exports in *.vue files are ignored.")}
+	  console.warn("[vue-loader] src/components/posts/index.vue: named exports in *.vue files are ignored.")}
 	__vue_template__ = __webpack_require__(34)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
@@ -15215,7 +15171,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-10a7ab79/index.vue"
+	  var id = "_v-7016343c/index.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -15224,16 +15180,16 @@
 	})()}
 
 /***/ },
-/* 27 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(28);
+	var content = __webpack_require__(22);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(23)(content, {});
+	var update = __webpack_require__(17)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -15250,7 +15206,7 @@
 	}
 
 /***/ },
-/* 28 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(4)();
@@ -15258,10 +15214,46 @@
 	
 	
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n.frontend {\n  height: 100%; }\n", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n.design {\n  height: 100%; }\n\n.main {\n  width: 800px;\n  position: absolute;\n  height: 800px;\n  left: 380px;\n  top: 0;\n  z-index: 9997;\n  background: url(" + __webpack_require__(23) + ") fixed;\n  background-size: 30px; }\n  .main .scroll {\n    padding: 0;\n    overflow-x: hidden;\n    height: 100%;\n    width: 100%; }\n  .main .scrollinside {\n    padding: 45px 0 0 40px;\n    width: 100%;\n    max-width: 910px;\n    margin: 0 auto; }\n  .main .banner {\n    margin-bottom: 60px; }\n    .main .banner img {\n      width: 100%;\n      height: auto; }\n  .main .insidetitle {\n    padding: 0 50px;\n    margin-bottom: 60px; }\n    .main .insidetitle .number {\n      width: 200px;\n      height: 270px;\n      line-height: 1;\n      text-align: left;\n      font-size: 140px;\n      color: #fff;\n      font-weight: 700;\n      text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); }\n    .main .insidetitle .pagetitle {\n      font-size: 50px;\n      letter-spacing: 5px;\n      text-transform: uppercase;\n      font-weight: 700;\n      line-height: 1;\n      color: #fff;\n      text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); }\n    .main .insidetitle h2 {\n      color: #fff;\n      letter-spacing: 3px;\n      font-size: 22px;\n      padding: 8px 0 0;\n      text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5); }\n  .main .entrybtn {\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    display: block;\n    width: 300px;\n    font-size: 16px;\n    font-weight: 700;\n    text-align: center;\n    z-index: 3;\n    line-height: 66px;\n    letter-spacing: 2px;\n    color: #fff;\n    text-transform: uppercase; }\n\n.mCSB_inside > .mCSB_container {\n  margin-right: 0; }\n\n.mCSB_scrollTools {\n  left: 0;\n  margin: 40px 0;\n  width: 30px;\n  box-sizing: border-box; }\n  .mCSB_scrollTools .mCSB_draggerContainer {\n    background: url(" + __webpack_require__(24) + ");\n    background-size: 30px; }\n  .mCSB_scrollTools .mCSB_draggerRail {\n    width: 1px;\n    border-radius: 0;\n    background: rgba(255, 255, 255, 0.02); }\n  .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {\n    background: none !important;\n    width: 11px;\n    border-radius: 0;\n    position: relative;\n    box-sizing: border-box; }\n  .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar:after {\n    content: '';\n    width: 16px;\n    height: 16px;\n    background-size: 16px;\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    display: block;\n    z-index: 1;\n    margin: -8px 0 0 -8px; }\n  .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {\n    border: 1px solid rgba(255, 255, 255, 0.2); }\n  .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar:after {\n    background-image: url(" + __webpack_require__(25) + "); }\n\n.entry {\n  position: relative;\n  padding: 50px;\n  margin-bottom: 90px; }\n  .entry .header {\n    position: relative;\n    z-index: 2; }\n    .entry .header a {\n      display: block; }\n    .entry .header h2 {\n      font-size: 20px;\n      letter-spacing: 1px;\n      padding-bottom: 50px;\n      line-height: 24px;\n      color: #fff; }\n  .entry .scroll {\n    position: relative;\n    height: 180px;\n    margin-bottom: 50px;\n    z-index: 2; }\n    .entry .scroll .entrydetail {\n      font-size: 12px;\n      letter-spacing: 1px;\n      padding: 0 0 0 60px;\n      color: rgba(255, 255, 255, 0.8); }\n      .entry .scroll .entrydetail img {\n        width: 100%;\n        height: auto; }\n      .entry .scroll .entrydetail a {\n        color: #fff; }\n  .entry .bg {\n    width: 100%;\n    height: 400px;\n    position: absolute;\n    top: 0;\n    left: 0; }\n  .entry .bgL {\n    width: 135px;\n    background-repeat: no-repeat;\n    background-size: 135px; }\n  .entry .bgM {\n    background-repeat: repeat-x;\n    background-size: 2px; }\n  .entry .bgR {\n    width: 400px;\n    background-repeat: no-repeat;\n    background-size: 400px; }\n  .entry .mCSB_scrollTools .mCSB_draggerContainer {\n    background: none; }\n  .entry .mCSB_scrollTools {\n    margin: 0; }\n  .entry .bgL {\n    background-image: url(" + __webpack_require__(26) + "); }\n  .entry .bgM {\n    background-image: url(" + __webpack_require__(27) + "); }\n  .entry .bgR {\n    background-image: url(" + __webpack_require__(28) + "); }\n  .entry .entrybtn {\n    display: block;\n    font-size: 16px;\n    font-weight: bold;\n    text-align: center;\n    width: 300px;\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    z-index: 3;\n    line-height: 66px;\n    letter-spacing: 2px; }\n", ""]);
 	
 	// exports
 
+
+/***/ },
+/* 23 */
+/***/ function(module, exports) {
+
+	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8AQMAAAAAMksxAAAABlBMVEXf9f/f9f/awkaRAAAAAnRSTlMAM8lDrC4AAAASSURBVChTY2AYBaiAGYMxUgEACD0AB0gqVlUAAAAASUVORK5CYII="
+
+/***/ },
+/* 24 */
+/***/ function(module, exports) {
+
+	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAADAAgMAAAAlwuiDAAAACVBMVEUAAAAlLTA0QEXI1dkHAAAAA3RSTlMA/01hPwSBAAAAM0lEQVR4Ae3PBwHAIBQFsdfF0gcmv0m2CnpxEG1f6bJ065+SmST+/Pnz58+f/9n48+ffAGRaENArHzACAAAAAElFTkSuQmCC"
+
+/***/ },
+/* 25 */
+/***/ function(module, exports) {
+
+	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAABmUlEQVR4AaXUNXrcUBSG4T88WIV6wwKCWoShVVrDKqwyqFTuPOadqA2DVmGqwpwvA+fRXCvX8mj0avAyHvnQIqTDcw743n0OeE6HkJZGwRSbfMbnM5tMqQg1nvCDIj+IqcmPSd4xinfecXCTfYbeEhFwnVr3uU5A1E0Z2ufm/zM/xJCyJA+WeI/hEHcU1J2sXRVgB0NKfZgcY1jVKVjFEA8X76cl7ciMNIqfNg02LeG9RpRNeEsS7ezYLGtELGVHqy1CbOOUwxwJn7pPwqxysk0NxYb9XNExPMD1QMewYukb4rn9DORglrw5OQgs9bk4sp9X5CAhL5GDK5Z6pOzyXJKDj+R9lINLlvpj9AY++RuoPIWTFnFu1EWsvI1FB2mehM/dJ2FOObzJDpJzlJc0IhYZ+EJbEltlL1MW+rYsGo19naerBZSnbkhLMeyMHNIaJwXV9yz6l84fVP1h/Q0RAde40H2uERDxujCs2yhSRpEyJT9qxPykyE9iairCNJt8wecrW0xrFLS4xzovOORn9zns/lrvprTk8Q9+jbd6nllwOAAAAABJRU5ErkJggg=="
+
+/***/ },
+/* 26 */
+/***/ function(module, exports) {
+
+	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAMgCAYAAADSiIzKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NjlEQTEwODg1QzkxMTFFNjkzQkRBMjZGMTA2MTQ5RTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NjlEQTEwODk1QzkxMTFFNjkzQkRBMjZGMTA2MTQ5RTgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2OURBMTA4NjVDOTExMUU2OTNCREEyNkYxMDYxNDlFOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo2OURBMTA4NzVDOTExMUU2OTNCREEyNkYxMDYxNDlFOCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PgP+1UAAAAy+SURBVHja7NtLiFv1HsDxSY0DulAEXelOd+pOdBdsKz7AB/gAXy1eRNQi7aptOqFyrxA6nYKvhQ8UqhZ1UxW8otLFKFO4w5W7u7rTna7qQl1YmEaPv7RHiDEZ8x+Tyf/MfD7w458cSjP8k3x7cpqpFUUxA1RLq9WajeVIzMMxtZhjMXvb7fbKejx+3VMAlbQQs7vnfvf26Zjmejx4rQpnHM1ms1vXN7tVnZ+f/ziz8l8Ry+cxV3otM02dTmdmeXl5XR4r+zOOMhrvxtxdnpJlEw7RYLPKOhx90fggZmem0fg2ZlvMKS8p1smhmCf+8Gau1xeWlpb2D/rDjUZjc4RjQDTuj48pKxlG47uYre12+2uvZdbxNbgnlu77YUd5qHtx9OB6PX6W1zgqFo0bRYPcjfuMY4toJEXjslg+FQ02u6zCUYFoLMZcLRoIh2ikROMa0YBMwiEaIByiAcIhGqIBmYRDNEA4Nmo0TokGZBCOvmi8n3E0vo/ZLhow5XAMiMYDGUdjW0Tj/14iMMVwZB6Ni2fO/dataEAu4ahANE7EXCcakEk4KhKN60UDMgmHaIBwiAYwuXCIBgiHaACTC0eFovGjaEAG4ahQNH6KuUU0YMrhqFg0bo5o/NdTD1MMR+bRuDCWD0UDMgpHBaLxUUxDNCCTcFQkGltFAzIJh2iAcIgGMLlwiAaQFA7RAJLCUaFo/CwakEE4ymi8U4FonI65QzRgyuHoicY9Me9lHo3bIxqLnlKYYjgGROPBjKIxW/5MogG5hKMC0Tgec6toQCbhqEg07hANyCQcogEkhUM0gLWccbwhGsAo6j233y7XR0QDWE2tKIosf7C+aHRDdptowNo0Go2JfVTJNRpnYu4TDchHduEYEI17IxofeqpAOIZF47yZc9daRAOEY+RovNWNhWiAcKRE40HRAOEQDRAO0QCmGA7RAOEQDRCOdYtGRzRAOFKi8WvMI6IBwpESjZ0Rjbc9BSAcw6JRi+U10QDhSInGSzH/EA0QjpRoPCEaIByiAcIhGsAUwyEaIByiAUwuHKIBwvF3otH1lGiAcKREY1dE42VbC8KxmudEA4Qj5WxjPpY9ogHCkRKN/aIBwiEawPjDIRpAUjhEA0gKh2gASeEQDSApHH3RaIoGsCUhGgciGodtGbBllWj8qy8a87YLGBqOiEYzlqdFAxgpHGU0DokGMFI4RANICodoAGs54/g9GnOiAYz8UaXkexpAcjgAhAMQDkA4AOEAhANAOADhAIQDEA5AOACEAxAOQDgA4QCEAxAOAOEAhAMQDkA4AOEAEA5AOADhAIQDEA4A4QCEAxAOQDgA4QAQDkA4AOEAhAMQDkA4AIQDEA5AOADhAIQDQDgA4QCEAxAOQDgAhAMQDkA4AOEAhAMQDgDhAIQDEA5AOADhABAOQDgA4QCEAxAOAOEAhAMQDkA4AOEAEA5AOADhAIQDEA5AOACEAxAOQDgA4QCEA0A4AOEAhAMQDkA4AIQDEA5AOADhAIQDQDgA4QCEAxAOQDgA4QAQDkA4AOEAhAMQDgDhAIQDEA5AOADhABAOQDgA4QCEAxAOAOEAhAMQDkA4AOEAhANAOADhAIQDEA5AOACEAxAOQDgA4QCEA0A4AOEAhAMQDkA4AOEAEA5AOADhAIQDEA4A4QCEAxAOQDgA4QAQDkA4AOEAhAMQDgDhAIQDEA5AOADhAIQDQDgA4QDyct6ZM2dmFxcXn43bN5THLon7J7Zv3/6L7YGN4ejRo2M/41iI2d1z7PGYZ2w1sFo4dgw4/pitAVYLB0ByOI4NOP66rQGGqcfsi6n1fGTphuSgrQGGqRVFcfZGo9E4e2NpaalmW2Bjiff32D+qAAgHIByAcADCAQgHgHAAwgEIByAcgHAACAcgHIBwAMIBCAeAcADCAQgHIByAcADCASAcgHAAwgEIByAcAMIBCAcgHIBwAMIBIByAcADCAQgHIBwAwgEIByAcgHAAwgEIB4BwAMIBCAcgHIBwAAgHIByAcADCAQgHgHAAwgEIByAcgHAACAcgHIBwAMIBCAcgHADCAQgHIByAcADCASAcgHAAwgEIByAcAMIBCAcgHIBwAMIBCAeAcADCAQgHIByAcAAIByAcgHAAwgEIB4BwAMIBCAcgHIBwAAgHIByAcADCAQgHIBwAwgEIByAcgHAAwgEgHIBwAMIBCAcgHADCAQgHIByAcADCASAcgHAAwgEIByAcgHAACAcgHIBwAMIBCAeAcADCAQgHIByAcAAIByAcgHAAwgEIB4BwAMIBCAcgHIBwAMIBIByAcADCAQgHIBwAwgEIByAcgHAAwgEgHIBwAMIBCAcgHIBwAAgHIByAcADCAQgHgHAAwgEIByAcgHAACAcgHIBwAMIBCAeAcADCAQgHIByAcADCASAcgHAAwgEIByAcAMIBCAcgHIBwAMIBIByAcADCAQgHIBwAwgEIByAcgHAAwgEIB4BwAMIBCAcgHIBwAAgHIByAcADCAQgHgHAAwgEIByAcgHAACAcgHIBwAMIBCAcgHADCAQgHIByAcADCASAcgHAAwgEIByAcAMIBCAcgHIBwAMIBCIctAIQDEA5AOADhAIQDQDgA4QCEAxAOQDgAhAMQDkA4gMqozc3NzcZ6pNPp7O4eqNfrL8ayt91ur9ge2BgajcZY/756zELM7gjG78e6ATkd07TdwLCPKjsGHH/M1gCrhQMgORzHBhx/3dYAq4VjX8yLPcdejTloa4BhakVRnL3RarWK8tgl7Xb7B1sDG8e4/1fFNQ5AOADhAIQDEA5AOACEAxAOQDgA4QCEA0A4AOEAhAMQDkA4AIQDEA5AOADhAIQDEA4A4QCEAxAOQDgA4QAQDkA4AOEAhAMQDgDhAIQDEA5AOADhABAOQDgA4QCEAxAOQDgAhAMQDkA4AOEAhANAOADhAIQDEA5AOACEAxAOQDgA4QCEA0A4AOEAhAMQDkA4AOEAEA5AOADhAIQDEA4A4QCEAxAOQDgA4QAQDkA4AOEAhAMQDgDhAIQDEA5AOADhAIQDQDgA4QCEAxAOQDgAhAMQDkA4AOEAhANAOADhAIQDEA5AOADhABAOQDgA4QCEAxAOAOEAhAMQDkA4AOEAEA5AOADhAIQDEA4A4QCEAxAOQDgA4QCEA0A4AOEAhAMQDkA4AIQDEA5AOADhAIQDQDgA4QCEAxAOQDgAhAMQDkA4AOEAhAMQDgDhAIQDEA5AOADhABAOQDgA4QCEAxAOAOEAJhGOy2wLMGo4vinXxVardZWtAUYJx41lPK6I+Vw8gL8MR7vd/rYnHpeLBzDKGYd4AOnhEA9gTeHoi8dX4gGMFI6eeGyN+VI8gJHCUcbjVCzbxAMYORziAawpHOIBrCkcQ+Lxn4jHtbYQhCMlHt3faVkUDxCO1HhcKh4gHOIBTCYc4gHCsWY98fifeIBwpMbjppgvxAOEIyUeP8Zys3iAcIgHMNlwiAcIxzjjcTLicYOtBuFIicfFMSfEA4QjNR4XiQcIh3iAcIgHkFE4+uKxJB4gHKnxuC3mM/EA4UiJx8+x3C4eIBziAcIhHkCG4RgSj+7X07d5SkA4UuJxYcxH4gHCkRqPC8QDhEM8QDjEA8goHH3x+FQ8QDhS43FXzL/FA4QjJR4rsdwrHiAc4gHCIR4gHNWJxycRjzs9dSAcKfGYjTkuHiAcqfE4XzxAOMQDhEM8QDjyjcdx8QDhSI3H/THviAcIR0o8follp3iAcIgHCId4gHBUJx7vRTwe8hSDcKTEox7zlniAcKTGY4t4gHCIBwiHeIBw5BuPo+IBwpEaj0djXhEPEI6UeBSx7BIPEA7xAOEQDxCOasXjSS8FEI7UeLwkHiAcqfGYEQ8QDvEA4RAPEI584/GCeMBfqxVFYRd6RDDmY9lf3t0VUXnZrlB1jUbDGceEzz6asRx25gHCIR4gHOIBwlGdeOy3KyAcqfGYj3g07QrCQWo8DokHwoF4gHCIBwhHnvF4RjzYzHxzdI3KYBwq7x6IoMzbFTJ4Xc7GciTm4e77O+ZYzN6TJ0+uCEee8ZiL8fV0pu2fMXv6jh2OcIz1zFg4xhsPmKpOpzNTr9f/dGx5eXmsj+Max99UfkQ5YCfYTJxxwMY6A35+wEeVhfgHbqzfeq7bathQ9s2cuyi6o7zfvTh60BkHMHWucQDCAQgHIByAcADCASAcgHAAwgEIByAcAMIBCAcgHIBwAMIBIByAcADCAQgHIByAcAAIByAcgHAAwgEIB4BwAMIBCAcgHIBwAAgHIByAcADCAQgHgHAAwgEIByAcgHAAwgEgHIBwAMIBCAcgHADCAQgHIByAcADCASAcgHAAwgEIB7Ah/SbAAKMSDG0UCSwXAAAAAElFTkSuQmCC"
+
+/***/ },
+/* 27 */
+/***/ function(module, exports) {
+
+	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAMgCAYAAAAEJMPDAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RkE3M0EyNTE1QzkxMTFFNjkzQkRBMjZGMTA2MTQ5RTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RkE3M0EyNTI1QzkxMTFFNjkzQkRBMjZGMTA2MTQ5RTgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2OURBMTA4QTVDOTExMUU2OTNCREEyNkYxMDYxNDlFOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpGQTczQTI1MDVDOTExMUU2OTNCREEyNkYxMDYxNDlFOCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PvAxATgAAABcSURBVHja7NuxCcAwDARAyXgt7T+WbHchIYX7e1Bz8I36z6rqeGTEKx+Y+/KuAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8A9nrHC5b8ju9kIAQCwBBgAYXQv2QPwq4wAAAABJRU5ErkJggg=="
+
+/***/ },
+/* 28 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "/dist/static/bg-recruit-R.d9632ab.png";
 
 /***/ },
 /* 29 */
@@ -15281,61 +15273,99 @@
 	
 	var _marked2 = _interopRequireDefault(_marked);
 	
+	var _bluebird = __webpack_require__(31);
+	
+	var _bluebird2 = _interopRequireDefault(_bluebird);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var $html = $('html');
+	var POSTS = {
+	    frontend: {
+	        id: 1,
+	        title: 'Frontend',
+	        sub_title: 'Frontend & Technology.',
+	        src: '/statics/img/fe.png'
+	    },
+	    design: {
+	        id: 2,
+	        title: 'design',
+	        sub_title: 'Web Design.'
+	    },
+	    diary: {
+	        id: 3,
+	        title: 'diary',
+	        sub_title: 'Something With My Life.'
+	    }
+	};
 	
 	exports.default = {
 	    components: {},
 	    data: function data() {
 	        return {
-	            data: []
+	            data: [],
+	            post: {},
+	            type: ''
 	        };
 	    },
 	
 	    filters: {
 	        marked: _marked2.default
 	    },
-	    ready: function ready() {
-	        $(".scroll").mCustomScrollbar({
-	            axis: "y",
-	            scrollInertia: 100
-	        });
-	    },
-	
 	    route: {
 	        activate: function activate(transition) {
-	            var that = this;
-	            $html.addClass('fetch');
 	
-	            return _post2.default.getPosts(this, {
-	                page: 1,
-	                per_page: 30,
-	                category_id: 1
-	            }).then(function (res) {
-	                var data = res.data.data;
-	
-	
-	                data.map(function (item) {
-	                    console.log(item.content);
-	                });
-	
-	                return data;
-	            }, function (res) {
-	                var data = res.data.data;
-	            }).then(function (data) {
-	                $html.removeClass('fetch');
-	                that.$set('data', data);
-	
-	                setTimeout(function () {
-	                    $('.main').animate({ opacity: 1 }, 500);
-	                }, 300);
-	            });
+	            this.init();
 	
 	            transition.next();
 	        },
 	        deactivate: function deactivate() {
 	            $('.main').animate({ opacity: 0 }, 300);
+	        },
+	
+	        canReuse: false
+	    },
+	    methods: {
+	        load: function load(category_id) {
+	            return _post2.default.getPosts(this, {
+	                page: 1,
+	                per_page: 30,
+	                category_id: category_id
+	            });
+	        },
+	        init: function init() {
+	            var that = this;
+	            var type = this.$route.params.type;
+	
+	            var post = POSTS[type];
+	
+	            $html.addClass('fetch');
+	
+	            this.$set('post', post);
+	            this.$set('type', type);
+	
+	            this.load(post.id).then(function (res) {
+	                var data = res.data.data;
+	
+	
+	                data.map(function (item) {
+	                    item.content = item.content.replace('{{ site.BASE_PATH }}', 'http://zhuowenli.qiniudn.com');
+	                });
+	
+	                return data;
+	            }).then(function (data) {
+	                $html.removeClass('fetch');
+	
+	                that.$set('data', data);
+	
+	                setTimeout(function () {
+	                    $(".scroll").mCustomScrollbar({
+	                        axis: "y",
+	                        scrollInertia: 100
+	                    });
+	                    $('.main').animate({ opacity: 1 }, 500);
+	                }, 300);
+	            });
 	        }
 	    }
 	};
@@ -20845,13 +20875,13 @@
 	
 	},{"./es5":13}]},{},[4])(4)
 	});                    ;if (typeof window !== 'undefined' && window !== null) {                               window.P = window.Promise;                                                     } else if (typeof self !== 'undefined' && self !== null) {                             self.P = self.Promise;                                                         }
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(16), (function() { return this; }()), __webpack_require__(32).setImmediate))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10), (function() { return this; }()), __webpack_require__(32).setImmediate))
 
 /***/ },
 /* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(setImmediate, clearImmediate) {var nextTick = __webpack_require__(16).nextTick;
+	/* WEBPACK VAR INJECTION */(function(setImmediate, clearImmediate) {var nextTick = __webpack_require__(10).nextTick;
 	var apply = Function.prototype.apply;
 	var slice = Array.prototype.slice;
 	var immediateIds = {};
@@ -22224,233 +22254,40 @@
 
 /***/ },
 /* 34 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"frontend\">\n    <div class=\"scroll\">\n        <div class=\"mCustomScrollbar\" data-mcs-theme=\"dark\">\n            <section>\n                <div class=\"scrollinside\">\n                    <div class=\"banner\">\n                        <img src=\"" + __webpack_require__(35) + "\">\n                    </div>\n\n                    <div class=\"insidetitle table\">\n                        <div class=\"cell number\">\n                            <div>02</div>\n                        </div>\n                        <div class=\"cell\">\n                            <h1 class=\"pagetitle\">Frontend</h1>\n                            <h2>Frontend & Technology.</h2>\n                        </div>\n                    </div>\n\n                    <div class=\"entry\" v-for='item in data'>\n                        <div class=\"bg table\">\n                            <div class=\"bgL cell\"></div>\n                            <div class=\"bgM cell\"></div>\n                            <div class=\"bgR cell\"></div>\n                        </div>\n\n                        <div class=\"header\">\n                            <a v-link=\"'/frontend/' + item.id\">\n                                <h2>{{item.title}}</h2>\n                            </a>\n                        </div>\n\n                        <div class=\"scroll\">\n                            <div class=\"mCustomScrollbar\" data-mcs-theme=\"dark\">\n                                <div class=\"entrydetail\">\n                                    <div v-if='item.excerpt' v-html='item.excerpt'></div>\n                                    <div v-else v-html=\"item.content | marked\"></div>\n                                </div>\n                            </div>\n                        </div>\n\n                        <div class=\"footer\">\n                            <a class=\"entrybtn\" v-link=\"'/frontend/' + item.id\">readme more</a>\n                        </div>\n                    </div>\n                </div>\n            </section>\n        </div>\n    </div>\n</div>\n";
+	module.exports = "\n<div class=\"design\">\n    <div class=\"scroll\">\n        <div class=\"mCustomScrollbar\" data-mcs-theme=\"dark\">\n            <section>\n                <div class=\"scrollinside\">\n                    <div class=\"banner\" v-if='post && post.src'>\n                        <img :src=\"post.src\">\n                    </div>\n\n                    <div class=\"insidetitle table\" v-if='post && post.id'>\n                        <div class=\"cell number\">\n                            <div>0{{post.id}}</div>\n                        </div>\n                        <div class=\"cell\">\n                            <h1 class=\"pagetitle\">{{post.title}}</h1>\n                            <h2>{{post.sub_title}}</h2>\n                        </div>\n                    </div>\n\n                    <div class=\"entry\" v-for='item in data'>\n                        <div class=\"bg table\">\n                            <div class=\"bgL cell\"></div>\n                            <div class=\"bgM cell\"></div>\n                            <div class=\"bgR cell\"></div>\n                        </div>\n\n                        <div class=\"header\">\n                            <a v-link=\"'/' + type + '/' + item.id\">\n                                <h2>{{item.title}}</h2>\n                            </a>\n                        </div>\n\n                        <div class=\"scroll\">\n                            <div class=\"mCustomScrollbar\" data-mcs-theme=\"dark\">\n                                <div class=\"table entrydetail\">\n                                    <div v-html=\"item.content | marked\"></div>\n                                </div>\n                            </div>\n                        </div>\n\n                        <div class=\"footer\">\n                            <a class=\"entrybtn\" v-link=\"'/' + type + '/' + item.id\">readme more</a>\n                        </div>\n                    </div>\n                </div>\n            </section>\n        </div>\n    </div>\n</div>\n";
 
 /***/ },
 /* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "/dist/static/fe.398020f.png";
+	var __vue_script__, __vue_template__
+	__vue_script__ = __webpack_require__(36)
+	if (__vue_script__ &&
+	    __vue_script__.__esModule &&
+	    Object.keys(__vue_script__).length > 1) {
+	  console.warn("[vue-loader] src/components/posts/detail.vue: named exports in *.vue files are ignored.")}
+	__vue_template__ = __webpack_require__(37)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) {
+	(typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports).template = __vue_template__
+	}
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  var id = "_v-620a341e/detail.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
 
 /***/ },
 /* 36 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __vue_script__, __vue_template__
-	__webpack_require__(37)
-	__vue_script__ = __webpack_require__(39)
-	if (__vue_script__ &&
-	    __vue_script__.__esModule &&
-	    Object.keys(__vue_script__).length > 1) {
-	  console.warn("[vue-loader] src/components/design/index.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(40)
-	module.exports = __vue_script__ || {}
-	if (module.exports.__esModule) module.exports = module.exports.default
-	if (__vue_template__) {
-	(typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports).template = __vue_template__
-	}
-	if (false) {(function () {  module.hot.accept()
-	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), false)
-	  if (!hotAPI.compatible) return
-	  var id = "_v-adf809b6/index.vue"
-	  if (!module.hot.data) {
-	    hotAPI.createRecord(id, module.exports)
-	  } else {
-	    hotAPI.update(id, module.exports, __vue_template__)
-	  }
-	})()}
-
-/***/ },
-/* 37 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(38);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(23)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../../node_modules/.npminstall/vue-loader/8.5.3/vue-loader/lib/style-rewriter.js!./../../../node_modules/.npminstall/sass-loader/3.2.3/sass-loader/index.js!./../../../node_modules/.npminstall/vue-loader/8.5.3/vue-loader/lib/selector.js?type=style&index=0!./index.vue", function() {
-				var newContent = require("!!./../../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../../node_modules/.npminstall/vue-loader/8.5.3/vue-loader/lib/style-rewriter.js!./../../../node_modules/.npminstall/sass-loader/3.2.3/sass-loader/index.js!./../../../node_modules/.npminstall/vue-loader/8.5.3/vue-loader/lib/selector.js?type=style&index=0!./index.vue");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 38 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(4)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "@charset \"UTF-8\";\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n.design {\n  height: 100%; }\n", ""]);
-	
-	// exports
-
-
-/***/ },
-/* 39 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _post = __webpack_require__(30);
-	
-	var _post2 = _interopRequireDefault(_post);
-	
-	var _marked = __webpack_require__(33);
-	
-	var _marked2 = _interopRequireDefault(_marked);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var $html = $('html');
-	
-	exports.default = {
-	    components: {},
-	    data: function data() {
-	        return {
-	            data: []
-	        };
-	    },
-	
-	    filters: {
-	        marked: _marked2.default
-	    },
-	    ready: function ready() {
-	        $(".scroll").mCustomScrollbar({
-	            axis: "y",
-	            scrollInertia: 100
-	        });
-	    },
-	
-	    route: {
-	        activate: function activate(transition) {
-	            var that = this;
-	            $html.addClass('fetch');
-	
-	            return _post2.default.getPosts(this, {
-	                page: 1,
-	                per_page: 30,
-	                category_id: 2
-	            }).then(function (res) {
-	                var data = res.data.data;
-	
-	
-	                $html.removeClass('fetch');
-	                that.$set('data', data);
-	
-	                setTimeout(function () {
-	                    $('.main').animate({ opacity: 1 }, 500);
-	                }, 300);
-	            }, function (res) {
-	                var data = res.data.data;
-	            });
-	
-	            transition.next();
-	        },
-	        deactivate: function deactivate() {
-	            $('.main').animate({ opacity: 0 }, 300);
-	        }
-	    }
-	};
-
-/***/ },
-/* 40 */
-/***/ function(module, exports) {
-
-	module.exports = "\n<div class=\"design\">\n    <div class=\"scroll\">\n        <div class=\"mCustomScrollbar\" data-mcs-theme=\"dark\">\n            <section>\n                <div class=\"scrollinside\">\n                    <div class=\"insidetitle table\">\n                        <div class=\"cell number\">\n                            <div>03</div>\n                        </div>\n                        <div class=\"cell\">\n                            <h1 class=\"pagetitle\">DESIGN</h1>\n                            <h2>Web Design.</h2>\n                        </div>\n                    </div>\n\n                    <div class=\"entry\" v-for='item in data'>\n                        <div class=\"bg table\">\n                            <div class=\"bgL cell\"></div>\n                            <div class=\"bgM cell\"></div>\n                            <div class=\"bgR cell\"></div>\n                        </div>\n\n                        <div class=\"header\">\n                            <a v-link=\"'/design/' + item.id\">\n                                <h2>{{item.title}}</h2>\n                            </a>\n                        </div>\n\n                        <div class=\"scroll\">\n                            <div class=\"mCustomScrollbar\" data-mcs-theme=\"dark\">\n                                <div class=\"table entrydetail\">\n                                    <div v-html=\"item.content | marked\"></div>\n                                </div>\n                            </div>\n                        </div>\n\n                        <div class=\"footer\">\n                            <a class=\"entrybtn\" v-link=\"'/design/' + item.id\">readme more</a>\n                        </div>\n                    </div>\n                </div>\n            </section>\n        </div>\n    </div>\n</div>\n";
-
-/***/ },
-/* 41 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __vue_script__, __vue_template__
-	__webpack_require__(42)
-	__vue_script__ = __webpack_require__(44)
-	if (__vue_script__ &&
-	    __vue_script__.__esModule &&
-	    Object.keys(__vue_script__).length > 1) {
-	  console.warn("[vue-loader] src/components/diary/index.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(45)
-	module.exports = __vue_script__ || {}
-	if (module.exports.__esModule) module.exports = module.exports.default
-	if (__vue_template__) {
-	(typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports).template = __vue_template__
-	}
-	if (false) {(function () {  module.hot.accept()
-	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), false)
-	  if (!hotAPI.compatible) return
-	  var id = "_v-2188bc5c/index.vue"
-	  if (!module.hot.data) {
-	    hotAPI.createRecord(id, module.exports)
-	  } else {
-	    hotAPI.update(id, module.exports, __vue_template__)
-	  }
-	})()}
-
-/***/ },
-/* 42 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(43);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(23)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../../node_modules/.npminstall/vue-loader/8.5.3/vue-loader/lib/style-rewriter.js!./../../../node_modules/.npminstall/sass-loader/3.2.3/sass-loader/index.js!./../../../node_modules/.npminstall/vue-loader/8.5.3/vue-loader/lib/selector.js?type=style&index=0!./index.vue", function() {
-				var newContent = require("!!./../../../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../../../node_modules/.npminstall/vue-loader/8.5.3/vue-loader/lib/style-rewriter.js!./../../../node_modules/.npminstall/sass-loader/3.2.3/sass-loader/index.js!./../../../node_modules/.npminstall/vue-loader/8.5.3/vue-loader/lib/selector.js?type=style&index=0!./index.vue");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 43 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(4)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
-	
-	// exports
-
-
-/***/ },
-/* 44 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -22459,30 +22296,27 @@
 	    value: true
 	});
 	exports.default = {
-	    components: {},
-	    data: function data() {
-	        return {};
-	    }
+	    components: {}
 	};
 
 /***/ },
-/* 45 */
+/* 37 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"diary\">\n</div>\n";
+	module.exports = "\n\n";
 
 /***/ },
-/* 46 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(47)
-	__vue_script__ = __webpack_require__(49)
+	__webpack_require__(39)
+	__vue_script__ = __webpack_require__(41)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/about/index.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(50)
+	__vue_template__ = __webpack_require__(42)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -22501,16 +22335,16 @@
 	})()}
 
 /***/ },
-/* 47 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(48);
+	var content = __webpack_require__(40);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(23)(content, {});
+	var update = __webpack_require__(17)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -22527,7 +22361,7 @@
 	}
 
 /***/ },
-/* 48 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(4)();
@@ -22541,7 +22375,7 @@
 
 
 /***/ },
-/* 49 */
+/* 41 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -22557,23 +22391,23 @@
 	};
 
 /***/ },
-/* 50 */
+/* 42 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"about\">\n</div>\n";
 
 /***/ },
-/* 51 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(52)
-	__vue_script__ = __webpack_require__(54)
+	__webpack_require__(44)
+	__vue_script__ = __webpack_require__(46)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/contact/index.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(55)
+	__vue_template__ = __webpack_require__(47)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -22592,16 +22426,16 @@
 	})()}
 
 /***/ },
-/* 52 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(53);
+	var content = __webpack_require__(45);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(23)(content, {});
+	var update = __webpack_require__(17)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -22618,7 +22452,7 @@
 	}
 
 /***/ },
-/* 53 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(4)();
@@ -22632,7 +22466,7 @@
 
 
 /***/ },
-/* 54 */
+/* 46 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -22648,22 +22482,22 @@
 	};
 
 /***/ },
-/* 55 */
+/* 47 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"contact\">\n</div>\n";
 
 /***/ },
-/* 56 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(57)
+	__vue_script__ = __webpack_require__(49)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/404.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(58)
+	__vue_template__ = __webpack_require__(50)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -22682,7 +22516,7 @@
 	})()}
 
 /***/ },
-/* 57 */
+/* 49 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -22695,13 +22529,13 @@
 	};
 
 /***/ },
-/* 58 */
+/* 50 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div>\n    <p>页面找不到啦~</p>\n</div>\n";
 
 /***/ },
-/* 59 */
+/* 51 */
 /***/ function(module, exports) {
 
 	
@@ -22743,17 +22577,17 @@
 	};
 
 /***/ },
-/* 60 */
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(61)
-	__vue_script__ = __webpack_require__(64)
+	__webpack_require__(53)
+	__vue_script__ = __webpack_require__(56)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/App.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(103)
+	__vue_template__ = __webpack_require__(95)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -22772,16 +22606,16 @@
 	})()}
 
 /***/ },
-/* 61 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(62);
+	var content = __webpack_require__(54);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(23)(content, {});
+	var update = __webpack_require__(17)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -22798,7 +22632,7 @@
 	}
 
 /***/ },
-/* 62 */
+/* 54 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(4)();
@@ -22806,19 +22640,19 @@
 	
 	
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n.expand {\n  position: absolute;\n  top: 50%;\n  left: -85px;\n  opacity: 0.5;\n  margin-top: -432.5px; }\n  .expand.leftside {\n    -webkit-transform: translate(200px, 0);\n    transform: translate(200px, 0); }\n  .expand.rightside {\n    right: -85px;\n    left: auto;\n    -webkit-transform: translate(-240px, 0);\n    transform: translate(-240px, 0); }\n  .expand svg {\n    height: 865px;\n    width: 62px;\n    vertical-align: bottom; }\n  .expand .st0 {\n    stroke: rgba(255, 255, 255, 0.7); }\n  .expand .st2 {\n    fill: none;\n    stroke-linecap: round;\n    stroke-miterlimit: 10; }\n  .expand .st0, .expand .st1 {\n    fill: none;\n    stroke-miterlimit: 10; }\n  .expand .st1, .expand .st2 {\n    stroke: rgba(255, 255, 255, 0.5); }\n  .expand.on path {\n    -webkit-transition: all 0.8s;\n    transition: all 0.8s;\n    stroke-dashoffset: 0 !important; }\n\n.hideexpand .expand.leftside, .hideexpand .expand.rightside {\n  -webkit-transition: all .5s ease-in-out;\n  transition: all .5s ease-in-out;\n  -webkit-transform: translate(0, 0);\n  transform: translate(0, 0); }\n\n.hideborder .expand {\n  opacity: 0.5; }\n\n.vr {\n  position: absolute;\n  top: 0;\n  height: 100%;\n  width: 3px;\n  overflow: hidden; }\n  .vr.left {\n    left: 0; }\n  .vr.right {\n    right: 2px; }\n  .vr > div {\n    position: relative;\n    width: 1px;\n    height: 100%; }\n  .vr .b {\n    position: absolute;\n    top: 0;\n    width: 1px;\n    height: 100%;\n    margin-left: 1px;\n    background: rgba(255, 255, 255, 0.5);\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s;\n    -webkit-transform: translate3d(0, -100%, 0);\n    transform: translate3d(0, -100%, 0); }\n  .vr .d {\n    position: absolute;\n    height: 3px;\n    width: 3px;\n    border-radius: 3px;\n    opacity: 0;\n    background: rgba(255, 255, 255, 0.5);\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s; }\n  .vr .top {\n    top: 0; }\n  .vr .bottom {\n    bottom: 0; }\n\n.hr {\n  position: absolute;\n  width: 100%;\n  height: 3px;\n  overflow: hidden; }\n  .hr > div {\n    width: 100%;\n    position: relative;\n    height: 1px; }\n  .hr .b {\n    display: block;\n    position: absolute;\n    top: 1px;\n    height: 1px;\n    width: 100%;\n    background: rgba(255, 255, 255, 0.5);\n    -webkit-transform: translate3d(-100%, 0, 0);\n    transform: translate3d(-100%, 0, 0);\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s; }\n  .hr .d {\n    display: block;\n    position: absolute;\n    height: 3px;\n    width: 3px;\n    background: rgba(255, 255, 255, 0.5);\n    opacity: 0;\n    border-radius: 3px;\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s; }\n  .hr .left {\n    left: 0; }\n  .hr .right {\n    right: 0; }\n  .hr.dark span {\n    background: white; }\n\n.showborder .vr > div .b, .showborder .hr > div .b {\n  -webkit-transform: translate3d(0, 0, 0);\n  transform: translate3d(0, 0, 0); }\n\n.showborder .vr > div .d, .showborder .hr > div .d {\n  opacity: 1; }\n\n.hideborder .hr > div .b {\n  -webkit-transform: translate3d(100%, 0, 0);\n  transform: translate3d(100%, 0, 0); }\n\n.hideborder .hr > div .d {\n  opacity: 0; }\n\n.hideborder .vr > div .b {\n  -webkit-transform: translate3d(0, 100%, 0);\n  transform: translate3d(0, 100%, 0); }\n\n.hideborder .vr > div .d {\n  opacity: 0; }\n\n.loadmask {\n  position: absolute;\n  top: 0;\n  left: 380px;\n  z-index: 10;\n  display: block; }\n  .loadmask .body {\n    position: relative;\n    width: 100%;\n    height: 100%; }\n    .loadmask .body .dotted {\n      position: absolute;\n      top: -200px;\n      left: 0;\n      width: 100%;\n      height: 200px;\n      background-image: url(" + __webpack_require__(63) + ");\n      background-size: 30px;\n      background-attachment: fixed;\n      -webkit-transition: all 1.5s;\n      transition: all 1.5s; }\n\n.fetch .loadmask .body .dotted {\n  top: 120%; }\n", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n.expand {\n  position: absolute;\n  top: 50%;\n  left: -85px;\n  opacity: 0.5;\n  margin-top: -432.5px; }\n  .expand.leftside {\n    -webkit-transform: translate(200px, 0);\n    transform: translate(200px, 0); }\n  .expand.rightside {\n    right: -85px;\n    left: auto;\n    -webkit-transform: translate(-240px, 0);\n    transform: translate(-240px, 0); }\n  .expand svg {\n    height: 865px;\n    width: 62px;\n    vertical-align: bottom; }\n  .expand .st0 {\n    stroke: rgba(255, 255, 255, 0.7); }\n  .expand .st2 {\n    fill: none;\n    stroke-linecap: round;\n    stroke-miterlimit: 10; }\n  .expand .st0, .expand .st1 {\n    fill: none;\n    stroke-miterlimit: 10; }\n  .expand .st1, .expand .st2 {\n    stroke: rgba(255, 255, 255, 0.5); }\n  .expand.on path {\n    -webkit-transition: all 0.8s;\n    transition: all 0.8s;\n    stroke-dashoffset: 0 !important; }\n\n.hideexpand .expand.leftside, .hideexpand .expand.rightside {\n  -webkit-transition: all .5s ease-in-out;\n  transition: all .5s ease-in-out;\n  -webkit-transform: translate(0, 0);\n  transform: translate(0, 0); }\n\n.hideborder .expand {\n  opacity: 0.5; }\n\n.vr {\n  position: absolute;\n  top: 0;\n  height: 100%;\n  width: 3px;\n  overflow: hidden; }\n  .vr.left {\n    left: 0; }\n  .vr.right {\n    right: 2px; }\n  .vr > div {\n    position: relative;\n    width: 1px;\n    height: 100%; }\n  .vr .b {\n    position: absolute;\n    top: 0;\n    width: 1px;\n    height: 100%;\n    margin-left: 1px;\n    background: rgba(255, 255, 255, 0.5);\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s;\n    -webkit-transform: translate3d(0, -100%, 0);\n    transform: translate3d(0, -100%, 0); }\n  .vr .d {\n    position: absolute;\n    height: 3px;\n    width: 3px;\n    border-radius: 3px;\n    opacity: 0;\n    background: rgba(255, 255, 255, 0.5);\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s; }\n  .vr .top {\n    top: 0; }\n  .vr .bottom {\n    bottom: 0; }\n\n.hr {\n  position: absolute;\n  width: 100%;\n  height: 3px;\n  overflow: hidden; }\n  .hr > div {\n    width: 100%;\n    position: relative;\n    height: 1px; }\n  .hr .b {\n    display: block;\n    position: absolute;\n    top: 1px;\n    height: 1px;\n    width: 100%;\n    background: rgba(255, 255, 255, 0.5);\n    -webkit-transform: translate3d(-100%, 0, 0);\n    transform: translate3d(-100%, 0, 0);\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s; }\n  .hr .d {\n    display: block;\n    position: absolute;\n    height: 3px;\n    width: 3px;\n    background: rgba(255, 255, 255, 0.5);\n    opacity: 0;\n    border-radius: 3px;\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s; }\n  .hr .left {\n    left: 0; }\n  .hr .right {\n    right: 0; }\n  .hr.dark span {\n    background: white; }\n\n.showborder .vr > div .b, .showborder .hr > div .b {\n  -webkit-transform: translate3d(0, 0, 0);\n  transform: translate3d(0, 0, 0); }\n\n.showborder .vr > div .d, .showborder .hr > div .d {\n  opacity: 1; }\n\n.hideborder .hr > div .b {\n  -webkit-transform: translate3d(100%, 0, 0);\n  transform: translate3d(100%, 0, 0); }\n\n.hideborder .hr > div .d {\n  opacity: 0; }\n\n.hideborder .vr > div .b {\n  -webkit-transform: translate3d(0, 100%, 0);\n  transform: translate3d(0, 100%, 0); }\n\n.hideborder .vr > div .d {\n  opacity: 0; }\n\n.loadmask {\n  position: absolute;\n  top: 0;\n  left: 380px;\n  z-index: 10;\n  display: block; }\n  .loadmask .body {\n    position: relative;\n    width: 100%;\n    height: 100%; }\n    .loadmask .body .dotted {\n      position: absolute;\n      top: -200px;\n      left: 0;\n      width: 100%;\n      height: 200px;\n      background-image: url(" + __webpack_require__(55) + ");\n      background-size: 30px;\n      background-attachment: fixed;\n      -webkit-transition: all 1.5s;\n      transition: all 1.5s; }\n\n.fetch .loadmask .body .dotted {\n  top: 120%; }\n", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 63 */
+/* 55 */
 /***/ function(module, exports) {
 
 	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8AQMAAAAAMksxAAAABlBMVEXf9f/f9f/awkaRAAAAAnRSTlMAgJsrThgAAAASSURBVChTY2AYBaiAGYMxUgEACD0AB0gqVlUAAAAASUVORK5CYII="
 
 /***/ },
-/* 64 */
+/* 56 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22827,15 +22661,15 @@
 	    value: true
 	});
 	
-	var _sideLeft = __webpack_require__(65);
+	var _sideLeft = __webpack_require__(57);
 	
 	var _sideLeft2 = _interopRequireDefault(_sideLeft);
 	
-	var _sideRight = __webpack_require__(68);
+	var _sideRight = __webpack_require__(60);
 	
 	var _sideRight2 = _interopRequireDefault(_sideRight);
 	
-	var _index = __webpack_require__(71);
+	var _index = __webpack_require__(63);
 	
 	var _index2 = _interopRequireDefault(_index);
 	
@@ -22942,16 +22776,16 @@
 	};
 
 /***/ },
-/* 65 */
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(66)
+	__vue_script__ = __webpack_require__(58)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/ui/side-left.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(67)
+	__vue_template__ = __webpack_require__(59)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -22970,7 +22804,7 @@
 	})()}
 
 /***/ },
-/* 66 */
+/* 58 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -22985,22 +22819,22 @@
 	};
 
 /***/ },
-/* 67 */
+/* 59 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<aside class=\"expand leftside\" :class=\"{on: on}\">\n    <svg viewBox=\"0 0 62.5 866\">\n        <path class=\"st0\" d=\"M17.5,0.5H36v141l-10,10v560l10,10v144H17.5\" style=\"transition-delay: 0s; -webkit-transition-delay: 0s; stroke-dashoffset: 910.284301757813px; stroke-dasharray: 910.284301757813px;\"></path>\n        <path class=\"st1\" d=\"M43,723v142.5h19.5\" style=\"transition-delay: 0.05s; -webkit-transition-delay: 0.05s; stroke-dashoffset: 162px; stroke-dasharray: 162px;\"></path>\n        <path class=\"st1\" d=\"M43,143V0.5h19.5\" style=\"transition-delay: 0.1s; -webkit-transition-delay: 0.1s; stroke-dashoffset: 162px; stroke-dasharray: 162px;\"></path>\n        <path class=\"st1\" d=\"M25.7,231.7C16,269.8,9,308.8,4.9,348.8c-2.9,28-4.4,56.4-4.4,85.2c0,28.8,1.5,57.3,4.4,85.4\n            C9,559.3,16,598.3,25.7,636.3\" style=\"transition-delay: 0.15s; -webkit-transition-delay: 0.15s; stroke-dashoffset: 408.787078857422px; stroke-dasharray: 408.787078857422px;\"></path>\n        <line class=\"st2\" x1=\"15.5\" y1=\"275.5\" x2=\"25.5\" y2=\"275.5\"></line>\n        <line class=\"st2\" x1=\"15.5\" y1=\"591.5\" x2=\"25.5\" y2=\"591.5\"></line>\n        <path class=\"st1\" d=\"M25,802.5c0-8.4,0-20,0-20h4v20H25z\" style=\"transition-delay: 0.2s; -webkit-transition-delay: 0.2s; stroke-dashoffset: 48px; stroke-dasharray: 48px;\"></path>\n        <path class=\"st1\" d=\"M25,853.5c0-8.7,0-40,0-40h4v40H25z\" style=\"transition-delay: 0.25s; -webkit-transition-delay: 0.25s; stroke-dashoffset: 88px; stroke-dasharray: 88px;\"></path>\n    </svg>\n</aside>\n";
 
 /***/ },
-/* 68 */
+/* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(69)
+	__vue_script__ = __webpack_require__(61)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/ui/side-right.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(70)
+	__vue_template__ = __webpack_require__(62)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -23019,7 +22853,7 @@
 	})()}
 
 /***/ },
-/* 69 */
+/* 61 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -23034,23 +22868,23 @@
 	};
 
 /***/ },
-/* 70 */
+/* 62 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<aside class=\"expand rightside\" :class=\"{on: on}\">\n    <svg viewBox=\"0 0 62.5 866\">\n        <path class=\"st0\" d=\"M45.5,0.5H27v141l10,10v560l-10,10v144h18.5\" style=\"transition-delay: 0.3s; -webkit-transition-delay: 0.3s; stroke-dashoffset: 910.284301757813px; stroke-dasharray: 910.284301757813px;\"></path>\n        <path class=\"st1\" d=\"M20,723v142.5H0.5\" style=\"transition-delay: 0.35s; -webkit-transition-delay: 0.35s; stroke-dashoffset: 162px; stroke-dasharray: 162px;\"></path>\n        <path class=\"st1\" d=\"M20,143V0.5H0.5\" style=\"transition-delay: 0.4s; -webkit-transition-delay: 0.4s; stroke-dashoffset: 162px; stroke-dasharray: 162px;\"></path>\n        <path class=\"st1\" d=\"M37.3,231.7c9.6,38,16.6,77.1,20.8,117.1c2.9,28,4.4,56.4,4.4,85.2c0,28.8-1.5,57.3-4.4,85.4 C54,559.3,47,598.3,37.3,636.3\" style=\"transition-delay: 0.45s; -webkit-transition-delay: 0.45s; stroke-dashoffset: 408.780639648438px; stroke-dasharray: 408.780639648438px;\"></path>\n        <line class=\"st2\" x1=\"47.5\" y1=\"275.5\" x2=\"37.5\" y2=\"275.5\"></line>\n        <line class=\"st2\" x1=\"47.5\" y1=\"591.5\" x2=\"37.5\" y2=\"591.5\"></line>\n        <path class=\"st1\" d=\"M38,802.5c0-8.4,0-20,0-20h-4v20H38z\" style=\"transition-delay: 0.5s; -webkit-transition-delay: 0.5s; stroke-dashoffset: 48px; stroke-dasharray: 48px;\"></path>\n        <path class=\"st1\" d=\"M38,853.5c0-8.7,0-40,0-40h-4v40H38z\" style=\"transition-delay: 0.55s; -webkit-transition-delay: 0.55s; stroke-dashoffset: 88px; stroke-dasharray: 88px;\"></path>\n    </svg>\n</aside>\n";
 
 /***/ },
-/* 71 */
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(72)
-	__vue_script__ = __webpack_require__(74)
+	__webpack_require__(64)
+	__vue_script__ = __webpack_require__(66)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/sidebar/index.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(102)
+	__vue_template__ = __webpack_require__(94)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -23069,16 +22903,16 @@
 	})()}
 
 /***/ },
-/* 72 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(73);
+	var content = __webpack_require__(65);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(23)(content, {});
+	var update = __webpack_require__(17)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -23095,7 +22929,7 @@
 	}
 
 /***/ },
-/* 73 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(4)();
@@ -23109,7 +22943,7 @@
 
 
 /***/ },
-/* 74 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23118,31 +22952,31 @@
 	    value: true
 	});
 	
-	var _weather = __webpack_require__(75);
+	var _weather = __webpack_require__(67);
 	
 	var _weather2 = _interopRequireDefault(_weather);
 	
-	var _subtitle = __webpack_require__(76);
+	var _subtitle = __webpack_require__(68);
 	
 	var _subtitle2 = _interopRequireDefault(_subtitle);
 	
-	var _logo = __webpack_require__(82);
+	var _logo = __webpack_require__(74);
 	
 	var _logo2 = _interopRequireDefault(_logo);
 	
-	var _nav = __webpack_require__(85);
+	var _nav = __webpack_require__(77);
 	
 	var _nav2 = _interopRequireDefault(_nav);
 	
-	var _chart = __webpack_require__(90);
+	var _chart = __webpack_require__(82);
 	
 	var _chart2 = _interopRequireDefault(_chart);
 	
-	var _window = __webpack_require__(96);
+	var _window = __webpack_require__(88);
 	
 	var _window2 = _interopRequireDefault(_window);
 	
-	var _sns = __webpack_require__(99);
+	var _sns = __webpack_require__(91);
 	
 	var _sns2 = _interopRequireDefault(_sns);
 	
@@ -23160,7 +22994,7 @@
 	};
 
 /***/ },
-/* 75 */
+/* 67 */
 /***/ function(module, exports) {
 
 	
@@ -23178,16 +23012,16 @@
 	};
 
 /***/ },
-/* 76 */
+/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(77)
+	__vue_script__ = __webpack_require__(69)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/sidebar/subtitle.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(81)
+	__vue_template__ = __webpack_require__(73)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -23206,7 +23040,7 @@
 	})()}
 
 /***/ },
-/* 77 */
+/* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23215,7 +23049,7 @@
 	    value: true
 	});
 	
-	var _hr = __webpack_require__(78);
+	var _hr = __webpack_require__(70);
 	
 	var _hr2 = _interopRequireDefault(_hr);
 	
@@ -23228,16 +23062,16 @@
 	};
 
 /***/ },
-/* 78 */
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(79)
+	__vue_script__ = __webpack_require__(71)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/ui/hr.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(80)
+	__vue_template__ = __webpack_require__(72)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -23256,7 +23090,7 @@
 	})()}
 
 /***/ },
-/* 79 */
+/* 71 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -23282,28 +23116,28 @@
 	};
 
 /***/ },
-/* 80 */
+/* 72 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"hr\" :class=\"{dark: dark}\">\n    <div>\n        <span class=\"b\"></span>\n        <span v-if=\"left\" class=\"d left\"></span>\n        <span v-if=\"right\" class=\"d right\"></span>\n    </div>\n</div>\n";
 
 /***/ },
-/* 81 */
+/* 73 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"side-subtitle\">\n    <hr></hr>\n    <h2>\n        <p class=\"hide first\">Welcome and enjoy!</p>\n        <p class=\"hide second\">web design and front-end posts.</p>\n    </h2>\n    <hr></hr>\n</div>\n";
 
 /***/ },
-/* 82 */
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(83)
+	__vue_script__ = __webpack_require__(75)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/sidebar/logo.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(84)
+	__vue_template__ = __webpack_require__(76)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -23322,7 +23156,7 @@
 	})()}
 
 /***/ },
-/* 83 */
+/* 75 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23331,11 +23165,11 @@
 	    value: true
 	});
 	
-	var _hr = __webpack_require__(78);
+	var _hr = __webpack_require__(70);
 	
 	var _hr2 = _interopRequireDefault(_hr);
 	
-	var _weather = __webpack_require__(75);
+	var _weather = __webpack_require__(67);
 	
 	var _weather2 = _interopRequireDefault(_weather);
 	
@@ -23396,22 +23230,22 @@
 	};
 
 /***/ },
-/* 84 */
+/* 76 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"side-logo\">\n    <div class=\"logo-left\">\n        <a class=\"logo link hide\" v-link=\"'/'\">\n            <svg viewBox=\"0 0 500 500\">\n                <polyline points=\"413.9,104.2 139.7,104.2 139.7,123.9 322.8,123.9 115.8,354.3 139.7,354.3 352.6,123.9 413.9,124 413.9,137.4 213.1,354.3 219,354.3 377.3,354.3 377.3,413.9 103.1,413.9 103.1,433.6 395.6,433.6 395.9,354.5 413.9,354.3 413.9,453.5 84.8,453.5 84.8,394.5 359,394.5 359,374.4 176.5,374.4 171.2,374.4 383.8,143.6 359,143.6 145.7,374.4 84.6,374.4 84.6,361.5 286.5,143.6 121.7,143.6 121.7,84.3 395.6,84.3 395.5,64.3 103.1,64.3 103.1,143.6 84.5,143.6 84.5,44.9 413.9,44.9 \"/>\n            </svg>\n        </a>\n        <hr :dark=\"true\" :right=\"false\"></hr>\n    </div>\n    <div class=\"logo-right\">\n        <div class=\"format hide\">Xiamen, Fujian, China</div>\n        <div class=\"temp\">\n            <div class=\"cell\">\n                <hr></hr>\n                <p class=\"today hide\">{{now | date \"yyyy.MM.dd\"}}</p>\n                <hr></hr>\n            </div>\n            <div class=\"cell\">\n                <hr :dark=\"true\" :left=\"false\"></hr>\n                <p class=\"weather icon hide\"></p>\n                <hr :dark=\"true\" :left=\"false\"></hr>\n            </div>\n        </div>\n        <div class=\"tenji\">\n            <div class=\"tenjibody\">\n                <svg viewBox=\"0 0 171 23\" class=\"hidechild\"> <circle class=\"st0\" cx=\"1.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"17.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"25.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"33.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"41.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"49.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"57.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"65.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"73.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"105.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"129.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"145.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"153.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"161.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"1.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"9.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"17.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"33.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"57.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"65.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"73.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"81.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"105.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"121.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"129.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"137.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"145.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"153.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"161.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"169.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"1.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"9.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"17.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"25.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"33.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"41.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"73.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"81.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"97.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"113.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"137.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"9.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"81.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"89.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"97.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"113.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"121.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"137.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"169.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"25.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"41.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"49.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"89.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"97.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"113.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"49.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"57.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"65.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"89.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"105.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"121.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"129.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"145.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"153.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"161.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"169.5\" cy=\"1.5\" r=\"1.5\"/> </svg>\n            </div>\n        </div>\n        <hr></hr>\n    </div>\n</div>\n";
 
 /***/ },
-/* 85 */
+/* 77 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(86)
+	__vue_script__ = __webpack_require__(78)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/sidebar/nav.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(89)
+	__vue_template__ = __webpack_require__(81)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -23430,7 +23264,7 @@
 	})()}
 
 /***/ },
-/* 86 */
+/* 78 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23439,11 +23273,11 @@
 	    value: true
 	});
 	
-	var _hr = __webpack_require__(78);
+	var _hr = __webpack_require__(70);
 	
 	var _hr2 = _interopRequireDefault(_hr);
 	
-	var _TweenMax = __webpack_require__(87);
+	var _TweenMax = __webpack_require__(79);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -23504,7 +23338,7 @@
 	};
 
 /***/ },
-/* 87 */
+/* 79 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global) {/*!
@@ -29496,7 +29330,7 @@
 							if (global) {
 								_globals[n] = _exports[n] = cl; //provides a way to avoid global namespace pollution. By default, the main classes like TweenLite, Power1, Strong, etc. are added to window unless a GreenSockGlobals is defined. So if you want to have things added to a custom object instead, just do something like window.GreenSockGlobals = {} before loading any GreenSock files. You can even set up an alias like window.GreenSockGlobals = windows.gs = {} so that you can access everything like gs.TweenLite. Also remember that ALL classes are added to the window.com.greensock object (in their respective packages, like com.greensock.easing.Power1, com.greensock.TweenLite, etc.)
 								hasModule = (typeof(module) !== "undefined" && module.exports);
-								if (!hasModule && "function" === "function" && __webpack_require__(88)){ //AMD
+								if (!hasModule && "function" === "function" && __webpack_require__(80)){ //AMD
 									!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() { return cl; }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 								} else if (hasModule){ //node
 									if (ns === moduleName) {
@@ -31310,7 +31144,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 88 */
+/* 80 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
@@ -31318,22 +31152,22 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ },
-/* 89 */
+/* 81 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<nav class=\"side-nav\">\n    <div class=\"title table\">\n        <div class=\"cell\">\n            <hr></hr>\n            <h3 class=\"emp hide\">MENU</h3>\n            <hr></hr>\n        </div>\n        <div class=\"cell\">\n            <hr :dark=\"true\" :left=\"false\"></hr>\n            <span class=\"emp hide\"></span>\n            <hr :dark=\"true\" :left=\"false\"></hr>\n        </div>\n    </div>\n    <ul>\n        <a v-for=\"(i, menu) in menus\" v-link=\"menu.url\" class=\"link btn\">\n            <span class=\"hide num\">0{{i + 1}}</span>\n            <span class=\"hide name\">{{menu.name | uppercase}}</span>\n            <span class=\"hide lefttop\"></span>\n            <span class=\"hide rightbottom\"></span>\n            <div class=\"light hidechild\"><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span></div>\n        </a>\n    </ul>\n</nav>\n";
 
 /***/ },
-/* 90 */
+/* 82 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(91)
+	__vue_script__ = __webpack_require__(83)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/sidebar/chart.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(95)
+	__vue_template__ = __webpack_require__(87)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -31352,7 +31186,7 @@
 	})()}
 
 /***/ },
-/* 91 */
+/* 83 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31361,11 +31195,11 @@
 	    value: true
 	});
 	
-	var _hr = __webpack_require__(78);
+	var _hr = __webpack_require__(70);
 	
 	var _hr2 = _interopRequireDefault(_hr);
 	
-	var _vr = __webpack_require__(92);
+	var _vr = __webpack_require__(84);
 	
 	var _vr2 = _interopRequireDefault(_vr);
 	
@@ -31379,16 +31213,16 @@
 	};
 
 /***/ },
-/* 92 */
+/* 84 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(93)
+	__vue_script__ = __webpack_require__(85)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/ui/vr.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(94)
+	__vue_template__ = __webpack_require__(86)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -31407,7 +31241,7 @@
 	})()}
 
 /***/ },
-/* 93 */
+/* 85 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -31434,28 +31268,28 @@
 	};
 
 /***/ },
-/* 94 */
+/* 86 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"vr {{class}}\">\n    <div>\n        <span class=\"b\"></span>\n        <span v-if=\"top\" class=\"d top\"></span>\n        <span v-if=\"bottom\" class=\"d bottom\"></span>\n    </div>\n</div>\n";
 
 /***/ },
-/* 95 */
+/* 87 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"side-chart\">\n    <div class=\"chart\">\n        <vr :class=\"'left'\"></vr>\n        <div class=\"graphics table\">\n            <div class=\"cell\">\n                <svg class=\"svg-graphics\" viewBox=\"0 0 188.3 44.2\">\n                    <g class=\"line hide\">\n                        <line x1=\"0.5\" y1=\"39.2\" x2=\"187.8\" y2=\"39.2\"/>\n                    </g>\n                    <g>\n                        <path class=\"hide pathline st1\" d=\"M187.8,39.2c0,0-6.6-6.6-18.6-14.1c-12-7.5-21.8-15-37.1-5.3S112.4,29.1,88,30.7s-25.6,8.6-45.3,8.5H0.5\"/>\n                        <path class=\"hide pathline st0\" d=\"M0.5,39.2c0,0,43.8-4,65.9-7.3c31-4.5,33.3-31.5,50.4-31.5c19,0,23.7,24.9,43.1,24.9 c19.4,0,21.3,13.8,27.8,13.8\"/>\n                    </g>\n                    <g class=\"base hide\">\n                        <line x1=\"187.8\" y1=\"34.2\" x2=\"187.8\" y2=\"44.2\"/>\n                        <line x1=\"0.5\" y1=\"34.2\" x2=\"0.5\" y2=\"44.2\"/>\n                        <line x1=\"94.5\" y1=\"36.2\" x2=\"94.5\" y2=\"42.2\"/>\n                    </g>\n                </svg>\n                <span class=\"hide unit tx-l\">0:00</span>\n                <span class=\"hide unit tx-c\">12:00</span>\n                <span class=\"hide unit tx-r\">24:00</span>\n            </div>\n            <div class=\"cell hide\">\n                <div class=\"chart-line\">\n                    <p>CLOCK IN</p>\n                    <div class=\"line st0\"><span></span></div>\n                </div>\n                <div class=\"chart-line\">\n                    <p>CLOCK OUT</p>\n                    <div class=\"line st1\"><span></span></div>\n                </div>\n            </div>\n        </div>\n        <vr :class=\"'right'\"></vr>\n    </div>\n    <div class=\"chart\">\n        <div class=\"malefemale\">\n            <span class=\"hide unit tx-l\">MALE</span>\n            <span class=\"hide unit tx-r\">FEMALE</span>\n            <div class=\"hide bar cf\">\n                <span class=\"m\"></span>\n                <span class=\"f\"></span>\n            </div>\n        </div>\n        <div class=\"tenjibody\">\n            <svg viewBox=\"0 0 299.5 23\" class=\"hidechild\"> <circle class=\"st0\" cx=\"1.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"9.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"17.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"25.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"33.6\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"73.6\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"81.6\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"97.7\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"113.7\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"137.7\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"129.7\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"145.8\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"153.8\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"161.8\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"169.8\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"201.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"209.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"225.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"241.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"266\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"298\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"1.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"17.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"25.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"33.6\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"41.6\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"73.6\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"49.6\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"57.6\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"65.6\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"105.7\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"129.7\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"145.8\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"153.8\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"161.8\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"169.8\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"177.8\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"185.8\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"193.8\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"201.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"257.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"274\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"290\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"233.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"282\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"1.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"9.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"17.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"33.6\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"73.6\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"81.6\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"137.7\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"57.6\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"65.6\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"105.7\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"121.7\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"129.7\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"145.8\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"161.8\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"185.8\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"193.8\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"201.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"209.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"249.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"257.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"274\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"290\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"233.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"41.6\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"49.6\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"57.6\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"65.6\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"89.7\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"105.7\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"121.7\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"177.8\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"185.8\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"193.8\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"217.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"249.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"257.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"274\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"290\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"233.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"282\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"9.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"81.6\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"97.7\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"113.7\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"137.7\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"89.7\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"121.7\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"209.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"217.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"249.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"225.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"241.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"266\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"298\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"25.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"41.6\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"97.7\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"113.7\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"49.6\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"89.7\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"153.8\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"169.8\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"177.8\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"217.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"225.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"241.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"266\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"282\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"298\" cy=\"21.5\" r=\"1.5\"/></svg>\n        </div>\n    </div>\n    <div class=\"chart\">\n        <vr :class=\"'left'\"></vr>\n        <vr :class=\"'right'\"></vr>\n        <div class=\"graphics age table\">\n            <div class=\"cell\">\n                <h4 class=\"hide\">AGE</h4>\n                <div class=\"svg-graphics\">\n                    <svg viewBox=\"0 0 279.6 37.5\">\n                        <g class=\"hide line\">\n                            <line x1=\"0.5\" y1=\"32.5\" x2=\"279.1\" y2=\"32.5\"/>\n                        </g>\n                        <path class=\"pathline hide st0\" d=\"M0,31.7c0,0,17.6-5.9,26.2-6.8C65.4,20.7,64.4,0.6,86.1,0.6c19.6,0,25,19,63.9,25.3c36,5.8,59.9,5.8,59.9,5.8 c26.3,0,69.7,0,69.7,0\"/>\n                        <g class=\"hide base\">\n                            <line x1=\"279.1\" y1=\"27.5\" x2=\"279.1\" y2=\"37.5\"/>\n                            <line x1=\"0.5\" y1=\"27.5\" x2=\"0.5\" y2=\"37.5\"/>\n                            <line x1=\"139\" y1=\"29.5\" x2=\"139\" y2=\"35.5\"/>\n                        </g>\n                    </svg>\n                </div>\n                <span class=\"hide unit tx-l\">20</span>\n                <span class=\"hide unit tx-r\">50</span>\n            </div>\n        </div><!-- .svgGraphics -->\n    </div>\n</div>\n";
 
 /***/ },
-/* 96 */
+/* 88 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(97)
+	__vue_script__ = __webpack_require__(89)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/sidebar/window.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(98)
+	__vue_template__ = __webpack_require__(90)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -31474,7 +31308,7 @@
 	})()}
 
 /***/ },
-/* 97 */
+/* 89 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31483,7 +31317,7 @@
 	    value: true
 	});
 	
-	var _hr = __webpack_require__(78);
+	var _hr = __webpack_require__(70);
 	
 	var _hr2 = _interopRequireDefault(_hr);
 	
@@ -31496,22 +31330,22 @@
 	};
 
 /***/ },
-/* 98 */
+/* 90 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"site-window\">\n    <hr></hr>\n    <div class=\"body\">\n        <span class=\"hide high\">WIDTH</span>\n        <span class=\"hide wW\">000</span>\n        <span class=\"hide high\">HEIGHT</span>\n        <span class=\"hide wH\">000</span>\n    </div>\n    <hr></hr>\n</div>\n";
 
 /***/ },
-/* 99 */
+/* 91 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(100)
+	__vue_script__ = __webpack_require__(92)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/sidebar/sns.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(101)
+	__vue_template__ = __webpack_require__(93)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -31530,7 +31364,7 @@
 	})()}
 
 /***/ },
-/* 100 */
+/* 92 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31539,7 +31373,7 @@
 	    value: true
 	});
 	
-	var _hr = __webpack_require__(78);
+	var _hr = __webpack_require__(70);
 	
 	var _hr2 = _interopRequireDefault(_hr);
 	
@@ -31552,19 +31386,19 @@
 	};
 
 /***/ },
-/* 101 */
+/* 93 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"site-sns\">\n    <div class=\"body\">\n        <a href=\"https://github.com/zhuowenli\" target=\"_blank\" class=\"btn link on\">\n            <span class=\"hide name\">github</span>\n            <span class=\"lefttop\"></span>\n            <span class=\"rightbottom\"></span>\n        </a>\n        <a href=\"https://www.zhihu.com/people/zhuowenli\" target=\"_blank\" class=\"btn link\">\n            <span class=\"hide name\">zhihu</span>\n            <span class=\"lefttop\"></span>\n            <span class=\"rightbottom\"></span>\n        </a>\n        <a href=\"https://github.com/zhuowenli/zhuowenli.github.io\" target=\"_blank\" class=\"btn link\">\n            <span class=\"hide name\">fork me</span>\n            <span class=\"lefttop\"></span>\n            <span class=\"rightbottom\"></span>\n        </a>\n    </div>\n    <hr></hr>\n</div>\n";
 
 /***/ },
-/* 102 */
+/* 94 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<section class=\"main-sidebar\">\n    <side-subtitle></side-subtitle>\n    <side-logo></side-logo>\n    <side-nav></side-nav>\n    <side-chart></side-chart>\n    <side-window></side-window>\n    <side-sns></side-sns>\n</section>\n";
 
 /***/ },
-/* 103 */
+/* 95 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"container\">\n    <section-sidebar\n        :hide=\"hide\">\n    </section-sidebar>\n\n    <section class=\"main-content\">\n        <div class=\"loadmask\"><div class=\"body\"><div class=\"dotted\"></div></div></div>\n        <div class=\"main hide\">\n            <router-view\n                transition=\"app\"\n                transition-mode=\"out-in\"\n                keep-alive>\n            </router-view>\n        </div>\n    </section>\n\n    <side-left :on=\"sideon\"></side-left>\n    <side-right :on=\"sideon\"></side-right>\n</div>\n";

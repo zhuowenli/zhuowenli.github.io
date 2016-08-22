@@ -1,0 +1,169 @@
+@charset "UTF-8";
+/**
+ * @author: 卓文理
+ * @email : 531840344@qq.com
+ * @desc  : Description
+ */
+
+@import "../../stylesheets/common";
+
+.design{
+    height: 100%;
+}
+
+.main{
+    width: 800px;
+    position: absolute;
+    height: 800px;
+    left: 380px;
+    top: 0;
+    z-index: 9997;
+    background: url('../../../statics/img/bg-dotted-20.png') fixed;
+    background-size: 30px;
+    .scroll {
+        padding: 0;
+        overflow-x: hidden;
+        height: 100%;
+        width: 100%;
+    }
+    .scrollinside {
+        padding: 45px 0 0 40px;
+        width: 100%;
+        max-width: 910px;
+        margin: 0 auto;
+    }
+    .banner{
+        margin-bottom: 60px;
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
+    .insidetitle{
+        padding: 0 50px;
+        margin-bottom: 60px;
+        .number {
+            width: 200px;
+            height: 270px;
+            line-height: 1;
+            text-align: left;
+            font-size: 140px;
+            color: #fff;
+            font-weight: 700;
+            text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+        }
+        .pagetitle {
+            font-size: 50px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-weight: 700;
+            line-height: 1;
+            color: #fff;
+            text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+        }
+        h2 {
+            color: #fff;
+            letter-spacing: 3px;
+            font-size: 22px;
+            padding: 8px 0 0;
+            text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5);
+        }
+    }
+    .entrybtn {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        display: block;
+        width: 300px;
+        font-size: 16px;
+        font-weight: 700;
+        text-align: center;
+        z-index: 3;
+        line-height: 66px;
+        letter-spacing: 2px;
+        color: #fff;
+        text-transform: uppercase;
+    }
+}
+
+.mCSB_inside > .mCSB_container { margin-right: 0; }
+.mCSB_scrollTools {
+    left: 0;
+    margin: 40px 0;
+    width: 30px;
+    box-sizing: border-box;
+    .mCSB_draggerContainer {
+        background: url('../../../statics/img/img-scroll.png');
+        background-size: 30px;
+    }
+    .mCSB_draggerRail {
+        width: 1px;
+        border-radius: 0;
+        background: rgba(255, 255, 255, 0.02);
+    }
+    .mCSB_dragger .mCSB_dragger_bar { background: none !important; width: 11px; border-radius: 0; position: relative; box-sizing: border-box; }
+    .mCSB_dragger .mCSB_dragger_bar:after { content: ''; width: 16px; height: 16px; background-size: 16px; position: absolute; top: 50%; left: 50%; display: block; z-index: 1; margin: -8px 0 0 -8px; }
+    .mCSB_dragger .mCSB_dragger_bar {border: 1px solid rgba(255, 255, 255, 0.2); }
+    .mCSB_dragger .mCSB_dragger_bar:after{background-image: url('../../../statics/img/img-drag_col.png');}
+}
+
+.entry {
+    position: relative;
+    padding: 50px;
+    margin-bottom: 90px;
+    .header{
+        position: relative;
+        z-index: 2;
+        a{
+            display: block;
+        }
+        h2 {
+            font-size: 20px;
+            letter-spacing: 1px;
+            padding-bottom: 50px;
+            line-height: 24px;
+            color: #fff;
+        }
+    }
+    .scroll {
+        position: relative;
+        height: 180px;
+        margin-bottom: 50px;
+        z-index: 2;
+        .entrydetail {
+            font-size: 12px;
+            letter-spacing: 1px;
+            padding:0 0 0 60px;
+            color: rgba(#fff, .8);
+            img{
+                width: 100%;
+                height: auto;
+            }
+            a{
+                color: #fff;
+            }
+        }
+    }
+    .bg { width: 100%; height: 400px; position: absolute; top: 0; left: 0; }
+    .bgL { width: 135px; background-repeat: no-repeat; background-size: 135px; }
+    .bgM { background-repeat: repeat-x; background-size: 2px; }
+    .bgR { width: 400px; background-repeat: no-repeat; background-size: 400px; }
+    .mCSB_scrollTools .mCSB_draggerContainer { background: none; }
+    .mCSB_scrollTools { margin: 0; }
+    .bgL { background-image: url('../../../statics/img/bg-recruit-L.png'); }
+    .bgM { background-image: url('../../../statics/img/bg-recruit-M.png'); }
+    .bgR { background-image: url('../../../statics/img/bg-recruit-R.png'); }
+    .entrybtn {
+        display: block;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        width: 300px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        z-index: 3;
+        line-height: 66px;
+        letter-spacing: 2px;
+    }
+}

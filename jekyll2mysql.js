@@ -64,9 +64,9 @@ const analysisFile = filename => {
 
                 if (!res.length) reject();
 
-                const matters = res.match(/^---\n[\w\W]*---\n/g);
+                const matters = res.match(/^---(.*?(\r?\n|\r)){0,10}---\n/g);
                 const release_at = matchDate(filename);
-                let content = res.replace(/^---\n[\w\W]*---(\s*)(\n*)/g, '');
+                let content = res.replace(/^---(.*?(\r?\n|\r)){0,10}---(\s*)(\n*)/g, '');
                 content = content.replace('{{ site.qiniu }}', 'http://zhuowenli.qiniudn.com');
                 content = content.replace('{{site.qiniu}}', 'http://zhuowenli.qiniudn.com');
 
