@@ -136,6 +136,11 @@ exports.init = function(app) {
             withRelated: ['category', 'user']
         });
 
+        // update view_count
+        let view_count = +post.get('view_count');
+
+        yield post.save('view_count', view_count + 1);
+
         this.body = post;
     });
 

@@ -7,6 +7,7 @@
 var ctrls = [
     require('./api/posts'),
     require('./api/users'),
+    require('./api/likes'),
     require('./index/index'),
 ];
 
