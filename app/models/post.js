@@ -13,4 +13,7 @@ module.exports = db.model('Post', {
     category: function() {
         return this.belongsTo('Category', 'category_id');
     },
+    user: function() {
+        return this.belongsTo('User', 'user_id');
+    },
 });

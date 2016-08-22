@@ -90,9 +90,7 @@
         },
         route: {
             activate(transition) {
-
                 this.init();
-
                 transition.next();
             },
             deactivate() {
@@ -115,9 +113,6 @@
 
                 $html.addClass('fetch');
 
-                this.$set('post', post);
-                this.$set('type', type);
-
                 this.load(post.id)
                     .then(res => {
                         const {data} = res.data;
@@ -132,6 +127,8 @@
                         $html.removeClass('fetch');
 
                         that.$set('data', data);
+                        that.$set('post', post);
+                        that.$set('type', type);
 
                         setTimeout(function() {
                             $(".scroll").mCustomScrollbar({

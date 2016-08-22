@@ -17,8 +17,8 @@ exports.up = function (knex) {
         table.integer('status').defaultTo(0).notNull().comment('文章状态');
         table.integer('user_id').defaultTo(1).notNull().unsigned().comment('用户id');
         table.integer('category_id').defaultTo(1).notNull().unsigned().comment('分类id');
-        table.integer('like_count').unsigned().comment('喜欢数');
-        table.integer('view_count').unsigned().comment('浏览数');
+        table.integer('like_count').defaultTo(0).unsigned().comment('喜欢数');
+        table.integer('view_count').defaultTo(0).unsigned().comment('浏览数');
         table.timestamp('release_at').defaultTo(knex.fn.now()).notNullable().comment('发表时间');
 
         table.timestamps();

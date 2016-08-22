@@ -15314,9 +15314,7 @@
 	    },
 	    route: {
 	        activate: function activate(transition) {
-	
 	            this.init();
-	
 	            transition.next();
 	        },
 	        deactivate: function deactivate() {
@@ -15341,9 +15339,6 @@
 	
 	            $html.addClass('fetch');
 	
-	            this.$set('post', post);
-	            this.$set('type', type);
-	
 	            this.load(post.id).then(function (res) {
 	                var data = res.data.data;
 	
@@ -15357,6 +15352,8 @@
 	                $html.removeClass('fetch');
 	
 	                that.$set('data', data);
+	                that.$set('post', post);
+	                that.$set('type', type);
 	
 	                setTimeout(function () {
 	                    $(".scroll").mCustomScrollbar({

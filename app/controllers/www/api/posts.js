@@ -22,7 +22,7 @@ exports.init = function(app) {
     });
 
     router.get('/api/posts', function *() {
-        let query = this.query;
+        const query = this.query;
         let posts = Posts.forge();
 
         posts = yield posts.fetchItems(qb => {
@@ -30,7 +30,7 @@ exports.init = function(app) {
                     qb.where('category_id', query.category_id);
                 }
 
-                qb.orderBy('id', 'desc'); //desc
+                qb.orderBy('release_at', 'desc'); //desc
             }, {
                 page: query.page,
                 per_page: query.per_page,
@@ -54,6 +54,7 @@ exports.init = function(app) {
     router.post('/api/posts', function *() {
         const postData = this.request.body;
         const data = {};
+
         let {title, categories, tags, content, release_at} = postData;
         let category_id = 3;
 
@@ -124,6 +125,39 @@ exports.init = function(app) {
                 return tag;
             });
         }
+    });
+
+    router.get('/api/posts/:id', function *() {
+        const post = yield Post.where(qb => {
+            qb.where('id', this.params.id);
+            qb.where('status', 0);
+        })
+        .fetch({
+            withRelated: ['category', 'user']
+        });
+
+        this.body = post;
+    });
+
+    router.put('/api/posts/:id', function *() {
+        const post = yield Post.where({
+            id: this.params.id
+        }).fetch();
+
+        if (!post) {
+            this.throw(404);
+        }
+
+        const data = this.request.body;
+        const {category, user} = data;
+
+        delete data.category;
+        delete data.user;
+
+        // save post
+        yield post.save(data, {patch: true});
+
+        this.body = post;
     });
 };
 
