@@ -1,0 +1,41 @@
+@charset "UTF-8";
+/**
+ * @author: 卓文理
+ * @email : 531840344@qq.com
+ * @desc  : Description
+ */
+
+@import "../../stylesheets/common";
+
+.home{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.main-right{
+    position: absolute;
+    z-index: 999;
+    width: 360px;
+    padding: 40px;
+    font-size: 10px;
+    right: 0;
+    top: 50%;
+    margin-top: -472px;
+    color: rgba(255, 255, 255, .2);
+}
+.main-center{
+    position: absolute;
+    top: 0;
+    left: 0%;
+    height: 100%;
+    width: 660px;
+    z-index: 10;
+}
+.main-graph {
+    position: absolute;
+    top: 0;
+    left: 0%;
+    width: 660px;
+    overflow: hidden;
+}

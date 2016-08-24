@@ -72,15 +72,15 @@
 	
 	var _routerConfig = __webpack_require__(13);
 	
-	var _filter = __webpack_require__(51);
+	var _filter = __webpack_require__(52);
 	
 	var _filter2 = _interopRequireDefault(_filter);
 	
-	var _App = __webpack_require__(52);
+	var _App = __webpack_require__(53);
 	
 	var _App2 = _interopRequireDefault(_App);
 	
-	var _bluebird = __webpack_require__(31);
+	var _bluebird = __webpack_require__(32);
 	
 	var _bluebird2 = _interopRequireDefault(_bluebird);
 	
@@ -14764,23 +14764,23 @@
 	
 	var _index2 = _interopRequireDefault(_index);
 	
-	var _index3 = __webpack_require__(20);
+	var _index3 = __webpack_require__(21);
 	
 	var _index4 = _interopRequireDefault(_index3);
 	
-	var _detail = __webpack_require__(35);
+	var _detail = __webpack_require__(36);
 	
 	var _detail2 = _interopRequireDefault(_detail);
 	
-	var _index5 = __webpack_require__(38);
+	var _index5 = __webpack_require__(39);
 	
 	var _index6 = _interopRequireDefault(_index5);
 	
-	var _index7 = __webpack_require__(43);
+	var _index7 = __webpack_require__(44);
 	
 	var _index8 = _interopRequireDefault(_index7);
 	
-	var _ = __webpack_require__(48);
+	var _ = __webpack_require__(49);
 	
 	var _2 = _interopRequireDefault(_);
 	
@@ -14825,7 +14825,7 @@
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/home/index.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(19)
+	__vue_template__ = __webpack_require__(20)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -14878,7 +14878,7 @@
 	
 	
 	// module
-	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n.home {\n  position: relative;\n  width: 100%;\n  height: 100%; }\n\n.main-right {\n  position: absolute;\n  z-index: 999;\n  width: 360px;\n  padding: 40px;\n  font-size: 10px;\n  right: 0;\n  top: 50%;\n  margin-top: -472px;\n  color: rgba(255, 255, 255, 0.2); }\n\n.main-center {\n  position: absolute;\n  top: 0;\n  left: 0%;\n  height: 100%;\n  width: 660px;\n  z-index: 10; }\n\n.main-graph {\n  position: absolute;\n  top: 0;\n  left: 0%;\n  width: 660px;\n  overflow: hidden; }\n", ""]);
 	
 	// exports
 
@@ -15107,13 +15107,15 @@
 
 /***/ },
 /* 18 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	
+	var _init2d = __webpack_require__(19);
 	
 	var $html = $('html');
 	
@@ -15122,24 +15124,47 @@
 	    data: function data() {
 	        return {};
 	    },
-	    ready: function ready() {},
+	    ready: function ready() {
+	        this.init();
+	    },
 	
 	    route: {
 	        activate: function activate(transition) {
-	            $html.addClass('fetch');
+	            transition.next();
+	        },
+	        deactivate: function deactivate() {
+	            $('.main').css('opacity', 0);
+	        }
+	    },
+	    methods: {
+	        setSize: function setSize() {
+	            var $container = $('.container');
+	            var $left = $('.main-sidebar');
+	            var $right = $('.main-right');
+	            var $center = $('.main-center');
+	            var $graph = $('.main-graph');
+	
+	            var leftWidth = $left.width() + 80;
+	            var rightWidth = $right.width() + 80;
+	
+	            var centerWidth = $container.width() - leftWidth - rightWidth - 20;
+	
+	            $center.css({ width: centerWidth });
+	            $graph.css({ width: centerWidth });
+	
+	            this.centerWidth = centerWidth;
+	        },
+	        init: function init() {
+	
+	            this.setSize();
 	
 	            setTimeout(function () {
-	                $html.removeClass('fetch');
+	                (0, _init2d.setSize2D)(this.centerWidth);
 	            }, 1000);
 	
 	            setTimeout(function () {
 	                $('.main').css('opacity', 1);
 	            }, 2000);
-	
-	            transition.next();
-	        },
-	        deactivate: function deactivate() {
-	            $('.main').css('opacity', 0);
 	        }
 	    }
 	};
@@ -15148,20 +15173,377 @@
 /* 19 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"home\">\n</div>\n";
+	
+	'use strict';
+	
+	var RAD = Math.PI / 180;
+	var PI2 = Math.PI * 2;
+	var $graphic = $('.graphic');
+	
+	var animatePv = void 0,
+	    animatePvName = void 0,
+	    animateBarTo = void 0,
+	    animatePvTo = void 0,
+	    animatePvFrom = void 0;
+	
+	var canvasWidth = 0;
+	var canvasHeight = 0;
+	var canvasWidthHalf = 0;
+	var canvasHeightHalf = 0;
+	var ratio = 1;
+	var graphR = 330;
+	var graphRO = 330;
+	var wHOver = false;
+	var wWOver = false;
+	var graphRadius = 0;
+	
+	var canvasCR = void 0,
+	    ctxCR = void 0,
+	    pointStatus = void 0,
+	    pointPosition = void 0,
+	    textPosition = void 0,
+	    MemoriPosition = void 0,
+	    MemoriFlag = void 0,
+	    MemoriInnerPosition = void 0,
+	    MemoriOuterDegree = void 0,
+	    MemoriOuterR1 = void 0,
+	    MemoriOuterR2 = void 0,
+	    MemoriOuterR3 = void 0,
+	    barChartRadius = void 0,
+	    barChartPar = void 0,
+	    pvRatio = void 0,
+	    pvRatioAnimateFlag = void 0,
+	    gaishuuPosition = void 0;
+	
+	function setSize2D(centerWidth) {
+	    var windowHeight = window.innerHeight;
+	
+	    if (centerWidth > graphRO * 2 + 20) {
+	        wWOver = false;
+	    } else {
+	        wWOver = true;
+	    }
+	
+	    if (windowHeight > 840) {
+	        wHOver = false;
+	    } else {
+	        wHOver = true;
+	    }
+	
+	    if (wHOver && wWOver) {
+	        graphR = (centerWidth - 60) / 2;
+	    } else if (!wHOver && wWOver) {
+	        graphR = (centerWidth - 60) / 2;
+	    } else if (wHOver && !wWOver) {
+	        graphR = (windowHeight - 160) / 2;
+	    } else {
+	        graphR = graphRO;
+	    }
+	
+	    graphRadius = graphR * ratio;
+	
+	    canvasCR = $('.circle')[0];
+	    ctxCR = canvasCR.getContext('2d');
+	    canvasCR.width = canvasWidth;
+	    canvasCR.height = canvasHeight;
+	
+	    $('.graphic').css({
+	        'width': canvasWidth / ratio,
+	        'height': canvasHeight / ratio,
+	        'margin-left': -canvasWidthHalf / ratio,
+	        'margin-top': -canvasHeightHalf / ratio
+	    });
+	
+	    pointStatus = {
+	        w: 140 * ratio,
+	        h: 70 * ratio,
+	        x: canvasWidthHalf + graphRadius - 129 * ratio,
+	        y: 50 * ratio,
+	        ox: canvasWidthHalf + graphRadius + 11,
+	        oy: 50 * ratio + 70 * ratio
+	    };
+	
+	    pointPosition = [];
+	    for (var i = 1; i < 10; i++) {
+	        var x1 = pointStatus.x + pointStatus.w / 10 * i;
+	        var y1 = pointStatus.y + pointStatus.h / 5 * i;
+	        var x2 = pointStatus.ox;
+	        var y2 = pointStatus.oy;
+	        pointPosition.push([x1, y1, x2, y2]);
+	    };
+	
+	    textPosition = [];
+	    var tx1 = pointStatus.ox;
+	    var ty1 = pointStatus.oy + 17 * ratio;
+	    var tx2 = pointStatus.x - 17 * ratio;
+	    var ty2 = pointStatus.y - 2 * ratio;
+	    var tx3 = pointStatus.x - 55 * ratio;
+	    var ty3 = pointStatus.y - 2 * ratio;
+	    var tx4 = pointStatus.x - 55 * ratio;
+	    var ty4 = pointStatus.y + 12 * ratio;
+	    var tx5 = pointStatus.x - 100 * ratio;
+	    textPosition.push(tx1, ty1, tx2, ty2, tx3, ty3, tx4, ty4, tx5);
+	
+	    MemoriPosition = [];
+	    for (var i = 360; i > 0; i--) {
+	        var x1 = graphRadius * Math.cos(i * RAD) + canvasWidthHalf;
+	        var y1 = graphRadius * Math.sin(i * RAD) + canvasHeightHalf;
+	        var x2 = (graphRadius - 50 * ratio) * Math.cos(i * RAD) + canvasWidthHalf;
+	        var y2 = (graphRadius - 50 * ratio) * Math.sin(i * RAD) + canvasHeightHalf;
+	        MemoriPosition.push([x1, y1, x2, y2]);
+	    };
+	
+	    MemoriFlag = true;
+	
+	    MemoriInnerPosition = [];
+	    for (var i = 360; i > 0; i -= 2) {
+	        var x1 = (graphRadius - 70 * ratio) * Math.cos(i * RAD) + canvasWidthHalf;
+	        var y1 = (graphRadius - 70 * ratio) * Math.sin(i * RAD) + canvasHeightHalf;
+	        var x2 = (graphRadius - 74 * ratio) * Math.cos(i * RAD) + canvasWidthHalf;
+	        var y2 = (graphRadius - 74 * ratio) * Math.sin(i * RAD) + canvasHeightHalf;
+	        MemoriInnerPosition.push([x1, y1, x2, y2]);
+	    };
+	
+	    barChartRadius = [];
+	    barChartPar = [0.001, 0.001, 0.001, 0.001, 0.001];
+	    for (var i = 5; i >= 0; i--) {
+	        barChartRadius.push(graphRadius - 40 * ratio + i * 5 * ratio);
+	    };
+	
+	    pvRatio = [0.001, 0.001, 0.001, 0.001, 0.001, 0.001];
+	    MemoriOuterDegree = 36;
+	    MemoriOuterR1 = graphRadius + 10 * ratio;
+	    MemoriOuterR2 = graphRadius + 25 * ratio;
+	    MemoriOuterR3 = graphRadius + 17 * ratio;
+	    gaishuuPosition = [];
+	    setMemoriOuter(0);
+	
+	    if ($graphic.length) {
+	        var x = $graphic.offset().left;
+	        var y = $graphic.offset().top;
+	        canvasXY.x = x;
+	        canvasXY.y = y;
+	    }
+	}
+	
+	function setMemoriOuter(deg) {
+	    var x1 = MemoriOuterR1 * Math.cos(deg * RAD) + canvasWidthHalf;
+	    var y1 = MemoriOuterR1 * Math.sin(deg * RAD) + canvasHeightHalf;
+	    var x2 = MemoriOuterR2 * Math.cos(deg * RAD) + canvasWidthHalf;
+	    var y2 = MemoriOuterR2 * Math.sin(deg * RAD) + canvasHeightHalf;
+	    var x3 = MemoriOuterR1 * Math.cos((MemoriOuterDegree + deg) * RAD) + canvasWidthHalf;
+	    var y3 = MemoriOuterR1 * Math.sin((MemoriOuterDegree + deg) * RAD) + canvasHeightHalf;
+	    var x4 = MemoriOuterR2 * Math.cos((MemoriOuterDegree + deg) * RAD) + canvasWidthHalf;
+	    var y4 = MemoriOuterR2 * Math.sin((MemoriOuterDegree + deg) * RAD) + canvasHeightHalf;
+	
+	    gaishuuPosition.push(x1, y1, x2, y2, x3, y3, x4, y4);
+	}
+	
+	function loadPageview() {
+	
+	    animatePv = [];
+	    animatePvName = [];
+	    animateBarTo = [];
+	    animatePvTo = [];
+	
+	    animatePv = {
+	        'name': [],
+	        'view': [],
+	        'line': [],
+	        'day': [],
+	        'circle': []
+	    };
+	
+	    animatePvFrom = [0, 0, 0, 0, 0, 0, 0];
+	    $day = $('.day');
+	    $v1 = $('.view1');
+	    $v2 = $('.view2');
+	    $v3 = $('.view3');
+	    $v4 = $('.view4');
+	    $v5 = $('.view5');
+	    $v6 = $('.view6');
+	    $total = $('.total');
+	
+	    $dnames = $('.dnames');
+	    $onames = $('.onames');
+	    $bnames = $('.bnames');
+	
+	    $.ajax({
+	        type: 'GET',
+	        url: 'http://newstech.sakura.ne.jp/ga/files/pageview.json',
+	        dataType: 'json',
+	        success: function success(json) {
+	            var pvlen = json['pageview'].length;
+	
+	            var totalpv = 0;
+	            var totalarr = [];
+	
+	            for (var i = 0; i < pvlen; i++) {
+	                var p0 = Number(json['pageview'][i]['/']);
+	                var p1 = Number(json['pageview'][i]['/product/']);
+	                var p2 = Number(json['pageview'][i]['/about/']);
+	                var p3 = Number(json['pageview'][i]['/news/']);
+	                var p4 = Number(json['pageview'][i]['/recruit/']);
+	                var p5 = Number(json['pageview'][i]['/contact/']);
+	                var p6 = Number(json['pageview'][i]['ga:pageviews']);
+	                var total = p1 + p2 + p3 + p4 + p5;
+	                totalarr.push(total);
+	                totalpv += total;
+	
+	                animateMax = [p1, p2, p3, p4, p5];
+	                var max = Math.max.apply(null, animateMax);
+	                var pv1 = p1 / max * 65;
+	                var pv2 = p2 / max * 65;
+	                var pv3 = p3 / max * 65;
+	                var pv4 = p4 / max * 65;
+	                var pv5 = p5 / max * 65;
+	
+	                animatePv['circle'].push([pv1, pv2, pv3, pv4, pv5]);
+	
+	                animatePv['view'].push([p0, p1, p2, p3, p4, p5, p6]);
+	            }
+	
+	            var day1 = totalarr[0] / totalpv * 360;
+	            var day2 = totalarr[1] / totalpv * 360 + day1;
+	            var day3 = totalarr[3] / totalpv * 360 + day2;
+	            var day4 = totalarr[4] / totalpv * 360 + day3;
+	            var day5 = totalarr[5] / totalpv * 360 + day4;
+	
+	            animatePv['line'].push(0, day1, day2, day3, day4, day5);
+	
+	            for (var i = 1; i < 7; i++) {
+	                var today = new Date();
+	                var month = today.getMonth() + 1;
+	                var day = today.getDate() - i;
+	                var format = month + '.' + day;
+	                animatePv['day'].push(format);
+	            };
+	
+	            uaRatio = [];
+	            browsRatio = [0];
+	            browsName = [];
+	
+	            var len = json['brows'].length;
+	            var total = 0;
+	            for (var i = 0; i < len; i++) {
+	                var num = Number(json['brows'][i][1]);
+	                total += num;
+	            };
+	
+	            var bnum = 0;
+	            for (var i = 0; i < len; i++) {
+	                bnum += Number(json['brows'][i][1]) / total * 360;
+	                var name = json['brows'][i][0];
+	                if (name === 'Internet Explorer') {
+	                    name = 'IE';
+	                }
+	                browsName.push(name);
+	                browsRatio.push(bnum);
+	            };
+	
+	            var bnum = 0;
+	            osRatio = [0];
+	            osName = [];
+	            var len = json['os'].length;
+	            var total = 0;
+	            for (var i = 0; i < len; i++) {
+	                var num = Number(json['os'][i][1]);
+	                total += num;
+	            };
+	
+	            for (var i = len - 1; i >= 0; i--) {
+	                bnum += Number(json['os'][i][1]) / total * 360;
+	                var name = json['os'][i][0];
+	                osName.push(name);
+	                osRatio.push(bnum);
+	            };
+	
+	            var bnum = 0;
+	            dvRatio = [0];
+	            dvName = [];
+	            var len = json['device'].length;
+	            var total = 0;
+	            for (var i = 0; i < len; i++) {
+	                var num = Number(json['device'][i][1]);
+	                total += num;
+	            };
+	            for (var i = 0; i < len; i++) {
+	                bnum += Number(json['device'][i][1]) / total * 360;
+	                var name = json['device'][i][0];
+	                dvName.push(name);
+	                dvRatio.push(bnum);
+	            };
+	            dvRatio.push(360);
+	
+	            uaRatio.push(dvRatio);
+	            uaRatio.push(osRatio);
+	            uaRatio.push(browsRatio);
+	
+	            onetime = true;
+	            ajax = true;
+	
+	            uaID = 0;
+	
+	            for (var n = 0; n < dvName.length; n++) {
+	                var html = '<li data-hv="' + uaID + '">' + dvName[n] + '</li>';
+	                $dnames.append(html);
+	                uaID++;
+	            };
+	
+	            for (var n = 0; n < osName.length; n++) {
+	                var html = '<li data-hv="' + uaID + '">' + osName[n] + '</li>';
+	                $onames.append(html);
+	                uaID++;
+	            };
+	
+	            for (var n = 0; n < browsName.length; n++) {
+	                var html = '<li data-hv="' + uaID + '">' + browsName[n] + '</li>';
+	                $bnames.append(html);
+	                uaID++;
+	            };
+	
+	            initRectXY();
+	            pvRatioAnimateFlag = true;
+	        }
+	    });
+	}
+	
+	function initRectXY() {
+	    pvRatioXY = [];
+	    for (var i = 0; i < animatePv['line'].length; i++) {
+	        var x = (graphRadius - 50 * ratio) * Math.cos(animatePv['line'][i] * RAD) + canvasWidthHalf;
+	        var y = (graphRadius - 50 * ratio) * Math.sin(animatePv['line'][i] * RAD) + canvasHeightHalf;
+	        var x1 = Math.floor(x - 5 * ratio);
+	        var y1 = Math.floor(y - 5 * ratio);
+	        var px = (graphRadius - 50 * ratio) * Math.cos((animatePv['line'][i] - 90) * RAD) + canvasWidthHalf + canvasXY.x;
+	        var py = (graphRadius - 50 * ratio) * Math.sin((animatePv['line'][i] - 90) * RAD) + canvasHeightHalf + canvasXY.y;
+	        pvRatioXY.push([x, y, x1, y1, px, py]);
+	    }
+	}
+	
+	module.exports = {
+	    setSize2D: setSize2D,
+	    loadPageview: loadPageview
+	};
 
 /***/ },
 /* 20 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<div class=\"home\">\n    <div class=\"main-center\"></div>\n    <div class=\"main-right\"></div>\n    <div class=\"main-graph\">\n        <div class=\"hide\">\n            <div class=\"shadowbg\"></div>\n            <div class=\"shadow\"></div>\n            <div class=\"backgroundWrap\">\n                <canvas class=\"background\"></canvas>\n            </div>\n        </div>\n        <div class=\"graphicmask table\">\n            <div class=\"cell\">\n                <svg viewBox=\"0 0 681 681\">\n                    <path class=\"st0\" style=\"stroke-dashoffset: 2136.623046875px; stroke-dasharray: 2136.623046875px;\" d=\"M340.5,0.5c187.8,0,340,152.2,340,340s-152.2,340-340,340s-340-152.2-340-340S152.7,0.5,340.5,0.5\"/>\n                </svg>\n            </div>\n        </div>\n        <canvas class=\"graphic circle\"></canvas>\n    </div>\n</div>\n";
+
+/***/ },
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(21)
-	__vue_script__ = __webpack_require__(29)
+	__webpack_require__(22)
+	__vue_script__ = __webpack_require__(30)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/posts/index.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(34)
+	__vue_template__ = __webpack_require__(35)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -15180,13 +15562,13 @@
 	})()}
 
 /***/ },
-/* 21 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(22);
+	var content = __webpack_require__(23);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(17)(content, {});
@@ -15206,7 +15588,7 @@
 	}
 
 /***/ },
-/* 22 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(4)();
@@ -15214,49 +15596,49 @@
 	
 	
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n.design {\n  height: 100%; }\n\n.main {\n  width: 800px;\n  position: absolute;\n  height: 800px;\n  left: 380px;\n  top: 0;\n  z-index: 9997;\n  background: url(" + __webpack_require__(23) + ") fixed;\n  background-size: 30px; }\n  .main .scroll {\n    padding: 0;\n    overflow-x: hidden;\n    height: 100%;\n    width: 100%; }\n  .main .scrollinside {\n    padding: 45px 0 0 40px;\n    width: 100%;\n    max-width: 910px;\n    margin: 0 auto; }\n  .main .banner {\n    margin-bottom: 60px; }\n    .main .banner img {\n      width: 100%;\n      height: auto; }\n  .main .insidetitle {\n    padding: 0 50px;\n    margin-bottom: 60px; }\n    .main .insidetitle .number {\n      width: 200px;\n      height: 270px;\n      line-height: 1;\n      text-align: left;\n      font-size: 140px;\n      color: #fff;\n      font-weight: 700;\n      text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); }\n    .main .insidetitle .pagetitle {\n      font-size: 50px;\n      letter-spacing: 5px;\n      text-transform: uppercase;\n      font-weight: 700;\n      line-height: 1;\n      color: #fff;\n      text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); }\n    .main .insidetitle h2 {\n      color: #fff;\n      letter-spacing: 3px;\n      font-size: 22px;\n      padding: 8px 0 0;\n      text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5); }\n  .main .entrybtn {\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    display: block;\n    width: 300px;\n    font-size: 16px;\n    font-weight: 700;\n    text-align: center;\n    z-index: 3;\n    line-height: 66px;\n    letter-spacing: 2px;\n    color: #fff;\n    text-transform: uppercase; }\n\n.mCSB_inside > .mCSB_container {\n  margin-right: 0; }\n\n.mCSB_scrollTools {\n  left: 0;\n  margin: 40px 0;\n  width: 30px;\n  box-sizing: border-box; }\n  .mCSB_scrollTools .mCSB_draggerContainer {\n    background: url(" + __webpack_require__(24) + ");\n    background-size: 30px; }\n  .mCSB_scrollTools .mCSB_draggerRail {\n    width: 1px;\n    border-radius: 0;\n    background: rgba(255, 255, 255, 0.02); }\n  .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {\n    background: none !important;\n    width: 11px;\n    border-radius: 0;\n    position: relative;\n    box-sizing: border-box; }\n  .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar:after {\n    content: '';\n    width: 16px;\n    height: 16px;\n    background-size: 16px;\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    display: block;\n    z-index: 1;\n    margin: -8px 0 0 -8px; }\n  .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {\n    border: 1px solid rgba(255, 255, 255, 0.2); }\n  .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar:after {\n    background-image: url(" + __webpack_require__(25) + "); }\n\n.entry {\n  position: relative;\n  padding: 50px;\n  margin-bottom: 90px; }\n  .entry .header {\n    position: relative;\n    z-index: 2; }\n    .entry .header a {\n      display: block; }\n    .entry .header h2 {\n      font-size: 20px;\n      letter-spacing: 1px;\n      padding-bottom: 50px;\n      line-height: 24px;\n      color: #fff; }\n  .entry .scroll {\n    position: relative;\n    height: 180px;\n    margin-bottom: 50px;\n    z-index: 2; }\n    .entry .scroll .entrydetail {\n      font-size: 12px;\n      letter-spacing: 1px;\n      padding: 0 0 0 60px;\n      color: rgba(255, 255, 255, 0.8); }\n      .entry .scroll .entrydetail img {\n        width: 100%;\n        height: auto; }\n      .entry .scroll .entrydetail a {\n        color: #fff; }\n  .entry .bg {\n    width: 100%;\n    height: 400px;\n    position: absolute;\n    top: 0;\n    left: 0; }\n  .entry .bgL {\n    width: 135px;\n    background-repeat: no-repeat;\n    background-size: 135px; }\n  .entry .bgM {\n    background-repeat: repeat-x;\n    background-size: 2px; }\n  .entry .bgR {\n    width: 400px;\n    background-repeat: no-repeat;\n    background-size: 400px; }\n  .entry .mCSB_scrollTools .mCSB_draggerContainer {\n    background: none; }\n  .entry .mCSB_scrollTools {\n    margin: 0; }\n  .entry .bgL {\n    background-image: url(" + __webpack_require__(26) + "); }\n  .entry .bgM {\n    background-image: url(" + __webpack_require__(27) + "); }\n  .entry .bgR {\n    background-image: url(" + __webpack_require__(28) + "); }\n  .entry .entrybtn {\n    display: block;\n    font-size: 16px;\n    font-weight: bold;\n    text-align: center;\n    width: 300px;\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    z-index: 3;\n    line-height: 66px;\n    letter-spacing: 2px; }\n", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n.design {\n  height: 100%; }\n\n.main {\n  width: 800px;\n  position: absolute;\n  height: 800px;\n  left: 380px;\n  top: 0;\n  z-index: 9997;\n  background: url(" + __webpack_require__(24) + ") fixed;\n  background-size: 30px; }\n  .main .scroll {\n    padding: 0;\n    overflow-x: hidden;\n    height: 100%;\n    width: 100%; }\n  .main .scrollinside {\n    padding: 45px 0 0 40px;\n    width: 100%;\n    max-width: 910px;\n    margin: 0 auto; }\n  .main .banner {\n    margin-bottom: 60px; }\n    .main .banner img {\n      width: 100%;\n      height: auto; }\n  .main .insidetitle {\n    padding: 0 50px;\n    margin-bottom: 60px; }\n    .main .insidetitle .number {\n      width: 200px;\n      height: 270px;\n      line-height: 1;\n      text-align: left;\n      font-size: 140px;\n      color: #fff;\n      font-weight: 700;\n      text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); }\n    .main .insidetitle .pagetitle {\n      font-size: 50px;\n      letter-spacing: 5px;\n      text-transform: uppercase;\n      font-weight: 700;\n      line-height: 1;\n      color: #fff;\n      text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); }\n    .main .insidetitle h2 {\n      color: #fff;\n      letter-spacing: 3px;\n      font-size: 22px;\n      padding: 8px 0 0;\n      text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5); }\n  .main .entrybtn {\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    display: block;\n    width: 300px;\n    font-size: 16px;\n    font-weight: 700;\n    text-align: center;\n    z-index: 3;\n    line-height: 66px;\n    letter-spacing: 2px;\n    color: #fff;\n    text-transform: uppercase; }\n\n.mCSB_inside > .mCSB_container {\n  margin-right: 0; }\n\n.mCSB_scrollTools {\n  left: 0;\n  margin: 40px 0;\n  width: 30px;\n  box-sizing: border-box; }\n  .mCSB_scrollTools .mCSB_draggerContainer {\n    background: url(" + __webpack_require__(25) + ");\n    background-size: 30px; }\n  .mCSB_scrollTools .mCSB_draggerRail {\n    width: 1px;\n    border-radius: 0;\n    background: rgba(255, 255, 255, 0.02); }\n  .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {\n    background: none !important;\n    width: 11px;\n    border-radius: 0;\n    position: relative;\n    box-sizing: border-box; }\n  .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar:after {\n    content: '';\n    width: 16px;\n    height: 16px;\n    background-size: 16px;\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    display: block;\n    z-index: 1;\n    margin: -8px 0 0 -8px; }\n  .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {\n    border: 1px solid rgba(255, 255, 255, 0.2); }\n  .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar:after {\n    background-image: url(" + __webpack_require__(26) + "); }\n\n.entry {\n  position: relative;\n  padding: 50px;\n  margin-bottom: 90px; }\n  .entry .header {\n    position: relative;\n    z-index: 2; }\n    .entry .header a {\n      display: block; }\n    .entry .header h2 {\n      font-size: 20px;\n      letter-spacing: 1px;\n      padding-bottom: 50px;\n      line-height: 24px;\n      color: #fff; }\n  .entry .scroll {\n    position: relative;\n    height: 180px;\n    margin-bottom: 50px;\n    z-index: 2; }\n    .entry .scroll .entrydetail {\n      font-size: 12px;\n      letter-spacing: 1px;\n      padding: 0 0 0 60px;\n      color: rgba(255, 255, 255, 0.8); }\n      .entry .scroll .entrydetail img {\n        width: 100%;\n        height: auto; }\n      .entry .scroll .entrydetail a {\n        color: #fff; }\n  .entry .bg {\n    width: 100%;\n    height: 400px;\n    position: absolute;\n    top: 0;\n    left: 0; }\n  .entry .bgL {\n    width: 135px;\n    background-repeat: no-repeat;\n    background-size: 135px; }\n  .entry .bgM {\n    background-repeat: repeat-x;\n    background-size: 2px; }\n  .entry .bgR {\n    width: 400px;\n    background-repeat: no-repeat;\n    background-size: 400px; }\n  .entry .mCSB_scrollTools .mCSB_draggerContainer {\n    background: none; }\n  .entry .mCSB_scrollTools {\n    margin: 0; }\n  .entry .bgL {\n    background-image: url(" + __webpack_require__(27) + "); }\n  .entry .bgM {\n    background-image: url(" + __webpack_require__(28) + "); }\n  .entry .bgR {\n    background-image: url(" + __webpack_require__(29) + "); }\n  .entry .entrybtn {\n    display: block;\n    font-size: 16px;\n    font-weight: bold;\n    text-align: center;\n    width: 300px;\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    z-index: 3;\n    line-height: 66px;\n    letter-spacing: 2px; }\n", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 23 */
+/* 24 */
 /***/ function(module, exports) {
 
 	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8AQMAAAAAMksxAAAABlBMVEXf9f/f9f/awkaRAAAAAnRSTlMAM8lDrC4AAAASSURBVChTY2AYBaiAGYMxUgEACD0AB0gqVlUAAAAASUVORK5CYII="
 
 /***/ },
-/* 24 */
+/* 25 */
 /***/ function(module, exports) {
 
 	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAADAAgMAAAAlwuiDAAAACVBMVEUAAAAlLTA0QEXI1dkHAAAAA3RSTlMA/01hPwSBAAAAM0lEQVR4Ae3PBwHAIBQFsdfF0gcmv0m2CnpxEG1f6bJ065+SmST+/Pnz58+f/9n48+ffAGRaENArHzACAAAAAElFTkSuQmCC"
 
 /***/ },
-/* 25 */
+/* 26 */
 /***/ function(module, exports) {
 
 	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAABmUlEQVR4AaXUNXrcUBSG4T88WIV6wwKCWoShVVrDKqwyqFTuPOadqA2DVmGqwpwvA+fRXCvX8mj0avAyHvnQIqTDcw743n0OeE6HkJZGwRSbfMbnM5tMqQg1nvCDIj+IqcmPSd4xinfecXCTfYbeEhFwnVr3uU5A1E0Z2ufm/zM/xJCyJA+WeI/hEHcU1J2sXRVgB0NKfZgcY1jVKVjFEA8X76cl7ciMNIqfNg02LeG9RpRNeEsS7ezYLGtELGVHqy1CbOOUwxwJn7pPwqxysk0NxYb9XNExPMD1QMewYukb4rn9DORglrw5OQgs9bk4sp9X5CAhL5GDK5Z6pOzyXJKDj+R9lINLlvpj9AY++RuoPIWTFnFu1EWsvI1FB2mehM/dJ2FOObzJDpJzlJc0IhYZ+EJbEltlL1MW+rYsGo19naerBZSnbkhLMeyMHNIaJwXV9yz6l84fVP1h/Q0RAde40H2uERDxujCs2yhSRpEyJT9qxPykyE9iairCNJt8wecrW0xrFLS4xzovOORn9zns/lrvprTk8Q9+jbd6nllwOAAAAABJRU5ErkJggg=="
 
 /***/ },
-/* 26 */
+/* 27 */
 /***/ function(module, exports) {
 
 	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAMgCAYAAADSiIzKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NjlEQTEwODg1QzkxMTFFNjkzQkRBMjZGMTA2MTQ5RTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NjlEQTEwODk1QzkxMTFFNjkzQkRBMjZGMTA2MTQ5RTgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2OURBMTA4NjVDOTExMUU2OTNCREEyNkYxMDYxNDlFOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo2OURBMTA4NzVDOTExMUU2OTNCREEyNkYxMDYxNDlFOCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PgP+1UAAAAy+SURBVHja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"
 
 /***/ },
-/* 27 */
+/* 28 */
 /***/ function(module, exports) {
 
 	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAMgCAYAAAAEJMPDAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RkE3M0EyNTE1QzkxMTFFNjkzQkRBMjZGMTA2MTQ5RTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RkE3M0EyNTI1QzkxMTFFNjkzQkRBMjZGMTA2MTQ5RTgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2OURBMTA4QTVDOTExMUU2OTNCREEyNkYxMDYxNDlFOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpGQTczQTI1MDVDOTExMUU2OTNCREEyNkYxMDYxNDlFOCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PvAxATgAAABcSURBVHja7NuxCcAwDARAyXgt7T+WbHchIYX7e1Bz8I36z6rqeGTEKx+Y+/KuAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8A9nrHC5b8ju9kIAQCwBBgAYXQv2QPwq4wAAAABJRU5ErkJggg=="
 
 /***/ },
-/* 28 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "/dist/static/bg-recruit-R.d9632ab.png";
 
 /***/ },
-/* 29 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15265,15 +15647,15 @@
 	    value: true
 	});
 	
-	var _post = __webpack_require__(30);
+	var _post = __webpack_require__(31);
 	
 	var _post2 = _interopRequireDefault(_post);
 	
-	var _marked = __webpack_require__(33);
+	var _marked = __webpack_require__(34);
 	
 	var _marked2 = _interopRequireDefault(_marked);
 	
-	var _bluebird = __webpack_require__(31);
+	var _bluebird = __webpack_require__(32);
 	
 	var _bluebird2 = _interopRequireDefault(_bluebird);
 	
@@ -15368,13 +15750,13 @@
 	};
 
 /***/ },
-/* 30 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
 	'use strict';
 	
-	var _bluebird = __webpack_require__(31);
+	var _bluebird = __webpack_require__(32);
 	
 	var _bluebird2 = _interopRequireDefault(_bluebird);
 	
@@ -15393,7 +15775,7 @@
 	};
 
 /***/ },
-/* 31 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process, global, setImmediate) {/* @preserve
@@ -20872,10 +21254,10 @@
 	
 	},{"./es5":13}]},{},[4])(4)
 	});                    ;if (typeof window !== 'undefined' && window !== null) {                               window.P = window.Promise;                                                     } else if (typeof self !== 'undefined' && self !== null) {                             self.P = self.Promise;                                                         }
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10), (function() { return this; }()), __webpack_require__(32).setImmediate))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10), (function() { return this; }()), __webpack_require__(33).setImmediate))
 
 /***/ },
-/* 32 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(setImmediate, clearImmediate) {var nextTick = __webpack_require__(10).nextTick;
@@ -20954,10 +21336,10 @@
 	exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate : function(id) {
 	  delete immediateIds[id];
 	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(32).setImmediate, __webpack_require__(32).clearImmediate))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33).setImmediate, __webpack_require__(33).clearImmediate))
 
 /***/ },
-/* 33 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -22250,22 +22632,22 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 34 */
+/* 35 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"design\">\n    <div class=\"scroll\">\n        <div class=\"mCustomScrollbar\" data-mcs-theme=\"dark\">\n            <section>\n                <div class=\"scrollinside\">\n                    <div class=\"banner\" v-if='post && post.src'>\n                        <img :src=\"post.src\">\n                    </div>\n\n                    <div class=\"insidetitle table\" v-if='post && post.id'>\n                        <div class=\"cell number\">\n                            <div>0{{post.id}}</div>\n                        </div>\n                        <div class=\"cell\">\n                            <h1 class=\"pagetitle\">{{post.title}}</h1>\n                            <h2>{{post.sub_title}}</h2>\n                        </div>\n                    </div>\n\n                    <div class=\"entry\" v-for='item in data'>\n                        <div class=\"bg table\">\n                            <div class=\"bgL cell\"></div>\n                            <div class=\"bgM cell\"></div>\n                            <div class=\"bgR cell\"></div>\n                        </div>\n\n                        <div class=\"header\">\n                            <a v-link=\"'/' + type + '/' + item.id\">\n                                <h2>{{item.title}}</h2>\n                            </a>\n                        </div>\n\n                        <div class=\"scroll\">\n                            <div class=\"mCustomScrollbar\" data-mcs-theme=\"dark\">\n                                <div class=\"table entrydetail\">\n                                    <div v-html=\"item.content | marked\"></div>\n                                </div>\n                            </div>\n                        </div>\n\n                        <div class=\"footer\">\n                            <a class=\"entrybtn\" v-link=\"'/' + type + '/' + item.id\">readme more</a>\n                        </div>\n                    </div>\n                </div>\n            </section>\n        </div>\n    </div>\n</div>\n";
 
 /***/ },
-/* 35 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(36)
+	__vue_script__ = __webpack_require__(37)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/posts/detail.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(37)
+	__vue_template__ = __webpack_require__(38)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -22284,7 +22666,7 @@
 	})()}
 
 /***/ },
-/* 36 */
+/* 37 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -22297,23 +22679,23 @@
 	};
 
 /***/ },
-/* 37 */
+/* 38 */
 /***/ function(module, exports) {
 
 	module.exports = "\n\n";
 
 /***/ },
-/* 38 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(39)
-	__vue_script__ = __webpack_require__(41)
+	__webpack_require__(40)
+	__vue_script__ = __webpack_require__(42)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/about/index.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(42)
+	__vue_template__ = __webpack_require__(43)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -22332,13 +22714,13 @@
 	})()}
 
 /***/ },
-/* 39 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(40);
+	var content = __webpack_require__(41);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(17)(content, {});
@@ -22358,7 +22740,7 @@
 	}
 
 /***/ },
-/* 40 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(4)();
@@ -22366,13 +22748,13 @@
 	
 	
 	// module
-	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 41 */
+/* 42 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -22388,23 +22770,23 @@
 	};
 
 /***/ },
-/* 42 */
+/* 43 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"about\">\n</div>\n";
+	module.exports = "\n<div class=\"about\">\n    开发中...\n</div>\n";
 
 /***/ },
-/* 43 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(44)
-	__vue_script__ = __webpack_require__(46)
+	__webpack_require__(45)
+	__vue_script__ = __webpack_require__(47)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/contact/index.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(47)
+	__vue_template__ = __webpack_require__(48)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -22423,13 +22805,13 @@
 	})()}
 
 /***/ },
-/* 44 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(45);
+	var content = __webpack_require__(46);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(17)(content, {});
@@ -22449,7 +22831,7 @@
 	}
 
 /***/ },
-/* 45 */
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(4)();
@@ -22457,13 +22839,13 @@
 	
 	
 	// module
-	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 46 */
+/* 47 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -22479,22 +22861,22 @@
 	};
 
 /***/ },
-/* 47 */
+/* 48 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"contact\">\n</div>\n";
+	module.exports = "\n<div class=\"contact\">\n    开发中...\n</div>\n";
 
 /***/ },
-/* 48 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(49)
+	__vue_script__ = __webpack_require__(50)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/404.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(50)
+	__vue_template__ = __webpack_require__(51)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -22513,7 +22895,7 @@
 	})()}
 
 /***/ },
-/* 49 */
+/* 50 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -22526,13 +22908,13 @@
 	};
 
 /***/ },
-/* 50 */
+/* 51 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div>\n    <p>页面找不到啦~</p>\n</div>\n";
 
 /***/ },
-/* 51 */
+/* 52 */
 /***/ function(module, exports) {
 
 	
@@ -22574,17 +22956,17 @@
 	};
 
 /***/ },
-/* 52 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(53)
-	__vue_script__ = __webpack_require__(56)
+	__webpack_require__(54)
+	__vue_script__ = __webpack_require__(57)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/App.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(95)
+	__vue_template__ = __webpack_require__(96)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -22603,13 +22985,13 @@
 	})()}
 
 /***/ },
-/* 53 */
+/* 54 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(54);
+	var content = __webpack_require__(55);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(17)(content, {});
@@ -22629,7 +23011,7 @@
 	}
 
 /***/ },
-/* 54 */
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(4)();
@@ -22637,19 +23019,19 @@
 	
 	
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n.expand {\n  position: absolute;\n  top: 50%;\n  left: -85px;\n  opacity: 0.5;\n  margin-top: -432.5px; }\n  .expand.leftside {\n    -webkit-transform: translate(200px, 0);\n    transform: translate(200px, 0); }\n  .expand.rightside {\n    right: -85px;\n    left: auto;\n    -webkit-transform: translate(-240px, 0);\n    transform: translate(-240px, 0); }\n  .expand svg {\n    height: 865px;\n    width: 62px;\n    vertical-align: bottom; }\n  .expand .st0 {\n    stroke: rgba(255, 255, 255, 0.7); }\n  .expand .st2 {\n    fill: none;\n    stroke-linecap: round;\n    stroke-miterlimit: 10; }\n  .expand .st0, .expand .st1 {\n    fill: none;\n    stroke-miterlimit: 10; }\n  .expand .st1, .expand .st2 {\n    stroke: rgba(255, 255, 255, 0.5); }\n  .expand.on path {\n    -webkit-transition: all 0.8s;\n    transition: all 0.8s;\n    stroke-dashoffset: 0 !important; }\n\n.hideexpand .expand.leftside, .hideexpand .expand.rightside {\n  -webkit-transition: all .5s ease-in-out;\n  transition: all .5s ease-in-out;\n  -webkit-transform: translate(0, 0);\n  transform: translate(0, 0); }\n\n.hideborder .expand {\n  opacity: 0.5; }\n\n.vr {\n  position: absolute;\n  top: 0;\n  height: 100%;\n  width: 3px;\n  overflow: hidden; }\n  .vr.left {\n    left: 0; }\n  .vr.right {\n    right: 2px; }\n  .vr > div {\n    position: relative;\n    width: 1px;\n    height: 100%; }\n  .vr .b {\n    position: absolute;\n    top: 0;\n    width: 1px;\n    height: 100%;\n    margin-left: 1px;\n    background: rgba(255, 255, 255, 0.5);\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s;\n    -webkit-transform: translate3d(0, -100%, 0);\n    transform: translate3d(0, -100%, 0); }\n  .vr .d {\n    position: absolute;\n    height: 3px;\n    width: 3px;\n    border-radius: 3px;\n    opacity: 0;\n    background: rgba(255, 255, 255, 0.5);\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s; }\n  .vr .top {\n    top: 0; }\n  .vr .bottom {\n    bottom: 0; }\n\n.hr {\n  position: absolute;\n  width: 100%;\n  height: 3px;\n  overflow: hidden; }\n  .hr > div {\n    width: 100%;\n    position: relative;\n    height: 1px; }\n  .hr .b {\n    display: block;\n    position: absolute;\n    top: 1px;\n    height: 1px;\n    width: 100%;\n    background: rgba(255, 255, 255, 0.5);\n    -webkit-transform: translate3d(-100%, 0, 0);\n    transform: translate3d(-100%, 0, 0);\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s; }\n  .hr .d {\n    display: block;\n    position: absolute;\n    height: 3px;\n    width: 3px;\n    background: rgba(255, 255, 255, 0.5);\n    opacity: 0;\n    border-radius: 3px;\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s; }\n  .hr .left {\n    left: 0; }\n  .hr .right {\n    right: 0; }\n  .hr.dark span {\n    background: white; }\n\n.showborder .vr > div .b, .showborder .hr > div .b {\n  -webkit-transform: translate3d(0, 0, 0);\n  transform: translate3d(0, 0, 0); }\n\n.showborder .vr > div .d, .showborder .hr > div .d {\n  opacity: 1; }\n\n.hideborder .hr > div .b {\n  -webkit-transform: translate3d(100%, 0, 0);\n  transform: translate3d(100%, 0, 0); }\n\n.hideborder .hr > div .d {\n  opacity: 0; }\n\n.hideborder .vr > div .b {\n  -webkit-transform: translate3d(0, 100%, 0);\n  transform: translate3d(0, 100%, 0); }\n\n.hideborder .vr > div .d {\n  opacity: 0; }\n\n.loadmask {\n  position: absolute;\n  top: 0;\n  left: 380px;\n  z-index: 10;\n  display: block; }\n  .loadmask .body {\n    position: relative;\n    width: 100%;\n    height: 100%; }\n    .loadmask .body .dotted {\n      position: absolute;\n      top: -200px;\n      left: 0;\n      width: 100%;\n      height: 200px;\n      background-image: url(" + __webpack_require__(55) + ");\n      background-size: 30px;\n      background-attachment: fixed;\n      -webkit-transition: all 1.5s;\n      transition: all 1.5s; }\n\n.fetch .loadmask .body .dotted {\n  top: 120%; }\n", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n.expand {\n  position: absolute;\n  top: 50%;\n  left: -85px;\n  opacity: 0.5;\n  margin-top: -432.5px; }\n  .expand.leftside {\n    -webkit-transform: translate(200px, 0);\n    transform: translate(200px, 0); }\n  .expand.rightside {\n    right: -85px;\n    left: auto;\n    -webkit-transform: translate(-240px, 0);\n    transform: translate(-240px, 0); }\n  .expand svg {\n    height: 865px;\n    width: 62px;\n    vertical-align: bottom; }\n  .expand .st0 {\n    stroke: rgba(255, 255, 255, 0.7); }\n  .expand .st2 {\n    fill: none;\n    stroke-linecap: round;\n    stroke-miterlimit: 10; }\n  .expand .st0, .expand .st1 {\n    fill: none;\n    stroke-miterlimit: 10; }\n  .expand .st1, .expand .st2 {\n    stroke: rgba(255, 255, 255, 0.5); }\n  .expand.on path {\n    -webkit-transition: all 0.8s;\n    transition: all 0.8s;\n    stroke-dashoffset: 0 !important; }\n\n.hideexpand .expand.leftside, .hideexpand .expand.rightside {\n  -webkit-transition: all .5s ease-in-out;\n  transition: all .5s ease-in-out;\n  -webkit-transform: translate(0, 0);\n  transform: translate(0, 0); }\n\n.hideborder .expand {\n  opacity: 0.5; }\n\n.vr {\n  position: absolute;\n  top: 0;\n  height: 100%;\n  width: 3px;\n  overflow: hidden; }\n  .vr.left {\n    left: 0; }\n  .vr.right {\n    right: 2px; }\n  .vr > div {\n    position: relative;\n    width: 1px;\n    height: 100%; }\n  .vr .b {\n    position: absolute;\n    top: 0;\n    width: 1px;\n    height: 100%;\n    margin-left: 1px;\n    background: rgba(255, 255, 255, 0.5);\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s;\n    -webkit-transform: translate3d(0, -100%, 0);\n    transform: translate3d(0, -100%, 0); }\n  .vr .d {\n    position: absolute;\n    height: 3px;\n    width: 3px;\n    border-radius: 3px;\n    opacity: 0;\n    background: rgba(255, 255, 255, 0.5);\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s; }\n  .vr .top {\n    top: 0; }\n  .vr .bottom {\n    bottom: 0; }\n\n.hr {\n  position: absolute;\n  width: 100%;\n  height: 3px;\n  overflow: hidden; }\n  .hr > div {\n    width: 100%;\n    position: relative;\n    height: 1px; }\n  .hr .b {\n    display: block;\n    position: absolute;\n    top: 1px;\n    height: 1px;\n    width: 100%;\n    background: rgba(255, 255, 255, 0.5);\n    -webkit-transform: translate3d(-100%, 0, 0);\n    transform: translate3d(-100%, 0, 0);\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s; }\n  .hr .d {\n    display: block;\n    position: absolute;\n    height: 3px;\n    width: 3px;\n    background: rgba(255, 255, 255, 0.5);\n    opacity: 0;\n    border-radius: 3px;\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s; }\n  .hr .left {\n    left: 0; }\n  .hr .right {\n    right: 0; }\n  .hr.dark span {\n    background: white; }\n\n.showborder .vr > div .b, .showborder .hr > div .b {\n  -webkit-transform: translate3d(0, 0, 0);\n  transform: translate3d(0, 0, 0); }\n\n.showborder .vr > div .d, .showborder .hr > div .d {\n  opacity: 1; }\n\n.hideborder .hr > div .b {\n  -webkit-transform: translate3d(100%, 0, 0);\n  transform: translate3d(100%, 0, 0); }\n\n.hideborder .hr > div .d {\n  opacity: 0; }\n\n.hideborder .vr > div .b {\n  -webkit-transform: translate3d(0, 100%, 0);\n  transform: translate3d(0, 100%, 0); }\n\n.hideborder .vr > div .d {\n  opacity: 0; }\n\n.loadmask {\n  position: absolute;\n  top: 0;\n  left: 380px;\n  z-index: 10;\n  display: block; }\n  .loadmask .body {\n    position: relative;\n    width: 100%;\n    height: 100%; }\n    .loadmask .body .dotted {\n      position: absolute;\n      top: -200px;\n      left: 0;\n      width: 100%;\n      height: 200px;\n      background-image: url(" + __webpack_require__(56) + ");\n      background-size: 30px;\n      background-attachment: fixed;\n      -webkit-transition: all 1.5s;\n      transition: all 1.5s; }\n\n.fetch .loadmask .body .dotted {\n  top: 120%; }\n", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 55 */
+/* 56 */
 /***/ function(module, exports) {
 
 	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8AQMAAAAAMksxAAAABlBMVEXf9f/f9f/awkaRAAAAAnRSTlMAgJsrThgAAAASSURBVChTY2AYBaiAGYMxUgEACD0AB0gqVlUAAAAASUVORK5CYII="
 
 /***/ },
-/* 56 */
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22658,15 +23040,15 @@
 	    value: true
 	});
 	
-	var _sideLeft = __webpack_require__(57);
+	var _sideLeft = __webpack_require__(58);
 	
 	var _sideLeft2 = _interopRequireDefault(_sideLeft);
 	
-	var _sideRight = __webpack_require__(60);
+	var _sideRight = __webpack_require__(61);
 	
 	var _sideRight2 = _interopRequireDefault(_sideRight);
 	
-	var _index = __webpack_require__(63);
+	var _index = __webpack_require__(64);
 	
 	var _index2 = _interopRequireDefault(_index);
 	
@@ -22773,16 +23155,16 @@
 	};
 
 /***/ },
-/* 57 */
+/* 58 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(58)
+	__vue_script__ = __webpack_require__(59)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/ui/side-left.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(59)
+	__vue_template__ = __webpack_require__(60)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -22801,7 +23183,7 @@
 	})()}
 
 /***/ },
-/* 58 */
+/* 59 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -22816,22 +23198,22 @@
 	};
 
 /***/ },
-/* 59 */
+/* 60 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<aside class=\"expand leftside\" :class=\"{on: on}\">\n    <svg viewBox=\"0 0 62.5 866\">\n        <path class=\"st0\" d=\"M17.5,0.5H36v141l-10,10v560l10,10v144H17.5\" style=\"transition-delay: 0s; -webkit-transition-delay: 0s; stroke-dashoffset: 910.284301757813px; stroke-dasharray: 910.284301757813px;\"></path>\n        <path class=\"st1\" d=\"M43,723v142.5h19.5\" style=\"transition-delay: 0.05s; -webkit-transition-delay: 0.05s; stroke-dashoffset: 162px; stroke-dasharray: 162px;\"></path>\n        <path class=\"st1\" d=\"M43,143V0.5h19.5\" style=\"transition-delay: 0.1s; -webkit-transition-delay: 0.1s; stroke-dashoffset: 162px; stroke-dasharray: 162px;\"></path>\n        <path class=\"st1\" d=\"M25.7,231.7C16,269.8,9,308.8,4.9,348.8c-2.9,28-4.4,56.4-4.4,85.2c0,28.8,1.5,57.3,4.4,85.4\n            C9,559.3,16,598.3,25.7,636.3\" style=\"transition-delay: 0.15s; -webkit-transition-delay: 0.15s; stroke-dashoffset: 408.787078857422px; stroke-dasharray: 408.787078857422px;\"></path>\n        <line class=\"st2\" x1=\"15.5\" y1=\"275.5\" x2=\"25.5\" y2=\"275.5\"></line>\n        <line class=\"st2\" x1=\"15.5\" y1=\"591.5\" x2=\"25.5\" y2=\"591.5\"></line>\n        <path class=\"st1\" d=\"M25,802.5c0-8.4,0-20,0-20h4v20H25z\" style=\"transition-delay: 0.2s; -webkit-transition-delay: 0.2s; stroke-dashoffset: 48px; stroke-dasharray: 48px;\"></path>\n        <path class=\"st1\" d=\"M25,853.5c0-8.7,0-40,0-40h4v40H25z\" style=\"transition-delay: 0.25s; -webkit-transition-delay: 0.25s; stroke-dashoffset: 88px; stroke-dasharray: 88px;\"></path>\n    </svg>\n</aside>\n";
 
 /***/ },
-/* 60 */
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(61)
+	__vue_script__ = __webpack_require__(62)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/ui/side-right.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(62)
+	__vue_template__ = __webpack_require__(63)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -22850,7 +23232,7 @@
 	})()}
 
 /***/ },
-/* 61 */
+/* 62 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -22865,23 +23247,23 @@
 	};
 
 /***/ },
-/* 62 */
+/* 63 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<aside class=\"expand rightside\" :class=\"{on: on}\">\n    <svg viewBox=\"0 0 62.5 866\">\n        <path class=\"st0\" d=\"M45.5,0.5H27v141l10,10v560l-10,10v144h18.5\" style=\"transition-delay: 0.3s; -webkit-transition-delay: 0.3s; stroke-dashoffset: 910.284301757813px; stroke-dasharray: 910.284301757813px;\"></path>\n        <path class=\"st1\" d=\"M20,723v142.5H0.5\" style=\"transition-delay: 0.35s; -webkit-transition-delay: 0.35s; stroke-dashoffset: 162px; stroke-dasharray: 162px;\"></path>\n        <path class=\"st1\" d=\"M20,143V0.5H0.5\" style=\"transition-delay: 0.4s; -webkit-transition-delay: 0.4s; stroke-dashoffset: 162px; stroke-dasharray: 162px;\"></path>\n        <path class=\"st1\" d=\"M37.3,231.7c9.6,38,16.6,77.1,20.8,117.1c2.9,28,4.4,56.4,4.4,85.2c0,28.8-1.5,57.3-4.4,85.4 C54,559.3,47,598.3,37.3,636.3\" style=\"transition-delay: 0.45s; -webkit-transition-delay: 0.45s; stroke-dashoffset: 408.780639648438px; stroke-dasharray: 408.780639648438px;\"></path>\n        <line class=\"st2\" x1=\"47.5\" y1=\"275.5\" x2=\"37.5\" y2=\"275.5\"></line>\n        <line class=\"st2\" x1=\"47.5\" y1=\"591.5\" x2=\"37.5\" y2=\"591.5\"></line>\n        <path class=\"st1\" d=\"M38,802.5c0-8.4,0-20,0-20h-4v20H38z\" style=\"transition-delay: 0.5s; -webkit-transition-delay: 0.5s; stroke-dashoffset: 48px; stroke-dasharray: 48px;\"></path>\n        <path class=\"st1\" d=\"M38,853.5c0-8.7,0-40,0-40h-4v40H38z\" style=\"transition-delay: 0.55s; -webkit-transition-delay: 0.55s; stroke-dashoffset: 88px; stroke-dasharray: 88px;\"></path>\n    </svg>\n</aside>\n";
 
 /***/ },
-/* 63 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(64)
-	__vue_script__ = __webpack_require__(66)
+	__webpack_require__(65)
+	__vue_script__ = __webpack_require__(67)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/sidebar/index.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(94)
+	__vue_template__ = __webpack_require__(95)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -22900,13 +23282,13 @@
 	})()}
 
 /***/ },
-/* 64 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(65);
+	var content = __webpack_require__(66);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(17)(content, {});
@@ -22926,7 +23308,7 @@
 	}
 
 /***/ },
-/* 65 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(4)();
@@ -22940,7 +23322,7 @@
 
 
 /***/ },
-/* 66 */
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22949,31 +23331,31 @@
 	    value: true
 	});
 	
-	var _weather = __webpack_require__(67);
+	var _weather = __webpack_require__(68);
 	
 	var _weather2 = _interopRequireDefault(_weather);
 	
-	var _subtitle = __webpack_require__(68);
+	var _subtitle = __webpack_require__(69);
 	
 	var _subtitle2 = _interopRequireDefault(_subtitle);
 	
-	var _logo = __webpack_require__(74);
+	var _logo = __webpack_require__(75);
 	
 	var _logo2 = _interopRequireDefault(_logo);
 	
-	var _nav = __webpack_require__(77);
+	var _nav = __webpack_require__(78);
 	
 	var _nav2 = _interopRequireDefault(_nav);
 	
-	var _chart = __webpack_require__(82);
+	var _chart = __webpack_require__(83);
 	
 	var _chart2 = _interopRequireDefault(_chart);
 	
-	var _window = __webpack_require__(88);
+	var _window = __webpack_require__(89);
 	
 	var _window2 = _interopRequireDefault(_window);
 	
-	var _sns = __webpack_require__(91);
+	var _sns = __webpack_require__(92);
 	
 	var _sns2 = _interopRequireDefault(_sns);
 	
@@ -22991,7 +23373,7 @@
 	};
 
 /***/ },
-/* 67 */
+/* 68 */
 /***/ function(module, exports) {
 
 	
@@ -23009,16 +23391,16 @@
 	};
 
 /***/ },
-/* 68 */
+/* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(69)
+	__vue_script__ = __webpack_require__(70)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/sidebar/subtitle.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(73)
+	__vue_template__ = __webpack_require__(74)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -23037,7 +23419,7 @@
 	})()}
 
 /***/ },
-/* 69 */
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23046,7 +23428,7 @@
 	    value: true
 	});
 	
-	var _hr = __webpack_require__(70);
+	var _hr = __webpack_require__(71);
 	
 	var _hr2 = _interopRequireDefault(_hr);
 	
@@ -23059,16 +23441,16 @@
 	};
 
 /***/ },
-/* 70 */
+/* 71 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(71)
+	__vue_script__ = __webpack_require__(72)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/ui/hr.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(72)
+	__vue_template__ = __webpack_require__(73)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -23087,7 +23469,7 @@
 	})()}
 
 /***/ },
-/* 71 */
+/* 72 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -23113,28 +23495,28 @@
 	};
 
 /***/ },
-/* 72 */
+/* 73 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"hr\" :class=\"{dark: dark}\">\n    <div>\n        <span class=\"b\"></span>\n        <span v-if=\"left\" class=\"d left\"></span>\n        <span v-if=\"right\" class=\"d right\"></span>\n    </div>\n</div>\n";
 
 /***/ },
-/* 73 */
+/* 74 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"side-subtitle\">\n    <hr></hr>\n    <h2>\n        <p class=\"hide first\">Welcome and enjoy!</p>\n        <p class=\"hide second\">web design and front-end posts.</p>\n    </h2>\n    <hr></hr>\n</div>\n";
 
 /***/ },
-/* 74 */
+/* 75 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(75)
+	__vue_script__ = __webpack_require__(76)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/sidebar/logo.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(76)
+	__vue_template__ = __webpack_require__(77)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -23153,7 +23535,7 @@
 	})()}
 
 /***/ },
-/* 75 */
+/* 76 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23162,11 +23544,11 @@
 	    value: true
 	});
 	
-	var _hr = __webpack_require__(70);
+	var _hr = __webpack_require__(71);
 	
 	var _hr2 = _interopRequireDefault(_hr);
 	
-	var _weather = __webpack_require__(67);
+	var _weather = __webpack_require__(68);
 	
 	var _weather2 = _interopRequireDefault(_weather);
 	
@@ -23227,22 +23609,22 @@
 	};
 
 /***/ },
-/* 76 */
+/* 77 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"side-logo\">\n    <div class=\"logo-left\">\n        <a class=\"logo link hide\" v-link=\"'/'\">\n            <svg viewBox=\"0 0 500 500\">\n                <polyline points=\"413.9,104.2 139.7,104.2 139.7,123.9 322.8,123.9 115.8,354.3 139.7,354.3 352.6,123.9 413.9,124 413.9,137.4 213.1,354.3 219,354.3 377.3,354.3 377.3,413.9 103.1,413.9 103.1,433.6 395.6,433.6 395.9,354.5 413.9,354.3 413.9,453.5 84.8,453.5 84.8,394.5 359,394.5 359,374.4 176.5,374.4 171.2,374.4 383.8,143.6 359,143.6 145.7,374.4 84.6,374.4 84.6,361.5 286.5,143.6 121.7,143.6 121.7,84.3 395.6,84.3 395.5,64.3 103.1,64.3 103.1,143.6 84.5,143.6 84.5,44.9 413.9,44.9 \"/>\n            </svg>\n        </a>\n        <hr :dark=\"true\" :right=\"false\"></hr>\n    </div>\n    <div class=\"logo-right\">\n        <div class=\"format hide\">Xiamen, Fujian, China</div>\n        <div class=\"temp\">\n            <div class=\"cell\">\n                <hr></hr>\n                <p class=\"today hide\">{{now | date \"yyyy.MM.dd\"}}</p>\n                <hr></hr>\n            </div>\n            <div class=\"cell\">\n                <hr :dark=\"true\" :left=\"false\"></hr>\n                <p class=\"weather icon hide\"></p>\n                <hr :dark=\"true\" :left=\"false\"></hr>\n            </div>\n        </div>\n        <div class=\"tenji\">\n            <div class=\"tenjibody\">\n                <svg viewBox=\"0 0 171 23\" class=\"hidechild\"> <circle class=\"st0\" cx=\"1.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"17.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"25.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"33.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"41.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"49.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"57.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"65.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"73.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"105.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"129.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"145.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"153.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"161.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"1.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"9.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"17.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"33.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"57.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"65.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"73.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"81.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"105.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"121.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"129.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"137.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"145.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"153.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"161.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"169.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"1.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"9.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"17.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"25.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"33.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"41.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"73.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"81.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"97.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"113.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"137.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"9.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"81.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"89.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"97.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"113.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"121.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"137.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"169.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"25.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"41.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"49.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"89.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"97.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"113.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"49.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"57.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"65.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"89.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"105.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"121.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"129.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"145.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"153.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"161.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"169.5\" cy=\"1.5\" r=\"1.5\"/> </svg>\n            </div>\n        </div>\n        <hr></hr>\n    </div>\n</div>\n";
 
 /***/ },
-/* 77 */
+/* 78 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(78)
+	__vue_script__ = __webpack_require__(79)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/sidebar/nav.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(81)
+	__vue_template__ = __webpack_require__(82)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -23261,7 +23643,7 @@
 	})()}
 
 /***/ },
-/* 78 */
+/* 79 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23270,11 +23652,11 @@
 	    value: true
 	});
 	
-	var _hr = __webpack_require__(70);
+	var _hr = __webpack_require__(71);
 	
 	var _hr2 = _interopRequireDefault(_hr);
 	
-	var _TweenMax = __webpack_require__(79);
+	var _TweenMax = __webpack_require__(80);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -23335,7 +23717,7 @@
 	};
 
 /***/ },
-/* 79 */
+/* 80 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global) {/*!
@@ -29327,7 +29709,7 @@
 							if (global) {
 								_globals[n] = _exports[n] = cl; //provides a way to avoid global namespace pollution. By default, the main classes like TweenLite, Power1, Strong, etc. are added to window unless a GreenSockGlobals is defined. So if you want to have things added to a custom object instead, just do something like window.GreenSockGlobals = {} before loading any GreenSock files. You can even set up an alias like window.GreenSockGlobals = windows.gs = {} so that you can access everything like gs.TweenLite. Also remember that ALL classes are added to the window.com.greensock object (in their respective packages, like com.greensock.easing.Power1, com.greensock.TweenLite, etc.)
 								hasModule = (typeof(module) !== "undefined" && module.exports);
-								if (!hasModule && "function" === "function" && __webpack_require__(80)){ //AMD
+								if (!hasModule && "function" === "function" && __webpack_require__(81)){ //AMD
 									!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() { return cl; }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 								} else if (hasModule){ //node
 									if (ns === moduleName) {
@@ -31141,7 +31523,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 80 */
+/* 81 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
@@ -31149,22 +31531,22 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ },
-/* 81 */
+/* 82 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<nav class=\"side-nav\">\n    <div class=\"title table\">\n        <div class=\"cell\">\n            <hr></hr>\n            <h3 class=\"emp hide\">MENU</h3>\n            <hr></hr>\n        </div>\n        <div class=\"cell\">\n            <hr :dark=\"true\" :left=\"false\"></hr>\n            <span class=\"emp hide\"></span>\n            <hr :dark=\"true\" :left=\"false\"></hr>\n        </div>\n    </div>\n    <ul>\n        <a v-for=\"(i, menu) in menus\" v-link=\"menu.url\" class=\"link btn\">\n            <span class=\"hide num\">0{{i + 1}}</span>\n            <span class=\"hide name\">{{menu.name | uppercase}}</span>\n            <span class=\"hide lefttop\"></span>\n            <span class=\"hide rightbottom\"></span>\n            <div class=\"light hidechild\"><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span></div>\n        </a>\n    </ul>\n</nav>\n";
 
 /***/ },
-/* 82 */
+/* 83 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(83)
+	__vue_script__ = __webpack_require__(84)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/sidebar/chart.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(87)
+	__vue_template__ = __webpack_require__(88)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -31183,7 +31565,7 @@
 	})()}
 
 /***/ },
-/* 83 */
+/* 84 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31192,11 +31574,11 @@
 	    value: true
 	});
 	
-	var _hr = __webpack_require__(70);
+	var _hr = __webpack_require__(71);
 	
 	var _hr2 = _interopRequireDefault(_hr);
 	
-	var _vr = __webpack_require__(84);
+	var _vr = __webpack_require__(85);
 	
 	var _vr2 = _interopRequireDefault(_vr);
 	
@@ -31210,16 +31592,16 @@
 	};
 
 /***/ },
-/* 84 */
+/* 85 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(85)
+	__vue_script__ = __webpack_require__(86)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/ui/vr.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(86)
+	__vue_template__ = __webpack_require__(87)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -31238,7 +31620,7 @@
 	})()}
 
 /***/ },
-/* 85 */
+/* 86 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -31265,28 +31647,28 @@
 	};
 
 /***/ },
-/* 86 */
+/* 87 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"vr {{class}}\">\n    <div>\n        <span class=\"b\"></span>\n        <span v-if=\"top\" class=\"d top\"></span>\n        <span v-if=\"bottom\" class=\"d bottom\"></span>\n    </div>\n</div>\n";
 
 /***/ },
-/* 87 */
+/* 88 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"side-chart\">\n    <div class=\"chart\">\n        <vr :class=\"'left'\"></vr>\n        <div class=\"graphics table\">\n            <div class=\"cell\">\n                <svg class=\"svg-graphics\" viewBox=\"0 0 188.3 44.2\">\n                    <g class=\"line hide\">\n                        <line x1=\"0.5\" y1=\"39.2\" x2=\"187.8\" y2=\"39.2\"/>\n                    </g>\n                    <g>\n                        <path class=\"hide pathline st1\" d=\"M187.8,39.2c0,0-6.6-6.6-18.6-14.1c-12-7.5-21.8-15-37.1-5.3S112.4,29.1,88,30.7s-25.6,8.6-45.3,8.5H0.5\"/>\n                        <path class=\"hide pathline st0\" d=\"M0.5,39.2c0,0,43.8-4,65.9-7.3c31-4.5,33.3-31.5,50.4-31.5c19,0,23.7,24.9,43.1,24.9 c19.4,0,21.3,13.8,27.8,13.8\"/>\n                    </g>\n                    <g class=\"base hide\">\n                        <line x1=\"187.8\" y1=\"34.2\" x2=\"187.8\" y2=\"44.2\"/>\n                        <line x1=\"0.5\" y1=\"34.2\" x2=\"0.5\" y2=\"44.2\"/>\n                        <line x1=\"94.5\" y1=\"36.2\" x2=\"94.5\" y2=\"42.2\"/>\n                    </g>\n                </svg>\n                <span class=\"hide unit tx-l\">0:00</span>\n                <span class=\"hide unit tx-c\">12:00</span>\n                <span class=\"hide unit tx-r\">24:00</span>\n            </div>\n            <div class=\"cell hide\">\n                <div class=\"chart-line\">\n                    <p>CLOCK IN</p>\n                    <div class=\"line st0\"><span></span></div>\n                </div>\n                <div class=\"chart-line\">\n                    <p>CLOCK OUT</p>\n                    <div class=\"line st1\"><span></span></div>\n                </div>\n            </div>\n        </div>\n        <vr :class=\"'right'\"></vr>\n    </div>\n    <div class=\"chart\">\n        <div class=\"malefemale\">\n            <span class=\"hide unit tx-l\">MALE</span>\n            <span class=\"hide unit tx-r\">FEMALE</span>\n            <div class=\"hide bar cf\">\n                <span class=\"m\"></span>\n                <span class=\"f\"></span>\n            </div>\n        </div>\n        <div class=\"tenjibody\">\n            <svg viewBox=\"0 0 299.5 23\" class=\"hidechild\"> <circle class=\"st0\" cx=\"1.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"9.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"17.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"25.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"33.6\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"73.6\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"81.6\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"97.7\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"113.7\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"137.7\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"129.7\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"145.8\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"153.8\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"161.8\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"169.8\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"201.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"209.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"225.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"241.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"266\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"298\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"1.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"17.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"25.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"33.6\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"41.6\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"73.6\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"49.6\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"57.6\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"65.6\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"105.7\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"129.7\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"145.8\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"153.8\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"161.8\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"169.8\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"177.8\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"185.8\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"193.8\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"201.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"257.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"274\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"290\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"233.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"282\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"1.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"9.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"17.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"33.6\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"73.6\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"81.6\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"137.7\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"57.6\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"65.6\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"105.7\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"121.7\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"129.7\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"145.8\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"161.8\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"185.8\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"193.8\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"201.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"209.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"249.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"257.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"274\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"290\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"233.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"41.6\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"49.6\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"57.6\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"65.6\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"89.7\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"105.7\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"121.7\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"177.8\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"185.8\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"193.8\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"217.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"249.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"257.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"274\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"290\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"233.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"282\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"9.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"81.6\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"97.7\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"113.7\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"137.7\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"89.7\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"121.7\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"209.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"217.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"249.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"225.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"241.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"266\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"298\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"25.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"41.6\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"97.7\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"113.7\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"49.6\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"89.7\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"153.8\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"169.8\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"177.8\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"217.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"225.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"241.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"266\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"282\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"298\" cy=\"21.5\" r=\"1.5\"/></svg>\n        </div>\n    </div>\n    <div class=\"chart\">\n        <vr :class=\"'left'\"></vr>\n        <vr :class=\"'right'\"></vr>\n        <div class=\"graphics age table\">\n            <div class=\"cell\">\n                <h4 class=\"hide\">AGE</h4>\n                <div class=\"svg-graphics\">\n                    <svg viewBox=\"0 0 279.6 37.5\">\n                        <g class=\"hide line\">\n                            <line x1=\"0.5\" y1=\"32.5\" x2=\"279.1\" y2=\"32.5\"/>\n                        </g>\n                        <path class=\"pathline hide st0\" d=\"M0,31.7c0,0,17.6-5.9,26.2-6.8C65.4,20.7,64.4,0.6,86.1,0.6c19.6,0,25,19,63.9,25.3c36,5.8,59.9,5.8,59.9,5.8 c26.3,0,69.7,0,69.7,0\"/>\n                        <g class=\"hide base\">\n                            <line x1=\"279.1\" y1=\"27.5\" x2=\"279.1\" y2=\"37.5\"/>\n                            <line x1=\"0.5\" y1=\"27.5\" x2=\"0.5\" y2=\"37.5\"/>\n                            <line x1=\"139\" y1=\"29.5\" x2=\"139\" y2=\"35.5\"/>\n                        </g>\n                    </svg>\n                </div>\n                <span class=\"hide unit tx-l\">20</span>\n                <span class=\"hide unit tx-r\">50</span>\n            </div>\n        </div><!-- .svgGraphics -->\n    </div>\n</div>\n";
 
 /***/ },
-/* 88 */
+/* 89 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(89)
+	__vue_script__ = __webpack_require__(90)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/sidebar/window.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(90)
+	__vue_template__ = __webpack_require__(91)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -31305,7 +31687,7 @@
 	})()}
 
 /***/ },
-/* 89 */
+/* 90 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31314,7 +31696,7 @@
 	    value: true
 	});
 	
-	var _hr = __webpack_require__(70);
+	var _hr = __webpack_require__(71);
 	
 	var _hr2 = _interopRequireDefault(_hr);
 	
@@ -31327,22 +31709,22 @@
 	};
 
 /***/ },
-/* 90 */
+/* 91 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"site-window\">\n    <hr></hr>\n    <div class=\"body\">\n        <span class=\"hide high\">WIDTH</span>\n        <span class=\"hide wW\">000</span>\n        <span class=\"hide high\">HEIGHT</span>\n        <span class=\"hide wH\">000</span>\n    </div>\n    <hr></hr>\n</div>\n";
 
 /***/ },
-/* 91 */
+/* 92 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(92)
+	__vue_script__ = __webpack_require__(93)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/sidebar/sns.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(93)
+	__vue_template__ = __webpack_require__(94)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -31361,7 +31743,7 @@
 	})()}
 
 /***/ },
-/* 92 */
+/* 93 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31370,7 +31752,7 @@
 	    value: true
 	});
 	
-	var _hr = __webpack_require__(70);
+	var _hr = __webpack_require__(71);
 	
 	var _hr2 = _interopRequireDefault(_hr);
 	
@@ -31383,19 +31765,19 @@
 	};
 
 /***/ },
-/* 93 */
+/* 94 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"site-sns\">\n    <div class=\"body\">\n        <a href=\"https://github.com/zhuowenli\" target=\"_blank\" class=\"btn link on\">\n            <span class=\"hide name\">github</span>\n            <span class=\"lefttop\"></span>\n            <span class=\"rightbottom\"></span>\n        </a>\n        <a href=\"https://www.zhihu.com/people/zhuowenli\" target=\"_blank\" class=\"btn link\">\n            <span class=\"hide name\">zhihu</span>\n            <span class=\"lefttop\"></span>\n            <span class=\"rightbottom\"></span>\n        </a>\n        <a href=\"https://github.com/zhuowenli/zhuowenli.github.io\" target=\"_blank\" class=\"btn link\">\n            <span class=\"hide name\">fork me</span>\n            <span class=\"lefttop\"></span>\n            <span class=\"rightbottom\"></span>\n        </a>\n    </div>\n    <hr></hr>\n</div>\n";
 
 /***/ },
-/* 94 */
+/* 95 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<section class=\"main-sidebar\">\n    <side-subtitle></side-subtitle>\n    <side-logo></side-logo>\n    <side-nav></side-nav>\n    <side-chart></side-chart>\n    <side-window></side-window>\n    <side-sns></side-sns>\n</section>\n";
 
 /***/ },
-/* 95 */
+/* 96 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"container\">\n    <section-sidebar\n        :hide=\"hide\">\n    </section-sidebar>\n\n    <section class=\"main-content\">\n        <div class=\"loadmask\"><div class=\"body\"><div class=\"dotted\"></div></div></div>\n        <div class=\"main hide\">\n            <router-view\n                transition=\"app\"\n                transition-mode=\"out-in\"\n                keep-alive>\n            </router-view>\n        </div>\n    </section>\n\n    <side-left :on=\"sideon\"></side-left>\n    <side-right :on=\"sideon\"></side-right>\n</div>\n";
