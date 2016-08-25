@@ -3,9 +3,9 @@
         <hr></hr>
         <div class="body">
             <span class="hide high">WIDTH</span>
-            <span class="hide wW">000</span>
+            <span class="hide wW">{{width}}</span>
             <span class="hide high">HEIGHT</span>
-            <span class="hide wH">000</span>
+            <span class="hide wH">{{height}}</span>
         </div>
         <hr></hr>
     </div>
@@ -17,6 +17,10 @@
     export default {
         components: {
             Hr,
+        },
+        props: {
+            width: Number,
+            height: Number,
         }
     }
 </script>

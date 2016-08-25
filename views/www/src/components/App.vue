@@ -1,7 +1,8 @@
 <template>
     <div class="container">
         <section-sidebar
-            :hide="hide">
+            :hide="hide"
+            :app="app">
         </section-sidebar>
 
         <section class="main-content">
@@ -24,8 +25,20 @@
     import SideLeft from './ui/side-left.vue';
     import SideRight from './ui/side-right.vue';
     import SectionSidebar from './sidebar/index.vue';
+    import store from '../vuex/store';
+    import {getApp} from '../vuex/getters.js';
+    import {saveApp} from '../vuex/actions.js';
 
     export default {
+        store: store,
+        vuex: {
+            getters: {
+                app: getApp
+            },
+            actions: {
+                saveApp,
+            }
+        },
         components: {
             SideLeft,
             SideRight,
@@ -38,22 +51,9 @@
                 fetch: true
             }
         },
-        ready() {
-            const that = this;
-
-            const $html = $('html');
-            const $container = $('.container');
-
-            setTimeout(function() {
-                $html.addClass('loaded');
-            }, 100);
-
-            setTimeout(function() {
-                that.$set('sideon', true);
-                loadedAnimate();
-            }, 1000);
-
-            function loadedAnimate() {
+        methods: {
+            loadedAnimate() {
+                const $container = $('.container');
 
                 $container.addClass('hideprogress');
 
@@ -86,42 +86,61 @@
                         });
                     }, 1100);
                 }, 1000);
-            }
+            },
+            setSize(){
+                const app = Object.assign({}, this.app);
+                const $container = $('.container');
+                const $loadmask = $('.loadmask');
+                const $left = $('.main-sidebar');
+                const $right = $('.main-right');
+                const $center = $('.main-center');
+                const $graph  = $('.main-graph');
+                const $main = $('.main');
 
-            const $wW = $('.wW');
-            const $wH = $('.wH');
-            const $loadmask = $('.loadmask');
-            const $sidebar = $('.main-sidebar');
-            const $right = $('.main-right');
-            const $main = $('.main');
-
-            setSize();
-
-            function setSize(){
-                const windowWidth = window.innerWidth;
-                const windowHeight = window.innerHeight;
-                const leftWidth = $sidebar.width() + 80;
-                const rightWidth = $right.width() + 80;
-                const subpageWidth = $container.width() - leftWidth;
-
-                $wW.text(windowWidth);
-                $wH.text(windowHeight);
+                app.windowWidth = window.innerWidth;
+                app.windowHeight = window.innerHeight;
+                app.leftWidth = $left.width() + 80;
+                app.rightWidth = $right.width() + 80;
+                app.mainWidth = $container.width() - app.leftWidth;
+                app.centerWidth = $container.width() - app.leftWidth - app.rightWidth - 20;
 
                 $loadmask.css({
-                    'width': subpageWidth,
-                    'height': windowHeight
+                    'width': app.mainWidth,
+                    'height': app.windowHeight
                 });
                 $main.css({
-                    'width': subpageWidth,
-                    'height': windowHeight
+                    'width': app.mainWidth,
+                    'height': app.windowHeight
                 });
-            }
 
-            $(window).resize(function() {
+                this.saveApp(app);
+            },
+            init() {
+                const that = this;
+                const $html = $('html');
+
                 setTimeout(function() {
-                    setSize();
-                }, 500);
-            });
+                    $html.addClass('loaded');
+                }, 100);
+
+                setTimeout(function() {
+                    that.$set('sideon', true);
+                    that.loadedAnimate();
+                }, 1000);
+
+                $(window).resize(function() {
+                    setTimeout(function() {
+                        that.setSize();
+                    }, 500);
+                });
+
+                that.setSize();
+            }
+        },
+        ready() {
+            const that = this;
+
+            this.init();
         },
     }
 </script>

@@ -24,10 +24,20 @@
 
 <script>
     import {setSize2D, loadPageview} from "./init2d.js";
+    import {getApp} from '../../vuex/getters.js';
+    import {saveApp} from '../../vuex/actions.js';
 
     const $html = $('html');
 
     export default {
+        vuex: {
+            getters: {
+                app: getApp
+            },
+            actions: {
+                saveApp,
+            }
+        },
         components: {
         },
         data () {
@@ -46,30 +56,18 @@
             }
         },
         methods: {
-            setSize() {
-                const $container = $('.container');
-                const $left   = $('.main-sidebar');
-                const $right  = $('.main-right');
+            init() {
+                const that = this;
+                const app = Object.assign({}, this.app);
                 const $center = $('.main-center');
                 const $graph  = $('.main-graph');
 
-                const leftWidth = $left.width() + 80;
-                const rightWidth = $right.width() + 80;
-
-                const centerWidth = $container.width() - leftWidth - rightWidth - 20;
-
-                $center.css({width: centerWidth});
-                $graph.css({width: centerWidth});
-
-                this.centerWidth = centerWidth;
-            },
-            init() {
-
-                this.setSize();
+                $center.css({width: app.centerWidth});
+                $graph.css({width: app.centerWidth});
 
                 setTimeout(function() {
                     // loadPageview();
-                    setSize2D(this.centerWidth);
+                    setSize2D(that);
                 }, 1000);
 
                 setTimeout(function() {

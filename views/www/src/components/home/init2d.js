@@ -5,67 +5,32 @@
  */
 'use strict';
 
-const RAD = Math.PI/180;
-const PI2 = Math.PI*2;
+import {getApp} from '../../vuex/getters.js';
+import {saveApp} from '../../vuex/actions.js';
+
 const $graphic = $('.graphic');
 
-let animatePv,
-    animatePvName,
-    animateBarTo,
-    animatePvTo,
-    animatePvFrom;
+function setSize2D(e){
+    const app = Object.assign({}, getApp(e));
 
-let canvasWidth = 0;
-let canvasHeight = 0;
-let canvasWidthHalf = 0;
-let canvasHeightHalf = 0;
-let ratio = 1;
-let graphR  = 330;
-let graphRO = 330;
-let wHOver = false;
-let wWOver = false;
-let graphRadius = 0
-
-let canvasCR,
-    ctxCR,
-    pointStatus,
-    pointPosition,
-    textPosition,
-    MemoriPosition,
-    MemoriFlag,
-    MemoriInnerPosition,
-    MemoriOuterDegree,
-    MemoriOuterR1,
-    MemoriOuterR2,
-    MemoriOuterR3,
-    barChartRadius,
-    barChartPar,
-    pvRatio,
-    pvRatioAnimateFlag,
-    gaishuuPosition;
-
-
-function setSize2D(centerWidth){
-    const windowHeight = window.innerHeight;
-
-    if(centerWidth > graphRO * 2 + 20){
+    if(app.centerWidth > graphRO * 2 + 20){
         wWOver = false;
     }else{
         wWOver = true;
     }
 
-    if(windowHeight > 840){
+    if(app.windowHeight > 840){
         wHOver = false;
     }else{
         wHOver = true;
     }
 
     if(wHOver && wWOver){
-        graphR  = (centerWidth - 60)/2;
+        graphR  = (app.centerWidth - 60)/2;
     }else if(!wHOver && wWOver){
-        graphR  = (centerWidth - 60)/2;
+        graphR  = (app.centerWidth - 60)/2;
     }else if(wHOver && !wWOver){
-        graphR  = (windowHeight - 160)/2;
+        graphR  = (app.windowHeight - 160)/2;
     }else{
         graphR  = graphRO;
     }

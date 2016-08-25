@@ -18,7 +18,7 @@
                 </div>
                 <div class="cell">
                     <hr :dark="true" :left="false"></hr>
-                    <p class="weather icon hide"></p>
+                    <p class="weather icon hide" :class='{on: on}'>{{weather}}</p>
                     <hr :dark="true" :left="false"></hr>
                 </div>
             </div>
@@ -42,51 +42,61 @@
         },
         data() {
             return {
-                now: Date.now()
+                now: Date.now(),
+                weather: 9,
+                on: false
             }
         },
         ready() {
-            const $weather = $(".weather");
+            this.init();
+        },
+        methods: {
+            load() {
+                return WeatherModels.getWeather(this);
+            },
+            init() {
+                const that = this;
 
-            WeatherModels.getWeather(this).then(res => {
-                const data = res.data;
-                const id = data.weather[0].id;
-                const e = Math.floor(id / 100);
+                this.load().then(res => {
+                    const {data} = res;
+                    const {id} = data.weather[0];
+                    const e = Math.floor(id / 100);
 
-                let Weather = null;
+                    let weather = that.getWeather(e, id);
 
+                    that.$set('weather', weather);
+                    that.$set('on', true);
+                }, res => {
+                    that.$set('on', true);
+                });
+            },
+            getWeather(e, id) {
                 if (e === 2) {
-                    Weather = 8;
+                    return 8;
                 } else if(e === 3) {
-                    Weather = 4;
+                    return 4;
                 } else if(e === 5) {
                     if (id === 500) {
-                        Weather = 4;
+                        return 4;
                     } else {
-                        Weather = 5;
+                        return 5;
                     }
                 } else if(e === 6) {
-                    Weather = 6;
+                    return 6;
                 } else if(e === 7) {
-                    Weather = 3;
+                    return 3;
                 } else if(e === 8) {
                     if (id === 800) {
-                        Weather = 1;
+                        return 1;
                     } else if (id === 801) {
-                        Weather = 2;
+                        return 2;
                     } else {
-                        Weather = 7;
+                        return 7;
                     }
                 } else {
-                    Weather = 9;
+                    return 9;
                 }
-
-                $weather.text(Weather);
-                $weather.addClass("on");
-            }, res => {
-                $weather.text(9);
-                $weather.addClass("on");
-            });
+            }
         }
     }
 </script>

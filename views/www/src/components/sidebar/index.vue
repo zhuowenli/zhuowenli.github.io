@@ -4,7 +4,10 @@
         <side-logo></side-logo>
         <side-nav></side-nav>
         <side-chart></side-chart>
-        <side-window></side-window>
+        <side-window
+            :width="app.windowWidth"
+            :height="app.windowHeight">
+        </side-window>
         <side-sns></side-sns>
     </section>
 </template>
@@ -26,6 +29,9 @@
             SideChart,
             SideWindow,
             SideSns
+        },
+        props: {
+            app: Object
         }
     }
 </script>
