@@ -15,8 +15,8 @@ Vue.use(Vuex);
 const state = {
     // TODO: 放置初始状态
     app: {
-        RAD: Math.PI/180,
-        PI2: Math.PI*2,
+        RAD: Math.PI / 180,
+        PI2: Math.PI * 2,
         windowWidth: 0,
         windowHeight: 0,
         windowWidthHalf: 0,
@@ -27,18 +27,28 @@ const state = {
         canvasHeight: 0,
         canvasWidthHalf: 0,
         canvasHeightHalf: 0,
-        mouseStatus: {x:0,y:0,cx:0,cy:0,px:0,py:0,deg:0},
+        mouseStatus: {
+            x: 0,
+            y: 0,
+            cx: 0,
+            cy: 0,
+            px: 0,
+            py: 0,
+            deg: 0
+        },
         ratio: 1,
         graphR: 0,
         loadFlag: false,
         mousedeg: 0,
-        colorType: 'BASIC',
         canPlayFlag: true,
         richFlag: false,
         onetime: false,
         ajax: false,
         pvHover: 0,
-        canvasXY: {x:0,y:0},
+        canvasXY: {
+            x: 0,
+            y: 0
+        },
         easeing: Power4.easeInOut,
         pvRatioAnimateFlag: false,
         circleAnimateFlag: false,

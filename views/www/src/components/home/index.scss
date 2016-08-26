@@ -37,5 +37,12 @@
     top: 0;
     left: 0%;
     width: 660px;
+    height: 100%;
     overflow: hidden;
+    .graphic{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 3;
+    }
 }

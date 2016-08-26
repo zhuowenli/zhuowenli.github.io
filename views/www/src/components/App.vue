@@ -99,10 +99,38 @@
 
                 app.windowWidth = window.innerWidth;
                 app.windowHeight = window.innerHeight;
+                app.windowWidthHalf = app.windowWidth / 2;
+                app.windowHeightHalf = app.windowHeight / 2;
+
+                app.canvasRatio = 940;
+                app.canvasWidth = app.canvasRatio * app.ratio;
+                app.canvasHeight = app.canvasRatio * app.ratio;
+                app.canvasWidthHalf = app.canvasWidth / 2;
+                app.canvasHeightHalf = app.canvasHeight / 2;
+
                 app.leftWidth = $left.width() + 80;
-                app.rightWidth = $right.width() + 80;
+                app.rightWidth = $right.width() + 80 || 80;
                 app.mainWidth = $container.width() - app.leftWidth;
                 app.centerWidth = $container.width() - app.leftWidth - app.rightWidth - 20;
+                app.centerWidthHalf = app.centerWidth / 2;
+
+                app.graphR  = 330;
+                app.graphRO = 330;
+
+                app.wWOver = app.centerWidth > (app.graphRO * 2 + 20) ? false : true;
+                app.wHOver = app.windowHeight > 840 ? false : true;
+
+                if(app.wHOver && app.wWOver){
+                    app.graphR  = (app.centerWidth - 60) / 2;
+                }else if(!app.wHOver && app.wWOver){
+                    app.graphR  = (app.centerWidth - 60) / 2;
+                }else if(app.wHOver && !app.wWOver){
+                    app.graphR  = (app.windowHeight - 160) / 2;
+                }else{
+                    app.graphR  = app.graphRO;
+                }
+
+                app.graphRadius = app.graphR * app.ratio;
 
                 $loadmask.css({
                     'width': app.mainWidth,
@@ -113,6 +141,14 @@
                     'height': app.windowHeight
                 });
 
+                const ua = navigator.userAgent;
+
+                if ((ua.indexOf('iPhone') > 0 && ua.indexOf('iPad') == -1)
+                  || ua.indexOf('iPod') > 0
+                  || ua.indexOf('Android') > 0) {
+                    app.spFlag = true;
+                }
+
                 this.saveApp(app);
             },
             init() {
@@ -121,6 +157,7 @@
 
                 setTimeout(function() {
                     $html.addClass('loaded');
+                    that.setSize();
                 }, 100);
 
                 setTimeout(function() {
@@ -133,8 +170,6 @@
                         that.setSize();
                     }, 500);
                 });
-
-                that.setSize();
             }
         },
         ready() {
