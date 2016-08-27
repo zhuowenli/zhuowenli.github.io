@@ -1,6 +1,15 @@
 <template>
     <div class="home">
-        <div class="main-center"></div>
+        <div class="main-center" :style='{width: app.centerWidth + "px"}'>
+            <div class="background">
+                <video id='SceneVideo' loop="loop" controls='controls'>
+                    <source src="http://zhuowenli.qiniudn.com/video/scene.mp4" type="video/mp4" />
+                </video>
+                <canvas id="SceneCanvas" :style='{
+                        marginLeft: (app.centerWidth - 960) / 2 + "px",
+                        marginTop: (app.centerHeight - 960) / 2 + "px"}'></canvas>
+            </div>
+        </div>
         <div class="main-right"></div>
         <div class="main-graph">
             <canvas class="graphic circle"></canvas>
@@ -9,8 +18,6 @@
 </template>
 
 <script>
-    import {setSize2D} from "./init2d.js";
-    import {render2D} from "./draw2d.js";
     import {getApp} from '../../vuex/getters.js';
     import {saveApp} from '../../vuex/actions.js';
 
@@ -49,22 +56,35 @@
         methods: {
             init() {
                 const that = this;
-                const app = Object.assign({}, this.app);
                 const $center = $('.main-center');
                 const $graph  = $('.main-graph');
-
-                $center.css({width: app.centerWidth});
-                $graph.css({width: app.centerWidth});
-
-                setTimeout(function() {
-                    setSize2D(app).then(() => {
-                        render2D(app);
-                    });
-                }, 1000);
 
                 setTimeout(function() {
                     $('.main').css('opacity', 1);
                 }, 2000);
+
+                this.video(this.app);
+            },
+            video(app) {
+                const $video = document.getElementById('SceneVideo');
+                const $canvas = document.getElementById('SceneCanvas');
+                const ctx = $canvas.getContext('2d');
+
+                const width = 960;
+                const height = 960;
+
+                $video.play();
+
+                $canvas.width = width;
+                $canvas.height = height;
+
+                function draw() {
+                    ctx.drawImage($video, ((1920 - 960) / -2), ((1080 - 960) / -2), 1920, 1080);
+
+                    window.requestAnimationFrame(draw)
+                }
+
+                draw();
             }
         }
     }

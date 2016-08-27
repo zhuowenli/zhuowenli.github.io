@@ -72,15 +72,15 @@
 	
 	var _routerConfig = __webpack_require__(13);
 	
-	var _filter = __webpack_require__(91);
+	var _filter = __webpack_require__(90);
 	
 	var _filter2 = _interopRequireDefault(_filter);
 	
-	var _App = __webpack_require__(92);
+	var _App = __webpack_require__(91);
 	
 	var _App2 = _interopRequireDefault(_App);
 	
-	var _bluebird = __webpack_require__(71);
+	var _bluebird = __webpack_require__(70);
 	
 	var _bluebird2 = _interopRequireDefault(_bluebird);
 	
@@ -140,7 +140,7 @@
 	
 	
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n/**\n * 1. Set default font family to sans-serif.\n * 2. Prevent iOS text size adjust after orientation change, without disabling\n *    user zoom.\n * 0. sassCore's style\n */\nhtml {\n  font-family: sans-serif;\n  /* 1 */\n  -ms-text-size-adjust: 100%;\n  /* 2 */\n  -webkit-text-size-adjust: 100%;\n  /* 2 */\n  overflow-y: scroll;\n  /* 0 */\n  -webkit-overflow-scrolling: touch;\n  /* 0 */ }\n\n/**\n * 1. Remove default margin\n * 0. sassCore's style.\n */\nbody {\n  margin: 0;\n  /* 1 */\n  font-size: 14px;\n  /* 0 */\n  line-height: 1.5;\n  /* 0 */\n  color: #333;\n  /* 0 */\n  background-color: #fff;\n  /* 0 */ }\n\n/* HTML5 display definitions\n   ========================================================================== */\n/**\n * Correct `block` display not defined for any HTML5 element in IE 8/9.\n * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.\n * Correct `block` display not defined for `main` in IE 11.\n */\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmain,\nnav,\nsection,\nsummary {\n  display: block; }\n\n/**\n * 1. Correct `inline-block` display not defined in IE 8/9.\n * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.\n * 3. Correct `inline-block` display in IE 6/7.\n */\naudio,\ncanvas,\nprogress,\nvideo {\n  display: inline-block;\n  /* 1 */\n  vertical-align: baseline;\n  /* 2 */\n  *display: inline;\n  /* 3 */\n  *zoom: 1;\n  /* 3 */ }\n\n/**\n * Prevent modern browsers from displaying `audio` without controls.\n * Remove excess height in iOS 5 devices.\n */\naudio:not([controls]) {\n  display: none;\n  height: 0; }\n\n/**\n * Address `[hidden]` styling not present in IE 8/9/10.\n * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.\n */\n[hidden],\ntemplate {\n  display: none; }\n\n/* Links\n   ========================================================================== */\n/**\n * 1. Remove the gray background color from active links in IE 10.\n * 2. Improve readability when focused and also mouse hovered in all browsers.\n * 0. sassCore's style.\n */\na {\n  background: transparent;\n  /* 1 */\n  /* 0 */\n  text-decoration: none;\n  color: #08c; }\n  a:active, a:hover {\n    outline: 0;\n    /* 2 */ }\n  a:hover {\n    color: #006699; }\n\n/* Text-level semantics\n   ========================================================================== */\n/**\n * Address styling not present in IE 8/9/10/11, Safari, and Chrome.\n */\nabbr[title] {\n  border-bottom: 1px dotted; }\n\n/**\n * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.\n */\nb,\nstrong {\n  font-weight: bold; }\n\n/**\n * Address styling not present in Safari and Chrome.\n */\ndfn {\n  font-style: italic; }\n\n/**\n * Address styling not present in IE 8/9.\n */\nmark {\n  background: #ff0;\n  color: #000; }\n\n/**\n * Address inconsistent and variable font size in all browsers.\n */\nsmall {\n  font-size: 80%; }\n\n/**\n * Prevent `sub` and `sup` affecting `line-height` in all browsers.\n */\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline; }\n\nsup {\n  top: -0.5em; }\n\nsub {\n  bottom: -0.25em; }\n\n/* Embedded content\n   ========================================================================== */\n/**\n * 1. Remove border when inside `a` element in IE 8/9/10.\n * 2. Improve image quality when scaled in IE 7.\n * 0. sassCore's style.\n */\nimg {\n  border: 0;\n  /* 1 */\n  vertical-align: middle;\n  /* 0 */\n  -ms-interpolation-mode: bicubic;\n  /* 2 */ }\n\n/**\n * Correct overflow not hidden in IE 9/10/11.\n */\nsvg:not(:root) {\n  overflow: hidden; }\n\n/* Grouping content\n   ========================================================================== */\n/**\n * Address differences between Firefox and other browsers.\n */\nhr {\n  -moz-box-sizing: content-box;\n  box-sizing: content-box;\n  height: 0; }\n\n/**\n * 1. Contain overflow in all browsers.\n * 2. Improve readability of pre-formatted text in all browsers.\n */\npre {\n  overflow: auto;\n  /* 1 */\n  white-space: pre;\n  /* 2 */\n  white-space: pre-wrap;\n  /* 2 */\n  word-wrap: break-word;\n  /* 2 */ }\n\n/**\n * 1. Address odd `em`-unit font size rendering in all browsers.\n * 2. Correct font family set oddly in IE 6, Safari 4/5, and Chrome.\n */\ncode,\nkbd,\npre,\nsamp {\n  font-family: monospace, monospace;\n  /* 1 */\n  _font-family: 'courier new', monospace;\n  /* 1 */\n  font-size: 1em;\n  /* 2 */ }\n\n/* Forms\n   ========================================================================== */\n/**\n * Known limitation: by default, Chrome and Safari on OS X allow very limited\n * styling of `select`, unless a `border` property is set.\n */\n/**\n * 1. Correct color not being inherited.\n *    Known issue: affects color of disabled elements.\n * 2. Correct font properties not being inherited.\n * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.\n */\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  color: inherit;\n  /* 1 */\n  font: inherit;\n  /* 2 */\n  margin: 0;\n  /* 3 */ }\n\n/**\n * Address `overflow` set to `hidden` in IE 8/9/10/11.\n */\nbutton {\n  overflow: visible; }\n\n/**\n * Address inconsistent `text-transform` inheritance for `button` and `select`.\n * All other form control elements do not inherit `text-transform` values.\n * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.\n * Correct `select` style inheritance in Firefox.\n */\nbutton,\nselect {\n  text-transform: none; }\n\n/**\n * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`\n *    and `video` controls.\n * 2. Correct inability to style clickable `input` types in iOS.\n * 3. Improve usability and consistency of cursor style between image-type\n *    `input` and others.\n * 4. Remove inner spacing in IE 7 without affecting normal text inputs.\n *    Known issue: inner spacing remains in IE 6.\n */\nbutton,\nhtml input[type=\"button\"],\ninput[type=\"reset\"],\ninput[type=\"submit\"] {\n  -webkit-appearance: button;\n  /* 2 */\n  cursor: pointer;\n  /* 3 */\n  *overflow: visible;\n  /* 4 */ }\n\n/**\n * Re-set default cursor for disabled elements.\n */\nbutton[disabled],\nhtml input[disabled] {\n  cursor: default; }\n\n/**\n * Remove inner padding and border in Firefox 4+.\n */\nbutton::-moz-focus-inner,\ninput::-moz-focus-inner {\n  border: 0;\n  padding: 0; }\n\n/**\n * Address Firefox 4+ setting `line-height` on `input` using `!important` in\n * the UA stylesheet.\n */\ninput {\n  line-height: normal; }\n\n/**\n * It's recommended that you don't attempt to style these elements.\n * Firefox's implementation doesn't respect box-sizing, padding, or width.\n *\n * 1. Address box sizing set to `content-box` in IE 8/9/10.\n * 2. Remove excess padding in IE 8/9/10.\n * 3. Remove excess padding in IE 7.\n *    Known issue: excess padding remains in IE 6.\n */\ninput[type=\"checkbox\"],\ninput[type=\"radio\"] {\n  box-sizing: border-box;\n  /* 1 */\n  padding: 0;\n  /* 2 */\n  *height: 13px;\n  /* 3 */\n  *width: 13px;\n  /* 3 */ }\n\n/**\n * Fix the cursor style for Chrome's increment/decrement buttons. For certain\n * `font-size` values of the `input`, it causes the cursor style of the\n * decrement button to change from `default` to `text`.\n */\ninput[type=\"number\"]::-webkit-inner-spin-button,\ninput[type=\"number\"]::-webkit-outer-spin-button {\n  height: auto; }\n\n/**\n * 1. Address `appearance` set to `searchfield` in Safari and Chrome.\n * 2. Address `box-sizing` set to `border-box` in Safari and Chrome\n *    (include `-moz` to future-proof).\n */\ninput[type=\"search\"] {\n  -webkit-appearance: textfield;\n  /* 1 */\n  -moz-box-sizing: content-box;\n  -webkit-box-sizing: content-box;\n  /* 2 */\n  box-sizing: content-box; }\n\n/**\n * Remove inner padding and search cancel button in Safari and Chrome on OS X.\n * Safari (but not Chrome) clips the cancel button when the search input has\n * padding (and `textfield` appearance).\n */\ninput[type=\"search\"]::-webkit-search-cancel-button,\ninput[type=\"search\"]::-webkit-search-decoration {\n  -webkit-appearance: none; }\n\n/**\n * Define consistent border, margin, and padding.\n */\nfieldset {\n  border: 1px solid #c0c0c0;\n  margin: 0 2px;\n  padding: 0.35em 0.625em 0.75em; }\n\n/**\n * 1. Correct `color` not being inherited in IE 8/9/10/11.\n * 2. Remove padding so people aren't caught out if they zero out fieldsets.\n * 3. Correct alignment displayed oddly in IE 6/7.\n */\nlegend {\n  border: 0;\n  /* 1 */\n  padding: 0;\n  /* 2 */\n  *margin-left: -7px;\n  /* 3 */ }\n\n/**\n * 1. Remove default vertical scrollbar in IE 8/9/10/11.\n * 0. sassCore's style\n */\ntextarea {\n  overflow: auto;\n  /* 1 */\n  resize: vertical;\n  /* 0 */ }\n\n/**\n * Don't inherit the `font-weight` (applied by a rule above).\n * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.\n */\noptgroup {\n  font-weight: bold; }\n\n/* Tables\n   ========================================================================== */\n/**\n * Remove most spacing between table cells.\n */\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\ntd,\nth {\n  padding: 0; }\n\n/**\n * Address CSS quotes not supported in IE 6/7.\n */\nq {\n  quotes: none; }\n\nhtml,\nbutton,\ninput,\nselect,\ntextarea {\n  font-family: \"Helvetica Neue\", Helvetica, Tahoma, sans-serif; }\n\nh1, h2, h3, h4, h5, h6, p, figure, form, blockquote {\n  margin: 0; }\n\nul, ol, li, dl, dd {\n  margin: 0;\n  padding: 0; }\n\nul, ol {\n  list-style: none outside none; }\n\nh1, h2, h3 {\n  line-height: 2;\n  font-weight: normal; }\n\nh1 {\n  font-size: 21px; }\n\nh2 {\n  font-size: 18.2px; }\n\nh3 {\n  font-size: 16.38px; }\n\nh4 {\n  font-size: 14px; }\n\nh5, h6 {\n  font-size: 11.9px;\n  text-transform: uppercase; }\n\ninput:-moz-placeholder,\ntextarea:-moz-placeholder {\n  color: #ccc; }\n\ninput::-moz-placeholder,\ntextarea::-moz-placeholder {\n  color: #ccc; }\n\ninput:-ms-input-placeholder,\ntextarea:-ms-input-placeholder {\n  color: #ccc; }\n\ninput::-webkit-input-placeholder,\ntextarea::-webkit-input-placeholder {\n  color: #ccc; }\n\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n@font-face {\n  font-family: icon;\n  src: url(" + __webpack_require__(5) + ");\n  src: url(" + __webpack_require__(5) + "#iefix2oa9qo) format(\"embedded-opentype\"), url(" + __webpack_require__(6) + ") format(\"woff\"), url(" + __webpack_require__(7) + ") format(\"truetype\");\n  font-weight: 400;\n  font-style: normal; }\n\nhtml {\n  font-family: \"Helvetica Neue\", \"Helvetica\", \"PingFang SC\", \"Hiragino Sans GB\", \"STHeitiSC-Light\", \"Source Han Sans CN\", \"Source Han Sans SC\", \"Microsoft YaHei\", \"WenQuanYi Micro Hei\", \"Arial\", sans-serif;\n  font-size: 16px;\n  font-weight: 300; }\n\n*, *:before, *:after {\n  outline: 0;\n  -webkit-tap-highlight-color: transparent;\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box; }\n\nhtml, body, .container {\n  height: 100%;\n  width: 100%; }\n\nhtml {\n  overflow: hidden; }\n\nbody {\n  background-color: #060709; }\n\n.container {\n  position: relative;\n  max-width: 1520px;\n  margin: 0 auto;\n  opacity: 1; }\n\n@keyframes pikapika {\n  0% {\n    opacity: 0.96; }\n  100% {\n    opacity: 1; } }\n\n.main-slidebar, .main-center, .main-right, .graph {\n  -webkit-animation: pikapika 0.05s linear infinite alternate;\n  animation: pikapika 0.05s linear infinite alternate;\n  -webkit-animation-fill-mode: forwards;\n  animation-fill-mode: forwards; }\n\n.hide, .hidechild > * {\n  opacity: 0 !important;\n  -webkit-transition: all 0.5s ease-in-out;\n  transition: all 0.5s ease-in-out; }\n\n.showsplash .main-center .hide, .showsplash .main-center .hidechild > *, .showsplash .graph .hide, .showsplash .graph .hidechild > * {\n  opacity: 1 !important; }\n\n.showsidebar .btn, .showsidebar .hide, .showsidebar .hidechild > * {\n  opacity: 1 !important; }\n\n.main-content {\n  padding-left: 380px; }\n\n.table {\n  display: table;\n  width: 100%; }\n  .table .cell {\n    position: relative;\n    display: table-cell;\n    vertical-align: middle; }\n", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n/**\n * 1. Set default font family to sans-serif.\n * 2. Prevent iOS text size adjust after orientation change, without disabling\n *    user zoom.\n * 0. sassCore's style\n */\nhtml {\n  font-family: sans-serif;\n  /* 1 */\n  -ms-text-size-adjust: 100%;\n  /* 2 */\n  -webkit-text-size-adjust: 100%;\n  /* 2 */\n  overflow-y: scroll;\n  /* 0 */\n  -webkit-overflow-scrolling: touch;\n  /* 0 */ }\n\n/**\n * 1. Remove default margin\n * 0. sassCore's style.\n */\nbody {\n  margin: 0;\n  /* 1 */\n  font-size: 14px;\n  /* 0 */\n  line-height: 1.5;\n  /* 0 */\n  color: #333;\n  /* 0 */\n  background-color: #fff;\n  /* 0 */ }\n\n/* HTML5 display definitions\n   ========================================================================== */\n/**\n * Correct `block` display not defined for any HTML5 element in IE 8/9.\n * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.\n * Correct `block` display not defined for `main` in IE 11.\n */\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmain,\nnav,\nsection,\nsummary {\n  display: block; }\n\n/**\n * 1. Correct `inline-block` display not defined in IE 8/9.\n * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.\n * 3. Correct `inline-block` display in IE 6/7.\n */\naudio,\ncanvas,\nprogress,\nvideo {\n  display: inline-block;\n  /* 1 */\n  vertical-align: baseline;\n  /* 2 */\n  *display: inline;\n  /* 3 */\n  *zoom: 1;\n  /* 3 */ }\n\n/**\n * Prevent modern browsers from displaying `audio` without controls.\n * Remove excess height in iOS 5 devices.\n */\naudio:not([controls]) {\n  display: none;\n  height: 0; }\n\n/**\n * Address `[hidden]` styling not present in IE 8/9/10.\n * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.\n */\n[hidden],\ntemplate {\n  display: none; }\n\n/* Links\n   ========================================================================== */\n/**\n * 1. Remove the gray background color from active links in IE 10.\n * 2. Improve readability when focused and also mouse hovered in all browsers.\n * 0. sassCore's style.\n */\na {\n  background: transparent;\n  /* 1 */\n  /* 0 */\n  text-decoration: none;\n  color: #08c; }\n  a:active, a:hover {\n    outline: 0;\n    /* 2 */ }\n  a:hover {\n    color: #006699; }\n\n/* Text-level semantics\n   ========================================================================== */\n/**\n * Address styling not present in IE 8/9/10/11, Safari, and Chrome.\n */\nabbr[title] {\n  border-bottom: 1px dotted; }\n\n/**\n * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.\n */\nb,\nstrong {\n  font-weight: bold; }\n\n/**\n * Address styling not present in Safari and Chrome.\n */\ndfn {\n  font-style: italic; }\n\n/**\n * Address styling not present in IE 8/9.\n */\nmark {\n  background: #ff0;\n  color: #000; }\n\n/**\n * Address inconsistent and variable font size in all browsers.\n */\nsmall {\n  font-size: 80%; }\n\n/**\n * Prevent `sub` and `sup` affecting `line-height` in all browsers.\n */\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline; }\n\nsup {\n  top: -0.5em; }\n\nsub {\n  bottom: -0.25em; }\n\n/* Embedded content\n   ========================================================================== */\n/**\n * 1. Remove border when inside `a` element in IE 8/9/10.\n * 2. Improve image quality when scaled in IE 7.\n * 0. sassCore's style.\n */\nimg {\n  border: 0;\n  /* 1 */\n  vertical-align: middle;\n  /* 0 */\n  -ms-interpolation-mode: bicubic;\n  /* 2 */ }\n\n/**\n * Correct overflow not hidden in IE 9/10/11.\n */\nsvg:not(:root) {\n  overflow: hidden; }\n\n/* Grouping content\n   ========================================================================== */\n/**\n * Address differences between Firefox and other browsers.\n */\nhr {\n  -moz-box-sizing: content-box;\n  box-sizing: content-box;\n  height: 0; }\n\n/**\n * 1. Contain overflow in all browsers.\n * 2. Improve readability of pre-formatted text in all browsers.\n */\npre {\n  overflow: auto;\n  /* 1 */\n  white-space: pre;\n  /* 2 */\n  white-space: pre-wrap;\n  /* 2 */\n  word-wrap: break-word;\n  /* 2 */ }\n\n/**\n * 1. Address odd `em`-unit font size rendering in all browsers.\n * 2. Correct font family set oddly in IE 6, Safari 4/5, and Chrome.\n */\ncode,\nkbd,\npre,\nsamp {\n  font-family: monospace, monospace;\n  /* 1 */\n  _font-family: 'courier new', monospace;\n  /* 1 */\n  font-size: 1em;\n  /* 2 */ }\n\n/* Forms\n   ========================================================================== */\n/**\n * Known limitation: by default, Chrome and Safari on OS X allow very limited\n * styling of `select`, unless a `border` property is set.\n */\n/**\n * 1. Correct color not being inherited.\n *    Known issue: affects color of disabled elements.\n * 2. Correct font properties not being inherited.\n * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.\n */\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  color: inherit;\n  /* 1 */\n  font: inherit;\n  /* 2 */\n  margin: 0;\n  /* 3 */ }\n\n/**\n * Address `overflow` set to `hidden` in IE 8/9/10/11.\n */\nbutton {\n  overflow: visible; }\n\n/**\n * Address inconsistent `text-transform` inheritance for `button` and `select`.\n * All other form control elements do not inherit `text-transform` values.\n * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.\n * Correct `select` style inheritance in Firefox.\n */\nbutton,\nselect {\n  text-transform: none; }\n\n/**\n * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`\n *    and `video` controls.\n * 2. Correct inability to style clickable `input` types in iOS.\n * 3. Improve usability and consistency of cursor style between image-type\n *    `input` and others.\n * 4. Remove inner spacing in IE 7 without affecting normal text inputs.\n *    Known issue: inner spacing remains in IE 6.\n */\nbutton,\nhtml input[type=\"button\"],\ninput[type=\"reset\"],\ninput[type=\"submit\"] {\n  -webkit-appearance: button;\n  /* 2 */\n  cursor: pointer;\n  /* 3 */\n  *overflow: visible;\n  /* 4 */ }\n\n/**\n * Re-set default cursor for disabled elements.\n */\nbutton[disabled],\nhtml input[disabled] {\n  cursor: default; }\n\n/**\n * Remove inner padding and border in Firefox 4+.\n */\nbutton::-moz-focus-inner,\ninput::-moz-focus-inner {\n  border: 0;\n  padding: 0; }\n\n/**\n * Address Firefox 4+ setting `line-height` on `input` using `!important` in\n * the UA stylesheet.\n */\ninput {\n  line-height: normal; }\n\n/**\n * It's recommended that you don't attempt to style these elements.\n * Firefox's implementation doesn't respect box-sizing, padding, or width.\n *\n * 1. Address box sizing set to `content-box` in IE 8/9/10.\n * 2. Remove excess padding in IE 8/9/10.\n * 3. Remove excess padding in IE 7.\n *    Known issue: excess padding remains in IE 6.\n */\ninput[type=\"checkbox\"],\ninput[type=\"radio\"] {\n  box-sizing: border-box;\n  /* 1 */\n  padding: 0;\n  /* 2 */\n  *height: 13px;\n  /* 3 */\n  *width: 13px;\n  /* 3 */ }\n\n/**\n * Fix the cursor style for Chrome's increment/decrement buttons. For certain\n * `font-size` values of the `input`, it causes the cursor style of the\n * decrement button to change from `default` to `text`.\n */\ninput[type=\"number\"]::-webkit-inner-spin-button,\ninput[type=\"number\"]::-webkit-outer-spin-button {\n  height: auto; }\n\n/**\n * 1. Address `appearance` set to `searchfield` in Safari and Chrome.\n * 2. Address `box-sizing` set to `border-box` in Safari and Chrome\n *    (include `-moz` to future-proof).\n */\ninput[type=\"search\"] {\n  -webkit-appearance: textfield;\n  /* 1 */\n  -moz-box-sizing: content-box;\n  -webkit-box-sizing: content-box;\n  /* 2 */\n  box-sizing: content-box; }\n\n/**\n * Remove inner padding and search cancel button in Safari and Chrome on OS X.\n * Safari (but not Chrome) clips the cancel button when the search input has\n * padding (and `textfield` appearance).\n */\ninput[type=\"search\"]::-webkit-search-cancel-button,\ninput[type=\"search\"]::-webkit-search-decoration {\n  -webkit-appearance: none; }\n\n/**\n * Define consistent border, margin, and padding.\n */\nfieldset {\n  border: 1px solid #c0c0c0;\n  margin: 0 2px;\n  padding: 0.35em 0.625em 0.75em; }\n\n/**\n * 1. Correct `color` not being inherited in IE 8/9/10/11.\n * 2. Remove padding so people aren't caught out if they zero out fieldsets.\n * 3. Correct alignment displayed oddly in IE 6/7.\n */\nlegend {\n  border: 0;\n  /* 1 */\n  padding: 0;\n  /* 2 */\n  *margin-left: -7px;\n  /* 3 */ }\n\n/**\n * 1. Remove default vertical scrollbar in IE 8/9/10/11.\n * 0. sassCore's style\n */\ntextarea {\n  overflow: auto;\n  /* 1 */\n  resize: vertical;\n  /* 0 */ }\n\n/**\n * Don't inherit the `font-weight` (applied by a rule above).\n * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.\n */\noptgroup {\n  font-weight: bold; }\n\n/* Tables\n   ========================================================================== */\n/**\n * Remove most spacing between table cells.\n */\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\ntd,\nth {\n  padding: 0; }\n\n/**\n * Address CSS quotes not supported in IE 6/7.\n */\nq {\n  quotes: none; }\n\nhtml,\nbutton,\ninput,\nselect,\ntextarea {\n  font-family: \"Helvetica Neue\", Helvetica, Tahoma, sans-serif; }\n\nh1, h2, h3, h4, h5, h6, p, figure, form, blockquote {\n  margin: 0; }\n\nul, ol, li, dl, dd {\n  margin: 0;\n  padding: 0; }\n\nul, ol {\n  list-style: none outside none; }\n\nh1, h2, h3 {\n  line-height: 2;\n  font-weight: normal; }\n\nh1 {\n  font-size: 21px; }\n\nh2 {\n  font-size: 18.2px; }\n\nh3 {\n  font-size: 16.38px; }\n\nh4 {\n  font-size: 14px; }\n\nh5, h6 {\n  font-size: 11.9px;\n  text-transform: uppercase; }\n\ninput:-moz-placeholder,\ntextarea:-moz-placeholder {\n  color: #ccc; }\n\ninput::-moz-placeholder,\ntextarea::-moz-placeholder {\n  color: #ccc; }\n\ninput:-ms-input-placeholder,\ntextarea:-ms-input-placeholder {\n  color: #ccc; }\n\ninput::-webkit-input-placeholder,\ntextarea::-webkit-input-placeholder {\n  color: #ccc; }\n\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n@font-face {\n  font-family: icon;\n  src: url(" + __webpack_require__(5) + ");\n  src: url(" + __webpack_require__(5) + "#iefix2oa9qo) format(\"embedded-opentype\"), url(" + __webpack_require__(6) + ") format(\"woff\"), url(" + __webpack_require__(7) + ") format(\"truetype\");\n  font-weight: 400;\n  font-style: normal; }\n\nhtml {\n  font-family: \"Helvetica Neue\", \"Helvetica\", \"PingFang SC\", \"Hiragino Sans GB\", \"STHeitiSC-Light\", \"Source Han Sans CN\", \"Source Han Sans SC\", \"Microsoft YaHei\", \"WenQuanYi Micro Hei\", \"Arial\", sans-serif;\n  font-size: 16px;\n  font-weight: 300; }\n\n*, *:before, *:after {\n  outline: 0;\n  -webkit-tap-highlight-color: transparent;\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box; }\n\nhtml, body, .container {\n  height: 100%;\n  width: 100%; }\n\nhtml {\n  overflow: hidden; }\n\nbody {\n  background-color: #010001; }\n\n.container {\n  position: relative;\n  max-width: 1520px;\n  margin: 0 auto;\n  opacity: 1; }\n\n@keyframes pikapika {\n  0% {\n    opacity: 0.96; }\n  100% {\n    opacity: 1; } }\n\n.main-slidebar, .main-center, .main-right, .graph {\n  -webkit-animation: pikapika 0.05s linear infinite alternate;\n  animation: pikapika 0.05s linear infinite alternate;\n  -webkit-animation-fill-mode: forwards;\n  animation-fill-mode: forwards; }\n\n.hide, .hidechild > * {\n  opacity: 0 !important;\n  -webkit-transition: all 0.5s ease-in-out;\n  transition: all 0.5s ease-in-out; }\n\n.showsplash .main-center .hide, .showsplash .main-center .hidechild > *, .showsplash .graph .hide, .showsplash .graph .hidechild > * {\n  opacity: 1 !important; }\n\n.showsidebar .btn, .showsidebar .hide, .showsidebar .hidechild > * {\n  opacity: 1 !important; }\n\n.main-content {\n  padding-left: 380px; }\n\n.table {\n  display: table;\n  width: 100%; }\n  .table .cell {\n    position: relative;\n    display: table-cell;\n    vertical-align: middle; }\n", ""]);
 	
 	// exports
 
@@ -14764,23 +14764,23 @@
 	
 	var _index2 = _interopRequireDefault(_index);
 	
-	var _index3 = __webpack_require__(60);
+	var _index3 = __webpack_require__(59);
 	
 	var _index4 = _interopRequireDefault(_index3);
 	
-	var _detail = __webpack_require__(75);
+	var _detail = __webpack_require__(74);
 	
 	var _detail2 = _interopRequireDefault(_detail);
 	
-	var _index5 = __webpack_require__(78);
+	var _index5 = __webpack_require__(77);
 	
 	var _index6 = _interopRequireDefault(_index5);
 	
-	var _index7 = __webpack_require__(83);
+	var _index7 = __webpack_require__(82);
 	
 	var _index8 = _interopRequireDefault(_index7);
 	
-	var _ = __webpack_require__(88);
+	var _ = __webpack_require__(87);
 	
 	var _2 = _interopRequireDefault(_);
 	
@@ -14825,7 +14825,7 @@
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/home/index.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(59)
+	__vue_template__ = __webpack_require__(58)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -14878,7 +14878,7 @@
 	
 	
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n.home {\n  position: relative;\n  width: 100%;\n  height: 100%; }\n\n.main-right {\n  position: absolute;\n  z-index: 999;\n  width: 360px;\n  padding: 40px;\n  font-size: 10px;\n  right: 0;\n  top: 50%;\n  margin-top: -472px;\n  color: rgba(255, 255, 255, 0.2); }\n\n.main-center {\n  position: absolute;\n  top: 0;\n  left: 0%;\n  height: 100%;\n  width: 660px;\n  z-index: 10; }\n\n.main-graph {\n  position: absolute;\n  top: 0;\n  left: 0%;\n  width: 660px;\n  height: 100%;\n  overflow: hidden; }\n  .main-graph .graphic {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    z-index: 3; }\n", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n.home {\n  position: relative;\n  width: 100%;\n  height: 100%; }\n\n.main-right {\n  position: absolute;\n  z-index: 999;\n  width: 360px;\n  padding: 40px;\n  font-size: 10px;\n  right: 0;\n  top: 50%;\n  margin-top: -472px;\n  color: rgba(255, 255, 255, 0.2); }\n\n.main-center {\n  position: absolute;\n  top: 0;\n  left: 0%;\n  height: 100%;\n  width: 660px;\n  z-index: 10; }\n\n.main-graph {\n  position: absolute;\n  top: 0;\n  left: 0%;\n  width: 660px;\n  height: 100%;\n  overflow: hidden; }\n  .main-graph .graphic {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    z-index: 3; }\n\n.background {\n  position: relative;\n  width: 100%;\n  height: 100%; }\n  .background video {\n    opacity: 0;\n    height: 0;\n    width: 0;\n    overflow: hidden; }\n  .background canvas {\n    position: absolute; }\n", ""]);
 	
 	// exports
 
@@ -15109,25 +15109,15 @@
 /* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 	
-	var _assign = __webpack_require__(19);
+	var _getters = __webpack_require__(56);
 	
-	var _assign2 = _interopRequireDefault(_assign);
-	
-	var _init2d = __webpack_require__(56);
-	
-	var _draw2d = __webpack_require__(136);
-	
-	var _getters = __webpack_require__(57);
-	
-	var _actions = __webpack_require__(58);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	var _actions = __webpack_require__(57);
 	
 	var $html = $('html');
 	
@@ -15163,22 +15153,35 @@
 	    methods: {
 	        init: function init() {
 	            var that = this;
-	            var app = (0, _assign2.default)({}, this.app);
 	            var $center = $('.main-center');
 	            var $graph = $('.main-graph');
-	
-	            $center.css({ width: app.centerWidth });
-	            $graph.css({ width: app.centerWidth });
-	
-	            setTimeout(function () {
-	                (0, _init2d.setSize2D)(app).then(function () {
-	                    (0, _draw2d.render2D)(app);
-	                });
-	            }, 1000);
 	
 	            setTimeout(function () {
 	                $('.main').css('opacity', 1);
 	            }, 2000);
+	
+	            this.video(this.app);
+	        },
+	        video: function video(app) {
+	            var $video = document.getElementById('SceneVideo');
+	            var $canvas = document.getElementById('SceneCanvas');
+	            var ctx = $canvas.getContext('2d');
+	
+	            var width = 960;
+	            var height = 960;
+	
+	            $video.play();
+	
+	            $canvas.width = width;
+	            $canvas.height = height;
+	
+	            function draw() {
+	                ctx.drawImage($video, (1920 - 960) / -2, (1080 - 960) / -2, 1920, 1080);
+	
+	                window.requestAnimationFrame(draw);
+	            }
+	
+	            draw();
 	        }
 	    }
 	};
@@ -15690,159 +15693,6 @@
 
 /***/ },
 /* 56 */
-/***/ function(module, exports, __webpack_require__) {
-
-	
-	'use strict';
-	
-	var _getters = __webpack_require__(57);
-	
-	var _actions = __webpack_require__(58);
-	
-	var _bluebird = __webpack_require__(71);
-	
-	var _bluebird2 = _interopRequireDefault(_bluebird);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var $graphic = $('.graphic');
-	
-	function setSize2D(app) {
-	    if (app.centerWidth > app.graphRO * 2 + 20) {
-	        app.wWOver = false;
-	    } else {
-	        app.wWOver = true;
-	    }
-	
-	    if (app.windowHeight > 840) {
-	        app.wHOver = false;
-	    } else {
-	        app.wHOver = true;
-	    }
-	
-	    if (app.wHOver && app.wWOver) {
-	        app.graphR = (app.centerWidth - 60) / 2;
-	    } else if (!app.wHOver && app.wWOver) {
-	        app.graphR = (app.centerWidth - 60) / 2;
-	    } else if (app.wHOver && !app.wWOver) {
-	        app.graphR = (app.windowHeight - 160) / 2;
-	    } else {
-	        app.graphR = app.graphRO;
-	    }
-	
-	    app.graphRadius = app.graphR * app.ratio;
-	
-	    app.canvasCR = $('.circle')[0];
-	    app.ctxCR = app.canvasCR.getContext('2d');
-	    app.canvasCR.width = app.canvasWidth;
-	    app.canvasCR.height = app.canvasHeight;
-	
-	    $('.graphic').css({
-	        'width': app.canvasWidth / app.ratio,
-	        'height': app.canvasHeight / app.ratio,
-	        'margin-left': -app.canvasWidthHalf / app.ratio,
-	        'margin-top': -app.canvasHeightHalf / app.ratio
-	    });
-	
-	    app.pointStatus = {
-	        w: 140 * app.ratio,
-	        h: 70 * app.ratio,
-	        x: app.canvasWidthHalf + app.graphRadius - 129 * app.ratio,
-	        y: 50 * app.ratio,
-	        ox: app.canvasWidthHalf + app.graphRadius + 11,
-	        oy: 50 * app.ratio + 70 * app.ratio
-	    };
-	
-	    app.pointPosition = [];
-	    for (var i = 1; i < 10; i++) {
-	        var x1 = app.pointStatus.x + app.pointStatus.w / 10 * i;
-	        var y1 = app.pointStatus.y + app.pointStatus.h / 5 * i;
-	        var x2 = app.pointStatus.ox;
-	        var y2 = app.pointStatus.oy;
-	        app.pointPosition.push([x1, y1, x2, y2]);
-	    };
-	
-	    app.textPosition = [];
-	    var tx1 = app.pointStatus.ox;
-	    var ty1 = app.pointStatus.oy + 17 * app.ratio;
-	    var tx2 = app.pointStatus.x - 17 * app.ratio;
-	    var ty2 = app.pointStatus.y - 2 * app.ratio;
-	    var tx3 = app.pointStatus.x - 55 * app.ratio;
-	    var ty3 = app.pointStatus.y - 2 * app.ratio;
-	    var tx4 = app.pointStatus.x - 55 * app.ratio;
-	    var ty4 = app.pointStatus.y + 12 * app.ratio;
-	    var tx5 = app.pointStatus.x - 100 * app.ratio;
-	    app.textPosition.push(tx1, ty1, tx2, ty2, tx3, ty3, tx4, ty4, tx5);
-	
-	    app.MemoriPosition = [];
-	    for (var _i = 360; _i > 0; _i--) {
-	        var _x = app.graphRadius * Math.cos(_i * app.RAD) + app.canvasWidthHalf;
-	        var _y = app.graphRadius * Math.sin(_i * app.RAD) + app.canvasHeightHalf;
-	        var _x2 = (app.graphRadius - 50 * app.ratio) * Math.cos(_i * app.RAD) + app.canvasWidthHalf;
-	        var _y2 = (app.graphRadius - 50 * app.ratio) * Math.sin(_i * app.RAD) + app.canvasHeightHalf;
-	        app.MemoriPosition.push([_x, _y, _x2, _y2]);
-	    };
-	
-	    app.MemoriFlag = true;
-	    app.MemoriInnerPosition = [];
-	
-	    for (var _i2 = 360; _i2 > 0; _i2 -= 2) {
-	        var _x3 = (app.graphRadius - 70 * app.ratio) * Math.cos(_i2 * app.RAD) + app.canvasWidthHalf;
-	        var _y3 = (app.graphRadius - 70 * app.ratio) * Math.sin(_i2 * app.RAD) + app.canvasHeightHalf;
-	        var _x4 = (app.graphRadius - 74 * app.ratio) * Math.cos(_i2 * app.RAD) + app.canvasWidthHalf;
-	        var _y4 = (app.graphRadius - 74 * app.ratio) * Math.sin(_i2 * app.RAD) + app.canvasHeightHalf;
-	        app.MemoriInnerPosition.push([_x3, _y3, _x4, _y4]);
-	    };
-	
-	    app.barChartRadius = [];
-	    app.barChartPar = [0.001, 0.001, 0.001, 0.001, 0.001];
-	    for (var _i3 = 5; _i3 >= 0; _i3--) {
-	        app.barChartRadius.push(app.graphRadius - 40 * app.ratio + _i3 * 5 * app.ratio);
-	    };
-	
-	    app.pvRatio = [0.001, 0.001, 0.001, 0.001, 0.001, 0.001];
-	    app.MemoriOuterDegree = 36;
-	    app.MemoriOuterR1 = app.graphRadius + 10 * app.ratio;
-	    app.MemoriOuterR2 = app.graphRadius + 25 * app.ratio;
-	    app.MemoriOuterR3 = app.graphRadius + 17 * app.ratio;
-	    app.gaishuuPosition = [];
-	
-	    setMemoriOuter(app, 0);
-	
-	    if ($graphic.length) {
-	        var x = $graphic.offset().left;
-	        var y = $graphic.offset().top;
-	
-	        app.canvasXY.x = x;
-	        app.canvasXY.y = y;
-	    }
-	
-	    return _bluebird2.default.resolve();
-	}
-	
-	function setMemoriOuter(app, deg) {
-	    var x1 = app.MemoriOuterR1 * Math.cos(deg * app.RAD) + app.canvasWidthHalf;
-	    var y1 = app.MemoriOuterR1 * Math.sin(deg * app.RAD) + app.canvasHeightHalf;
-	    var x2 = app.MemoriOuterR2 * Math.cos(deg * app.RAD) + app.canvasWidthHalf;
-	    var y2 = app.MemoriOuterR2 * Math.sin(deg * app.RAD) + app.canvasHeightHalf;
-	    var x3 = app.MemoriOuterR1 * Math.cos((app.MemoriOuterDegree + deg) * app.RAD) + app.canvasWidthHalf;
-	    var y3 = app.MemoriOuterR1 * Math.sin((app.MemoriOuterDegree + deg) * app.RAD) + app.canvasHeightHalf;
-	    var x4 = app.MemoriOuterR2 * Math.cos((app.MemoriOuterDegree + deg) * app.RAD) + app.canvasWidthHalf;
-	    var y4 = app.MemoriOuterR2 * Math.sin((app.MemoriOuterDegree + deg) * app.RAD) + app.canvasHeightHalf;
-	
-	    app.gaishuuPosition.push(x1, y1, x2, y2, x3, y3, x4, y4);
-	}
-	
-	function loadPageview() {}
-	
-	module.exports = {
-	    setSize2D: setSize2D,
-	    loadPageview: loadPageview,
-	    setMemoriOuter: setMemoriOuter
-	};
-
-/***/ },
-/* 57 */
 /***/ function(module, exports) {
 
 	
@@ -15856,7 +15706,7 @@
 	};
 
 /***/ },
-/* 58 */
+/* 57 */
 /***/ function(module, exports) {
 
 	
@@ -15879,23 +15729,23 @@
 	}
 
 /***/ },
-/* 59 */
+/* 58 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"home\">\n    <div class=\"main-center\"></div>\n    <div class=\"main-right\"></div>\n    <div class=\"main-graph\">\n        <canvas class=\"graphic circle\"></canvas>\n    </div>\n</div>\n";
+	module.exports = "\n<div class=\"home\">\n    <div class=\"main-center\" :style='{width: app.centerWidth + \"px\"}'>\n        <div class=\"background\">\n            <video id='SceneVideo' loop=\"loop\" controls='controls'>\n                <source src=\"http://zhuowenli.qiniudn.com/video/scene.mp4\" type=\"video/mp4\" />\n            </video>\n            <canvas id=\"SceneCanvas\" :style='{\n                    marginLeft: (app.centerWidth - 960) / 2 + \"px\",\n                    marginTop: (app.centerHeight - 960) / 2 + \"px\"}'></canvas>\n        </div>\n    </div>\n    <div class=\"main-right\"></div>\n    <div class=\"main-graph\">\n        <canvas class=\"graphic circle\"></canvas>\n    </div>\n</div>\n";
 
 /***/ },
-/* 60 */
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(61)
-	__vue_script__ = __webpack_require__(69)
+	__webpack_require__(60)
+	__vue_script__ = __webpack_require__(68)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/posts/index.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(74)
+	__vue_template__ = __webpack_require__(73)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -15914,13 +15764,13 @@
 	})()}
 
 /***/ },
-/* 61 */
+/* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(62);
+	var content = __webpack_require__(61);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(17)(content, {});
@@ -15940,7 +15790,7 @@
 	}
 
 /***/ },
-/* 62 */
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(4)();
@@ -15948,49 +15798,49 @@
 	
 	
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n.design {\n  height: 100%; }\n\n.main {\n  width: 800px;\n  position: absolute;\n  height: 800px;\n  left: 380px;\n  top: 0;\n  z-index: 9997;\n  background: url(" + __webpack_require__(63) + ") fixed;\n  background-size: 30px; }\n  .main .scroll {\n    padding: 0;\n    overflow-x: hidden;\n    height: 100%;\n    width: 100%; }\n  .main .scrollinside {\n    padding: 45px 0 0 40px;\n    width: 100%;\n    max-width: 910px;\n    margin: 0 auto; }\n  .main .banner {\n    margin-bottom: 60px; }\n    .main .banner img {\n      width: 100%;\n      height: auto; }\n  .main .insidetitle {\n    padding: 0 50px;\n    margin-bottom: 60px; }\n    .main .insidetitle .number {\n      width: 200px;\n      height: 270px;\n      line-height: 1;\n      text-align: left;\n      font-size: 140px;\n      color: #fff;\n      font-weight: 700;\n      text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); }\n    .main .insidetitle .pagetitle {\n      font-size: 50px;\n      letter-spacing: 5px;\n      text-transform: uppercase;\n      font-weight: 700;\n      line-height: 1;\n      color: #fff;\n      text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); }\n    .main .insidetitle h2 {\n      color: #fff;\n      letter-spacing: 3px;\n      font-size: 22px;\n      padding: 8px 0 0;\n      text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5); }\n  .main .entrybtn {\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    display: block;\n    width: 300px;\n    font-size: 16px;\n    font-weight: 700;\n    text-align: center;\n    z-index: 3;\n    line-height: 66px;\n    letter-spacing: 2px;\n    color: #fff;\n    text-transform: uppercase; }\n\n.mCSB_inside > .mCSB_container {\n  margin-right: 0; }\n\n.mCSB_scrollTools {\n  left: 0;\n  margin: 40px 0;\n  width: 30px;\n  box-sizing: border-box; }\n  .mCSB_scrollTools .mCSB_draggerContainer {\n    background: url(" + __webpack_require__(64) + ");\n    background-size: 30px; }\n  .mCSB_scrollTools .mCSB_draggerRail {\n    width: 1px;\n    border-radius: 0;\n    background: rgba(255, 255, 255, 0.02); }\n  .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {\n    background: none !important;\n    width: 11px;\n    border-radius: 0;\n    position: relative;\n    box-sizing: border-box; }\n  .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar:after {\n    content: '';\n    width: 16px;\n    height: 16px;\n    background-size: 16px;\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    display: block;\n    z-index: 1;\n    margin: -8px 0 0 -8px; }\n  .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {\n    border: 1px solid rgba(255, 255, 255, 0.2); }\n  .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar:after {\n    background-image: url(" + __webpack_require__(65) + "); }\n\n.entry {\n  position: relative;\n  padding: 50px;\n  margin-bottom: 90px; }\n  .entry .header {\n    position: relative;\n    z-index: 2; }\n    .entry .header a {\n      display: block; }\n    .entry .header h2 {\n      font-size: 20px;\n      letter-spacing: 1px;\n      padding-bottom: 50px;\n      line-height: 24px;\n      color: #fff; }\n  .entry .scroll {\n    position: relative;\n    height: 180px;\n    margin-bottom: 50px;\n    z-index: 2; }\n    .entry .scroll .entrydetail {\n      font-size: 12px;\n      letter-spacing: 1px;\n      padding: 0 0 0 60px;\n      color: rgba(255, 255, 255, 0.8); }\n      .entry .scroll .entrydetail img {\n        width: 100%;\n        height: auto; }\n      .entry .scroll .entrydetail a {\n        color: #fff; }\n  .entry .bg {\n    width: 100%;\n    height: 400px;\n    position: absolute;\n    top: 0;\n    left: 0; }\n  .entry .bgL {\n    width: 135px;\n    background-repeat: no-repeat;\n    background-size: 135px; }\n  .entry .bgM {\n    background-repeat: repeat-x;\n    background-size: 2px; }\n  .entry .bgR {\n    width: 400px;\n    background-repeat: no-repeat;\n    background-size: 400px; }\n  .entry .mCSB_scrollTools .mCSB_draggerContainer {\n    background: none; }\n  .entry .mCSB_scrollTools {\n    margin: 0; }\n  .entry .bgL {\n    background-image: url(" + __webpack_require__(66) + "); }\n  .entry .bgM {\n    background-image: url(" + __webpack_require__(67) + "); }\n  .entry .bgR {\n    background-image: url(" + __webpack_require__(68) + "); }\n  .entry .entrybtn {\n    display: block;\n    font-size: 16px;\n    font-weight: bold;\n    text-align: center;\n    width: 300px;\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    z-index: 3;\n    line-height: 66px;\n    letter-spacing: 2px; }\n", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n.design {\n  height: 100%; }\n\n.main {\n  width: 800px;\n  position: absolute;\n  height: 800px;\n  left: 380px;\n  top: 0;\n  z-index: 998;\n  background: url(" + __webpack_require__(62) + ") fixed;\n  background-size: 30px; }\n  .main .scroll {\n    padding: 0;\n    overflow-x: hidden;\n    height: 100%;\n    width: 100%; }\n  .main .scrollinside {\n    padding: 45px 0 0 40px;\n    width: 100%;\n    max-width: 910px;\n    margin: 0 auto; }\n  .main .banner {\n    margin-bottom: 60px; }\n    .main .banner img {\n      width: 100%;\n      height: auto; }\n  .main .insidetitle {\n    padding: 0 50px;\n    margin-bottom: 60px; }\n    .main .insidetitle .number {\n      width: 200px;\n      height: 270px;\n      line-height: 1;\n      text-align: left;\n      font-size: 140px;\n      color: #fff;\n      font-weight: 700;\n      text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); }\n    .main .insidetitle .pagetitle {\n      font-size: 50px;\n      letter-spacing: 5px;\n      text-transform: uppercase;\n      font-weight: 700;\n      line-height: 1;\n      color: #fff;\n      text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); }\n    .main .insidetitle h2 {\n      color: #fff;\n      letter-spacing: 3px;\n      font-size: 22px;\n      padding: 8px 0 0;\n      text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5); }\n  .main .entrybtn {\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    display: block;\n    width: 300px;\n    font-size: 16px;\n    font-weight: 700;\n    text-align: center;\n    z-index: 3;\n    line-height: 66px;\n    letter-spacing: 2px;\n    color: #fff;\n    text-transform: uppercase; }\n\n.mCSB_inside > .mCSB_container {\n  margin-right: 0; }\n\n.mCSB_scrollTools {\n  left: 0;\n  margin: 40px 0;\n  width: 30px;\n  box-sizing: border-box; }\n  .mCSB_scrollTools .mCSB_draggerContainer {\n    background: url(" + __webpack_require__(63) + ");\n    background-size: 30px; }\n  .mCSB_scrollTools .mCSB_draggerRail {\n    width: 1px;\n    border-radius: 0;\n    background: rgba(255, 255, 255, 0.02); }\n  .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {\n    background: none !important;\n    width: 11px;\n    border-radius: 0;\n    position: relative;\n    box-sizing: border-box; }\n  .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar:after {\n    content: '';\n    width: 16px;\n    height: 16px;\n    background-size: 16px;\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    display: block;\n    z-index: 1;\n    margin: -8px 0 0 -8px; }\n  .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {\n    border: 1px solid rgba(255, 255, 255, 0.2); }\n  .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar:after {\n    background-image: url(" + __webpack_require__(64) + "); }\n\n.entry {\n  position: relative;\n  padding: 50px;\n  margin-bottom: 90px; }\n  .entry .header {\n    position: relative;\n    z-index: 2; }\n    .entry .header a {\n      display: block; }\n    .entry .header h2 {\n      font-size: 20px;\n      letter-spacing: 1px;\n      padding-bottom: 50px;\n      line-height: 24px;\n      color: #fff; }\n  .entry .scroll {\n    position: relative;\n    height: 180px;\n    margin-bottom: 50px;\n    z-index: 2; }\n    .entry .scroll .entrydetail {\n      font-size: 12px;\n      letter-spacing: 1px;\n      padding: 0 0 0 60px;\n      color: rgba(255, 255, 255, 0.8); }\n      .entry .scroll .entrydetail img {\n        width: 100%;\n        height: auto; }\n      .entry .scroll .entrydetail a {\n        color: #fff; }\n  .entry .bg {\n    width: 100%;\n    height: 400px;\n    position: absolute;\n    top: 0;\n    left: 0; }\n  .entry .bgL {\n    width: 135px;\n    background-repeat: no-repeat;\n    background-size: 135px; }\n  .entry .bgM {\n    background-repeat: repeat-x;\n    background-size: 2px; }\n  .entry .bgR {\n    width: 400px;\n    background-repeat: no-repeat;\n    background-size: 400px; }\n  .entry .mCSB_scrollTools .mCSB_draggerContainer {\n    background: none; }\n  .entry .mCSB_scrollTools {\n    margin: 0; }\n  .entry .bgL {\n    background-image: url(" + __webpack_require__(65) + "); }\n  .entry .bgM {\n    background-image: url(" + __webpack_require__(66) + "); }\n  .entry .bgR {\n    background-image: url(" + __webpack_require__(67) + "); }\n  .entry .entrybtn {\n    display: block;\n    font-size: 16px;\n    font-weight: bold;\n    text-align: center;\n    width: 300px;\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    z-index: 3;\n    line-height: 66px;\n    letter-spacing: 2px; }\n", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 63 */
+/* 62 */
 /***/ function(module, exports) {
 
 	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8AQMAAAAAMksxAAAABlBMVEXf9f/f9f/awkaRAAAAAnRSTlMAM8lDrC4AAAASSURBVChTY2AYBaiAGYMxUgEACD0AB0gqVlUAAAAASUVORK5CYII="
 
 /***/ },
-/* 64 */
+/* 63 */
 /***/ function(module, exports) {
 
 	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAADAAgMAAAAlwuiDAAAACVBMVEUAAAAlLTA0QEXI1dkHAAAAA3RSTlMA/01hPwSBAAAAM0lEQVR4Ae3PBwHAIBQFsdfF0gcmv0m2CnpxEG1f6bJ065+SmST+/Pnz58+f/9n48+ffAGRaENArHzACAAAAAElFTkSuQmCC"
 
 /***/ },
-/* 65 */
+/* 64 */
 /***/ function(module, exports) {
 
 	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAABmUlEQVR4AaXUNXrcUBSG4T88WIV6wwKCWoShVVrDKqwyqFTuPOadqA2DVmGqwpwvA+fRXCvX8mj0avAyHvnQIqTDcw743n0OeE6HkJZGwRSbfMbnM5tMqQg1nvCDIj+IqcmPSd4xinfecXCTfYbeEhFwnVr3uU5A1E0Z2ufm/zM/xJCyJA+WeI/hEHcU1J2sXRVgB0NKfZgcY1jVKVjFEA8X76cl7ciMNIqfNg02LeG9RpRNeEsS7ezYLGtELGVHqy1CbOOUwxwJn7pPwqxysk0NxYb9XNExPMD1QMewYukb4rn9DORglrw5OQgs9bk4sp9X5CAhL5GDK5Z6pOzyXJKDj+R9lINLlvpj9AY++RuoPIWTFnFu1EWsvI1FB2mehM/dJ2FOObzJDpJzlJc0IhYZ+EJbEltlL1MW+rYsGo19naerBZSnbkhLMeyMHNIaJwXV9yz6l84fVP1h/Q0RAde40H2uERDxujCs2yhSRpEyJT9qxPykyE9iairCNJt8wecrW0xrFLS4xzovOORn9zns/lrvprTk8Q9+jbd6nllwOAAAAABJRU5ErkJggg=="
 
 /***/ },
-/* 66 */
+/* 65 */
 /***/ function(module, exports) {
 
 	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAMgCAYAAADSiIzKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NjlEQTEwODg1QzkxMTFFNjkzQkRBMjZGMTA2MTQ5RTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NjlEQTEwODk1QzkxMTFFNjkzQkRBMjZGMTA2MTQ5RTgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2OURBMTA4NjVDOTExMUU2OTNCREEyNkYxMDYxNDlFOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo2OURBMTA4NzVDOTExMUU2OTNCREEyNkYxMDYxNDlFOCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PgP+1UAAAAy+SURBVHja7NtLiFv1HsDxSY0DulAEXelOd+pOdBdsKz7AB/gAXy1eRNQi7aptOqFyrxA6nYKvhQ8UqhZ1UxW8otLFKFO4w5W7u7rTna7qQl1YmEaPv7RHiDEZ8x+Tyf/MfD7w458cSjP8k3x7cpqpFUUxA1RLq9WajeVIzMMxtZhjMXvb7fbKejx+3VMAlbQQs7vnfvf26Zjmejx4rQpnHM1ms1vXN7tVnZ+f/ziz8l8Ry+cxV3otM02dTmdmeXl5XR4r+zOOMhrvxtxdnpJlEw7RYLPKOhx90fggZmem0fg2ZlvMKS8p1smhmCf+8Gau1xeWlpb2D/rDjUZjc4RjQDTuj48pKxlG47uYre12+2uvZdbxNbgnlu77YUd5qHtx9OB6PX6W1zgqFo0bRYPcjfuMY4toJEXjslg+FQ02u6zCUYFoLMZcLRoIh2ikROMa0YBMwiEaIByiAcIhGqIBmYRDNEA4Nmo0TokGZBCOvmi8n3E0vo/ZLhow5XAMiMYDGUdjW0Tj/14iMMVwZB6Ni2fO/dataEAu4ahANE7EXCcakEk4KhKN60UDMgmHaIBwiAYwuXCIBgiHaACTC0eFovGjaEAG4ahQNH6KuUU0YMrhqFg0bo5o/NdTD1MMR+bRuDCWD0UDMgpHBaLxUUxDNCCTcFQkGltFAzIJh2iAcIgGMLlwiAaQFA7RAJLCUaFo/CwakEE4ymi8U4FonI65QzRgyuHoicY9Me9lHo3bIxqLnlKYYjgGROPBjKIxW/5MogG5hKMC0Tgec6toQCbhqEg07hANyCQcogEkhUM0gLWccbwhGsAo6j233y7XR0QDWE2tKIosf7C+aHRDdptowNo0Go2JfVTJNRpnYu4TDchHduEYEI17IxofeqpAOIZF47yZc9daRAOEY+RovNWNhWiAcKRE40HRAOEQDRAO0QCmGA7RAOEQDRCOdYtGRzRAOFKi8WvMI6IBwpESjZ0Rjbc9BSAcw6JRi+U10QDhSInGSzH/EA0QjpRoPCEaIByiAcIhGsAUwyEaIByiAUwuHKIBwvF3otH1lGiAcKREY1dE42VbC8KxmudEA4Qj5WxjPpY9ogHCkRKN/aIBwiEawPjDIRpAUjhEA0gKh2gASeEQDSApHH3RaIoGsCUhGgciGodtGbBllWj8qy8a87YLGBqOiEYzlqdFAxgpHGU0DokGMFI4RANICodoAGs54/g9GnOiAYz8UaXkexpAcjgAhAMQDkA4AOEAhANAOADhAIQDEA5AOACEAxAOQDgA4QCEAxAOAOEAhAMQDkA4AOEAEA5AOADhAIQDEA4A4QCEAxAOQDgA4QAQDkA4AOEAhAMQDkA4AIQDEA5AOADhAIQDQDgA4QCEAxAOQDgAhAMQDkA4AOEAhAMQDgDhAIQDEA5AOADhABAOQDgA4QCEAxAOAOEAhAMQDkA4AOEAEA5AOADhAIQDEA5AOACEAxAOQDgA4QCEA0A4AOEAhAMQDkA4AIQDEA5AOADhAIQDQDgA4QCEAxAOQDgA4QAQDkA4AOEAhAMQDgDhAIQDEA5AOADhABAOQDgA4QCEAxAOAOEAhAMQDkA4AOEAhANAOADhAIQDEA5AOACEAxAOQDgA4QCEA0A4AOEAhAMQDkA4AOEAEA5AOADhAIQDEA4A4QCEAxAOQDgA4QAQDkA4AOEAhAMQDgDhAIQDEA5AOADhAIQDQDgA4QDyct6ZM2dmFxcXn43bN5THLon7J7Zv3/6L7YGN4ejRo2M/41iI2d1z7PGYZ2w1sFo4dgw4/pitAVYLB0ByOI4NOP66rQGGqcfsi6n1fGTphuSgrQGGqRVFcfZGo9E4e2NpaalmW2Bjiff32D+qAAgHIByAcADCAQgHgHAAwgEIByAcgHAACAcgHIBwAMIBCAeAcADCAQgHIByAcADCASAcgHAAwgEIByAcAMIBCAcgHIBwAMIBIByAcADCAQgHIBwAwgEIByAcgHAAwgEIB4BwAMIBCAcgHIBwAAgHIByAcADCAQgHgHAAwgEIByAcgHAACAcgHIBwAMIBCAcgHADCAQgHIByAcADCASAcgHAAwgEIByAcAMIBCAcgHIBwAMIBCAeAcADCAQgHIByAcAAIByAcgHAAwgEIB4BwAMIBCAcgHIBwAAgHIByAcADCAQgHIBwAwgEIByAcgHAAwgEgHIBwAMIBCAcgHADCAQgHIByAcADCASAcgHAAwgEIByAcgHAACAcgHIBwAMIBCAeAcADCAQgHIByAcAAIByAcgHAAwgEIB4BwAMIBCAcgHIBwAMIBIByAcADCAQgHIBwAwgEIByAcgHAAwgEgHIBwAMIBCAcgHIBwAAgHIByAcADCAQgHgHAAwgEIByAcgHAACAcgHIBwAMIBCAeAcADCAQgHIByAcADCASAcgHAAwgEIByAcAMIBCAcgHIBwAMIBIByAcADCAQgHIBwAwgEIByAcgHAAwgEIB4BwAMIBCAcgHIBwAAgHIByAcADCAQgHgHAAwgEIByAcgHAACAcgHIBwAMIBCAcgHADCAQgHIByAcADCASAcgHAAwgEIByAcAMIBCAcgHIBwAMIBCIctAIQDEA5AOADhAIQDQDgA4QCEAxAOQDgAhAMQDkA4gMqozc3NzcZ6pNPp7O4eqNfrL8ayt91ur9ge2BgajcZY/756zELM7gjG78e6ATkd07TdwLCPKjsGHH/M1gCrhQMgORzHBhx/3dYAq4VjX8yLPcdejTloa4BhakVRnL3RarWK8tgl7Xb7B1sDG8e4/1fFNQ5AOADhAIQDEA5AOACEAxAOQDgA4QCEA0A4AOEAhAMQDkA4AIQDEA5AOADhAIQDEA4A4QCEAxAOQDgA4QAQDkA4AOEAhAMQDgDhAIQDEA5AOADhABAOQDgA4QCEAxAOQDgAhAMQDkA4AOEAhANAOADhAIQDEA5AOACEAxAOQDgA4QCEA0A4AOEAhAMQDkA4AOEAEA5AOADhAIQDEA4A4QCEAxAOQDgA4QAQDkA4AOEAhAMQDgDhAIQDEA5AOADhAIQDQDgA4QCEAxAOQDgAhAMQDkA4AOEAhANAOADhAIQDEA5AOADhABAOQDgA4QCEAxAOAOEAhAMQDkA4AOEAEA5AOADhAIQDEA4A4QCEAxAOQDgA4QCEA0A4AOEAhAMQDkA4AIQDEA5AOADhAIQDQDgA4QCEAxAOQDgAhAMQDkA4AOEAhAMQDgDhAIQDEA5AOADhABAOQDgA4QCEAxAOAOEAJhGOy2wLMGo4vinXxVardZWtAUYJx41lPK6I+Vw8gL8MR7vd/rYnHpeLBzDKGYd4AOnhEA9gTeHoi8dX4gGMFI6eeGyN+VI8gJHCUcbjVCzbxAMYORziAawpHOIBrCkcQ+Lxn4jHtbYQhCMlHt3faVkUDxCO1HhcKh4gHOIBTCYc4gHCsWY98fifeIBwpMbjppgvxAOEIyUeP8Zys3iAcIgHMNlwiAcIxzjjcTLicYOtBuFIicfFMSfEA4QjNR4XiQcIh3iAcIgHkFE4+uKxJB4gHKnxuC3mM/EA4UiJx8+x3C4eIBziAcIhHkCG4RgSj+7X07d5SkA4UuJxYcxH4gHCkRqPC8QDhEM8QDjEA8goHH3x+FQ8QDhS43FXzL/FA4QjJR4rsdwrHiAc4gHCIR4gHNWJxycRjzs9dSAcKfGYjTkuHiAcqfE4XzxAOMQDhEM8QDjyjcdx8QDhSI3H/THviAcIR0o8follp3iAcIgHCId4gHBUJx7vRTwe8hSDcKTEox7zlniAcKTGY4t4gHCIBwiHeIBw5BuPo+IBwpEaj0djXhEPEI6UeBSx7BIPEA7xAOEQDxCOasXjSS8FEI7UeLwkHiAcqfGYEQ8QDvEA4RAPEI584/GCeMBfqxVFYRd6RDDmY9lf3t0VUXnZrlB1jUbDGceEzz6asRx25gHCIR4gHOIBwlGdeOy3KyAcqfGYj3g07QrCQWo8DokHwoF4gHCIBwhHnvF4RjzYzHxzdI3KYBwq7x6IoMzbFTJ4Xc7GciTm4e77O+ZYzN6TJ0+uCEee8ZiL8fV0pu2fMXv6jh2OcIz1zFg4xhsPmKpOpzNTr9f/dGx5eXmsj+Max99UfkQ5YCfYTJxxwMY6A35+wEeVhfgHbqzfeq7bathQ9s2cuyi6o7zfvTh60BkHMHWucQDCAQgHIByAcADCASAcgHAAwgEIByAcAMIBCAcgHIBwAMIBIByAcADCAQgHIByAcAAIByAcgHAAwgEIB4BwAMIBCAcgHIBwAAgHIByAcADCAQgHgHAAwgEIByAcgHAAwgEgHIBwAMIBCAcgHADCAQgHIByAcADCASAcgHAAwgEIB7Ah/SbAAKMSDG0UCSwXAAAAAElFTkSuQmCC"
 
 /***/ },
-/* 67 */
+/* 66 */
 /***/ function(module, exports) {
 
 	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAMgCAYAAAAEJMPDAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RkE3M0EyNTE1QzkxMTFFNjkzQkRBMjZGMTA2MTQ5RTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RkE3M0EyNTI1QzkxMTFFNjkzQkRBMjZGMTA2MTQ5RTgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2OURBMTA4QTVDOTExMUU2OTNCREEyNkYxMDYxNDlFOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpGQTczQTI1MDVDOTExMUU2OTNCREEyNkYxMDYxNDlFOCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PvAxATgAAABcSURBVHja7NuxCcAwDARAyXgt7T+WbHchIYX7e1Bz8I36z6rqeGTEKx+Y+/KuAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8A9nrHC5b8ju9kIAQCwBBgAYXQv2QPwq4wAAAABJRU5ErkJggg=="
 
 /***/ },
-/* 68 */
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "/dist/static/bg-recruit-R.d9632ab.png";
 
 /***/ },
-/* 69 */
+/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15999,15 +15849,15 @@
 	    value: true
 	});
 	
-	var _post = __webpack_require__(70);
+	var _post = __webpack_require__(69);
 	
 	var _post2 = _interopRequireDefault(_post);
 	
-	var _marked = __webpack_require__(73);
+	var _marked = __webpack_require__(72);
 	
 	var _marked2 = _interopRequireDefault(_marked);
 	
-	var _bluebird = __webpack_require__(71);
+	var _bluebird = __webpack_require__(70);
 	
 	var _bluebird2 = _interopRequireDefault(_bluebird);
 	
@@ -16102,13 +15952,13 @@
 	};
 
 /***/ },
-/* 70 */
+/* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
 	'use strict';
 	
-	var _bluebird = __webpack_require__(71);
+	var _bluebird = __webpack_require__(70);
 	
 	var _bluebird2 = _interopRequireDefault(_bluebird);
 	
@@ -16127,7 +15977,7 @@
 	};
 
 /***/ },
-/* 71 */
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process, global, setImmediate) {/* @preserve
@@ -21606,10 +21456,10 @@
 	
 	},{"./es5":13}]},{},[4])(4)
 	});                    ;if (typeof window !== 'undefined' && window !== null) {                               window.P = window.Promise;                                                     } else if (typeof self !== 'undefined' && self !== null) {                             self.P = self.Promise;                                                         }
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10), (function() { return this; }()), __webpack_require__(72).setImmediate))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10), (function() { return this; }()), __webpack_require__(71).setImmediate))
 
 /***/ },
-/* 72 */
+/* 71 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(setImmediate, clearImmediate) {var nextTick = __webpack_require__(10).nextTick;
@@ -21688,10 +21538,10 @@
 	exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate : function(id) {
 	  delete immediateIds[id];
 	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(72).setImmediate, __webpack_require__(72).clearImmediate))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(71).setImmediate, __webpack_require__(71).clearImmediate))
 
 /***/ },
-/* 73 */
+/* 72 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -22984,22 +22834,22 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 74 */
+/* 73 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"design\">\n    <div class=\"scroll\">\n        <div class=\"mCustomScrollbar\" data-mcs-theme=\"dark\">\n            <section>\n                <div class=\"scrollinside\">\n                    <div class=\"banner\" v-if='post && post.src'>\n                        <img :src=\"post.src\">\n                    </div>\n\n                    <div class=\"insidetitle table\" v-if='post && post.id'>\n                        <div class=\"cell number\">\n                            <div>0{{post.id}}</div>\n                        </div>\n                        <div class=\"cell\">\n                            <h1 class=\"pagetitle\">{{post.title}}</h1>\n                            <h2>{{post.sub_title}}</h2>\n                        </div>\n                    </div>\n\n                    <div class=\"entry\" v-for='item in data'>\n                        <div class=\"bg table\">\n                            <div class=\"bgL cell\"></div>\n                            <div class=\"bgM cell\"></div>\n                            <div class=\"bgR cell\"></div>\n                        </div>\n\n                        <div class=\"header\">\n                            <a v-link=\"'/' + type + '/' + item.id\">\n                                <h2>{{item.title}}</h2>\n                            </a>\n                        </div>\n\n                        <div class=\"scroll\">\n                            <div class=\"mCustomScrollbar\" data-mcs-theme=\"dark\">\n                                <div class=\"table entrydetail\">\n                                    <div v-html=\"item.content | marked\"></div>\n                                </div>\n                            </div>\n                        </div>\n\n                        <div class=\"footer\">\n                            <a class=\"entrybtn\" v-link=\"'/' + type + '/' + item.id\">readme more</a>\n                        </div>\n                    </div>\n                </div>\n            </section>\n        </div>\n    </div>\n</div>\n";
 
 /***/ },
-/* 75 */
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(76)
+	__vue_script__ = __webpack_require__(75)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/posts/detail.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(77)
+	__vue_template__ = __webpack_require__(76)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -23018,7 +22868,7 @@
 	})()}
 
 /***/ },
-/* 76 */
+/* 75 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -23031,23 +22881,23 @@
 	};
 
 /***/ },
-/* 77 */
+/* 76 */
 /***/ function(module, exports) {
 
 	module.exports = "\n\n";
 
 /***/ },
-/* 78 */
+/* 77 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(79)
-	__vue_script__ = __webpack_require__(81)
+	__webpack_require__(78)
+	__vue_script__ = __webpack_require__(80)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/about/index.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(82)
+	__vue_template__ = __webpack_require__(81)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -23066,13 +22916,13 @@
 	})()}
 
 /***/ },
-/* 79 */
+/* 78 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(80);
+	var content = __webpack_require__(79);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(17)(content, {});
@@ -23092,7 +22942,7 @@
 	}
 
 /***/ },
-/* 80 */
+/* 79 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(4)();
@@ -23106,7 +22956,7 @@
 
 
 /***/ },
-/* 81 */
+/* 80 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -23122,23 +22972,23 @@
 	};
 
 /***/ },
-/* 82 */
+/* 81 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"about\">\n    开发中...\n</div>\n";
 
 /***/ },
-/* 83 */
+/* 82 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(84)
-	__vue_script__ = __webpack_require__(86)
+	__webpack_require__(83)
+	__vue_script__ = __webpack_require__(85)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/contact/index.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(87)
+	__vue_template__ = __webpack_require__(86)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -23157,13 +23007,13 @@
 	})()}
 
 /***/ },
-/* 84 */
+/* 83 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(85);
+	var content = __webpack_require__(84);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(17)(content, {});
@@ -23183,7 +23033,7 @@
 	}
 
 /***/ },
-/* 85 */
+/* 84 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(4)();
@@ -23197,7 +23047,7 @@
 
 
 /***/ },
-/* 86 */
+/* 85 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -23213,22 +23063,22 @@
 	};
 
 /***/ },
-/* 87 */
+/* 86 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"contact\">\n    开发中...\n</div>\n";
 
 /***/ },
-/* 88 */
+/* 87 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(89)
+	__vue_script__ = __webpack_require__(88)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/404.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(90)
+	__vue_template__ = __webpack_require__(89)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -23247,7 +23097,7 @@
 	})()}
 
 /***/ },
-/* 89 */
+/* 88 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -23260,13 +23110,13 @@
 	};
 
 /***/ },
-/* 90 */
+/* 89 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div>\n    <p>页面找不到啦~</p>\n</div>\n";
 
 /***/ },
-/* 91 */
+/* 90 */
 /***/ function(module, exports) {
 
 	
@@ -23308,17 +23158,17 @@
 	};
 
 /***/ },
-/* 92 */
+/* 91 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(93)
-	__vue_script__ = __webpack_require__(96)
+	__webpack_require__(92)
+	__vue_script__ = __webpack_require__(95)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/App.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(135)
+	__vue_template__ = __webpack_require__(134)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -23337,13 +23187,13 @@
 	})()}
 
 /***/ },
-/* 93 */
+/* 92 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(94);
+	var content = __webpack_require__(93);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(17)(content, {});
@@ -23363,7 +23213,7 @@
 	}
 
 /***/ },
-/* 94 */
+/* 93 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(4)();
@@ -23371,19 +23221,19 @@
 	
 	
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n.expand {\n  position: absolute;\n  top: 50%;\n  left: -85px;\n  opacity: 0.5;\n  margin-top: -432.5px; }\n  .expand.leftside {\n    -webkit-transform: translate(200px, 0);\n    transform: translate(200px, 0); }\n  .expand.rightside {\n    right: -85px;\n    left: auto;\n    -webkit-transform: translate(-240px, 0);\n    transform: translate(-240px, 0); }\n  .expand svg {\n    height: 865px;\n    width: 62px;\n    vertical-align: bottom; }\n  .expand .st0 {\n    stroke: rgba(255, 255, 255, 0.7); }\n  .expand .st2 {\n    fill: none;\n    stroke-linecap: round;\n    stroke-miterlimit: 10; }\n  .expand .st0, .expand .st1 {\n    fill: none;\n    stroke-miterlimit: 10; }\n  .expand .st1, .expand .st2 {\n    stroke: rgba(255, 255, 255, 0.5); }\n  .expand.on path {\n    -webkit-transition: all 0.8s;\n    transition: all 0.8s;\n    stroke-dashoffset: 0 !important; }\n\n.hideexpand .expand.leftside, .hideexpand .expand.rightside {\n  -webkit-transition: all .5s ease-in-out;\n  transition: all .5s ease-in-out;\n  -webkit-transform: translate(0, 0);\n  transform: translate(0, 0); }\n\n.hideborder .expand {\n  opacity: 0.5; }\n\n.vr {\n  position: absolute;\n  top: 0;\n  height: 100%;\n  width: 3px;\n  overflow: hidden; }\n  .vr.left {\n    left: 0; }\n  .vr.right {\n    right: 2px; }\n  .vr > div {\n    position: relative;\n    width: 1px;\n    height: 100%; }\n  .vr .b {\n    position: absolute;\n    top: 0;\n    width: 1px;\n    height: 100%;\n    margin-left: 1px;\n    background: rgba(255, 255, 255, 0.5);\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s;\n    -webkit-transform: translate3d(0, -100%, 0);\n    transform: translate3d(0, -100%, 0); }\n  .vr .d {\n    position: absolute;\n    height: 3px;\n    width: 3px;\n    border-radius: 3px;\n    opacity: 0;\n    background: rgba(255, 255, 255, 0.5);\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s; }\n  .vr .top {\n    top: 0; }\n  .vr .bottom {\n    bottom: 0; }\n\n.hr {\n  position: absolute;\n  width: 100%;\n  height: 3px;\n  overflow: hidden; }\n  .hr > div {\n    width: 100%;\n    position: relative;\n    height: 1px; }\n  .hr .b {\n    display: block;\n    position: absolute;\n    top: 1px;\n    height: 1px;\n    width: 100%;\n    background: rgba(255, 255, 255, 0.5);\n    -webkit-transform: translate3d(-100%, 0, 0);\n    transform: translate3d(-100%, 0, 0);\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s; }\n  .hr .d {\n    display: block;\n    position: absolute;\n    height: 3px;\n    width: 3px;\n    background: rgba(255, 255, 255, 0.5);\n    opacity: 0;\n    border-radius: 3px;\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s; }\n  .hr .left {\n    left: 0; }\n  .hr .right {\n    right: 0; }\n  .hr.dark span {\n    background: white; }\n\n.showborder .vr > div .b, .showborder .hr > div .b {\n  -webkit-transform: translate3d(0, 0, 0);\n  transform: translate3d(0, 0, 0); }\n\n.showborder .vr > div .d, .showborder .hr > div .d {\n  opacity: 1; }\n\n.hideborder .hr > div .b {\n  -webkit-transform: translate3d(100%, 0, 0);\n  transform: translate3d(100%, 0, 0); }\n\n.hideborder .hr > div .d {\n  opacity: 0; }\n\n.hideborder .vr > div .b {\n  -webkit-transform: translate3d(0, 100%, 0);\n  transform: translate3d(0, 100%, 0); }\n\n.hideborder .vr > div .d {\n  opacity: 0; }\n\n.loadmask {\n  position: absolute;\n  top: 0;\n  left: 380px;\n  z-index: 10;\n  display: block; }\n  .loadmask .body {\n    position: relative;\n    width: 100%;\n    height: 100%; }\n    .loadmask .body .dotted {\n      position: absolute;\n      top: -200px;\n      left: 0;\n      width: 100%;\n      height: 200px;\n      background-image: url(" + __webpack_require__(95) + ");\n      background-size: 30px;\n      background-attachment: fixed;\n      -webkit-transition: all 1.5s;\n      transition: all 1.5s; }\n\n.fetch .loadmask .body .dotted {\n  top: 120%; }\n", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n/**\n * @author: 卓文理\n * @email : 531840344@qq.com\n * @desc  : Description\n */\n.expand {\n  position: absolute;\n  top: 50%;\n  left: -85px;\n  opacity: 0.5;\n  margin-top: -432.5px; }\n  .expand.leftside {\n    -webkit-transform: translate(200px, 0);\n    transform: translate(200px, 0); }\n  .expand.rightside {\n    right: -85px;\n    left: auto;\n    -webkit-transform: translate(-240px, 0);\n    transform: translate(-240px, 0); }\n  .expand svg {\n    height: 865px;\n    width: 62px;\n    vertical-align: bottom; }\n  .expand .st0 {\n    stroke: rgba(255, 255, 255, 0.7); }\n  .expand .st2 {\n    fill: none;\n    stroke-linecap: round;\n    stroke-miterlimit: 10; }\n  .expand .st0, .expand .st1 {\n    fill: none;\n    stroke-miterlimit: 10; }\n  .expand .st1, .expand .st2 {\n    stroke: rgba(255, 255, 255, 0.5); }\n  .expand.on path {\n    -webkit-transition: all 0.8s;\n    transition: all 0.8s;\n    stroke-dashoffset: 0 !important; }\n\n.hideexpand .expand.leftside, .hideexpand .expand.rightside {\n  -webkit-transition: all .5s ease-in-out;\n  transition: all .5s ease-in-out;\n  -webkit-transform: translate(0, 0);\n  transform: translate(0, 0); }\n\n.hideborder .expand {\n  opacity: 0.5; }\n\n.vr {\n  position: absolute;\n  top: 0;\n  height: 100%;\n  width: 3px;\n  overflow: hidden; }\n  .vr.left {\n    left: 0; }\n  .vr.right {\n    right: 2px; }\n  .vr > div {\n    position: relative;\n    width: 1px;\n    height: 100%; }\n  .vr .b {\n    position: absolute;\n    top: 0;\n    width: 1px;\n    height: 100%;\n    margin-left: 1px;\n    background: rgba(255, 255, 255, 0.5);\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s;\n    -webkit-transform: translate3d(0, -100%, 0);\n    transform: translate3d(0, -100%, 0); }\n  .vr .d {\n    position: absolute;\n    height: 3px;\n    width: 3px;\n    border-radius: 3px;\n    opacity: 0;\n    background: rgba(255, 255, 255, 0.5);\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s; }\n  .vr .top {\n    top: 0; }\n  .vr .bottom {\n    bottom: 0; }\n\n.hr {\n  position: absolute;\n  width: 100%;\n  height: 3px;\n  overflow: hidden; }\n  .hr > div {\n    width: 100%;\n    position: relative;\n    height: 1px; }\n  .hr .b {\n    display: block;\n    position: absolute;\n    top: 1px;\n    height: 1px;\n    width: 100%;\n    background: rgba(255, 255, 255, 0.5);\n    -webkit-transform: translate3d(-100%, 0, 0);\n    transform: translate3d(-100%, 0, 0);\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s; }\n  .hr .d {\n    display: block;\n    position: absolute;\n    height: 3px;\n    width: 3px;\n    background: rgba(255, 255, 255, 0.5);\n    opacity: 0;\n    border-radius: 3px;\n    -webkit-transition: all 0.5s;\n    transition: all 0.5s; }\n  .hr .left {\n    left: 0; }\n  .hr .right {\n    right: 0; }\n  .hr.dark span {\n    background: white; }\n\n.showborder .vr > div .b, .showborder .hr > div .b {\n  -webkit-transform: translate3d(0, 0, 0);\n  transform: translate3d(0, 0, 0); }\n\n.showborder .vr > div .d, .showborder .hr > div .d {\n  opacity: 1; }\n\n.hideborder .hr > div .b {\n  -webkit-transform: translate3d(100%, 0, 0);\n  transform: translate3d(100%, 0, 0); }\n\n.hideborder .hr > div .d {\n  opacity: 0; }\n\n.hideborder .vr > div .b {\n  -webkit-transform: translate3d(0, 100%, 0);\n  transform: translate3d(0, 100%, 0); }\n\n.hideborder .vr > div .d {\n  opacity: 0; }\n\n.loadmask {\n  position: absolute;\n  top: 0;\n  left: 380px;\n  z-index: 10;\n  display: block; }\n  .loadmask .body {\n    position: relative;\n    width: 100%;\n    height: 100%; }\n    .loadmask .body .dotted {\n      position: absolute;\n      top: -200px;\n      left: 0;\n      width: 100%;\n      height: 200px;\n      background-image: url(" + __webpack_require__(94) + ");\n      background-size: 30px;\n      background-attachment: fixed;\n      -webkit-transition: all 1.5s;\n      transition: all 1.5s; }\n\n.fetch .loadmask .body .dotted {\n  top: 120%; }\n", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 95 */
+/* 94 */
 /***/ function(module, exports) {
 
 	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8AQMAAAAAMksxAAAABlBMVEXf9f/f9f/awkaRAAAAAnRSTlMAgJsrThgAAAASSURBVChTY2AYBaiAGYMxUgEACD0AB0gqVlUAAAAASUVORK5CYII="
 
 /***/ },
-/* 96 */
+/* 95 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23396,25 +23246,25 @@
 	
 	var _assign2 = _interopRequireDefault(_assign);
 	
-	var _sideLeft = __webpack_require__(97);
+	var _sideLeft = __webpack_require__(96);
 	
 	var _sideLeft2 = _interopRequireDefault(_sideLeft);
 	
-	var _sideRight = __webpack_require__(100);
+	var _sideRight = __webpack_require__(99);
 	
 	var _sideRight2 = _interopRequireDefault(_sideRight);
 	
-	var _index = __webpack_require__(103);
+	var _index = __webpack_require__(102);
 	
 	var _index2 = _interopRequireDefault(_index);
 	
-	var _store = __webpack_require__(133);
+	var _store = __webpack_require__(132);
 	
 	var _store2 = _interopRequireDefault(_store);
 	
-	var _getters = __webpack_require__(57);
+	var _getters = __webpack_require__(56);
 	
-	var _actions = __webpack_require__(58);
+	var _actions = __webpack_require__(57);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -23503,6 +23353,7 @@
 	            app.mainWidth = $container.width() - app.leftWidth;
 	            app.centerWidth = $container.width() - app.leftWidth - app.rightWidth - 20;
 	            app.centerWidthHalf = app.centerWidth / 2;
+	            app.centerHeight = app.windowHeight;
 	
 	            app.graphR = 330;
 	            app.graphRO = 330;
@@ -23568,16 +23419,16 @@
 	};
 
 /***/ },
-/* 97 */
+/* 96 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(98)
+	__vue_script__ = __webpack_require__(97)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/ui/side-left.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(99)
+	__vue_template__ = __webpack_require__(98)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -23596,7 +23447,7 @@
 	})()}
 
 /***/ },
-/* 98 */
+/* 97 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -23611,22 +23462,22 @@
 	};
 
 /***/ },
-/* 99 */
+/* 98 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<aside class=\"expand leftside\" :class=\"{on: on}\">\n    <svg viewBox=\"0 0 62.5 866\">\n        <path class=\"st0\" d=\"M17.5,0.5H36v141l-10,10v560l10,10v144H17.5\" style=\"transition-delay: 0s; -webkit-transition-delay: 0s; stroke-dashoffset: 910.284301757813px; stroke-dasharray: 910.284301757813px;\"></path>\n        <path class=\"st1\" d=\"M43,723v142.5h19.5\" style=\"transition-delay: 0.05s; -webkit-transition-delay: 0.05s; stroke-dashoffset: 162px; stroke-dasharray: 162px;\"></path>\n        <path class=\"st1\" d=\"M43,143V0.5h19.5\" style=\"transition-delay: 0.1s; -webkit-transition-delay: 0.1s; stroke-dashoffset: 162px; stroke-dasharray: 162px;\"></path>\n        <path class=\"st1\" d=\"M25.7,231.7C16,269.8,9,308.8,4.9,348.8c-2.9,28-4.4,56.4-4.4,85.2c0,28.8,1.5,57.3,4.4,85.4\n            C9,559.3,16,598.3,25.7,636.3\" style=\"transition-delay: 0.15s; -webkit-transition-delay: 0.15s; stroke-dashoffset: 408.787078857422px; stroke-dasharray: 408.787078857422px;\"></path>\n        <line class=\"st2\" x1=\"15.5\" y1=\"275.5\" x2=\"25.5\" y2=\"275.5\"></line>\n        <line class=\"st2\" x1=\"15.5\" y1=\"591.5\" x2=\"25.5\" y2=\"591.5\"></line>\n        <path class=\"st1\" d=\"M25,802.5c0-8.4,0-20,0-20h4v20H25z\" style=\"transition-delay: 0.2s; -webkit-transition-delay: 0.2s; stroke-dashoffset: 48px; stroke-dasharray: 48px;\"></path>\n        <path class=\"st1\" d=\"M25,853.5c0-8.7,0-40,0-40h4v40H25z\" style=\"transition-delay: 0.25s; -webkit-transition-delay: 0.25s; stroke-dashoffset: 88px; stroke-dasharray: 88px;\"></path>\n    </svg>\n</aside>\n";
 
 /***/ },
-/* 100 */
+/* 99 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(101)
+	__vue_script__ = __webpack_require__(100)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/ui/side-right.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(102)
+	__vue_template__ = __webpack_require__(101)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -23645,7 +23496,7 @@
 	})()}
 
 /***/ },
-/* 101 */
+/* 100 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -23660,23 +23511,23 @@
 	};
 
 /***/ },
-/* 102 */
+/* 101 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<aside class=\"expand rightside\" :class=\"{on: on}\">\n    <svg viewBox=\"0 0 62.5 866\">\n        <path class=\"st0\" d=\"M45.5,0.5H27v141l10,10v560l-10,10v144h18.5\" style=\"transition-delay: 0.3s; -webkit-transition-delay: 0.3s; stroke-dashoffset: 910.284301757813px; stroke-dasharray: 910.284301757813px;\"></path>\n        <path class=\"st1\" d=\"M20,723v142.5H0.5\" style=\"transition-delay: 0.35s; -webkit-transition-delay: 0.35s; stroke-dashoffset: 162px; stroke-dasharray: 162px;\"></path>\n        <path class=\"st1\" d=\"M20,143V0.5H0.5\" style=\"transition-delay: 0.4s; -webkit-transition-delay: 0.4s; stroke-dashoffset: 162px; stroke-dasharray: 162px;\"></path>\n        <path class=\"st1\" d=\"M37.3,231.7c9.6,38,16.6,77.1,20.8,117.1c2.9,28,4.4,56.4,4.4,85.2c0,28.8-1.5,57.3-4.4,85.4 C54,559.3,47,598.3,37.3,636.3\" style=\"transition-delay: 0.45s; -webkit-transition-delay: 0.45s; stroke-dashoffset: 408.780639648438px; stroke-dasharray: 408.780639648438px;\"></path>\n        <line class=\"st2\" x1=\"47.5\" y1=\"275.5\" x2=\"37.5\" y2=\"275.5\"></line>\n        <line class=\"st2\" x1=\"47.5\" y1=\"591.5\" x2=\"37.5\" y2=\"591.5\"></line>\n        <path class=\"st1\" d=\"M38,802.5c0-8.4,0-20,0-20h-4v20H38z\" style=\"transition-delay: 0.5s; -webkit-transition-delay: 0.5s; stroke-dashoffset: 48px; stroke-dasharray: 48px;\"></path>\n        <path class=\"st1\" d=\"M38,853.5c0-8.7,0-40,0-40h-4v40H38z\" style=\"transition-delay: 0.55s; -webkit-transition-delay: 0.55s; stroke-dashoffset: 88px; stroke-dasharray: 88px;\"></path>\n    </svg>\n</aside>\n";
 
 /***/ },
-/* 103 */
+/* 102 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(104)
-	__vue_script__ = __webpack_require__(106)
+	__webpack_require__(103)
+	__vue_script__ = __webpack_require__(105)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/sidebar/index.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(132)
+	__vue_template__ = __webpack_require__(131)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -23695,13 +23546,13 @@
 	})()}
 
 /***/ },
-/* 104 */
+/* 103 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(105);
+	var content = __webpack_require__(104);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(17)(content, {});
@@ -23721,7 +23572,7 @@
 	}
 
 /***/ },
-/* 105 */
+/* 104 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(4)();
@@ -23735,7 +23586,7 @@
 
 
 /***/ },
-/* 106 */
+/* 105 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23744,31 +23595,31 @@
 	    value: true
 	});
 	
-	var _weather = __webpack_require__(107);
+	var _weather = __webpack_require__(106);
 	
 	var _weather2 = _interopRequireDefault(_weather);
 	
-	var _subtitle = __webpack_require__(108);
+	var _subtitle = __webpack_require__(107);
 	
 	var _subtitle2 = _interopRequireDefault(_subtitle);
 	
-	var _logo = __webpack_require__(114);
+	var _logo = __webpack_require__(113);
 	
 	var _logo2 = _interopRequireDefault(_logo);
 	
-	var _nav = __webpack_require__(117);
+	var _nav = __webpack_require__(116);
 	
 	var _nav2 = _interopRequireDefault(_nav);
 	
-	var _chart = __webpack_require__(120);
+	var _chart = __webpack_require__(119);
 	
 	var _chart2 = _interopRequireDefault(_chart);
 	
-	var _window = __webpack_require__(126);
+	var _window = __webpack_require__(125);
 	
 	var _window2 = _interopRequireDefault(_window);
 	
-	var _sns = __webpack_require__(129);
+	var _sns = __webpack_require__(128);
 	
 	var _sns2 = _interopRequireDefault(_sns);
 	
@@ -23789,7 +23640,7 @@
 	};
 
 /***/ },
-/* 107 */
+/* 106 */
 /***/ function(module, exports) {
 
 	
@@ -23807,16 +23658,16 @@
 	};
 
 /***/ },
-/* 108 */
+/* 107 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(109)
+	__vue_script__ = __webpack_require__(108)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/sidebar/subtitle.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(113)
+	__vue_template__ = __webpack_require__(112)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -23835,7 +23686,7 @@
 	})()}
 
 /***/ },
-/* 109 */
+/* 108 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23844,7 +23695,7 @@
 	    value: true
 	});
 	
-	var _hr = __webpack_require__(110);
+	var _hr = __webpack_require__(109);
 	
 	var _hr2 = _interopRequireDefault(_hr);
 	
@@ -23857,16 +23708,16 @@
 	};
 
 /***/ },
-/* 110 */
+/* 109 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(111)
+	__vue_script__ = __webpack_require__(110)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/ui/hr.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(112)
+	__vue_template__ = __webpack_require__(111)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -23885,7 +23736,7 @@
 	})()}
 
 /***/ },
-/* 111 */
+/* 110 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -23911,28 +23762,28 @@
 	};
 
 /***/ },
-/* 112 */
+/* 111 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"hr\" :class=\"{dark: dark}\">\n    <div>\n        <span class=\"b\"></span>\n        <span v-if=\"left\" class=\"d left\"></span>\n        <span v-if=\"right\" class=\"d right\"></span>\n    </div>\n</div>\n";
 
 /***/ },
-/* 113 */
+/* 112 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"side-subtitle\">\n    <hr></hr>\n    <h2>\n        <p class=\"hide first\">Welcome and enjoy!</p>\n        <p class=\"hide second\">web design and front-end posts.</p>\n    </h2>\n    <hr></hr>\n</div>\n";
 
 /***/ },
-/* 114 */
+/* 113 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(115)
+	__vue_script__ = __webpack_require__(114)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/sidebar/logo.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(116)
+	__vue_template__ = __webpack_require__(115)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -23951,7 +23802,7 @@
 	})()}
 
 /***/ },
-/* 115 */
+/* 114 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23960,11 +23811,11 @@
 	    value: true
 	});
 	
-	var _hr = __webpack_require__(110);
+	var _hr = __webpack_require__(109);
 	
 	var _hr2 = _interopRequireDefault(_hr);
 	
-	var _weather = __webpack_require__(107);
+	var _weather = __webpack_require__(106);
 	
 	var _weather2 = _interopRequireDefault(_weather);
 	
@@ -24037,22 +23888,22 @@
 	};
 
 /***/ },
-/* 116 */
+/* 115 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"side-logo\">\n    <div class=\"logo-left\">\n        <a class=\"logo link hide\" v-link=\"'/'\">\n            <svg viewBox=\"0 0 500 500\">\n                <polyline points=\"413.9,104.2 139.7,104.2 139.7,123.9 322.8,123.9 115.8,354.3 139.7,354.3 352.6,123.9 413.9,124 413.9,137.4 213.1,354.3 219,354.3 377.3,354.3 377.3,413.9 103.1,413.9 103.1,433.6 395.6,433.6 395.9,354.5 413.9,354.3 413.9,453.5 84.8,453.5 84.8,394.5 359,394.5 359,374.4 176.5,374.4 171.2,374.4 383.8,143.6 359,143.6 145.7,374.4 84.6,374.4 84.6,361.5 286.5,143.6 121.7,143.6 121.7,84.3 395.6,84.3 395.5,64.3 103.1,64.3 103.1,143.6 84.5,143.6 84.5,44.9 413.9,44.9 \"/>\n            </svg>\n        </a>\n        <hr :dark=\"true\" :right=\"false\"></hr>\n    </div>\n    <div class=\"logo-right\">\n        <div class=\"format hide\">Xiamen, Fujian, China</div>\n        <div class=\"temp\">\n            <div class=\"cell\">\n                <hr></hr>\n                <p class=\"today hide\">{{now | date \"yyyy.MM.dd\"}}</p>\n                <hr></hr>\n            </div>\n            <div class=\"cell\">\n                <hr :dark=\"true\" :left=\"false\"></hr>\n                <p class=\"weather icon hide\" :class='{on: on}'>{{weather}}</p>\n                <hr :dark=\"true\" :left=\"false\"></hr>\n            </div>\n        </div>\n        <div class=\"tenji\">\n            <div class=\"tenjibody\">\n                <svg viewBox=\"0 0 171 23\" class=\"hidechild\"> <circle class=\"st0\" cx=\"1.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"17.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"25.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"33.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"41.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"49.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"57.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"65.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"73.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"105.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"129.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"145.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"153.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"161.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"1.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"9.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"17.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"33.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"57.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"65.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"73.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"81.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"105.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"121.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"129.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"137.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"145.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"153.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"161.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"169.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"1.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"9.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"17.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"25.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"33.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"41.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"73.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"81.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"97.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"113.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"137.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"9.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"81.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"89.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"97.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"113.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"121.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"137.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"169.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"25.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"41.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"49.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"89.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"97.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"113.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"49.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"57.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"65.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"89.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"105.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"121.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"129.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"145.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"153.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"161.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"169.5\" cy=\"1.5\" r=\"1.5\"/> </svg>\n            </div>\n        </div>\n        <hr></hr>\n    </div>\n</div>\n";
 
 /***/ },
-/* 117 */
+/* 116 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(118)
+	__vue_script__ = __webpack_require__(117)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/sidebar/nav.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(119)
+	__vue_template__ = __webpack_require__(118)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -24071,7 +23922,7 @@
 	})()}
 
 /***/ },
-/* 118 */
+/* 117 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24080,7 +23931,7 @@
 	    value: true
 	});
 	
-	var _hr = __webpack_require__(110);
+	var _hr = __webpack_require__(109);
 	
 	var _hr2 = _interopRequireDefault(_hr);
 	
@@ -24143,22 +23994,22 @@
 	};
 
 /***/ },
-/* 119 */
+/* 118 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<nav class=\"side-nav\">\n    <div class=\"title table\">\n        <div class=\"cell\">\n            <hr></hr>\n            <h3 class=\"emp hide\">MENU</h3>\n            <hr></hr>\n        </div>\n        <div class=\"cell\">\n            <hr :dark=\"true\" :left=\"false\"></hr>\n            <span class=\"emp hide\"></span>\n            <hr :dark=\"true\" :left=\"false\"></hr>\n        </div>\n    </div>\n    <ul>\n        <a v-for=\"(i, menu) in menus\" v-link=\"menu.url\" class=\"link btn\">\n            <span class=\"hide num\">0{{i + 1}}</span>\n            <span class=\"hide name\">{{menu.name | uppercase}}</span>\n            <span class=\"hide lefttop\"></span>\n            <span class=\"hide rightbottom\"></span>\n            <div class=\"light hidechild\"><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span><span class=\"d\"></span></div>\n        </a>\n    </ul>\n</nav>\n";
 
 /***/ },
-/* 120 */
+/* 119 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(121)
+	__vue_script__ = __webpack_require__(120)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/sidebar/chart.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(125)
+	__vue_template__ = __webpack_require__(124)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -24177,7 +24028,7 @@
 	})()}
 
 /***/ },
-/* 121 */
+/* 120 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24186,11 +24037,11 @@
 	    value: true
 	});
 	
-	var _hr = __webpack_require__(110);
+	var _hr = __webpack_require__(109);
 	
 	var _hr2 = _interopRequireDefault(_hr);
 	
-	var _vr = __webpack_require__(122);
+	var _vr = __webpack_require__(121);
 	
 	var _vr2 = _interopRequireDefault(_vr);
 	
@@ -24204,16 +24055,16 @@
 	};
 
 /***/ },
-/* 122 */
+/* 121 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(123)
+	__vue_script__ = __webpack_require__(122)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/ui/vr.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(124)
+	__vue_template__ = __webpack_require__(123)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -24232,7 +24083,7 @@
 	})()}
 
 /***/ },
-/* 123 */
+/* 122 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -24259,28 +24110,28 @@
 	};
 
 /***/ },
-/* 124 */
+/* 123 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"vr {{class}}\">\n    <div>\n        <span class=\"b\"></span>\n        <span v-if=\"top\" class=\"d top\"></span>\n        <span v-if=\"bottom\" class=\"d bottom\"></span>\n    </div>\n</div>\n";
 
 /***/ },
-/* 125 */
+/* 124 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"side-chart\">\n    <div class=\"chart\">\n        <vr :class=\"'left'\"></vr>\n        <div class=\"graphics table\">\n            <div class=\"cell\">\n                <svg class=\"svg-graphics\" viewBox=\"0 0 188.3 44.2\">\n                    <g class=\"line hide\">\n                        <line x1=\"0.5\" y1=\"39.2\" x2=\"187.8\" y2=\"39.2\"/>\n                    </g>\n                    <g>\n                        <path class=\"hide pathline st1\" d=\"M187.8,39.2c0,0-6.6-6.6-18.6-14.1c-12-7.5-21.8-15-37.1-5.3S112.4,29.1,88,30.7s-25.6,8.6-45.3,8.5H0.5\"/>\n                        <path class=\"hide pathline st0\" d=\"M0.5,39.2c0,0,43.8-4,65.9-7.3c31-4.5,33.3-31.5,50.4-31.5c19,0,23.7,24.9,43.1,24.9 c19.4,0,21.3,13.8,27.8,13.8\"/>\n                    </g>\n                    <g class=\"base hide\">\n                        <line x1=\"187.8\" y1=\"34.2\" x2=\"187.8\" y2=\"44.2\"/>\n                        <line x1=\"0.5\" y1=\"34.2\" x2=\"0.5\" y2=\"44.2\"/>\n                        <line x1=\"94.5\" y1=\"36.2\" x2=\"94.5\" y2=\"42.2\"/>\n                    </g>\n                </svg>\n                <span class=\"hide unit tx-l\">0:00</span>\n                <span class=\"hide unit tx-c\">12:00</span>\n                <span class=\"hide unit tx-r\">24:00</span>\n            </div>\n            <div class=\"cell hide\">\n                <div class=\"chart-line\">\n                    <p>CLOCK IN</p>\n                    <div class=\"line st0\"><span></span></div>\n                </div>\n                <div class=\"chart-line\">\n                    <p>CLOCK OUT</p>\n                    <div class=\"line st1\"><span></span></div>\n                </div>\n            </div>\n        </div>\n        <vr :class=\"'right'\"></vr>\n    </div>\n    <div class=\"chart\">\n        <div class=\"malefemale\">\n            <span class=\"hide unit tx-l\">MALE</span>\n            <span class=\"hide unit tx-r\">FEMALE</span>\n            <div class=\"hide bar cf\">\n                <span class=\"m\"></span>\n                <span class=\"f\"></span>\n            </div>\n        </div>\n        <div class=\"tenjibody\">\n            <svg viewBox=\"0 0 299.5 23\" class=\"hidechild\"> <circle class=\"st0\" cx=\"1.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"9.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"17.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"25.5\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"33.6\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"73.6\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"81.6\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"97.7\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"113.7\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"137.7\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"129.7\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"145.8\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"153.8\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"161.8\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"169.8\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"201.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"209.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"225.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"241.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"266\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"298\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"1.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"17.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"25.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"33.6\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"41.6\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"73.6\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"49.6\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"57.6\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"65.6\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"105.7\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"129.7\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"145.8\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"153.8\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"161.8\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"169.8\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"177.8\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"185.8\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"193.8\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"201.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"257.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"274\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"290\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"233.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"282\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"1.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"9.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"17.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"33.6\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"73.6\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"81.6\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"137.7\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"57.6\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"65.6\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"105.7\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"121.7\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"129.7\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"145.8\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"161.8\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"185.8\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"193.8\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"201.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"209.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"249.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"257.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"274\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"290\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"233.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"41.6\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"49.6\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"57.6\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"65.6\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"89.7\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"105.7\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"121.7\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"177.8\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"185.8\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"193.8\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"217.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"249.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"257.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"274\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"290\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"233.9\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"282\" cy=\"1.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"9.5\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"81.6\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"97.7\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"113.7\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"137.7\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"89.7\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"121.7\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"209.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"217.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"249.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"225.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"241.9\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"266\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"298\" cy=\"11.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"25.5\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"41.6\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"97.7\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"113.7\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"49.6\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"89.7\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"153.8\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"169.8\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"177.8\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"217.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"225.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st1\" cx=\"241.9\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"266\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"282\" cy=\"21.5\" r=\"1.5\"/> <circle class=\"st0\" cx=\"298\" cy=\"21.5\" r=\"1.5\"/></svg>\n        </div>\n    </div>\n    <div class=\"chart\">\n        <vr :class=\"'left'\"></vr>\n        <vr :class=\"'right'\"></vr>\n        <div class=\"graphics age table\">\n            <div class=\"cell\">\n                <h4 class=\"hide\">AGE</h4>\n                <div class=\"svg-graphics\">\n                    <svg viewBox=\"0 0 279.6 37.5\">\n                        <g class=\"hide line\">\n                            <line x1=\"0.5\" y1=\"32.5\" x2=\"279.1\" y2=\"32.5\"/>\n                        </g>\n                        <path class=\"pathline hide st0\" d=\"M0,31.7c0,0,17.6-5.9,26.2-6.8C65.4,20.7,64.4,0.6,86.1,0.6c19.6,0,25,19,63.9,25.3c36,5.8,59.9,5.8,59.9,5.8 c26.3,0,69.7,0,69.7,0\"/>\n                        <g class=\"hide base\">\n                            <line x1=\"279.1\" y1=\"27.5\" x2=\"279.1\" y2=\"37.5\"/>\n                            <line x1=\"0.5\" y1=\"27.5\" x2=\"0.5\" y2=\"37.5\"/>\n                            <line x1=\"139\" y1=\"29.5\" x2=\"139\" y2=\"35.5\"/>\n                        </g>\n                    </svg>\n                </div>\n                <span class=\"hide unit tx-l\">20</span>\n                <span class=\"hide unit tx-r\">50</span>\n            </div>\n        </div><!-- .svgGraphics -->\n    </div>\n</div>\n";
 
 /***/ },
-/* 126 */
+/* 125 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(127)
+	__vue_script__ = __webpack_require__(126)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/sidebar/window.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(128)
+	__vue_template__ = __webpack_require__(127)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -24299,7 +24150,7 @@
 	})()}
 
 /***/ },
-/* 127 */
+/* 126 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24308,7 +24159,7 @@
 	    value: true
 	});
 	
-	var _hr = __webpack_require__(110);
+	var _hr = __webpack_require__(109);
 	
 	var _hr2 = _interopRequireDefault(_hr);
 	
@@ -24325,22 +24176,22 @@
 	};
 
 /***/ },
-/* 128 */
+/* 127 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"site-window\">\n    <hr></hr>\n    <div class=\"body\">\n        <span class=\"hide high\">WIDTH</span>\n        <span class=\"hide wW\">{{width}}</span>\n        <span class=\"hide high\">HEIGHT</span>\n        <span class=\"hide wH\">{{height}}</span>\n    </div>\n    <hr></hr>\n</div>\n";
 
 /***/ },
-/* 129 */
+/* 128 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(130)
+	__vue_script__ = __webpack_require__(129)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/components/sidebar/sns.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(131)
+	__vue_template__ = __webpack_require__(130)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -24359,7 +24210,7 @@
 	})()}
 
 /***/ },
-/* 130 */
+/* 129 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24368,7 +24219,7 @@
 	    value: true
 	});
 	
-	var _hr = __webpack_require__(110);
+	var _hr = __webpack_require__(109);
 	
 	var _hr2 = _interopRequireDefault(_hr);
 	
@@ -24381,19 +24232,19 @@
 	};
 
 /***/ },
-/* 131 */
+/* 130 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"site-sns\">\n    <div class=\"body\">\n        <a href=\"https://github.com/zhuowenli\" target=\"_blank\" class=\"btn link on\">\n            <span class=\"hide name\">github</span>\n            <span class=\"lefttop\"></span>\n            <span class=\"rightbottom\"></span>\n        </a>\n        <a href=\"https://www.zhihu.com/people/zhuowenli\" target=\"_blank\" class=\"btn link\">\n            <span class=\"hide name\">zhihu</span>\n            <span class=\"lefttop\"></span>\n            <span class=\"rightbottom\"></span>\n        </a>\n        <a href=\"https://github.com/zhuowenli/zhuowenli.github.io\" target=\"_blank\" class=\"btn link\">\n            <span class=\"hide name\">fork me</span>\n            <span class=\"lefttop\"></span>\n            <span class=\"rightbottom\"></span>\n        </a>\n    </div>\n    <hr></hr>\n</div>\n";
 
 /***/ },
-/* 132 */
+/* 131 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<section class=\"main-sidebar\">\n    <side-subtitle></side-subtitle>\n    <side-logo></side-logo>\n    <side-nav></side-nav>\n    <side-chart></side-chart>\n    <side-window\n        :width=\"app.windowWidth\"\n        :height=\"app.windowHeight\">\n    </side-window>\n    <side-sns></side-sns>\n</section>\n";
 
 /***/ },
-/* 133 */
+/* 132 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -24407,7 +24258,7 @@
 	
 	var _vue2 = _interopRequireDefault(_vue);
 	
-	var _vuex = __webpack_require__(134);
+	var _vuex = __webpack_require__(133);
 	
 	var _vuex2 = _interopRequireDefault(_vuex);
 	
@@ -24481,7 +24332,7 @@
 	});
 
 /***/ },
-/* 134 */
+/* 133 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*!
@@ -25148,1291 +24999,10 @@
 	}));
 
 /***/ },
-/* 135 */
+/* 134 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"container\">\n    <section-sidebar\n        :hide=\"hide\"\n        :app=\"app\">\n    </section-sidebar>\n\n    <section class=\"main-content\">\n        <div class=\"loadmask\"><div class=\"body\"><div class=\"dotted\"></div></div></div>\n        <div class=\"main hide\">\n            <router-view\n                transition=\"app\"\n                transition-mode=\"out-in\"\n                keep-alive>\n            </router-view>\n        </div>\n    </section>\n\n    <side-left :on=\"sideon\"></side-left>\n    <side-right :on=\"sideon\"></side-right>\n</div>\n";
-
-/***/ },
-/* 136 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _typeof2 = __webpack_require__(137);
-	
-	var _typeof3 = _interopRequireDefault(_typeof2);
-	
-	var _init2d = __webpack_require__(56);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var lineObject = [[1, 310, 242, 310, 292, 260, 292], [1, -310, 242, -310, 292, -260, 292], [0.3, 329, 305, 329, 311, 181, 311, 181, 305], [0.3, 270, 305, 270, 311], [0.3, 330, 316, 180, 316], [1, 180, -352, 180, -358, 330, -358, 330, -352, -330, -352], [1, 270, -352, 270, -358], [0.2, 330, -364, 180, -364]];
-	
-	var B1 = [330, 330];
-	var B2 = [330, -413];
-	var B3 = [109, -413];
-	var BTNCOLOR = ['rgba(223,245,255, 0.5)', 'rgba(223,245,255, 0)'];
-	var BARCHARTCOLOR = ['rgba(235,39,85,1)', 'rgba(109,126,132,1)', 'rgba(223,245,255,1)', 'rgba(223,245,255,1)', 'rgba(223,245,255,1)'];
-	var CENTERCOLOR = [168, 215, 215, 1];
-	var MOUSEDEGCOLOR = [223, 245, 255];
-	var PVCOLOR = [168, 215, 215];
-	var PV2COLOR = [223, 245, 255, 0.2];
-	var LNCOLOR = { 'RGB': [109, 126, 132], 'ALPHA': [1, 1, 0.3, 0.3, 0.3, 1, 1, 0.2] };
-	var SOUSHOKUCOLOR = { 'RGB': [223, 245, 255], 'ALPHA': [0.2, 0.2] };
-	var BXCOLOR = { 'RGB': [109, 126, 132], 'ALPHA': [1, 0.3] };
-	var MEMORICOLOR = { 'RGB': [109, 126, 132], 'ALPHA': [1, 0.3] };
-	var GAISHUUCOLOR = { 'RGB': [223, 245, 255], 'ALPHA': [0.3, 0.1, 0.1, 0.2] };
-	var HYOUCOLOR = { 'RGB': [223, 245, 255], 'ALPHA': [0.3, 0.1, 0.2, 0.6, 1, 0.6] };
-	var FONTCOLOR = [223, 245, 255, 223, 245, 255, 37, 45, 48, 223, 245, 255];
-	var UACOLOR = [223, 245, 255, 0.2];
-	var AVCOLOR = { 'RGB': [223, 245, 255], 'ALPHA': [0.1, 0.4, 1, 0.4] };
-	
-	var app = {};
-	
-	function drawLN(app) {
-	
-	    app.ctxCR.save();
-	
-	    app.ctxCR.translate(app.canvasWidthHalf, app.canvasHeightHalf);
-	    app.ctxCR.rotate(90 * Math.PI / 180);
-	    app.ctxCR.translate(-app.canvasWidthHalf, -app.canvasHeightHalf);
-	
-	    app.ctxCR.lineWidth = 1 * app.ratio;
-	    for (var i = 0; i < lineObject.length; i++) {
-	        var r = LNCOLOR['RGB'][0];
-	        var g = LNCOLOR['RGB'][1];
-	        var b = LNCOLOR['RGB'][2];
-	        var alpha = LNCOLOR['ALPHA'][i];
-	        app.ctxCR.strokeStyle = 'rgba(' + r + ',' + g + ',' + b + ',' + alpha + ')';
-	        app.ctxCR.beginPath();
-	
-	        for (var n = 1; n < lineObject[i].length; n += 2) {
-	            var x = app.canvasWidthHalf - lineObject[i][n] * app.ratio;
-	            var y = app.canvasHeightHalf - lineObject[i][n + 1] * app.ratio;
-	            app.ctxCR.lineTo(x, y);
-	        };
-	        app.ctxCR.stroke();
-	    };
-	
-	    app.ctxCR.strokeStyle = 'rgba(' + BXCOLOR['RGB'][0] + ',' + BXCOLOR['RGB'][1] + ',' + BXCOLOR['RGB'][2] + ',' + BXCOLOR['ALPHA'][0] + ')';
-	    app.ctxCR.beginPath();
-	    var x = app.canvasWidthHalf - B1[0] * app.ratio;
-	    var y = app.canvasHeightHalf - B1[1] * app.ratio;
-	    app.ctxCR.rect(x, y, 151 * app.ratio, 6 * app.ratio);
-	    app.ctxCR.stroke();
-	
-	    app.ctxCR.strokeStyle = 'rgba(' + BXCOLOR['RGB'][0] + ',' + BXCOLOR['RGB'][1] + ',' + BXCOLOR['RGB'][2] + ',' + BXCOLOR['ALPHA'][1] + ')';
-	    app.ctxCR.beginPath();
-	    var x = app.canvasWidthHalf - B2[0] * app.ratio;
-	    var y = app.canvasHeightHalf - B2[1] * app.ratio;
-	    app.ctxCR.rect(x, y, 215 * app.ratio, 4 * app.ratio);
-	    app.ctxCR.stroke();
-	
-	    app.ctxCR.beginPath();
-	    var x = app.canvasWidthHalf - B3[0] * app.ratio;
-	    var y = app.canvasHeightHalf - B3[1] * app.ratio;
-	    app.ctxCR.rect(x, y, 438 * app.ratio, 4 * app.ratio);
-	    app.ctxCR.stroke();
-	
-	    app.ctxCR.strokeStyle = 'rgba(' + MEMORICOLOR['RGB'][0] + ',' + MEMORICOLOR['RGB'][1] + ',' + MEMORICOLOR['RGB'][2] + ',' + MEMORICOLOR['ALPHA'][0] + ')';
-	
-	    app.ctxCR.beginPath();
-	    var x1 = app.canvasWidthHalf - 330 * app.ratio;
-	    var x2 = app.canvasWidthHalf + 330 * app.ratio;
-	    var y2 = app.canvasHeightHalf + 394 * app.ratio;
-	    app.ctxCR.moveTo(x1, y1);
-	    app.ctxCR.lineTo(x1, y2);
-	    app.ctxCR.stroke();
-	
-	    for (var i = 0; i < 7; i++) {
-	        app.ctxCR.beginPath();
-	        if (i === 6) {
-	            var x1 = app.canvasWidthHalf - (330 - i * 110) * app.ratio - 1 * app.ratio;
-	        } else {
-	            var x1 = app.canvasWidthHalf - (330 - i * 110) * app.ratio;
-	        }
-	        var y1 = app.canvasHeightHalf + 394 * app.ratio;
-	        var y2 = app.canvasHeightHalf + 388 * app.ratio;
-	        app.ctxCR.moveTo(x1, y1);
-	        app.ctxCR.lineTo(x1, y2);
-	        app.ctxCR.stroke();
-	    };
-	
-	    app.ctxCR.strokeStyle = 'rgba(' + MEMORICOLOR['RGB'][0] + ',' + MEMORICOLOR['RGB'][1] + ',' + MEMORICOLOR['RGB'][2] + ',' + MEMORICOLOR['ALPHA'][1] + ')';
-	
-	    for (var i = 0; i < 133; i++) {
-	        app.ctxCR.beginPath();
-	        if (i === 132) {
-	            var x1 = app.canvasWidthHalf - (330 - i * 5) * app.ratio - 1 * app.ratio;
-	        } else {
-	            var x1 = app.canvasWidthHalf - (330 - i * 5) * app.ratio;
-	        }
-	        var y1 = app.canvasHeightHalf + 397 * app.ratio;
-	        var y2 = app.canvasHeightHalf + 399 * app.ratio;
-	        app.ctxCR.moveTo(x1, y1);
-	        app.ctxCR.lineTo(x1, y2);
-	        app.ctxCR.stroke();
-	    };
-	
-	    app.ctxCR.restore();
-	}
-	
-	var jiten = 0;
-	
-	function drawCR(app) {
-	
-	    if (jiten < 361) {
-	        jiten += 0.1;
-	    } else {
-	        jiten = 0;
-	    }
-	
-	    var lx1 = 0;
-	    var ly1 = 0;
-	    var lx2 = 0;
-	    var ly2 = 0;
-	    var lx3 = 0;
-	    var ly3 = 0;
-	
-	    app.ctxCR.clearRect(0, 0, app.canvasWidth, app.canvasHeight);
-	    app.ctxCR.lineWidth = 1 * app.ratio;
-	
-	    app.ctxCR.save();
-	
-	    app.ctxCR.translate(app.canvasWidthHalf + lx1, app.canvasHeightHalf + ly1);
-	    app.ctxCR.rotate(jiten / 2 * Math.PI / 180);
-	    app.ctxCR.translate(-app.canvasWidthHalf + lx1, -app.canvasHeightHalf + ly1);
-	
-	    app.ctxCR.strokeStyle = 'rgba(' + GAISHUUCOLOR['RGB'][0] + ',' + GAISHUUCOLOR['RGB'][1] + ',' + GAISHUUCOLOR['RGB'][2] + ',' + GAISHUUCOLOR['ALPHA'][0] + ')';
-	    app.ctxCR.beginPath();
-	    for (var i = app.MemoriInnerPosition.length - 1; i >= 0; i--) {
-	        app.ctxCR.moveTo(app.MemoriInnerPosition[i][0], app.MemoriInnerPosition[i][1]);
-	        app.ctxCR.lineTo(app.MemoriInnerPosition[i][2], app.MemoriInnerPosition[i][3]);
-	    };
-	    app.ctxCR.stroke();
-	
-	    app.ctxCR.restore();
-	
-	    app.ctxCR.save();
-	
-	    app.ctxCR.translate(app.canvasWidthHalf + lx2, app.canvasHeightHalf + ly2);
-	    app.ctxCR.rotate(jiten * Math.PI / 180);
-	    app.ctxCR.translate(-app.canvasWidthHalf + lx2, -app.canvasHeightHalf + ly2);
-	
-	    app.ctxCR.strokeStyle = 'rgba(' + GAISHUUCOLOR['RGB'][0] + ',' + GAISHUUCOLOR['RGB'][1] + ',' + GAISHUUCOLOR['RGB'][2] + ',' + GAISHUUCOLOR['ALPHA'][1] + ')';
-	    app.ctxCR.beginPath();
-	    for (var i = app.MemoriPosition.length - 1; i >= 0; i--) {
-	        app.ctxCR.moveTo(app.MemoriPosition[i][0], app.MemoriPosition[i][1]);
-	        app.ctxCR.lineTo(app.MemoriPosition[i][2], app.MemoriPosition[i][3]);
-	    };
-	    app.ctxCR.stroke();
-	
-	    app.ctxCR.restore();
-	
-	    app.ctxCR.strokeStyle = 'rgba(' + GAISHUUCOLOR['RGB'][0] + ',' + GAISHUUCOLOR['RGB'][1] + ',' + GAISHUUCOLOR['RGB'][2] + ',' + GAISHUUCOLOR['ALPHA'][2] + ')';
-	    app.ctxCR.beginPath();
-	    app.ctxCR.arc(app.canvasWidthHalf + lx2, app.canvasHeightHalf + ly2, app.graphRadius, 0, app.PI2, true);
-	    app.ctxCR.stroke();
-	
-	    app.ctxCR.strokeStyle = 'rgba(' + GAISHUUCOLOR['RGB'][0] + ',' + GAISHUUCOLOR['RGB'][1] + ',' + GAISHUUCOLOR['RGB'][2] + ',' + GAISHUUCOLOR['ALPHA'][3] + ')';
-	    app.ctxCR.beginPath();
-	    app.ctxCR.arc(app.canvasWidthHalf + lx2, app.canvasHeightHalf + ly2, app.graphRadius - 50 * app.ratio, 0, app.PI2, true);
-	    app.ctxCR.stroke();
-	
-	    app.ctxCR.lineWidth = 3 * app.ratio;
-	    for (var i = app.barChartPar.length - 1; i >= 0; i--) {
-	        var deg = app.barChartPar[i] * 3.6;
-	        var endAngle = deg * app.RAD;
-	        app.ctxCR.strokeStyle = BARCHARTCOLOR[i];
-	        app.ctxCR.beginPath();
-	        app.ctxCR.arc(app.canvasWidthHalf + lx2, app.canvasHeightHalf + ly2, app.barChartRadius[i], 0, endAngle, false);
-	        app.ctxCR.stroke();
-	    };
-	
-	    app.ctxCR.lineWidth = 1 * app.ratio;
-	    app.ctxCR.strokeStyle = 'rgba(' + PVCOLOR[0] + ',' + PVCOLOR[1] + ',' + PVCOLOR[2] + ',1)';
-	
-	    if (app.pvRatioAnimateFlag) {
-	
-	        app.ctxCR.save();
-	
-	        app.ctxCR.translate(lx3, ly3);
-	
-	        for (var i = 0; i < app.pvRatio.length; i++) {
-	            var pvDegNow = app.pvRatio[i] - 15;
-	            var pvDegNext = app.pvRatio[i] + 15;
-	            if (pvDegNow < app.mouseStatus.deg && pvDegNext > app.mouseStatus.deg) {
-	                app.pvHover = i;
-	                app.ctxCR.fillStyle = 'rgba(' + PVCOLOR[0] + ',' + PVCOLOR[1] + ',' + PVCOLOR[2] + ',0.3)';
-	            } else {
-	                app.ctxCR.fillStyle = 'rgba(' + PVCOLOR[0] + ',' + PVCOLOR[1] + ',' + PVCOLOR[2] + ',0)';
-	            }
-	            app.ctxCR.beginPath();
-	            app.ctxCR.rect(app.pvRatioXY[i][2], app.pvRatioXY[i][3], 10 * app.ratio, 10 * app.ratio);
-	            app.ctxCR.stroke();
-	            app.ctxCR.fill();
-	        }
-	
-	        app.ctxCR.strokeStyle = 'rgba(' + PV2COLOR[0] + ',' + PV2COLOR[1] + ',' + PV2COLOR[2] + ',' + PV2COLOR[3] + ')';
-	        app.ctxCR.beginPath();
-	        for (var i = 0; i < app.pvRatio.length; i++) {
-	            app.ctxCR.lineTo(app.pvRatioXY[i][0], app.pvRatioXY[i][1]);
-	        }
-	        var x = (app.graphRadius - 50 * app.ratio) * Math.cos(360 * app.RAD) + app.canvasWidthHalf;
-	        var y = (app.graphRadius - 50 * app.ratio) * Math.sin(360 * app.RAD) + app.canvasHeightHalf;
-	        app.ctxCR.lineTo(x, y);
-	        app.ctxCR.stroke();
-	
-	        app.ctxCR.restore();
-	    }
-	
-	    (0, _init2d.setMemoriOuter)(app, 0);
-	    app.ctxCR.strokeStyle = 'rgba(' + SOUSHOKUCOLOR['RGB'][0] + ',' + SOUSHOKUCOLOR['RGB'][1] + ',' + SOUSHOKUCOLOR['RGB'][2] + ',' + SOUSHOKUCOLOR['ALPHA'][0] + ')';
-	    app.ctxCR.beginPath();
-	    app.ctxCR.arc(app.canvasWidthHalf, app.canvasHeightHalf, app.MemoriOuterR2, 0, app.MemoriOuterDegree * app.RAD, false);
-	    app.ctxCR.stroke();
-	
-	    (0, _init2d.setMemoriOuter)(app, 0);
-	    app.ctxCR.strokeStyle = 'rgba(' + SOUSHOKUCOLOR['RGB'][0] + ',' + SOUSHOKUCOLOR['RGB'][1] + ',' + SOUSHOKUCOLOR['RGB'][2] + ',' + SOUSHOKUCOLOR['ALPHA'][1] + ')';
-	    app.ctxCR.beginPath();
-	    app.ctxCR.arc(app.canvasWidthHalf, app.canvasHeightHalf, app.MemoriOuterR2 + 5 * app.ratio, 0, app.MemoriOuterDegree * app.RAD, false);
-	    app.ctxCR.stroke();
-	
-	    app.ctxCR.beginPath();
-	    app.ctxCR.lineTo(app.gaishuuPosition[0], app.gaishuuPosition[1]);
-	    app.ctxCR.lineTo(app.gaishuuPosition[2], app.gaishuuPosition[3]);
-	    app.ctxCR.stroke();
-	    app.ctxCR.beginPath();
-	    app.ctxCR.lineTo(app.gaishuuPosition[4], app.gaishuuPosition[5]);
-	    app.ctxCR.lineTo(app.gaishuuPosition[6], app.gaishuuPosition[7]);
-	    app.ctxCR.stroke();
-	
-	    app.mouseDegBegin = app.mouseStatus.deg - 18;
-	    app.mouseDegEnd = app.mouseStatus.deg + 18;
-	
-	    app.ctxCR.strokeStyle = 'rgba(' + MOUSEDEGCOLOR[0] + ',' + MOUSEDEGCOLOR[1] + ',' + MOUSEDEGCOLOR[2] + ',1)';
-	    app.ctxCR.beginPath();
-	    app.ctxCR.arc(app.canvasWidthHalf, app.canvasHeightHalf, app.MemoriOuterR1 - 1, app.mouseDegBegin * app.RAD, app.mouseDegEnd * app.RAD, false);
-	    app.ctxCR.stroke();
-	
-	    var mdb1 = Math.cos(app.mouseDegBegin * app.RAD);
-	    var mdb2 = Math.sin(app.mouseDegBegin * app.RAD);
-	    var mde1 = Math.cos(app.mouseDegEnd * app.RAD);
-	    var mde2 = Math.sin(app.mouseDegEnd * app.RAD);
-	
-	    var mx1 = app.graphRadius * mdb1 + app.canvasWidthHalf;
-	    var my1 = app.graphRadius * mdb2 + app.canvasHeightHalf;
-	    var mx2 = app.MemoriOuterR3 * mdb1 + app.canvasWidthHalf;
-	    var my2 = app.MemoriOuterR3 * mdb2 + app.canvasHeightHalf;
-	    var mx3 = app.graphRadius * mde1 + app.canvasWidthHalf;
-	    var my3 = app.graphRadius * mde2 + app.canvasHeightHalf;
-	    var mx4 = app.MemoriOuterR3 * mde1 + app.canvasWidthHalf;
-	    var my4 = app.MemoriOuterR3 * mde2 + app.canvasHeightHalf;
-	
-	    app.ctxCR.lineWidth = 1 * app.ratio;
-	    app.ctxCR.strokeStyle = 'rgba(' + MOUSEDEGCOLOR[0] + ',' + MOUSEDEGCOLOR[1] + ',' + MOUSEDEGCOLOR[2] + ',0.2)';
-	    app.ctxCR.beginPath();
-	    app.ctxCR.lineTo(mx3, my3);
-	    app.ctxCR.lineTo(app.canvasWidthHalf, app.canvasHeightHalf);
-	    app.ctxCR.stroke();
-	
-	    app.ctxCR.lineWidth = 2 * app.ratio;
-	    app.ctxCR.strokeStyle = 'rgba(' + MOUSEDEGCOLOR[0] + ',' + MOUSEDEGCOLOR[1] + ',' + MOUSEDEGCOLOR[2] + ',1)';
-	    app.ctxCR.beginPath();
-	    app.ctxCR.lineTo(mx1, my1);
-	    app.ctxCR.lineTo(mx2, my2);
-	    app.ctxCR.stroke();
-	    app.ctxCR.beginPath();
-	    app.ctxCR.lineTo(mx3, my3);
-	    app.ctxCR.lineTo(mx4, my4);
-	    app.ctxCR.stroke();
-	
-	    app.mouseDegHantai = app.mouseStatus.deg - 180;
-	
-	    var mx5 = app.MemoriOuterR3 * Math.cos(app.mouseDegHantai * app.RAD) + app.canvasWidthHalf;
-	    var my5 = app.MemoriOuterR3 * Math.sin(app.mouseDegHantai * app.RAD) + app.canvasHeightHalf;
-	    var mx6 = (app.MemoriOuterR3 - 7 * app.ratio) * Math.cos(app.mouseDegHantai * app.RAD) + app.canvasWidthHalf;
-	    var my6 = (app.MemoriOuterR3 - 7 * app.ratio) * Math.sin(app.mouseDegHantai * app.RAD) + app.canvasHeightHalf;
-	
-	    app.ctxCR.beginPath();
-	    app.ctxCR.moveTo(mx5, my5);
-	    app.ctxCR.lineTo(mx6, my6);
-	    app.ctxCR.stroke();
-	
-	    app.degText = (app.mouseStatus.deg / 3.6).toFixed(3);
-	
-	    app.ctxCR.fillStyle = 'rgba(' + FONTCOLOR[9] + ',' + FONTCOLOR[10] + ',' + FONTCOLOR[11] + ',1)';
-	    app.ctxCR.font = 9 * app.ratio + "px 'Roboto'";
-	    app.ctxCR.fillText(app.degText, app.canvasWidthHalf + app.graphRadius + 40 * app.ratio, app.canvasHeightHalf);
-	    app.ctxCR.font = 9 * app.ratio + "px 'Roboto'";
-	    app.ctxCR.fillText('10', app.gaishuuPosition[6] + 15 * app.ratio, app.gaishuuPosition[7] + 10 * app.ratio);
-	
-	    app.ctxCR.translate(app.canvasWidthHalf, app.canvasHeightHalf);
-	    app.ctxCR.rotate(-90 * Math.PI / 180);
-	    app.ctxCR.translate(-app.canvasWidthHalf + 0.5, -app.canvasHeightHalf + 0.5);
-	
-	    app.ctxCR.restore();
-	    app.ctxCR.save();
-	}
-	
-	function drawPT(app) {
-	
-	    app.ctxCR.save();
-	
-	    app.ctxCR.translate(0.5 * app.ratio, 0.5 * app.ratio);
-	    app.ctxCR.lineWidth = 2 * app.ratio;
-	    app.ctxCR.strokeStyle = 'rgba(' + CENTERCOLOR[0] + ',' + CENTERCOLOR[1] + ',' + CENTERCOLOR[2] + ',' + CENTERCOLOR[3] + ')';
-	    app.ctxCR.beginPath();
-	    app.ctxCR.moveTo(app.canvasWidthHalf - 5 * app.ratio, app.canvasHeightHalf);
-	    app.ctxCR.lineTo(app.canvasWidthHalf + 5 * app.ratio, app.canvasHeightHalf);
-	    app.ctxCR.moveTo(app.canvasWidthHalf, app.canvasHeightHalf - 5 * app.ratio);
-	    app.ctxCR.lineTo(app.canvasWidthHalf, app.canvasHeightHalf + 5 * app.ratio);
-	    app.ctxCR.stroke();
-	
-	    app.ctxCR.restore();
-	
-	    if (!app.wHOver) {
-	
-	        app.ctxCR.save();
-	
-	        app.ctxCR.translate(app.canvasWidthHalf, app.canvasHeightHalf);
-	        app.ctxCR.rotate(90 * Math.PI / 180);
-	        app.ctxCR.translate(-app.canvasWidthHalf, -app.canvasHeightHalf);
-	
-	        app.ctxCR.lineWidth = 1 * app.ratio;
-	        app.ctxCR.strokeStyle = 'rgba(' + HYOUCOLOR['RGB'][0] + ',' + HYOUCOLOR['RGB'][1] + ',' + HYOUCOLOR['RGB'][2] + ',' + HYOUCOLOR['ALPHA'][0] + ')';
-	        app.ctxCR.beginPath();
-	        app.ctxCR.rect(app.pointStatus.x, app.pointStatus.y, app.pointStatus.w, app.pointStatus.h);
-	        app.ctxCR.stroke();
-	        app.ctxCR.strokeStyle = 'rgba(' + HYOUCOLOR['RGB'][0] + ',' + HYOUCOLOR['RGB'][1] + ',' + HYOUCOLOR['RGB'][2] + ',' + HYOUCOLOR['ALPHA'][1] + ')';
-	        app.ctxCR.beginPath();
-	        for (var i = app.pointPosition.length - 1; i >= 0; i--) {
-	            app.ctxCR.moveTo(app.pointPosition[i][0], app.pointStatus.y);
-	            app.ctxCR.lineTo(app.pointPosition[i][0], app.pointPosition[i][3]);
-	            if (i < 5) {
-	                app.ctxCR.moveTo(app.pointStatus.x, app.pointPosition[i][1]);
-	                app.ctxCR.lineTo(app.pointPosition[i][2], app.pointPosition[i][1]);
-	            }
-	        };
-	
-	        app.ctxCR.stroke();
-	        app.ctxCR.strokeStyle = 'rgba(' + HYOUCOLOR['RGB'][0] + ',' + HYOUCOLOR['RGB'][1] + ',' + HYOUCOLOR['RGB'][2] + ',' + HYOUCOLOR['ALPHA'][2] + ')';
-	        app.ctxCR.beginPath();
-	        app.ctxCR.moveTo(app.pointStatus.x, app.pointStatus.oy + 6 * app.ratio);
-	        app.ctxCR.lineTo(app.pointStatus.ox, app.pointStatus.oy + 6 * app.ratio);
-	        app.ctxCR.lineTo(app.pointStatus.ox, app.pointStatus.oy + 12 * app.ratio);
-	        app.ctxCR.stroke();
-	        app.ctxCR.beginPath();
-	        app.ctxCR.moveTo(app.pointStatus.x - 6 * app.ratio, app.pointStatus.oy);
-	        app.ctxCR.lineTo(app.pointStatus.x - 6 * app.ratio, app.pointStatus.y);
-	        app.ctxCR.lineTo(app.pointStatus.x - 12 * app.ratio, app.pointStatus.y);
-	        app.ctxCR.stroke();
-	
-	        var rx1 = app.pointStatus.x + app.mouseStatus.px * (app.pointStatus.w / 100) - 3 * app.ratio;
-	        var ry1 = app.pointStatus.y + app.mouseStatus.py * (app.pointStatus.h / 100) - 3 * app.ratio;
-	
-	        app.ctxCR.strokeStyle = 'rgba(' + HYOUCOLOR['RGB'][0] + ',' + HYOUCOLOR['RGB'][1] + ',' + HYOUCOLOR['RGB'][2] + ',' + HYOUCOLOR['ALPHA'][3] + ')';
-	        app.ctxCR.beginPath();
-	        app.ctxCR.rect(rx1, app.pointStatus.oy + 3 * app.ratio, 6 * app.ratio, 6 * app.ratio);
-	        app.ctxCR.stroke();
-	        app.ctxCR.beginPath();
-	        app.ctxCR.rect(app.pointStatus.x - 9 * app.ratio, ry1, 6 * app.ratio, 6 * app.ratio);
-	        app.ctxCR.stroke();
-	
-	        app.ctxCR.strokeStyle = 'rgba(' + HYOUCOLOR['RGB'][0] + ',' + HYOUCOLOR['RGB'][1] + ',' + HYOUCOLOR['RGB'][2] + ',' + HYOUCOLOR['ALPHA'][5] + ')';
-	        app.ctxCR.beginPath();
-	        app.ctxCR.moveTo(rx1 + 3 * app.ratio, app.pointStatus.oy + 6 * app.ratio);
-	        app.ctxCR.lineTo(rx1 + 3 * app.ratio, ry1 + 3 * app.ratio);
-	        app.ctxCR.stroke();
-	        app.ctxCR.beginPath();
-	        app.ctxCR.moveTo(app.pointStatus.x - 6 * app.ratio, ry1 + 3 * app.ratio);
-	        app.ctxCR.lineTo(rx1 + 3 * app.ratio, ry1 + 3 * app.ratio);
-	        app.ctxCR.stroke();
-	
-	        app.ctxCR.fillStyle = 'rgba(' + HYOUCOLOR['RGB'][0] + ',' + HYOUCOLOR['RGB'][1] + ',' + HYOUCOLOR['RGB'][2] + ',' + HYOUCOLOR['ALPHA'][4] + ')';
-	        app.ctxCR.beginPath();
-	        app.ctxCR.arc(rx1 + 3 * app.ratio, ry1 + 3 * app.ratio, 1 * app.ratio, 0, 360 * app.RAD, true);
-	        app.ctxCR.fill();
-	
-	        app.ctxCR.fillStyle = 'rgba(' + FONTCOLOR[0] + ',' + FONTCOLOR[1] + ',' + FONTCOLOR[2] + ',1)';
-	        app.ctxCR.font = 9 * app.ratio + "px 'Roboto'";
-	        app.ctxCR.textAlign = "end";
-	        app.ctxCR.textBaseline = "top";
-	        app.ctxCR.fillText(app.windowWidth, app.textPosition[0], app.textPosition[1]);
-	        app.ctxCR.fillText(app.windowHeight, app.textPosition[2], app.textPosition[3]);
-	
-	        app.ctxCR.fillStyle = 'rgba(' + FONTCOLOR[3] + ',' + FONTCOLOR[4] + ',' + FONTCOLOR[5] + ',1)';
-	        app.ctxCR.fillText('X', app.textPosition[8], app.textPosition[5]);
-	        app.ctxCR.fillText('Y', app.textPosition[8], app.textPosition[7]);
-	
-	        app.ctxCR.fillStyle = 'rgba(' + FONTCOLOR[6] + ',' + FONTCOLOR[7] + ',' + FONTCOLOR[8] + ',1)';
-	        app.ctxCR.fillText(app.mouseStatus.x.toFixed(3), app.textPosition[4], app.textPosition[5]);
-	        app.ctxCR.fillText(app.mouseStatus.y.toFixed(3), app.textPosition[6], app.textPosition[7]);
-	
-	        app.ctxCR.restore();
-	    }
-	}
-	
-	function render2D(e) {
-	
-	    if ((typeof e === 'undefined' ? 'undefined' : (0, _typeof3.default)(e)) === "object") {
-	        app = e;
-	    }
-	
-	    if (!app.spFlag) {
-	        drawCR(app);
-	        drawPT(app);
-	
-	        if (!app.wHOver) {
-	            drawLN(app);
-	        }
-	    }
-	
-	    app.render2DInt = window.requestAnimationFrame(render2D);
-	}
-	
-	module.exports = {
-	    render2D: render2D
-	};
-
-/***/ },
-/* 137 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	exports.__esModule = true;
-	
-	var _iterator = __webpack_require__(138);
-	
-	var _iterator2 = _interopRequireDefault(_iterator);
-	
-	var _symbol = __webpack_require__(158);
-	
-	var _symbol2 = _interopRequireDefault(_symbol);
-	
-	var _typeof = typeof _symbol2.default === "function" && typeof _iterator2.default === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default ? "symbol" : typeof obj; };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = typeof _symbol2.default === "function" && _typeof(_iterator2.default) === "symbol" ? function (obj) {
-	  return typeof obj === "undefined" ? "undefined" : _typeof(obj);
-	} : function (obj) {
-	  return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof(obj);
-	};
-
-/***/ },
-/* 138 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = { "default": __webpack_require__(139), __esModule: true };
-
-/***/ },
-/* 139 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(140);
-	__webpack_require__(153);
-	module.exports = __webpack_require__(157).f('iterator');
-
-/***/ },
-/* 140 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	var $at  = __webpack_require__(141)(true);
-	
-	// 21.1.3.27 String.prototype[@@iterator]()
-	__webpack_require__(142)(String, 'String', function(iterated){
-	  this._t = String(iterated); // target
-	  this._i = 0;                // next index
-	// 21.1.5.2.1 %StringIteratorPrototype%.next()
-	}, function(){
-	  var O     = this._t
-	    , index = this._i
-	    , point;
-	  if(index >= O.length)return {value: undefined, done: true};
-	  point = $at(O, index);
-	  this._i += point.length;
-	  return {value: point, done: false};
-	});
-
-/***/ },
-/* 141 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var toInteger = __webpack_require__(47)
-	  , defined   = __webpack_require__(44);
-	// true  -> String#at
-	// false -> String#codePointAt
-	module.exports = function(TO_STRING){
-	  return function(that, pos){
-	    var s = String(defined(that))
-	      , i = toInteger(pos)
-	      , l = s.length
-	      , a, b;
-	    if(i < 0 || i >= l)return TO_STRING ? '' : undefined;
-	    a = s.charCodeAt(i);
-	    return a < 0xd800 || a > 0xdbff || i + 1 === l || (b = s.charCodeAt(i + 1)) < 0xdc00 || b > 0xdfff
-	      ? TO_STRING ? s.charAt(i) : a
-	      : TO_STRING ? s.slice(i, i + 2) : (a - 0xd800 << 10) + (b - 0xdc00) + 0x10000;
-	  };
-	};
-
-/***/ },
-/* 142 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	var LIBRARY        = __webpack_require__(143)
-	  , $export        = __webpack_require__(22)
-	  , redefine       = __webpack_require__(144)
-	  , hide           = __webpack_require__(27)
-	  , has            = __webpack_require__(40)
-	  , Iterators      = __webpack_require__(145)
-	  , $iterCreate    = __webpack_require__(146)
-	  , setToStringTag = __webpack_require__(150)
-	  , getPrototypeOf = __webpack_require__(152)
-	  , ITERATOR       = __webpack_require__(151)('iterator')
-	  , BUGGY          = !([].keys && 'next' in [].keys()) // Safari has buggy iterators w/o `next`
-	  , FF_ITERATOR    = '@@iterator'
-	  , KEYS           = 'keys'
-	  , VALUES         = 'values';
-	
-	var returnThis = function(){ return this; };
-	
-	module.exports = function(Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCED){
-	  $iterCreate(Constructor, NAME, next);
-	  var getMethod = function(kind){
-	    if(!BUGGY && kind in proto)return proto[kind];
-	    switch(kind){
-	      case KEYS: return function keys(){ return new Constructor(this, kind); };
-	      case VALUES: return function values(){ return new Constructor(this, kind); };
-	    } return function entries(){ return new Constructor(this, kind); };
-	  };
-	  var TAG        = NAME + ' Iterator'
-	    , DEF_VALUES = DEFAULT == VALUES
-	    , VALUES_BUG = false
-	    , proto      = Base.prototype
-	    , $native    = proto[ITERATOR] || proto[FF_ITERATOR] || DEFAULT && proto[DEFAULT]
-	    , $default   = $native || getMethod(DEFAULT)
-	    , $entries   = DEFAULT ? !DEF_VALUES ? $default : getMethod('entries') : undefined
-	    , $anyNative = NAME == 'Array' ? proto.entries || $native : $native
-	    , methods, key, IteratorPrototype;
-	  // Fix native
-	  if($anyNative){
-	    IteratorPrototype = getPrototypeOf($anyNative.call(new Base));
-	    if(IteratorPrototype !== Object.prototype){
-	      // Set @@toStringTag to native iterators
-	      setToStringTag(IteratorPrototype, TAG, true);
-	      // fix for some old engines
-	      if(!LIBRARY && !has(IteratorPrototype, ITERATOR))hide(IteratorPrototype, ITERATOR, returnThis);
-	    }
-	  }
-	  // fix Array#{values, @@iterator}.name in V8 / FF
-	  if(DEF_VALUES && $native && $native.name !== VALUES){
-	    VALUES_BUG = true;
-	    $default = function values(){ return $native.call(this); };
-	  }
-	  // Define iterator
-	  if((!LIBRARY || FORCED) && (BUGGY || VALUES_BUG || !proto[ITERATOR])){
-	    hide(proto, ITERATOR, $default);
-	  }
-	  // Plug for library
-	  Iterators[NAME] = $default;
-	  Iterators[TAG]  = returnThis;
-	  if(DEFAULT){
-	    methods = {
-	      values:  DEF_VALUES ? $default : getMethod(VALUES),
-	      keys:    IS_SET     ? $default : getMethod(KEYS),
-	      entries: $entries
-	    };
-	    if(FORCED)for(key in methods){
-	      if(!(key in proto))redefine(proto, key, methods[key]);
-	    } else $export($export.P + $export.F * (BUGGY || VALUES_BUG), NAME, methods);
-	  }
-	  return methods;
-	};
-
-/***/ },
-/* 143 */
-/***/ function(module, exports) {
-
-	module.exports = true;
-
-/***/ },
-/* 144 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(27);
-
-/***/ },
-/* 145 */
-/***/ function(module, exports) {
-
-	module.exports = {};
-
-/***/ },
-/* 146 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	var create         = __webpack_require__(147)
-	  , descriptor     = __webpack_require__(36)
-	  , setToStringTag = __webpack_require__(150)
-	  , IteratorPrototype = {};
-	
-	// 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
-	__webpack_require__(27)(IteratorPrototype, __webpack_require__(151)('iterator'), function(){ return this; });
-	
-	module.exports = function(Constructor, NAME, next){
-	  Constructor.prototype = create(IteratorPrototype, {next: descriptor(1, next)});
-	  setToStringTag(Constructor, NAME + ' Iterator');
-	};
-
-/***/ },
-/* 147 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
-	var anObject    = __webpack_require__(29)
-	  , dPs         = __webpack_require__(148)
-	  , enumBugKeys = __webpack_require__(52)
-	  , IE_PROTO    = __webpack_require__(49)('IE_PROTO')
-	  , Empty       = function(){ /* empty */ }
-	  , PROTOTYPE   = 'prototype';
-	
-	// Create object with fake `null` prototype: use iframe Object with cleared prototype
-	var createDict = function(){
-	  // Thrash, waste and sodomy: IE GC bug
-	  var iframe = __webpack_require__(34)('iframe')
-	    , i      = enumBugKeys.length
-	    , lt     = '<'
-	    , gt     = '>'
-	    , iframeDocument;
-	  iframe.style.display = 'none';
-	  __webpack_require__(149).appendChild(iframe);
-	  iframe.src = 'javascript:'; // eslint-disable-line no-script-url
-	  // createDict = iframe.contentWindow.Object;
-	  // html.removeChild(iframe);
-	  iframeDocument = iframe.contentWindow.document;
-	  iframeDocument.open();
-	  iframeDocument.write(lt + 'script' + gt + 'document.F=Object' + lt + '/script' + gt);
-	  iframeDocument.close();
-	  createDict = iframeDocument.F;
-	  while(i--)delete createDict[PROTOTYPE][enumBugKeys[i]];
-	  return createDict();
-	};
-	
-	module.exports = Object.create || function create(O, Properties){
-	  var result;
-	  if(O !== null){
-	    Empty[PROTOTYPE] = anObject(O);
-	    result = new Empty;
-	    Empty[PROTOTYPE] = null;
-	    // add "__proto__" for Object.getPrototypeOf polyfill
-	    result[IE_PROTO] = O;
-	  } else result = createDict();
-	  return Properties === undefined ? result : dPs(result, Properties);
-	};
-
-
-/***/ },
-/* 148 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var dP       = __webpack_require__(28)
-	  , anObject = __webpack_require__(29)
-	  , getKeys  = __webpack_require__(38);
-	
-	module.exports = __webpack_require__(32) ? Object.defineProperties : function defineProperties(O, Properties){
-	  anObject(O);
-	  var keys   = getKeys(Properties)
-	    , length = keys.length
-	    , i = 0
-	    , P;
-	  while(length > i)dP.f(O, P = keys[i++], Properties[P]);
-	  return O;
-	};
-
-/***/ },
-/* 149 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(23).document && document.documentElement;
-
-/***/ },
-/* 150 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var def = __webpack_require__(28).f
-	  , has = __webpack_require__(40)
-	  , TAG = __webpack_require__(151)('toStringTag');
-	
-	module.exports = function(it, tag, stat){
-	  if(it && !has(it = stat ? it : it.prototype, TAG))def(it, TAG, {configurable: true, value: tag});
-	};
-
-/***/ },
-/* 151 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var store      = __webpack_require__(50)('wks')
-	  , uid        = __webpack_require__(51)
-	  , Symbol     = __webpack_require__(23).Symbol
-	  , USE_SYMBOL = typeof Symbol == 'function';
-	
-	var $exports = module.exports = function(name){
-	  return store[name] || (store[name] =
-	    USE_SYMBOL && Symbol[name] || (USE_SYMBOL ? Symbol : uid)('Symbol.' + name));
-	};
-	
-	$exports.store = store;
-
-/***/ },
-/* 152 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
-	var has         = __webpack_require__(40)
-	  , toObject    = __webpack_require__(55)
-	  , IE_PROTO    = __webpack_require__(49)('IE_PROTO')
-	  , ObjectProto = Object.prototype;
-	
-	module.exports = Object.getPrototypeOf || function(O){
-	  O = toObject(O);
-	  if(has(O, IE_PROTO))return O[IE_PROTO];
-	  if(typeof O.constructor == 'function' && O instanceof O.constructor){
-	    return O.constructor.prototype;
-	  } return O instanceof Object ? ObjectProto : null;
-	};
-
-/***/ },
-/* 153 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(154);
-	var global        = __webpack_require__(23)
-	  , hide          = __webpack_require__(27)
-	  , Iterators     = __webpack_require__(145)
-	  , TO_STRING_TAG = __webpack_require__(151)('toStringTag');
-	
-	for(var collections = ['NodeList', 'DOMTokenList', 'MediaList', 'StyleSheetList', 'CSSRuleList'], i = 0; i < 5; i++){
-	  var NAME       = collections[i]
-	    , Collection = global[NAME]
-	    , proto      = Collection && Collection.prototype;
-	  if(proto && !proto[TO_STRING_TAG])hide(proto, TO_STRING_TAG, NAME);
-	  Iterators[NAME] = Iterators.Array;
-	}
-
-/***/ },
-/* 154 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	var addToUnscopables = __webpack_require__(155)
-	  , step             = __webpack_require__(156)
-	  , Iterators        = __webpack_require__(145)
-	  , toIObject        = __webpack_require__(41);
-	
-	// 22.1.3.4 Array.prototype.entries()
-	// 22.1.3.13 Array.prototype.keys()
-	// 22.1.3.29 Array.prototype.values()
-	// 22.1.3.30 Array.prototype[@@iterator]()
-	module.exports = __webpack_require__(142)(Array, 'Array', function(iterated, kind){
-	  this._t = toIObject(iterated); // target
-	  this._i = 0;                   // next index
-	  this._k = kind;                // kind
-	// 22.1.5.2.1 %ArrayIteratorPrototype%.next()
-	}, function(){
-	  var O     = this._t
-	    , kind  = this._k
-	    , index = this._i++;
-	  if(!O || index >= O.length){
-	    this._t = undefined;
-	    return step(1);
-	  }
-	  if(kind == 'keys'  )return step(0, index);
-	  if(kind == 'values')return step(0, O[index]);
-	  return step(0, [index, O[index]]);
-	}, 'values');
-	
-	// argumentsList[@@iterator] is %ArrayProto_values% (9.4.4.6, 9.4.4.7)
-	Iterators.Arguments = Iterators.Array;
-	
-	addToUnscopables('keys');
-	addToUnscopables('values');
-	addToUnscopables('entries');
-
-/***/ },
-/* 155 */
-/***/ function(module, exports) {
-
-	module.exports = function(){ /* empty */ };
-
-/***/ },
-/* 156 */
-/***/ function(module, exports) {
-
-	module.exports = function(done, value){
-	  return {value: value, done: !!done};
-	};
-
-/***/ },
-/* 157 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports.f = __webpack_require__(151);
-
-/***/ },
-/* 158 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = { "default": __webpack_require__(159), __esModule: true };
-
-/***/ },
-/* 159 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(160);
-	__webpack_require__(169);
-	__webpack_require__(170);
-	__webpack_require__(171);
-	module.exports = __webpack_require__(24).Symbol;
-
-/***/ },
-/* 160 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	// ECMAScript 6 symbols shim
-	var global         = __webpack_require__(23)
-	  , has            = __webpack_require__(40)
-	  , DESCRIPTORS    = __webpack_require__(32)
-	  , $export        = __webpack_require__(22)
-	  , redefine       = __webpack_require__(144)
-	  , META           = __webpack_require__(161).KEY
-	  , $fails         = __webpack_require__(33)
-	  , shared         = __webpack_require__(50)
-	  , setToStringTag = __webpack_require__(150)
-	  , uid            = __webpack_require__(51)
-	  , wks            = __webpack_require__(151)
-	  , wksExt         = __webpack_require__(157)
-	  , wksDefine      = __webpack_require__(162)
-	  , keyOf          = __webpack_require__(163)
-	  , enumKeys       = __webpack_require__(164)
-	  , isArray        = __webpack_require__(165)
-	  , anObject       = __webpack_require__(29)
-	  , toIObject      = __webpack_require__(41)
-	  , toPrimitive    = __webpack_require__(35)
-	  , createDesc     = __webpack_require__(36)
-	  , _create        = __webpack_require__(147)
-	  , gOPNExt        = __webpack_require__(166)
-	  , $GOPD          = __webpack_require__(168)
-	  , $DP            = __webpack_require__(28)
-	  , $keys          = __webpack_require__(38)
-	  , gOPD           = $GOPD.f
-	  , dP             = $DP.f
-	  , gOPN           = gOPNExt.f
-	  , $Symbol        = global.Symbol
-	  , $JSON          = global.JSON
-	  , _stringify     = $JSON && $JSON.stringify
-	  , PROTOTYPE      = 'prototype'
-	  , HIDDEN         = wks('_hidden')
-	  , TO_PRIMITIVE   = wks('toPrimitive')
-	  , isEnum         = {}.propertyIsEnumerable
-	  , SymbolRegistry = shared('symbol-registry')
-	  , AllSymbols     = shared('symbols')
-	  , OPSymbols      = shared('op-symbols')
-	  , ObjectProto    = Object[PROTOTYPE]
-	  , USE_NATIVE     = typeof $Symbol == 'function'
-	  , QObject        = global.QObject;
-	// Don't use setters in Qt Script, https://github.com/zloirock/core-js/issues/173
-	var setter = !QObject || !QObject[PROTOTYPE] || !QObject[PROTOTYPE].findChild;
-	
-	// fallback for old Android, https://code.google.com/p/v8/issues/detail?id=687
-	var setSymbolDesc = DESCRIPTORS && $fails(function(){
-	  return _create(dP({}, 'a', {
-	    get: function(){ return dP(this, 'a', {value: 7}).a; }
-	  })).a != 7;
-	}) ? function(it, key, D){
-	  var protoDesc = gOPD(ObjectProto, key);
-	  if(protoDesc)delete ObjectProto[key];
-	  dP(it, key, D);
-	  if(protoDesc && it !== ObjectProto)dP(ObjectProto, key, protoDesc);
-	} : dP;
-	
-	var wrap = function(tag){
-	  var sym = AllSymbols[tag] = _create($Symbol[PROTOTYPE]);
-	  sym._k = tag;
-	  return sym;
-	};
-	
-	var isSymbol = USE_NATIVE && typeof $Symbol.iterator == 'symbol' ? function(it){
-	  return typeof it == 'symbol';
-	} : function(it){
-	  return it instanceof $Symbol;
-	};
-	
-	var $defineProperty = function defineProperty(it, key, D){
-	  if(it === ObjectProto)$defineProperty(OPSymbols, key, D);
-	  anObject(it);
-	  key = toPrimitive(key, true);
-	  anObject(D);
-	  if(has(AllSymbols, key)){
-	    if(!D.enumerable){
-	      if(!has(it, HIDDEN))dP(it, HIDDEN, createDesc(1, {}));
-	      it[HIDDEN][key] = true;
-	    } else {
-	      if(has(it, HIDDEN) && it[HIDDEN][key])it[HIDDEN][key] = false;
-	      D = _create(D, {enumerable: createDesc(0, false)});
-	    } return setSymbolDesc(it, key, D);
-	  } return dP(it, key, D);
-	};
-	var $defineProperties = function defineProperties(it, P){
-	  anObject(it);
-	  var keys = enumKeys(P = toIObject(P))
-	    , i    = 0
-	    , l = keys.length
-	    , key;
-	  while(l > i)$defineProperty(it, key = keys[i++], P[key]);
-	  return it;
-	};
-	var $create = function create(it, P){
-	  return P === undefined ? _create(it) : $defineProperties(_create(it), P);
-	};
-	var $propertyIsEnumerable = function propertyIsEnumerable(key){
-	  var E = isEnum.call(this, key = toPrimitive(key, true));
-	  if(this === ObjectProto && has(AllSymbols, key) && !has(OPSymbols, key))return false;
-	  return E || !has(this, key) || !has(AllSymbols, key) || has(this, HIDDEN) && this[HIDDEN][key] ? E : true;
-	};
-	var $getOwnPropertyDescriptor = function getOwnPropertyDescriptor(it, key){
-	  it  = toIObject(it);
-	  key = toPrimitive(key, true);
-	  if(it === ObjectProto && has(AllSymbols, key) && !has(OPSymbols, key))return;
-	  var D = gOPD(it, key);
-	  if(D && has(AllSymbols, key) && !(has(it, HIDDEN) && it[HIDDEN][key]))D.enumerable = true;
-	  return D;
-	};
-	var $getOwnPropertyNames = function getOwnPropertyNames(it){
-	  var names  = gOPN(toIObject(it))
-	    , result = []
-	    , i      = 0
-	    , key;
-	  while(names.length > i){
-	    if(!has(AllSymbols, key = names[i++]) && key != HIDDEN && key != META)result.push(key);
-	  } return result;
-	};
-	var $getOwnPropertySymbols = function getOwnPropertySymbols(it){
-	  var IS_OP  = it === ObjectProto
-	    , names  = gOPN(IS_OP ? OPSymbols : toIObject(it))
-	    , result = []
-	    , i      = 0
-	    , key;
-	  while(names.length > i){
-	    if(has(AllSymbols, key = names[i++]) && (IS_OP ? has(ObjectProto, key) : true))result.push(AllSymbols[key]);
-	  } return result;
-	};
-	
-	// 19.4.1.1 Symbol([description])
-	if(!USE_NATIVE){
-	  $Symbol = function Symbol(){
-	    if(this instanceof $Symbol)throw TypeError('Symbol is not a constructor!');
-	    var tag = uid(arguments.length > 0 ? arguments[0] : undefined);
-	    var $set = function(value){
-	      if(this === ObjectProto)$set.call(OPSymbols, value);
-	      if(has(this, HIDDEN) && has(this[HIDDEN], tag))this[HIDDEN][tag] = false;
-	      setSymbolDesc(this, tag, createDesc(1, value));
-	    };
-	    if(DESCRIPTORS && setter)setSymbolDesc(ObjectProto, tag, {configurable: true, set: $set});
-	    return wrap(tag);
-	  };
-	  redefine($Symbol[PROTOTYPE], 'toString', function toString(){
-	    return this._k;
-	  });
-	
-	  $GOPD.f = $getOwnPropertyDescriptor;
-	  $DP.f   = $defineProperty;
-	  __webpack_require__(167).f = gOPNExt.f = $getOwnPropertyNames;
-	  __webpack_require__(54).f  = $propertyIsEnumerable;
-	  __webpack_require__(53).f = $getOwnPropertySymbols;
-	
-	  if(DESCRIPTORS && !__webpack_require__(143)){
-	    redefine(ObjectProto, 'propertyIsEnumerable', $propertyIsEnumerable, true);
-	  }
-	
-	  wksExt.f = function(name){
-	    return wrap(wks(name));
-	  }
-	}
-	
-	$export($export.G + $export.W + $export.F * !USE_NATIVE, {Symbol: $Symbol});
-	
-	for(var symbols = (
-	  // 19.4.2.2, 19.4.2.3, 19.4.2.4, 19.4.2.6, 19.4.2.8, 19.4.2.9, 19.4.2.10, 19.4.2.11, 19.4.2.12, 19.4.2.13, 19.4.2.14
-	  'hasInstance,isConcatSpreadable,iterator,match,replace,search,species,split,toPrimitive,toStringTag,unscopables'
-	).split(','), i = 0; symbols.length > i; )wks(symbols[i++]);
-	
-	for(var symbols = $keys(wks.store), i = 0; symbols.length > i; )wksDefine(symbols[i++]);
-	
-	$export($export.S + $export.F * !USE_NATIVE, 'Symbol', {
-	  // 19.4.2.1 Symbol.for(key)
-	  'for': function(key){
-	    return has(SymbolRegistry, key += '')
-	      ? SymbolRegistry[key]
-	      : SymbolRegistry[key] = $Symbol(key);
-	  },
-	  // 19.4.2.5 Symbol.keyFor(sym)
-	  keyFor: function keyFor(key){
-	    if(isSymbol(key))return keyOf(SymbolRegistry, key);
-	    throw TypeError(key + ' is not a symbol!');
-	  },
-	  useSetter: function(){ setter = true; },
-	  useSimple: function(){ setter = false; }
-	});
-	
-	$export($export.S + $export.F * !USE_NATIVE, 'Object', {
-	  // 19.1.2.2 Object.create(O [, Properties])
-	  create: $create,
-	  // 19.1.2.4 Object.defineProperty(O, P, Attributes)
-	  defineProperty: $defineProperty,
-	  // 19.1.2.3 Object.defineProperties(O, Properties)
-	  defineProperties: $defineProperties,
-	  // 19.1.2.6 Object.getOwnPropertyDescriptor(O, P)
-	  getOwnPropertyDescriptor: $getOwnPropertyDescriptor,
-	  // 19.1.2.7 Object.getOwnPropertyNames(O)
-	  getOwnPropertyNames: $getOwnPropertyNames,
-	  // 19.1.2.8 Object.getOwnPropertySymbols(O)
-	  getOwnPropertySymbols: $getOwnPropertySymbols
-	});
-	
-	// 24.3.2 JSON.stringify(value [, replacer [, space]])
-	$JSON && $export($export.S + $export.F * (!USE_NATIVE || $fails(function(){
-	  var S = $Symbol();
-	  // MS Edge converts symbol values to JSON as {}
-	  // WebKit converts symbol values to JSON as null
-	  // V8 throws on boxed symbols
-	  return _stringify([S]) != '[null]' || _stringify({a: S}) != '{}' || _stringify(Object(S)) != '{}';
-	})), 'JSON', {
-	  stringify: function stringify(it){
-	    if(it === undefined || isSymbol(it))return; // IE8 returns string on undefined
-	    var args = [it]
-	      , i    = 1
-	      , replacer, $replacer;
-	    while(arguments.length > i)args.push(arguments[i++]);
-	    replacer = args[1];
-	    if(typeof replacer == 'function')$replacer = replacer;
-	    if($replacer || !isArray(replacer))replacer = function(key, value){
-	      if($replacer)value = $replacer.call(this, key, value);
-	      if(!isSymbol(value))return value;
-	    };
-	    args[1] = replacer;
-	    return _stringify.apply($JSON, args);
-	  }
-	});
-	
-	// 19.4.3.4 Symbol.prototype[@@toPrimitive](hint)
-	$Symbol[PROTOTYPE][TO_PRIMITIVE] || __webpack_require__(27)($Symbol[PROTOTYPE], TO_PRIMITIVE, $Symbol[PROTOTYPE].valueOf);
-	// 19.4.3.5 Symbol.prototype[@@toStringTag]
-	setToStringTag($Symbol, 'Symbol');
-	// 20.2.1.9 Math[@@toStringTag]
-	setToStringTag(Math, 'Math', true);
-	// 24.3.3 JSON[@@toStringTag]
-	setToStringTag(global.JSON, 'JSON', true);
-
-/***/ },
-/* 161 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var META     = __webpack_require__(51)('meta')
-	  , isObject = __webpack_require__(30)
-	  , has      = __webpack_require__(40)
-	  , setDesc  = __webpack_require__(28).f
-	  , id       = 0;
-	var isExtensible = Object.isExtensible || function(){
-	  return true;
-	};
-	var FREEZE = !__webpack_require__(33)(function(){
-	  return isExtensible(Object.preventExtensions({}));
-	});
-	var setMeta = function(it){
-	  setDesc(it, META, {value: {
-	    i: 'O' + ++id, // object ID
-	    w: {}          // weak collections IDs
-	  }});
-	};
-	var fastKey = function(it, create){
-	  // return primitive with prefix
-	  if(!isObject(it))return typeof it == 'symbol' ? it : (typeof it == 'string' ? 'S' : 'P') + it;
-	  if(!has(it, META)){
-	    // can't set metadata to uncaught frozen object
-	    if(!isExtensible(it))return 'F';
-	    // not necessary to add metadata
-	    if(!create)return 'E';
-	    // add missing metadata
-	    setMeta(it);
-	  // return object ID
-	  } return it[META].i;
-	};
-	var getWeak = function(it, create){
-	  if(!has(it, META)){
-	    // can't set metadata to uncaught frozen object
-	    if(!isExtensible(it))return true;
-	    // not necessary to add metadata
-	    if(!create)return false;
-	    // add missing metadata
-	    setMeta(it);
-	  // return hash weak collections IDs
-	  } return it[META].w;
-	};
-	// add metadata on freeze-family methods calling
-	var onFreeze = function(it){
-	  if(FREEZE && meta.NEED && isExtensible(it) && !has(it, META))setMeta(it);
-	  return it;
-	};
-	var meta = module.exports = {
-	  KEY:      META,
-	  NEED:     false,
-	  fastKey:  fastKey,
-	  getWeak:  getWeak,
-	  onFreeze: onFreeze
-	};
-
-/***/ },
-/* 162 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var global         = __webpack_require__(23)
-	  , core           = __webpack_require__(24)
-	  , LIBRARY        = __webpack_require__(143)
-	  , wksExt         = __webpack_require__(157)
-	  , defineProperty = __webpack_require__(28).f;
-	module.exports = function(name){
-	  var $Symbol = core.Symbol || (core.Symbol = LIBRARY ? {} : global.Symbol || {});
-	  if(name.charAt(0) != '_' && !(name in $Symbol))defineProperty($Symbol, name, {value: wksExt.f(name)});
-	};
-
-/***/ },
-/* 163 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var getKeys   = __webpack_require__(38)
-	  , toIObject = __webpack_require__(41);
-	module.exports = function(object, el){
-	  var O      = toIObject(object)
-	    , keys   = getKeys(O)
-	    , length = keys.length
-	    , index  = 0
-	    , key;
-	  while(length > index)if(O[key = keys[index++]] === el)return key;
-	};
-
-/***/ },
-/* 164 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// all enumerable object keys, includes symbols
-	var getKeys = __webpack_require__(38)
-	  , gOPS    = __webpack_require__(53)
-	  , pIE     = __webpack_require__(54);
-	module.exports = function(it){
-	  var result     = getKeys(it)
-	    , getSymbols = gOPS.f;
-	  if(getSymbols){
-	    var symbols = getSymbols(it)
-	      , isEnum  = pIE.f
-	      , i       = 0
-	      , key;
-	    while(symbols.length > i)if(isEnum.call(it, key = symbols[i++]))result.push(key);
-	  } return result;
-	};
-
-/***/ },
-/* 165 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// 7.2.2 IsArray(argument)
-	var cof = __webpack_require__(43);
-	module.exports = Array.isArray || function isArray(arg){
-	  return cof(arg) == 'Array';
-	};
-
-/***/ },
-/* 166 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
-	var toIObject = __webpack_require__(41)
-	  , gOPN      = __webpack_require__(167).f
-	  , toString  = {}.toString;
-	
-	var windowNames = typeof window == 'object' && window && Object.getOwnPropertyNames
-	  ? Object.getOwnPropertyNames(window) : [];
-	
-	var getWindowNames = function(it){
-	  try {
-	    return gOPN(it);
-	  } catch(e){
-	    return windowNames.slice();
-	  }
-	};
-	
-	module.exports.f = function getOwnPropertyNames(it){
-	  return windowNames && toString.call(it) == '[object Window]' ? getWindowNames(it) : gOPN(toIObject(it));
-	};
-
-
-/***/ },
-/* 167 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// 19.1.2.7 / 15.2.3.4 Object.getOwnPropertyNames(O)
-	var $keys      = __webpack_require__(39)
-	  , hiddenKeys = __webpack_require__(52).concat('length', 'prototype');
-	
-	exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O){
-	  return $keys(O, hiddenKeys);
-	};
-
-/***/ },
-/* 168 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var pIE            = __webpack_require__(54)
-	  , createDesc     = __webpack_require__(36)
-	  , toIObject      = __webpack_require__(41)
-	  , toPrimitive    = __webpack_require__(35)
-	  , has            = __webpack_require__(40)
-	  , IE8_DOM_DEFINE = __webpack_require__(31)
-	  , gOPD           = Object.getOwnPropertyDescriptor;
-	
-	exports.f = __webpack_require__(32) ? gOPD : function getOwnPropertyDescriptor(O, P){
-	  O = toIObject(O);
-	  P = toPrimitive(P, true);
-	  if(IE8_DOM_DEFINE)try {
-	    return gOPD(O, P);
-	  } catch(e){ /* empty */ }
-	  if(has(O, P))return createDesc(!pIE.f.call(O, P), O[P]);
-	};
-
-/***/ },
-/* 169 */
-/***/ function(module, exports) {
-
-
-
-/***/ },
-/* 170 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(162)('asyncIterator');
-
-/***/ },
-/* 171 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(162)('observable');
 
 /***/ }
 /******/ ]);

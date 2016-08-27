@@ -113,6 +113,7 @@
                 app.mainWidth = $container.width() - app.leftWidth;
                 app.centerWidth = $container.width() - app.leftWidth - app.rightWidth - 20;
                 app.centerWidthHalf = app.centerWidth / 2;
+                app.centerHeight = app.windowHeight;
 
                 app.graphR  = 330;
                 app.graphRO = 330;
