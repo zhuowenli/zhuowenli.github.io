@@ -8,6 +8,7 @@ var ctrls = [
     require('./api/posts'),
     require('./api/users'),
     require('./api/likes'),
+    require('./api/qiniu.js'),
     require('./index/index'),
 ];
 

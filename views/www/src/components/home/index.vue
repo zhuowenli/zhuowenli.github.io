@@ -63,9 +63,10 @@
                     $('.main').css('opacity', 1);
                 }, 2000);
 
-                this.video(this.app);
+                this.video();
             },
-            video(app) {
+            video() {
+                const that = this;
                 const $video = document.getElementById('SceneVideo');
                 const $canvas = document.getElementById('SceneCanvas');
                 const ctx = $canvas.getContext('2d');
@@ -79,7 +80,15 @@
                 $canvas.height = height;
 
                 function draw() {
-                    ctx.drawImage($video, ((1920 - 960) / -2), ((1080 - 960) / -2), 1920, 1080);
+                    const ww = that.app.windowWidth * that.app.windowWidth / 1920 * 1.25;
+                    const wh = ww / 1920 * 1080;
+                    const hh = that.app.windowHeight * that.app.windowHeight / 1080 * 1.25;
+                    const hw = hh * 1920 / 1080;
+
+                    const videoWidth = Math.min(ww, hw);
+                    const videoHeight = Math.min(hh, wh);
+
+                    ctx.drawImage($video, ((videoWidth - width) / -2), ((videoHeight - height) / -2), videoWidth, videoHeight);
 
                     window.requestAnimationFrame(draw)
                 }
