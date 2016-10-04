@@ -25,7 +25,7 @@ module.exports = function(db) {
             }
 
             // pagination
-            let pageSize = +pagerOptions.page_size || this.pageSize;
+            let pageSize = +pagerOptions.per_page || this.pageSize;
             let page = +pagerOptions.page || +pagerOptions.current_page || this.page;
 
             const metadata = {

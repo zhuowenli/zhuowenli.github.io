@@ -6,6 +6,7 @@
 'use strict';
 
 var ctrls = [
+    require('./api/posts'),
     require('./index/index')
 ];
 

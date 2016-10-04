@@ -27,7 +27,6 @@ app.use(session(app));
 const env = process.env;
 const subApps = app.subApps = {
     [env.ADMIN_HOST]: compose(require('./admin')),
-    [env.API_HOST]: compose(require('./api')),
     [env.WWW_HOST]: compose(require('./www'))
 };
 

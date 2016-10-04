@@ -94,6 +94,10 @@ html, body, #app{
                 &.active, &:hover{
                     color: $green;
                     border-color: $green;
+                    a{
+                        color: $green;
+                        border-color: $green;
+                    }
                 }
                 i{
                     margin: 0;
@@ -135,6 +139,10 @@ html, body, #app{
     }
     .el-table{
         margin-bottom: 12px;
+        .current-row{
+            background: $green;
+            color: #fff;
+        }
     }
     .el-pagination{
         text-align: right;

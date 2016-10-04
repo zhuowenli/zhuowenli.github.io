@@ -14,6 +14,7 @@ import {
     TabPane,
     Table,
     TableColumn,
+    Tooltip,
     Menu,
     Submenu,
     MenuItem,
@@ -32,6 +33,7 @@ Vue.component(TabPane.name, TabPane);
 Vue.component(Button.name, Button);
 Vue.component(Table.name, Table);
 Vue.component(TableColumn.name, TableColumn);
+Vue.component(Tooltip.name, Tooltip);
 
 Vue.component(Menu.name, Menu);
 Vue.component(Submenu.name, Submenu);
