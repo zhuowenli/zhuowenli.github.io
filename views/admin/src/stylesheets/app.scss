@@ -1,0 +1,165 @@
+@charset "UTF-8";
+/**
+ * @author: 卓文理
+ * @email : 531840344@qq.com
+ * @desc  : Description
+ */
+
+@import "./common";
+@import "~sass-core/core/reset";
+@import "~material-design-iconfonts/material-icons.css";
+
+html{
+    height: 100%;
+    font-family: 'Helvetica Neue',      // OSX，English
+                 'Helvetica',
+                 "PingFang SC",         // OSX，苹方（华康信凭黑）
+                 "Hiragino Sans GB",    // OSX，冬青黑体
+                 'STHeitiSC-Light',     // OSX，华文黑体
+                 "Source Han Sans CN",  // 思源黑体
+                 "Source Han Sans SC",  // 思源黑体
+                 'Microsoft YaHei',     // Win，微软雅黑
+                 'WenQuanYi Micro Hei', // Linux，文泉驿微米黑
+                 'Arial',               // Win
+                 sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+*, *:before, *:after{
+    outline: 0;
+    -webkit-tap-highlight-color: transparent;
+    @include box-sizing;
+}
+
+html, body, #app{
+    height: 100%;
+    overflow: hidden;
+}
+
+#app{
+    padding-top: 80px;
+    padding-left: 250px;
+}
+
+.material-icons{
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    line-height: normal;
+}
+
+.flex{
+    @include display-flex;
+    &__item{
+        display: block;
+        @include flex(1);
+    }
+}
+
+.main{
+    height: 100%;
+    width: 100%;
+    padding: 30px;
+    // overflow-y: scroll;
+    // -webkit-overflow-scrolling: touch;
+    &-header{
+        padding-bottom: 14px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid  #eaeeef;
+        .title{
+            margin-bottom: 24px;
+            line-height: 1;
+            font-size: 24px;
+            color: #333;
+        }
+        .toolbar{
+            font-size: 0;
+            height: 24px;
+            line-height: 24px;
+            &-item{
+                display: inline-block;
+                width: 24px;
+                height: 24px;
+                margin-right: 20px;
+                text-align: center;
+                color: $gray;
+                border: 2px solid $gray;
+                font-size: 16px;
+                cursor: pointer;
+                @include border-radius(50%);
+                @include transition(all 0.1s ease-in-out);
+                &.active, &:hover{
+                    color: $green;
+                    border-color: $green;
+                }
+                i{
+                    margin: 0;
+                    line-height: 20px;
+                    font-size: 16px;
+                    vertical-align: top;
+                }
+            }
+            &-select-count{
+                display: inline-block;
+                color: #333;
+                font-size: 12px;
+                vertical-align: top;
+                font-weight: 400;
+            }
+        }
+        .el-tabs{
+            &__header{
+                border: 0;
+            }
+            &__item{
+                height: 24px;
+                line-height: 24px;
+                color: $silver;
+                @include border-radius(2px);
+                @include transition(all 0.2s ease-in-out);
+                &:hover{
+                    color: $green;
+                }
+                &.is-active{
+                    color: #fff;
+                    background: $green;
+                }
+            }
+            &__active-bar{
+                display: none;
+            }
+        }
+    }
+    .el-table{
+        margin-bottom: 12px;
+    }
+    .el-pagination{
+        text-align: right;
+        .el-pager{
+            li{
+                &:hover{
+                    color: $green;
+                }
+                &.active{
+                    background: $green;
+                    border-color: $green;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

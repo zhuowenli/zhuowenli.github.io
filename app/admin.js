@@ -36,7 +36,7 @@ app.use(views(viewsPath, {
 // init router
 var router = app.router = new Router();
 app.router.api = new Router({
-    prefix: '/api'
+    prefix: ''
 });
 
 // init ctrls

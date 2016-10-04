@@ -6,14 +6,11 @@
 'use strict';
 
 exports.init = function(app) {
-    let router = app.router;
-    let Feedback = app.models.Feedback;
+    var router = app.router;
 
     router.get('/', function *() {
-        let feedbacks = yield Feedback.forge().fetchAll();
-
         yield this.render('index', {
-            feedbacks: feedbacks.toJSON()
+            env: app.env
         });
     });
 

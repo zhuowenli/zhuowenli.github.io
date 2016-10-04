@@ -1,0 +1,43 @@
+{
+    "rules": {
+        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "linebreak-style": [2, "unix"],
+        "semi": [2, "always"],
+        "no-unused-vars": [2, {
+            "vars": "local",
+            "args": "after-used"
+        }],
+        "comma-dangle": ["error", "only-multiline"],
+        "strict": ["error"],
+        "no-param-reassign": ["error", { "props": false }]
+    },
+    "ecmaFeatures": {
+        "arrowFunctions": true,
+        "blockBindings": true,
+        "classes": true,
+        "defaultParams": true,
+        "destructuring": true,
+        "forOf": true,
+        "generators": false,
+        "modules": true,
+        "objectLiteralComputedProperties": true,
+        "objectLiteralDuplicateProperties": false,
+        "objectLiteralShorthandMethods": true,
+        "objectLiteralShorthandProperties": true,
+        "spread": true,
+        "superInFunctions": true,
+        "templateStrings": true
+    },
+    "env": {
+        "es6": true,
+        "browser": true,
+        "node": true
+    },
+    "globals": {
+        "$": true
+    },
+    "extends": [
+        "vue",
+        "airbnb"
+    ]
+}

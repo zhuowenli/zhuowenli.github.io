@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="format-detection" content="telephone=no">
-    <title>Home - admin</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="keywords" content="卓文理,前端,前端开发,网页设计,交互设计">
+    <meta name="description" content="">
+    <meta name="author" content="卓文理">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'unsafe-inline' 'unsafe-eval' zhuowenli.com *.zhuowenli.com zhuowenli.cn *.zhuowenli.cn; img-src data: *; style-src data: * 'unsafe-inline'; font-src data: *; default-src *">
+    <link rel="dns-prefetch" href="//zhuowenli.qiniudn.com">
+    <title>博客后台</title>
 </head>
-<body id="app">
-    <h1>Home - admin</h1>
-
-    <ul>
-        <% for(var i=0,len=feedbacks.length; i<len; ++i) { %>
-        <li><%=feedbacks[i].id%> - <%=feedbacks[i].ua%></li>
-        <% } %>
-    </ul>
+<body>
+    <div id="app"></div>
+    <script type="text/javascript" src='./static/js/jquery.min.js'></script>
+    <script src="./dist/app.js"></script>
 </body>
 </html>
