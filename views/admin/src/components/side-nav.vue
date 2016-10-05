@@ -3,18 +3,18 @@
         router-link.logo(to="/posts/") 博客后台
         router-link.create(to="/posts/add")
             i.material-icons create
-            写文章
+            | 写文章
         el-menu(mode="vertical" router=true)
             el-menu-item-group(title="MAIN")
                 el-menu-item(index="/posts")
                     i.material-icons text_fields
-                    文章管理
+                    | 文章管理
                 el-menu-item(index="/tags")
                     i.material-icons local_offer
-                    标签管理
+                    | 标签管理
                 el-menu-item(index="/categorys")
                     i.material-icons apps
-                    分类管理
+                    | 分类管理
 </template>
 
 <script>
