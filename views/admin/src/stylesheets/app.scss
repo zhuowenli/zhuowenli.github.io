@@ -60,11 +60,10 @@ html, body, #app{
 }
 
 .main{
+    position: relative;
     height: 100%;
     width: 100%;
     padding: 30px;
-    // overflow-y: scroll;
-    // -webkit-overflow-scrolling: touch;
     &-header{
         padding-bottom: 14px;
         margin-bottom: 30px;

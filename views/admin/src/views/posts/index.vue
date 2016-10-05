@@ -25,8 +25,8 @@
                 <el-tabs>
                     <el-tab-pane label="ID"></el-tab-pane>
                     <el-tab-pane label="发布时间"></el-tab-pane>
-                    <el-tab-pane label="评论数"></el-tab-pane>
                     <el-tab-pane label="浏览数"></el-tab-pane>
+                    <el-tab-pane label="喜欢数"></el-tab-pane>
                 </el-tabs>
             </div>
         </header>
@@ -44,9 +44,9 @@
                 <span>#{{row.id}}</span>
             </el-table-column>
             <el-table-column property="title" label="标题" width="300"></el-table-column>
-            <el-table-column property="status" label="状态" width="100"></el-table-column>
+            <el-table-column property="status" label="状态" width="95"></el-table-column>
             <el-table-column property="category.name" label="分类" width="95"></el-table-column>
-            <el-table-column inline-template label="发布时间">
+            <el-table-column inline-template label="发布时间" width="168">
                 <span>{{row.release_at | date}}</span>
             </el-table-column>
             <el-table-column property="view_count" label="浏览数" width="80"></el-table-column>

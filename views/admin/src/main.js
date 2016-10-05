@@ -10,6 +10,8 @@ import Promise from 'bluebird';
 
 import {
     Base,
+    Dropdown,
+    DropdownItem,
     Tabs,
     TabPane,
     Table,
@@ -28,9 +30,11 @@ import VueFilter from './services/filter';
 import routes from './routes';
 import App from './components/App.vue';
 
+Vue.component(Button.name, Button);
+Vue.component(Dropdown.name, Dropdown);
+Vue.component(DropdownItem.name, DropdownItem);
 Vue.component(Tabs.name, Tabs);
 Vue.component(TabPane.name, TabPane);
-Vue.component(Button.name, Button);
 Vue.component(Table.name, Table);
 Vue.component(TableColumn.name, TableColumn);
 Vue.component(Tooltip.name, Tooltip);

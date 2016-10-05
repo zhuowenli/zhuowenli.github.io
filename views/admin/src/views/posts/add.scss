@@ -1,0 +1,130 @@
+@charset "UTF-8";
+/**
+ * @author: 卓文理
+ * @email : 531840344@qq.com
+ * @desc  : Description
+ */
+
+@import "../../stylesheets/common";
+
+.editor{
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    &-top{
+        // border-bottom: 1px solid  #eaeeef;
+        &__title{
+            display: block;
+            width: 100%;
+            height: 80px;
+            padding: 25px 0;
+            line-height: 1;
+            font-size: 30px;
+            border: 0;
+            color: #333;
+        }
+    }
+    &-content{
+        position: relative;
+        padding-top: 52px;
+        @include display-flex;
+        &.toolbar-floating{
+            position: static;
+            .editor-content__toolbar{
+                top: 30px;
+                left: 30px;
+                right: 30px;
+            }
+        }
+        &__toolbar{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 52px;
+            background: #fff;
+            border-top: 1px solid #e3e3e3;
+            border-bottom: 1px solid #e3e3e3;
+            ul{
+                padding: 10px;
+                font-size: 0;
+            }
+            li{
+                position: relative;
+                display: inline-block;
+                height: 30px;
+                vertical-align: top;
+                .el-dropdown{
+                    position: relative;
+                    margin: 0;
+                    &:before{
+                        content: 'title';
+                        @extend .editor-content__toolbar-item;
+                    }
+                    button{
+                        position: absolute;
+                        opacity: 0;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                    }
+                }
+            }
+            &-item{
+                display: block;
+                width: 40px;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                color: #999;
+                cursor: pointer;
+                @include transition(color 0.1s ease-in-out);
+                &:hover{
+                    color: #333;
+                }
+                i{
+                    font-size: 20px;
+                }
+            }
+        }
+        &__wrapper{
+            width: 50%;
+            @include flex(1);
+            textarea{
+                display: block;
+                width: 100%;
+                height: 500px;
+                padding: 20px 15px 20px 0;
+                margin: 0;
+                line-height: 1.5;
+                resize: none;
+                border: none;
+                border-radius: 0;
+                font-size: 16px;
+                font-family: 'monaco', 'Consolas', "Liberation Mono", Courier, monospace;
+                word-wrap: break-word;
+                color: #000;
+                background: #fff;
+            }
+        }
+        &__preview{
+            width: 50%;
+            background: #f6f6f6;
+            box-shadow: -1px 0 0 #cccccc;
+            @include flex(1);
+        }
+    }
+}
+
+.el-dropdown__menu{
+    .h1{
+        font-size: 24px;
+    }
+    .h2{
+        font-size: 20px;
+    }
+    .h3{
+        font-size: 16px;
+    }
+}

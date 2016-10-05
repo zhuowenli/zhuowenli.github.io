@@ -10,8 +10,7 @@ const Home = r => require.ensure([], () => r(require('./views/Home.vue')), 'home
 const page404 = r => require.ensure([], () => r(require('./views/404.vue')), 'home');
 
 const posts = r => require.ensure([], () => r(require('./views/posts/index.vue')), 'posts');
-// const advancedAdmin = r => require.ensure([], () => r(require('./views/advanced/admin/index.vue')), 'advanced');
-// const advancedAdminEdit = r => require.ensure([], () => r(require('./views/advanced/admin/edit.vue')), 'advanced');
+const postAdd = r => require.ensure([], () => r(require('./views/posts/add.vue')), 'posts');
 
 module.exports = [
     {
@@ -25,6 +24,14 @@ module.exports = [
         component: posts,
         meta: {
             title: '文章管理'
+        },
+    },
+    {
+        path: '/posts/add',
+        name: 'postAdd',
+        component: postAdd,
+        meta: {
+            title: '写文章'
         },
     },
     {
