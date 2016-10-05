@@ -1,5 +1,5 @@
 <template lang="jade">
-    form.editor
+    form.editor(ref="editor")
         .editor-top
             input.editor-top__title(placeholder="文章标题" v-model="title")
         .editor-content
@@ -46,7 +46,7 @@
                         a.editor-content__toolbar-item(title="分割线")
                             i.material-icons linear_scale
             .editor-content__wrapper
-                textarea(v-model="input" ref="textarea")
+                textarea(v-model="input" ref="textarea" v-bind:style="{minHeight: minHeight + 'px', height: height + 'px'}")
             .editor-content__preview(v-html="compiledMarkdown")
 </template>
 
@@ -58,7 +58,9 @@
         data() {
             return {
                 title: '',
-                input: '阿萨达是阿萨\n德阿萨德阿萨德阿\n萨德爱上d阿萨德爱上d',
+                minHeight: window.innerHeight - 272,
+                height: 0,
+                input: '',
                 rangeData: {
                     start: 0,
                     end: 0,
@@ -66,10 +68,43 @@
                 },
             }
         },
-        mounted () {
+        mounted() {
+            const $textarea = this.$refs.textarea;
+            const $editor = this.$refs.editor;
+
+            window.addEventListener('resize', () => {
+                this.minHeight = window.innerHeight - 272;
+                this.height = this.minHeight;
+
+                setTimeout(() => {
+                    this.height = $textarea.scrollHeight;
+                }, 10);
+            });
+
+            $editor.addEventListener('scroll', () => {
+                const top = $editor.scrollTop;
+
+                if (top >= 80) {
+                    $editor.classList.add('toolbar-floating');
+                } else {
+                    $editor.classList.remove('toolbar-floating');
+                }
+            });
         },
         computed: {
             compiledMarkdown() {
+                const $textarea = this.$refs.textarea;
+
+                marked.setOptions({
+                    highlight(code) {
+                        return require('highlight.js').highlightAuto(code).value;
+                    }
+                });
+
+                if ($textarea) {
+                    this.height = $textarea.scrollHeight;
+                }
+
                 return marked(this.input, { sanitize: true })
             }
         },
@@ -129,7 +164,7 @@
                 this.input = e.target.value;
             }, 300),
         }
-    }
+    };
 </script>
 
 <style lang="scss">
