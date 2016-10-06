@@ -3,40 +3,39 @@
  * @email : 531840344@qq.com
  * @desc  : Description
  */
-'use strict';
-
-import scss from './stylesheets/app.scss';
 
 import Vue from 'vue';
-import Resource from 'vue-resource';
-import Router from 'vue-router';
-import {routerConfig} from './router-config.js';
-import VueFilter from './services/filter.js';
+import VueRouter from 'vue-router';
+import Promise from 'bluebird';
 
+import VueFilter from './services/filter';
+import routes from './routes';
 import App from './components/App.vue';
-import Promise from "bluebird";
 
 // Install plugins
-Vue.use(Router);
-Vue.use(Resource);
-
-// Filters
+Vue.use(VueRouter);
 Vue.use(VueFilter);
 
+window.Promise = Promise;
+
 // Set up a new router
-var router = new Router({
-    history: true,
-    saveScrollPosition: true,
-    transitionOnLoad: true
+const router = new VueRouter({
+    routes,
+    mode: 'history', // history
+    scrollBehavior(to, from, savedPosition) {
+        if (savedPosition) {
+            return savedPosition;
+        }
+
+        return {
+            x: 0,
+            y: 0
+        };
+    }
 });
 
-// Route config
-routerConfig(router);
-
-// For every new route scroll to the top of the page
-router.beforeEach(function () {
-  window.scrollTo(0, 0)
+new Vue({
+    el: '#app',
+    router,
+    render: h => h(App)
 });
-
-// Start up our app
-router.start(App, '#app');

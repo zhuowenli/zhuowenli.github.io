@@ -5,22 +5,11 @@
  * @desc  : Description
  */
 
-
-@import "../../node_modules/sass-core/base";
 @import "./common";
-
-@font-face {
-    font-family: icon;
-    src: url(../../statics/font/icon.eot);
-    src: url(../../statics/font/icon.eot#iefix2oa9qo) format('embedded-opentype'),
-         url(../../statics/font/icon.woff) format('woff'),
-         url(../../statics/font/icon.ttf) format('truetype');
-    font-weight: 400;
-    font-style: normal
-}
-
+@import "~sass-core/core/reset";
 
 html{
+    height: 100%;
     font-family: 'Helvetica Neue',      // OSX，English
                  'Helvetica',
                  "PingFang SC",         // OSX，苹方（华康信凭黑）
@@ -34,6 +23,8 @@ html{
                  sans-serif;
     font-size: 16px;
     font-weight: 300;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
 *, *:before, *:after{
@@ -42,62 +33,106 @@ html{
     @include box-sizing;
 }
 
-html, body, .container{
-    height: 100%;
-    width: 100%;
-}
-
-html{
-    overflow: hidden;
-}
-
-body{
-    background-color: #010001;
-}
-
-.container{
-    position: relative;
-    max-width: 1520px;
-    margin: 0 auto;
-    opacity: 1;
-}
-
-@keyframes pikapika {
-    0% { opacity: 0.96 }
-    100% { opacity: 1 }
-}
-.main-slidebar, .main-center, .main-right, .graph{
-    @include animation(pikapika 0.05s linear infinite alternate);
-    @include animation-fill-mode(forwards);
-}
-
-.hide, .hidechild > * {
-    opacity: 0 !important;
-    @include transition(all .5s ease-in-out);
-}
-.showsplash{
-    .main-center, .graph{
-        .hide, .hidechild > * {
-            opacity: 1 !important
+.home{
+    &-index{
+        position: relative;
+        height: 100vh;
+        &__about{
+            position: absolute;
+            top: 25px;
+            right: 45px;
+            z-index: 3;
+            a{
+                color: #333;
+                font-size: 13px;
+                &:after{
+                    content: '';
+                    display: inline-block;
+                    margin-left: 8px;
+                    @include triangle(right, 5px, #ccc);
+                }
+            }
+        }
+        &__text{
+            position: absolute;
+            top: 40%;
+            left: 8%;
+            z-index: 2;
+            .logo{
+                padding-left: 75px;
+                padding-top: 65px;
+                background: transparent url('../../static/img/logo.png') left top no-repeat;
+                @include display-flex;
+                .lines{
+                    position: relative;
+                    display: inline-block;
+                    width: 150px;
+                    height: 50px;
+                    border-left: 1px dotted #cccccc;
+                    border-bottom: 1px dotted #cccccc;
+                    &:before, &:after{
+                        content: '';
+                        display: inline-block;
+                        position: absolute;
+                        height: 6px;
+                        width: 6px;
+                        background: #ccc;
+                        @include border-radius(6px);
+                    }
+                    &:before{
+                        top: -3px;
+                        left: -3px;
+                    }
+                    &:after{
+                        bottom: -3px;
+                        right: -3px;
+                    }
+                }
+                p{
+                    line-height: 20px;
+                    padding-left: 10px;
+                    padding-top: 38px;
+                    font-size: 14px;
+                    color: #333;
+                    @include flex(1);
+                }
+            }
+        }
+        &__bg{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            overflow: hidden;
+            background: #fff;
+            video{
+                position: absolute;
+                top: 0;
+                right: 265px;
+                bottom: 0;
+                width: auto;
+                height: 100%;
+                @include transform(translate(30%, 0%));
+            }
         }
     }
 }
-.showsidebar{
-    .btn, .hide, .hidechild > * {
-        opacity: 1 !important
-    }
-}
 
-.main-content{
-    padding-left: 380px;
-}
-
-.table{
-    display: table;
-    width: 100%;
-    .cell{
-        position: relative;
-        display: table-cell;
-        vertical-align: middle;
+@include max-screen(640px){
+    .home-index__bg video{
+        right: -265px;
     }
-}
+};
+
+
+
+
+
+
+
+
+
+
+

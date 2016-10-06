@@ -5,10 +5,33 @@
  * @desc  : Description
  */
 
-@import "../../node_modules/sass-core/function";
+@import "~sass-core/function";
 
+// Color
+// http://element.eleme.io/#/component/color
+$blue: #20A0FF;
+$light-blue: #58B7FF;
+$dark-blue: #1D8CE0;
+$green: #2eb398;
+$success: #13CE66;
+$yellow: #F7BA2A;
+$warning: #F7BA2A;
+$red: #FF4949;
+$danger: #FF4949;
+$black: #1b2224;
+$light-black: #324057;
+$light-black2: #475669;
+$silver: #8492A6;
+$light-silver: #99A9BF;
+$light-silver2: #C0CCDA;
+$gray: #D3DCE6;
+$light-gray: #E5E9F2;
+$light-gray2: #EFF2F7;
+$white: #FFFFFF;
+$dark-white: #F9FAFC;
+
+// Font Size
 $fontsize: 16px;
-$pink: #ff5a93;
 
 // px to rem
 // 将px转换成rem，计算公式：(320 / 16) / 2 + 'rem' = 10rem;
@@ -25,4 +48,15 @@ $pink: #ff5a93;
     -webkit-box-orient: vertical;
     word-break: break-all;
     overflow: hidden;
+}
+
+@mixin clearfix{
+    &:before, &:after{
+        content: "";
+        display: table;
+    }
+    &:after{
+        clear:both;
+    }
+    *zoom:1;
 }

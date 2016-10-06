@@ -1,42 +1,27 @@
 /**
  * @author: 卓文理
  * @email : 531840344@qq.com
- * @desc  : Description
+ * @desc  : Vue过滤器
  */
-'use strict';
 
-module.exports = function(Vue) {
-    // date
-    Vue.filter('date', function(date, format = 'yyyy-MM-dd') {
-        date = new Date(date);
+import timeFormat from './timeFormat';
+import dateFormat from './dateFormat';
 
-        const map = {
-            "M": date.getMonth() + 1, //月份
-            "d": date.getDate(), //日
-            "h": date.getHours(), //小时
-            "m": date.getMinutes(), //分
-            "s": date.getSeconds(), //秒
-            "q": Math.floor((date.getMonth() + 3) / 3), //季度
-            "S": date.getMilliseconds() //毫秒
-        };
-
-        format = format.replace(/([yMdhmsqS])+/g, function(all, t){
-            let v = map[t];
-
-            if(v !== undefined){
-                if(all.length > 1){
-                    v = '0' + v;
-                    v = v.substr(v.length-2);
-                }
-                return v;
-            }
-            else if(t === 'y'){
-                return (date.getFullYear() + '').substr(4 - all.length);
-            }
-
-            return all;
-        });
-
-        return format;
-    });
-}
+/**
+ * Vue Filter
+ * @param  {Object} Vue Vue主进程
+ */
+module.exports = (Vue) => {
+    /**
+     * 日期格式化
+     * @param  {Date}   date     日期时间
+     * @param  {String} format   时间格式
+     */
+    Vue.filter('date', (date, format = 'yyyy-MM-dd hh:mm:ss') => dateFormat(date, format));
+    /**
+     * 剩余时间格式化
+     * @param  {Number} time   剩余时间
+     * @param  {String} format 格式
+     */
+    Vue.filter('timeFormat', (time, format = 'mm:ss') => timeFormat(time, format));
+};
