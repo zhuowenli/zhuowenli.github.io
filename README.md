@@ -28,6 +28,8 @@
     - [ ] 文章列表
     - [ ] 文章编辑
 
+![](wiki/home.png)
+
 ## 技术栈
 
 - 后端：Node.js + koa + MySQL + knex
