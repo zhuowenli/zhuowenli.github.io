@@ -61,6 +61,7 @@
     "lodash": "^4.16.3",
     "marked": "^0.3.6",
     "material-design-iconfonts": "^1.0.0",
+    "mo-js": "^0.265.9",
     "sass-core": "^1.0.0",
     "vue": "^2.0.1",
     "vue-router": "^2.0.0",
