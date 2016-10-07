@@ -30,12 +30,17 @@ exports.init = function(app) {
                     qb.where('category_id', query.category_id);
                 }
 
-                qb.orderBy('release_at', 'desc'); //desc
+                query.status = query.status || 0;
+                query.order_by = query.order_by || 'id';
+                query.order_status = query.order_status || 'desc';
+
+                qb.where('status', query.status);
+                qb.orderBy(query.order_by, query.order_status);
             }, {
                 page: query.page,
                 per_page: query.per_page,
             }, {
-                withRelated: ['category']
+                withRelated: ['images', 'category']
             });
 
         posts.data.models.map(post => {
@@ -133,7 +138,7 @@ exports.init = function(app) {
             qb.where('status', 0);
         })
         .fetch({
-            withRelated: ['category', 'user']
+            withRelated: ['images', 'category', 'user']
         });
 
         // update view_count

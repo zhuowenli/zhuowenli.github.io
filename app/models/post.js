@@ -10,10 +10,13 @@ const db = require('../db');
 module.exports = db.model('Post', {
     tableName: 'posts',
     hasTimestamps: true,
-    category: function() {
+    category() {
         return this.belongsTo('Category', 'category_id');
     },
-    user: function() {
+    user() {
         return this.belongsTo('User', 'user_id');
+    },
+    images() {
+        return this.morphMany('Image', 'imageable');
     },
 });

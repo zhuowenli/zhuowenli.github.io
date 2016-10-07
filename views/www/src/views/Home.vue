@@ -14,17 +14,21 @@
                     source(src="http://zhuowenli.qiniudn.com/video/bg.mp4" type="video/mp4")
             .home-index__bottom
                 .lines
-                a 最新文章
+                a(@click="handleNewClick") 最新文章
         .home-new(v-if="posts")
             section(v-for="post in posts")
                 .home-new__meta--top
                     .home-new__number p{{post.id}}
-                    h2.home-new__title {{post.title}}
-                .home-new__content.article(v-html="post.excerpt" v-if="post.excerpt")
-                .home-new__content.article(v-html="post.content" v-else)
+                    h2.home-new__title
+                        router-link(:to="'/' + post.category.title + '/' + post.id") {{post.title}}
+                .home-new__content.article
+                    figure.images(v-if="post.images.length")
+                        img(v-for="image in post.images" v-bind:src="image.url")
+                    .content(v-html="post.excerpt" v-if="post.excerpt")
+                    .content(v-html="post.content" v-else)
                 .home-new__meta--bottom
                     p.more
-                        router-link(to="/frontend/1") Read More
+                        router-link(:to="'/' + post.category.title + '/' + post.id") Read More
                     p
                         button.btn-like
                             i.icon.icon-like-fill
@@ -95,10 +99,6 @@
                 $buttons.forEach(($button, i) => {
                     const $like = $likes[i];
                     const { dataset } = $button;
-
-                    timelines[i] = new mojs.Timeline();
-                    dataset.checked = dataset.checked || 0;
-
                     const likeTweens = [
                         // ring animation
                         new mojs.Shape({
@@ -204,7 +204,8 @@
                             easing: mojs.easing.ease.out,
                             onUpdate: function(progress) {
                                 if(progress > 0.3) {
-                                    var elasticOutProgress = mojs.easing.elastic.out(1.43*progress-0.43);
+                                    const elasticOutProgress = mojs.easing.elastic.out(1.43 * progress - 0.43);
+
                                     $like.style.WebkitTransform = $like.style.transform = `scale3d(${elasticOutProgress},${elasticOutProgress},1)`;
                                 } else {
                                     $like.style.WebkitTransform = $like.style.transform = 'scale3d(0,0,1)';
@@ -212,6 +213,9 @@
                             }
                         })
                     ];
+
+                    timelines[i] = new mojs.Timeline();
+                    dataset.checked = dataset.checked || 0;
 
                     for(let j = 0, len = likeTweens.length; j < len; j += 1) {
                         timelines[i].add(likeTweens[j]);
@@ -228,7 +232,15 @@
                         dataset.checked = Number(dataset.checked) ? 0 : 1;
                     });
                 });
-            }
+            },
+            handleNewClick() {
+                const height = $('.home-index').height();
+
+                $("html, body").stop().animate({ scrollTop: height }, '500', 'swing');
+            },
+            handleTopClick() {
+                $("html, body").stop().animate({ scrollTop: 0 }, '500', 'swing');
+            },
         }
     };
 </script>

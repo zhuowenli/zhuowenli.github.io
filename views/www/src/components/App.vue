@@ -3,14 +3,17 @@
         main-side-nav
         main.main
             router-view.page
+        main-footer
 </template>
 
 <script>
     import MainSideNav from './side-nav.vue';
+    import MainFooter from './footer.vue';
 
     export default {
         components: {
-            MainSideNav
+            MainSideNav,
+            MainFooter
         },
         data() {
             return {
