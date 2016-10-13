@@ -14,6 +14,7 @@ const bodyParser = require('koa-bodyparser');
 const koaqs = require('koa-qs');
 const ctrls = require('./controllers/www');
 const cors = require('koa-cors');
+const historyApiFallback = require('koa-history-api-fallback');
 
 const app = koa();
 
@@ -31,6 +32,16 @@ app.use(bodyParser());
 
 // 响应头允许夸域
 app.use(cors());
+app.use(historyApiFallback({
+    rewrites: [
+        {
+            from: /\/(dist|static)\/.*$/,
+            to(ctx) {
+                return ctx.match[0];
+            }
+        }
+    ]
+}));
 
 // init views
 const viewsPath = path.join(__dirname, '../views/www/');

@@ -26,8 +26,8 @@ exports.init = function(app) {
         let posts = Posts.forge();
 
         posts = yield posts.fetchItems(qb => {
-                if (query.category_id) {
-                    qb.where('category_id', query.category_id);
+                if (query.type) {
+                    qb.where('category_id', CATES[query.type]);
                 }
 
                 query.status = query.status || 0;

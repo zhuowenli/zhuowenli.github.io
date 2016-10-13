@@ -9,7 +9,6 @@ var ctrls = [
     require('./api/users'),
     require('./api/likes'),
     require('./api/qiniu.js'),
-    require('./index/index'),
 ];
 
 module.exports = ctrls;

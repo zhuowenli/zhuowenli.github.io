@@ -97,6 +97,7 @@
                 line-height: 48px;
                 text-align: center;
                 color: #fff;
+                cursor: pointer;
                 @include border-radius(48px);
                 &:hover{
                     opacity: .8;

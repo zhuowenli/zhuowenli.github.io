@@ -1,21 +1,6 @@
 <template lang="jade">
-    .home
-        .home-index
-            .home-index__menu
-                a.icon-list
-            .home-index__about
-                router-link(to="/about") 关于作者
-            .home-index__text
-                .logo
-                    .lines
-                    p 前端开发
-            .home-index__bg
-                video(autoplay webkit-playsinline autobuffer ref="video")
-                    source(src="http://zhuowenli.qiniudn.com/video/bg.mp4" type="video/mp4")
-            .home-index__bottom
-                .lines
-                a(@click="handleNewClick") 最新文章
-        .home-new(v-if="posts")
+    .list
+        .articles(v-if="!loading")
             section(v-for="post in posts")
                 .home-new__meta--top
                     .home-new__number p{{post.id}}
@@ -40,44 +25,46 @@
 <script>
     import mojs from 'mo-js';
     import marked from 'marked';
-    import hljs from '../../static/js/highlight.js';
-    import { fetchPostLists } from '../models/posts';
+    import hljs from '../../../static/js/highlight.js';
+    import { fetchPostLists } from '../../models/posts';
 
     export default {
-        name: 'home',
-        mounted() {
-           this.init();
-        },
+        name: 'list',
         data() {
             return {
-                checked: false,
+                loading: false,
+                posts: [],
                 query: {
                     page: 1,
-                    per_page: 10
-                },
-                posts: null
+                    per_page: 30
+                }
             };
         },
+        mounted() {
+            this.init();
+        },
         methods: {
-                load() {
-                    return fetchPostLists(this.query).then(res => {
-                        const { data } = res;
+            load() {
+                return fetchPostLists(this.query).then(res => {
+                    const { data } = res;
 
-                        data.map(item => {
-                            item.excerpt = this.markdown(item.excerpt);
-                            item.content = this.markdown(item.content);
-                        });
-
-                        return data;
+                    data.map(item => {
+                        item.excerpt = this.markdown(item.excerpt);
+                        item.content = this.markdown(item.content);
                     });
-            },
-            init(){
-                const $video = this.$refs.video;
-                $video.play();
 
+                    return data;
+                });
+            },
+            init() {
+                const {type} = this.$route.params;
+
+                this.handleTopAction();
+                this.query.type = type;
+                this.loading = true;
                 this.load().then(data => {
                     this.posts = data;
-                    setTimeout(() => this.Animocon(), 300);
+                    this.loading = false;
                 });
             },
             markdown(val) {
@@ -233,14 +220,16 @@
                     });
                 });
             },
-            handleNewClick() {
-                const height = $('.home-index').height();
-
-                $("html, body").stop().animate({ scrollTop: height }, '500', 'swing');
-            },
-            handleTopClick() {
+            handleTopAction() {
                 $("html, body").stop().animate({ scrollTop: 0 }, '500', 'swing');
             },
+        },
+        watch: {
+            '$route': 'init'
         }
-    };
+    }
 </script>
+
+<style lang="scss">
+    @import "./index.scss";
+</style>

@@ -32,3 +32,4 @@ dump.rdb
 build/
 /**/config.js
 *.js.map
+/**/dist/
