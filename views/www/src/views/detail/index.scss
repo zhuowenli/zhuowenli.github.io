@@ -5,3 +5,128 @@
  * @desc  : Description
  */
 
+@import "../../stylesheets/common";
+
+.detail{
+    min-height: 100vh;
+    .header{
+        position: relative;
+        min-height: 100vh;
+        width: 100%;
+        &-bg{
+            position: absolute;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            @include backface-visibility(hidden);
+            img{
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                min-width: 100%;
+                min-height: 100%;
+            }
+            &:before, &:after{
+                content: '';
+                position: absolute;
+                z-index: 100;
+                @include transition(all .5s cubic-bezier(0.7,0,0.3,1));
+                @include transition-delay(.3s);
+            }
+            &:before{
+                background: #fff;
+                top: 0;
+                left: 0;
+                width: 60%;
+                height: 100%;
+                @include transform(translateX(-100%));
+            }
+            &:after{
+                border: 80px solid #fff;
+                top: -80px;
+                right: -80px;
+                bottom: -80px;
+                left: -80px;
+                background-color: rgba(#fff, 0.5);
+            }
+        }
+        &-title{
+            position: absolute;
+            top: 50%;
+            left: 0;
+            padding: 0 3em 0 2em;
+            width: 60%;
+            margin: 0 auto;
+            text-align: right;
+            z-index: 200;
+            @include transform(translateX(33.3%) translateY(-50%));
+            @include transition(all .5s cubic-bezier(0.7,0,0.3,1));
+            @include transition-delay(.3s);
+            h1{
+                padding-bottom: 0.5em;
+                line-height: 1;
+                color: #516165;
+                font-size: 3.25em;
+            }
+            p{
+                color: #7b8d92;
+                opacity: 0;
+                @include transform(translateY(100px));
+                @include transition(all .5s cubic-bezier(0.7,0,0.3,1));
+                strong{
+                    padding: 0 5px;
+                }
+                a{
+                    color: #7b8d92;
+                }
+            }
+        }
+    }
+    .content{
+        padding: 0 1rem 3rem;
+        opacity: 0;
+        @include transition(all .5s cubic-bezier(0.7,0,0.3,1));
+        .article{
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .excerpt{
+            margin-bottom: 30px;
+            font-size: 22px;
+            font-style: italic;
+        }
+    }
+    &.trundle{
+        .header-bg{
+            &:before{
+                @include transform(translateX(0));
+                @include transition-delay(0s);
+            }
+            &:after{
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: transparent;
+                @include transition-delay(0s);
+            }
+        }
+        .header-title{
+            @include transform(translateY(-50%));
+            @include transition-delay(0s);
+            p{
+                opacity: 1;
+                @include transform(translateX(0));
+                @include transition-delay(0.2s);
+            }
+        }
+        .content{
+            opacity: 1;
+        }
+    }
+}

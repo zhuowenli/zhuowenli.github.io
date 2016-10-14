@@ -1,8 +1,29 @@
 <template lang="jade">
-    .detail
+    .detail(:class="{trundle: trundle}")
+        header.header(v-if="!loading")
+            .header-bg(v-if="post.images.length")
+                img(:src="post.images[0].url")
+            .header-title
+                h1 {{post.title}}
+                p.subline(v-if="post.subline") {{post.subline}}
+                p
+                    | by
+                    strong {{post.user.username}}
+                    | — Posted in
+                    strong
+                        router-link(:to="'/' + post.category.title") {{post.category.name}}
+                    | — Writed on
+                    strong {{post.release_at | date}}
+
+        article.content(v-if="!loading")
+            .article
+                .excerpt(v-if="post.excerpt" v-html="post.excerpt")
+                div(v-html="post.content")
 </template>
 
 <script>
+    import marked from 'marked';
+    import hljs from '../../../static/js/highlight.js';
     import { fetchPostItem } from '../../models/posts';
 
     export default {
@@ -10,7 +31,9 @@
         data() {
             return {
                 post: null,
-                id: null
+                id: null,
+                loading: true,
+                trundle: false
             };
         },
         mounted() {
@@ -23,16 +46,50 @@
                 return fetchPostItem(id).then(res => {
                     const {data} = res;
 
+                    data.content = data.content.replace(/{{(\s*)site.qiniu(\s*)}}/g, 'http://zhuowenli.qiniudn.com');
+                    data.content = this.markdown(data.content);
+                    data.excerpt = this.markdown(data.excerpt);
+
                     return data;
                 });
             },
             init() {
-
+                this.handleTopAction();
+                this.loading = true;
                 this.load().then(data => {
-                    console.log(data);
                     this.post = data;
-                })
-            }
+                    this.loading = false;
+                    this.bindScrollEvent();
+                });
+            },
+            markdown(val) {
+                if (!val) return '';
+
+                marked.setOptions({
+                    highlight(code) {
+                        return hljs.highlightAuto(code).value;
+                    }
+                });
+
+                return marked(val, { sanitize: true })
+            },
+            bindScrollEvent() {
+                $(window).on('scroll', () => {
+                    const scrollTop = $('body').scrollTop();
+
+                    if (scrollTop > 1) {
+                        this.trundle = true;
+                    } else {
+                        this.trundle = false;
+                    }
+                });
+            },
+            handleTopAction() {
+                $("html, body").stop().animate({ scrollTop: 0 }, '500', 'swing');
+            },
+        },
+        watch: {
+            '$route': 'init'
         }
     }
 </script>
