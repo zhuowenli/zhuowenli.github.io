@@ -33,7 +33,7 @@
                 post: null,
                 id: null,
                 loading: true,
-                trundle: false
+                trundle: false,
             };
         },
         mounted() {
@@ -54,8 +54,9 @@
                 });
             },
             init() {
-                this.handleTopAction();
+                this.handleTopAction(0);
                 this.loading = true;
+
                 this.load().then(data => {
                     this.post = data;
                     this.loading = false;
@@ -84,12 +85,16 @@
                     }
                 });
             },
-            handleTopAction() {
-                $("html, body").stop().animate({ scrollTop: 0 }, '500', 'swing');
-            },
+            handleTopAction(time) {
+                if (time) {
+                    $("html, body").stop().animate({ scrollTop: 0 }, time, 'swing');
+                } else {
+                    $("html, body").scrollTop(0);
+                }
+            }
         },
         watch: {
-            '$route': 'init'
+            $route: 'init'
         }
     }
 </script>

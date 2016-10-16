@@ -1,5 +1,5 @@
 <template lang="jade">
-    footer.footer
+    footer.footer(v-show="show")
         .container
             nav.footer-menu
                 h4 分类
@@ -31,6 +31,26 @@
             | © 2016 | site by
             router-link(to="/") 卓文理
 </template>
+
+<script>
+    export default {
+        name: 'footer',
+        data() {
+            return {
+                show: true
+            }
+        },
+        watch: {
+            $route() {
+                this.show = false;
+
+                setTimeout(() => {
+                    this.show = true;
+                }, 1000);
+            }
+        }
+    }
+</script>
 
 <style lang="scss">
     @import "../stylesheets/common";

@@ -4,7 +4,7 @@
         router-link.create(to="/posts/add")
             i.material-icons create
             | 写文章
-        el-menu(mode="vertical" router=true)
+        el-menu(mode="vertical" router)
             el-menu-item-group(title="MAIN")
                 el-menu-item(index="/posts")
                     i.material-icons text_fields

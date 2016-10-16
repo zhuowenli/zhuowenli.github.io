@@ -21,8 +21,20 @@ window.Promise = Promise;
 // Set up a new router
 const router = new VueRouter({
     routes,
-    mode: 'history'
+    mode: 'history',
+    scrollBehavior (to, from, savedPosition) {
+        if (savedPosition) {
+            return savedPosition;
+        }
+
+        if (from.name === 'home') {
+            return savedPosition;
+        }
+
+        return savedPosition;
+    }
 });
+
 
 new Vue({
     el: '#app',

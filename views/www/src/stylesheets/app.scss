@@ -68,6 +68,7 @@ $sky: #5fc9c9;
     &-index{
         position: relative;
         height: 100vh;
+        @include transition(all 0.5s ease);
         &__about{
             position: absolute;
             top: 25px;
@@ -297,6 +298,18 @@ $sky: #5fc9c9;
         }
     }
 }
+
+.fade-enter-active, .fade-leave-active {
+    @include transition(opacity .5s ease);
+}
+.fade-enter, .fade-leave-active {
+    opacity: 0
+}
+.child-view {
+    position: absolute;
+    @include transition(all .5s cubic-bezier(.55,0,.1,1));
+}
+
 
 @include max-screen(1360px){
     .home-index{

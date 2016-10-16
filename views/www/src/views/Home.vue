@@ -1,6 +1,6 @@
 <template lang="jade">
     .home
-        .home-index
+        .home-index(:style="{opacity: opacity}")
             .home-index__menu
                 a.icon-list
             .home-index__about
@@ -47,7 +47,19 @@
     export default {
         name: 'home',
         mounted() {
-           this.init();
+            this.init();
+
+            const height = $(window).height();
+
+            $(window).on('scroll', () => {
+                const scrollTop = $('body').scrollTop();
+
+                if (scrollTop > height + 200) {
+                    this.opacity = 0;
+                } else {
+                    this.opacity = 1;
+                }
+            });
         },
         data() {
             return {
@@ -56,21 +68,22 @@
                     page: 1,
                     per_page: 10
                 },
-                posts: null
+                posts: null,
+                opacity: 1
             };
         },
         methods: {
-                load() {
-                    return fetchPostLists(this.query).then(res => {
-                        const { data } = res;
+            load() {
+                return fetchPostLists(this.query).then(res => {
+                    const { data } = res;
 
-                        data.map(item => {
-                            item.excerpt = this.markdown(item.excerpt);
-                            item.content = this.markdown(item.content);
-                        });
-
-                        return data;
+                    data.map(item => {
+                        item.excerpt = this.markdown(item.excerpt);
+                        item.content = this.markdown(item.content);
                     });
+
+                    return data;
+                });
             },
             init(){
                 const $video = this.$refs.video;

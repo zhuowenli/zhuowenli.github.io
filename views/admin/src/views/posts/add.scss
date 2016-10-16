@@ -27,6 +27,7 @@
     &-content{
         position: relative;
         padding-top: 52px;
+        padding-right: 200px;
         @include display-flex;
         &__toolbar{
             position: absolute;
@@ -49,17 +50,21 @@
                 .el-dropdown{
                     position: relative;
                     margin: 0;
-                    &:before{
-                        content: 'title';
-                        @extend .editor-content__toolbar-item;
-                    }
-                    button{
-                        position: absolute;
-                        opacity: 0;
-                        top: 0;
-                        left: 0;
-                        right: 0;
-                        bottom: 0;
+                    &-link{
+                        display: block;
+                        width: 40px;
+                        height: 30px;
+                        line-height: 30px;
+                        text-align: center;
+                        color: #999;
+                        cursor: pointer;
+                        @include transition(color 0.1s ease-in-out);
+                        &:hover{
+                            color: #333;
+                        }
+                        i{
+                            font-size: 20px;
+                        }
                     }
                 }
             }
@@ -83,6 +88,9 @@
         &__wrapper{
             width: 50%;
             @include flex(1);
+            .el-textarea{
+                padding-bottom: 56px;
+            }
             textarea{
                 display: block;
                 width: 100%;
@@ -296,6 +304,32 @@
                     }
                 }
             }
+        }
+    }
+    &-bottom{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 56px;
+        padding: 10px 30px;
+        background: #fff;
+        box-shadow: 0 -1px 2px rgba(#000, 0.15);
+        z-index: 101;
+    }
+    &-aside{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 250px;
+        padding: 20px 20px 56px;
+        background: #fff;
+        box-shadow: -1px 0px 2px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        overflow: auto;
+        .el-date-editor{
+            width: 100%;
         }
     }
     &.toolbar-floating{

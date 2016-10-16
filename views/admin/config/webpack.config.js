@@ -59,7 +59,8 @@ module.exports = {
         modulesDirectories: ['node_modules'],
         alias: {
             vue: 'vue/dist/vue.js'
-        }
+        },
+        extensions: ['', '.js', '.vue'],
     },
     vue: {
         loaders: utils.cssLoaders()

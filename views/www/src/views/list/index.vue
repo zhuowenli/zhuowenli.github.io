@@ -8,7 +8,8 @@
                         router-link(:to="'/' + post.category.title + '/' + post.id") {{post.title}}
                 .home-new__content.article
                     figure.images(v-if="post.images.length")
-                        img(v-for="image in post.images" v-bind:src="image.url")
+                        router-link(:to="'/' + post.category.title + '/' + post.id")
+                            img(v-for="image in post.images" v-bind:src="image.url")
                     .content(v-html="post.excerpt" v-if="post.excerpt")
                     .content(v-html="post.content" v-else)
                 .home-new__meta--bottom

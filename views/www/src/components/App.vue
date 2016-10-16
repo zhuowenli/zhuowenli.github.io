@@ -2,7 +2,8 @@
     #app
         main-side-nav
         main.main
-            router-view.page
+            transition(name="fade" mode="out-in")
+                router-view.page
         main-footer
 </template>
 
@@ -13,24 +14,8 @@
     export default {
         components: {
             MainSideNav,
-            MainFooter
+            MainFooter,
         },
-        data() {
-            return {
-                loading: false
-            };
-        },
-        created() {
-            this.init();
-        },
-        methods: {
-            load() {
-            },
-            init() {
-                // const that = this;
-                // this.load().then(res => {});
-            }
-        }
     };
 </script>
 

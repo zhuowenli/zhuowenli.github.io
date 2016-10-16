@@ -35,8 +35,9 @@ app.use(cors());
 app.use(historyApiFallback({
     rewrites: [
         {
-            from: /\/(dist|static)\/.*$/,
+            from: /\/(node_modules|dist|static)\/.*$/,
             to(ctx) {
+                console.log(ctx.match)
                 return ctx.match[0];
             }
         }
