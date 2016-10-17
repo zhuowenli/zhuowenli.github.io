@@ -30,6 +30,8 @@ import {
     Option,
     Switch,
     DatePicker,
+    Upload,
+    Progress,
     // ...
 } from 'element-ui';
 
@@ -58,6 +60,8 @@ Vue.component(Select.name, Select);
 Vue.component(Option.name, Option);
 Vue.component(Switch.name, Switch);
 Vue.component(DatePicker.name, DatePicker);
+Vue.component(Upload.name, Upload);
+Vue.component(Progress.name, Progress);
 
 // Install plugins
 Vue.use(VueRouter);

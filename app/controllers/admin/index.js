@@ -7,6 +7,7 @@
 
 var ctrls = [
     require('./api/posts'),
+    require('./api/qiniu'),
     require('./index/index')
 ];
 

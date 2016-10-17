@@ -323,13 +323,19 @@
         right: 0;
         bottom: 0;
         width: 250px;
-        padding: 20px 20px 56px;
+        padding: 20px 10px 56px;
         background: #fff;
         box-shadow: -1px 0px 2px rgba(0, 0, 0, 0.1);
         z-index: 100;
         overflow: auto;
         .el-date-editor{
             width: 100%;
+        }
+        .el-upload{
+            width: 100%;
+            &__inner{
+                width: 100%;
+            }
         }
     }
     &.toolbar-floating{
