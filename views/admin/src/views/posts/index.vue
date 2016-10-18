@@ -52,6 +52,13 @@
             <el-table-column property="view_count" label="浏览数" width="80"></el-table-column>
             <el-table-column property="like_count" label="喜欢数" width="80"></el-table-column>
             <el-table-column property="excerpt" label="简介"></el-table-column>
+            <el-table-column inline-template label="操作" width="90">
+                <span>
+                    <router-link :to="'/posts/' + row.id + '/edit'">
+                        <el-button>编辑</el-button>
+                    </router-link>
+                </span>
+            </el-table-column>
         </el-table>
         <el-pagination
             v-show="!loading"

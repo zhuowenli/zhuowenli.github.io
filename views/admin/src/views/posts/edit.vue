@@ -28,7 +28,7 @@
                 el-form-item(label="文章简介")
                     el-input(type="textarea" v-model="post.excerpt" v-bind:autosize="{minRows: 5}")
         .editor-bottom
-            el-button 发布
+            el-button 保存
             el-button(type="text") 取消
 </template>
 
@@ -36,24 +36,16 @@
     import EditorContent from './components/editor-content';
     import EditorTop from './components/editor-top';
 
+    import { fetchPostsByID } from '../../models/posts';
     import { fetchQiniuToken } from '../../models/qiniu';
 
     export default {
         components: { EditorTop, EditorContent },
         data() {
             return {
+                loading: false,
                 postStatus: false,
-                post: {
-                    title: '',
-                    content: '',
-                    categories: '',
-                    status: 0,
-                    excerpt: '',
-                    priority: 0,
-                    user_id: 1,
-                    release_at: '',
-                    images: []
-                },
+                post: {},
                 upload: {},
                 qiniu: {
                     key: '',
@@ -73,8 +65,41 @@
                     $editor.classList.remove('toolbar-floating');
                 }
             });
+
+            this.loading = true;
+            this.init();
         },
         methods: {
+            load() {
+                const { id } = this.$route.params;
+
+                return fetchPostsByID(id)
+                    .then(res => res.data)
+                    .then(data => {
+                        const post = {};
+
+                        Object.assign(post, {
+                            title: data.title,
+                            content: data.content,
+                            categories: data.category.title,
+                            status: data.status,
+                            excerpt: data.excerpt,
+                            priority: data.priority,
+                            user_id: data.user_id,
+                            release_at: data.release_at,
+                            images: data.images
+                        });
+
+                        return post;
+                    });
+            },
+            init() {
+                this.load().then(post => {
+                    this.post = post;
+                    this.loading = false;
+                    this.postStatus = this.post.status === 1;
+                });
+            },
             handleStatusChange(val) {
                 this.post.status = val ? 1 : 0;
             },
@@ -112,10 +137,15 @@
             handleUploadPreview(file) {
                 window.open(file.url);
             }
+        },
+        watch: {
+            'post.title'(){
+                console.log(this.post.title);
+            }
         }
-    };
+    }
 </script>
 
 <style lang="scss">
-    @import "./editor.scss";
+    @import "./editor";
 </style>

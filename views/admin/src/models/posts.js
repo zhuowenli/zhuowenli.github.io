@@ -10,5 +10,8 @@ import myXhr from '../services/myXhr';
 module.exports = {
     fetchPostLists(options) {
         return myXhr.get('/api/posts', options);
+    },
+    fetchPostsByID(id) {
+        return myXhr.get(`/api/posts/${id}`);
     }
 }

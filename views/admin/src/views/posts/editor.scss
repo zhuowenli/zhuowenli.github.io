@@ -89,24 +89,25 @@
             width: 50%;
             @include flex(1);
             .el-textarea{
-                padding-bottom: 56px;
-            }
-            textarea{
-                display: block;
-                width: 100%;
-                height: 100%;
-                min-height: 500px;
-                padding: 20px 15px 20px 0;
-                margin: 0;
-                line-height: 1.5;
-                resize: none;
-                border: none;
-                border-radius: 0;
-                font-size: 16px;
-                font-family: 'monaco', 'Consolas', "Liberation Mono", Courier, monospace;
-                word-wrap: break-word;
-                color: #000;
-                background: #fff;
+                min-height: 100%;
+                padding: 20px 15px 86px 20px;
+                textarea{
+                    @include display-flex;
+                    min-height: 500px;
+                    width: 100%;
+                    margin: 0;
+                    padding: 0;
+                    line-height: 1.5;
+                    resize: none;
+                    border: none;
+                    border-radius: 0;
+                    font-size: 16px;
+                    font-family: 'monaco', 'Consolas', "Liberation Mono", Courier, monospace;
+                    word-wrap: break-word;
+                    color: #000;
+                    background: #fff;
+                    overflow: hidden;
+                }
             }
         }
         &__preview{

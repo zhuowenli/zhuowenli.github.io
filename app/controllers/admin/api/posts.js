@@ -35,7 +35,7 @@ exports.init = function(app) {
                 page: query.page,
                 per_page: query.per_page,
             }, {
-                withRelated: ['category']
+                withRelated: ['images', 'category']
             });
 
         posts.data.models.map(post => {
@@ -130,10 +130,9 @@ exports.init = function(app) {
     router.get('/api/posts/:id', function *() {
         const post = yield Post.where(qb => {
             qb.where('id', this.params.id);
-            qb.where('status', 0);
         })
         .fetch({
-            withRelated: ['category', 'user']
+            withRelated: ['images', 'category', 'user']
         });
 
         // update view_count

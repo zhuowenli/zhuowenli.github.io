@@ -1,15 +1,17 @@
 <template lang="jade">
     .editor-top
-        input.editor-top__title(placeholder="文章标题" v-bind:value="title" @input="onInput")
+        input.editor-top__title(type="text" placeholder="文章标题" v-bind:value="value" @input="handleInput")
 </template>
 
 <script>
     export default {
-        props: ['title'],
-        methods: {
-            onInput(e) {
-                this.$emit('input', e.target.value)
-            }
+        props: {
+            value: [String, Number]
         },
+        methods: {
+            handleInput(e) {
+                this.$emit('input', e.target.value);
+            }
+        }
     }
 </script>

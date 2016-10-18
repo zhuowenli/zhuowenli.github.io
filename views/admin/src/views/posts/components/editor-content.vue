@@ -46,11 +46,13 @@
                     a.editor-content__toolbar-item(title="分割线" @click="handleLinearScale")
                         i.material-icons linear_scale
         .editor-content__wrapper
-            el-input(type="textarea"
+            el-input(
+                autosize
                 ref="textarea"
+                type="textarea"
                 v-model="input"
-                v-bind:autosize="{minRows: 23}"
-                @input="onInput")
+                v-bind:input="{minRows: 23}"
+            )
         .editor-content__preview(v-if="input")
             div(v-html="compiledMarkdown")
 </template>
@@ -61,19 +63,18 @@
     import hljs from '../../../../static/js/highlight.js';
 
     export default {
-        props: ['content'],
+        props: {
+            value: [String]
+        },
         data() {
             return {
-                input: '',
+                input: this.value,
                 rangeData: {
                     start: 0,
                     end: 0,
                     text: ""
                 },
             }
-        },
-        mounted() {
-            this.input = `## 标题内容 ##\n### 标题内容 ###\n\n**加粗文字** _斜体文字_ ~~删除线文字~~\n\n1. 有序列表\n2. 有序列表\n\n![图片名称]()\n\n---\n[链接内容](http://www.baidu.com)\n> 引用内容\n\n\`\`\`\n代码内容\n\`\`\`\n- 无序列表\n- 无序列表\n- 无序列表`;
         },
         computed: {
             compiledMarkdown() {
@@ -204,8 +205,14 @@
             update: _.debounce((e) => {
                 this.input = e.target.value;
             }, 300),
-            onInput(value) {
-                this.$emit('content', value)
+        },
+        watch: {
+            value(val) {
+                this.input = val;
+            },
+            input(val) {
+                this.$emit('input', val);
+                this.$emit('change', val);
             }
         }
     }
