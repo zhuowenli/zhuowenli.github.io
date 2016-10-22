@@ -100,48 +100,50 @@ exports.init = function(app) {
 
         if (tags) {
             tags = tags.split(',');
-        }
 
-        if (tags && tags.length && typeof tags == 'object') {
-            function saveTags(value) {
-                return new Promise((resolve, reject) => {
-                    Tag.forge({
-                            name: value
+            if (tags.length && typeof tags == 'object') {
+                function saveTags(value) {
+                    return new Promise((resolve, reject) => {
+                        Tag.forge({
+                                name: value
+                            })
+                            .save()
+                            .then(tag => {
+                                resolve(tag.id);
+                            });
+                    });
+                }
+
+                function saveTaglogs(id) {
+                    return Taglog.forge({
+                        post_id: post.id,
+                        tag_id: id
+                    }).save();
+                }
+
+                yield Promise.map(tags, value => {
+                    value = value.trim();
+
+                    let tag = Tag.where(qb => {
+                            qb.where('name', value);
                         })
-                        .save()
-                        .then(tag => {
-                            resolve(tag.id);
+                        .fetch()
+                        .then(res => {
+                            if (res && res.id) {
+                                saveTaglogs(res.id);
+                            } else {
+                                saveTags(value).then(id => {
+                                    saveTaglogs(id);
+                                });
+                            }
                         });
+
+                    return tag;
                 });
             }
-
-            function saveTaglogs(id) {
-                return Taglog.forge({
-                    post_id: post.id,
-                    tag_id: id
-                }).save();
-            }
-
-            yield Promise.map(tags, value => {
-                value = value.trim();
-
-                let tag = Tag.where(qb => {
-                        qb.where('name', value);
-                    })
-                    .fetch()
-                    .then(res => {
-                        if (res && res.id) {
-                            saveTaglogs(res.id);
-                        } else {
-                            saveTags(value).then(id => {
-                                saveTaglogs(id);
-                            });
-                        }
-                    });
-
-                return tag;
-            });
         }
+
+        this.body = post;
     });
 
     router.get('/api/posts/:id', function *() {

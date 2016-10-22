@@ -11,11 +11,11 @@ module.exports = {
     fetchPostLists(options) {
         return myXhr.get('/api/posts', options);
     },
-    fetchPostsByID(id) {
-        return myXhr.get(`/api/posts/${id}`);
-    },
     postPosts(params) {
         return myXhr.post('/api/posts', params);
+    },
+    fetchPostsByID(id) {
+        return myXhr.get(`/api/posts/${id}`);
     },
     putPosts(id, params) {
         return myXhr.put(`/api/posts/${id}`, params);
