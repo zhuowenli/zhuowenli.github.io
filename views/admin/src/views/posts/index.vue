@@ -10,19 +10,19 @@
                         </router-link>
                     </el-tooltip>
                     <template v-if="singleSelection">
-                        <el-tooltip class="toolbar-item" content="预览" placement="top">
+                        <el-tooltip class="toolbar-item" content="预览" placement="top" @click.native="hanglePostPreview">
                             <i class="material-icons">visibility</i>
                         </el-tooltip>
-                        <el-tooltip class="toolbar-item" content="编辑" placement="top">
+                        <el-tooltip class="toolbar-item" content="编辑" placement="top" @click.native="hanglePostEdit">
                             <i class="material-icons">edit</i>
                         </el-tooltip>
-                        <el-tooltip class="toolbar-item" content="删除" placement="top">
+                        <el-tooltip class="toolbar-item" content="删除" placement="top" @click.native="hanglePostDelete">
                             <i class="material-icons">delete</i>
                         </el-tooltip>
                         <span class="toolbar-select-count">#{{singleSelection.id}} 已选中</span>
                     </template>
                 </ul>
-                <el-tabs>
+                <el-tabs @tab-click="handleTabClick">
                     <el-tab-pane label="ID"></el-tab-pane>
                     <el-tab-pane label="发布时间"></el-tab-pane>
                     <el-tab-pane label="浏览数"></el-tab-pane>
@@ -73,7 +73,7 @@
 </template>
 
 <script>
-    import { fetchPostLists } from '../../models/posts';
+    import { fetchPostLists, deletePostsByID } from '../../models/posts';
 
     export default {
         name: 'posts',
@@ -84,7 +84,8 @@
                 title: '文章管理',
                 query: {
                     page: 1,
-                    per_page: 30
+                    per_page: 30,
+                    order_by: 'id',
                 },
                 tableData: null,
                 metadata: null,
@@ -117,8 +118,58 @@
             },
             handleCurrentChange(val) {
                 this.query.page = val;
-                this.init();
             },
-        }
+            handleTabClick(val) {
+                this.query.order_by = ['id', 'release_at', 'view_count', 'like_count'][val - 1];
+            },
+            hanglePostPreview() {
+                const post = this.singleSelection;
+                const origin = window.location.origin.replace('admin', 'www');
+
+                window.open(`${origin}/${post.category.title}/${post.id}`);
+            },
+            hanglePostEdit() {
+                const post = this.singleSelection;
+                this.$router.push({ path: `/posts/${post.id}/edit` });
+            },
+            hanglePostDelete() {
+                const post = this.singleSelection;
+
+                if (!post.id) return;
+
+                let index = -1;
+
+                this.tableData.map((data, i) => {
+                    if (data.id === post.id) index = i;
+                    return data;
+                });
+
+                this.$confirm('此操作将永久删除该文章, 是否继续?', '操作提示', { type: 'warning' })
+                    .then(() => {
+                        this.deleteData(post.id).then(() => {
+                            this.$message({
+                                type: 'success',
+                                message: '删除成功!'
+                            });
+
+                            if (index !== -1) {
+                                this.tableData.splice(index, 1);
+                            }
+                        });
+                    }, () => {});
+            },
+            deleteData(id) {
+                return deletePostsByID(id).then(res => res.data);
+            }
+        },
+        watch: {
+            query: {
+                handler() {
+                    this.loading = true;
+                    this.init();
+                },
+                deep: true
+            }
+        },
     };
 </script>

@@ -19,5 +19,8 @@ module.exports = {
     },
     putPosts(id, params) {
         return myXhr.put(`/api/posts/${id}`, params);
-    }
+    },
+    deletePostsByID(id) {
+        return myXhr.delete(`/api/posts/${id}`);
+    },
 }

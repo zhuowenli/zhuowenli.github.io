@@ -38,7 +38,7 @@
                 postStatus: false,
                 post: {
                     images: [],
-                    status: 0
+                    status: 1
                 },
             }
         },
@@ -90,7 +90,7 @@
                 });
             },
             handleStatusChange(val) {
-                this.post.status = val ? 1 : 0;
+                this.post.status = val ? 0 : 1;
             },
             notifyError(message, title = '提交失败') {
                 this.$notify.error({ message, title });

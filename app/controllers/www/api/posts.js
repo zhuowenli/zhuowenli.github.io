@@ -135,7 +135,6 @@ exports.init = function(app) {
     router.get('/api/posts/:id', function *() {
         const post = yield Post.where(qb => {
             qb.where('id', this.params.id);
-            qb.where('status', 0);
         })
         .fetch({
             withRelated: ['images', 'category', 'user']

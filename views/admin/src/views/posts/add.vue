@@ -40,7 +40,7 @@
                     title: '',
                     content: '',
                     categories: '',
-                    status: 0,
+                    status: 1,
                     excerpt: '',
                     priority: 0,
                     user_id: 1,
@@ -64,7 +64,7 @@
         },
         methods: {
             handleStatusChange(val) {
-                this.post.status = val ? 1 : 0;
+                this.post.status = val ? 0 : 1;
             },
             notifyError(message, title = '提交失败') {
                 this.$notify.error({ message, title });

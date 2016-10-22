@@ -30,7 +30,7 @@ exports.init = function(app) {
                     qb.where('category_id', query.category_id);
                 }
 
-                qb.orderBy('release_at', 'desc'); //desc
+                qb.orderBy(query.order_by || 'id', 'desc'); //desc
             }, {
                 page: query.page,
                 per_page: query.per_page,
@@ -271,6 +271,34 @@ exports.init = function(app) {
                 return tag;
             });
         }
+
+        this.body = post;
+    });
+
+    router.delete('/api/posts/:id', function *() {
+        const post = yield Post.where({
+            id: this.params.id
+        }).fetch();
+
+        if (!post) {
+            this.throw(404);
+        }
+
+        // clean
+        yield Image.where({
+            imageable_type: 'posts',
+            imageable_id: post.id
+        }).destroy();
+
+        // clean
+        yield Taglog.where({
+            post_id: post.id
+        }).destroy();
+
+        // clean
+        yield Post.where({
+            id: post.id
+        }).destroy();
 
         this.body = post;
     });
