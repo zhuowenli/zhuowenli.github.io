@@ -14,43 +14,32 @@
                 el-form-item(label="发布时间")
                     el-date-picker(type="datetime" placeholder="选择日期时间" align="right" v-model="post.release_at")
                 el-form-item(label="文章封面")
-                    el-upload(type="drag"
-                            thumbnail-mode
-                            action="//up.qiniu.com/"
-                            v-bind:data="qiniu"
-                            v-bind:before-upload="handleBeforeUpload"
-                            v-bind:on-preview="handleUploadPreview"
-                            v-bind:on-success="handleUploadSuccess")
-                        i.el-icon-upload
-                        .el-dragger__text
-                            | 将文件拖到此处，或
-                            em 点击上传
+                    image-uploader(v-model="post.images")
                 el-form-item(label="文章简介")
                     el-input(type="textarea" v-model="post.excerpt" v-bind:autosize="{minRows: 5}")
         .editor-bottom
-            el-button 保存
+            el-button(@click.native="handleSubmit") 保存
             el-button(type="text") 取消
 </template>
 
 <script>
     import EditorContent from './components/editor-content';
     import EditorTop from './components/editor-top';
+    import ImageUploader from './components/image-uploader';
 
-    import { fetchPostsByID } from '../../models/posts';
+    import { fetchPostsByID, putPosts } from '../../models/posts';
     import { fetchQiniuToken } from '../../models/qiniu';
 
     export default {
-        components: { EditorTop, EditorContent },
+        components: { EditorTop, EditorContent, ImageUploader },
         data() {
             return {
                 loading: false,
                 postStatus: false,
-                post: {},
-                upload: {},
-                qiniu: {
-                    key: '',
-                    token: ''
-                }
+                post: {
+                    images: [],
+                    status: 0
+                },
             }
         },
         mounted() {
@@ -103,44 +92,40 @@
             handleStatusChange(val) {
                 this.post.status = val ? 1 : 0;
             },
-            handleBeforeUpload(file) {
-                const now    = new Date();
-                const date   = now.getFullYear() + '/' + (now.getMonth() + 1) + '/' + now.getDate();
-                const random = parseInt(Math.random() * 1000);
-                const key = [date, '/', now.getTime(), random, '.png'].join('');
-
-                this.qiniu = {};
-                this.upload = {};
-
-                return fetchQiniuToken({key}).then((res) => {
-                    const { data } = res;
-
-                    this.qiniu.token = data.token;
-                    this.qiniu.key = data.key;
-                    this.upload.url = data.url;
-
-                    return this.qiniu;
-                });
+            notifyError(message, title = '提交失败') {
+                this.$notify.error({ message, title });
             },
-            handleUploadSuccess(file) {
-                const res = file.response;
+            handleSubmit() {
+                const { id } = this.$route.params;
+                const { post } = this;
 
-                this.upload.width = res.width;
-                this.upload.height = res.height;
-                this.upload.type = 0;
-                this.post.images = [this.upload];
+                if (!post.title) return this.notifyError('请输入文章名');
+                if (!post.content) return this.notifyError('请输入文章内容');
+                if (!post.images || !post.images.length) return this.notifyError('请上传封面图');
 
-                file.url = this.upload.url;
+                return putPosts(id, this.post)
+                    .then((res) => {
+                        const { data } = res;
+                        this.uploading = false;
+                        this.$notify({
+                            title: '成功',
+                            message: '文章保存成功！',
+                            type: 'success'
+                        });
 
-                return file;
-            },
-            handleUploadPreview(file) {
-                window.open(file.url);
-            }
-        },
-        watch: {
-            'post.title'(){
-                console.log(this.post.title);
+                        return data;
+                    })
+                    .then(() => {
+                        this.$router.push({ path: '/posts' });
+                    })
+                    .catch((e) => {
+                        const res = e.responseJSON;
+                        const message = res.message ? res.message : '文章保存失败';
+                        const title = `错误${res.code ? res.code : ''}`;
+
+                        this.uploading = false;
+                        this.$notify.error({ message, title, duration: 0 });
+                    });
             }
         }
     }

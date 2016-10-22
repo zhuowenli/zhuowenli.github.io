@@ -16,7 +16,7 @@ const CATES = {
 
 exports.init = function(app) {
     const router = app.router;
-    const {Tag, Taglog, Post} = app.models;
+    const {Tag, Taglog, Post, Image} = app.models;
     const Posts = app.db.Collection.extend({
         model: Post
     });
@@ -55,7 +55,7 @@ exports.init = function(app) {
         const postData = this.request.body;
         const data = {};
 
-        let {title, categories, tags, content, release_at} = postData;
+        let {title, categories, tags, content, release_at, status, images} = postData;
         let category_id = 3;
 
         if (categories) {
@@ -63,7 +63,7 @@ exports.init = function(app) {
             category_id = CATES[categories] || 3;
         }
 
-        // release_at = new Date(release_at).getTime();
+        release_at = new Date(release_at);
         content = content ? content.trim() : '';
         title = title ? title.trim() : '';
 
@@ -72,14 +72,31 @@ exports.init = function(app) {
             content,
             category_id,
             release_at,
+            status,
             priority: 0,
-            status: 0,
             user_id: 1,
         });
 
         let post = Post.forge(data);
 
         yield post.save();
+
+        // images
+        if (images && images.length && typeof images == 'object') {
+            images = yield Promise.map(images, image => {
+                image = Image.forge({
+                    imageable_type: 'posts',
+                    imageable_id: post.id,
+                    url: image.url,
+                    width: image.width,
+                    height: image.height,
+                });
+
+                return image.save();
+            });
+
+            post.set('images', images);
+        }
 
         if (tags) {
             tags = tags.split(',');
@@ -152,14 +169,106 @@ exports.init = function(app) {
             this.throw(404);
         }
 
-        const data = this.request.body;
-        const {category, user} = data;
+        const postData = this.request.body;
+        const data = {};
 
-        delete data.category;
-        delete data.user;
+        let {title, categories, tags, content, release_at, priority, status, images} = postData;
+        let category_id = 3;
+
+        if (categories) {
+            categories = categories.trim();
+            category_id = CATES[categories] || 3;
+        }
+
+        release_at = new Date(release_at);
+        content = content ? content.trim() : '';
+        title = title ? title.trim() : '';
+        priority = priority || 0;
+
+        _.assign(data, {
+            title,
+            content,
+            category_id,
+            release_at,
+            priority,
+            status,
+        });
 
         // save post
         yield post.save(data, {patch: true});
+
+        // images
+        if (images && images.length) {
+            // clean
+            yield Image.where({
+                imageable_type: 'posts',
+                imageable_id: post.id
+            }).destroy();
+
+            images = yield Promise.map(images, image => {
+                image = Image.forge({
+                    imageable_type: 'posts',
+                    imageable_id: post.id,
+                    url: image.url,
+                    width: image.width,
+                    height: image.height,
+                });
+
+                return image.save();
+            });
+
+            post.set('images', images);
+        }
+
+        if (tags) {
+            tags = tags.split(',');
+        }
+
+        if (tags && tags.length && typeof tags == 'object') {
+            // clean
+            yield Tag.where({
+                post_id: post.id
+            }).destroy();
+
+            function saveTags(value) {
+                return new Promise((resolve, reject) => {
+                    Tag.forge({
+                            name: value
+                        })
+                        .save()
+                        .then(tag => {
+                            resolve(tag.id);
+                        });
+                });
+            }
+
+            function saveTaglogs(id) {
+                return Taglog.forge({
+                    post_id: post.id,
+                    tag_id: id
+                }).save();
+            }
+
+            yield Promise.map(tags, value => {
+                value = value.trim();
+
+                let tag = Tag.where(qb => {
+                        qb.where('name', value);
+                    })
+                    .fetch()
+                    .then(res => {
+                        if (res && res.id) {
+                            saveTaglogs(res.id);
+                        } else {
+                            saveTags(value).then(id => {
+                                saveTaglogs(id);
+                            });
+                        }
+                    });
+
+                return tag;
+            });
+        }
 
         this.body = post;
     });

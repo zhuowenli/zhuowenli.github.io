@@ -13,5 +13,11 @@ module.exports = {
     },
     fetchPostsByID(id) {
         return myXhr.get(`/api/posts/${id}`);
+    },
+    postPosts(params) {
+        return myXhr.post('/api/posts', params);
+    },
+    putPosts(id, params) {
+        return myXhr.put(`/api/posts/${id}`, params);
     }
 }
