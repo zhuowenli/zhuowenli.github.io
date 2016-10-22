@@ -62,8 +62,8 @@
     "marked": "^0.3.6",
     "material-design-iconfonts": "^1.0.0",
     "sass-core": "^1.0.0",
-    "vue": "^2.0.1",
-    "vue-router": "^2.0.0",
+    "vue": "^2.0.3",
+    "vue-router": "^2.0.1",
     "vuex": "^2.0.0"
   }
 }
