@@ -55,7 +55,7 @@ exports.init = function(app) {
         const postData = this.request.body;
         const data = {};
 
-        let {title, categories, tags, content, release_at, status, images} = postData;
+        let {title, categories, tags, content, excerpt, release_at, status, images} = postData;
         let category_id = 3;
 
         if (categories) {
@@ -73,6 +73,7 @@ exports.init = function(app) {
             category_id,
             release_at,
             status,
+            excerpt,
             priority: 0,
             user_id: 1,
         });
@@ -174,7 +175,7 @@ exports.init = function(app) {
         const postData = this.request.body;
         const data = {};
 
-        let {title, categories, tags, content, release_at, priority, status, images} = postData;
+        let {title, categories, tags, content, release_at, priority, status, excerpt, images} = postData;
         let category_id = 3;
 
         if (categories) {
@@ -194,6 +195,7 @@ exports.init = function(app) {
             release_at,
             priority,
             status,
+            excerpt,
         });
 
         // save post
