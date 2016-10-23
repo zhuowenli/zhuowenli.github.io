@@ -89,8 +89,8 @@ exports.init = function(app) {
                     imageable_type: 'posts',
                     imageable_id: post.id,
                     url: image.url,
-                    width: image.width,
-                    height: image.height,
+                    width: image.width || 0,
+                    height: image.height || 0,
                 });
 
                 return image.save();
@@ -214,8 +214,8 @@ exports.init = function(app) {
                     imageable_type: 'posts',
                     imageable_id: post.id,
                     url: image.url,
-                    width: image.width,
-                    height: image.height,
+                    width: image.width || 0,
+                    height: image.height || 0,
                 });
 
                 return image.save();

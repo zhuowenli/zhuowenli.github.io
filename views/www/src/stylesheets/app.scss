@@ -197,78 +197,86 @@ $sky: #5fc9c9;
             }
         }
     }
-    &-new{
+}
+
+.post-lists{
+    position: relative;
+    width: 100%;
+    max-width: 1366px;
+    margin: 0 auto;
+    padding-bottom: 62px;
+    .cover{
+        img{
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+    section{
         position: relative;
-        width: 100%;
-        max-width: 1366px;
-        margin: 0 auto;
-        padding-top: 62px;
-        padding-bottom: 62px;
-        section{
+        width: 90%;
+        max-width: 1000px;
+        margin: 0 auto 170px;
+    }
+    &__meta{
+        &--top{
             position: relative;
-            width: 90%;
-            max-width: 1000px;
-            margin: 0 auto 170px;
-        }
-        &__meta{
-            &--top{
-                position: relative;
-                margin-bottom: 70px;
-                height: 36px;
-                color: #333;
-            }
-            &--bottom{
-                text-align: center;
-                .more{
-                    padding-bottom: 40px;
-                    a{
-                        color: #333;
-                        font-size: 16px;
-                    }
-                }
-            }
-        }
-        &__number{
-            position: absolute;
-            display: inline-block;
+            margin-bottom: 70px;
             height: 36px;
-            line-height: 36px;
-            left: -50px;
-            font-size: 14px;
-            &:before {
-                content: "";
-                position: absolute;
-                top: 50%;
-                left: -76px;
-                transform: translateY(-50%);
-                width: 45px;
-                height: 3px;
-                background-color: #000;
-            }
+            color: #333;
         }
-        &__title{
-            line-height: 2;
-            font-size: 18px;
-            a{
-                color: #333;
-            }
-        }
-        &__content{
-            margin-bottom: 30px;
-            .images{
-                img{
-                    display: block;
-                    width: 100%;
-                    height: auto;
-                    margin-bottom: 30px;
+        &--bottom{
+            text-align: center;
+            .more{
+                padding-bottom: 40px;
+                a{
+                    color: #333;
+                    font-size: 16px;
                 }
-            }
-            p{
-                font-size: 16px;
             }
         }
     }
+    &__number{
+        position: absolute;
+        display: inline-block;
+        height: 36px;
+        line-height: 36px;
+        left: -50px;
+        font-size: 14px;
+        &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: -76px;
+            transform: translateY(-50%);
+            width: 45px;
+            height: 3px;
+            background-color: #000;
+        }
+    }
+    &__title{
+        line-height: 2;
+        font-size: 18px;
+        a{
+            color: #333;
+        }
+    }
+    &__content{
+        margin-bottom: 30px;
+        .images{
+            img{
+                display: block;
+                width: 100%;
+                height: auto;
+                margin-bottom: 30px;
+            }
+        }
+        p{
+            font-size: 16px;
+        }
+    }
 }
+
 
 .fade-enter-active, .fade-leave-active {
     @include transition(opacity .5s ease);

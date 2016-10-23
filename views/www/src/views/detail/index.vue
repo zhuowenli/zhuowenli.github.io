@@ -75,7 +75,7 @@
                     }
                 });
 
-                return marked(val, { sanitize: true })
+                return marked(val)
             },
             bindScrollEvent() {
                 $(window).on('scroll', () => {

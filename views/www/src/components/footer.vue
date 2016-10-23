@@ -1,25 +1,26 @@
 <template lang="jade">
     footer.footer(v-show="show")
         .container
-            nav.footer-menu
-                h4 分类
-                ul
-                    router-link(to="/frontend") 前端开发
-                    router-link(to="/design") 设计网摘
-                    router-link(to="/diary") 生活日志
-            nav.footer-menu
-                h4 关于
-                ul
-                    router-link(to="/about") 关于作者
-                    router-link(to="/content") 联系作者
-                    a(target="_blank" href="https://github.com/zhuowenli/") GitHub Profile
-            nav.footer-menu
-                h4 源码 (欢迎Star)
-                ul
-                    a(target="_blank" href="https://github.com/zhuowenli/zhuowenli.github.io") Star & Fork
-                    a(target="_blank" href="https://github.com/zhuowenli/zhuowenli.github.io/issues") Pull requests
-                    a(target="_blank" href="https://github.com/zhuowenli/zhuowenli.github.io/pulls") Issus
             router-link.footer-logo(to="/")
+            .footer-menu
+                nav
+                    h4 分类
+                    ul
+                        router-link(to="/frontend") 前端开发
+                        router-link(to="/design") 设计网摘
+                        router-link(to="/diary") 生活日志
+                nav
+                    h4 关于
+                    ul
+                        router-link(to="/about") 关于作者
+                        router-link(to="/content") 联系作者
+                        a(target="_blank" href="https://github.com/zhuowenli/") GitHub Profile
+                nav
+                    h4 源码 (欢迎Star)
+                    ul
+                        a(target="_blank" href="https://github.com/zhuowenli/zhuowenli.github.io") Star & Fork
+                        a(target="_blank" href="https://github.com/zhuowenli/zhuowenli.github.io/issues") Pull requests
+                        a(target="_blank" href="https://github.com/zhuowenli/zhuowenli.github.io/pulls") Issus
         .footer-social
             a(target="_blank" href="https://github.com/zhuowenli/zhuowenli.github.io")
                 i.icon.icon-github
@@ -78,10 +79,24 @@
             max-width: 1000px;
             margin: 0 auto 30px;
             background: #252525;
-            @include display-flex;
+        }
+        &-logo{
+            position: absolute;
+            right: 0;
+            top: 0;
+            display: inline-block;
+            width: 250px;
+            height: 60px;
+            background: transparent url('../../static/img/logo-gray.png') center 0 no-repeat;
+            background-size: 161px 60px;
         }
         &-menu{
-            @include flex(1);
+            padding-left: 20px;
+            padding-right: 250px;
+            @include display-flex;
+            nav{
+                @include flex(1);
+            }
             h4{
                 padding-bottom: 10px;
                 color: #fff;
@@ -98,13 +113,6 @@
                     color: #fff;
                 }
             }
-        }
-        &-logo{
-            display: inline-block;
-            width: 250px;
-            height: 60px;
-            background: transparent url('../../static/img/logo-gray.png') center 0 no-repeat;
-            background-size: 161px 60px;
         }
         &-social{
             text-align: center;
@@ -135,6 +143,21 @@
                 padding-left: 3px;
                 color: #999;
                 font-style: italic;
+            }
+        }
+    }
+
+    @include max-screen(640px) {
+        .footer{
+            margin-top: 200px;
+            padding-top: 0;
+            &-logo{
+                position: relative;
+                display: block;
+                margin: 0 auto 30px;
+            }
+            &-menu{
+                padding-right: 10px;
             }
         }
     }

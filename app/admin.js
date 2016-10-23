@@ -23,7 +23,10 @@ app.db = require('./db');
 app.models = require('./models');
 
 // bodyParser
-app.use(bodyParser());
+app.use(bodyParser({
+    jsonLimit: '2mb',
+    formLimit: '2mb'
+}));
 
 // init views
 var viewsPath = path.join(__dirname, '../views/admin');

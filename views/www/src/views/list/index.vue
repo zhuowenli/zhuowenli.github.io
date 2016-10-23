@@ -1,20 +1,20 @@
 <template lang="jade">
     .list
-        .articles(v-if="!loading")
+        .post-lists(v-if="!loading")
             .cover
                 img(src="../../../static/img/bg-design.png")
             section(v-for="post in posts")
-                .home-new__meta--top
-                    .home-new__number p{{post.id}}
-                    h2.home-new__title
+                .post-lists__meta--top
+                    .post-lists__number p{{post.id}}
+                    h2.post-lists__title
                         router-link(:to="'/' + post.category.title + '/' + post.id") {{post.title}}
-                .home-new__content.article
+                .post-lists__content.article
                     figure.images(v-if="post.images.length")
                         router-link(:to="'/' + post.category.title + '/' + post.id")
                             img(v-for="image in post.images" v-bind:src="image.url")
                     .content(v-html="post.excerpt" v-if="post.excerpt")
                     .content(v-html="post.content" v-else)
-                .home-new__meta--bottom
+                .post-lists__meta--bottom
                     p.more
                         router-link(:to="'/' + post.category.title + '/' + post.id") Read More
                     p

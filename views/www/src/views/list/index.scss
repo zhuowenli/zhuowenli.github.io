@@ -5,6 +5,8 @@
  * @desc  : Description
  */
 
+@import "../../stylesheets/common";
+
 .articles{
     display: block;
     max-width: 1000px;
@@ -14,3 +16,7 @@
         margin-bottom: 170px;
     }
 }
+
+@include max-screen(640px) {
+
+};

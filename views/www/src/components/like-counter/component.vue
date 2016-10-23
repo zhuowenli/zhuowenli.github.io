@@ -189,6 +189,7 @@
         background-color: transparent;
         border: 0;
         color: #c0c1c3;
+        z-index: 100;
         .icon{
             display: block;
             font-size: 36px;
