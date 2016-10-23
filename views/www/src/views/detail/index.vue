@@ -9,16 +9,19 @@
                 p
                     | by
                     strong {{post.user.username}}
-                    | — Posted in
+                    | - Posted in
                     strong
                         router-link(:to="'/' + post.category.title") {{post.category.name}}
-                    | — Writed on
+                    | - Writed on
                     strong {{post.release_at | date}}
+                p Views: {{post.view_count}} - Likes: {{post.like_count}}
 
         article.content(v-if="!loading")
             .article
                 .excerpt(v-if="post.excerpt" v-html="post.excerpt")
                 div(v-html="post.content")
+                .like-counter
+                    like-counter(v-bind:id="post.id" v-model="post.like_count")
 </template>
 
 <script>

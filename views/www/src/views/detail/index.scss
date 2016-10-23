@@ -73,6 +73,7 @@
                 font-size: 3.25em;
             }
             p{
+                padding-bottom: 10px;
                 color: #7b8d92;
                 opacity: 0;
                 @include transform(translateY(100px));
@@ -99,6 +100,12 @@
             margin-bottom: 30px;
             font-size: 22px;
             font-style: italic;
+        }
+        .like-counter{
+            padding-top: 20px;
+            padding-bottom: 40px;
+            padding-bottom: 10px;
+            text-align: center;
         }
     }
     &.trundle{

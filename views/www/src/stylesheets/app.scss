@@ -226,35 +226,6 @@ $sky: #5fc9c9;
                         font-size: 16px;
                     }
                 }
-                .btn-like{
-                    position: relative;
-                    display: inline-block;
-                    width: 36px;
-                    height: 36px;
-                    padding: 0;
-                    background-color: transparent;
-                    border: 0;
-                    color: #c0c1c3;
-                }
-                .icon{
-                    display: block;
-                    font-size: 36px;
-                    line-height: 1;
-                }
-                .counter{
-                    position: absolute;
-                    bottom: -30px;
-                    left: 50%;
-                    height: 20px;
-                    line-height: 20px;
-                    white-space: nowrap;
-                    font-size: 14px;
-                    color: #c0c1c3;
-                    @include transform(translateX(-50%));
-                    span{
-                        margin: 0 2px;
-                    }
-                }
             }
         }
         &__number{

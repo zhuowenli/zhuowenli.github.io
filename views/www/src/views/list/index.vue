@@ -1,6 +1,8 @@
 <template lang="jade">
     .list
         .articles(v-if="!loading")
+            .cover
+                img(src="../../../static/img/bg-design.png")
             section(v-for="post in posts")
                 .home-new__meta--top
                     .home-new__number p{{post.id}}
@@ -16,11 +18,7 @@
                     p.more
                         router-link(:to="'/' + post.category.title + '/' + post.id") Read More
                     p
-                        button.btn-like
-                            i.icon.icon-like-fill
-                            .counter
-                                span {{post.like_count}}
-                                span likes
+                        like-counter(v-bind:id="post.id" v-model="post.like_count")
 </template>
 
 <script>

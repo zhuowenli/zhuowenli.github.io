@@ -26,6 +26,9 @@ exports.init = function(app) {
 
         yield post.save('like_count', like_count + 1);
 
-        this.body = post;
+        this.body = {
+            id: post.id,
+            like_count: like_count + 1
+        };
     });
 }
