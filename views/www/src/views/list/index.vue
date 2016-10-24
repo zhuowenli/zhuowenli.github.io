@@ -7,16 +7,16 @@
                 .post-lists__meta--top
                     .post-lists__number p{{post.id}}
                     h2.post-lists__title
-                        router-link(:to="'/' + post.category.title + '/' + post.id") {{post.title}}
+                        router-link(:to="'/detail/' + post.id") {{post.title}}
                 .post-lists__content.article
                     figure.images(v-if="post.images.length")
-                        router-link(:to="'/' + post.category.title + '/' + post.id")
+                        router-link(:to="'/detail/' + post.id")
                             img(v-for="image in post.images" v-bind:src="image.url")
                     .content(v-html="post.excerpt" v-if="post.excerpt")
                     .content(v-html="post.content" v-else)
                 .post-lists__meta--bottom
                     p.more
-                        router-link(:to="'/' + post.category.title + '/' + post.id") Read More
+                        router-link(:to="'/detail/' + post.id") Read More
                     p
                         like-counter(v-bind:id="post.id" v-model="post.like_count")
 </template>

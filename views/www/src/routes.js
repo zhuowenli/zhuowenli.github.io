@@ -24,12 +24,12 @@ module.exports = [
         component: Search
     },
     {
-        path: '/:type',
+        path: '/list/:type',
         name: 'list',
         component: List
     },
     {
-        path: '/:type/:id',
+        path: '/detail/:id',
         name: 'detail',
         component: Detail
     },

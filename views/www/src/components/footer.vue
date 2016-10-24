@@ -6,9 +6,9 @@
                 nav
                     h4 分类
                     ul
-                        router-link(to="/frontend") 前端开发
-                        router-link(to="/design") 设计网摘
-                        router-link(to="/diary") 生活日志
+                        router-link(to="/list/frontend") 前端开发
+                        router-link(to="/list/design") 设计网摘
+                        router-link(to="/list/diary") 生活日志
                 nav
                     h4 关于
                     ul
