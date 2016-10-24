@@ -44,7 +44,7 @@
             a{
                 margin-left: 0.25em;
                 color: #333;
-                font-weight: bold;
+                // font-weight: bold;
                 text-decoration: underline;
             }
         }
