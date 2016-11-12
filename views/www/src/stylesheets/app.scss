@@ -315,33 +315,6 @@ $sky: #5fc9c9;
                 display: none;
             }
         }
-        &__menu{
-            position: absolute;
-            top: 30px;
-            left: 20px;
-            z-index: 3;
-            .icon-list{
-                position: relative;
-                display: block;
-                width: 20px;
-                height: 2px;
-                background: #333;
-                &:before, &:after{
-                    content: '';
-                    position: absolute;
-                    left: 0;
-                    width: 20px;
-                    height: 2px;
-                    background: #333;
-                }
-                &:before{
-                    top: -6px;
-                }
-                &:after{
-                    bottom: -6px;
-                }
-            }
-        }
     }
 };
 

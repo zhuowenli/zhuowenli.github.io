@@ -1,8 +1,6 @@
 <template lang="jade">
     .home
         .home-index(:style="{opacity: opacity}")
-            .home-index__menu
-                a.icon-list
             .home-index__about
                 router-link(to="/about") 关于作者
             .home-index__text
