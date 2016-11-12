@@ -88,10 +88,13 @@
                 left: auto;
             }
             nav{
-                position: relative;
+                position: absolute;
                 top: 50%;
+                left: 0;
+                right: 0;
                 display: block;
                 height: 60%;
+                width: 100%;
                 font-size: 48px;
                 min-height: 7.2em;
                 text-align: center;
