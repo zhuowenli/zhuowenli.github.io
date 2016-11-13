@@ -5,10 +5,11 @@
  */
 
 var ctrls = [
+    require('./api/tags'),
     require('./api/posts'),
     require('./api/users'),
     require('./api/likes'),
-    require('./api/qiniu.js'),
+    require('./api/qiniu'),
 ];
 
 module.exports = ctrls;

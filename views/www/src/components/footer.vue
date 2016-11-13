@@ -157,7 +157,9 @@
                 margin: 0 auto 30px;
             }
             &-menu{
-                padding-right: 10px;
+                padding-left: 10px;
+                padding-right: 20px;
+                text-align: center;
             }
         }
     }

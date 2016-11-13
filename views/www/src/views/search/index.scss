@@ -5,3 +5,118 @@
  * @desc  : Description
  */
 
+@import "../../stylesheets/common";
+
+.search{
+    &-intro{
+        display: block;
+        padding-top: 200px;
+        padding-bottom: 240px;
+        background: #e8e5e6 url('../../../static/img/bg-search.jpg') center bottom no-repeat;
+        background-size: 100% auto;
+        h3{
+            margin-bottom: 50px;
+            font-size: 56px;
+            line-height: 1;
+            text-align: center;
+        }
+        &-form{
+            position: relative;
+            display: block;
+            max-width: 640px;
+            width: 90%;
+            height: 60px;
+            margin: 0 auto;
+            input{
+                width: 100%;
+                height: 60px;
+                padding: 20px 50px 20px 20px;
+                line-height: 1;
+                border: 1px solid  #c7c4c7;
+                border-radius: 2px;
+                font-size: 20px;
+                background: #eeebee;
+            }
+            .btn-search{
+                position: absolute;
+                top: 50%;
+                right: 16px;
+                height: 28px;
+                width: 28px;
+                line-height: 28px;
+                margin-top: -14px;
+                color: #999;
+                cursor: pointer;
+                @include transition(all .3s ease);
+                &:hover{
+                    color: #333;
+                }
+                .icon{
+                    display: inline-block;
+                    font-size: 28px;
+                    line-height: 1;
+                    vertical-align: top;
+                }
+            }
+        }
+    }
+    &-category{
+        padding-top: 50px;
+        padding-bottom: 50px;
+        h3{
+            margin-bottom: 50px;
+            line-height: 1;
+            text-align: center;
+            font-size: 34px;
+        }
+        ul{
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+            font-size: 0;
+            li{
+                display: inline-block;
+                width: 20%;
+                text-align: center;
+                a{
+                    display: block;
+                    line-height: 40px;
+                    font-size: 15px;
+                    cursor: pointer;
+                    color: #333;
+                    text-decoration: underline;
+                    &:hover{
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include max-screen(810px){
+    .search-category ul li{
+        width: 25%;
+    }
+};
+
+@include max-screen(640px){
+    .search-intro{
+        height: 100vh;
+        padding-top: 50%;
+        padding-bottom: 0;
+        h3{
+            font-size: 36px;
+        }
+    }
+    .search-category ul li{
+        width: 33%;
+        line-height: 36px;
+    }
+};
+
+@include max-screen(414px){
+    .search-category ul li{
+        width: 50%;
+    }
+};
