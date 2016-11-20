@@ -35,14 +35,13 @@ module.exports = function(prefix) {
             }
         }
 
-        if(!lodash.isEmpty(meta)) {
+        if(meta) {
             logger(msg, meta);
-        }
-        else {
+        } else {
             logger(msg);
         }
 
-        // this.emit('logged');
+        this.emit('logged');
         callback(null, true);
     };
 

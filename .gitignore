@@ -33,3 +33,4 @@ build/
 /**/config.js
 *.js.map
 /**/dist/
+.yarnclean
