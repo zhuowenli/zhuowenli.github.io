@@ -10,6 +10,7 @@ require('dotenv-safe').load();
 
 // koa
 const koa = require('koa');
+const lodash = require('lodash');
 const onerror = require('koa-onerror');
 const favicon = require('koa-favicon');
 const session = require('koa-session');
@@ -21,7 +22,6 @@ const ResponseData = require('./lib/response-data');
 const app = koa();
 app.proxy = true;
 
-app.keys = ['rgmcPAPv6SunV7QM'];
 app.use(session(app));
 
 const env = process.env;
@@ -29,22 +29,6 @@ const subApps = app.subApps = {
     [env.ADMIN_HOST]: compose(require('./admin')),
     [env.WWW_HOST]: compose(require('./www'))
 };
-
-app.use(function *(next){
-    const key = 'X-Meiya-Reqid';
-
-    let reqId;
-    if (this.request.get(key)) {
-        reqId = this.request.get(key);
-    } else {
-        reqId = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-            var r = Math.random()*16|0, v = c === 'x' ? r : (r&0x3|0x8);
-            return v.toString(16);
-        });
-    }
-    this.response.set(key, reqId);
-    yield next;
-});
 
 app.use(function *(next) {
     const subApp = subApps[this.hostname] || subApps[env.WWW_HOST];
@@ -76,7 +60,7 @@ onerror(app, {
             ret.stack = err.stack.split('\n');
         }
 
-        let statusCode = err.status || err.statusCode || ret.code;
+        const statusCode = err.status || err.statusCode || ret.code;
 
         this.status = statusCode || 500;
         this.body = ret;
@@ -87,7 +71,6 @@ onerror(app, {
 app.on('error', function(err) {
     logger.error('[App error]', err);
 });
-
 
 // start up
 const port = process.env.PORT || 3000;

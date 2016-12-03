@@ -31,12 +31,13 @@ koaqs(app);
 app.use(bodyParser());
 
 // 响应头允许夸域
-app.use(cors());
+// app.use(cors());
 app.use(historyApiFallback({
     rewrites: [
         {
             from: /\/(node_modules|dist|static)\/.*$/,
             to(ctx) {
+                console.log(ctx.match.input);
                 return ctx.match[0];
             }
         }
@@ -65,7 +66,7 @@ ctrls.forEach(ctrl => {
 // use routers
 app.use(router.routes());
 app.use(router.api.routes());
-// app.use(router.api.allowedMethods());
+app.use(router.api.allowedMethods());
 
 // static files, low priority
 app.use(serve(viewsPath));

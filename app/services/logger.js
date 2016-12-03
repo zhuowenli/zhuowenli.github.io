@@ -20,8 +20,7 @@ if(process.env.NODE_ENV === 'development') {
             new DebugTransport()
         ]
     });
-}
-else {
+} else {
     logger = new (winston.Logger)({
         transports: [
             new winston.transports.File({

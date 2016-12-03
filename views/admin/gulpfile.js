@@ -24,7 +24,7 @@ function watch (config) {
             this.emit('end'); // Recover from errors
         })
         .pipe(gulp.dest(dest))
-        .pipe(connect.reload());
+        // .pipe(connect.reload());
 }
 
 // Make a dev copy of the config source maps and debug enabled
@@ -64,10 +64,10 @@ gulp.task('publish', () => {
 
 // Run the webserver
 gulp.task('webserver', () => {
-    connect.server({
-        livereload: true,
-        root: '.'
-    });
+    // connect.server({
+    //     livereload: true,
+    //     root: '.'
+    // });
 });
 
 gulp.task('default', ['dev', 'webserver']);

@@ -14,8 +14,7 @@ const path = require('path');
 const http = require('http');
 const querystring = require('querystring');
 
-const menuDir = './_posts/'; // md文件存储目录
-
+const menuDir = '_posts/'; // md文件存储目录
 
 // 读取文件
 const readFile = filename => {

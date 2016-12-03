@@ -1,16 +1,17 @@
 {
   "name": "zhuowenli.github.io",
   "version": "3.0.0",
-  "description": "lottery",
+  "description": "✨前端技术博客",
   "main": "app/app.js",
   "scripts": {
     "dev": "nodemon --debug -w app app/app",
-    "start": "pm2 start app/app.js"
+    "start": "pm2 start app/app.js",
+    "post": "node config/jekyll2mysql.js"
   },
   "author": "卓文理",
   "license": "ISC",
   "dependencies": {
-    "bluebird": "^3.3.3",
+    "bluebird": "^3.4.6",
     "bookshelf": "^0.10.0",
     "boom": "^3.1.2",
     "cluster": "^0.7.7",
@@ -22,6 +23,7 @@
     "ejs": "^2.4.1",
     "fecha": "^2.2.0",
     "fs-extra-promise": "^0.3.1",
+    "hlg-logger": "^0.0.5",
     "knex": "^0.11.10",
     "koa": "^1.1.2",
     "koa-bodyparser": "^2.0.1",
