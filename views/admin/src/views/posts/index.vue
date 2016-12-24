@@ -5,7 +5,7 @@
             <div class="toolbar flex">
                 <ul class="flex__item">
                     <el-tooltip class="toolbar-item active" content="写文章" placement="top">
-                        <router-link class="" to="posts/add">
+                        <router-link class="" to="posts/create">
                             <i class="material-icons">add</i>
                         </router-link>
                     </el-tooltip>

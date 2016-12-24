@@ -41,11 +41,11 @@
                 loading: false,
                 postStatus: false,
                 tags: [],
+                postTags: [],
                 post: {
                     images: [],
                     status: 1
                 },
-                postTags: []
             }
         },
         mounted() {

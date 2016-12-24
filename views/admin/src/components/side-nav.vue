@@ -1,7 +1,7 @@
 <template lang="jade">
     .side-nav
         router-link.logo(to="/posts/") 博客后台
-        router-link.create(to="/posts/add")
+        router-link.create(to="/posts/create")
             i.material-icons create
             | 写文章
         el-menu(mode="vertical" router)
