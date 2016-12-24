@@ -11,7 +11,7 @@ const models = {
     Category: require('./category'),
     Image: require('./image'),
     Tag: require('./tag'),
-    Taglog: require('./tag_log'),
+    TagLog: require('./tag_log'),
 };
 
 module.exports = models;

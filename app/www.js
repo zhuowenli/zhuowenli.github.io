@@ -37,7 +37,6 @@ app.use(historyApiFallback({
         {
             from: /\/(node_modules|dist|static)\/.*$/,
             to(ctx) {
-                console.log(ctx.match.input);
                 return ctx.match[0];
             }
         }

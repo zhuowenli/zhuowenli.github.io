@@ -4,7 +4,7 @@
   "description": "✨前端技术博客",
   "main": "app/app.js",
   "scripts": {
-    "dev": "nodemon --debug -w app app/app",
+    "dev": "nodemon -V --watch app app/app.js",
     "start": "pm2 start app/app.js",
     "post": "node config/jekyll2mysql.js"
   },

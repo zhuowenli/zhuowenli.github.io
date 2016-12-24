@@ -16,7 +16,7 @@ const CATES = {
 
 exports.init = function(app) {
     const router = app.router;
-    const {Tag, Taglog, Post, Image} = app.models;
+    const {Tag, TagLog, Post, Image} = app.models;
     const Posts = app.db.Collection.extend({
         model: Post
     });
@@ -35,7 +35,7 @@ exports.init = function(app) {
                 page: query.page,
                 per_page: query.per_page,
             }, {
-                withRelated: ['images', 'category']
+                withRelated: ['images', 'category', 'tags.tag']
             });
 
         posts.data.models.map(post => {
@@ -115,8 +115,8 @@ exports.init = function(app) {
                     });
                 }
 
-                function saveTaglogs(id) {
-                    return Taglog.forge({
+                function saveTagLogs(id) {
+                    return TagLog.forge({
                         post_id: post.id,
                         tag_id: id
                     }).save();
@@ -131,10 +131,10 @@ exports.init = function(app) {
                         .fetch()
                         .then(res => {
                             if (res && res.id) {
-                                saveTaglogs(res.id);
+                                saveTagLogs(res.id);
                             } else {
                                 saveTags(value).then(id => {
-                                    saveTaglogs(id);
+                                    saveTagLogs(id);
                                 });
                             }
                         });
@@ -152,7 +152,7 @@ exports.init = function(app) {
             qb.where('id', this.params.id);
         })
         .fetch({
-            withRelated: ['images', 'category', 'user']
+            withRelated: ['images', 'category', 'user', 'tags.tag']
         });
 
         // update view_count
@@ -230,7 +230,7 @@ exports.init = function(app) {
 
         if (tags && tags.length && typeof tags == 'object') {
             // clean
-            yield Tag.where({
+            yield TagLog.where({
                 post_id: post.id
             }).destroy();
 
@@ -246,8 +246,8 @@ exports.init = function(app) {
                 });
             }
 
-            function saveTaglogs(id) {
-                return Taglog.forge({
+            function saveTagLogs(id) {
+                return TagLog.forge({
                     post_id: post.id,
                     tag_id: id
                 }).save();
@@ -262,10 +262,10 @@ exports.init = function(app) {
                     .fetch()
                     .then(res => {
                         if (res && res.id) {
-                            saveTaglogs(res.id);
+                            saveTagLogs(res.id);
                         } else {
                             saveTags(value).then(id => {
-                                saveTaglogs(id);
+                                saveTagLogs(id);
                             });
                         }
                     });
@@ -293,7 +293,7 @@ exports.init = function(app) {
         }).destroy();
 
         // clean
-        yield Taglog.where({
+        yield TagLog.where({
             post_id: post.id
         }).destroy();
 

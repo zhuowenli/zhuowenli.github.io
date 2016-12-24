@@ -7,7 +7,13 @@
 
 var db = require('../db');
 
-module.exports = db.model('Taglog', {
+module.exports = db.model('TagLog', {
     tableName: 'tag_logs',
-    hasTimestamps: true
+    hasTimestamps: true,
+    post() {
+        return this.belongsTo('Post');
+    },
+    tag() {
+        return this.belongsTo('Tag', 'tag_id');
+    }
 });

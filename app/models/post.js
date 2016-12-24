@@ -19,4 +19,7 @@ module.exports = db.model('Post', {
     images() {
         return this.morphMany('Image', 'imageable');
     },
+    tags: function() {
+        return this.hasMany('TagLog');
+    },
 });
