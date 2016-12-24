@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
     .editor(ref="editor")
         editor-top(v-model="post.title")
         editor-content(v-model="post.content")
@@ -11,6 +11,9 @@
                         el-option(label="生活日志" value="diary")
                 el-form-item(label="文章状态")
                     el-switch(on-text="发布" off-text="隐藏" v-model="postStatus" @change="handleStatusChange")
+                el-form-item(label="文字标签")
+                    el-select(v-model="tags" multiple filterable allow-create placeholder="请选择文章标签")
+                        el-option(v-for="item in postTags" v-bind:label="item.name" v-bind:value="item.name")
                 el-form-item(label="发布时间")
                     el-date-picker(type="datetime" placeholder="选择日期时间" align="right" v-model="post.release_at")
                 el-form-item(label="文章封面")
@@ -29,6 +32,7 @@
 
     import { fetchPostsByID, putPosts } from '../../models/posts';
     import { fetchQiniuToken } from '../../models/qiniu';
+    import { fetchTagLists } from '../../models/tags';
 
     export default {
         components: { EditorTop, EditorContent, ImageUploader },
@@ -36,10 +40,12 @@
             return {
                 loading: false,
                 postStatus: false,
+                tags: [],
                 post: {
                     images: [],
                     status: 1
                 },
+                postTags: []
             }
         },
         mounted() {
@@ -59,6 +65,9 @@
             this.init();
         },
         methods: {
+            loadTags() {
+                return fetchTagLists().then(res => res.data);
+            },
             load() {
                 const { id } = this.$route.params;
 
@@ -79,15 +88,22 @@
                             images: data.images
                         });
 
+                        if (data.tags && data.tags.length) {
+                            this.tags = [];
+                            data.tags.map(item => this.tags.push(item.tag.name));
+                        }
+
                         return post;
                     });
             },
             init() {
-                this.load().then(post => {
-                    this.post = post;
+                this.load().then(data => {
+                    this.post = data;
                     this.loading = false;
-                    this.postStatus = this.post.status === 1;
+                    this.postStatus = data.status === 1;
                 });
+
+                this.loadTags().then(data => this.postTags = data);
             },
             handleStatusChange(val) {
                 this.post.status = val ? 0 : 1;
@@ -97,11 +113,16 @@
             },
             handleSubmit() {
                 const { id } = this.$route.params;
-                const { post } = this;
+                const { post, tags } = this;
 
                 if (!post.title) return this.notifyError('请输入文章名');
                 if (!post.content) return this.notifyError('请输入文章内容');
+
                 if (!post.images || !post.images.length) return this.notifyError('请上传封面图');
+
+                if (tags && tags.length) {
+                    post.tags = tags.join(',');
+                }
 
                 return putPosts(id, this.post)
                     .then((res) => {

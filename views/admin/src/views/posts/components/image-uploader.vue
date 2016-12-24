@@ -5,20 +5,16 @@
             type="drag"
             action="//up.qiniu.com/"
             v-bind:data="qiniu"
+            v-bind:default-file-list="images"
             v-bind:before-upload="handleBeforeUpload"
             v-bind:on-preview="handleUploadPreview"
             v-bind:on-success="handleUploadSuccess"
             v-bind:on-remove="handleUploadRemove"
         )
-            template(v-if="images.length")
-                .el-dragger__cover
-                    .el-dragger__cover__content
-                        img(v-bind:src="images[0].url")
-            template(v-else)
-                i.el-icon-upload
-                .el-dragger__text
-                    | 将文件拖到此处，或
-                    em 点击上传
+            i.el-icon-upload
+            .el-dragger__text
+                | 将文件拖到此处，或
+                em 点击上传
 </template>
 
 <script>
@@ -34,13 +30,13 @@
             return {
                 upload: {},
                 qiniu: {},
-                images: this.value
+                images: this.value || []
             }
         },
         methods: {
             handleBeforeUpload(file) {
                 const now    = new Date();
-                const date   = now.getFullYear() + '/' + (now.getMonth() + 1) + '/' + now.getDate();
+                const date   = `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`;
                 const random = parseInt(Math.random() * 1000);
                 const key = [date, '/', now.getTime(), random, '.png'].join('');
                 this.qiniu = {};
@@ -56,11 +52,15 @@
                 });
             },
             handleUploadSuccess(file) {
-                const res = file.response;
-                this.upload.width = res.width;
-                this.upload.height = res.height;
-                this.upload.type = 0;
-                this.images = [this.upload];
+                const { upload } = this;
+
+                upload.width = file.width;
+                upload.height = file.height;
+                upload.type = 0;
+
+                this.upload = upload;
+                this.images = [upload];
+
                 file.url = this.upload.url;
 
                 return file;

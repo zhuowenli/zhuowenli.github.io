@@ -45,6 +45,11 @@ String('get, post, put, delete').replace(/\w+/g, (type) => {
             success: callback
         };
 
+        if (type === 'post' || type === 'put') {
+            params.contentType = 'application/json; charset=utf-8';
+            params.data = JSON.stringify(data);
+        }
+
         return myXhr.ajax(params);
     };
 });
