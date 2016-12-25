@@ -65,8 +65,9 @@
     可以使用 `cnpm info knex` 查看各个包的详细信息
 
     ```
-    cnpm i -g knex nodemon babel babel-eslint
+    cnpm i -g pm2 knex nodemon babel babel-eslint
     // 各模块说明
+    // pm2 - 强大的服务管理工具
     // knex - SQL 构造器以及数据库迁移工具
     // nodemon - node 调试工具，用于代码改变后自动重启服务
     // balbel, balbel-eslint 用于 ES2015 语法兼容，用于 IDE 语法查错等
@@ -112,5 +113,5 @@
 
     ```
     npm run dev // dev 环境
-    npm start // 线上环境
+    npm run start // 线上环境
     ```

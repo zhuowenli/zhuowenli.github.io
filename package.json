@@ -5,8 +5,9 @@
   "main": "app/app.js",
   "scripts": {
     "dev": "nodemon -V --watch app app/app.js",
-    "start": "pm2 start app/app.js",
-    "post": "node config/jekyll2mysql.js"
+    "start": "pm2 start app/app.js --name 'blog'",
+    "post": "node config/jekyll2mysql.js",
+    "production": "pm2 deploy ecosystem.config.js production setup"
   },
   "author": "卓文理",
   "license": "ISC",
