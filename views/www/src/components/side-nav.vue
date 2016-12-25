@@ -62,6 +62,7 @@
             color: #000;
             font-size: 24px;
             vertical-align: top;
+            text-shadow: 0 0 1px #fff;
         }
     }
 

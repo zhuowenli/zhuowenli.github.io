@@ -1,13 +1,13 @@
 <template lang="jade">
     .search
         .search-intro
-            h3 Front-end source for knowlege
+            h3 Web design and development blog.
             form.search-intro-form(@submit.prevent="handleSearchSubmit")
                 input(type="text" placeholder="Search article" v-model="search")
                 a.btn.btn-search(@click="handleSearchSubmit")
                     .icon.icon-search
         .search-category
-            h3 Search by tags
+            h3 关键词
             ul
                 li(v-for="tag in tags")
                     a(@click="handleTagClick(tag.name)") {{tag.name}}

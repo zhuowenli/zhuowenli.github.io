@@ -1,8 +1,10 @@
 <template lang="jade">
     .detail(:class="{trundle: trundle}")
         header.header(v-if="!loading")
-            .header-bg(v-if="post.images.length")
-                img(:src="post.images[0].url")
+            .header-bg(
+                v-if="post.images.length"
+                v-bind:style="'background-image: url(' + post.images[0].url + ')'"
+            )
             .header-title
                 h1 {{post.title}}
                 p.subline(v-if="post.subline") {{post.subline}}
@@ -11,7 +13,7 @@
                     strong {{post.user.username}}
                     | - Posted in
                     strong
-                        router-link(:to="'/' + post.category.title") {{post.category.name}}
+                        router-link(:to="'/list/' + post.category.title") {{post.category.name}}
                     | - Writed on
                     strong {{post.release_at | date}}
                 p Views: {{post.view_count}} - Likes: {{post.like_count}}

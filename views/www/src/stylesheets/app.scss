@@ -44,141 +44,6 @@ $sky: #5fc9c9;
     min-height: 100vh;
 }
 
-.home{
-    &-index{
-        position: relative;
-        height: 100vh;
-        @include transition(all 0.5s ease);
-        &__about{
-            position: absolute;
-            top: 25px;
-            right: 45px;
-            z-index: 3;
-            a{
-                position: relative;
-                color: #333;
-                font-size: 13px;
-                &:after{
-                    content: '';
-                    position: absolute;
-                    right: -8px;
-                    top: 50%;
-                    display: inline-block;
-                    @include transform(translateY(-50%));
-                    @include triangle(right, 4px, #ccc);
-                }
-            }
-        }
-        &__text{
-            position: absolute;
-            top: 40%;
-            left: 10%;
-            z-index: 2;
-            .logo{
-                min-width: 161px;
-                padding-left: 75px;
-                padding-top: 65px;
-                background: transparent url('../../static/img/logo.png') left top no-repeat;
-                @include display-flex;
-                .lines{
-                    position: relative;
-                    width: 150px;
-                    height: 50px;
-                    border-left: 1px dotted #cccccc;
-                    border-bottom: 1px dotted #cccccc;
-                    &:before, &:after{
-                        content: '';
-                        display: inline-block;
-                        position: absolute;
-                        height: 6px;
-                        width: 6px;
-                        background: #ccc;
-                        @include border-radius(6px);
-                    }
-                    &:before{
-                        top: -3px;
-                        left: -3px;
-                    }
-                    &:after{
-                        bottom: -3px;
-                        right: -3px;
-                    }
-                }
-                p{
-                    line-height: 20px;
-                    padding-left: 10px;
-                    padding-top: 38px;
-                    font-size: 14px;
-                    color: #333;
-                    @include flex(1);
-                }
-            }
-        }
-        &__bg{
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            pointer-events: none;
-            overflow: hidden;
-            background: #fff;
-            video{
-                position: absolute;
-                top: 0;
-                right: 265px;
-                bottom: 0;
-                width: auto;
-                height: 100%;
-                @include transform(translate(30%, 0%));
-            }
-        }
-        &__bottom{
-            position: absolute;
-            bottom: 3px;
-            right: 45px;
-            @include display-flex;
-            .lines{
-                position: relative;
-                display: inline-block;
-                width: 160px;
-                height: 185px;
-                border-left: 1px dotted #cccccc;
-                border-top: 1px dotted #cccccc;
-                &:before, &:after{
-                    content: '';
-                    display: inline-block;
-                    position: absolute;
-                    height: 6px;
-                    width: 6px;
-                }
-                &:before{
-                    bottom: -3px;
-                    left: -4px;
-                    @include triangle(bottom, 4px, #ccc);
-                }
-                &:after{
-                    top: -3px;
-                    right: -3px;
-                    background: #ccc;
-                    @include border-radius(6px);
-                }
-            }
-            a{
-                display: inline-block;
-                height: 1em;
-                margin-top: -6px;
-                margin-left: 10px;
-                line-height: 1;
-                color: #333;
-                font-size: 13px;
-                cursor: pointer;
-                @include flex(1);
-            }
-        }
-    }
-}
-
 .post-lists{
     position: relative;
     width: 100%;
@@ -221,7 +86,7 @@ $sky: #5fc9c9;
     &__meta{
         &--top{
             position: relative;
-            margin-bottom: 70px;
+            margin-bottom: 20px;
             height: 36px;
             color: #333;
         }
@@ -263,6 +128,12 @@ $sky: #5fc9c9;
     }
     &__content{
         margin-bottom: 30px;
+        .images{
+            margin-bottom: 20px;
+        }
+        .content{
+            font-style: italic;
+        }
     }
 }
 

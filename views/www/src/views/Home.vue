@@ -26,7 +26,7 @@
                     .content(v-html="post.excerpt" v-if="post.excerpt")
                 .post-lists__meta--bottom
                     p.more
-                        router-link(:to="'/detail/' + post.id") Read More
+                        router-link(:to="'/detail/' + post.id") 阅读原文
                     p.like-counter
                         like-counter(v-bind:id="post.id" v-model="post.like_count")
 </template>
@@ -85,3 +85,7 @@
         }
     };
 </script>
+
+<style lang="scss">
+    @import "./home.scss";
+</style>
