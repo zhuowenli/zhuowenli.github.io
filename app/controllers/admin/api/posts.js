@@ -16,7 +16,7 @@ const CATES = {
 
 exports.init = function(app) {
     const router = app.router;
-    const {Tag, TagLog, Post, Image} = app.models;
+    const { Tag, TagLog, Post, Image } = app.models;
     const Posts = app.db.Collection.extend({
         model: Post
     });
@@ -26,17 +26,27 @@ exports.init = function(app) {
         let posts = Posts.forge();
 
         posts = yield posts.fetchItems(qb => {
-                if (query.category_id) {
-                    qb.where('category_id', query.category_id);
-                }
+            if (query.category_id) {
+                qb.where('category_id', query.category_id);
+            }
 
-                qb.orderBy(query.order_by || 'id', 'desc'); //desc
-            }, {
-                page: query.page,
-                per_page: query.per_page,
-            }, {
-                withRelated: ['images', 'category', 'tags.tag']
-            });
+            // 关键字搜索，模糊查询
+            // 使用正则 /(a|b|c)/ 来尽可能多的匹配多个关键字。
+            if (query.search) {
+                const search = query.search.replace(/\s/m, '|');
+
+                qb.where('title', 'REGEXP', `(${search})`)
+                .orWhere('content', 'REGEXP', `(${search})`)
+                .orWhere('excerpt', 'REGEXP', `(${search})`);
+            }
+
+            qb.orderBy(query.order_by || 'id', 'desc'); //desc
+        }, {
+            page: query.page,
+            per_page: query.per_page,
+        }, {
+            withRelated: ['images', 'category', 'tags.tag']
+        });
 
         posts.data.models.map(post => {
             let content = post.get('content');

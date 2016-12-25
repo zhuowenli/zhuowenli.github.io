@@ -26,22 +26,32 @@ exports.init = function(app) {
         let posts = Posts.forge();
 
         posts = yield posts.fetchItems(qb => {
-                if (query.type) {
-                    qb.where('category_id', CATES[query.type]);
-                }
+            if (query.type) {
+                qb.where('category_id', CATES[query.type]);
+            }
 
-                query.status = query.status || 0;
-                query.order_by = query.order_by || 'id';
-                query.order_status = query.order_status || 'desc';
+            // 关键字搜索，模糊查询
+            // 使用正则 /(a|b|c)/ 来尽可能多的匹配多个关键字。
+            if (query.search) {
+                const search = query.search.replace(/\s/m, '|');
 
-                qb.where('status', query.status);
-                qb.orderBy(query.order_by, query.order_status);
-            }, {
-                page: query.page,
-                per_page: query.per_page,
-            }, {
-                withRelated: ['images', 'category']
-            });
+                qb.where('title', 'REGEXP', `(${search})`)
+                .orWhere('content', 'REGEXP', `(${search})`)
+                .orWhere('excerpt', 'REGEXP', `(${search})`);
+            }
+
+            query.status = query.status || 0;
+            query.order_by = query.order_by || 'id';
+            query.order_status = query.order_status || 'desc';
+
+            qb.where('status', query.status);
+            qb.orderBy(query.order_by, query.order_status);
+        }, {
+            page: query.page,
+            per_page: query.per_page,
+        }, {
+            withRelated: ['images', 'category']
+        });
 
         posts.data.models.map(post => {
             let content = post.get('content');

@@ -35,7 +35,7 @@ app.use(bodyParser());
 app.use(historyApiFallback({
     rewrites: [
         {
-            from: /\/(node_modules|dist|static)\/.*$/,
+            from: /\/(node_modules|dist|static|api)\/.*$/,
             to(ctx) {
                 return ctx.match[0];
             }
