@@ -141,3 +141,32 @@
         }
     }
 }
+
+@include max-screen(1360px){
+    .home-index{
+        &__bg{
+            video{
+                right: -165px;
+            }
+        }
+    }
+}
+
+@include max-screen(640px){
+    .home-index{
+        &__about, &__bottom{
+            display: none;
+        }
+        &__bg{
+            video{
+                right: -265px;
+            }
+        }
+        &__text{
+            .logo *{
+                display: none;
+            }
+        }
+    }
+};
+

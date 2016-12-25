@@ -137,7 +137,6 @@ $sky: #5fc9c9;
     }
 }
 
-
 .fade-enter-active, .fade-leave-active {
     @include transition(opacity .5s ease);
 }
@@ -148,36 +147,6 @@ $sky: #5fc9c9;
     position: absolute;
     @include transition(all .5s cubic-bezier(.55,0,.1,1));
 }
-
-
-@include max-screen(1360px){
-    .home-index{
-        &__bg{
-            video{
-                right: -165px;
-            }
-        }
-    }
-}
-
-@include max-screen(640px){
-    .home-index{
-        &__about, &__bottom{
-            display: none;
-        }
-        &__bg{
-            video{
-                right: -265px;
-            }
-        }
-        &__text{
-            .logo *{
-                display: none;
-            }
-        }
-    }
-};
-
 
 
 
