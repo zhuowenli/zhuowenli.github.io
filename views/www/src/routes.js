@@ -9,8 +9,9 @@
 const Home = r => require.ensure([], () => r(require('./views/Home')), 'home');
 const page404 = r => require.ensure([], () => r(require('./views/404')), 'home');
 const List = r => require.ensure([], () => r(require('./views/list')), 'list');
-const Search = r => require.ensure([], () => r(require('./views/search')), 'search');
 const Detail = r => require.ensure([], () => r(require('./views/detail')), 'detail');
+const Search = r => require.ensure([], () => r(require('./views/search')), 'search');
+const SearchList = r => require.ensure([], () => r(require('./views/search/list')), 'search');
 
 module.exports = [
     {
@@ -22,6 +23,11 @@ module.exports = [
         path: '/search',
         name: 'search',
         component: Search
+    },
+    {
+        path: '/search/:type',
+        name: 'searchList',
+        component: SearchList
     },
     {
         path: '/list/:type',

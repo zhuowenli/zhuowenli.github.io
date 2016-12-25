@@ -45,26 +45,6 @@ $sky: #5fc9c9;
 }
 
 .home{
-    a:not(.btn){
-        position: relative;
-        &:before{
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: -5px;
-            right: -5px;
-            height: 2px;
-            margin-top: -1px;
-            background: $sky;
-            @include transform(scaleX(0));
-            @include transition(all 0.3s ease-in-out);
-        }
-        &:hover, &:active{
-            &:before{
-                @include transform(none);
-            }
-        }
-    }
     &-index{
         position: relative;
         height: 100vh;
@@ -205,6 +185,26 @@ $sky: #5fc9c9;
     max-width: 1366px;
     margin: 0 auto;
     padding-bottom: 62px;
+    a:not(.btn){
+        position: relative;
+        &:before{
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -5px;
+            right: -5px;
+            height: 2px;
+            margin-top: -1px;
+            background: $sky;
+            @include transform(scaleX(0));
+            @include transition(all 0.3s ease-in-out);
+        }
+        &:hover, &:active{
+            &:before{
+                @include transform(none);
+            }
+        }
+    }
     .cover{
         img{
             display: block;
@@ -263,17 +263,6 @@ $sky: #5fc9c9;
     }
     &__content{
         margin-bottom: 30px;
-        .images{
-            img{
-                display: block;
-                width: 100%;
-                height: auto;
-                margin-bottom: 30px;
-            }
-        }
-        p{
-            font-size: 16px;
-        }
     }
 }
 

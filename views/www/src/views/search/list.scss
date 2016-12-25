@@ -1,0 +1,57 @@
+@charset "UTF-8";
+/**
+ * @author: 卓文理
+ * @email : 531840344@qq.com
+ * @desc  : Description
+ */
+
+@import "../../stylesheets/common";
+
+.search-list{
+    min-height: 100vh;
+    padding-top: 88px;
+    .search-header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 68px;
+        padding-top: 16px;
+        background: #fff;
+        z-index: 199;
+        @include box-shadow(0 0 1px #aaa);
+        &-form{
+            position: relative;
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 700px;
+            height: 36px;
+            padding-left: 66px;
+            padding-right: 46px;
+            input{
+                display: block;
+                width: 100%;
+                height: 100%;
+                border: 0;
+                padding-left: 10px;
+                color: #333;
+                border-left: 1px solid #aaa;
+            }
+            .btn-search{
+                position: absolute;
+                right: 10px;
+                top: 0;
+                width: 36px;
+                height: 36px;
+                line-height: 36px;
+                text-align: center;
+                cursor: pointer;
+                color: #333;
+                .icon{
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}

@@ -10,10 +10,9 @@
                         router-link(:to="'/detail/' + post.id") {{post.title}}
                 .post-lists__content.article
                     figure.images(v-if="post.images.length")
-                        router-link(:to="'/detail/' + post.id")
+                        router-link.btn(:to="'/detail/' + post.id")
                             img(v-for="image in post.images" v-bind:src="image.url")
                     .content(v-html="post.excerpt" v-if="post.excerpt")
-                    .content(v-html="post.content" v-else)
                 .post-lists__meta--bottom
                     p.more
                         router-link(:to="'/detail/' + post.id") Read More
@@ -44,16 +43,7 @@
         },
         methods: {
             load() {
-                return fetchPostLists(this.query).then(res => {
-                    const { data } = res;
-
-                    data.map(item => {
-                        item.excerpt = this.markdown(item.excerpt);
-                        item.content = this.markdown(item.content);
-                    });
-
-                    return data;
-                });
+                return fetchPostLists(this.query).then(res => res.data);
             },
             init() {
                 const {type} = this.$route.params;
@@ -65,17 +55,6 @@
                     this.posts = data;
                     this.loading = false;
                 });
-            },
-            markdown(val) {
-                if (!val) return '';
-
-                marked.setOptions({
-                    highlight(code) {
-                        return hljs.highlightAuto(code).value;
-                    }
-                });
-
-                return marked(val, { sanitize: true })
             },
             Animocon() {
                 const $buttons = document.querySelectorAll('.btn-like');

@@ -2,9 +2,9 @@
     .search
         .search-intro
             h3 Front-end source for knowlege
-            form.search-intro-form
-                input(type="text" placeholder="Search...")
-                a.btn.btn-search
+            form.search-intro-form(@submit.prevent="handleSearchSubmit")
+                input(type="text" placeholder="Search article" v-model="search")
+                a.btn.btn-search(@click="handleSearchSubmit")
                     .icon.icon-search
         .search-category
             h3 Search by tags
@@ -24,6 +24,7 @@
                     page: 1,
                     per_page: 100
                 },
+                search: '',
                 tags: []
             };
         },
@@ -37,7 +38,14 @@
             init() {
                 this.load().then(data => (this.tags = data));
             },
-            handleTagClick(val) {}
+            handleTagClick(val) {},
+            handleSearchSubmit() {
+                const { search } = this;
+
+                if (search.trim()) {
+                    this.$router.push({ path: `/search/${search.trim()}` });
+                }
+            }
         }
     };
 </script>
