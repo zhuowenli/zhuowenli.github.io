@@ -125,7 +125,7 @@
     }
 
     @include max-screen-height(640px) {
-        .side-nav nav{
+        .filter .side-nav nav{
             height: 70%;
             font-size: 40px;
         }
