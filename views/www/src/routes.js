@@ -6,11 +6,11 @@
 
 /* eslint-disable global-require */
 
-const Home = r => require.ensure([], () => r(require('./views/Home')), 'home');
+const Home = r => require.ensure([], () => r(require('./views/home/')), 'home');
 const page404 = r => require.ensure([], () => r(require('./views/404')), 'home');
-const List = r => require.ensure([], () => r(require('./views/list')), 'list');
-const Detail = r => require.ensure([], () => r(require('./views/detail')), 'detail');
-const Search = r => require.ensure([], () => r(require('./views/search')), 'search');
+const List = r => require.ensure([], () => r(require('./views/list/')), 'list');
+const Detail = r => require.ensure([], () => r(require('./views/detail/')), 'detail');
+const Search = r => require.ensure([], () => r(require('./views/search/')), 'search');
 const SearchList = r => require.ensure([], () => r(require('./views/search/list')), 'search');
 
 module.exports = [

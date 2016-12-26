@@ -5,7 +5,7 @@
  * @desc  : Description
  */
 
-@import "../stylesheets/common";
+@import "../../stylesheets/common";
 
 .home{
     &-index{
@@ -41,7 +41,7 @@
                 min-width: 161px;
                 padding-left: 75px;
                 padding-top: 65px;
-                background: transparent url('../../static/img/logo.png') left top no-repeat;
+                background: transparent url('../../../static/img/logo.png') left top no-repeat;
                 @include display-flex;
                 .lines{
                     position: relative;
@@ -87,13 +87,19 @@
             overflow: hidden;
             background: #fff;
             video{
+                opacity: 0;
+                height: 0;
+                width: 0;
+                // width: 100%;
+                // height: 100%;
+            }
+            canvas{
+                // display: none;
                 position: absolute;
                 top: 0;
-                right: 265px;
-                bottom: 0;
-                width: auto;
+                left: 0;
                 height: 100%;
-                @include transform(translate(30%, 0%));
+                width: auto;
             }
         }
         &__bottom{
@@ -142,25 +148,10 @@
     }
 }
 
-@include max-screen(1360px){
-    .home-index{
-        &__bg{
-            video{
-                right: -165px;
-            }
-        }
-    }
-}
-
 @include max-screen(640px){
     .home-index{
         &__about, &__bottom{
             display: none;
-        }
-        &__bg{
-            video{
-                right: -265px;
-            }
         }
         &__text{
             .logo *{
