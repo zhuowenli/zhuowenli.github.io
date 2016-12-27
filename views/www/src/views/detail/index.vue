@@ -24,6 +24,8 @@
                 div(v-html="post.content")
                 .like-counter
                     like-counter(v-bind:id="post.id" v-model="post.like_count")
+            .comments
+                div#disqus_thread
 </template>
 
 <script>
@@ -58,6 +60,14 @@
                     return data;
                 });
             },
+            loadComments() {
+                const script = document.createElement('script');
+
+                script.src = '//zhuowenli.disqus.com/embed.js';
+                script.setAttribute('data-timestamp', +new Date());
+
+                $('body').append($(script));
+            },
             init() {
                 this.handleTopAction(0);
                 this.loading = true;
@@ -66,6 +76,7 @@
                     this.post = data;
                     this.loading = false;
                     this.bindScrollEvent();
+                    this.loadComments();
                 });
             },
             markdown(val) {
