@@ -83,6 +83,9 @@
             },
             draw() {
                 const { video, canvas } = this.$refs;
+
+                if (!canvas) return;
+
                 const ctx = canvas.getContext('2d');
 
                 const $canvas = $(canvas);
