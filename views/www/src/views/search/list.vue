@@ -59,6 +59,9 @@
                     this.$router.push({ path: `/search/${search.trim()}` });
                 }
             }
+        },
+        watch: {
+            $route: 'init'
         }
     };
 </script>

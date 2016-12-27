@@ -33,7 +33,7 @@ exports.init = function(app) {
             // 关键字搜索，模糊查询
             // 使用正则 /(a|b|c)/ 来尽可能多的匹配多个关键字。
             if (query.search) {
-                const search = query.search.replace(/\s/m, '|');
+                const search = query.search.replace(/\s/g, '|');
 
                 qb.where('title', 'REGEXP', `(${search})`)
                 .orWhere('content', 'REGEXP', `(${search})`)
