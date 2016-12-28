@@ -5,8 +5,7 @@
   "main": "src/main.js",
   "scripts": {
     "dev": "gulp",
-    "publish": "gulp publish",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "publish_bundle": "gulp publish_bundle"
   },
   "keywords": [
     "vue",
