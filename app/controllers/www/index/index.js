@@ -9,7 +9,7 @@ exports.init = function(app) {
     var router = app.router;
 
     router.get('/', function *() {
-        const publish = `${process.env.QINIU_HOST}/www/${process.env.BUILD_ADMIN}`;
+        const publish = `${process.env.QINIU_HOST}/www/${process.env.BUILD_WWW}`;
         const local = '/dist';
 
         yield this.render('index', {
