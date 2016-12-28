@@ -9,8 +9,11 @@ exports.init = function(app) {
     var router = app.router;
 
     router.get('/', function *() {
+        const publish = `${process.env.QINIU_HOST}/admin/${process.env.BUILD_ADMIN}`;
+        const local = '/dist';
+
         yield this.render('index', {
-            env: app.env
+            src: app.env === 'development' ? local : publish
         });
     });
 
