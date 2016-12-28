@@ -6,12 +6,11 @@
 'use strict';
 
 const webpack = require('webpack');
-const config = require('./config.json');
 const webpackConfig = require('./webpack.config.js');
 
 webpackConfig.bail = true;
 webpackConfig.output.path = './dist';
-webpackConfig.output.publicPath = `${process.env.QINIU_HOST}/www/${config.timestamp}/`;
+webpackConfig.output.publicPath = `${process.env.QINIU_HOST}/www/${process.env.TIMESTAMP}/`;
 webpackConfig.plugins = [
     new webpack.DefinePlugin({
         DEV: JSON.stringify(false)

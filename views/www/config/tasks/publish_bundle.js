@@ -10,7 +10,6 @@ const path = require('path');
 const gulp = require('gulp');
 const gulpSequence = require('gulp-sequence');
 
-const config = require('../config');
 const updateQupload = require('../lib/updateQupload');
 
 const publishBundleTask = function(next) {
@@ -25,7 +24,7 @@ const publishBundleTask = function(next) {
     function build() {
         const filePath = path.resolve(__dirname, '../../../../', '.env')
         const env = fs.readFileSync(filePath).toString();
-        const newEnv = env.replace(/BUILD_WWW=(\d+)/, `BUILD_WWW=${config.timestamp}`);
+        const newEnv = env.replace(/BUILD_WWW=(\d+)/, `BUILD_WWW=${process.env.TIMESTAMP}`);
 
         fs.writeFileSync(filePath, newEnv);
 

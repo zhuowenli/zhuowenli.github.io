@@ -15,7 +15,7 @@ const quploadPath = config.quploadPath;
 
 const updateQupload = () => {
     return new Promise((resolve, reject) => {
-        qupload.key_prefix += `${config.timestamp}/`;
+        qupload.key_prefix += `${process.env.TIMESTAMP}/`;
         qupload.access_key = process.env.QINIU_ACCESS_KEY;
         qupload.secret_key = process.env.QINIU_SECRET_KEY;
 

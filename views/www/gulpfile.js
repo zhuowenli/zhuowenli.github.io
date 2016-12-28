@@ -16,6 +16,6 @@ require('dotenv-safe').load({
     sample: path.resolve(__dirname, '../..', '.env.example')
 });
 
-config.timestamp = timestamp;
+process.env.TIMESTAMP = timestamp;
 
 requireDir('./config/tasks/', { recurse: true });
