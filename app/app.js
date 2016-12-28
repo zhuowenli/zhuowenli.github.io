@@ -69,7 +69,7 @@ onerror(app, {
 
 // Error report
 app.on('error', function(err) {
-    logger.error('[App error]', err);
+    // logger.error('[App error]', err);
 });
 
 // start up

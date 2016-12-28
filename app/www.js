@@ -32,14 +32,28 @@ app.use(bodyParser());
 
 // 响应头允许夸域
 // app.use(cors());
+
+/**
+ * 兼容HTML5 history模式
+ * 匹配静态资源
+ */
 app.use(historyApiFallback({
     rewrites: [
         {
-            from: /\/(node_modules|dist|static|api)\/.*$/,
+            from: /^\/((list|search|detail).*|$)/,
             to(ctx) {
-                return ctx.match[0];
+                const url = ctx.match[0];
+                const page = ctx.match[2];
+
+                // console.log(JSON.stringify(ctx, null, 2));
+
+                if (/\/(node_modules|dist|static|api)\/.*$/.test(url)) {
+                    return url.replace(`/${page}`, '');
+                }
+
+                return '/';
             }
-        }
+        },
     ]
 }));
 

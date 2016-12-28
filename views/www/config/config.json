@@ -1,0 +1,23 @@
+{
+    "qupload": {
+        "src_dir"            :   "dist/",
+        "access_key"         :   "",
+        "secret_key"         :   "",
+        "bucket"             :   "zhuowenli",
+        "key_prefix"         :   "admin/",
+        "overwrite"          :   true,
+        "skip_file_prefixes" :   ".git",
+        "skip_fixed_strings" :   ".svn",
+        "skip_suffixes"      :   ".DS_Store,.exe,.psd,.map",
+        "log_level"          :   "info"
+    },
+    "timestamp": "",
+    "platform": "admin",
+    "quploadPath": "qupload.json",
+    "browserSync": {
+        "proxy": "www.zhuowenli.cn",
+        "open": false
+    },
+    "src": "./src/main.js",
+    "dest": "./dist"
+}

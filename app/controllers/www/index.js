@@ -10,6 +10,7 @@ var ctrls = [
     require('./api/users'),
     require('./api/likes'),
     require('./api/qiniu'),
+    require('./index/index'),
 ];
 
 module.exports = ctrls;

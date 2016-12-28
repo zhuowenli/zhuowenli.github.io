@@ -30,6 +30,7 @@ app.use(bodyParser({
 
 // init views
 var viewsPath = path.join(__dirname, '../views/admin');
+
 app.use(views(viewsPath, {
     map: {
         html: 'ejs'

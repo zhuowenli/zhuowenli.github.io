@@ -11,7 +11,7 @@ const webpackConfig = require('./webpack.config.js');
 
 webpackConfig.bail = true;
 webpackConfig.output.path = './dist';
-webpackConfig.output.publicPath = `${process.env.QINIU_HOST}/admin/${config.timestamp}/`;
+webpackConfig.output.publicPath = `${process.env.QINIU_HOST}/www/${config.timestamp}/`;
 webpackConfig.plugins = [
     new webpack.DefinePlugin({
         DEV: JSON.stringify(false)
