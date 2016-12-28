@@ -1,35 +1,18 @@
 ## 博客3.0
 
+[![Build Status](https://travis-ci.org/zhuowenli/zhuowenli.github.io.svg?branch=master)](https://travis-ci.org/zhuowenli/zhuowenli.github.io)
+
 正在开发中，敬请期待...
 
 ## TODO LIST
 
 - 服务端
-    - [x] 技术选型
-    - [x] 架构设计
-    - [x] 数据结构
-    - [x] API设计
-    - [x] 服务器配置
     - [ ] 持续集成
 - 前台开发
-    - [x] 技术选型
-    - [x] 架构设计
-    - [x] 路由机制
-    - [x] 构建流程
-    - [x] 侧栏交互
-    - [x] 首页
-    - [x] 文章列表
-    - [x] 文章详情
-    - [ ] 关于
-    - [x] 搜索页
-    - [x] 搜索列表页
+    - [ ] 关于页
+    - [ ] 关键词搜索列表
+    - [ ] 静态资源CDN
 - 后台开发
-    - [x] 技术选型
-    - [x] 架构设计
-    - [x] 路由机制
-    - [x] 构建流程
-    - [x] 文章列表
-    - [x] 文章编辑
     - [ ] 标签管理
     - [ ] 分类管理
 
