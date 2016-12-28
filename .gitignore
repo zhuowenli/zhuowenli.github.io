@@ -36,3 +36,4 @@ dist/
 .yarnclean
 qupload.json
 .qshell/
+google*.html
