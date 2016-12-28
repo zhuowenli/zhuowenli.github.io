@@ -7,7 +7,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Promise from 'bluebird';
-import ElementUI from 'element-ui';
+import elementUI from 'element-ui';
+import 'element-ui/lib/theme-default/index.css';
 
 import VueFilter from './services/filter';
 import routes from './routes';
@@ -19,7 +20,7 @@ Vue.component(Loading.name, Loading);
 // Install plugins
 Vue.use(VueRouter);
 Vue.use(VueFilter);
-Vue.use(ElementUI);
+Vue.use(elementUI);
 
 window.Promise = Promise;
 

@@ -3,7 +3,7 @@
 composer.phar
 Thumbs.db
 /**/.cache/
-/**/*.log
+/**/*.log*
 /**/*.lock
 
 # exclude
@@ -19,7 +19,7 @@ bower_components
 
 # npm
 node_modules
-npm-debug.log
+npm-debug.log*
 
 # sass
 .sass-cache
@@ -30,7 +30,9 @@ dump.rdb
 
 # build
 build/
+dist/
 /**/config.js
 *.js.map
-/**/dist/
 .yarnclean
+qupload.json
+.qshell/

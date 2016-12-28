@@ -1,0 +1,27 @@
+{
+  "modules": [
+    {
+      "name": "package.json",
+      "program": "npm install"
+    },
+    {
+      "name": "views/admin/package.json",
+      "program": "cd ${moduleDirname} && npm install"
+    },
+    {
+      "name": "views/admin",
+      "program": "cd ${modulePath} && npm run publish_bundle"
+    },
+    {
+      "name": "views/www/package.json",
+      "program": "cd ${moduleDirname} && npm install"
+    },
+    {
+      "name": "views/www",
+      "program": "cd ${modulePath} && npm run publish_bundle"
+    }
+  ],
+  "dependencies": ["package.json"],
+  "assets": "dist/assets.json",
+  "repository": "git"
+}

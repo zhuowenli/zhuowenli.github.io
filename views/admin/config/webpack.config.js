@@ -5,15 +5,15 @@
  */
 'use strict';
 
-// const webpack = require('webpack');
-const utils = require('./utils');
+const webpack = require('webpack');
+const utils = require('./lib/utils');
 const path = require('path');
 
 module.exports = {
     entry: ['./src/main.js'],
     output: {
         path: '/dist',
-        publicPath: './dist/',
+        publicPath: '//zhuowenli.qiniudn.com/',
         filename: 'app.js'
     },
     watch: true,
@@ -38,7 +38,7 @@ module.exports = {
             }, {
                 test: /\.vue$/,
                 loader: 'vue'
-            },, {
+            }, {
                 test: /\.html$/,
                 loader: 'raw'
             }, {
