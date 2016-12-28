@@ -13,7 +13,7 @@ const Router = require('koa-router');
 const bodyParser = require('koa-bodyparser');
 const koaqs = require('koa-qs');
 const ctrls = require('./controllers/www');
-const cors = require('koa-cors');
+// const cors = require('koa-cors');
 const historyApiFallback = require('koa-history-api-fallback');
 
 const app = koa();
