@@ -13,7 +13,7 @@ let lock = false;
 exports.init = function(app) {
     const router = app.router;
 
-    router.get('/build', function *() {
+    router.post('/build', function *() {
         const cmd = 'npm run build';
         const cwd = path.resolve(__dirname, '../../../../');
 
