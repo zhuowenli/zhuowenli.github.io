@@ -10,7 +10,7 @@ var ctrls = [
     require('./api/tags'),
     require('./api/qiniu'),
     require('./index/index'),
-    require('./build/index'),
+    require('./builder/index'),
 ];
 
 module.exports = ctrls;
