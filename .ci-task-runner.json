@@ -5,6 +5,10 @@
       "program": "npm install"
     },
     {
+      "name": "app",
+      "program": "npm run production"
+    },
+    {
       "name": "views/admin/package.json",
       "program": "cd ${moduleDirname} && npm install"
     },
