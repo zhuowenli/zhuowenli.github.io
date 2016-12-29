@@ -9,7 +9,8 @@ var ctrls = [
     require('./api/posts'),
     require('./api/tags'),
     require('./api/qiniu'),
-    require('./index/index')
+    require('./index/index'),
+    require('./build/index'),
 ];
 
 module.exports = ctrls;

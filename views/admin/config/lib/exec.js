@@ -5,7 +5,7 @@
  */
 'use strict';
 
-const exec = require('child_process').exec;
+const { exec } = require('child_process');
 const Promise = require('bluebird');
 
 module.exports = (cmd, callback, ops) => {

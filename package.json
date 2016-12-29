@@ -8,7 +8,7 @@
     "start": "pm2 start app/app.js --name 'blog'",
     "post": "node config/jekyll2mysql.js",
     "production": "pm2 startOrRestart ecosystem.config.js --env production",
-    "prebuild": "npm install",
+    "prebuild": "git pull",
     "build": "ci-task-runner"
   },
   "author": "卓文理",
