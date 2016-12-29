@@ -7,7 +7,7 @@
     "dev": "nodemon -V --watch app app/app.js",
     "start": "pm2 start app/app.js --name 'blog'",
     "post": "node config/jekyll2mysql.js",
-    "production": "pm2 deploy ecosystem.config.js production setup",
+    "production": "pm2 startOrRestart ecosystem.config.js --env production",
     "prebuild": "npm install",
     "build": "ci-task-runner"
   },

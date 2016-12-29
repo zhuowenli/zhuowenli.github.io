@@ -40,17 +40,14 @@ app.use(bodyParser());
 app.use(historyApiFallback({
     rewrites: [
         {
-            from: /^\/((list|search|detail).*|$)/,
+            from: /\/(node_modules|dist|static)\/.*$/,
             to(ctx) {
-                const url = ctx.match[0];
-                const page = ctx.match[2];
-
-                // console.log(JSON.stringify(ctx, null, 2));
-
-                if (/\/(node_modules|dist|static|api)\/.*$/.test(url)) {
-                    return url.replace(`/${page}`, '');
-                }
-
+                return ctx.match[0];
+            }
+        },
+        {
+            from: /.*/,
+            to(ctx) {
                 return '/';
             }
         },

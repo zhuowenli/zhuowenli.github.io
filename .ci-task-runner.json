@@ -10,7 +10,7 @@
     },
     {
       "name": "views/admin",
-      "program": "cd ${modulePath} && npm run publish_bundle"
+      "program": "cd ${modulePath} && npm run publish_bundle && cd ../.. && npm run production"
     },
     {
       "name": "views/www/package.json",
@@ -18,7 +18,7 @@
     },
     {
       "name": "views/www",
-      "program": "cd ${modulePath} && npm run publish_bundle"
+      "program": "cd ${modulePath} && npm run publish_bundle && cd ../.. && npm run production"
     }
   ],
   "dependencies": ["package.json"],
