@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="keywords" content="卓文理,前端,前端开发,网页设计,交互设计">
+    <meta name="description" content="">
+    <meta name="author" content="卓文理">
+    <link rel="dns-prefetch" href="//zhuowenli.qiniudn.com">
+    <title>登录</title>
+    <style type="text/css">
+        html, body, .container{
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+        .container{
+            position: relative;
+            background: transparent url('/login/bg.png') center center no-repeat;
+            -webkit-background-size: 1080px auto;
+            background-size: 1080px auto;
+        }
+        .container .home{
+            position: absolute;
+            top: 20px;
+            left: 21px;
+            display: inline-block;
+            height: 17px;
+            width: 17px;
+            -webkit-border-radius: 17px;
+            border-radius: 17px;
+            border: 2px solid #333;
+        }
+        .container form{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 266px;
+            margin-left: -133px;
+            margin-top: -73px;
+        }
+        .container .field{
+            display: block;
+            width: 254px;
+            margin-bottom: 12px;
+            border-radius: 4px;
+            padding: 6px;
+            background: #f1f1f2;
+        }
+        .container .field input{
+            width: 214px;
+            padding: 10px 20px;
+            border: 0;
+            font-size: 16px;
+            line-height: 20px;
+            outline: 0;
+        }
+        .container .submit{
+            width: 100%;
+            height: 42px;
+            line-height: 42px;
+            font-size: 16px;
+            text-align: center;
+            background: #8a95e3;
+            color: #fff;
+            border: 0;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="//www.zhuowenli.cn" class="home"></a>
+        <form action="javascript:;" id="J_Form">
+            <div class="field">
+                <input type="text" id="J_Username" placeholder="Login">
+                <input type="password" id="J_Password" placeholder="Password">
+            </div>
+            <input class="submit" type="submit" value="Sign in">
+        </form>
+    </div>
+    <script type="text/javascript" src='http://zhuowenli.qiniudn.com/static/jquery.min.js'></script>
+    <script type="text/javascript">
+        $(function() {
+            var $form = $('#J_Form');
+            var $username = $('#J_Username')
+            var $password = $('#J_Password')
+
+            $form.on('submit', function(e) {
+                e.preventDefault();
+
+                $.ajax({
+                    method: 'POST',
+                    url: location.origin + '/api/login',
+                    dataType: 'json',
+                    data: {
+                        username: $username.val(),
+                        password: $password.val(),
+                    },
+                    success: function(res) {
+                        var result = res.data.result;
+
+                        if (result) {
+                            window.location.href = location.origin;
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

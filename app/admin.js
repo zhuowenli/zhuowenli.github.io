@@ -43,6 +43,23 @@ app.router.api = new Router({
     prefix: ''
 });
 
+// 简单登录校验
+app.use(function *(next) {
+    const username = this.cookies.get('username');
+    const password = this.cookies.get('password');
+    const { url } = this.request;
+
+    if (/^(\/api)?\/login/.test(url)) {
+        return yield next;
+    }
+
+    if (process.env.LOGIN_USERNAME !== username || process.env.LOGIN_PASSWORD !== password) {
+        this.redirect(`//${process.env.ADMIN_HOST}/login`);
+    }
+
+    yield next;
+})
+
 // init ctrls
 ctrls.forEach(ctrl => {
     ctrl.init(app);

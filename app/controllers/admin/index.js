@@ -9,6 +9,7 @@ var ctrls = [
     require('./api/posts'),
     require('./api/tags'),
     require('./api/qiniu'),
+    require('./api/login'),
     require('./index/index'),
     require('./builder/index'),
 ];
