@@ -61,16 +61,6 @@
                     return data;
                 });
             },
-            loadComments() {
-                const duoshuoQuery = {short_name:"zhuowenli"};
-                const ds = document.createElement('script');
-                ds.type = 'text/javascript';ds.async = true;
-                ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-                ds.charset = 'UTF-8';
-
-                window.duoshuoQuery = duoshuoQuery;
-                $('body').append($(ds));
-            },
             init() {
                 this.handleTopAction(0);
                 this.loading = true;
@@ -79,7 +69,8 @@
                     this.post = data;
                     this.loading = false;
                     this.bindScrollEvent();
-                    this.loadComments();
+
+                    setTimeout(() => DUOSHUO.init(), 1e3);
                 });
             },
             markdown(val) {
