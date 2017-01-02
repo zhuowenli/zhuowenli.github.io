@@ -25,7 +25,7 @@
                 .like-counter
                     like-counter(v-bind:id="post.id" v-model="post.like_count")
             .comments
-                div#disqus_thread
+                .ds-thread(v-bind:data-thread-key="post.id" v-bind:data-title="post.title" v-bind:data-url="location.origin + location.pathname")
 </template>
 
 <script>
@@ -41,6 +41,7 @@
                 id: null,
                 loading: true,
                 trundle: false,
+                location: window.location
             };
         },
         mounted() {
@@ -61,12 +62,14 @@
                 });
             },
             loadComments() {
-                const script = document.createElement('script');
+                const duoshuoQuery = {short_name:"zhuowenli"};
+                const ds = document.createElement('script');
+                ds.type = 'text/javascript';ds.async = true;
+                ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                ds.charset = 'UTF-8';
 
-                script.src = '//zhuowenli.disqus.com/embed.js';
-                script.setAttribute('data-timestamp', +new Date());
-
-                $('body').append($(script));
+                window.duoshuoQuery = duoshuoQuery;
+                $('body').append($(ds));
             },
             init() {
                 this.handleTopAction(0);
