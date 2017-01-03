@@ -100,7 +100,7 @@
                 this.load().then(data => {
                     this.post = data;
                     this.loading = false;
-                    this.postStatus = data.status === 1;
+                    this.postStatus = data.status === 0;
                 });
 
                 this.loadTags().then(data => this.postTags = data);

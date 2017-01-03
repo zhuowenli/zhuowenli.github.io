@@ -49,7 +49,7 @@ app.use(function *(next) {
     const password = this.cookies.get('password');
     const { url } = this.request;
 
-    if (/^(\/api)?\/(login|build)/.test(url)) {
+    if (/^(\/api)?\/(login|build|posts)/.test(url)) {
         return yield next;
     }
 

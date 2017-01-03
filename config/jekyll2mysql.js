@@ -66,8 +66,7 @@ const analysisFile = filename => {
                 const matters = res.match(/^---(.*?(\r?\n|\r)){0,10}---\n/g);
                 const release_at = matchDate(filename);
                 let content = res.replace(/^---(.*?(\r?\n|\r)){0,10}---(\s*)(\n*)/g, '');
-                content = content.replace('{{ site.qiniu }}', 'http://zhuowenli.qiniudn.com');
-                content = content.replace('{{site.qiniu}}', 'http://zhuowenli.qiniudn.com');
+                content = content.replace(/{{\s*site.qiniu\s*}}/g, 'http://zhuowenli.qiniudn.com');
 
                 if (matters && matters.length) {
                     const matter = matters[0];
@@ -78,12 +77,18 @@ const analysisFile = filename => {
                         tags: matchMatters(matter, 'tags').replace(/\[|\]/ig, ''),
                         content,
                         release_at,
+                        priority: 0,
+                        user_id: 1,
+                        status: 1,
                     });
                 } else {
                     _.assign(post, {
                         title: '没有标题',
                         content,
                         release_at,
+                        priority: 0,
+                        user_id: 1,
+                        status: 1,
                     });
                 }
 
@@ -122,7 +127,7 @@ function runPost(data, callback) {
 
     // const api = 'http://www.zhuowenli.cn/api/posts'; // API接口
     const options = {
-        hostname: 'www.zhuowenli.cn',
+        hostname: 'admin.zhuowenli.cn',
         port: '80',
         path: '/api/posts',
         method: 'POST',
@@ -142,7 +147,7 @@ function runPost(data, callback) {
                 data += chunk.toString();
             })
             .on('end', function() {
-                // console.log(data);
+                console.log(data);
             });
 
         callback();
