@@ -7,10 +7,6 @@
 import timeFormat from './timeFormat';
 import dateFormat from './dateFormat';
 
-/**
- * Vue Filter
- * @param  {Object} Vue Vue主进程
- */
 module.exports = (Vue) => {
     /**
      * 日期格式化
@@ -18,6 +14,7 @@ module.exports = (Vue) => {
      * @param  {String} format   时间格式
      */
     Vue.filter('date', (date, format = 'yyyy-MM-dd hh:mm:ss') => dateFormat(date, format));
+
     /**
      * 剩余时间格式化
      * @param  {Number} time   剩余时间

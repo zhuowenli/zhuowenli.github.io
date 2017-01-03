@@ -23,7 +23,7 @@
                 .post-lists__content.article
                     figure.images(v-if="post.images.length")
                         router-link.btn(:to="'/detail/' + post.id")
-                            img(v-for="image in post.images" v-bind:src="image.url")
+                            img(v-for="image in post.images" v-bind:src="image.url + '?imageView2/1/w/1000/h/600'")
                     .content(v-html="post.excerpt" v-if="post.excerpt")
                 .post-lists__meta--bottom
                     p.more
@@ -47,7 +47,8 @@
                 checked: false,
                 query: {
                     page: 1,
-                    per_page: 10
+                    per_page: 10,
+                    order_by: 'release_at'
                 },
                 posts: [],
                 opacity: 1
