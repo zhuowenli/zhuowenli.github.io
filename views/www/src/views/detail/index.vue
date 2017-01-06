@@ -3,7 +3,7 @@
         header.header(v-if="!loading")
             .header-bg(
                 v-if="post.images.length"
-                v-bind:style="'background-image: url(' + post.images[0].url + ')'"
+                v-bind:style="'background-image: url(' + post.images[0].url + '?imageView2/1/w/2560)'"
             )
             .header-title
                 h1 {{post.title}}
