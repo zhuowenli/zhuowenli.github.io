@@ -26,6 +26,7 @@
                     like-counter(v-bind:id="post.id" v-model="post.like_count")
             .comments
                 .ds-thread(v-bind:data-thread-key="post.id" v-bind:data-title="post.title" v-bind:data-url="location.origin + location.pathname")
+        loading(v-else)
 </template>
 
 <script>
