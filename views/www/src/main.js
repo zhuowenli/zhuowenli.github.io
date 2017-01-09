@@ -12,11 +12,13 @@ import VueFilter from './services/filter';
 import routes from './routes';
 import App from './components/App';
 import LikeCounter from './components/like-counter/';
+import Loading from './components/loading/';
 
 // Install plugins
 Vue.use(VueRouter);
 Vue.use(VueFilter);
 
+Vue.component(Loading.name, Loading);
 Vue.component(LikeCounter.name, LikeCounter);
 
 window.Promise = Promise;

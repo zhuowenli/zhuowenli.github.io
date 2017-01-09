@@ -5,7 +5,7 @@
                 input(type="text" placeholder="Search article" v-model="query.search")
                 a.btn.btn-search(@click="handleSearchSubmit")
                     .icon.icon-search
-        .post-lists(v-if="posts.length")
+        .post-lists(v-if="!loading")
             section(v-for="post in posts")
                 .post-lists__meta--top
                     .post-lists__number p{{post.id}}
@@ -21,6 +21,7 @@
                         router-link(:to="'/detail/' + post.id") Read More
                     p
                         like-counter(v-bind:id="post.id" v-model="post.like_count")
+        loading(v-else)
 </template>
 
 <script>
@@ -37,6 +38,7 @@
                     order_by: 'release_at'
                 },
                 posts: [],
+                loading: false
             };
         },
         mounted() {
@@ -51,7 +53,11 @@
                 return fetchPostLists(this.query).then(res => res.data);
             },
             init() {
-                this.load().then(data => (this.posts = data));
+                this.loading = true;
+                this.load().then(data => {
+                    this.posts = data;
+                    this.loading = false;
+                });
             },
             handleSearchSubmit() {
                 const { search } = this.query;

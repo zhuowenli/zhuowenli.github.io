@@ -6,7 +6,7 @@
                 input(type="text" placeholder="Search article" v-model="search")
                 a.btn.btn-search(@click="handleSearchSubmit")
                     .icon.icon-search
-        .search-category
+        .search-category(v-if="tags.length")
             h3 关键词
             ul
                 li(v-for="tag in tags")

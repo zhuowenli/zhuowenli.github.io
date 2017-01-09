@@ -14,7 +14,7 @@
             .home-index__bottom
                 .lines
                 a(@click="handleNewClick") 最新文章
-        .post-lists(v-if="posts.length")
+        .post-lists(v-if="!loading")
             section(v-for="post in posts")
                 .post-lists__meta--top
                     .post-lists__number p{{post.id}}
@@ -30,6 +30,7 @@
                         router-link(:to="'/detail/' + post.id") 阅读原文
                     p.like-counter
                         like-counter(v-bind:id="post.id" v-model="post.like_count")
+        loading(v-else)
 </template>
 
 <script>
@@ -41,6 +42,7 @@
         name: 'home',
         mounted() {
             this.init();
+            this.loading = true;
         },
         data() {
             return {
@@ -51,7 +53,8 @@
                     order_by: 'release_at'
                 },
                 posts: [],
-                opacity: 1
+                opacity: 1,
+                loading: false
             };
         },
         methods: {
@@ -63,7 +66,10 @@
                 const $video = $(video);
                 const height = $(window).height();
 
-                this.load().then(data => (this.posts = data));
+                this.load().then(data => {
+                    this.posts = data;
+                    this.loading = false;
+                });
 
                 $video.on('canplaythrough', () => {
                     video.play();
@@ -72,15 +78,14 @@
 
                 setTimeout(() => (this.stop = true), 1.2e4);
 
-                $(window).on('scroll', () => {
-                    const scrollTop = $('body').scrollTop();
-                    this.opacity = scrollTop > height + 200 ? 0 : 1;
-                });
-                $(window).on('resize', () => {
-                    if (this.stop) {
-                        this.draw()
-                    };
-                });
+                $(window)
+                    .on('scroll', () => {
+                        const scrollTop = $('body').scrollTop();
+                        this.opacity = scrollTop > height + 200 ? 0 : 1;
+                    })
+                    .on('resize', () => {
+                        if (this.stop) this.draw();
+                    });
             },
             draw() {
                 const { video, canvas } = this.$refs;
