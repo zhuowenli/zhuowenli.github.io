@@ -16,7 +16,9 @@
         )
             el-table-column(inline-template label="ID" width="60" align="center")
                 span {{'#' + row.id}}
-            el-table-column(property="title" label="标题" width="300")
+            el-table-column(inline-template label="标题" width="300")
+                span
+                    a(target="_blank" v-bind:href="'//www.zhuowenli.com/detail/' + row.id") {{row.title}}
             el-table-column(property="status" label="状态" width="95")
             el-table-column(property="category.name" label="分类" width="95")
             el-table-column(inline-template label="发布时间" width="168")
