@@ -10,7 +10,6 @@
 @import "~material-design-iconfonts/material-icons.css";
 
 html{
-    height: 100%;
     font-family: 'Helvetica Neue',      // OSX，English
                  'Helvetica',
                  "PingFang SC",         // OSX，苹方（华康信凭黑）
@@ -24,7 +23,6 @@ html{
                  sans-serif;
     font-size: 16px;
     font-weight: 300;
-    overflow: hidden;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -32,16 +30,6 @@ html{
     outline: 0;
     -webkit-tap-highlight-color: transparent;
     @include box-sizing;
-}
-
-html, body, #app{
-    height: 100%;
-    overflow: hidden;
-}
-
-#app{
-    padding-top: 80px;
-    padding-left: 250px;
 }
 
 .material-icons{
@@ -59,114 +47,19 @@ html, body, #app{
     }
 }
 
-.main{
-    position: relative;
-    height: 100%;
-    width: 100%;
-    padding: 30px;
-    &-header{
-        padding-bottom: 14px;
-        margin-bottom: 30px;
-        border-bottom: 1px solid  #eaeeef;
-        .title{
-            margin-bottom: 24px;
-            line-height: 1;
-            font-size: 24px;
-            color: #333;
-        }
-        .toolbar{
-            font-size: 0;
-            height: 24px;
-            line-height: 24px;
-            &-item{
-                display: inline-block;
-                width: 24px;
-                height: 24px;
-                margin-right: 20px;
-                text-align: center;
-                color: $gray;
-                border: 2px solid $gray;
-                font-size: 16px;
-                cursor: pointer;
-                @include border-radius(50%);
-                @include transition(all 0.1s ease-in-out);
-                &.active, &:hover{
-                    color: $green;
-                    border-color: $green;
-                    a{
-                        color: $green;
-                        border-color: $green;
-                    }
-                }
-                i{
-                    margin: 0;
-                    line-height: 20px;
-                    font-size: 16px;
-                    vertical-align: top;
-                }
-            }
-            &-select-count{
-                display: inline-block;
-                color: #333;
-                font-size: 12px;
-                vertical-align: top;
-                font-weight: 400;
-            }
-        }
-        .el-tabs{
-            &__header{
-                border: 0;
-            }
-            &__item{
-                height: 24px;
-                line-height: 24px;
-                color: $silver;
-                @include border-radius(2px);
-                @include transition(all 0.2s ease-in-out);
-                &:hover{
-                    color: $green;
-                }
-                &.is-active{
-                    color: #fff;
-                    background: $green;
-                }
-            }
-            &__active-bar{
-                display: none;
-            }
-        }
-    }
-    .el-table{
-        margin-bottom: 12px;
-        .current-row{
-            background: $green;
-            color: #fff;
-        }
-        &__body-wrapper{
-            .cell{
-                padding-top: 10px;
-                padding-bottom: 10px;
-            }
-        }
-    }
-    .el-pagination{
-        text-align: right;
-        .el-pager{
-            li{
-                &:hover{
-                    color: $green;
-                }
-                &.active{
-                    background: $green;
-                    border-color: $green;
-                    color: #fff;
-                }
-            }
-        }
-    }
+.clearfix{
+    @include clearfix;
 }
 
+.main{
+    padding-left: 240px;
+}
 
+.container{
+    min-height: 100vh;
+    padding: 32px;
+    background: $dark-white;
+}
 
 
 

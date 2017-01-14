@@ -8,9 +8,7 @@
 @import "../../stylesheets/common";
 
 .editor{
-    height: 100%;
     width: 100%;
-    overflow: auto;
     &-top{
         // border-bottom: 1px solid  #eaeeef;
         &__title{
@@ -22,12 +20,13 @@
             font-size: 30px;
             border: 0;
             color: #333;
+            background-color: transparent;
         }
     }
     &-content{
         position: relative;
         padding-top: 52px;
-        padding-right: 200px;
+        padding-right: 220px;
         @include display-flex;
         &__toolbar{
             position: absolute;
@@ -35,7 +34,6 @@
             left: 0;
             right: 0;
             height: 52px;
-            background: #fff;
             border-top: 1px solid #e3e3e3;
             border-bottom: 1px solid #e3e3e3;
             ul{
@@ -105,7 +103,7 @@
                     font-family: 'monaco', 'Consolas', "Liberation Mono", Courier, monospace;
                     word-wrap: break-word;
                     color: #000;
-                    background: #fff;
+                    background: transparent;
                     overflow: hidden;
                 }
             }
@@ -308,7 +306,7 @@
         }
     }
     &-bottom{
-        position: absolute;
+        position: fixed;
         bottom: 0;
         left: 0;
         right: 0;
@@ -319,7 +317,7 @@
         z-index: 101;
     }
     &-aside{
-        position: absolute;
+        position: fixed;
         top: 0;
         right: 0;
         bottom: 0;

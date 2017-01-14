@@ -13,6 +13,8 @@ const posts = r => require.ensure([], () => r(require('./views/posts/')), 'posts
 const postCreate = r => require.ensure([], () => r(require('./views/posts/create')), 'posts');
 const postEdit = r => require.ensure([], () => r(require('./views/posts/edit')), 'posts');
 
+const tuchuang = r => require.ensure([], () => r(require('./views/tuchuang/')), 'tuchuang');
+
 module.exports = [
     {
         path: '/',
@@ -41,6 +43,14 @@ module.exports = [
         component: postEdit,
         meta: {
             title: '编辑'
+        },
+    },
+    {
+        path: '/tuchuang',
+        name: 'tuchuang',
+        component: tuchuang,
+        meta: {
+            title: '图床'
         },
     },
     {

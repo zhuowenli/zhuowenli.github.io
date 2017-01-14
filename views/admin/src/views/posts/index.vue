@@ -1,75 +1,43 @@
-<template>
-    <div>
-        <header class="main-header">
-            <div class="title">{{title}}</div>
-            <div class="toolbar flex">
-                <ul class="flex__item">
-                    <el-tooltip class="toolbar-item active" content="写文章" placement="top">
-                        <router-link class="" to="posts/create">
-                            <i class="material-icons">add</i>
-                        </router-link>
-                    </el-tooltip>
-                    <template v-if="singleSelection">
-                        <el-tooltip class="toolbar-item" content="预览" placement="top" @click.native="hanglePostPreview">
-                            <i class="material-icons">visibility</i>
-                        </el-tooltip>
-                        <el-tooltip class="toolbar-item" content="编辑" placement="top" @click.native="hanglePostEdit">
-                            <i class="material-icons">edit</i>
-                        </el-tooltip>
-                        <el-tooltip class="toolbar-item" content="删除" placement="top" @click.native="hanglePostDelete">
-                            <i class="material-icons">delete</i>
-                        </el-tooltip>
-                        <span class="toolbar-select-count">#{{singleSelection.id}} 已选中</span>
-                    </template>
-                </ul>
-                <el-tabs @tab-click="handleTabClick">
-                    <el-tab-pane label="ID"></el-tab-pane>
-                    <el-tab-pane label="发布时间"></el-tab-pane>
-                    <el-tab-pane label="浏览数"></el-tab-pane>
-                    <el-tab-pane label="喜欢数"></el-tab-pane>
-                </el-tabs>
-            </div>
-        </header>
-        <el-table
+<template lang="pug">
+    .posts
+        el-toolbar
+            el-form-item(label="排序")
+                el-radio-group(v-model="query.order_by")
+                    el-radio(label="id") ID
+                    el-radio(label="release_at") 发布时间
+                    el-radio(label="view_count") 浏览数
+                    el-radio(label="like_count") 喜欢数
+        el-table(
             border
-            allow-no-selection
             v-show="!loading"
             v-if="tableData"
-            :data="tableData"
-            :height="height"
-            @selectionchange="handleSelectionChange"
-            selection-mode="single"
-            style="width: 100%">
-            <el-table-column inline-template label="ID" width="60">
-                <span>#{{row.id}}</span>
-            </el-table-column>
-            <el-table-column property="title" label="标题" width="300"></el-table-column>
-            <el-table-column property="status" label="状态" width="95"></el-table-column>
-            <el-table-column property="category.name" label="分类" width="95"></el-table-column>
-            <el-table-column inline-template label="发布时间" width="168">
-                <span>{{row.release_at | date}}</span>
-            </el-table-column>
-            <el-table-column property="view_count" label="浏览数" width="80"></el-table-column>
-            <el-table-column property="like_count" label="喜欢数" width="80"></el-table-column>
-            <el-table-column property="excerpt" label="简介"></el-table-column>
-            <el-table-column inline-template label="操作" width="90">
-                <span>
-                    <router-link :to="'/posts/' + row.id + '/edit'">
-                        <el-button>编辑</el-button>
-                    </router-link>
-                </span>
-            </el-table-column>
-        </el-table>
-        <el-pagination
+            v-bind:data="tableData"
+            @selection-change="handleSelectionChange"
+            style="width: 100%"
+        )
+            el-table-column(inline-template label="ID" width="60" align="center")
+                span {{'#' + row.id}}
+            el-table-column(property="title" label="标题" width="300")
+            el-table-column(property="status" label="状态" width="95")
+            el-table-column(property="category.name" label="分类" width="95")
+            el-table-column(inline-template label="发布时间" width="168")
+                span {{row.release_at | date}}
+            el-table-column(property="view_count" label="浏览数" width="80")
+            el-table-column(property="like_count" label="喜欢数" width="80")
+            el-table-column(property="excerpt" label="简介")
+            el-table-column(inline-template label="操作" width="166" align="center")
+                span
+                    el-button(type="primary") 编辑
+                    el-button(type="danger" ) 删除
+        el-pagination(
             v-show="!loading"
             v-if="metadata"
             layout="total, prev, pager, next"
-            @currentchange="handleCurrentChange"
-            :current-page="query.page"
-            :page-size="query.per_page"
-            :total="metadata.total">
-        </el-pagination>
-    </div>
+            @current-change="handleCurrentChange"
+            v-bind:current-page="query.page"
+            v-bind:page-size="query.per_page"
+            v-bind:total="metadata.total"
+        )
 </template>
 
 <script>
@@ -119,9 +87,6 @@
             handleCurrentChange(val) {
                 this.query.page = val;
             },
-            handleTabClick(val) {
-                this.query.order_by = ['id', 'release_at', 'view_count', 'like_count'][val - 1];
-            },
             hanglePostPreview() {
                 const post = this.singleSelection;
                 const origin = window.location.origin.replace('admin', 'www');
@@ -164,10 +129,7 @@
         },
         watch: {
             query: {
-                handler() {
-                    this.loading = true;
-                    this.init();
-                },
+                handler: 'init',
                 deep: true
             }
         },
