@@ -1,7 +1,7 @@
 # env: dev
 server {
     listen       80;
-    server_name  admin.zhuowenli.com www.zhuowenli.com api.zhuowenli.com tuchuang.zhuowenli.com;
+    server_name  admin.zhuowenli.com www.zhuowenli.com api.zhuowenli.com;
     access_log off;
 
     location /node_modules/ {
