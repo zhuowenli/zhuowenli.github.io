@@ -12,7 +12,6 @@
             v-show="!loading"
             v-if="tableData"
             v-bind:data="tableData"
-            @selection-change="handleSelectionChange"
             style="width: 100%"
         )
             el-table-column(inline-template label="ID" width="60" align="center")
@@ -25,10 +24,10 @@
             el-table-column(property="view_count" label="浏览数" width="80")
             el-table-column(property="like_count" label="喜欢数" width="80")
             el-table-column(property="excerpt" label="简介")
-            el-table-column(inline-template label="操作" width="166" align="center")
+            el-table-column(inline-template label="操作" width="140" align="center")
                 span
-                    el-button(type="primary") 编辑
-                    el-button(type="danger" ) 删除
+                    el-button(type="primary" size="small" @click="handleEditEvent(row)") 编辑
+                    el-button(type="danger" size="small" @click="handleRemoveEvent(row)") 删除
         el-pagination(
             v-show="!loading"
             v-if="metadata"
@@ -48,7 +47,6 @@
         data() {
             return {
                 loading: false,
-                height: window.innerHeight - 285,
                 title: '文章管理',
                 query: {
                     page: 1,
@@ -57,14 +55,9 @@
                 },
                 tableData: null,
                 metadata: null,
-                singleSelection: null
             };
         },
         mounted() {
-            window.addEventListener('resize', () => {
-                this.height = window.innerHeight - 285;
-            });
-
             this.init();
         },
         methods: {
@@ -81,25 +74,13 @@
                     this.loading = false;
                 });
             },
-            handleSelectionChange(val) {
-                this.singleSelection = val;
-            },
             handleCurrentChange(val) {
                 this.query.page = val;
             },
-            hanglePostPreview() {
-                const post = this.singleSelection;
-                const origin = window.location.origin.replace('admin', 'www');
-
-                window.open(`${origin}/${post.category.title}/${post.id}`);
-            },
-            hanglePostEdit() {
-                const post = this.singleSelection;
+            handleEditEvent(post) {
                 this.$router.push({ path: `/posts/${post.id}/edit` });
             },
-            hanglePostDelete() {
-                const post = this.singleSelection;
-
+            handleRemoveEvent(post) {
                 if (!post.id) return;
 
                 let index = -1;
