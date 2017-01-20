@@ -8,5 +8,21 @@
 @import "../../stylesheets/common";
 
 .tuchuang{
-
+    .el-upload{
+        display: inline-block;
+        width: 360px;
+    }
+    &-list{
+        display: inline-block;
+        width: 100%;
+        max-width: 640px;
+        padding-left: 20px;
+        vertical-align: top;
+        .el-form-item{
+            margin-bottom: 10px;
+        }
+        .el-input{
+            width: 400px;
+        }
+    }
 }

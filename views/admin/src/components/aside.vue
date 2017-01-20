@@ -17,7 +17,7 @@
                 | 分类管理
             el-menu-item(index="/tuchuang")
                 i.el-icon-picture
-                | 图床
+                | 图床工具
 </template>
 
 <script>

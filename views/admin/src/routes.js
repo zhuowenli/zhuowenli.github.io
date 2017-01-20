@@ -19,7 +19,10 @@ module.exports = [
     {
         path: '/',
         name: 'home',
-        component: Home
+        component: posts,
+        meta: {
+            title: '文章管理'
+        },
     },
     {
         path: '/posts',
@@ -50,7 +53,7 @@ module.exports = [
         name: 'tuchuang',
         component: tuchuang,
         meta: {
-            title: '图床'
+            title: '图床工具'
         },
     },
     {
