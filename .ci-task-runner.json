@@ -14,7 +14,7 @@
     },
     {
       "name": "views/admin",
-      "program": "cd ${modulePath} && npm run publish_bundle && cd ../.. && npm run production"
+      "program": "cd ${modulePath} && npm run build"
     },
     {
       "name": "views/www/package.json",
