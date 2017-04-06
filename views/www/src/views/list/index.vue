@@ -2,7 +2,7 @@
     .list
         .post-lists(v-if="!loading")
             .cover
-                img(src="../../../static/img/bg-design.png")
+                img(src="../../../statics/img/bg-design.png")
             section(v-for="post in posts")
                 .post-lists__meta--top
                     .post-lists__number p{{post.id}}
@@ -24,7 +24,7 @@
 <script>
     import mojs from 'mo-js';
     import marked from 'marked';
-    import hljs from '../../../static/js/highlight.js';
+    import hljs from '../../../statics/js/highlight.js';
     import { fetchPostLists } from '../../models/posts';
 
     export default {

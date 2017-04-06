@@ -16,7 +16,7 @@
     .loader{
         width: 100%;
         height: 600px;
-        background: #fff url('../../../static/img/loader.gif') center center no-repeat;
+        background: #fff url('../../../statics/img/loader.gif') center center no-repeat;
         background-size: 800px auto;
     }
 </style>

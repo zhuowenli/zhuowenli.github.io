@@ -70,7 +70,7 @@
             left: 0;
             height: 305px;
             width: 100%;
-            background: transparent url('../../static/img/footerbar.png') center top no-repeat;
+            background: transparent url('../../statics/img/footerbar.png') center top no-repeat;
             background-size: cover;
         }
         .container{
@@ -87,7 +87,7 @@
             display: inline-block;
             width: 250px;
             height: 60px;
-            background: transparent url('../../static/img/logo-gray.png') center 0 no-repeat;
+            background: transparent url('../../statics/img/logo-gray.png') center 0 no-repeat;
             background-size: 161px 60px;
         }
         &-menu{

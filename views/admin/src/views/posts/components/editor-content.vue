@@ -60,7 +60,7 @@
 <script type="text/javascript">
     import marked from 'marked';
     import _ from 'lodash/function';
-    import hljs from '../../../../static/js/highlight.js';
+    import hljs from '../../../../statics/js/highlight.js';
 
     export default {
         props: {

@@ -6,7 +6,7 @@
                 | Seems like this page doesn't exist. But you can
                 router-link(to="/") go home
                 | .
-            img.cat(src="../../static/img/bg-cat.jpg")
+            img.cat(src="../../statics/img/bg-cat.jpg")
 </template>
 
 <script>

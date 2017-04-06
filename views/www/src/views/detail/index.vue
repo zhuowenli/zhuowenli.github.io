@@ -31,7 +31,7 @@
 
 <script>
     import marked from 'marked';
-    import hljs from '../../../static/js/highlight.js';
+    import hljs from '../../../statics/js/highlight.js';
     import { fetchPostItem } from '../../models/posts';
 
     export default {

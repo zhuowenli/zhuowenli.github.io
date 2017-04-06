@@ -12,10 +12,13 @@
     <meta http-equiv="Content-Security-Policy" content="script-src 'unsafe-inline' 'unsafe-eval' zhuowenli.com *.zhuowenli.com zhuowenli.cn *.zhuowenli.cn zhuowenli.qiniudn.com *.duoshuo.com *.google.com *.google-analytics.com localhost:*; img-src data: *; style-src data: * 'unsafe-inline'; font-src data: *; default-src *">
     <link rel="dns-prefetch" href="//zhuowenli.qiniudn.com">
     <title>卓文理</title>
+    <link rel="stylesheet" href="<%= src %>/style.css">
 </head>
 <body>
     <div id="app"></div>
     <script type="text/javascript" src='http://zhuowenli.qiniudn.com/static/jquery.min.js'></script>
-    <script src="<%= src %>/app.js"></script>
+    <script src="<%= src %>/client.js"></script>
+    <script src="<%= src %>/manifest.js"></script>
+    <script src="<%= src %>/vendor.js"></script>
 </body>
 </html>

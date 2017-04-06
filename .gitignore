@@ -29,7 +29,6 @@ config.codekit
 dump.rdb
 
 # build
-build/
 dist/
 /**/config.js
 *.js.map
@@ -37,3 +36,4 @@ dist/
 qupload.json
 .qshell/
 google*.html
+.build.json
