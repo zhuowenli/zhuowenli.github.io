@@ -52,6 +52,7 @@
                 type="textarea"
                 v-model="input"
                 v-bind:input="{minRows: 23}"
+                placeholder="请输入文章内容"
             )
         .editor-content__preview(v-if="input")
             div(v-html="compiledMarkdown")

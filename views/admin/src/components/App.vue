@@ -1,35 +1,16 @@
 <template lang="jade">
     #app
-        main-header
-        main-side-nav
+        main-aside
         main.main
-            router-view.page
+            router-view.container
 </template>
 
 <script>
-    import MainHeader from './header.vue';
-    import MainSideNav from './side-nav.vue';
+    import MainAside from './aside.vue';
 
     export default {
         components: {
-            MainHeader,
-            MainSideNav
-        },
-        data() {
-            return {
-                loading: false
-            };
-        },
-        created() {
-            this.init();
-        },
-        methods: {
-            load() {
-            },
-            init() {
-                // const that = this;
-                // this.load().then(res => {});
-            }
+            MainAside
         }
     };
 </script>

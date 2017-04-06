@@ -6,6 +6,7 @@
 
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import VueClipboards from 'vue-clipboards';
 import Promise from 'bluebird';
 import elementUI from 'element-ui';
 import 'element-ui/lib/theme-default/index.css';
@@ -14,13 +15,16 @@ import VueFilter from './services/filter';
 import routes from './routes';
 import App from './components/App.vue';
 import Loading from './components/loading/';
-
-Vue.component(Loading.name, Loading);
+import Toolbar from './components/toolbar/';
 
 // Install plugins
 Vue.use(VueRouter);
 Vue.use(VueFilter);
 Vue.use(elementUI);
+Vue.use(VueClipboards);
+
+Vue.component(Loading.name, Loading);
+Vue.component(Toolbar.name, Toolbar);
 
 window.Promise = Promise;
 
