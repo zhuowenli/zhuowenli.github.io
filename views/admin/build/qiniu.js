@@ -1,7 +1,7 @@
 /*
  * @Author: 卓文理
  * @Email: 531840344@qq.com
- * @Date: 2017-04-05 22:07:16
+ * @Date: 2017-02-16 15:56:26
  */
 
 'use strict';
@@ -10,13 +10,13 @@ const path = require('path');
 const qiniu = require('qiniu');
 
 require('dotenv-safe').load({
-    path: path.resolve(__dirname, '../../../', '.env'),
-    sample: path.resolve(__dirname, '../../../', '.env.example')
+    path: path.resolve(__dirname, '../../..', '.env'),
+    sample: path.resolve(__dirname, '../../..', '.env.example')
 });
 
 // 要上传的空间
-const bucket = 'my-static';
-const domain = 'http://st0.meiyaapp.com';
+const bucket = 'zhuowenli';
+const domain = 'http://zhuowenli.qiniudn.com';
 
 // 需要填写你的 Access Key 和 Secret Key
 qiniu.conf.ACCESS_KEY = process.env.QINIU_ACCESS_KEY;
@@ -30,8 +30,8 @@ qiniu.conf.SECRET_KEY = process.env.QINIU_SECRET_KEY;
  */
 module.exports = (localFile, namespaces = '') => {
     // 构建上传策略函数
-    function uptoken(bucket, key) {
-        const putPolicy = new qiniu.rs.PutPolicy(`${bucket}:${key}`);
+    function uptoken(buckets, key) {
+        const putPolicy = new qiniu.rs.PutPolicy(`${buckets}:${key}`);
         return putPolicy.token();
     }
 
@@ -52,4 +52,3 @@ module.exports = (localFile, namespaces = '') => {
         });
     });
 };
-

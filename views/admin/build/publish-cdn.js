@@ -6,28 +6,26 @@
 
 'use strict';
 
-
 const fs = require('fs');
 const path = require('path');
 const color = require('cli-color');
-const axios = require('axios');
 const Promise = require('bluebird');
 
 const timestamp = require('../.build.json').timestamp;
 const qiniu = require('./qiniu');
 
 const distPath = path.resolve(__dirname, '..', 'dist');
-const namespace = `meiya-pro/admin/${timestamp}`;
+const namespace = `admin/${timestamp}`;
 
 function log(text, theme = 'green') {
     console.log(color[theme](text));
 }
 
-function upload(path, namespace) {
-    return qiniu(path, namespace).then(res => {
+function upload(_path, _namespace) {
+    return qiniu(_path, _namespace).then(res => {
         log(`上传成功: ${res.href}`);
     }, err => {
-        err.file = path;
+        err.file = _path;
         console.error(err);
     });
 }
@@ -46,9 +44,10 @@ data.map(file => {
             const staticPath = path.join(filePath, item);
             const space = path.join(namespace, file);
 
-            log(staticPath, 'blue')
+            log(staticPath, 'blue');
 
             promises.push(upload(staticPath, space));
+            return item;
         });
     } else {
         log(`${filePath}`, 'blue');
@@ -63,7 +62,7 @@ Promise.all(promises).then(function() {
 
     const filePath = path.resolve(__dirname, '../../../', '.env')
     const env = fs.readFileSync(filePath).toString();
-    const newEnv = env.replace(/BUILD_ADMIN=(\d+)/, `BUILD_ADMIN=${config.timestamp}`);
+    const newEnv = env.replace(/BUILD_ADMIN=(\d+)/, `BUILD_ADMIN=${timestamp}`);
 
     fs.writeFileSync(filePath, newEnv);
 

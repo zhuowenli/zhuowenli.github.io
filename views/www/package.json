@@ -31,12 +31,12 @@
     "pug": "^2.0.0-beta11",
     "qiniu": "^6.1.13",
     "sass-loader": "^6.0.3",
-    "vbuild": "^6.24.14"
+    "vbuild": "^6.24.14",
+    "vue-template-compiler": "^2.2.6"
   },
   "dependencies": {
     "bluebird": "^3.4.6",
     "highlight.js": "^9.7.0",
-    "jquery": "^3.1.1",
     "lodash": "^4.17.0",
     "marked": "^0.3.6",
     "mo-js": "^0.265.9",
