@@ -30,9 +30,7 @@ module.exports = (options, req) => {
         ],
         webpack(cfg) {
             cfg.resolve.modules.push(path.resolve('src'));
-            cfg.resolve.alias = {
-                vue: 'vue/dist/vue.js'
-            };
+            cfg.resolve.alias['__WEBPACK_HOT_MIDDLEWARE_CLIENT__'] = 'webpack-hot-middleware/client';
             cfg.devtool = 'source-map';
 
             if(!options.dev) {
