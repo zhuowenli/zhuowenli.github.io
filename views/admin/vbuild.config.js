@@ -28,13 +28,27 @@ module.exports = (options, req) => {
             })
         ],
         webpack(cfg) {
-            // cfg.resolve.modules.push(path.resolve(__dirname, 'src'));
+            cfg.resolve.modules.push(path.resolve('src'));
+            cfg.resolve.alias = {
+                vue: 'vue/dist/vue.js'
+            };
             cfg.devtool = 'source-map';
 
             if(!options.dev) {
                 const timestamp = require('./.build.json').timestamp;
-                cfg.output.publicPath = `//st0.meiyaapp.com/meiya-pro/admin/${timestamp}/`;
+                cfg.output.publicPath = `//zhuowenli.qiniudn.com/admin/${timestamp}/`;
             }
+
+            cfg.module.rules.map(rule => {
+                if(rule.loader === 'vue-loader') {
+                    rule.options = {
+                        transformToRequire: {
+                            video: 'poster'
+                        }
+                    };
+                }
+                return rule;
+            });
 
             return cfg;
         },
