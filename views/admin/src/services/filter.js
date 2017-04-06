@@ -11,7 +11,7 @@ import dateFormat from './dateFormat';
  * Vue Filter
  * @param  {Object} Vue Vue主进程
  */
-module.exports = (Vue) => {
+export default function (Vue) {
     /**
      * 日期格式化
      * @param  {Date}   date     日期时间
@@ -24,4 +24,4 @@ module.exports = (Vue) => {
      * @param  {String} format 格式
      */
     Vue.filter('timeFormat', (time, format = 'mm:ss') => timeFormat(time, format));
-};
+}

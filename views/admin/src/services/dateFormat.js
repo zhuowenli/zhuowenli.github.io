@@ -10,7 +10,7 @@
  * @param  {String} format 格式化内容 'yyyy-MM-dd hh:mm:ss'
  * @return {String}        格式化后的时间 '2016-05-04 12:12:00'
  */
-const dateFormat = (time, format = 'yyyy-MM-dd hh:mm:ss') => {
+export default function(time, format = 'yyyy-MM-dd hh:mm:ss') {
     const date = new Date(time);
 
     const map = {
@@ -36,6 +36,4 @@ const dateFormat = (time, format = 'yyyy-MM-dd hh:mm:ss') => {
         }
         return all;
     });
-};
-
-module.exports = dateFormat;
+}

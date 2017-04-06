@@ -13,7 +13,7 @@
                     el-switch(on-text="发布" off-text="隐藏" v-model="postStatus" @change="handleStatusChange")
                 el-form-item(label="文字标签")
                     el-select(v-model="tags" multiple filterable allow-create placeholder="请选择文章标签")
-                        el-option(v-for="item in postTags" v-bind:label="item.name" v-bind:value="item.name")
+                        el-option(v-for="item in postTags" v-bind:key="item.id" v-bind:label="item.name" v-bind:value="item.name")
                 el-form-item(label="发布时间")
                     el-date-picker(type="datetime" placeholder="选择日期时间" align="right" v-model="post.release_at")
                 el-form-item(label="文章封面")

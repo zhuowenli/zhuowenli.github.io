@@ -10,7 +10,7 @@
  * @param  {String} format 时间格式
  * @return {String}        格式化后的字符串
  */
-module.exports = (time, format = '') => {
+export default function(time, format = '') {
     const zero = (n) => {
         if (n > 0) {
             return String(n <= 9 ? `0${n}` : n);

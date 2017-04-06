@@ -49,4 +49,4 @@ String('get, post, put, delete').replace(/\w+/g, (type) => {
     };
 });
 
-module.exports = myXhr;
+export default myXhr;

@@ -4,7 +4,7 @@
  * @desc  : 目录结构
  */
 
-module.exports = [
+export default [
     {
         name: '审核系统',
         model: 'Review',
