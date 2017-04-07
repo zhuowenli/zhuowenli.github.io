@@ -17,4 +17,5 @@
 
 <style lang="scss">
     @import "../stylesheets/app.scss";
+    @import '~element-ui/lib/theme-default/index.css';
 </style>

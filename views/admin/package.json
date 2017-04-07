@@ -26,24 +26,22 @@
     "jade": "^1.11.0",
     "moment": "^2.18.1",
     "node-sass": "^4.5.2",
-    "postcss-pxtorem": "^4.0.0",
     "pug": "^2.0.0-beta11",
-    "qiniu": "^6.1.13",
     "sass-loader": "^6.0.3",
     "vbuild": "^6.24.14",
     "vue-template-compiler": "^2.2.6"
   },
   "dependencies": {
     "bluebird": "^3.4.6",
-    "element-ui": "^1.0.9",
+    "element-ui": "^1.2.8",
     "highlight.js": "^9.7.0",
     "lodash": "^4.16.3",
     "marked": "^0.3.6",
     "material-design-iconfonts": "^1.0.0",
     "sass-core": "^1.0.0",
     "vue": "^2.2.6",
-    "vue-clipboards": "^0.2.5",
-    "vue-router": "^2.0.1",
-    "vuex": "^2.0.0"
+    "vue-clipboards": "^0.2.6",
+    "vue-router": "^2.3.1",
+    "vuex": "^2.2.1"
   }
 }

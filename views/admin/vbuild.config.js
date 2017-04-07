@@ -29,25 +29,12 @@ module.exports = (options, req) => {
         ],
         webpack(cfg) {
             cfg.resolve.modules.push(path.resolve('src'));
-            cfg.resolve.alias['__WEBPACK_HOT_MIDDLEWARE_CLIENT__'] = 'webpack-hot-middleware/client';
-
             cfg.devtool = 'source-map';
 
             if(!options.dev) {
                 const timestamp = require('./.build.json').timestamp;
                 cfg.output.publicPath = `//zhuowenli.qiniudn.com/admin/${timestamp}/`;
             }
-
-            cfg.module.rules.map(rule => {
-                if(rule.loader === 'vue-loader') {
-                    rule.options = {
-                        transformToRequire: {
-                            video: 'poster'
-                        }
-                    };
-                }
-                return rule;
-            });
 
             return cfg;
         },

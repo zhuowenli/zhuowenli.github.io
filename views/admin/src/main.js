@@ -9,7 +9,6 @@ import VueRouter from 'vue-router';
 import VueClipboards from 'vue-clipboards';
 import Promise from 'bluebird';
 import elementUI from 'element-ui';
-import 'element-ui/lib/theme-default/index.css';
 
 import VueFilter from './services/filter';
 import routes from './routes';
@@ -47,5 +46,5 @@ const router = new VueRouter({
 export default new Vue({
     el: '#app',
     router,
-    render: h => h(App)
+    ...App
 });

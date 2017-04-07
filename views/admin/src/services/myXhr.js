@@ -6,6 +6,8 @@
 
 const myXhr = {};
 
+const isDev = !/zhuowenli\.com/.test(window.location.href);
+
 /**
  * 封装 Promise Ajax
  * @param  {Obejct} data ajax参数
@@ -28,13 +30,15 @@ myXhr.ajax = data => new Promise((resolve, reject) => {
  * @param  {String}   datatype 返回数据格式
  */
 String('get, post, put, delete').replace(/\w+/g, (type) => {
-    myXhr[type] = (url, param, cb, datatype) => {
-        let [data, callback, dataType] = [param, cb, datatype];
-
+    myXhr[type] = (url, data, callback, dataType) => {
         if ($.isFunction(data)) {
             dataType = callback;
             callback = data;
             data = undefined;
+        }
+
+        if(!/(https?:)?\/\//.test(url)) {
+            url = isDev ? `//www.zhuowenli.cn${url}` : `//www.zhuowenli.com${url}`;
         }
 
         const params = {
