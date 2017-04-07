@@ -38,7 +38,7 @@ String('get, post, put, delete').replace(/\w+/g, (type) => {
         }
 
         if(!/(https?:)?\/\//.test(url)) {
-            url = isDev ? `//www.zhuowenli.cn${url}` : `//www.zhuowenli.com${url}`;
+            url = isDev ? `//admin.zhuowenli.cn${url}` : `//admin.zhuowenli.com${url}`;
         }
 
         const params = {
