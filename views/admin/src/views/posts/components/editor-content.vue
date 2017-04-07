@@ -54,8 +54,16 @@
                 v-bind:input="{minRows: 23}"
                 placeholder="请输入文章内容"
             )
-        .editor-content__preview(v-if="input")
-            div(v-html="compiledMarkdown")
+        .editor-content__preview(
+            v-if="input"
+            @mouseup="handleMouseUp"
+            @mousedown="handleMouseDown"
+            @mousemove="handleMouseMove"
+        )
+            div(
+                v-html="compiledMarkdown"
+                v-bind:style="{transform: `translateY(${translateY}px)`}"
+            )
 </template>
 
 <script type="text/javascript">
@@ -75,7 +83,12 @@
                     end: 0,
                     text: ""
                 },
+                translateY: 0,
             }
+        },
+        mounted () {
+            // 禁止Chrome图片拖拽
+            document.ondragstart = () => false;
         },
         computed: {
             compiledMarkdown() {
@@ -206,6 +219,20 @@
             update: _.debounce((e) => {
                 this.input = e.target.value;
             }, 300),
+            handleMouseUp() {
+                this.clicked = false;
+            },
+            handleMouseDown(e) {
+                this.clicked = true;
+                this.clickY = e.pageY;
+                this.y = this.translateY;
+            },
+            handleMouseMove(e) {
+                if(this.clicked) {
+                    const y = parseInt((e.pageY - this.clickY) / 2, 10)
+                    this.translateY = this.y + y;
+                }
+            },
         },
         watch: {
             value(val) {
