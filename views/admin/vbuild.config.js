@@ -27,6 +27,10 @@ module.exports = (options, req) => {
                 remove: false
             })
         ],
+        extendWebpack(cfg) {
+            // Disable progress bar while building
+            cfg.plugins.delete('progress-bar');
+        },
         webpack(cfg) {
             cfg.resolve.modules.push(path.resolve('src'));
             cfg.devtool = 'source-map';

@@ -28,6 +28,10 @@ module.exports = (options, req) => {
                 remove: false
             })
         ],
+        extendWebpack(cfg) {
+            // Disable progress bar while building
+            cfg.plugins.delete('progress-bar');
+        },
         webpack(cfg) {
             cfg.resolve.modules.push(path.resolve('src'));
             cfg.resolve.alias['__WEBPACK_HOT_MIDDLEWARE_CLIENT__'] = 'webpack-hot-middleware/client';
