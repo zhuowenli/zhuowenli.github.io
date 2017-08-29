@@ -37,3 +37,4 @@ qupload.json
 .qshell/
 google*.html
 .build.json
+package-lock.json
