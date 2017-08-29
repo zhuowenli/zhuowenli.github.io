@@ -24,8 +24,6 @@
                 div(v-html="post.content")
                 .like-counter
                     like-counter(v-bind:id="post.id" v-model="post.like_count")
-            .comments
-                .ds-thread(v-bind:data-thread-key="post.id" v-bind:data-title="post.title" v-bind:data-url="location.origin + location.pathname")
         loading(v-else)
 </template>
 
@@ -70,8 +68,6 @@
                     this.post = data;
                     this.loading = false;
                     this.bindScrollEvent();
-
-                    setTimeout(() => DUOSHUO.init(), 1e3);
                 });
             },
             markdown(val) {
