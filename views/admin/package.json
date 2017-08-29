@@ -6,7 +6,7 @@
   "scripts": {
     "cnpm-install": "cnpm install",
     "dev": "vbuild -dc",
-    "build": "node build && vbuild -c && node build/publish-cdn.js"
+    "build": "node build && poi build && node build/publish-cdn.js"
   },
   "keywords": [
     "vue",
@@ -26,9 +26,9 @@
     "jade": "^1.11.0",
     "moment": "^2.18.1",
     "node-sass": "^4.5.2",
+    "poi": "^9.3.3",
     "pug": "^2.0.0-beta11",
     "sass-loader": "^6.0.3",
-    "vbuild": "^6.24.14",
     "vue-template-compiler": "^2.2.6"
   },
   "dependencies": {
