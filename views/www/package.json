@@ -4,7 +4,7 @@
   "description": "A simple starter for new vue project.",
   "main": "src/main.js",
   "scripts": {
-    "cnpm-install": "cnpm install",
+    "yarn": "yarn",
     "dev": "vbuild -dc",
     "open": "vbuild -dco",
     "build": "node build && poi build && node build/publish-cdn.js"

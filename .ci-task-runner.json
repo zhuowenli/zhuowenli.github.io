@@ -2,7 +2,7 @@
   "modules": [
     {
       "name": "package.json",
-      "program": "npm install"
+      "program": "npm run yarn"
     },
     {
       "name": "app",
@@ -10,7 +10,7 @@
     },
     {
       "name": "views/admin/package.json",
-      "program": "cd ${moduleDirname} && npm install"
+      "program": "cd ${moduleDirname} && npm run yarn"
     },
     {
       "name": "views/admin",
@@ -18,7 +18,7 @@
     },
     {
       "name": "views/www/package.json",
-      "program": "cd ${moduleDirname} && npm install"
+      "program": "cd ${moduleDirname} && npm run yarn"
     },
     {
       "name": "views/www",
