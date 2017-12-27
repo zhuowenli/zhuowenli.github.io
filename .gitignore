@@ -38,3 +38,4 @@ qupload.json
 google*.html
 .build.json
 package-lock.json
+.vscode-upload.json

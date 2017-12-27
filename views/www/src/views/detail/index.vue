@@ -83,7 +83,7 @@
             },
             bindScrollEvent() {
                 $(window).on('scroll', () => {
-                    const scrollTop = $('body').scrollTop();
+                    const scrollTop = $('html').scrollTop();
 
                     if (scrollTop > 1) {
                         this.trundle = true;
