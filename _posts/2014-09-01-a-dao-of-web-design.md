@@ -165,7 +165,7 @@ p {margin – left: 1.5em}
 
 <p>John Allsopp 是 <a target="_black" href="http://westciv.com/">CSS Editor Style Master</a> 的主要开发人员，<a target="_black" href="http://we05.com/">Web Essentials conference series</a> 的合伙创始人。他是 WaSP CSS 的捍卫者，也是老学院派式的守旧者，从某种意义上讲。</p>
 
- 
+
 
 <p>本文国际来源：<a target="_black" href="http://www.alistapart.com/articles/dao">http://www.alistapart.com/articles/dao</a></p>
 <p>中文翻译来源：<a target="_black" href="http://www.comsharp.com/GetKnowledge/zh-CN/TeamBlogTimothyPage_k660.aspx">COMSHARP CMS</a>（35公里翻译）</p>

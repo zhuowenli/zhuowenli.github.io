@@ -36,7 +36,7 @@ React 的 API 非常少，简单、易懂、易用。在正式开始之前先介
 第一步是渲染虚拟元素（React 元素或 component）。注意，虚拟元素只存在于内存中，必须显式地告诉 React 将它渲染到浏览器上。
 
 ```js
-React.render(<img src='http://www.zhuowenli.com/res/img/icon.png' />, document.body)
+React.render(<img src='http://www.zhuowenli.com/lib/img/icon.png' />, document.body)
 ```
 
 查看代码：[JSBin](http://jsbin.com/detime/6/edit)
@@ -50,7 +50,7 @@ React.render(<img src='http://www.zhuowenli.com/res/img/icon.png' />, document.b
 ```js
 var Photo = React.createClass({
     render: function() {
-        return <img src='http://www.zhuowenli.com/res/img/icon.png' />
+        return <img src='http://www.zhuowenli.com/lib/img/icon.png' />
     }
 });
 
@@ -81,7 +81,7 @@ var Photo = React.createClass({
     }
 });
 
-React.render(<Photo imageURL='http://www.zhuowenli.com/res/img/icon.png' caption='Logo!' />, document.body);
+React.render(<Photo imageURL='http://www.zhuowenli.com/lib/img/icon.png' caption='Logo!' />, document.body);
 ```
 
 查看代码：[JSBin](http://jsbin.com/detime/8/edit)
@@ -129,7 +129,7 @@ var Photo = React.createClass({
     }
 });
 
-React.render(<Photo src='http://www.zhuowenli.com/res/img/icon.png' caption='Logo!') />, document.body);
+React.render(<Photo src='http://www.zhuowenli.com/lib/img/icon.png' caption='Logo!') />, document.body);
 ```
 
 查看代码：[JSBin](http://jsbin.com/detime/3/edit)
@@ -207,15 +207,15 @@ var PhotoGallery = React.createClass({
 
 var data = [
     {
-        url: 'http://www.zhuowenli.com/res/img/icon.png',
+        url: 'http://www.zhuowenli.com/lib/img/icon.png',
         caption: 'Logo!'
     },
     {
-        url: 'http://www.zhuowenli.com/res/img/icon-72.png',
+        url: 'http://www.zhuowenli.com/lib/img/icon-72.png',
         caption: 'Small Logo'
     },
     {
-        url: 'http://www.zhuowenli.com/res/img/icon-152.png',
+        url: 'http://www.zhuowenli.com/lib/img/icon-152.png',
         caption: 'Large Logo'
     }
 ];
