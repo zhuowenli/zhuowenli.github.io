@@ -14,19 +14,18 @@
     {% endif %}
     <meta name="author" content="{{ site.author.name }}">
 
-    <link rel="apple-touch-icon-precomposed" href="{{ site.BASE_PATH }}/res/img/icon.png">
-    <link rel="apple-touch-icon-precomposed" href="{{ site.BASE_PATH }}/res/img/icon-72.png" sizes="72x72" />
-    <link rel="apple-touch-icon-precomposed" href="{{ site.BASE_PATH }}/res/img/icon-76.png" sizes="76x76" />
-    <link rel="apple-touch-icon-precomposed" href="{{ site.BASE_PATH }}/res/img/icon-114.png" sizes="114x114" />
-    <link rel="apple-touch-icon-precomposed" href="{{ site.BASE_PATH }}/res/img/icon-120.png" sizes="120x120" />
-    <link rel="apple-touch-icon-precomposed" href="{{ site.BASE_PATH }}/res/img/icon-152.png" sizes="152x152" />
-    <link href="{{ site.BASE_PATH }}/res/img/icon.png" rel="Shortcut Icon" type="image/x-icon"/>
+    <link rel="apple-touch-icon-precomposed" href="{{ site.BASE_PATH }}/lib/img/icon.png">
+    <link rel="apple-touch-icon-precomposed" href="{{ site.BASE_PATH }}/lib/img/icon-72.png" sizes="72x72" />
+    <link rel="apple-touch-icon-precomposed" href="{{ site.BASE_PATH }}/lib/img/icon-76.png" sizes="76x76" />
+    <link rel="apple-touch-icon-precomposed" href="{{ site.BASE_PATH }}/lib/img/icon-114.png" sizes="114x114" />
+    <link rel="apple-touch-icon-precomposed" href="{{ site.BASE_PATH }}/lib/img/icon-120.png" sizes="120x120" />
+    <link rel="apple-touch-icon-precomposed" href="{{ site.BASE_PATH }}/lib/img/icon-152.png" sizes="152x152" />
+    <link href="{{ site.BASE_PATH }}/lib/img/icon.png" rel="Shortcut Icon" type="image/x-icon"/>
 
     <title>{% if page.title %}{{ page.title }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}</title>
 
     {% if page.css-link %}
-    <link rel="stylesheet" href="{{ site.BASE_PATH }}/res/css/demo/{{ page.css-link }}">
+    <link rel="stylesheet" href="{{ site.BASE_PATH }}/lib/static/{{ page.css-link }}">
     {% endif %}
-    <link rel="stylesheet" href="{{ site.BASE_PATH }}/res/css/style.css">
-    <script type="text/javascript" src="/res/js/jquery-2.1.1.min.js"></script>
+    <link rel="stylesheet" href="{{ site.BASE_PATH }}/lib/app.css">
 </head>
