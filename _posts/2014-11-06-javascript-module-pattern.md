@@ -101,5 +101,5 @@ var jspy = (function(){
 </ul>
 <hr>
 <p>原文：《<a href="http://javascriptplayground.com/blog/2012/04/javascript-module-pattern/"><span style="color: #000000;">The JavaScript Module Pattern</span></a>》</p>
-<p>译者：<a href="http://www.zwlme.com">卓文理</a></p>
-<p><span style="color: #404040;">如需转载烦请注明出处：<a href="http://www.zwlme.com">www.zwlme.com</a></span></p>
+<p>译者：<a href="http://www.zhuowenli.com">卓文理</a></p>
+<p><span style="color: #404040;">如需转载烦请注明出处：<a href="http://www.zhuowenli.com">www.zhuowenli.com</a></span></p>

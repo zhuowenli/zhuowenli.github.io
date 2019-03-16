@@ -32,7 +32,7 @@ img: 21
 	left: 0;
 	right: 0;
 	bottom: -2px;
-	background: #333; 
+	background: #333;
 	visibility: hidden;
 
 	/* 缩放 */
@@ -61,4 +61,4 @@ img: 21
 }
 ```
 
-大功告成。去[首页](http://www.zwlme.com)看看效果吧！
+大功告成。去[首页](http://www.zhuowenli.com)看看效果吧！

@@ -63,7 +63,7 @@ function handler(e){
 e.target.removeEventListenter(e.type,auguments.callee);
 ```
 <p>
-	将会在它第一次调用时移除事件处理器。无论你的事件类型以及处理器名称是什么都没关系，它甚至可以是一个行内匿名函数。	
+	将会在它第一次调用时移除事件处理器。无论你的事件类型以及处理器名称是什么都没关系，它甚至可以是一个行内匿名函数。
 </p>
 
 <p>
@@ -115,6 +115,6 @@ function handler(e) {
 
 原文：《<a href="http://www.sitepoint.com/create-one-time-events-javascript/"><span style="color: #000000;">How to Create One-Time Events in JavaScript</span></a>》
 
-译者：<a href="http://www.zwlme.com">卓文理</a>
+译者：<a href="http://www.zhuowenli.com">卓文理</a>
 
-<span style="color: #404040;">如需转载烦请注明出处：<a href="http://www.zwlme.com">www.zwlme.com</a></span>
+<span style="color: #404040;">如需转载烦请注明出处：<a href="http://www.zhuowenli.com">www.zhuowenli.com</a></span>

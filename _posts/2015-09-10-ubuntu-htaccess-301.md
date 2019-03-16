@@ -25,7 +25,7 @@ A        @       [:服务器ip地址]  // 将域名解析为zhuowenli.com（不�
 
 // zwlme.com
 记录类型  主机记录  记录值
-A        www     [:服务器ip地址]  // 将域名解析为www.zwlme.com
+A        www     [:服务器ip地址]  // 将域名解析为www.zhuowenli.com
 A        @       [:服务器ip地址]  // 将域名解析为zwlme.com（不带www）
 ```
 ##服务配置
@@ -53,7 +53,7 @@ vim .htaccess
 #启动重写引擎
 RewriteEngine On
 
-#匹配以www.zwlme.com、zwlme.com、或者zhuowenli.com开头的域名
+#匹配以www.zhuowenli.com、zwlme.com、或者zhuowenli.com开头的域名
 RewriteCond %{http_host} ^(www.)?zwlme.com$ [NC,OR]
 RewriteCond %{http_host} ^zhuowenli.com$ [NC]
 
@@ -99,8 +99,8 @@ OK！配置完毕，接下来重启下Apache服务就行啦
 ```bash
 sudo /etc/init.d/apache2 restart
 ```
-最后，你就会发现：访问[zwlme.com](http://zwlme.com)、[www.zwlme.com][zwlme]或者[zhuowenli.com](http://zhuowenli.com)的时候，域名都会自动跳转到[www.zhuowenli.com][zhuowenli]这个主域名了！。
+最后，你就会发现：访问[zwlme.com](http://zwlme.com)、[www.zhuowenli.com][zwlme]或者[zhuowenli.com](http://zhuowenli.com)的时候，域名都会自动跳转到[www.zhuowenli.com][zhuowenli]这个主域名了！。
 
-[zwlme]:http://www.zwlme.com "http://www.zwlme.com"
+[zwlme]:http://www.zhuowenli.com "http://www.zhuowenli.com"
 [zhuowenli]:http://www.zhuowenli.com "http://www.zhuowenli.com"
 [DigitalOcean]:https://www.digitalocean.com/?refcode=6ecb75692729 "DigitalOcean"

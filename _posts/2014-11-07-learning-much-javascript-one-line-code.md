@@ -50,8 +50,8 @@ say.call('hola','Mike'); // 打印 'hola Mike'
 <p>你也可以将这种方法有用在<code>arguments</code>对象上</p>
 
 ```javascript
-function example( arg1, arg2, arg3 ) { 
-	return Array.prototype.slice.call(arguments, 1); // Returns [arg2, arg3] 
+function example( arg1, arg2, arg3 ) {
+	return Array.prototype.slice.call(arguments, 1); // Returns [arg2, arg3]
 }
 ```
 <p>在Addy的代码中，使用了<code>[].forEach.call</code>而不是<code>Array.prototype.forEach.call</code>，二者等价，但是前者可以节省几个字节。</p>
@@ -151,6 +151,6 @@ var a = 12.34, // ~~a = 12
 
 原文：《<a href="http://arqex.com/939/learning-much-javascript-one-line-code"><span style="color: #000000;">Learning much javascript from one line of code</span></a>》
 
-译者：<a href="http://www.zwlme.com">卓文理</a>
+译者：<a href="http://www.zhuowenli.com">卓文理</a>
 
-<span style="color: #404040;">如需转载烦请注明出处：<a href="http://www.zwlme.com">www.zwlme.com</a></span>
+<span style="color: #404040;">如需转载烦请注明出处：<a href="http://www.zhuowenli.com">www.zhuowenli.com</a></span>
