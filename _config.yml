@@ -1,5 +1,5 @@
 BASE_PATH:
-SITE_PATH: http://www.zwlme.com
+SITE_PATH: http://www.zhuowenli.com
 qiniu: http://zhuowenli.qiniudn.com
 
 paginate: 30 # pagination based on number of posts
@@ -16,7 +16,7 @@ title: 卓文理
 
 author:
   name: 卓文理
-  email: 531840344@qq.com
+  email: zhuowenligg@gmail.com
   github: zhuowenli
   twitter: vnnlee zhuo
   bio: 我在这里，高清有码！

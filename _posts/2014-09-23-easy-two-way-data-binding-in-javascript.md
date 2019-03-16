@@ -221,6 +221,6 @@ function User(uid) {
 
 原文：《<a href="http://www.lucaongaro.eu/blog/2012/12/02/easy-two-way-data-binding-in-javascript/"><span style="color: #000000;">Easy Two-Way Data Binding in JavaScript</span></a>》
 
-译者：<a href="http://www.zwlme.com">卓文理</a>
+译者：<a href="http://www.zhuowenli.com">卓文理</a>
 
-<span style="color: #404040;">如需转载烦请注明出处：<a href="http://www.zwlme.com">www.zwlme.com</a></span>
+<span style="color: #404040;">如需转载烦请注明出处：<a href="http://www.zhuowenli.com">www.zhuowenli.com</a></span>

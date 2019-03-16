@@ -3,15 +3,15 @@
 //
 // @description: 使用scss编译整理css样式表。
 // @author: http://www.kyp.com
-// @tipe: 最后由卓文理编译整理，531840344@qq.com
+// @tipe: 最后由卓文理编译整理，zhuowenligg@gmail.com
 // @update: 2014.02
 // @version:  v1.0
 //
-//-----------------------------------------------------  
+//-----------------------------------------------------
 // mixin scss
 // 包括常用的mixin，%及@function
 // mixin，通过@include调用，样式通过拷贝的方式使用，尤其适用于传递参数
-// %，通过@extend调用，样式通过组合申明的方式使用，适用于不传参数的代码片段  
+// %，通过@extend调用，样式通过组合申明的方式使用，适用于不传参数的代码片段
 // @function，返回一个值，用于调用
 //-----------------------------------------------------
 
@@ -143,7 +143,7 @@
   text-shadow: none;
   border:0 none;
   color: transparent; //2
-  @if $lte7{ 
+  @if $lte7{
     _overflow:hidden; //3
     _font-size: 10px; //3
     _line-height: $height; //3
@@ -158,7 +158,7 @@
 %ellipsis-basic{
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap; 
+  white-space: nowrap;
 }
 @mixin ellipsis($width:100%) {
   @extend %ellipsis-basic;
@@ -190,17 +190,17 @@
     border-bottom:$size solid $borderColor;
     border-left:$size dashed transparent;
     border-right:$size dashed transparent;
-  } 
+  }
   @else if $direction == right {
     border-left:$size solid $borderColor;
     border-top:$size dashed transparent;
     border-bottom:$size dashed transparent;
-  } 
+  }
   @else if $direction == bottom {
     border-top:$size solid $borderColor;
     border-left:$size dashed transparent;
     border-right:$size dashed transparent;
-  } 
+  }
   @else if $direction == left {
     border-right:$size solid $borderColor;
     border-top:$size dashed transparent;
@@ -237,7 +237,7 @@
 @mixin horizontal-line($border:1px dashed $gray, $padding:10px){
   border-bottom:$border;
   padding-top:$padding;
-  padding-bottom:$padding;  
+  padding-bottom:$padding;
 }
 %horizontal-line{
   @include horizontal-line;
@@ -294,7 +294,7 @@
 
 
 
-// Retina images. 
+// Retina images.
 // @include image-2x("../images/img-2x.png", 200px, 200px);
 // Use with care - http://37signals.com/svn/posts/3271-easy-retina-ready-images-using-scss
 @mixin image-2x($url, $width, $height) {
@@ -320,7 +320,7 @@
 
 
 //function
-//-----------------------------------------------------  
+//-----------------------------------------------------
 
 // px转em
 @function pxToEm($px, $base: 16) {
@@ -340,7 +340,7 @@
 
 
 // 类型: 自定义
-// 说明: 
+// 说明:
 //-----------------------------------------------------
 
 // 行数限制

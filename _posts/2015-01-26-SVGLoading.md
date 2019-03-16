@@ -9,7 +9,7 @@ demo-link: codebase/SVGLoading
 demo-source: SVGLoading.zip
 ---
 
-上文([SVG动画：弹性按钮](http://www.zwlme.com/codebase/SVGButton.html))给大家讲了SVG制作弹性按钮。我今天来继续给大家讲讲[本站](http://www.zwlme.com)的loading动画是怎么实现的。没错，又是用SVG。
+上文([SVG动画：弹性按钮](http://www.zhuowenli.com/codebase/SVGButton.html))给大家讲了SVG制作弹性按钮。我今天来继续给大家讲讲[本站](http://www.zhuowenli.com)的loading动画是怎么实现的。没错，又是用SVG。
 
 今天我们将教大家如何用SVG，CSS动画以及JavaScript来创建一个简单页面预加载(preloading)效果。对一个网站来说，页面加载是至关重要的，而加载动画则可以让访客在等待中不至于那么无聊。这个教程的效果是源自于[Fontface Ninja](http://fontface.ninja/)这个网站。最初在一个页面显示logo图标和一个圆形的进度条，当进度条动画加载完全后，整个`div#loading`页面向上移动，同时把内容显示出来。
 
