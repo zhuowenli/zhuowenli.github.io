@@ -53,7 +53,7 @@
     "axios": "^0.18.0",
     "bluebird": "^3.5.3",
     "gsap": "^2.0.2",
-    "jquery": "^3.3.1",
+    "jquery": "^3.4.0",
     "postprocessing": "^5.5.0",
     "three": "^0.100.0",
     "three.meshline": "^1.2.0"
