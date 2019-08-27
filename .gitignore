@@ -25,3 +25,4 @@ npm-debug.log
 config.codekit
 
 dump.rdb
+package-lock.json
