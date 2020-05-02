@@ -12,7 +12,7 @@ tags: [ubuntu, 301, htaccess, lamp]
 
 今天博主就来给大家分享如何使用`.htaccess`实现301重定向。
 
-##绑定域名
+## 绑定域名
 
 首先，我们需要把两个域名都通过A记录解析到服务器上。
 
@@ -28,13 +28,14 @@ A        @       [:服务器ip地址]  // 将域名解析为zhuowenli.com（不�
 A        www     [:服务器ip地址]  // 将域名解析为www.zhuowenli.com
 A        @       [:服务器ip地址]  // 将域名解析为zwlme.com（不带www）
 ```
-##服务配置
+
+## 服务配置
 
 博主在购买服务器的时候，选择了有lamp的镜像，所以只要配置下Apache，把网站根目录指向博客根目录下的`_site`文件就行了，具体过程：
 
 略。
 
-##设置重定向
+## 设置重定向
 
 在网站根目录下创建`.htaccess`文件，然后编辑该文件：
 
@@ -63,7 +64,7 @@ RewriteRule ^(.*)$ http://www.zhuowenli.com/$1 [R=301,L]
 
 然后，还没完呢！
 
-##重新配置Apache（基于LAMP）
+## 重新配置Apache（基于LAMP）
 
 编辑配置文件：
 
@@ -99,6 +100,7 @@ OK！配置完毕，接下来重启下Apache服务就行啦
 ```bash
 sudo /etc/init.d/apache2 restart
 ```
+
 最后，你就会发现：访问[zwlme.com](http://zwlme.com)、[www.zhuowenli.com][zwlme]或者[zhuowenli.com](http://zhuowenli.com)的时候，域名都会自动跳转到[www.zhuowenli.com][zhuowenli]这个主域名了！。
 
 [zwlme]:http://www.zhuowenli.com "http://www.zhuowenli.com"

@@ -11,7 +11,7 @@ PhoneGap的大量操作都是通过响应事件来完成，在PhoneGap的整个�
 
 通过事件处理，可以获取设备的信息，并根据这些信息来实现一个应用程序。
 
-##PhoneGap基本开发
+## PhoneGap基本开发
 
 一旦创建了工程，PhoneGap的开发就变得非常简单，只需要编写 www 目录下的index.html文件就可以进行开发了。对于Android工程，这个目录的位置在F:\kypapp\platforms\android\assets\www下。
 
@@ -23,7 +23,7 @@ phonegap.js同cordova.js是一致的，可以引用任意一个。还有cordova_
 
 其他不需要的资源就可以删掉了。
 
-##事件处理
+## 事件处理
 
 PhoneGap的整个生命周期可能产生下面所列的事件，这些事件默认是内置的，无需安装插件。
 
@@ -40,11 +40,11 @@ PhoneGap的整个生命周期可能产生下面所列的事件，这些事件默
 
 但是，并不是所有的设备都支持这些事件，有一些可能是设备不支持，或者有的手机没有搜索、通话等按钮。
 
-###内核事件
+### 内核事件
 
 内核事件是设备运行时产生的包括`deviceready`、`pause`、`resume`事件。
 
-####deviceready事件
+#### deviceready事件
 
 只有当PhoneGap被完全加载才会触发该事件，对于任何一个PhoneGap应用程序来说，这个事件都十分重要，是一定会使用的。
 
@@ -70,21 +70,21 @@ function onDeviceReady() {
         <div class="app"></div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript">
-	        // 当DOM加载完毕，注册deviceready事件监听
-	        function onLoad() {
-	        	document.addEventListener("deviceready", onDeviceReady, false);
-	        }
-	        // 注册事件监听
-	        function onDeviceReady() {
-	        	//...
-	        }
-	        onLoad();
+         // 当DOM加载完毕，注册deviceready事件监听
+         function onLoad() {
+          document.addEventListener("deviceready", onDeviceReady, false);
+         }
+         // 注册事件监听
+         function onDeviceReady() {
+          //...
+         }
+         onLoad();
         </script>
     </body>
 </html>
 ```
 
-####pause和resume事件
+#### pause和resume事件
 
 当程序被放到后台的时候执行pause事件，当程序从后台恢复到前台执行的时候将触发resume事件。
 
@@ -92,29 +92,29 @@ function onDeviceReady() {
 
 ```js
 function onLoad() {
-	// 当DOM加载完毕，注册deviceready事件监听
-	document.addEventListener("deviceready", onDeviceReady, false);
+ // 当DOM加载完毕，注册deviceready事件监听
+ document.addEventListener("deviceready", onDeviceReady, false);
 }
 function onDeviceReady(){
-	// 注册事件监听
-	document.addEventListener("pause", onPause, false);
-	document.addEventListener("resume", onResume, false);
+ // 注册事件监听
+ document.addEventListener("pause", onPause, false);
+ document.addEventListener("resume", onResume, false);
 }
 // 处理pause事件
 function onPause(){
-	console.log("-------------------pause-------------------");
+ console.log("-------------------pause-------------------");
 }
 // 处理resume事件
 function onResume(){
-	console.log("-------------------resume-------------------");
+ console.log("-------------------resume-------------------");
 }
 ```
 
-###侦听设备按键
+### 侦听设备按键
 
 一些设备带有功能键，如标准安卓设备就带有菜单键、返回键、搜索键等。在安卓4.0后可以取消上下左右、通话、搜索等按键。PhoneGap应用程序可以检测这些按键是否被点击，通过事件处理程序就可以自定义对这些操作的响应。
 
-####backbutton事件
+#### backbutton事件
 
 当用户点击后退按键时触发该事件，注意不是所有设备都提供了返回按键，因此一些设备不支持该事件。
 
@@ -128,7 +128,7 @@ document.addEventListener("backbutton", yourCallbackFunction, false);
 
 iOS没有后退键，所以不支持该程序。
 
-####menubutton事件
+#### menubutton事件
 
 当用户点击菜单按键时触发该事件，注意不是所有设备都提供了返回按键，因此一些设备不支持该事件。
 
@@ -138,7 +138,7 @@ document.addEventListener("menubutton", yourCallbackFunction, false);
 
 iOS没有菜单键，所以不支持该程序。
 
-####searchbutton事件
+#### searchbutton事件
 
 当用户点击搜索按键时触发该事件，注意不是所有设备都提供了返回按键，因此一些设备不支持该事件。
 
@@ -148,7 +148,7 @@ document.addEventListener("searchbutton", yourCallbackFunction, false);
 
 iOS没有搜索键，所以不支持该程序。
 
-####startcallbutton事件
+#### startcallbutton事件
 
 当用户点击通话按键时触发该事件，注意不是所有设备都提供了返回按键，因此一些设备不支持该事件。
 
@@ -158,7 +158,7 @@ document.addEventListener("startcallbutton", yourCallbackFunction, false);
 
 注意，该事件仅适用于BlackBerry(OS10.0+)，Android和iOS不支持该事件。
 
-####endcallbutton事件
+#### endcallbutton事件
 
 当用户点击挂机按键（即通话结束键）时触发该事件，注意不是所有设备都提供了返回按键，因此一些设备不支持该事件。
 
@@ -168,7 +168,7 @@ document.addEventListener("endcallbutton", yourCallbackFunction, false);
 
 注意，该事件仅适用于BlackBerry(OS10.0+)，Android和iOS不支持该事件。
 
-####volumeupbutton事件
+#### volumeupbutton事件
 
 当用户点击调高音量按键时触发该事件，注意不是所有设备都提供了返回按键，因此一些设备不支持该事件。
 
@@ -178,7 +178,7 @@ document.addEventListener("volumeupbutton", yourCallbackFunction, false);
 
 注意，该事件仅适用于BlackBerry(OS10.0+)，Android和iOS不支持该事件。
 
-####volumedownbutton事件
+#### volumedownbutton事件
 
 当用户点击调低音量按键时触发该事件，注意不是所有设备都提供了返回按键，因此一些设备不支持该事件。
 
@@ -189,7 +189,6 @@ document.addEventListener("volumedownbutton", yourCallbackFunction, false);
 注意，该事件仅适用于BlackBerry(OS10.0+)，Android和iOS不支持该事件。
 
 ----------
-
 
 > 相关文章:
 >

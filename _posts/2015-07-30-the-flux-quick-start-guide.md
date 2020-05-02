@@ -13,19 +13,19 @@ tags: [javascript, react, flux]
   </path>
 </svg>
 
-##概念
+## 概念
 
 Flux 是用来构建用户端 Web 应用的架构，它包含三个核心概念：`Views`, `Stores` 和 `Dispatcher`，还有一些次级概念：`Actions`, `Action Types`, `Action Creators` 和 `Web Utils`。
 
 请耐心学习以下概念定义然后再看后面的教程。当你准备开始开发 Flux 应用之前，建议你再回过头来看一遍基本概念。
 
-###核心概念
+### 核心概念
 
 - `Views` 即 React 组件。它们负责渲染界面，捕获用户事件，从 Stores 获取数据。
 - `Stores` 用于管理数据。 一个 Store 管理一个区域的数据，当数据变化时它负责通知 Views。
 - `Dispatcher` 接收新数据然后传递给 Stores，Stores 更新数据并通知 Views。
 
-###次级概念
+### 次级概念
 
 - `Actions` 是传递给 Dispatcher 的对象，包含新数据和 Action Type。
 - `Action Types` 指定了可以创建哪些 Actions，Stores 只会更新特定 Action Type 的 Actions 触发的数据。
@@ -36,8 +36,7 @@ Flux 是用来构建用户端 Web 应用的架构，它包含三个核心概念�
 
 提示：这里省略了 `constants` 和 `Web Utils`，是为了更快速简单地理解 Flux。更深入阅读 [官方示例](https://github.com/facebook/flux/tree/master/examples) 能很好地补充这些知识。
 
-
-##Views
+## Views
 
 部署好 [开发代码](https://github.com/zhuowenli/flux-starter-kit) 后，你会看到在 `js` 目录下有个 `app.js` 文件。
 
@@ -96,7 +95,7 @@ module.exports = CommentForm;
 
 当表单提交时 `createComment` 函数传递了 `comment` 对象，它的值是根据 `textarea` 的值构造出来的。让我们开发这个 Action Creator 来接收 `comment`。
 
-##Actions
+## Actions
 
 在 `actions` 目录里创建 `comment-action-creators.js 文件。
 
@@ -122,7 +121,7 @@ module.exports = {
 
 提示：也可以把这些逻辑写在 View 里面 - 直接跟 Dispatcher 通信，但最佳实践是用 Action Creator。它能降低代码的耦合度并给 Dispatcher 提供一个单独的接口。
 
-##Dispatcher
+## Dispatcher
 
 在 `dispatcher` 目录下创建 `app-dispatcher.js` 文件。
 
@@ -136,7 +135,7 @@ Flux 库的 Dispatcher 提供了一个 `dispatch` 函数，将接收到的 Actio
 
 提示：这里没有 Dispatcher 的具体实现，源码在[这里](https://github.com/facebook/flux/blob/master/src/Dispatcher.js#L181)。
 
-##Stores
+## Stores
 
 在 `stores` 目录下创建一个 `comment-store.js` 文件。
 
@@ -248,7 +247,7 @@ module.exports = Comments;
 
 最后 `componentWillUnmount` 将 `onChange` 事件监听从 `Store` 移除。
 
-##结语
+## 结语
 
 现在这个 Flux 应用可以运行起来了，同时我们也学习了 Flux 架构的核心概念：`Views`, `Stores` 和 `Dispatcher`。
 

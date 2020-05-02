@@ -12,7 +12,7 @@ tags: [github, github pages, jekyll]
 
 但是GitHub提供的主页实际上是基于GitHub的源代码实现的，所以只支持上传静态的网页，不能在上面创建真正的博客系统。不过，万幸的是，GitHub支持一种叫[jekyll](http://jekyllcn.com/)的静态页面模板引擎，也就是说只要上传符合jekyll规范的文件，GitHub会用这种模板引擎为你转化静态页面和网站。
 
-##关于jekyll
+## 关于jekyll
 
 这个jekyll到底是什么？
 
@@ -26,6 +26,7 @@ jekyll本身基于Ruby，也可以看成是一种模板引擎[liquid](https://gi
 类似其他的模板引擎一样，**标记**是模板引擎解析的关键，liquid设计了如下两种标记：
 
 {% raw %}
+
 - `{{ }}`：此标记表征的是将其中的变量转化成文本
 - `{% %}`：此标记用于包含控制流关键字，比如：`{% if %}`、`{% for x in xx %}`
 {% endraw %}
@@ -36,7 +37,7 @@ jekyll本身基于Ruby，也可以看成是一种模板引擎[liquid](https://gi
 
 更多内容可以去阅读jekyll的[帮助文档][jekyllcn]，或者GitHub
 
-##关于GitHub-Pages
+## 关于GitHub-Pages
 
 github-pages是一个免费的静态网站托管平台，由github提供，它具有以下几个特点：
 
@@ -49,15 +50,13 @@ github-pages是一个免费的静态网站托管平台，由github提供，它�
 
 github-pages**仅仅**为我们提供了**静态页面的托管**，不要说不能用wordpress，连基本的评论，访问统计都得自己想办法（幸好都有解决方案，接下去我们会慢慢介绍）。
 
-
-###创建项目仓库
+### 创建项目仓库
 
 在创建博客之前，还需要用自己的帐号创建一个项目。在Git中，项目被称为仓库(Repository)，仓库顾名思义，当然可以包含代码或者非代码。将来我们的网页或者模板实际上都是保存在这个仓库中的。
 
 登录后，访问[https://github.com/new](https://github.com/new)，创建仓库。
 
-
-###项目主页
+### 项目主页
 
 **项目主页**的目的是为项目提供一个展示功能的网页，方便项目推广。但是也可以用来做个人博客。对于博客来说，博客的整个网站目录必须是项目仓库的`gh-pages`分支。
 
@@ -69,7 +68,7 @@ github-pages**仅仅**为我们提供了**静态页面的托管**，不要说不
 
 手动创建分支的方法，也很简单，可以参考[Creating Project Pages manually](https://help.github.com/articles/creating-project-pages-manually)
 
-###个人主页
+### 个人主页
 
 每个帐号只能有一个仓库来存放个人主页，而且仓库的名字必须是`username/username.github.io`，这是特殊的命名约定。你可以通过`http://username.github.io`来访问你的个人主页。
 
@@ -77,7 +76,7 @@ github-pages**仅仅**为我们提供了**静态页面的托管**，不要说不
 
 例如本站项目地址：[zhuowenli.github.io][zhuowenli.github.io]
 
-##本地环境搭建
+## 本地环境搭建
 
 创建了仓库后，我们就需要管理它，无论是管理本地仓库还是远程仓库都需要Git客户端。Git客户端实际上十分强大，它本身就可以offline的创建本地仓库，而本地仓库和远程仓库之间的同步也是通过Git客户端完成的。
 
@@ -86,6 +85,7 @@ MAC下只要两行命令就可以安装好Git。打开终端，输入：
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
+
 Homebrew可以很方便的在OS X下安装一些工具包。
 
 ```bash
@@ -94,7 +94,7 @@ brew install git
 
 这里省略了windows下安装和使用Git客户端的基本技巧，你可以访问 [这个网站](http://git-scm.com/ "http://git-scm.com/") 下载Git客户端。具体步骤请自行谷歌百度。
 
-###安装Ruby
+### 安装Ruby
 
 jekyll本身基于Ruby开发，因此，想要在本地构建一个测试环境需要具有Ruby的开发和运行环境。
 
@@ -108,17 +108,17 @@ _附：[ruby安装说明](http://www.ruby-lang.org/zh_cn/downloads/)_
 
 如果想要快速体验ruby开发，可以参考：[20分钟体验 Ruby](http://www.ruby-lang.org/zh_cn/documentation/quickstart/)
 
-###安装Bundle
+### 安装Bundle
 
 Ruby Rails 3 中引入Bundle来管理项目中所有gem依赖，该命令只能在一个含有Gemfile的目录下执行。这里使用Bundle，可以很方便的帮我们安装好那些乱七八糟的环境。
 
 打开你安装好的`Git Bash`，或者MAC下的`终端`。然后直接使用下面命令安装即可：
 
 ```bash
-$ gem install bundle
+gem install bundle
 ```
 
-###Gemfile和Bundle安装
+### Gemfile和Bundle安装
 
 在根目录下创建一个叫`Gemfile`的文件，注意没有后缀，打开文件，输入以下内容：
 
@@ -130,34 +130,33 @@ gem 'github-pages'
 保存后，在命令行中执行
 
 ```bash
-$ bundle install
+bundle install
 ```
 
 该命令会根据当前目录下的Gemfile，安装所需要的所有软件。这一步所安装的东西，可以说跟github本身的环境是完全一致的，所以可以确保本地如果没有错误，上传后也不会有错误。而且可以在将来使用下面命令，随时更新环境，十分方便。
 
 ```bash
-$ bundle update
+bundle update
 ```
 
-###项目展示
+### 项目展示
 
 接下来我们把，创建好的GitHub仓库**clone**到本地，例如：
 
 ```bash
-$ git clone https://github.com/zhuowenli/zhuowenli.github.io.git
+git clone https://github.com/zhuowenli/zhuowenli.github.io.git
 ```
 
 进入clone到本地的这个文件夹
 
 ```bash
-$ cd zhuowenli.github.io
+cd zhuowenli.github.io
 ```
-
 
 使用下面命令，就可以启动本地服务：
 
 ```bash
-$ bundle exec jekyll serve
+bundle exec jekyll serve
 ```
 
 ![][jekyll]
@@ -175,7 +174,6 @@ jekyll此时会在localhost的4000端口监听http请求，用浏览器访问[ht
 [localhost:4000]:{{site.qiniu}}/2015/08/06/localhost.png
 [themes]:{{site.qiniu}}/2015/08/06/themes.png
 [jekyll]:{{site.qiniu}}/2015/08/06/jekyll.png
-
 
 [localhost]:http://localhost:4000/ "http://localhost:4000/"
 [jekyllcn]:http://jekyllcn.com/ "http://jekyllcn.com/"

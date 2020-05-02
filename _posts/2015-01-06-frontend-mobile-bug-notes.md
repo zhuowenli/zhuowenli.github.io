@@ -9,17 +9,17 @@ img: 23
 
 记录各种奇葩问题。
 
-##IOS
+## IOS
 
-###弹窗高度下榻问题
+### 弹窗高度下榻问题
 
-####表现形式
+#### 表现形式
 
 如下弹窗，最外层竖直水平居中。内容动态加载。
 
 ```html
 <section id="pop" class="pop">
-	<!-- add more -->
+ <!-- add more -->
 </section>
 ```
 
@@ -36,7 +36,7 @@ openPop();  // 显示弹窗
 
 ![][img1]
 
-####BUG原因
+#### BUG原因
 
 在iphone下，点击按钮触发弹窗渲染时。会先渲染最外层的`section#pop`，这时候`section#pop`是出于居中状态，并且高度为0。然后开始往`section#pop`里面填充内容。
 
@@ -44,7 +44,7 @@ openPop();  // 显示弹窗
 
 但是，里面的链接，按钮等的位置其实是在整体居中的位置。而不是我们看上去的位置。所以点击按钮或链接会失效。
 
-####解决办法
+#### 解决办法
 
 可以连同最外层的`section#pop`一起填充进去。例如：
 
@@ -59,13 +59,13 @@ openPop();  // 显示弹窗
 
 ### 移动端:active伪类事件失效
 
-####BUG原因
+#### BUG原因
 
 Safari Mobile 默认不使用`:active` 状态，除非元素上或`<body>`上有一个`touchstart` 事件处理器。
 
 相关链接：[https://developer.mozilla.org/zh-CN/docs/Web/CSS/%3Aactive](https://developer.mozilla.org/zh-CN/docs/Web/CSS/%3Aactive)
 
-####解决办法
+#### 解决办法
 
 ```
 document.body.addEventListener('touchstart', function () {});
@@ -73,28 +73,23 @@ document.body.addEventListener('touchstart', function () {});
 
 -----------------
 
+## Android
 
-##Android
+### 字体图标显示不出来
 
-###字体图标显示不出来
-
-####表现形式
+#### 表现形式
 
 字体图标在小米2的QQ浏览器上显示不出来，如图：
 
 ![][img2]
 
-####BUG原因
+#### BUG原因
 
 部分手机浏览器不支持 **&#xe + 3位16进制** 的Unicode字符，如`&#xe61a;`
 
-####解决办法
+#### 解决办法
 
 把字体图标编码制作成 **&#xe + 4位16进制** 即可，如`&#xe601a`;
-
-
-
-
 
 [img1]: {{ site.qiniu }}/2015/01/06/1.png
 [img2]: {{ site.qiniu }}/2015/01/06/2.png

@@ -15,7 +15,7 @@ img: 30
 - batterystatus   当程序侦测到电量至少发生1%的改变时，触发该事件
 - batterylow      当程序侦测到电量降低到一个较低水平值时，触发该事件
 
-##插件安装
+## 插件安装
 
 电量侦测插件的完全限定名是`org.apache.cordova.battery-status`，可以使用下面的命令安装插件
 
@@ -23,7 +23,7 @@ img: 30
 cordova plugin add org.apache.cordova.battery-status
 ```
 
-###batterystatus事件
+### batterystatus事件
 
 当程序侦测到电量至少发生1%的改变时，触发该事件。另外，当设备连接或断开电源也会触发该事件。
 
@@ -47,8 +47,7 @@ function onBatteryStatus(info) {
 }
 ```
 
-
-###batterycritical事件
+### batterycritical事件
 
 当程序侦测到电量降低到临界点时，触发该事件。临界点的值由设备指定。
 
@@ -70,7 +69,7 @@ function onBatteryCritical(info) {
 }
 ```
 
-###batterylow事件
+### batterylow事件
 
 当程序侦测到电量降低到一个较低水平值时，触发该事件。水平值由设备指定。
 
@@ -91,8 +90,8 @@ function onBatteryLow(info) {
     alert("电池电量过低，仅剩 " + info.level + "%");
 }
 ```
-----------
 
+----------
 
 > 相关文章:
 >
@@ -113,7 +112,6 @@ function onBatteryLow(info) {
 > 参考资料：
 >
 > [org.apache.cordova.battery-status](https://github.com/apache/cordova-plugin-battery-status/blob/master/doc/index.md)
-
 
 [img1]: {{site.BASE_PATH}}/img/post/PhoneGap-3/1.png
 [img2]: {{site.BASE_PATH}}/img/post/PhoneGap-3/2.png

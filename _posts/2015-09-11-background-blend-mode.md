@@ -14,7 +14,7 @@ CSS中的`background-blend-mode`（背景混合模式）属性定义了元素的
 
 混合模式应该按`background-image`属性同样的顺序定义。如果混合模式数量与背景图像的数量不相等，它会被截取至相等的数量。
 
-##语法
+## 语法
 
 ```css
 background-blend-mode: <blend-mode>
@@ -32,10 +32,10 @@ background-blend-mode: inherit;
 background-blend-mode: unset;
 ```
 
-####值
+#### 值
 一个`<blend-mode>`定义混合的模式，可以有多个值，用逗号间隔。
 
-##示例
+## 示例
 
 在`luminosity`混合模式中，可以创建单色的背景效果。
 
@@ -90,21 +90,20 @@ background-blend-mode: unset;
 
 使用不同混合模式，就好呈现出不用的效果。
 
-##规范
+## 规范
 
 [《Compositing and blending Level 1 background-blend-mode》](https://drafts.fxtf.org/compositing-1/#background-blend-mode)
 
-##浏览器兼容性
+## 浏览器兼容性
 
 <iframe src="http://caniuse.com/css-backgroundblendmode/embed/"></iframe>
 
-##参考资料
+## 参考资料
 
 - [Compositing and blending Level 1 background-blend-mode](https://drafts.fxtf.org/compositing-1/#background-blend-mode)
 - [COMPOSITING AND BLENDING IN CSS](http://sarasoueidan.com/blog/compositing-and-blending-in-css/)
 
 [1]:{{site.qiniu}}/2015/09/11/1.jpg
-
 
 <style type="text/css">
     .demo{

@@ -11,7 +11,7 @@ img: 25
 
 前段时间抽空看了一下，就挑选几条感兴趣的说下。由于目前文档并非标准而只是工作草案，所以本文所列内容随时可能过期，只作为一个向导。
 
-##update-frequency (更新频度)
+## update-frequency (更新频度)
 
 查询设备的实际更新能力，取值也比较直观：
 
@@ -25,19 +25,19 @@ img: 25
 
 ```scss
 a{
-	text-decoration: none;
+ text-decoration: none;
 }
 a:hover, a:focus{
-	text-decoration: underline;
+ text-decoration: underline;
 }
 @media (update-frequency: none){  // 打印等设备
-	a{
-		text-decoration: underline;
- 	}
+ a{
+  text-decoration: underline;
+  }
 }
 ```
 
-##light-level (环境光)
+## light-level (环境光)
 
 Level 4里添加了关于环境光的查询，这使得夜间模式变得可能。当然，现在已经有一些通过页面里的开关实现了类似开关灯的效果，效果其实也挺不错。甚至有一些浏览器单独实现了这样的一个模式，为夜间阅读注入特别的样式(主要是字体反白)。查询环境光需要光感传感器，由于现在手机上普遍已经搭载，所以light-level成为了一个很实际的功能。
 
@@ -53,17 +53,17 @@ Level 4里添加了关于环境光的查询，这使得夜间模式变得可能�
 
 ```css
 @media (light-level: normal) {
-	p { background: url("texture.jpg"); color: #333 }
+ p { background: url("texture.jpg"); color: #333 }
 }
 @media (light-level: dim) {
-	p { background: #222; color: #ccc }
+ p { background: #222; color: #ccc }
 }
 @media (light-level: washed) {
-	p { background: white; color: black; font-size: 2em; }
+ p { background: white; color: black; font-size: 2em; }
 }
 ```
 
-#scripting (脚本能力)
+# scripting (脚本能力)
 
 我们长期依赖`noscript`标签完成脚本支持的提示，但如果能查询到浏览器的脚本情况而应用不同的样式，岂非更好？所以 `scripting` 用来查询当前文档对脚本的支持情况。取值同样有三：
 
@@ -73,8 +73,7 @@ Level 4里添加了关于环境光的查询，这使得夜间模式变得可能�
 
 `initial-only` 比较少见，但却是有用的，比如对于打印机而言，我们有必要得到仅仅是初始化完成的页面，但可能并不需要其他后续的交互结果。另外，`none`代表了不支持和不启用两者，是否有必要对两者加以区分？个人认为，没什么必要。区别对待的话，也许我们可以提供更准确的提示语句，然而在这个脚本横行的时代，有点显得多余。
 
-
-##pointer (指针)
+## pointer (指针)
 
 `pointer`代表了指点的精度，是我看到目前为止，LV4最有用的一个查询。
 
@@ -94,16 +93,15 @@ Level 4里添加了关于环境光的查询，这使得夜间模式变得可能�
 
 ```css
 @media (pointer:coarse) {
-	input[type="checkbox"], input[type="radio"] {
-		min-width:30px;
-		min-height:40px;
-		background:transparent;
-	}
+ input[type="checkbox"], input[type="radio"] {
+  min-width:30px;
+  min-height:40px;
+  background:transparent;
+ }
 }
 ```
 
-##hover (悬停)
-
+## hover (悬停)
 
 另一个重要的查询是 `hover`，即指点动作是否具有悬停能力。现代浏览器(特别是移动浏览器)对这个东西有各种特别处理。
 
@@ -117,21 +115,21 @@ Level 4里添加了关于环境光的查询，这使得夜间模式变得可能�
 
 ```css
 @media (hover) {
-	.menu > li        {display:inline-block;}
-	.menu ul          {display:none; position:absolute;}
-	.menu li:hover ul {display:block; list-style:none; padding:0;}
-	/* ... */
+ .menu > li        {display:inline-block;}
+ .menu ul          {display:none; position:absolute;}
+ .menu li:hover ul {display:block; list-style:none; padding:0;}
+ /* ... */
 }
 ```
 
-##custom Media Queries (自定义查询)
+## custom Media Queries (自定义查询)
 
 自定义查询，顾名思义，就是将定义好的某种查询命名，并可以在后续过程中组合使用。相对Level 3，Level 4添加了很多新的查询类型，这使得自定义查询变得有意义。只是即便如此，自定义查询的可用度还是太小了些。
 
-##总结
+## 总结
 
 以前看Media Query还是遥不可及的梦，但几年一过，变化还真是很大。
 
 所以往前看一些总不会错的。虽然现在还用不上甚至显得鸡肋，但时间当真是转瞬，即逝。
 
-毕竟，IE6都要死拉。啊哈哈哈哈哈哈··· (疯癫状~
+毕竟，IE6都要死拉。啊哈哈哈哈哈哈···

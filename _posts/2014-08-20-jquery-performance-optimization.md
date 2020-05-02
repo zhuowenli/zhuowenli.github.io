@@ -9,13 +9,12 @@ img: 4
 
 人脑不是机器，记忆都会退化，我们需要文档辅助作知识沉淀
 
-
 ```javascript
 $("input[checked='checked']");  // 比较快
 $("input:checked"); // 比较慢
 ```
 
-####合理使用选择器
+#### 合理使用选择器
 
 * id和标签选择器最快，因为直接调用原生API
 
@@ -58,17 +57,17 @@ $("input:checked"); // 比较慢
 
 * 尽量避免使用通配符选择器
 
-####尽可能少创建jQuery对象
+#### 尽可能少创建jQuery对象
 
 * 如<code>document.getElementById('nav')</code>，比<code>$("#nav")</code>快
 * 如获取元素id
 
     ```javascript
     $("div").click(function(){
-    	//生成了个jQuery对象
-    	var id = $(this).attr('id');
-    	//酱紫更直接
-    	var id = this.id;
+     //生成了个jQuery对象
+     var id = $(this).attr('id');
+     //酱紫更直接
+     var id = this.id;
     });
     ```
 
@@ -76,16 +75,16 @@ $("input:checked"); // 比较慢
 
     ```html
     <div id="user" class="none">
-    	<p class="name"></p>
-    	<p class="city"></p>
+     <p class="name"></p>
+     <p class="city"></p>
     </div>
     ```
 
     ```javascript
     $("#user")
-    	.find('.name').html('zhangsan').end()
-    	.find('.city').html('xiamen').end()
-    	.removeClass('none');
+     .find('.name').html('zhangsan').end()
+     .find('.city').html('xiamen').end()
+     .removeClass('none');
     ```
 
 * 做好jQuery对象的缓存
@@ -96,7 +95,7 @@ $("input:checked"); // 比较慢
     box.find('> .cls2');
     ```
 
-####避免频繁操作DOM
+#### 避免频繁操作DOM
 
 * 复杂操作把元素从DOM移除在操作</p>
 
@@ -115,17 +114,17 @@ $("input:checked"); // 比较慢
     // 较好的做法
     var frag = document.creatElementFragment();
     $.each(arr,function(i,el){
-    	flag.appendChild(el);
+     flag.appendChild(el);
     })
     $('.box')[0].addendChild(flag);
 
     //性能差
     $.each(arr,function(i,el){
-    	$('.box').prepend($(el));
+     $('.box').prepend($(el));
     })
     ```
 
-####使用事件代理
+#### 使用事件代理
 
 ```javascript
 $('ul').on('click',li,fn); // 较好
@@ -133,4 +132,3 @@ $('ul li').on('click',fn); // 较差
 ```
 
 使用事件代理（委托），当有新元素添加进来的时候，不需要在为它绑定事件，这里有<a target="_black" href="http://zhuowenli.qiniudn.com/wordpress/demo/event-delegation.html">demo</a>可以查看效果。
-

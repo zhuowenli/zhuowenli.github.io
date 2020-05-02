@@ -15,7 +15,7 @@ tags: [javascript, react]
   <div class="circle"></div>
 </div>
 
-##概念
+## 概念
 
 React 的 API 非常少，简单、易懂、易用。在正式开始之前先介绍几个概念，一个一个来。
 
@@ -31,7 +31,7 @@ React 的 API 非常少，简单、易懂、易用。在正式开始之前先介
 
 下载所需要的[开发环境](https://github.com/zhuowenli/react-starter-kit)，直接在`script.js`文件里面开发就可以了。
 
-##渲染(render)
+## 渲染(render)
 
 第一步是渲染虚拟元素（React 元素或 component）。注意，虚拟元素只存在于内存中，必须显式地告诉 React 将它渲染到浏览器上。
 
@@ -43,7 +43,7 @@ React.render(<img src='http://www.zhuowenli.com/lib/img/icon.png' />, document.b
 
 `render` 函数接收两个参数：虚拟元素和真实的浏览器 DOM 元素。React 将虚拟元素插入到指定的 DOM 元素中。上例中可以看到图片被渲染出来了。
 
-##组件(Components)
+## 组件(Components)
 
 组件是 React 的精髓所在。它们是自定义的 React 元素，通常有一些功能和结构定义。
 
@@ -65,7 +65,7 @@ React.render(<Photo />, document.body);
 
 这个组件跟之前的渲染图片没有太大区别，但是它为将来添加自定义功能奠定了基础。
 
-##属性(Props)
+## 属性(Props)
 
 可以把属性看做组件的配置参数，看起来非常像 HTML 属性。
 
@@ -92,8 +92,7 @@ React.render(<Photo imageURL='http://www.zhuowenli.com/lib/img/icon.png' caption
 
 组件不会改变它的属性，他们是静止不变的。如果组件里包含动态数据，就要用到状态(State)对象。
 
-
-##状态(State)
+## 状态(State)
 
 状态对象用来记录随时可能变化的数据。
 
@@ -134,7 +133,6 @@ React.render(<Photo src='http://www.zhuowenli.com/lib/img/icon.png' caption='Log
 
 查看代码：[JSBin](http://jsbin.com/detime/3/edit)
 
-
 组件的状态给组件引入了一些复杂性。
 
 这个组件有一个新的函数 `getInitialState`。 当组件初始化时 React 会去调用这个函数。根据它返回的对象来设置组件的初始状态（正如函数名所表达的那样）。
@@ -155,7 +153,7 @@ React.render(<Photo src='http://www.zhuowenli.com/lib/img/icon.png' caption='Log
 
 上例演示了通过点击按钮来改变类名
 
-##组合组件(Composition)
+## 组合组件(Composition)
 
 将一些小的组件(components)链接起来形成一个大的组合组件。例如 `Photo` 组件可以用在 `PhotoGallery` 组件中，如下：
 
@@ -227,7 +225,7 @@ React.render(<PhotoGallery photos={data} />, document.body);
 
 `Photo` 组件跟之前的没什么两样。新组件 `PhotoGallery` 根据 3 条假数据生成了 3 个 `Photo` 组件。
 
-##结语
+## 结语
 
 本文只是一篇 React 入门，我强烈推荐大家去读 [React 官方文档](http://reactjs.cn/react/docs/getting-started.html)，里面包含了所有你想要的细节。
 

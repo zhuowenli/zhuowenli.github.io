@@ -5,12 +5,11 @@ subline: background-clip
 categories: frontend
 tags: [css3, css-tricks]
 ---
-##使用background-clip实现透明边框
+## 使用background-clip实现透明边框
 
 你有没有在网页上见过透明边框的元素？
 
 类似下面这样的效果：
-
 
 ![]({{site.qiniu}}/2014/09/19/transparentborders.png)
 
@@ -18,10 +17,11 @@ tags: [css3, css-tricks]
 
 ```css
 #lightbox{
-	background: white;
-	border: 20px solid rgba(0,0,0,0.3);
+ background: white;
+ border: 20px solid rgba(0,0,0,0.3);
 }
 ```
+
 但是如果这样写的话，就会出现如下效果。
 
 ![]({{site.qiniu}}/2014/09/19/gray.png)
@@ -32,17 +32,17 @@ tags: [css3, css-tricks]
 
 ```css
 #lightbox {
-	-moz-background-clip: border; /* Firefox 3.6 */
-	-webkit-background-clip: border; /* Safari 4? Chrome 6? */
-	background-clip: border-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
+ -moz-background-clip: border; /* Firefox 3.6 */
+ -webkit-background-clip: border; /* Safari 4? Chrome 6? */
+ background-clip: border-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
 
-	-moz-background-clip: padding; /* Firefox 3.6 */
-	-webkit-background-clip: padding; /* Safari 4? Chrome 6? */
-	background-clip: padding-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
+ -moz-background-clip: padding; /* Firefox 3.6 */
+ -webkit-background-clip: padding; /* Safari 4? Chrome 6? */
+ background-clip: padding-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
 
-	-moz-background-clip: content; /* Firefox 3.6 */
-	-webkit-background-clip: content; /* Safari 4? Chrome 6? */
-	background-clip: content-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
+ -moz-background-clip: content; /* Firefox 3.6 */
+ -webkit-background-clip: content; /* Safari 4? Chrome 6? */
+ background-clip: content-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
 }
 ```
 

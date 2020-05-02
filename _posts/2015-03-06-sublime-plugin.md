@@ -13,15 +13,15 @@ img: 33
 
 sublime不是免费的，但可以永久免费使用，只是在保存的时候，偶尔会弹出要你购买注册的对话框，仅此而已。
 
-##插件介绍
+## 插件介绍
 
-####Package Control
+#### Package Control
 
 功能：安装包管理
 
 简介：sublime插件控制台，提供添加、删除、禁用、查找插件等功能
 
-使用：https://sublime.wbond.net/installation
+使用：<https://sublime.wbond.net/installation>
 
 安装方法：
 
@@ -49,7 +49,7 @@ import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.
 3. 下载文件并复制到打开的文件夹
 4. 重启sublime
 
-####Emmet
+#### Emmet
 
 功能：编码快捷键，前端必备
 
@@ -59,7 +59,7 @@ import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.
 
 ![][img1]
 
-####JSFormat
+#### JSFormat
 
 功能：Javascript的代码格式化插件
 
@@ -69,7 +69,7 @@ import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.
 
 ![][img2]
 
-####Alignment
+#### Alignment
 
 功能：`=`号对齐
 
@@ -79,8 +79,7 @@ import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.
 
 ![][img3]
 
-
-####Clipboard History
+#### Clipboard History
 
 功能：粘贴板历史记录
 
@@ -95,7 +94,7 @@ import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.
 
 ![][img4]
 
-####Bracket Highlighter
+#### Bracket Highlighter
 
 功能：代码匹配
 
@@ -103,11 +102,9 @@ import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.
 
 使用：点击对应代码即可
 
-
 ![][img5]
 
-
-####jQuery
+#### jQuery
 
 功能：jQ函数提示
 
@@ -115,7 +112,7 @@ import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.
 
 ![][img6]
 
-####Doc​Blockr
+#### Doc​Blockr
 
 功能：生成优美注释
 
@@ -123,12 +120,11 @@ import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.
 
 使用：输入`/*`、`/**`然后回车，还有很多用法，请参照
 
-https://sublime.wbond.net/packages/DocBlockr
-
+<https://sublime.wbond.net/packages/DocBlockr>
 
 ![][img7]
 
-####ConvertToUTF8
+#### ConvertToUTF8
 
 功能：文件转码成utf-8
 
@@ -138,7 +134,7 @@ https://sublime.wbond.net/packages/DocBlockr
 
 ![][img8]
 
-####AutoFileName
+#### AutoFileName
 
 功能：快捷输入文件名
 
@@ -148,7 +144,7 @@ https://sublime.wbond.net/packages/DocBlockr
 
 ![][img9]
 
-####IMESupport
+#### IMESupport
 
 功能：sublime中文输入法
 
@@ -158,7 +154,7 @@ https://sublime.wbond.net/packages/DocBlockr
 
 ![][img10]
 
-####Trailing spaces
+#### Trailing spaces
 
 功能：检测并一键去除代码中多余的空格
 
@@ -166,14 +162,13 @@ https://sublime.wbond.net/packages/DocBlockr
 
 使用：安装插件并重启，即可自动提示多余空格。一键删除多余空格：`CTRL+SHITF+T`（需配置），更多配置请点击标题。快捷键配置：在Preferences / Key Bindings – User加上代码（数组内）
 
-
 ```html
 { "keys": ["ctrl+shift+t"], "command": "delete_trailing_spaces" }
 ```
 
 ![][img11]
 
-####GBK Encoding Support
+#### GBK Encoding Support
 
 功能：中文识别
 
@@ -187,7 +182,7 @@ https://sublime.wbond.net/packages/DocBlockr
 
 ![][img12]
 
-####CSSREM
+#### CSSREM
 
 功能：px值转rem
 
@@ -205,7 +200,6 @@ https://sublime.wbond.net/packages/DocBlockr
 
 ![][img13]
 
-
 [img1]: {{site.qiniu}}/2015/03/06/1.gif
 [img2]: {{site.qiniu}}/2015/03/06/2.gif
 [img3]: {{site.qiniu}}/2015/03/06/3.gif
@@ -219,4 +213,3 @@ https://sublime.wbond.net/packages/DocBlockr
 [img11]: {{site.qiniu}}/2015/03/06/11.gif
 [img12]: {{site.qiniu}}/2015/03/06/12.jpg
 [img13]: {{site.qiniu}}/2015/03/06/13.gif
-

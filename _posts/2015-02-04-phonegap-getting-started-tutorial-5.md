@@ -21,7 +21,7 @@ var ref = window.open('http://zwlme.com', '_blank', 'location=yes');
 cordova plugin add org.apache.cordova.inappbrowser
 ```
 
-##打开一个新的窗口
+## 打开一个新的窗口
 
 当然，使用`window.open()`方法不当会在一个新的`InAppBrowser`实例中打开一个URL，也可以在当前浏览器或者在系统浏览器中打开一个URL。
 
@@ -35,25 +35,25 @@ var ref = window.open(url, target, options);
 - **url**: 指定要加载的URL地址(String)。如果URL包含Unicode字符，首先使用`encodeURI()`进行编码。
 - **target**: 指定加载的URL到目标位置，这个参数是可选的。默认是`_self`。
 
-    - `_self`: 如果URL在白名单列表中，在Cordova WebView中打开URL，负责在`InAppBrowser`窗口中打开。
-    - `_blank`: 在`InAppBrowser`窗口中打开
-    - `_system`: 在系统浏览器中打开
+  - `_self`: 如果URL在白名单列表中，在Cordova WebView中打开URL，负责在`InAppBrowser`窗口中打开。
+  - `_blank`: 在`InAppBrowser`窗口中打开
+  - `_system`: 在系统浏览器中打开
 
 - **option**: 参数可选。指定功能项，各功能之间使用逗号隔开，且不能包含空格。默认的值是`location=yes`
 
-    - `location`: 用来设置`InAppBrowser`窗口是否出现地址栏。可选值为`yes`和`no`。
+  - `location`: 用来设置`InAppBrowser`窗口是否出现地址栏。可选值为`yes`和`no`。
 
-	<p>Android还可以设置下列功能项：</p>
+ <p>Android还可以设置下列功能项：</p>
 
-    - `closebuttoncaption`: 用来设置Done按钮显示的文字。
-    - `hidden`: 如果设置`yes`，则会先加载网页但是不显示出来。然后可以调用`show()`方法来显示该网页。虽然加载是不显示的，但加载完成后会触发加载完成事件。默认值为`no`，表示正常加载和显示。
-    - `clearcache`: 如果设为`yes`，表示将会首先清除Cookies，然后加载网页。默认值为`no`。
-    - `clearsessioncache`: 如果设为`yes`，表示将会首先清除Session，然后加载网页。默认值为`no`。
+  - `closebuttoncaption`: 用来设置Done按钮显示的文字。
+  - `hidden`: 如果设置`yes`，则会先加载网页但是不显示出来。然后可以调用`show()`方法来显示该网页。虽然加载是不显示的，但加载完成后会触发加载完成事件。默认值为`no`，表示正常加载和显示。
+  - `clearcache`: 如果设为`yes`，表示将会首先清除Cookies，然后加载网页。默认值为`no`。
+  - `clearsessioncache`: 如果设为`yes`，表示将会首先清除Session，然后加载网页。默认值为`no`。
 
 举个栗子：
 
 ```js
-// 使用绝对路径 
+// 使用绝对路径
 var ref  = window.open('http://zwlme.com', '_blank', 'location=yes');
 // URL存在Unicode字符，因此应该用encodeURI()进行编码
 var ref2 = window.open(encodeURI('http://www.baidu.com/s?wd=卓文理'), '_blank', 'location=yes');
@@ -61,7 +61,7 @@ var ref2 = window.open(encodeURI('http://www.baidu.com/s?wd=卓文理'), '_blank
 var ref  = window.open('next.html', '_self');
 ```
 
-##关闭窗口
+## 关闭窗口
 
 可以使用`colse()`方法来关闭这个窗口。
 
@@ -73,16 +73,16 @@ ref.close()
 
 ```js
 function onDeviceReady(){
-	// 打开一个窗口
-	var ref = window.open('http://zwlme.com', '_blank', 'location=yes');
-	// 打开5秒后关闭
-	setTimeout(function(){
-		ref.close();
-	},5000);	
+ // 打开一个窗口
+ var ref = window.open('http://zwlme.com', '_blank', 'location=yes');
+ // 打开5秒后关闭
+ setTimeout(function(){
+  ref.close();
+ },5000);
 }
 ```
 
-##显示隐藏的网页
+## 显示隐藏的网页
 
 打开网页时功能项`hidden`被设置为`yes`，则会先加载网页但是不显示出来。要想随后显示可以调用`show()`方法来实现。
 
@@ -91,7 +91,8 @@ var ref = window.open('http://apache.org', '_blank', 'hidden=yes');
 // 一段时间后...
 ref.show();
 ```
-##事件处理
+
+## 事件处理
 
 也可以使用`addEventListener()`和`removeEventListener()`监控和管理新窗口的事件。共有如下几个事件可以监听：
 
@@ -124,7 +125,7 @@ ref.addEventListener('loadstop', function(event) { alert(event.url); });
 ref.addEventListener('exit', function(event) { alert(event.type); });
 ```
 
-##JavaScript脚本注入
+## JavaScript脚本注入
 
 `executeScript()`方法可以将一个JavaScript代码注入`InAppBrowser`窗口并执行，语法格式如下。
 
@@ -148,7 +149,7 @@ ref.addEventListener('loadstop', function() {
 });
 ```
 
-##CSS样式注入
+## CSS样式注入
 
 `insertCSS()`方法可以将一个CSS样式注入`InAppBrowser`窗口，语法格式如下。
 
@@ -161,7 +162,6 @@ ref.insertCSS(details, callback);
 - __file__: 指定一个CSS样式文件地址，这个文件中的代码将会注入到当前`InAppBrowser`窗口。
 - __code__: 指定一个CSS样式代码字符串，这段代码将会注入到当前`InAppBrowser`窗口。
 
-
 参数`callback`定义执行注入后的回调函数。
 
 这个方法一般都应该在文档加载完成后被执行，例如下列代码，当文档加载完成后把一个CSS样式文件注入到当前加载的页面：
@@ -173,9 +173,7 @@ ref.addEventListener('loadstop', function() {
 });
 ```
 
-
 ----------
-
 
 > 相关文章:
 >
@@ -196,7 +194,6 @@ ref.addEventListener('loadstop', function() {
 > 参考资料：
 >
 > [Apache Cordova Documentation - InAppBrowser](http://cordova.apache.org/docs/en/3.3.0/cordova_inappbrowser_inappbrowser.md.html)
-
 
 [img1]: {{site.BASE_PATH}}/img/post/PhoneGap-3/1.png
 [img2]: {{site.BASE_PATH}}/img/post/PhoneGap-3/2.png

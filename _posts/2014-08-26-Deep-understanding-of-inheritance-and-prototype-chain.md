@@ -13,9 +13,9 @@ img: 5
 
 <p>虽然这会被称为javascript的弱点之一，实际上这种原型继承的模式要比经典的继承模型还要强大。虽然在原型模型上构建一个经典模型是相当繁琐的，但是采用其他方式实现则会更加困难。</p>
 
-###基于原型链的继承
+### 基于原型链的继承
 
-####继承属性
+#### 继承属性
 <p>javascript对象有两种不同的属性，一种是对象自身的属性，另外一种是继承于原型链上的属性。下面代码演示了当访问一个对象时发生的行为。</p>
 
 ```javascript
@@ -49,10 +49,10 @@ console.log(o.d); // undefined
 
 ```javascript
 var o = {
-	a: 2,
-	m: function(b){
-		return this.a + 1;
-	}
+ a: 2,
+ m: function(b){
+  return this.a + 1;
+ }
 };
 
 console.log(o.m()); // 3
@@ -85,7 +85,7 @@ var a = ["yo","whadup","?"];
 // a ---> Array.prototype ---> Object.prototype ---> null
 
 function f(){
-	return 2;
+ return 2;
 }
 
 // 函数都继承于Function.prototype（call，bind，等方法都是从它继承而来）
@@ -98,14 +98,14 @@ function f(){
 
 ```javascript
 function Graph() {
-	this.vertexes = [];
-	this.edges    = [];
+ this.vertexes = [];
+ this.edges    = [];
 }
 
 Graph.prototype = {
-	addVertex : function(v){
-		this.vertexts.push(v);
-	}
+ addVertex : function(v){
+  this.vertexts.push(v);
+ }
 };
 
 var g = new Graph();
@@ -137,7 +137,7 @@ console.log(d.hasOwnProperty); // undefined , 因为d没有继承Object.prototyp
 <p>检测对象的属性是定义在自身上还是原型链上，有必要使用<code>hasOwnProperty</code>方法，该方法所有对象继承自<code>Object.prototype</code>。</p>
 <p><code>hasOwnProperty</code>是javascript中唯一一个只涉及自身属性而不会遍历原型链的方法。</p>
 <div class="note">
-	<p>注意：仅仅通过判断值是否为<code>undefined</code>还不足以检测一个属性是否存在，一个属性可能恰好存在而其值为<code>undefined</code>。</p>
+ <p>注意：仅仅通过判断值是否为<code>undefined</code>还不足以检测一个属性是否存在，一个属性可能恰好存在而其值为<code>undefined</code>。</p>
 </div>
 
 <h3>不好的实践：扩展原生对象的原型</h3>
