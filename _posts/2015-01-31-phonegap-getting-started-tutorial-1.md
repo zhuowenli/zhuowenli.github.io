@@ -179,24 +179,24 @@ super.loadUrl("file:///android_asset/www/index.html");
 
 ok, 配置成功了。 接下来可以在菜单栏点击“Run As > Android Application”，就可以在AVD或者手机设备打包apk，并安装了。
 
-[img1]: {{site.qiniu}}/2015/01/31/1.png
-[img2]: {{site.qiniu}}/2015/01/31/2.png
-[img3]: {{site.qiniu}}/2015/01/31/3.png
-[img4]: {{site.qiniu}}/2015/01/31/4.png
-[img5]: {{site.qiniu}}/2015/01/31/5.png
-[img6]: {{site.qiniu}}/2015/01/31/6.png
-[img7]: {{site.qiniu}}/2015/01/31/7.png
-[img8]: {{site.qiniu}}/2015/01/31/8.png
-[img9]: {{site.qiniu}}/2015/01/31/9.png
-[img10]: {{site.qiniu}}/2015/01/31/10.png
-[img11]: {{site.qiniu}}/2015/01/31/11.png
-[img12]: {{site.qiniu}}/2015/01/31/12.png
-[img13]: {{site.qiniu}}/2015/01/31/13.png
-[img14]: {{site.qiniu}}/2015/01/31/14.png
-[img15]: {{site.qiniu}}/2015/01/31/15.png
-[img16]: {{site.qiniu}}/2015/01/31/16.png
-[img17]: {{site.qiniu}}/2015/01/31/17.png
-[img18]: {{site.qiniu}}/2015/01/31/18.png
+[img1]: https://st-qn.gittt.cn/2015/01/31/1.png
+[img2]: https://st-qn.gittt.cn/2015/01/31/2.png
+[img3]: https://st-qn.gittt.cn/2015/01/31/3.png
+[img4]: https://st-qn.gittt.cn/2015/01/31/4.png
+[img5]: https://st-qn.gittt.cn/2015/01/31/5.png
+[img6]: https://st-qn.gittt.cn/2015/01/31/6.png
+[img7]: https://st-qn.gittt.cn/2015/01/31/7.png
+[img8]: https://st-qn.gittt.cn/2015/01/31/8.png
+[img9]: https://st-qn.gittt.cn/2015/01/31/9.png
+[img10]: https://st-qn.gittt.cn/2015/01/31/10.png
+[img11]: https://st-qn.gittt.cn/2015/01/31/11.png
+[img12]: https://st-qn.gittt.cn/2015/01/31/12.png
+[img13]: https://st-qn.gittt.cn/2015/01/31/13.png
+[img14]: https://st-qn.gittt.cn/2015/01/31/14.png
+[img15]: https://st-qn.gittt.cn/2015/01/31/15.png
+[img16]: https://st-qn.gittt.cn/2015/01/31/16.png
+[img17]: https://st-qn.gittt.cn/2015/01/31/17.png
+[img18]: https://st-qn.gittt.cn/2015/01/31/18.png
 
 ---------
 

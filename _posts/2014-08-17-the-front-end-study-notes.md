@@ -9,9 +9,9 @@ img: 3
 
 ## javascript
 
-#### 基本功
+### 基本功
 
-###### 语言特性
+#### 语言特性
 
 * 数据类型：
 
@@ -69,7 +69,7 @@ img: 3
     typeof x; // "function"
     ```
 
-###### 类型转换
+#### 类型转换
 
 * 简单类型 -> 简单类型：
 
@@ -104,7 +104,7 @@ console.log(n.toString(2)); // 快速进制转换
     String({}); // [object Object]
     ```
 
-###### DOM操作（增、删、查、改、移、数据交换）
+#### DOM操作（增、删、查、改、移、数据交换）
 
 * `createElement`, `createTextNode`, `createDocumentFragment`, `appendChild`
 
@@ -116,7 +116,7 @@ console.log(n.toString(2)); // 快速进制转换
 
 * `getAttribute`, `setAttribute`, `data-x`, `jQuery.attr()`, `jQuery().prop()`, `jQuery().data()`, `classList`, `innerHTML`, `innerText`, `textContent`
 
-###### 事件机制（IE vs W3C）
+#### 事件机制（IE vs W3C）
 
 * 事件绑定与解绑：`addEventListener(type, handler, flag)`, `attechEvent('on' + type, handler)`, `removeEventListener(type, handler)`, `detechEvent('on' + type, handler)`
 
@@ -136,7 +136,7 @@ console.log(n.toString(2)); // 快速进制转换
 
   * 事件冒泡流：沿着文档树由内到外，load、unload、focus、blur、submit和change事件不支持冒
 
-###### OOP（原型链、继承。。。）
+#### OOP（原型链、继承。。。）
 
 * 比较（参考 [全面理解面向对象的 JavaScript](http://www.ibm.com/developerworks/cn/web/1304_zengyz_jsoo/)）
 
@@ -148,36 +148,36 @@ console.log(n.toString(2)); // 快速进制转换
 
     1. 类JSON的对象字面量：简单直观，但不适用于复杂的对象（类）
 
-    ``` javascript
-    var Preson = {
-        name: 'xiaoming',
-        age: 15
-    };
-    ```
+        ``` javascript
+        var Preson = {
+            name: 'xiaoming',
+            age: 15
+        };
+        ```
 
     2. 构造函数模式：存在内存浪费的问题，比如下面例子里的`this.city`，在内存里生成了多次
 
-    ``` javascript
-    var Person = function(name, age) {
-        // 全部标记为私有成员
-        this.name = name;
-        this.age = age;
-        this.city = 'shen zhen';
-    };
-    var xm = new Person('xiaoming', 15);
-    var xl = new Person('xiaoli;, 20);
-    ```
+        ``` javascript
+        var Person = function(name, age) {
+            // 全部标记为私有成员
+            this.name = name;
+            this.age = age;
+            this.city = 'shen zhen';
+        };
+        var xm = new Person('xiaoming', 15);
+        var xl = new Person('xiaoli;, 20);
+        ```
 
     3. 原型`prototype`模式：每次实例化只增加私有的对象属性（或方法）到实例中，所有实例的公有属性（或方法）指向同一个内存地址
 
-    ``` javascript
-    var Person = function(name, age) {
-        // 对象的私有成员
-        this.name = name;
-        this.age = age;
-    };
-    Person.prototype.city = 'shen zhen';// 共有成员
-    ```
+        ``` javascript
+        var Person = function(name, age) {
+            // 对象的私有成员
+            this.name = name;
+            this.age = age;
+        };
+        Person.prototype.city = 'shen zhen';// 共有成员
+        ```
 
 * 对象的继承
 
@@ -187,65 +187,65 @@ console.log(n.toString(2)); // 快速进制转换
 
         1. 借调：依赖apply或者call实现
 
-        ``` javascript
-        function A(name) {
-            this.name = name;
-        }
-        function B(name, age) {
-            A.apply(this, arguments);
-            this.age = age;
-        }
-        ```
+            ``` javascript
+            function A(name) {
+                this.name = name;
+            }
+            function B(name, age) {
+                A.apply(this, arguments);
+                this.age = age;
+            }
+            ```
 
         2. 子类prototype引用父类的prototype
 
-        ``` javascript
-        function A() {}
-        A.prototype.propA = 'a';
-        A.prototype.propB = 'b';
-        function B() {}
-        B.prototype = A.prototype; // 原型链引用，改成B.prototype = new A();可以解决引用的问题
-        B.prototype.propB = 'B'; // 函数重载
-        B.prototype.constructor = B;
-        var b = new B();
-        ```
+            ``` javascript
+            function A() {}
+            A.prototype.propA = 'a';
+            A.prototype.propB = 'b';
+            function B() {}
+            B.prototype = A.prototype; // 原型链引用，改成B.prototype = new A();可以解决引用的问题
+            B.prototype.propB = 'B'; // 函数重载
+            B.prototype.constructor = B;
+            var b = new B();
+            ```
 
-        A、B的prototype引用同一个地址，实时上A的prototype.constructor已经被改成了B
+            A、B的prototype引用同一个地址，实时上A的prototype.constructor已经被改成了B
 
         3. 借用空函数的prototype，类似YUI的实现：
 
-        ``` javascript
-        function extend(sub, sup) {
-            var _f = function() {};
-            _f.prototype = sup.prototype;
-            sub.prototype = new _f();
-            sub.prototype.constructor = sub;
-            sub.super = sup.prototype;// 保存原构造函数
-            _f = null;
-        }
-        A.prototype.propA = 'a';
-        A.prototype.propB = 'b';
-        function B() {}
-        extend(B, A);
-        ```
+            ``` javascript
+            function extend(sub, sup) {
+                var _f = function() {};
+                _f.prototype = sup.prototype;
+                sub.prototype = new _f();
+                sub.prototype.constructor = sub;
+                sub.super = sup.prototype;// 保存原构造函数
+                _f = null;
+            }
+            A.prototype.propA = 'a';
+            A.prototype.propB = 'b';
+            function B() {}
+            extend(B, A);
+            ```
 
-        构造函数的继承，重要的是理解原型链`prototype chain`，继承基本就是原型链的拷贝或者引用。
+            构造函数的继承，重要的是理解原型链`prototype chain`，继承基本就是原型链的拷贝或者引用。
 
-        理解原型链`prototype chain`：
+            理解原型链`prototype chain`：
 
-        ``` javascript
-        function A() {}
-        function B() {}
-        B.prototype = new A();
-        function C(x, y) {}
-        C.prototype = new B();
-        var c = new C();
-        c.__proto__ === C.prototype;// true
-        B.prototype.__proto__ === A.prototype;// true
-        B.__proto__ === B.prototype;// true
-        A.__proto__ === Function.prototype;// true
-        A.prototype.__proto__ === Object.prototype;// true
-        ```
+            ``` javascript
+            function A() {}
+            function B() {}
+            B.prototype = new A();
+            function C(x, y) {}
+            C.prototype = new B();
+            var c = new C();
+            c.__proto__ === C.prototype;// true
+            B.prototype.__proto__ === A.prototype;// true
+            B.__proto__ === B.prototype;// true
+            A.__proto__ === Function.prototype;// true
+            A.prototype.__proto__ === Object.prototype;// true
+            ```
 
         ***__proto__属性***：对象的`__proto__`指向`Object.prototype`，Function对象的`__proto__`指向构造函数的prototype。
 
@@ -281,7 +281,7 @@ console.log(n.toString(2)); // 快速进制转换
         });
         ```
 
-###### 函数式编程、作用域、闭包、this
+#### 函数式编程、作用域、闭包、this
 
 * 实参、形参
 
@@ -378,7 +378,7 @@ console.log(window.x); // 1
 
 [这里](http://www.veryued.org/2011/09/javascript-scope-closure-this/)有一篇详细的例子
 
-###### Ajax（XMLHttpRequest vs ActiveXObject）
+#### Ajax（XMLHttpRequest vs ActiveXObject）
 
 * 请求过程
 
@@ -402,7 +402,7 @@ console.log(window.x); // 1
 
 * XHR2
 
-#### 跨域问题
+### 跨域问题
 
 * 跨域的形成（同源限制）：主域、子域、ip和域名、协议不同、端口不同
 
@@ -424,11 +424,11 @@ console.log(window.x); // 1
 
   * `postMessage`跨域通讯
 
-#### jQuery
+### jQuery
 
 可阅读yuanyan同学的[jQuery编程实践](https://github.com/modulejs/pragmatic-jquery)
 
-#### 安全问题
+### 安全问题
 
 * XSS
 
@@ -454,7 +454,7 @@ console.log(window.x); // 1
 
 ## 性能优化（最佳实践）
 
-#### HTML优化
+### HTML优化
 
 * 语意化`html`结构：SEO友好，利于维护
 
@@ -476,7 +476,7 @@ console.log(window.x); // 1
 
 * 未完待续。。。
 
-#### CSS优化
+### CSS优化
 
 * 避免css表达式：css表达式会不断的重复计算，导致页面性能下降
 
@@ -505,7 +505,7 @@ console.log(window.x); // 1
 
 * 未完待列。。
 
-#### JavaScript优化
+### JavaScript优化
 
 * 尽量减少或最少化对DOM的操作（脱离文档流对DOM进行修改）
 
@@ -596,9 +596,9 @@ var $P = Jx().UI.Pager.create();// 同样可以先缓存结果
 
 * 复杂的计算考虑使用`Web Worker`
 
-#### jQuery性能优化
+### jQuery性能优化
 
-###### 合理使用选择器
+#### 合理使用选择器
 
 * id和标签选择器最快，因为是直接调用原生API
 
@@ -640,7 +640,7 @@ $('.foo div.baz'); // better
 
 * 尽量避免使用通配符选择器
 
-###### 尽可能的少创建jQuery对象
+#### 尽可能的少创建jQuery对象
 
 * 如`document.getElementById('el')`比`$('#el')`块
 
@@ -679,7 +679,7 @@ box.find('> .cls1');
 box.find('> .cls2');
 ```
 
-###### 避免频繁操作DOM
+#### 避免频繁操作DOM
 
 * 复杂操作把元素从DOM中移除再操作
 
@@ -705,7 +705,7 @@ $.each(arr, function(i, el) {
 $('.box')[0].appendChild(flag);
 ```
 
-###### 使用事件代理
+#### 使用事件代理
 
 ``` javascript
 $('ul li').on('click', fn);
@@ -715,7 +715,7 @@ $('ul').on('click', 'li', fn);
 
 使用事件代理（委托），当有新元素添加进来的时候，不需要再为它绑定事件，这里有[demo](http://jsfiddle.net/chemdemo/xy46G/2/)可以查看效果。
 
-#### 整体优化
+### 整体优化
 
 * 雅虎34条：合并压缩文件和图片、gzip/deflate、CDN、HTTP头设置Cache-Control/Expires和Last-Modified/ETag、并行下载与DNS查询的平衡等
 
@@ -731,7 +731,7 @@ $('ul').on('click', 'li', fn);
 
 * 未完待续。。。
 
-#### 【参考文献】
+### 【参考文献】
 
 * [JavaScript 类型转换](http://www.ituring.com.cn/article/53351)
 

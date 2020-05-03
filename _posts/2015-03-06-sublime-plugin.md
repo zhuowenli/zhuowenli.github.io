@@ -200,16 +200,16 @@ import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.
 
 ![][img13]
 
-[img1]: {{site.qiniu}}/2015/03/06/1.gif
-[img2]: {{site.qiniu}}/2015/03/06/2.gif
-[img3]: {{site.qiniu}}/2015/03/06/3.gif
-[img4]: {{site.qiniu}}/2015/03/06/4.gif
-[img5]: {{site.qiniu}}/2015/03/06/5.gif
-[img6]: {{site.qiniu}}/2015/03/06/6.gif
-[img7]: {{site.qiniu}}/2015/03/06/7.gif
-[img8]: {{site.qiniu}}/2015/03/06/8.gif
-[img9]: {{site.qiniu}}/2015/03/06/9.gif
-[img10]: {{site.qiniu}}/2015/03/06/10.gif
-[img11]: {{site.qiniu}}/2015/03/06/11.gif
-[img12]: {{site.qiniu}}/2015/03/06/12.jpg
-[img13]: {{site.qiniu}}/2015/03/06/13.gif
+[img1]: https://st-qn.gittt.cn/2015/03/06/1.gif
+[img2]: https://st-qn.gittt.cn/2015/03/06/2.gif
+[img3]: https://st-qn.gittt.cn/2015/03/06/3.gif
+[img4]: https://st-qn.gittt.cn/2015/03/06/4.gif
+[img5]: https://st-qn.gittt.cn/2015/03/06/5.gif
+[img6]: https://st-qn.gittt.cn/2015/03/06/6.gif
+[img7]: https://st-qn.gittt.cn/2015/03/06/7.gif
+[img8]: https://st-qn.gittt.cn/2015/03/06/8.gif
+[img9]: https://st-qn.gittt.cn/2015/03/06/9.gif
+[img10]: https://st-qn.gittt.cn/2015/03/06/10.gif
+[img11]: https://st-qn.gittt.cn/2015/03/06/11.gif
+[img12]: https://st-qn.gittt.cn/2015/03/06/12.jpg
+[img13]: https://st-qn.gittt.cn/2015/03/06/13.gif

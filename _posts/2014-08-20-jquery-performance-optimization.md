@@ -131,4 +131,4 @@ $('ul').on('click',li,fn); // 较好
 $('ul li').on('click',fn); // 较差
 ```
 
-使用事件代理（委托），当有新元素添加进来的时候，不需要在为它绑定事件，这里有<a target="_black" href="http://zhuowenli.qiniudn.com/wordpress/demo/event-delegation.html">demo</a>可以查看效果。
+使用事件代理（委托），当有新元素添加进来的时候，不需要在为它绑定事件，这里有<a target="_black" href="https://st-qn.gittt.cn/wordpress/demo/event-delegation.html">demo</a>可以查看效果。

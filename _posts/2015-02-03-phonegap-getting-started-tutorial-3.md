@@ -135,6 +135,6 @@ PhoneGap3.x 官方有很多插件可以使用，下列是这些插件的列表�
 >
 > [Cordova Plugin Registry](http://plugins.cordova.io/)
 
-[img1]: {{site.qiniu}}/2015/02/03/1.png
-[img2]: {{site.qiniu}}/2015/02/03/2.png
-[img3]: {{site.qiniu}}/2015/02/03/3.png
+[img1]: https://st-qn.gittt.cn/2015/02/03/1.png
+[img2]: https://st-qn.gittt.cn/2015/02/03/2.png
+[img3]: https://st-qn.gittt.cn/2015/02/03/3.png

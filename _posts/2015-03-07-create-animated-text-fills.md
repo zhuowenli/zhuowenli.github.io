@@ -425,7 +425,7 @@ $time-step: $time/$max;
   <!-- Pattern -->
   <pattern  id="p-fire"  viewBox="30 100 186 200" patternUnits="userSpaceOnUse" width="216" height="200" x="-70" y="35">
    <!-- Fire -->
-   <image xlink:href="{{site.qiniu}}/2015/03/07/fire.gif" width="256" height="300"/>
+   <image xlink:href="https://st-qn.gittt.cn/2015/03/07/fire.gif" width="256" height="300"/>
   </pattern>
   <!-- Text -->
   <text text-anchor="middle" x="50%" y="50%" dy=".35em" class="text" >
@@ -581,5 +581,5 @@ $max: length($colors);
 
 未完待续......
 
-[img1]: {{site.qiniu}}/2015/03/07/1.png
-[img2]: {{site.qiniu}}/2015/03/07/2.png
+[img1]: https://st-qn.gittt.cn/2015/03/07/1.png
+[img2]: https://st-qn.gittt.cn/2015/03/07/2.png

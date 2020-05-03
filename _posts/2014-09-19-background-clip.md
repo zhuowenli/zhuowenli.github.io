@@ -11,7 +11,7 @@ tags: [css3, css-tricks]
 
 类似下面这样的效果：
 
-![]({{site.qiniu}}/2014/09/19/transparentborders.png)
+![](https://st-qn.gittt.cn/2014/09/19/transparentborders.png)
 
 你可能觉得实现效果非常简单，只需要以下代码：
 
@@ -24,7 +24,7 @@ tags: [css3, css-tricks]
 
 但是如果这样写的话，就会出现如下效果。
 
-![]({{site.qiniu}}/2014/09/19/gray.png)
+![](https://st-qn.gittt.cn/2014/09/19/gray.png)
 
 在上面的截图中，边框已经用了`RGBa`设置为透明，但是边框却显示为不透明的灰色，这是因为该元素的白色背景透过透明边框显示了出来。
 
@@ -48,8 +48,8 @@ tags: [css3, css-tricks]
 
 以下是图示：
 
-![]({{site.qiniu}}/2014/09/19/background-clip.png)
+![](https://st-qn.gittt.cn/2014/09/19/background-clip.png)
 
 嗯，写到这你应该就知道`background-clip`的作用了：如果我们将background-clip设置为padding-box的话，白色背景就会在边框处被裁掉，然后透明边框就可以透出该元素下面的内容了，这也正是我们想要的效果！
 
-![]({{site.qiniu}}/2014/09/19/transparentborders.png)
+![](https://st-qn.gittt.cn/2014/09/19/transparentborders.png)

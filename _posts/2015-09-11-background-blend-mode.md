@@ -33,17 +33,18 @@ background-blend-mode: unset;
 ```
 
 #### 值
+
 一个`<blend-mode>`定义混合的模式，可以有多个值，用逗号间隔。
 
 ## 示例
 
 在`luminosity`混合模式中，可以创建单色的背景效果。
 
-下面的例子使用了`luminosity`作为`background-blend-mode`的值，使背景图片和背景颜色混合，让图片“失色”。[查看原图](http://zhuowenli.qiniudn.com/2015/09/11/1.jpg)
+下面的例子使用了`luminosity`作为`background-blend-mode`的值，使背景图片和背景颜色混合，让图片“失色”。[查看原图](https://st-qn.gittt.cn/2015/09/11/1.jpg)
 
 ```css
 .el-1{
-    background-image: url(http://zhuowenli.qiniudn.com/2015/09/11/1.jpg);
+    background-image: url(https://st-qn.gittt.cn/2015/09/11/1.jpg);
     background-color: #000;
     background-blend-mode: luminosity;
 }
@@ -63,7 +64,7 @@ background-blend-mode: unset;
 
 ```css
 .el-2 {
-    background-image: linear-gradient(to bottom, #f00, #0f0), url(http://zhuowenli.qiniudn.com/2015/09/11/1.jpg);
+    background-image: linear-gradient(to bottom, #f00, #0f0), url(https://st-qn.gittt.cn/2015/09/11/1.jpg);
     background-blend-mode: overlay;
 }
 ```
@@ -74,11 +75,11 @@ background-blend-mode: unset;
     <div class="el el-2"></div>
 </div>
 
-如果你有两张背景图，你也可以把这两张图片混合在一起：[图1](http://zhuowenli.qiniudn.com/2015/09/11/1.jpg) [图2](http://zhuowenli.qiniudn.com/2015/09/11/2.jpg)
+如果你有两张背景图，你也可以把这两张图片混合在一起：[图1](https://st-qn.gittt.cn/2015/09/11/1.jpg) [图2](https://st-qn.gittt.cn/2015/09/11/2.jpg)
 
 ```css
 .el-3 {
-    background-image: url(http://zhuowenli.qiniudn.com/2015/09/11/1.jpg), url(http://zhuowenli.qiniudn.com/2015/09/11/2.jpg);
+    background-image: url(https://st-qn.gittt.cn/2015/09/11/1.jpg), url(https://st-qn.gittt.cn/2015/09/11/2.jpg);
     background-color: olive;
     background-blend-mode: color-burn;
 }
@@ -103,7 +104,7 @@ background-blend-mode: unset;
 - [Compositing and blending Level 1 background-blend-mode](https://drafts.fxtf.org/compositing-1/#background-blend-mode)
 - [COMPOSITING AND BLENDING IN CSS](http://sarasoueidan.com/blog/compositing-and-blending-in-css/)
 
-[1]:{{site.qiniu}}/2015/09/11/1.jpg
+[1]:https://st-qn.gittt.cn/2015/09/11/1.jpg
 
 <style type="text/css">
     .demo{
@@ -117,16 +118,16 @@ background-blend-mode: unset;
         background-size: 100%;
     }
     .el-1{
-        background-image: url(http://zhuowenli.qiniudn.com/2015/09/11/1.jpg);
+        background-image: url(https://st-qn.gittt.cn/2015/09/11/1.jpg);
         background-color: #000;
         background-blend-mode: luminosity;
     }
     .el-2 {
-        background-image: linear-gradient(to bottom, #f00, #0f0), url(http://zhuowenli.qiniudn.com/2015/09/11/1.jpg);
+        background-image: linear-gradient(to bottom, #f00, #0f0), url(https://st-qn.gittt.cn/2015/09/11/1.jpg);
         background-blend-mode: overlay;
     }
     .el-3 {
-        background-image: url(http://zhuowenli.qiniudn.com/2015/09/11/1.jpg), url(http://zhuowenli.qiniudn.com/2015/09/11/2.jpg);
+        background-image: url(https://st-qn.gittt.cn/2015/09/11/1.jpg), url(https://st-qn.gittt.cn/2015/09/11/2.jpg);
         background-color: olive;
         background-blend-mode: color-burn;
     }

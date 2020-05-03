@@ -171,9 +171,9 @@ jekyll此时会在localhost的4000端口监听http请求，用浏览器访问[ht
 
 敬请期待~
 
-[localhost:4000]:{{site.qiniu}}/2015/08/06/localhost.png
-[themes]:{{site.qiniu}}/2015/08/06/themes.png
-[jekyll]:{{site.qiniu}}/2015/08/06/jekyll.png
+[localhost:4000]:https://st-qn.gittt.cn/2015/08/06/localhost.png
+[themes]:https://st-qn.gittt.cn/2015/08/06/themes.png
+[jekyll]:https://st-qn.gittt.cn/2015/08/06/jekyll.png
 
 [localhost]:http://localhost:4000/ "http://localhost:4000/"
 [jekyllcn]:http://jekyllcn.com/ "http://jekyllcn.com/"

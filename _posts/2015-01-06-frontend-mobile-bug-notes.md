@@ -91,5 +91,5 @@ document.body.addEventListener('touchstart', function () {});
 
 把字体图标编码制作成 **&#xe + 4位16进制** 即可，如`&#xe601a`;
 
-[img1]: {{ site.qiniu }}/2015/01/06/1.png
-[img2]: {{ site.qiniu }}/2015/01/06/2.png
+[img1]: https://st-qn.gittt.cn/2015/01/06/1.png
+[img2]: https://st-qn.gittt.cn/2015/01/06/2.png
