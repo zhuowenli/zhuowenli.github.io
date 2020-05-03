@@ -1,28 +1,8 @@
 .DS_Store
-*.lock
-composer.phar
 Thumbs.db
-/**/.cache/
-/**/*.log
-/**/*.lock
-
-# exclude
-_site/
-_img/
-qrsync
-qrsync.json
-
-# bower
-bower_components
-
-# npm
-node_modules
-npm-debug.log
-
-# sass
-.sass-cache
-*.css.map
-config.codekit
-
-dump.rdb
-package-lock.json
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
+yarn.lock
