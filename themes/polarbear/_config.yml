@@ -51,14 +51,14 @@ theme:
 # ===========================================
 
 # Baidu Analytics
-baidu_analytics:
+# baidu_analytics:
 # Google Analytics
-google_analytics:
+# google_analytics:
 
 # Duoshuo
-duoshuo_shortname:
+# duoshuo_shortname:
 # Disqus
-disqus_shortname:
+# disqus_shortname:
 
 
 # ===========================================

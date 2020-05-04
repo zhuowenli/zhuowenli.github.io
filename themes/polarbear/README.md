@@ -6,7 +6,6 @@
 
 ![Polar Bear](https://wx3.sinaimg.cn/large/e942863dly1fd36foz16ij21kw0xwjxw.jpg)
 
-
 # Installation
 
 1.Install plugin `hexo-renderer-scss`.
@@ -14,8 +13,8 @@
 2.Download the theme to your Hexo theme folder.
 
 ```
-$ npm install hexo-renderer-scss --save
-$ git clone https://github.com/frostfan/hexo-theme-polarbear themes/polarbear
+npm install hexo-renderer-scss --save
+git clone https://github.com/frostfan/hexo-theme-polarbear themes/polarbear
 ```
 
 3.Modify `yoursite/_config.yml`
@@ -28,8 +27,9 @@ theme: polarbear
 ```
 
 4.Show all posts at your archive page，need to install plugin `hexo-generator-archive`
+
 ```
-$ npm install hexo-generator-archive --save
+npm install hexo-generator-archive --save
 ```
 
 Add these codes on `yoursite/_config.yml`
@@ -41,6 +41,7 @@ archive_generator:
     monthly: false
     daily: false
 ```
+
 # Theme Config
 
 Modify `polarbear/_config.yml`
@@ -82,6 +83,7 @@ disqus_shortname:
 ```
 
 ## More Functions
+
 This theme is based on [Even](https://github.com/ahonn/hexo-theme-even)
 
 You can add more features based on it. For example: appreciation, copyright, social icon, etc.

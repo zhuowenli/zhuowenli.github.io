@@ -3,24 +3,43 @@
 // =============================
 
 .footer {
-  margin-top: $footer-margin-top;
+    margin-top: $footer-margin-top;
 }
 
 #colophon {
-	width: 90%;
-	margin: 30px auto 0;
-	padding: 20px 0;
-	border-top: 1px solid #e1e1e1;
-    color: $dark-gray;
-	font-size: 14px;
-    max-width: $global-body-width;
-	display: block;
+    font-size: 14px;
+    display: block;
     overflow: hidden;
+    width: 90%;
+    max-width: $global-body-width;
+    margin: 30px auto 0;
+    padding: 20px 0;
+    color: $dark-gray;
+    border-top: 1px solid #e1e1e1;
     a {
         color: $dark-gray;
     }
 
-    .footer-author{
+    .footer-author {
         margin: 0 4px;
+    }
+}
+
+#nav-bottom {
+    float: right;
+
+    .nav-bottom-items {
+        margin: 0 auto;
+        padding-left: 0px;
+        list-style: none;
+
+        .menu-item {
+            font-size: 14px;
+            display: inline-block;
+            margin-left: 30px;
+            a {
+                color: rgba(0, 0, 0, 0.6);
+            }
+        }
     }
 }

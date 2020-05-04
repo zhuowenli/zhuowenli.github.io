@@ -1,27 +1,38 @@
 .post-header {
-  .post-title {
-    margin: 0 0 10px;
-    line-height: 1.4;
-    font-size: $post-title-font-size;
-    font-weight: $post-title-font-weight;
-    font-family: $global-font-family;
-  }
+    .post-title {
+        font-family: $global-font-family;
+        font-size: $post-title-font-size;
+        font-weight: $post-title-font-weight;
+        line-height: 1.25;
+        margin: 2.5em 0 1.5em;
+        text-align: center;
+        text-transform: none;
+    }
 
-  .post-link {
-    @include underline-from-center;
-  }
+    .post-subtitle {
+        font-size: 0.38em;
+        line-height: 1.5;
+        text-align: left;
+        color: #333333;
+    }
 
+    .post-link {
+        @include underline-from-center;
+
+        display: block;
+        text-align: left;
+    }
 }
 
 .post-time {
-    color: $post-time-font-color;
-    display: block;
     font-size: 14px;
+    display: block;
     margin-bottom: 10px;
- }
+    color: $post-time-font-color;
+}
 
- .post-excerpt {
-     p {
-         margin: 0 0 16px;
-     }
- }
+.post-excerpt {
+    p {
+        margin: 0 0 16px;
+    }
+}

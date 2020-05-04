@@ -3,73 +3,72 @@
 // ==============================
 
 .post-footer {
-  margin-top: $post-footer-margin-top;
-  border-top: $post-footer-border-top;
-  font-family: $global-font-family;
+    font-family: $global-font-family;
+    margin-top: $post-footer-margin-top;
 
-  .post-tags {
-    padding: $post-tags-padding;
+    .post-tags {
+        padding: $post-tags-padding;
 
-    a {
-      margin-right: 5px;
-      color: $theme-color;
-      word-break: break-all;
+        a {
+            margin-right: 5px;
+            word-break: break-all;
+            color: $theme-color;
 
-      &::before {
-        content: '#';
-      }
-    }
-  }
-
-  .post-nav {
-    margin: 1em 0;
-    @include clearfix;
-
-    .prev,
-    .next {
-      font-weight: 400;
-      font-size: 16px;
-      color: $global-font-color;
-      font-family: $global-font-family;
-      transition-property: transform;
-      transition-timing-function: ease-out;
-      transition-duration: 0.3s;
+            &::before {
+                content: '#';
+            }
+        }
     }
 
-    .prev {
-      float: left;
+    .post-nav {
+        @include clearfix;
 
-      &:hover {
-        color: $theme-color;
-        transform: translateX(-4px);
-      }
+        margin: 1em 0;
+
+        .prev, .next {
+            font-family: $global-font-family;
+            font-size: 16px;
+            font-weight: 400;
+            transition-timing-function: ease-out;
+            transition-duration: 0.3s;
+            transition-property: transform;
+            color: $global-font-color;
+        }
+
+        .prev {
+            float: left;
+
+            &:hover {
+                transform: translateX(-4px);
+                color: $theme-color;
+            }
+        }
+
+        .next {
+            float: right;
+
+            &:hover {
+                transform: translateX(4px);
+                color: $theme-color;
+            }
+        }
+
+        .nav-mobile {
+            display: none;
+        }
     }
-
-    .next {
-      float: right;
-
-      &:hover {
-        color: $theme-color;
-        transform: translateX(4px);
-      }
-    }
-
-    .nav-mobile {
-      display: none;
-    }
-  }
 }
 
 @include max-screen() {
-  .post-footer {
-    .post-nav {
-      .nav-default {
-        display: none;
-      }
+    .post-footer {
+        .post-nav {
+            .nav-default {
+                display: none;
+            }
 
-      .nav-mobile {
-        display: inline;
-      }
+            .nav-mobile {
+                display: inline;
+            }
+        }
     }
-  }
 }

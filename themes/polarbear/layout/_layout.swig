@@ -10,6 +10,7 @@
       <header id="masthead">
         {%- include '_partial/header.swig' %}
       </header>
+
       <div id="content">
         {% block content %}{% endblock %}
       </div>

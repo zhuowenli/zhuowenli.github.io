@@ -3,24 +3,21 @@
 // ==============================
 
 .posts {
-  margin-bottom: $post-list-margin-bottom;
-  border-bottom: $post-border;
+    margin-bottom: $post-list-margin-bottom;
+    border-bottom: $post-border;
 }
 
 .post {
-  padding: $post-padding;
+    @import '_post/header';
+    @import '_post/content';
+    @import '_post/footer';
+    & + .post {
+        border-top: $post-border;
+    }
 
-  & + .post {
-    border-top: $post-border;
-  }
-
-  .post-excerpt {
-      img {
-          padding-top: .5em;
-      }
-  }
-
-  @import '_post/header';
-  @import '_post/content';
-  @import '_post/footer';
+    .post-excerpt {
+        img {
+            padding-top: 0.5em;
+        }
+    }
 }

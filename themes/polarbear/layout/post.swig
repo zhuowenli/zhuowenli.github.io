@@ -4,7 +4,5 @@
 {% block title %} {{ page.title }} - {{ config.title }} {% endblock %}
 
 {% block content %}
-    <div id="primary">
-        {{ post_template.render(page) }}
-    </div>
+    {{ post_template.render(page) }}
 {% endblock %}
