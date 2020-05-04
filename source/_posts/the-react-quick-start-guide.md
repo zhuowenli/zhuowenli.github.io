@@ -233,7 +233,7 @@ React.render(<PhotoGallery photos={data} />, document.body);
 
 如果本文有什么错误之处，欢迎在下方评论，或者给我提 pull request。尽情给我发邮件吧，我很乐意效劳。
 
-P.S - 如果你准备开发一个更复杂的 React 应用，推荐阅读 [Flux 入门教程](http://www.zhuowenli.com/frontend/the-flux-quick-start-guide.html)。
+P.S - 如果你准备开发一个更复杂的 React 应用，推荐阅读 [Flux 入门教程](/frontend/the-flux-quick-start-guide.html)。
 
 <style type="text/css">
     .atom { position: relative; width: 200px; height: 200px; margin: 100px auto -50px;}
