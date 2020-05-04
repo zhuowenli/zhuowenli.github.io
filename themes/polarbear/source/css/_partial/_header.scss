@@ -9,13 +9,6 @@
 }
 
 
-@include max-screen() {
-    .header {
-        padding: 20px 0 0;
-        text-align: center;
-    }
-}
-
 #masthead {
     z-index: 9;
     top: 0;
@@ -38,5 +31,15 @@
         a {
             color: #000000;
         }
+    }
+}
+
+@include max-screen() {
+    .header {
+        padding: 20px 0 0;
+        text-align: center;
+    }
+    #masthead .site-title {
+        font-size: 1rem;
     }
 }

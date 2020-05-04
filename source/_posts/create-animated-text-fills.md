@@ -8,6 +8,8 @@ date: 2015-03-07
 
 在CSS3和SVG出现之前，我们脑海里可能会有一些酷炫的想法，因为技术的不支持一直没办法实现。但是，随着技术的发展，这些高大上的想法越来越有实现的可能。例如，我们现在有很多的方式来实现文字填充动画。
 
+<!-- more -->
+
 大概一年前，[Sara Soueidan](http://sarasoueidan.com/index.html)发表了一篇[Techniques for Creating Textured Text](http://tympanus.net/codrops/2013/12/02/techniques-for-creating-textured-text/)的文章。这篇神奇的文章告诉我们如何使用一些现代web技术、包括canvas等，来实现创建纹理文字的效果。如图：
 
 ![][img1]

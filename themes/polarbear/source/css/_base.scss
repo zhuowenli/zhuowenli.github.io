@@ -6,6 +6,10 @@
 
 @import '_common/normalize';
 
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
 html {
     font-size: $global-font-size;
     box-sizing: border-box;
@@ -75,4 +79,10 @@ a {
     color: $global-font-color;
     border: 1px solid rgba(0, 0, 0, 0.75);
     background: #ffffff;
+}
+
+@include max-screen() {
+    html {
+        font-size: 16px;
+    }
 }

@@ -11,6 +11,8 @@ PhoneGap的大量操作都是通过响应事件来完成，在PhoneGap的整个�
 
 通过事件处理，可以获取设备的信息，并根据这些信息来实现一个应用程序。
 
+<!-- more -->
+
 ## PhoneGap基本开发
 
 一旦创建了工程，PhoneGap的开发就变得非常简单，只需要编写 www 目录下的index.html文件就可以进行开发了。对于Android工程，这个目录的位置在F:\kypapp\platforms\android\assets\www下。

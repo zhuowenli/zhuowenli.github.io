@@ -4,23 +4,13 @@
         font-size: $post-title-font-size;
         font-weight: $post-title-font-weight;
         line-height: 1.25;
-        margin: 2.5em 0 1.5em;
+        margin: 1.5em 0;
         text-align: center;
         text-transform: none;
     }
 
-    .post-subtitle {
-        font-size: 0.38em;
-        line-height: 1.5;
-        text-align: left;
-        color: #333333;
-    }
-
     .post-link {
         @include underline-from-center;
-
-        display: block;
-        text-align: left;
     }
 }
 
@@ -29,10 +19,4 @@
     display: block;
     margin-bottom: 10px;
     color: $post-time-font-color;
-}
-
-.post-excerpt {
-    p {
-        margin: 0 0 16px;
-    }
 }

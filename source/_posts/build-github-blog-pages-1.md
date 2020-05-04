@@ -8,6 +8,8 @@ date: 2015-08-06
 
 本系列文章将会教你如何通过GitHub，在GitHub上创建自己的博客或者项目主页。这里只是把自己在使用GitHub开发过程中的经验和总结分享给大家，方便大家逐步开始GitHub之旅。
 
+<!-- more -->
+
 [GitHub](https://github.com/)不仅为程序员提供了免费源代码托管空间，还为程序员提供了一个社交平台。不但允许大家在GitHub上创建自己的博客网站或主页（[github pages](https://pages.github.com/)），并且免费，不限流量，还可以绑定自己的域名。
 
 但是GitHub提供的主页实际上是基于GitHub的源代码实现的，所以只支持上传静态的网页，不能在上面创建真正的博客系统。不过，万幸的是，GitHub支持一种叫[jekyll](http://jekyllcn.com/)的静态页面模板引擎，也就是说只要上传符合jekyll规范的文件，GitHub会用这种模板引擎为你转化静态页面和网站。

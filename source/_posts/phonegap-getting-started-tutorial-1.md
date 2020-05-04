@@ -13,6 +13,8 @@ PhoneGap是一能够让你用普通的web技术编写出能够轻松调用API接
 
 PhoneGap就是一种中间件技术，可以通过搭建一个webview来执行网页程序，并且可以提供调用底层API的接口。本教程将会介绍如何在windows下开发android应用。IOS版本有时间另外讲。
 
+<!-- more -->
+
 ## PhoneGap安装与配置
 
 ### 安装与配置

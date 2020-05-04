@@ -8,6 +8,8 @@ date: 2015-07-29
 
 这篇文章将概括性的介绍一下如何用 ReactJS 进行开发。我将介绍一些基础知识，不会有过于深入的分析。你可以结合这些[代码](https://github.com/zhuowenli/react-starter-kit)阅读本文。
 
+<!-- more -->
+
 <div class="atom">
   <div class="oval oval-forward"></div>
   <div class="oval oval-backward"></div>
@@ -157,7 +159,7 @@ React.render(<Photo src='http://www.zhuowenli.com/lib/img/icon.png' caption='Log
 
 将一些小的组件(components)链接起来形成一个大的组合组件。例如 `Photo` 组件可以用在 `PhotoGallery` 组件中，如下：
 
-```js
+```jsx
 var Photo = React.createClass({
     toggleLiked: function() {
         this.setState({

@@ -1,27 +1,29 @@
 #content {
-    margin: $global-content-margin;
     width: 90%;
-	max-width: $global-body-width;
-}
-
-#primary.home {
-    width: 73%;
-    float: left;
+    max-width: $global-body-width;
+    margin: $global-content-margin;
 }
 
 #primary {
     max-width: 850px;
     margin: $global-content-margin;
+    &.is-home {
+        text-align: center;
+        .post-title {
+            margin: 1.5em 0 0.5em;
+        }
+        .post {
+            margin-bottom: 4em;
+        }
+    }
 }
 
 @include max-screen() {
-  .site-header-inner, .content {
-    width: 90%;
-  }
-  #secondary {
-      display: none;
-  }
-  #primary.home {
-      width: 100%;
-  }
+    .site-header-inner, .content {
+        width: 90%;
+    }
+
+    #primary.is-home {
+        width: 100%;
+    }
 }

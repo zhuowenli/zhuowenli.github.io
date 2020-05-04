@@ -8,6 +8,8 @@ date: 2015-09-11
 
 CSS中的`background-blend-mode`（背景混合模式）属性定义了元素的多个背景之间如何互相混合。
 
+<!-- more -->
+
 使用`background-blend-mode`，你就可以实现在一个元素上混合多个背景层（图片或者颜色）。
 
 该属性的值可以是一个或者多个的[`<blend-mode>`](https://developer.mozilla.org/en-US/docs/Web/CSS/blend-mode)（混合模式）。混合模式让你可以指定混合的背景，从而改变背景交叉区域的颜色。使用特定颜色公式来混合基色和目标色。

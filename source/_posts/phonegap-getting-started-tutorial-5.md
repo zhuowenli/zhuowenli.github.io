@@ -9,6 +9,8 @@ date: 2015-02-04
 
 使用`window.open()`方法可以让用户在应用程序内显示一个浏览器窗口，但是PhoneGap重写了这个方法。该方法与BOM（浏览器对象模型）的`window.open()`方法有很大的不同，其中一个最大的不同是该方法返回了一个`InAppBrowser`对象，用于引用这个新打开的窗口，从而可以在应用程序内控制这个窗口。
 
+<!-- more -->
+
 ```js
 var ref = window.open('http://zwlme.com', '_blank', 'location=yes');
 ```

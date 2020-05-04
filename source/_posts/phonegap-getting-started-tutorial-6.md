@@ -1,12 +1,15 @@
 ---
 title: PhoneGap入门教程(6) - 设备信息和系统提示
-subtitle: PhoneGap Getting Started Tutorial
+subtitle: PhoneGap可以获取设备的相关信息。并且，在事件处理和其他操作中，会经常用到的基本操作就是使用系统提示，例如警告框、提示框、震动、蜂鸣等。
 categories: frontend
 tags: [PhoneGap, Android, Webapp, javascript]
 img: 32
 date: 2015-02-10
 ---
+
 PhoneGap可以获取设备的相关信息。并且，在事件处理和其他操作中，会经常用到的基本操作就是使用系统提示，例如警告框、提示框、震动、蜂鸣等。
+
+<!-- more -->
 
 ## 获取设备的基本信息
 

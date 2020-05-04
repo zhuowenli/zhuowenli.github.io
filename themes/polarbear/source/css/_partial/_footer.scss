@@ -36,10 +36,24 @@
         .menu-item {
             font-size: 14px;
             display: inline-block;
-            margin-left: 30px;
+            margin: 0 15px;
             a {
                 color: rgba(0, 0, 0, 0.6);
             }
         }
+    }
+}
+
+@include max-screen() {
+    #colophon {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    #nav-bottom {
+        display: block;
+        float: none;
+        margin-top: 10px;
+        text-align: center;
     }
 }

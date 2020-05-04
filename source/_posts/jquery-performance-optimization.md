@@ -8,6 +8,8 @@ date: 2014-08-20
 
 人脑不是机器，记忆都会退化，我们需要文档辅助作知识沉淀
 
+<!-- more -->
+
 ```js
 $("input[checked='checked']");  // 比较快
 $("input:checked"); // 比较慢
