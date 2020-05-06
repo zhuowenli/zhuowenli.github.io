@@ -1,9 +1,8 @@
 ---
 title: PhoneGap入门教程(4) - 电量变化侦测
-subtitle: PhoneGap Getting Started Tutorial
+id: 28
 categories: frontend
 tags: [PhoneGap, Android, Webapp, javascript]
-img: 30
 date: 2015-02-03
 ---
 

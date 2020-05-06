@@ -1,9 +1,8 @@
 ---
 title: PhoneGap入门教程(5) - 程序内置浏览器窗口
-subtitle: PhoneGap Getting Started Tutorial
+id: 26
 categories: frontend
 tags: [PhoneGap, Android, Webapp, javascript]
-img: 31
 date: 2015-02-04
 ---
 
@@ -37,13 +36,13 @@ var ref = window.open(url, target, options);
 - **url**: 指定要加载的URL地址(String)。如果URL包含Unicode字符，首先使用`encodeURI()`进行编码。
 - **target**: 指定加载的URL到目标位置，这个参数是可选的。默认是`_self`。
 
-  - `_self`: 如果URL在白名单列表中，在Cordova WebView中打开URL，负责在`InAppBrowser`窗口中打开。
-  - `_blank`: 在`InAppBrowser`窗口中打开
-  - `_system`: 在系统浏览器中打开
+    - `_self`: 如果URL在白名单列表中，在Cordova WebView中打开URL，负责在`InAppBrowser`窗口中打开。
+    - `_blank`: 在`InAppBrowser`窗口中打开
+    - `_system`: 在系统浏览器中打开
 
 - **option**: 参数可选。指定功能项，各功能之间使用逗号隔开，且不能包含空格。默认的值是`location=yes`
 
-  - `location`: 用来设置`InAppBrowser`窗口是否出现地址栏。可选值为`yes`和`no`。
+    - `location`: 用来设置`InAppBrowser`窗口是否出现地址栏。可选值为`yes`和`no`。
 
  <p>Android还可以设置下列功能项：</p>
 

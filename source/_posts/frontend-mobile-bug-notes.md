@@ -1,6 +1,6 @@
 ---
 title: 移动前端开发BUG记录
-subtitle: Frontend Mobile Development BUG Notes
+id: 33
 categories: diary
 tags: [frontend, mobile, bug, notes, javascript]
 date: 2015-01-06

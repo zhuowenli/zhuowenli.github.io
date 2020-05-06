@@ -1,9 +1,8 @@
 ---
 title: PhoneGap入门教程(1) - 环境搭建与配置
-subtitle: PhoneGap Getting Started Tutorial
+id: 30
 categories: frontend
 tags: [PhoneGap, NodeJS, Android, Webapp, javascript]
-img: 27
 date: 2015-01-31
 ---
 

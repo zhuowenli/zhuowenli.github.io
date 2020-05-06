@@ -1,9 +1,9 @@
 ---
 title:  数组去重的几个方法
-subtitle: How to Unique Array
 categories: frontend
 tags: [javascript, unique, array]
 date: 2015-03-13
+id: 22
 ---
 
 最近前端面试遇到的的一个问题：怎样去掉Javascript的Array的重复项，并且实现排序。这个问题看起来简单，但是其实暗藏杀机。 考的不仅仅是实现这个功能，更能看出你对JS代码的深入理解。

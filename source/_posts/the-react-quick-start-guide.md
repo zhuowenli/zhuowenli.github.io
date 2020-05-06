@@ -1,6 +1,6 @@
 ---
 title:  React 入门教程
-subtitle: The React Quick Start Guide
+id: 21
 categories: frontend
 tags: [javascript, react]
 date: 2015-07-29

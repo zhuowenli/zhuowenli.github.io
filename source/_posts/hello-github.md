@@ -1,6 +1,6 @@
 ---
 title: Hello GitHub!
-subtitle: 博客搬迁计划
+id: 35
 categories: diary
 tags: [github-page, jekyll]
 date: 2014-11-27

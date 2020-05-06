@@ -1,9 +1,8 @@
 ---
 title: PhoneGap入门教程(6) - 设备信息和系统提示
-subtitle: PhoneGap可以获取设备的相关信息。并且，在事件处理和其他操作中，会经常用到的基本操作就是使用系统提示，例如警告框、提示框、震动、蜂鸣等。
+id: 25
 categories: frontend
 tags: [PhoneGap, Android, Webapp, javascript]
-img: 32
 date: 2015-02-10
 ---
 
@@ -175,8 +174,8 @@ navigator.notification.prompt(message, promptCallback, [title], [buttonLabels], 
 - `message`: 对话框信息. (String)
 
 - `promptCallback`: 定义一个回调函数，按下按钮后触发此回调函数。该回调函数的参数是一个Object对象，其中包含两个属性： (Function)
-  - 属性`buttonIndex`为按下按钮的索引，也就是参数`buttonLabels`所定义的标签顺序，注意索引是从1开始的；
-  - 属性`input1`是输入文本的内容。
+    - 属性`buttonIndex`为按下按钮的索引，也就是参数`buttonLabels`所定义的标签顺序，注意索引是从1开始的；
+    - 属性`input1`是输入文本的内容。
 
 - `title`: 对话框标题. (String) (可选, 默认为`Prompt`)
 

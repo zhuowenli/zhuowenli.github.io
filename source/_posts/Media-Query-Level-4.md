@@ -1,9 +1,8 @@
 ---
 title: 浅析 Media Query Level 4
-subtitle: Media Query Level 4
 categories: frontend
 tags: [media query, css3, w3]
-img: 25
+id: 32
 date: 2015-01-23
 ---
 

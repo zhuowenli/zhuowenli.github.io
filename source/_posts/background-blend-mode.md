@@ -1,9 +1,9 @@
 ---
 title: background-blend-mode
-subtitle: background-blend-mode
 categories: frontend
 tags: [css, css3, background-blend-mode]
 date: 2015-09-11
+id: 16
 ---
 
 CSS中的`background-blend-mode`（背景混合模式）属性定义了元素的多个背景之间如何互相混合。

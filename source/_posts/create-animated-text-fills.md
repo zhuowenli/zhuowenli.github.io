@@ -1,9 +1,9 @@
 ---
 title: 如何创建文字填充动画
-subtitle: How to Create (Animated) Text Fills
 categories: frontend
 tags: [css3, svg, animation, javascript]
 date: 2015-03-07
+id: 23
 ---
 
 在CSS3和SVG出现之前，我们脑海里可能会有一些酷炫的想法，因为技术的不支持一直没办法实现。但是，随着技术的发展，这些高大上的想法越来越有实现的可能。例如，我们现在有很多的方式来实现文字填充动画。

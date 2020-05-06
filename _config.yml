@@ -26,6 +26,7 @@ source_dir: source
 public_dir: public
 tag_dir: tags
 archive_dir: archives
+about_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
@@ -93,7 +94,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: polarbear
+theme: zui
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -106,3 +107,13 @@ archive_generator:
     monthly: false
     daily: false
 
+# Gitalk
+# more info please open https://github.com/gitalk/gitalk
+gitalk:
+    enable: true
+    clientID: 3a683f311ce3460b686d
+    clientSecret: 264685b8506d937c73b468584847c3b2347bdcfe
+    repo: zhuowenli.github.io
+    owner: zhuowenli
+    admin: zhuowenli
+    pagerDirection: first

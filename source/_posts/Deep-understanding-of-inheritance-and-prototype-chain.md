@@ -1,9 +1,9 @@
 ---
 title: 深入理解继承与原型链
-subtitle: The inheritance and the prototype chain
 categories: frontend
 tags: [inheritance, prototype chain, javascript]
 date: 2014-08-26
+id: 38
 ---
 
 对于那些熟悉基于类的面向对象语言（java或c++）的开发者来说，javascript的语法是比较怪异的。由于javascript是一门动态语言，而且它没有类的概念（虽然 `class` 是个保留字，不能作为变量名来使用）。

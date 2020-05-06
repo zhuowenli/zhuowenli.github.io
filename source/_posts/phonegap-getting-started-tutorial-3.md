@@ -1,9 +1,8 @@
 ---
 title: PhoneGap入门教程(3) - 原生插件安装和管理
-subtitle: PhoneGap Getting Started Tutorial
+id: 27
 categories: frontend
 tags: [PhoneGap, Android, Webapp, javascript]
-img: 29
 date: 2015-02-03
 ---
 

@@ -1,9 +1,9 @@
 ---
 title: jQuery性能优化
-subtitle: jquery performance optimization
 categories: frontend
 tags: [github-page, jekyll, javascript, jquery]
 date: 2014-08-20
+id: 39
 ---
 
 人脑不是机器，记忆都会退化，我们需要文档辅助作知识沉淀

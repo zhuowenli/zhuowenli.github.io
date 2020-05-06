@@ -1,10 +1,11 @@
 ---
 title: 使用background-clip实现透明边框
-subtitle: background-clip
 categories: frontend
 tags: [css3, css-tricks]
 date: 2014-09-19
+id: 37
 ---
+
 ## 使用background-clip实现透明边框
 
 你有没有在网页上见过透明边框的元素？

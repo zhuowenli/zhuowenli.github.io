@@ -18,6 +18,15 @@
     }
 }
 
+#comments {
+    max-width: 850px;
+    margin: $global-content-margin;
+}
+
+#gitalk-container {
+    padding-top: 2em;
+}
+
 @include max-screen() {
     .site-header-inner, .content {
         width: 90%;

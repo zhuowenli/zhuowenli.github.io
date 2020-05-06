@@ -1,9 +1,8 @@
 ---
 title: sublime前端必备插件
-subtitle: Sublime Plugin
+id: 24
 categories: diary
 tags: [sublime, plugin]
-img: 33
 date: 2015-03-06
 ---
 

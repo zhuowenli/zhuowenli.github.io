@@ -1,9 +1,9 @@
 ---
 title: 前端学习笔记
-subtitle: the front end study notes
 categories: frontend
 tags: [frontend, notes, javascript]
 date: 2014-08-17
+id: 40
 ---
 
 ## javascript
@@ -14,43 +14,43 @@ date: 2014-08-17
 
 * 数据类型：
 
-  * `Undefined`, `Null`, `Bollean`, `Number`, `String`
+    * `Undefined`, `Null`, `Bollean`, `Number`, `String`
 
-  * `Object`、`Array`
+    * `Object`、`Array`
 
-  * `Date`、`RegExp`
+    * `Date`、`RegExp`
 
 * typeof输出（以下六个值之一）：
 
-  * `undefined`
+    * `undefined`
 
     ``` javascript
     var x;
     typeof(x); // "undefined"
     ```
 
-  * `boolean`
+    * `boolean`
 
     ```javascript
     var x = false;
     typeof x; // "boolean"
     ```
 
-  * `string`
+    * `string`
 
     ```javascript
     var x = '';
     typeof x; // "string"
     ```
 
-  * `number`
+    * `number`
 
     ```javascript
     var x = NaN;
     typeof x; // "number"
     ```
 
-  * `object`
+    * `object`
 
     ```javascript
     var x = {};
@@ -61,7 +61,7 @@ date: 2014-08-17
     typeof z; // "object"
     ```
 
-  * `function`
+    * `function`
 
     ```javascript
     var x = function() {};
@@ -121,9 +121,9 @@ console.log(n.toString(2)); // 快速进制转换
 
 * 事件流：
 
-  * 事件捕获流：沿着文档树由外到内
+    * 事件捕获流：沿着文档树由外到内
 
-  * 事件对象
+    * 事件对象
 
     ``` javascript
     function handler(e) {
@@ -133,15 +133,15 @@ console.log(n.toString(2)); // 快速进制转换
     }
     ```
 
-  * 事件冒泡流：沿着文档树由内到外，load、unload、focus、blur、submit和change事件不支持冒
+    * 事件冒泡流：沿着文档树由内到外，load、unload、focus、blur、submit和change事件不支持冒
 
 #### OOP（原型链、继承。。。）
 
 * 比较（参考 [全面理解面向对象的 JavaScript](http://www.ibm.com/developerworks/cn/web/1304_zengyz_jsoo/)）
 
-  * 基于类`Class`的面向对象，对象由类`Class`产生：如`Java`、`C#`
+    * 基于类`Class`的面向对象，对象由类`Class`产生：如`Java`、`C#`
 
-  * javascript：基于原型`prototype`的OOP，对象由构造器（构造函数）`constructor`利用原型`prototype`产生
+    * javascript：基于原型`prototype`的OOP，对象由构造器（构造函数）`constructor`利用原型`prototype`产生
 
 * 生成js对象：
 
@@ -313,9 +313,9 @@ fn(2); // 3
 
 * arguments, callee, caller, apply, call
 
-  * `arguments`，类数组，类似的还有NodeList、classList等对象。根据ECMA-262的标准，arguments属性是基于传入的参数来新建arguments，不是基于命名参数的数量。
+    * `arguments`，类数组，类似的还有NodeList、classList等对象。根据ECMA-262的标准，arguments属性是基于传入的参数来新建arguments，不是基于命名参数的数量。
 
-  * `arguments.callee`，返回正在执行的`Function`对象的一个引用
+    * `arguments.callee`，返回正在执行的`Function`对象的一个引用
 
     ``` javascript
     function foo(n) {
@@ -325,27 +325,27 @@ fn(2); // 3
     foo(1, 2, 3);// 分别打出3，1
     ```
 
-  * `arguments.caller`，返回调用这个`Function`对象的`Function`对象的引用
+    * `arguments.caller`，返回调用这个`Function`对象的`Function`对象的引用
 
-  * `apply`和`call`，传参不同，功能相同，都是把`Function`对象绑定到另外一个对象上去执行，其内的`this`指向这个对象
+    * `apply`和`call`，传参不同，功能相同，都是把`Function`对象绑定到另外一个对象上去执行，其内的`this`指向这个对象
 
 * 作用域
 
-  * 函数的局部变量：函数形参、函数内部`var`声明的变量
+    * 函数的局部变量：函数形参、函数内部`var`声明的变量
 
-  * 变量的查找（作用域链）：查找函数内部变量 -> 查找嵌套的外部函数 ...-> 查找window对象 -> 未定义
+    * 变量的查找（作用域链）：查找函数内部变量 -> 查找嵌套的外部函数 ...-> 查找window对象 -> 未定义
 
-  * js中没有块级作用域，可以用匿名函数模拟
+    * js中没有块级作用域，可以用匿名函数模拟
 
-  * 未用关键字`var`申明的变量，会自动升级为全局变量挂到window上
+    * 未用关键字`var`申明的变量，会自动升级为全局变量挂到window上
 
-  * 顶级作用域内使用`var`申明的变量是window对象的一个属性
+    * 顶级作用域内使用`var`申明的变量是window对象的一个属性
 
 * 闭包
 
-  * 由于作用域的限制，函数外部不能访问函数内部的局部变量
+    * 由于作用域的限制，函数外部不能访问函数内部的局部变量
 
-  * 闭包就是能够读取其他函数内部变量的函数*引自[学习Javascript闭包](http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html)*
+    * 闭包就是能够读取其他函数内部变量的函数*引自[学习Javascript闭包](http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html)*
 
     ``` javascript
     function foo() {
@@ -358,7 +358,7 @@ fn(2); // 3
     console.log(bar()); // get the local variables in foo
     ```
 
-  * 闭包的另一个作用是在内存中保存函数的局部变量，这有可能导致内存泄露
+    * 闭包的另一个作用是在内存中保存函数的局部变量，这有可能导致内存泄露
 
 * this：函数中的`this`始终指向函数的调用者
 
@@ -381,21 +381,21 @@ console.log(window.x); // 1
 
 * 请求过程
 
-  * 建立到服务器的新请求：`xhr.open()`
+    * 建立到服务器的新请求：`xhr.open()`
 
-  * 向服务器发送请求：`xhr.send()`
+    * 向服务器发送请求：`xhr.send()`
 
-  * 退出当前请求：`xhr.abort()`
+    * 退出当前请求：`xhr.abort()`
 
-  * 查询当前`HTML`的就绪状态：`xhr.readyState`
+    * 查询当前`HTML`的就绪状态：`xhr.readyState`
 
-  * 服务器返回的请求响应文本：`xhr.responseText`
+    * 服务器返回的请求响应文本：`xhr.responseText`
 
 * REST API：`POST`, `GET`, `PUT`, `DELETE`
 
-  * GET：更多的用于**读**操作，参数暴露到url，（服务器端可能对）url长度有限制
+    * GET：更多的用于**读**操作，参数暴露到url，（服务器端可能对）url长度有限制
 
-  * POST：更多的用于**写**操作
+    * POST：更多的用于**写**操作
 
 * HTTP状态码
 
@@ -407,21 +407,21 @@ console.log(window.x); // 1
 
 * 常用解决方案
 
-  * **iframe+document.domain**：适用于垮子域的情况
+    * **iframe+document.domain**：适用于垮子域的情况
     缺点是如果一个域名下存在安全问题，另一个域名下可能也会有问题，还有就是创建iframe的开销
 
-  * **动态引入js脚本**：适合所有的跨域场景
+    * **动态引入js脚本**：适合所有的跨域场景
     引入的脚本会立刻执行，存在安全风险
     要与远端沟通约定变量，增加了开发和维护成本
 
-  * **iframe+location.hash**：适合各种场景下跨域
+    * **iframe+location.hash**：适合各种场景下跨域
     iframe嵌套引用，开销更大
     会产生历史记录，url中暴露传递的内容
 
-  * **iframe+window.name**：使用iframe的window.name从外域传递数据到本地域，适合各种场景下跨域且数据安全
+    * **iframe+window.name**：使用iframe的window.name从外域传递数据到本地域，适合各种场景下跨域且数据安全
     缺点是数据有大小限制
 
-  * `postMessage`跨域通讯
+    * `postMessage`跨域通讯
 
 ### jQuery
 
@@ -508,24 +508,24 @@ console.log(window.x); // 1
 
 * 尽量减少或最少化对DOM的操作（脱离文档流对DOM进行修改）
 
-  * 隐藏元素，对其进行修改之后再显示
+    * 隐藏元素，对其进行修改之后再显示
 
-  * 使用文档片段`DocumentFragement`批量修改，最后再插入文档
+    * 使用文档片段`DocumentFragement`批量修改，最后再插入文档
 
-  * 将元素拷贝一份，修改完之后再替换原有元素
+    * 将元素拷贝一份，修改完之后再替换原有元素
 
 * 谨慎操作节点集合NodeList（`images`, `links`, `forms`, `document.getElementsByTagName`）：
 缓存NodeList以及NodeList.length的引用
 
 * 尽量操作元素节点（DOM节点如`childNodes`, `firstChild`不区分元素节点和其他类型节点，但大部分情况下只需要访问元素节点*引自《高性能JavaScript》*）：
 
-  * `children`代替`childNodes`
+    * `children`代替`childNodes`
 
-  * `childElementCount`代替`childNodes.length`
+    * `childElementCount`代替`childNodes.length`
 
-  * `firstElementChild`代替`firstChild`
+    * `firstElementChild`代替`firstChild`
 
-  * ...
+    * ...
 
 * 读写分离，减少layout：
 
@@ -589,9 +589,9 @@ var $P = Jx().UI.Pager.create();// 同样可以先缓存结果
 
 * 缓存Ajax：
 
-  * 缓存Ajax数据，利用本地存储或者临时变量，存储不需要实时更新的数据
+    * 缓存Ajax数据，利用本地存储或者临时变量，存储不需要实时更新的数据
 
-  * 设置HTTP `Expires`信息
+    * 设置HTTP `Expires`信息
 
 * 复杂的计算考虑使用`Web Worker`
 

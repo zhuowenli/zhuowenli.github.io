@@ -1,9 +1,9 @@
 ---
 title:  通过GitHub Pages创建博客（一）
-subtitle: Build GitHub Blog Pages
 categories: frontend
 tags: [github, github pages, jekyll]
 date: 2015-08-06
+id: 19
 ---
 
 本系列文章将会教你如何通过GitHub，在GitHub上创建自己的博客或者项目主页。这里只是把自己在使用GitHub开发过程中的经验和总结分享给大家，方便大家逐步开始GitHub之旅。

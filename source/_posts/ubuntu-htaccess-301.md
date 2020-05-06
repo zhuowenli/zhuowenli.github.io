@@ -1,6 +1,6 @@
 ---
 title: Ubuntu下使用.htaccess实现301重定向
-subtitle: Ubuntu .htaccess 301
+id: 18
 category: diary
 tags: [ubuntu, 301, htaccess, lamp]
 date: 2015-09-10

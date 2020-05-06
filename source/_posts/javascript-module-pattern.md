@@ -1,9 +1,9 @@
 ---
 title: Javascript 模块模式
-subtitle: javascript module pattern
 categories: frontend
 tags: [javascript]
 date: 2014-11-06
+id: 36
 ---
 
 ## Javascript 模块模式

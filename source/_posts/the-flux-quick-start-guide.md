@@ -1,6 +1,6 @@
 ---
 title:  Flux 入门教程
-subtitle: The Flux Quick Start Guide
+id: 20
 categories: frontend
 tags: [javascript, react, flux]
 date: 2015-07-30
