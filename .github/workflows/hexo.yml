@@ -7,6 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to deploy blog.
     steps:
+
     - name: Checkout
       uses: actions/checkout@v1
       with:
@@ -21,6 +22,7 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
+
     - name: Install Dependencies
       if: steps.cache.outputs.cache-hit != 'true'
       run: npm ci
@@ -34,6 +36,7 @@ jobs:
         user_name: zhuowenli
         user_email: zhuowenligg@gmail.com
         commit_msg: ${{ github.event.head_commit.message }}  # (or delete this input setting to use hexo default settings)
+
     # Use the output from the `deploy` step(use for test action)
     - name: Get the output
       run: |
