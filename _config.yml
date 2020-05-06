@@ -99,7 +99,9 @@ theme: zui
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-    type: ''
+    type: git
+    repo: git@github.com:zhuowenli/zhuowenli.github.io.git
+    branch: master
 
 archive_generator:
     per_page: 0
