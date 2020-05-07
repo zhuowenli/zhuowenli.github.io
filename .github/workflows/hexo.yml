@@ -3,43 +3,43 @@ name: Deploy
 on: [push]
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        name: A job to deploy blog.
-        steps:
+  build:
+    runs-on: ubuntu-latest
+    name: A job to deploy blog.
+    steps:
 
-        - name: Checkout
-            uses: actions/checkout@v1
-            with:
-                submodules: true # Checkout private submodules(themes or something else).
+      - name: Checkout
+        uses: actions/checkout@v1
+        with:
+          submodules: true # Checkout private submodules(themes or something else).
 
-        # Caching dependencies to speed up workflows. (GitHub will remove any cache entries that have not been accessed in over 7 days.)
-        - name: Cache node modules
-            uses: actions/cache@v1
-            id: cache
-            with:
-                path: node_modules
-                key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-                restore-keys: |
-                    ${{ runner.os }}-node-
+      # Caching dependencies to speed up workflows. (GitHub will remove any cache entries that have not been accessed in over 7 days.)
+      - name: Cache node modules
+        uses: actions/cache@v1
+        id: cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
-        - name: Install Dependencies
-            if: steps.cache.outputs.cache-hit != 'true'
-            uses: borales/actions-yarn@v2.0.0
-            with:
-                cmd: install # will run `yarn install` command
+      - name: Install Dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: install # will run `yarn install` command
 
-        # Deploy hexo blog website.
-        - name: Deploy
-            id: deploy
-            uses: sma11black/hexo-action@v1.0.1
-            with:
-                deploy_key: ${{ secrets.DEPLOY_KEY }}
-                user_name: zhuowenli
-                user_email: zhuowenligg@gmail.com
-                commit_msg: ${{ github.event.head_commit.message }}  # (or delete this input setting to use hexo default settings)
+      # Deploy hexo blog website.
+      - name: Deploy
+        id: deploy
+        uses: sma11black/hexo-action@v1.0.1
+        with:
+          deploy_key: ${{ secrets.DEPLOY_KEY }}
+          user_name: zhuowenli
+          user_email: zhuowenligg@gmail.com
+          commit_msg: ${{ github.event.head_commit.message }}  # (or delete this input setting to use hexo default settings)
 
-        # Use the output from the `deploy` step(use for test action)
-        - name: Get the output
-            run: |
-            echo "${{ steps.deploy.outputs.notify }}"
+      # Use the output from the `deploy` step(use for test action)
+      - name: Get the output
+        run: |
+          echo "${{ steps.deploy.outputs.notify }}"
