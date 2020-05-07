@@ -28,9 +28,6 @@ jobs:
         uses: borales/actions-yarn@v2.0.0
         with:
           cmd: install # will run `yarn install` command
-      # Use the output from the `deploy` step(use for test action)
-      - name: Get the output
-        run: echo "${{ secrets.DEPLOY_KEY }}"
 
       # Deploy hexo blog website.
       - name: Deploy
