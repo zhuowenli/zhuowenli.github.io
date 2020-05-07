@@ -6,9 +6,9 @@ tags: [ubuntu, 301, htaccess, lamp]
 date: 2015-09-10
 ---
 
-最近在[DigitalOcean][DigitalOcean]搞了台服务器(一个月只要$5哟~)，顺便把博客迁移到这上面。博主有两个域名：[zwlme.com][zwlme]、[zhuowenli.com][zhuowenli]，然后就想让所有的域名都可以直接跳转到[www.zhuowenli.com][zhuowenli]这个主域名上。
+最近在[DigitalOcean][DigitalOcean]搞了台服务器(一个月只要$5哟~)，顺便把博客迁移到这上面。博主有两个域名：[zwlme.com][zwlme]、[zhuowenli.com][zhuowenli]，然后就想让所有的域名都可以直接跳转到[zhuowenli.github.io][zhuowenli]这个主域名上。
 
-尝试了几个方案，最终觉得用`.htaccess`来实现域名跳转到[www.zhuowenli.com][zhuowenli]会比较友好。
+尝试了几个方案，最终觉得用`.htaccess`来实现域名跳转到[zhuowenli.github.io][zhuowenli]会比较友好。
 
 今天博主就来给大家分享如何使用`.htaccess`实现301重定向。
 
@@ -19,13 +19,13 @@ date: 2015-09-10
 ```bash
 // zhuowenli.com
 记录类型  主机记录  记录值
-A        www     [:服务器ip地址]  // 将域名解析为www.zhuowenli.com
+A        www     [:服务器ip地址]  // 将域名解析为zhuowenli.github.io
 A        @       [:服务器ip地址]  // 将域名解析为zhuowenli.com（不带www）
 
 
 // zwlme.com
 记录类型  主机记录  记录值
-A        www     [:服务器ip地址]  // 将域名解析为www.zhuowenli.com
+A        www     [:服务器ip地址]  // 将域名解析为zhuowenli.github.io
 A        @       [:服务器ip地址]  // 将域名解析为zwlme.com（不带www）
 ```
 
@@ -54,12 +54,12 @@ vim .htaccess
 #启动重写引擎
 RewriteEngine On
 
-#匹配以www.zhuowenli.com、zwlme.com、或者zhuowenli.com开头的域名
+#匹配以zhuowenli.github.io、zwlme.com、或者zhuowenli.com开头的域名
 RewriteCond %{http_host} ^(www.)?zwlme.com$ [NC,OR]
 RewriteCond %{http_host} ^zhuowenli.com$ [NC]
 
-#这些域名的任何网址都重定向到www.zhuowenli.com，返回码是301
-RewriteRule ^(.*)$ http://www.zhuowenli.com/$1 [R=301,L]
+#这些域名的任何网址都重定向到zhuowenli.github.io，返回码是301
+RewriteRule ^(.*)$ http://zhuowenli.github.io/$1 [R=301,L]
 ```
 
 然后，还没完呢！
@@ -101,8 +101,8 @@ OK！配置完毕，接下来重启下Apache服务就行啦
 sudo /etc/init.d/apache2 restart
 ```
 
-最后，你就会发现：访问[zwlme.com](http://zwlme.com)、[www.zhuowenli.com][zwlme]或者[zhuowenli.com](http://zhuowenli.com)的时候，域名都会自动跳转到[www.zhuowenli.com][zhuowenli]这个主域名了！。
+最后，你就会发现：访问[zwlme.com](http://zwlme.com)、[zhuowenli.github.io][zwlme]或者[zhuowenli.com](http://zhuowenli.com)的时候，域名都会自动跳转到[zhuowenli.github.io][zhuowenli]这个主域名了！。
 
-[zwlme]:http://www.zhuowenli.com "http://www.zhuowenli.com"
-[zhuowenli]:http://www.zhuowenli.com "http://www.zhuowenli.com"
+[zwlme]:http://zhuowenli.github.io "http://zhuowenli.github.io"
+[zhuowenli]:http://zhuowenli.github.io "http://zhuowenli.github.io"
 [DigitalOcean]:https://www.digitalocean.com/?refcode=6ecb75692729 "DigitalOcean"

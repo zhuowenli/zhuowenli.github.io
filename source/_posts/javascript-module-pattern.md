@@ -116,4 +116,4 @@ var jspy = (function(){
 ----
 
 原文：《[The JavaScript Module Pattern](http://javascriptplayground.com/blog/2012/04/javascript-module-pattern/)》
-译者：[卓文理](http://www.zhuowenli.com)
+译者：[卓文理](https://zhuowenli.github.io)
