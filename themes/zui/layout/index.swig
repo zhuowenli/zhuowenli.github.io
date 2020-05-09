@@ -1,7 +1,7 @@
 {% extends "_layout.swig" %}
-{% import '_macro/post.swig' as post_template %}
+{% import '_macro/article.swig' as post_template %}
 
-{% block title %} {{ config.title }} - {{ config.description }}{% endblock %}
+{% block title %} {{ config.title }} {% endblock %}
 
 {% block content %}
     <div id="primary" class="is-home">

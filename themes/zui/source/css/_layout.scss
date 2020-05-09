@@ -5,6 +5,8 @@
 }
 
 #primary {
+    position: relative;
+    z-index: 10;
     max-width: 850px;
     margin: $global-content-margin;
     &.is-home {

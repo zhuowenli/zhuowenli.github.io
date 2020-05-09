@@ -11,7 +11,9 @@
             id: '{{page.subtitle || page.title}}',
             number: {{page.id || -1}},
             distractionFreeMode: true
-        })
-        gitalk.render('gitalk-container')
+        });
+        if (document.querySelector('.gitalk-container')) {
+            gitalk.render('gitalk-container');
+        }
     </script>
 {% endif %}
