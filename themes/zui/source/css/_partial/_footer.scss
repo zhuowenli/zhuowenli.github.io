@@ -2,10 +2,6 @@
 // Post footer
 // =============================
 
-.footer {
-    margin-top: $footer-margin-top;
-}
-
 #colophon {
     font-size: 14px;
     display: block;
@@ -25,7 +21,11 @@
     }
 }
 
-#nav-bottom {
+.footer {
+    margin-top: $footer-margin-top;
+}
+
+.nav-bottom {
     float: right;
 
     .nav-bottom-items {
@@ -41,6 +41,33 @@
                 color: rgba(0, 0, 0, 0.6);
             }
         }
+    }
+}
+
+.sticky {
+    font-family: vktn;
+    font-size: 18em;
+    font-weight: bold;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    color: #000000;
+    .text {
+        transition: ease-in-out 0.5s;
+        transform: translateY(0.3em);
+        &:hover {
+            transform: translateY(0.1em);
+        }
+    }
+}
+
+.is-home {
+    .copyright, .nav-bottom {
+        display: none;
+    }
+    #colophon {
+        padding: 0;
+        border-top: 0;
     }
 }
 

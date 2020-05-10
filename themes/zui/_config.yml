@@ -17,6 +17,7 @@ rss: default
 # Menu Settings
 # ===========================================
 menu:
+  Home: /
   Archives: /archives
   About: /about
 

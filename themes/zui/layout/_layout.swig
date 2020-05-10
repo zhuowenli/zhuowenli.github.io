@@ -6,7 +6,7 @@
   </head>
 
   <body>
-    <div id="page">
+    <div id="page" {% if is_home() %}class="is-home"{% endif %}>
       <header id="masthead">
         {%- include '_partial/header.swig' %}
       </header>
