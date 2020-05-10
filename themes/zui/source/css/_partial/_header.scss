@@ -46,16 +46,17 @@
         left: 7px;
         width: 230px;
         height: 230px;
-        svg{
+        svg {
             width: 100%;
             height: 100%;
         }
-        circle{
-            fill:rgb(255,83,83);
-            stroke:none;
-            stroke-width:0;
+        circle {
             pointer-events: visiblePainted;
-            &:nth-child(2){
+
+            fill: rgb(255,83,83);
+            stroke: none;
+            stroke-width: 0;
+            &:nth-child(2) {
                 visibility: hidden;
             }
         }
@@ -86,16 +87,16 @@
         font-weight: bold;
         line-height: 1.5;
         position: absolute;
+        z-index: 2;
         top: 273px;
         left: 222px;
         letter-spacing: 10px;
         text-transform: uppercase;
         color: #ff5353;
-        z-index: 2;
     }
     .animation-line {
         position: absolute;
-        z-index: 1;
+        z-index: -1;
         top: -80px;
         left: -448px;
         width: 1920px;
@@ -127,6 +128,20 @@
             box-shadow: none;
         }
     }
+    .icon {
+        position: absolute;
+        top: 440px;
+        left: 110px;
+        display: flex;
+        align-items: center;
+        .iconfont {
+            font-size: 24px;
+            line-height: 38px;
+            width: 38px;
+            height: 38px;
+            margin-right: 10px;
+        }
+    }
 }
 
 @keyframes breathe {
@@ -156,35 +171,43 @@
         height: 100vh;
         margin-bottom: -25vh;
         .widget-shape {
+            top: 25.625vw;
+            left: 5vw;
             width: 50vw;
             height: 50vw;
-            left: 5vw;
-            top: 25.625vw;
-            circle{
-                &:nth-child(2){
+            circle {
+                &:nth-child(2) {
                     visibility: visible;
                 }
-                &:nth-child(1){
+                &:nth-child(1) {
                     visibility: hidden;
                 }
             }
         }
-        .text{
+        .text {
             font-size: 2.5em;
             top: 50vw;
             left: 20vw;
         }
-        .small{
+        .small {
             top: 103vw;
             left: 20vw;
         }
-        .animation-line{
-            width: 100%;
-            height: 100%;
+        .animation-line {
             top: 0;
             left: 0;
-            &::after{
+            width: 100%;
+            height: 100%;
+            &::after {
                 background-image: url('../../assets/line-mobile.jpg');
+            }
+        }
+        .icon {
+            top: 123vw;
+            left: 20vw;
+            .iconfont {
+                font-size: 22px;
+                margin-right: 6px;
             }
         }
     }

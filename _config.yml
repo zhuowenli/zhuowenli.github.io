@@ -120,3 +120,14 @@ gitalk:
     owner: zhuowenli
     admin: zhuowenli
     pagerDirection: first
+
+# https://github.com/hexojs/hexo-generator-feed
+feed:
+    type: atom
+    path: atom.xml
+    limit: 20
+    hub:
+    content: true
+    order_by: -date
+    autodiscovery: true
+    # template:
