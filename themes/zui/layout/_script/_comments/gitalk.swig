@@ -12,7 +12,7 @@
             number: {{page.id || -1}},
             distractionFreeMode: true
         });
-        if (document.querySelector('.gitalk-container')) {
+        if (document.querySelector('#gitalk-container')) {
             gitalk.render('gitalk-container');
         }
     </script>
