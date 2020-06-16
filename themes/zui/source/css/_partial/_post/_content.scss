@@ -43,10 +43,6 @@
         hyphens: auto;
     }
 
-    ul, ol {
-        padding-left: 2em;
-    }
-
     hr {
         border: 1px dashed $gray;
     }
@@ -81,6 +77,13 @@
         max-width: 100%;
         height: auto;
         margin: auto;
+    }
+
+    ul, ol {
+        padding-left: 2em;
+        img {
+            margin: initial;
+        }
     }
 
     strong {
