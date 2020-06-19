@@ -3,6 +3,7 @@ title:  Awesome Mac
 categories: diary
 tags: [macOS]
 date: 2020-06-16
+id: 43
 ---
 
 作为一个入坑比较久的「资深」 Mac 用户？🤔️我经常会去探索一些可以提升我开发效率的软件，我需要它们帮助我进行快乐、高效的工作，同时也分享给你。
