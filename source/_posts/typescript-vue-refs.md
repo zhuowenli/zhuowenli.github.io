@@ -3,6 +3,7 @@ title: TypeScript：如何优雅的调用通过 $refs 获取的子组件实例�
 category: frontend
 tags: [typescript, vue]
 date: 2020-05-18
+id: 46
 ---
 
 最近在使用 Vue 结合 TypeScript 的过程中，遇到了个问题，以至于困扰了我一段时间：通过 `this.$refs.child` 获取到 Vue 的子组件的实例后，访问子组件的实例方法会提示该方法不存在。

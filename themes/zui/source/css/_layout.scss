@@ -23,6 +23,10 @@
     }
 }
 
+#page {
+    overflow: hidden;
+}
+
 #comments {
     max-width: 850px;
     margin: $global-content-margin;
