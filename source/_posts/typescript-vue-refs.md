@@ -1,6 +1,6 @@
 ---
-title: [TypeScript] 如何优雅的调用通过 $refs 获取的子组件实例的方法？
-categories: frontend
+title: TypeScript：如何优雅的调用通过 $refs 获取的子组件实例的方法？
+category: frontend
 tags: [typescript, vue]
 date: 2020-05-18
 ---
