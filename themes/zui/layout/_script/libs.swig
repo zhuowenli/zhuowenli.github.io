@@ -1,6 +1,6 @@
 {%
   set js_libs = {
-    jquery: 'jquery/jquery-3.1.1.min.js',
+    jquery: 'jquery-3.1.1.min.js',
   }
 %}
 

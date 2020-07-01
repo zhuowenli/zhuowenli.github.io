@@ -110,17 +110,6 @@ archive_generator:
     monthly: false
     daily: false
 
-# Gitalk
-# more info please open https://github.com/gitalk/gitalk
-gitalk:
-    enable: true
-    clientID: 3a683f311ce3460b686d
-    clientSecret: 264685b8506d937c73b468584847c3b2347bdcfe
-    repo: zhuowenli.github.io
-    owner: zhuowenli
-    admin: zhuowenli
-    pagerDirection: first
-
 # https://github.com/hexojs/hexo-generator-feed
 feed:
     type: atom
