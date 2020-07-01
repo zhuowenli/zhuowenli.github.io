@@ -3,7 +3,7 @@
 # ===========================================
 
 # Site creation time
-since: 2014
+since: 2016
 
 # Set feed link (false | default | your feed link)
 # false: disable
@@ -47,6 +47,7 @@ theme:
 
 # Baidu Analytics
 # baidu_analytics:
+
 # Google Analytics
 # google_analytics:
 
@@ -67,4 +68,4 @@ gitalk:
 # ===========================================
 # Version
 # ===========================================
-version: 1.0
+version: 1.0.0
