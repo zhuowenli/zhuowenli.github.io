@@ -1,6 +1,6 @@
 $(document).ready(function () {
-  if (themeConfig.fancybox.enable) {
-    Theme.fancybox.register();
-  }
-  Theme.backToTop.register();
+    Theme.backToTop.register();
+    if (themeConfig.favicon.enable) {
+        Theme.favicon.register();
+    }
 });

@@ -5,9 +5,6 @@
 # Site creation time
 since: 2014
 
-# Custom your favicon.ico in `site/source`
-favicon: /favicon.ico
-
 # Set feed link (false | default | your feed link)
 # false: disable
 # default: use `atom.xml`, generator for `hexo-generator-feed`
@@ -43,9 +40,14 @@ widget_custom:
 # ===========================================
 # theme styling
 # color: Default | Mint Green | Cobalt Blue | Hot Pink | Dark Violet
+# favicon: Custom your favicon.ico in `site/source`
 theme:
   color: Default
-  fancybox: false
+  favicon:
+    enable: true
+    hide_text: (●—●)喔哟，崩溃啦！
+    show_text: (/≧▽≦/)咦！又好了！
+    icon: /favicon.ico
 
 # ===========================================
 # Third Party Services Settings

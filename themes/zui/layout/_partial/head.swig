@@ -11,8 +11,8 @@
 {% endif %}
 
 {# Website favicon #}
-{% if theme.favicon %}
-  <link rel="shortcut icon" type="image/x-icon" href="{{ url_for(theme.favicon) }}?v={{ theme.version }}" />
+{% if theme.theme.favicon.icon %}
+  <link rel="shortcut icon" type="image/x-icon" href="{{ url_for(theme.theme.favicon.icon) }}?v={{ theme.version }}" />
 {% endif %}
 
 {# Canonical, good for google search engine #}
@@ -23,10 +23,6 @@
 
 {# Theme styling #}
 <link rel="stylesheet" type="text/css" href="{{ url_for('css/style.css') }}?v={{ theme.version }}" />
-{# Fancybox styling #}
-{% if theme.theme.fancybox %}
-  <link rel="stylesheet" type="text/css" href="{{ url_for('lib/fancybox/jquery.fancybox.css') }}" />
-{% endif %}
 
 {# Theme Configuration #}
 {% include "../_script/config.swig" %}
