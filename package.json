@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "hexo generate",
+    "build": "cross-env NODE_ENV=production hexo generate",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
     "dev": "hexo server"
   },
   "hexo": {
-    "version": "4.2.1"
+    "version": "4.2.0"
   },
   "dependencies": {
     "gitalk": "^1.6.2",
@@ -27,5 +27,7 @@
     "hexo-renderer-swig": "^1.1.0",
     "hexo-server": "^1.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "cross-env": "^7.0.2"
+  }
 }
