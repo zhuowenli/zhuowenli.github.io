@@ -3,10 +3,7 @@
 # ===========================================
 
 # Site creation time
-since: 2014
-
-# Custom your favicon.ico in `site/source`
-favicon: /favicon.ico
+since: 2016
 
 # Set feed link (false | default | your feed link)
 # false: disable
@@ -17,35 +14,32 @@ rss: default
 # Menu Settings
 # ===========================================
 menu:
-  Home: /
-  Archives: /archives
-  About: /about
+    Home: /
+    Archives: /archives
+    About: /about
 
 # ===========================================
 # Widget Settings
 # ===========================================
 # widget function
 # false: disable
-# widget_custom: custom your widget
-#   title: your widget title
-#   content: Add your html code in here. Example: <p>testing...</p>
 widget:
-  Tags: true
-  Categories: false
-  Custom: false
-
-widget_custom:
-    title: Test
-    content: <p>testing...</p>
+    Tags: true
+    Categories: false
 
 # ===========================================
 # Theme Settings
 # ===========================================
 # theme styling
 # color: Default | Mint Green | Cobalt Blue | Hot Pink | Dark Violet
+# favicon: Custom your favicon.ico in `site/source`
 theme:
-  color: Default
-  fancybox: false
+    color: Default
+    favicon:
+        enable: true
+        hide_text: (●—●)喔哟，崩溃啦！
+        show_text: (/≧▽≦/)咦！又好了！
+        icon: /favicon.ico
 
 # ===========================================
 # Third Party Services Settings
@@ -53,16 +47,25 @@ theme:
 
 # Baidu Analytics
 # baidu_analytics:
+
 # Google Analytics
 # google_analytics:
 
-# Duoshuo
-# duoshuo_shortname:
 # Disqus
 # disqus_shortname:
 
+# Gitalk
+# more info please open https://github.com/gitalk/gitalk
+gitalk:
+    enable: true
+    clientID: 3a683f311ce3460b686d
+    clientSecret: 264685b8506d937c73b468584847c3b2347bdcfe
+    repo: zhuowenli.github.io
+    owner: zhuowenli
+    admin: zhuowenli
+    pagerDirection: first
 
 # ===========================================
 # Version
 # ===========================================
-version: 1.1
+version: 1.0.0

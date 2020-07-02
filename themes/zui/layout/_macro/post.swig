@@ -22,7 +22,10 @@
 
         {# Post Pagination #}
         {% include "../_partial/pagination.swig" %}
-        {% include "../_partial/comments.swig" %}
+
+        {% if env.env !== 'development' %}
+            {% include "../_partial/comments.swig" %}
+        {% endif %}
     </footer>
 </article>
 {% endmacro %}

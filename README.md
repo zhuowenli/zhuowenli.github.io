@@ -8,6 +8,4 @@
     </a>
 </p>
 
-![demo](./source/assets/demo2.png)
-
 ![demo](./source/assets/demo.png)

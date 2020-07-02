@@ -7,6 +7,7 @@ menu:
 
 footer:
   powered: "Powered by %s"
+  designed: "Designed by %s"
   theme: Theme
 
 posts:

@@ -6,9 +6,8 @@
     {% endif %}
     {{ current }}
     <span class="footer-author">{{ config.author }}.</span>
-    <span class="power-by">
-        {{ __('footer.powered', '<a class="hexo-link" href="https://hexo.io/">Hexo</a>') }}
-    </span>
+    <span class="power-by">{{ __('footer.powered', '<a href="https://hexo.io/">Hexo</a>') }}.</span>
+    <span class="design-by">{{ __('footer.designed', '<a href="https://www.zhuowenli.com/">zhuowenli</a>') }}</span>
 </span>
 
 <nav id="nav-bottom">

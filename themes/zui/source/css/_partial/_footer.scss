@@ -18,10 +18,16 @@
     border-top: 1px solid #e1e1e1;
     a {
         color: $dark-gray;
+        &:hover{
+            color: $gray;
+        }
     }
 
     .footer-author {
         margin: 0 4px;
+    }
+    .design-by{
+        margin-right: 4px;
     }
 }
 
