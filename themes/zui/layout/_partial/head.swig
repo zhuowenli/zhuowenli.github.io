@@ -3,16 +3,16 @@
 
 {# Website rss #}
 {% if theme.rss === 'default' and config.feed and config.feed.path %}
-  {{ feed_tag(config.feed.path) }}
+    {{ feed_tag(config.feed.path) }}
 {% elif theme.rss %}
-  {{ feed_tag(theme.rss) }}
+    {{ feed_tag(theme.rss) }}
 {% else %}
-  {{ feed_tag('atom.xml') }}
+    {{ feed_tag('atom.xml') }}
 {% endif %}
 
 {# Website favicon #}
 {% if theme.theme.favicon.icon %}
-  <link rel="shortcut icon" type="image/x-icon" href="{{ url_for(theme.theme.favicon.icon) }}?v={{ theme.version }}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for(theme.theme.favicon.icon) }}?v={{ theme.version }}" />
 {% endif %}
 
 {# Canonical, good for google search engine #}
@@ -28,6 +28,6 @@
 {% include "../_script/config.swig" %}
 
 {# Analytics #}
-{% if not env.debug %}
-  {% include "../_script/analytics.swig" %}
+{% if env.env !== 'development' %}
+    {% include "../_script/analytics.swig" %}
 {% endif %}
