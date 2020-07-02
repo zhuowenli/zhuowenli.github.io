@@ -35,6 +35,8 @@ jobs:
       - name: Deploy
         id: deploy
         uses: sma11black/hexo-action@v1.0.1
+        env:
+          NODE_ENV: production
         with:
           deploy_key: ${{ secrets.DEPLOY_KEY }}
           user_name: zhuowenli
