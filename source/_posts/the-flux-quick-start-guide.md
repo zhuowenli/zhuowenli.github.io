@@ -2,7 +2,7 @@
 title:  Flux 入门教程
 id: 20
 categories: frontend
-tags: [javascript, react, flux]
+tags: [JavaScript, react, flux]
 date: 2015-07-30
 ---
 

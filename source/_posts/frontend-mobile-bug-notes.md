@@ -2,7 +2,7 @@
 title: 移动前端开发BUG记录
 id: 33
 categories: diary
-tags: [frontend, mobile, bug, notes, javascript]
+tags: [frontend, mobile, bug, notes, JavaScript]
 date: 2015-01-06
 ---
 
@@ -24,7 +24,7 @@ date: 2015-01-06
 </section>
 ```
 
-```javascript
+```js
 var html = '';
 
 html += '<div>......</div>';
@@ -49,7 +49,7 @@ openPop();  // 显示弹窗
 
 可以连同最外层的`section#pop`一起填充进去。例如：
 
-```javascript
+```js
 var html = '';
 html += '<section id="pop-location" class="pop_state">';
 html += ......

@@ -1,12 +1,12 @@
 ---
 title: 前端学习笔记
 categories: frontend
-tags: [frontend, notes, javascript]
+tags: [frontend, notes, JavaScript]
 date: 2014-08-17
 id: 40
 ---
 
-## javascript
+## JavaScript
 
 ### 基本功
 
@@ -24,35 +24,35 @@ id: 40
 
     * `undefined`
 
-    ``` javascript
+    ```js
     var x;
     typeof(x); // "undefined"
     ```
 
     * `boolean`
 
-    ```javascript
+    ```js
     var x = false;
     typeof x; // "boolean"
     ```
 
     * `string`
 
-    ```javascript
+    ```js
     var x = '';
     typeof x; // "string"
     ```
 
     * `number`
 
-    ```javascript
+    ```js
     var x = NaN;
     typeof x; // "number"
     ```
 
     * `object`
 
-    ```javascript
+    ```js
     var x = {};
     var y = [];
     var z = null;
@@ -63,7 +63,7 @@ id: 40
 
     * `function`
 
-    ```javascript
+    ```js
     var x = function() {};
     typeof x; // "function"
     ```
@@ -72,13 +72,13 @@ id: 40
 
 * 简单类型 -> 简单类型：
 
-``` javascript
+```js
 '1'-0; // 0, equal to Number(1)
 ```
 
 * 简单类型 -> 对象（使用基本函数的构造函数：Number(), String(), Boolean()等生成）：
 
-``` javascript
+```js
 var n = 5;
 console.log(n.toString(2)); // 快速进制转换
 ```
@@ -87,19 +87,19 @@ console.log(n.toString(2)); // 快速进制转换
 
     1. 隐式转换：除Date外，统统是先 `valueOf`、再 `toString`（`Date` 在 `+` 和 `==` 时优先转化为字串）：
 
-    ``` javascript
+    ```js
     [] + 1; // 1
     ```
 
     2. 显式Number(对象)：先`valueOf`，再`toString()`，都不存在则返回`NaN`：
 
-    ``` javascript
+    ```js
     Number({}); // NaN
     ```
 
-    3. 显式String(对象)：先取`valueOf()`，再取`valueOf()`，都不存在则抛异常：
+    1. 显式String(对象)：先取`valueOf()`，再取`valueOf()`，都不存在则抛异常：
 
-    ``` javascript
+    ```js
     String({}); // [object Object]
     ```
 
@@ -125,7 +125,7 @@ console.log(n.toString(2)); // 快速进制转换
 
     * 事件对象
 
-    ``` javascript
+    ```js
     function handler(e) {
         var e = e || window.event;
         var target = e.target || e.srcElement;
@@ -141,13 +141,13 @@ console.log(n.toString(2)); // 快速进制转换
 
     * 基于类`Class`的面向对象，对象由类`Class`产生：如`Java`、`C#`
 
-    * javascript：基于原型`prototype`的OOP，对象由构造器（构造函数）`constructor`利用原型`prototype`产生
+    * JavaScript：基于原型`prototype`的OOP，对象由构造器（构造函数）`constructor`利用原型`prototype`产生
 
 * 生成js对象：
 
     1. 类JSON的对象字面量：简单直观，但不适用于复杂的对象（类）
 
-        ``` javascript
+        ```js
         var Preson = {
             name: 'xiaoming',
             age: 15
@@ -156,7 +156,7 @@ console.log(n.toString(2)); // 快速进制转换
 
     2. 构造函数模式：存在内存浪费的问题，比如下面例子里的`this.city`，在内存里生成了多次
 
-        ``` javascript
+        ```js
         var Person = function(name, age) {
             // 全部标记为私有成员
             this.name = name;
@@ -169,7 +169,7 @@ console.log(n.toString(2)); // 快速进制转换
 
     3. 原型`prototype`模式：每次实例化只增加私有的对象属性（或方法）到实例中，所有实例的公有属性（或方法）指向同一个内存地址
 
-        ``` javascript
+        ```js
         var Person = function(name, age) {
             // 对象的私有成员
             this.name = name;
@@ -186,7 +186,7 @@ console.log(n.toString(2)); // 快速进制转换
 
         1. 借调：依赖apply或者call实现
 
-            ``` javascript
+            ```js
             function A(name) {
                 this.name = name;
             }
@@ -198,7 +198,7 @@ console.log(n.toString(2)); // 快速进制转换
 
         2. 子类prototype引用父类的prototype
 
-            ``` javascript
+            ```js
             function A() {}
             A.prototype.propA = 'a';
             A.prototype.propB = 'b';
@@ -213,7 +213,7 @@ console.log(n.toString(2)); // 快速进制转换
 
         3. 借用空函数的prototype，类似YUI的实现：
 
-            ``` javascript
+            ```js
             function extend(sub, sup) {
                 var _f = function() {};
                 _f.prototype = sup.prototype;
@@ -232,7 +232,7 @@ console.log(n.toString(2)); // 快速进制转换
 
             理解原型链`prototype chain`：
 
-            ``` javascript
+            ```js
             function A() {}
             function B() {}
             B.prototype = new A();
@@ -252,7 +252,7 @@ console.log(n.toString(2)); // 快速进制转换
 
         * Simple Inheritance的用法
 
-        ``` javascript
+        ```js
         var Person = Class.extend({
             init: function(gender) {
                 this.gender = gender;
@@ -284,7 +284,7 @@ console.log(n.toString(2)); // 快速进制转换
 
 * 实参、形参
 
-``` javascript
+```js
 foo(1, 2);
 function foo(a, b, c) {
     console.log(arguments.length);//2 实际传入的参数
@@ -294,14 +294,14 @@ function foo(a, b, c) {
 
 * 函数申明与函数表达式
 
-``` javascript
+```js
 function foo() {} // 函数申明
 var foor = function foo() {};// 函数表达式
 ```
 
 执行顺序：解析器会率先读取函数声明，所以在任何代码执行前函数申明可用
 
-``` javascript
+```js
 fn(2); // 4
 function fn(n) {console.log(n);}
 fn(2); // 4
@@ -317,7 +317,7 @@ fn(2); // 3
 
     * `arguments.callee`，返回正在执行的`Function`对象的一个引用
 
-    ``` javascript
+    ```js
     function foo(n) {
         console.log(arguments.callee.arguments.length);
         console.log(arguments.callee.length);
@@ -347,7 +347,7 @@ fn(2); // 3
 
     * 闭包就是能够读取其他函数内部变量的函数*引自[学习Javascript闭包](http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html)*
 
-    ``` javascript
+    ```js
     function foo() {
         var x = 1;
         return function fn() { // closure
@@ -362,7 +362,7 @@ fn(2); // 3
 
 * this：函数中的`this`始终指向函数的调用者
 
-``` javascript
+```js
 function foo(x) {
     this.x = x;
 }
@@ -459,7 +459,7 @@ console.log(window.x); // 1
 
 * 精简`html`结构：嵌套过复杂的结构会导致浏览器构建DOM树缓慢
 
-* `html`最小化：html大小直接关系到下载速度，移除内联的css，javascript，甚至模板片，有条件的话尽可能压缩html，去除注释、空行等无用文本
+* `html`最小化：html大小直接关系到下载速度，移除内联的css，JavaScript，甚至模板片，有条件的话尽可能压缩html，去除注释、空行等无用文本
 
 * 总是设置文档字符集：如果不设置，浏览器在渲染页面前会做一些查找，先搜索可进行解析的字符
 
@@ -529,7 +529,7 @@ console.log(window.x); // 1
 
 * 读写分离，减少layout：
 
-``` javascript
+```js
 x = box.offsetLeft; // read
 box.offsetLeft = '100px'; // write
 y = box.offsetTop; // read
@@ -538,7 +538,7 @@ box.offsetTop = '100px'; // write
 
 这个过程造成了两次的layout，可做如下改造：
 
-``` javascript
+```js
 x = box.offsetLeft; // read
 y = box.offsetTop; // read
 box.offsetLeft = '100px'; // write
@@ -547,7 +547,7 @@ box.offsetTop = '100px'; // write
 
 * 最小化重排（`repeat`）：
 
-``` javascript
+```js
 box.style.width = '100px';
 box.style.heihgt = '50px;';
 box.style.left = '200px';
@@ -555,7 +555,7 @@ box.style.left = '200px';
 
 三个操作都会重新计算元素的几何结构，在部分浏览器可能会导致3次重排，可做如下改写：
 
-``` javascript
+```js
 var css = 'width: 100px; height: 50px; left: 200px;';
 box.style.cssText += css;
 ```
@@ -568,14 +568,14 @@ box.style.cssText += css;
 
 * 缓存对象引用：
 
-``` javascript
+```js
 var a = $('#box .a');
 var b = $('#box .b');
 ```
 
 可以缓存`$('#box')`到临时变量：
 
-``` javascript
+```js
 var box = $('#box');
 var a = box.find('.a');
 var b = box.find('.b');
@@ -583,7 +583,7 @@ var b = box.find('.b');
 
 * 减少多级引用：
 
-``` javascript
+```js
 var $P = Jx().UI.Pager.create();// 同样可以先缓存结果
 ```
 
@@ -601,7 +601,7 @@ var $P = Jx().UI.Pager.create();// 同样可以先缓存结果
 
 * id和标签选择器最快，因为是直接调用原生API
 
-``` javascript
+```js
 $('#box'); // document.getElementById | document.querySelector
 $('div'); // document.getElementsByTagName
 ```
@@ -610,14 +610,14 @@ $('div'); // document.getElementsByTagName
 
 * 尽可能优先使用符合CSS语法规范的CSS选择器表达式，以此来避免使用jQuery自定义的选择器表达式，因为当jQuery遇到单个id, 标签名，类名，选择器就会快速调用浏览器支持的DOM方法查询
 
-``` javascript
+```js
 $('input[checked="checked"]'); // 比较快
 $('input:checked'); // 较慢
 ```
 
 * 优先选择`$.fn.find`查找子元素，因为`find`之前的选择器并没有使用 jQuery 自带的 Sizzle 选择器引擎，而是使用原生API查找元素
 
-``` javascript
+```js
 $('#parent').find('.child'); // 最快
 $('.child', $('#parent')); // 较快，内部会转换成第一条语句的形式，性能有一定损耗
 $('#parent .child'); // 不如上一个语句块
@@ -625,14 +625,14 @@ $('#parent .child'); // 不如上一个语句块
 
 * 使用组合选择器时，尽可能让右端更明确，因为Sizzle引擎是从右到左进行匹配的
 
-``` javascript
+```js
 $('div.foo .bar'); // slow
 $('.foo div.bar'); // faster
 ```
 
 * 避免过度具体，简洁的 DOM 结构也有助于提升选择器的性能
 
-``` javascript
+```js
 $('.foo .bar .baz');
 $('.foo div.baz'); // better
 ```
@@ -645,7 +645,7 @@ $('.foo div.baz'); // better
 
 * 如获取元素id：
 
-``` javascript
+```js
 $('div').click(function(e) {
     // 生成了个jQuery对象
     var id = $(this).attr('id');
@@ -663,7 +663,7 @@ $('div').click(function(e) {
 </div>
 ```
 
-``` javascript
+```js
 $('#user')
     .find('.name').html('zhangsan').end()
     .find('.city').html('shenzhen').end()
@@ -672,7 +672,7 @@ $('#user')
 
 * 做好jQuery对象缓存
 
-``` javascript
+```js
 var box = $('.box');
 box.find('> .cls1');
 box.find('> .cls2');
@@ -682,7 +682,7 @@ box.find('> .cls2');
 
 * 复杂操作把元素从DOM中移除再操作
 
-``` javascript
+```js
 var $el = $('.box').detach();
 var $p = $el.parent();
 // do some stuff with $el...
@@ -691,7 +691,7 @@ $p.append($el);
 
 * 在循环外执行DOM修改
 
-``` javascript
+```js
 // 性能差
 $.each(arr, function(i, el) {
  $('.box').prepend($(el));
@@ -706,7 +706,7 @@ $('.box')[0].appendChild(flag);
 
 #### 使用事件代理
 
-``` javascript
+```js
 $('ul li').on('click', fn);
 // better
 $('ul').on('click', 'li', fn);

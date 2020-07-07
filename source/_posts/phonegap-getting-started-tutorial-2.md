@@ -2,7 +2,7 @@
 title: PhoneGap入门教程(2) - 内核事件和基本用法
 id: 29
 categories: frontend
-tags: [PhoneGap, Android, Webapp, javascript]
+tags: [PhoneGap, Android, Webapp, JavaScript]
 date: 2015-02-02
 ---
 
