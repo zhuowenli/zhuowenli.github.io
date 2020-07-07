@@ -9,7 +9,7 @@
     "dev": "hexo server"
   },
   "hexo": {
-    "version": "4.2.1"
+    "version": "4.2.0"
   },
   "dependencies": {
     "gitalk": "^1.6.2",

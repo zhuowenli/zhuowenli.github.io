@@ -4,7 +4,7 @@
     const Theme = {};
 
     Theme.backToTop = {
-        register: function () {
+        register() {
             const $backToTop = $('#back-to-top');
 
             $(window).scroll(function () {
@@ -128,7 +128,11 @@
 
         register() {
             const originTitle = document.title;
-            const { icon, hide_text, show_text } = themeConfig.favicon;
+            const {
+                icon,
+                hide_text,
+                show_text
+            } = themeConfig.favicon;
             let normalisedFingerprint = icon;
             let transparentFingerprint = icon;
             let titleTimer;
@@ -150,6 +154,118 @@
                         document.title = originTitle;
                     }, 2000);
                 }
+            });
+        }
+    }
+
+    const screenSize = {
+        width: window.innerWidth,
+        height: window.innerHeight
+    };
+    const anchors = [
+        [$("#js-mainTriangleTop"), 0, 0, 180, 0, -0.6, 0, 0.9, 0.9, 0.9],
+        [$("#js-mainTriangleRight"), 0, 0, 250, 1.4, 0, 0, 0.9, 0.9, 0.9],
+        [$("#js-mainTriangleBottom"), 0, -10, 10, 0.2, 0.6, 0, 0.9, 0.9, 0.9],
+        [$("#js-mainTriangleLeft"), 0, 0, 80, -1.8, 0.2, 0, 0.9, 0.9, 0.9],
+        [$("#js-backgroundTriangleTop"), 20, 0, 180, 1.4, -0.8, -0.6, 0.3, 0.6, 0.6],
+        [$("#js-backgroundTriangleRight"), 0, 0, 250, 1.2, -0.6, -0.6, 0.7, 0.6, 0.7],
+        [$("#js-backgroundTriangleBottom"), 0, -10, 10, -6, -1.2, -0.6, 0.3, 0.6, 0.6],
+        [$("#js-backgroundTriangleLeft"), 0, 0, 80, -4, 1.8, -0.6, 0.3, 0.4, 0.4],
+    ];
+    Theme.cursor = {
+        isActive: false,
+        isHeroActive: true,
+        mainTrianglesBox: $("#js-mainTrianglesBox"),
+        backgroundTrianglesBox: $("#js-backgroundTrianglesBox"),
+        triangleTop: $("#js-mainTriangleTop .triangle"),
+        triangleRight: $("#js-mainTriangleRight .triangle"),
+        triangleBottom: $("#js-mainTriangleBottom .triangle"),
+        triangleLeft: $("#js-mainTriangleLeft .triangle"),
+        triangleBackgroundTop: $("#js-backgroundTriangleTop .triangle"),
+        triangleBackgroundRight: $("#js-backgroundTriangleRight .triangle"),
+        triangleBackgroundBottom: $("#js-backgroundTriangleBottom .triangle"),
+        triangleBackgroundLeft: $("#js-backgroundTriangleLeft .triangle"),
+        lastX: screenSize.width / 2,
+        lastY: screenSize.height / 2,
+        clientX: screenSize.width / 2,
+        clientY: screenSize.height / 2,
+        init() {
+            document.addEventListener("mousemove", this.handleMouseMove.bind(this));
+            document.addEventListener("scroll", this.handleScroll.bind(this));
+            this.lastX = screenSize.width / 2;
+            this.lastY = screenSize.height / 2;
+            this.clientX = screenSize.width / 2;
+            this.clientY = screenSize.height / 2;
+            this.isActive = true;
+            this.update();
+            this.updateAnchor(window.scrollY);
+            $('.scene-3d').addClass('fullScreenScene');
+        },
+        deinit() {
+            document.removeEventListener("mousemove", this.handleMouseMove.bind(this));
+            document.removeEventListener("scroll", this.handleScroll.bind(this));
+            this.isActive = false;
+        },
+        handleMouseMove(e) {
+            this.clientX = e.clientX;
+            this.clientY = e.clientY;
+        },
+        handleScroll() {
+            this.clientX = screenSize.width / 2;
+            this.clientY = screenSize.height / 2;
+
+            if (window.scrollY > screenSize.height * 2) {
+                this.isHeroActive = false;
+            } else {
+                this.updateAnchor(window.scrollY);
+                if (!this.isHeroActive) {
+                    this.isHeroActive = true;
+                    this.update();
+                }
+            }
+        },
+        update() {
+            if (this.isActive) {
+                requestAnimationFrame(this.update.bind(this));
+
+                let e = this.lastX + .02 * (this.clientX - this.lastX);
+                let t = this.lastY + .02 * (this.clientY - this.lastY);
+                let n = e / screenSize.width - .5;
+                let o = t / screenSize.height - .5;
+
+                if (this.isHeroActive) {
+                    this.mainTrianglesBox.css('transform', `translateY(${20 * o}vw) translateX(${20 * n}vw)`);
+                    this.triangleTop.css('transform', `rotateX(${120 * o}deg) rotateY(${120 * n}deg)`);
+                    this.triangleRight.css('transform', `rotateY(${120 * o}deg) rotateX(${120 * n}deg)`);
+                    this.triangleBottom.css('transform', `rotateX(${120 * o}deg) rotateY(${120 * n}deg)`);
+                    this.triangleLeft.css('transform', `rotateY(${120 * o}deg) rotateX(${120 * n}deg)`);
+                    this.backgroundTrianglesBox.css('transform', `translateY(${12 * o}vw) translateX(${12 * n}vw)`);
+                    this.triangleBackgroundTop.css('transform', `rotateX(${-120 * o}deg) rotateY(${-120 * n}deg)`);
+                    this.triangleBackgroundRight.css('transform', `rotateY(${-120 * o}deg) rotateX(${-120 * n}deg)`);
+                    this.triangleBackgroundBottom.css('transform', `rotateX(${-120 * o}deg) rotateY(${-120 * n}deg)`);
+                    this.triangleBackgroundLeft.css('transform', `rotateY(${-120 * o}deg) rotateX(${-120 * n}deg)`);
+                }
+
+                this.lastX = e;
+                this.lastY = t;
+            }
+        },
+        updateAnchor(scrollY) {
+            const calculateCurrentValue = (t) => t + t * (scrollY / (screenSize.width < 640 ? 300 : 500));
+
+            anchors.forEach(anchor => {
+                const element = anchor[0];
+                const rx = calculateCurrentValue(anchor[1], scrollY);
+                const ry = calculateCurrentValue(anchor[2], scrollY);
+                const rz = calculateCurrentValue(anchor[3], scrollY);
+                const tx = calculateCurrentValue(anchor[4], scrollY);
+                const ty = calculateCurrentValue(anchor[5], scrollY);
+                const tz = calculateCurrentValue(anchor[6], scrollY);
+                const sx = calculateCurrentValue(anchor[7], scrollY);
+                const sy = calculateCurrentValue(anchor[8], scrollY);
+                const sz = calculateCurrentValue(anchor[9], scrollY);
+
+                element.css('transform', `scale3d(${sx}, ${sy}, ${sz}) translate3d(${25 * tx}vw, ${25 * ty}vw, ${25 * tz}vw) rotateX(${rx}deg) rotateY(${ry}deg) rotateZ(${rz}deg)`);
             });
         }
     }
