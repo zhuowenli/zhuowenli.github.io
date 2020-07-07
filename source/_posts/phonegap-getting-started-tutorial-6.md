@@ -2,7 +2,7 @@
 title: PhoneGap入门教程(6) - 设备信息和系统提示
 id: 25
 categories: frontend
-tags: [PhoneGap, Android, Webapp, javascript]
+tags: [PhoneGap, Android, Webapp, JavaScript]
 date: 2015-02-10
 ---
 

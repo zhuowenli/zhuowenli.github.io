@@ -1,7 +1,7 @@
 ---
 title: Javascript 模块模式
 categories: frontend
-tags: [javascript]
+tags: [JavaScript]
 date: 2014-11-06
 id: 36
 ---
@@ -10,7 +10,7 @@ id: 36
 
 假设现在我们有一个小型的Js库，目的是用来增加一个数字：
 
-```javascript
+```js
 var jspy = {
  count: 0,
 
@@ -33,7 +33,7 @@ var jspy = {
 
 针对上面问题的解决方案如下：
 
-```javascript
+```js
 var jspy = (function(){
  var _count = 0;
 
@@ -56,21 +56,21 @@ var jspy = (function(){
 首先我们创造一个 `_count` 变量，下划线表明它是一个私有变量。再Javascript中下划线并没有什么实际的意义，但是它是一个用来标明私有变量的普遍用法。现在函数就可以操纵、返回变量了：
 然而，你注意到了我吧整个库包含在了一个自调用匿名函数中。这是一个在执行过程中马上被执行的函数。这个函数运行，定义了函数和变量然后到了 `return {}` 的部分，它告诉函数将其返回给变量 `jspy` ，或者换句话说，暴露给用户。我们暴露两个函数而不是 `_count` 变量，这意味着我们可以做如下操作：
 
-```javascript
+```js
 jspy.incrementCount();
 jspy.getCount();
 ```
 
 但是当我们试图进行如下操作时：
 
-```javascript
+```js
 jspy._count; // undefined
 ```
 
 它返回undefined。
 对于上面的这种设计模式有许多不同的实现方法。有人喜欢在return 中定义函数：
 
-```javascript
+```js
 var jspy = (function(){
 var_count = 0;
 
@@ -88,7 +88,7 @@ return_count;
 
 受到上面例子的启发，CHristian Heilmann提出了Revealing Module Pattern。他的方法是将所有方法定义为私有变量，也就是说，不在return中定义，但是在那里暴露给用户，如下所示：
 
-```javascript
+```js
 var jspy = (function(){
  var _count = 0;
  var incrementCount = function(){

@@ -2,7 +2,7 @@
 title:  React 入门教程
 id: 21
 categories: frontend
-tags: [javascript, react]
+tags: [JavaScript, react]
 date: 2015-07-29
 ---
 

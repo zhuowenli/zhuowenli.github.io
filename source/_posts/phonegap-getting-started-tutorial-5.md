@@ -2,7 +2,7 @@
 title: PhoneGap入门教程(5) - 程序内置浏览器窗口
 id: 26
 categories: frontend
-tags: [PhoneGap, Android, Webapp, javascript]
+tags: [PhoneGap, Android, Webapp, JavaScript]
 date: 2015-02-04
 ---
 

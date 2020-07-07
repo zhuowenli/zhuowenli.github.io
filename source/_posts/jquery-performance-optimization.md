@@ -1,7 +1,7 @@
 ---
 title: jQuery性能优化
 categories: frontend
-tags: [github-page, jekyll, javascript, jquery]
+tags: [github-page, jekyll, JavaScript, jquery]
 date: 2014-08-20
 id: 39
 ---

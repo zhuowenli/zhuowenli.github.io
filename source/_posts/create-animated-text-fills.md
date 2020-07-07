@@ -1,7 +1,7 @@
 ---
 title: 如何创建文字填充动画
 categories: frontend
-tags: [css3, svg, animation, javascript]
+tags: [css3, svg, animation, JavaScript]
 date: 2015-03-07
 id: 23
 ---

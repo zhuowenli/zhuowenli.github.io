@@ -1,7 +1,7 @@
 ---
 title:  数组去重的几个方法
 categories: frontend
-tags: [javascript, unique, array]
+tags: [JavaScript, unique, array]
 date: 2015-03-13
 id: 22
 ---
