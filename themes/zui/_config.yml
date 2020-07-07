@@ -49,7 +49,7 @@ theme:
 # baidu_analytics:
 
 # Google Analytics
-# google_analytics:
+google_analytics: UA-171827500-1
 
 # Disqus
 # disqus_shortname:
