@@ -46,7 +46,7 @@ theme:
 # ===========================================
 
 # Baidu Analytics
-# baidu_analytics:
+baidu_analytics: 7278e0ce3cabf14a3798ac2126b733d9
 
 # Google Analytics
 google_analytics: UA-171827500-1
