@@ -8,7 +8,7 @@
         owner: '{{theme.gitalk.owner}}',
         admin: '{{theme.gitalk.admin}}'.split(','),
         pagerDirection: '{{theme.gitalk.pagerDirection}}',
-        id: '{{page.subtitle || page.title}}',
+        id: `{{page.subtitle || page.title}}`,
         number: {{page.id || -1}},
         distractionFreeMode: true
     });
