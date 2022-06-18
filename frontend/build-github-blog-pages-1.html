@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="通过GitHub Pages创建博客（一）"/>
+
+
+
+
+  <meta name="keywords" content="github,github pages,jekyll," />
+
+
+
+
+
+    <link rel="alternate" href="/atom.xml" title="Zhuo Wenli">
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.0.0" />
+
+
+
+<link rel="canonical" href="https://www.zhuowenli.com/frontend/build-github-blog-pages-1.html"/>
+
+
+<meta name="description" content="本系列文章将会教你如何通过GitHub，在GitHub上创建自己的博客或者项目主页。这里只是把自己在使用GitHub开发过程中的经验和总结分享给大家，方便大家逐步开始GitHub之旅。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通过GitHub Pages创建博客（一）">
+<meta property="og:url" content="https://www.zhuowenli.com/frontend/build-github-blog-pages-1.html">
+<meta property="og:site_name" content="Zhuo Wenli">
+<meta property="og:description" content="本系列文章将会教你如何通过GitHub，在GitHub上创建自己的博客或者项目主页。这里只是把自己在使用GitHub开发过程中的经验和总结分享给大家，方便大家逐步开始GitHub之旅。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://st-qn.gittt.cn/2015/08/06/themes.png">
+<meta property="og:image" content="https://st-qn.gittt.cn/2015/08/06/jekyll.png">
+<meta property="og:image" content="https://st-qn.gittt.cn/2015/08/06/localhost.png">
+<meta property="article:published_time" content="2015-08-06T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-18T02:56:11.592Z">
+<meta property="article:author" content="Zhuo Wenli">
+<meta property="article:tag" content="github">
+<meta property="article:tag" content="github pages">
+<meta property="article:tag" content="jekyll">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://st-qn.gittt.cn/2015/08/06/themes.png">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0" />
+
+
+
+<script type="text/javascript">
+    var themeConfig = {
+        color: 'Default',
+        favicon: {
+            enable: true,
+            icon: '/favicon.ico',
+            hide_text: '(●—●)喔哟，崩溃啦！',
+            show_text: '(/≧▽≦/)咦！又好了！',
+        }
+    };
+</script>
+
+
+
+    <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7278e0ce3cabf14a3798ac2126b733d9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171827500-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-171827500-1');
+</script>
+
+
+    <title> 通过GitHub Pages创建博客（一） - Zhuo Wenli </title>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Zhuo Wenli" type="application/atom+xml">
+</head>
+<body>
+    <div id="page">
+        <header id="masthead">
+<h1 class="site-title">
+    <a href="/." class="logo">Zhuo Wenli</a>
+</h1>
+
+
+        </header>
+
+        <div id="content">
+            
+    
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">通过GitHub Pages创建博客（一）</h1>
+        <time class="post-time">
+            Aug 06 2015
+        </time>
+    </header>
+
+    <div class="post-content">
+        <p>本系列文章将会教你如何通过GitHub，在GitHub上创建自己的博客或者项目主页。这里只是把自己在使用GitHub开发过程中的经验和总结分享给大家，方便大家逐步开始GitHub之旅。</p>
+<a id="more"></a>
+
+<p><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>不仅为程序员提供了免费源代码托管空间，还为程序员提供了一个社交平台。不但允许大家在GitHub上创建自己的博客网站或主页（<a href="https://pages.github.com/" target="_blank" rel="noopener">github pages</a>），并且免费，不限流量，还可以绑定自己的域名。</p>
+<p>但是GitHub提供的主页实际上是基于GitHub的源代码实现的，所以只支持上传静态的网页，不能在上面创建真正的博客系统。不过，万幸的是，GitHub支持一种叫<a href="http://jekyllcn.com/" target="_blank" rel="noopener">jekyll</a>的静态页面模板引擎，也就是说只要上传符合jekyll规范的文件，GitHub会用这种模板引擎为你转化静态页面和网站。</p>
+<h2 id="关于jekyll"><a href="#关于jekyll" class="headerlink" title="关于jekyll"></a>关于jekyll</h2><p>这个jekyll到底是什么？</p>
+<p>实际上jekyll本质上就是一个<strong>模板转化引擎</strong>。同时它也是GitHub上的一个开源项目：<a href="https://github.com/jekyll/jekyll" target="_blank" rel="noopener">Jekyll</a></p>
+<p>jekyll本身基于Ruby，也可以看成是一种模板引擎<a href="https://github.com/Shopify/liquid/wiki/Liquid-for-Designers" target="_blank" rel="noopener">liquid</a>的扩展。jekyll对liquid的主要扩展在于两点：</p>
+<ul>
+<li>内建专用于博客网站的对象，可以在模板中引用这些对象：<code>page</code>、<code>site</code>等</li>
+<li>对liquid进行了扩展，方便构建博客网站</li>
+</ul>
+<p>类似其他的模板引擎一样，<strong>标记</strong>是模板引擎解析的关键，liquid设计了如下两种标记：</p>
+
+
+- `{{ }}`：此标记表征的是将其中的变量转化成文本
+- `{% %}`：此标记用于包含控制流关键字，比如：`{% if %}`、`{% for x in xx %}`
+
+
+<p>显而易见的是，有了这种标记的支持，再加上jekyll内建的对象，构建网站就方便不少了。</p>
+<p>可能有朋友会更其他的服务器端脚本语言比较，比如<code>jsp</code>、<code>php</code>…，但是一定要记得的是，jekyll对模板的解析仅仅只有一次，它的目的就是将模板一次性的转化成静态网站，而不是上述的动态网站脚本语言。</p>
+<p>更多内容可以去阅读jekyll的<a href="http://jekyllcn.com/" target="_blank" rel="noopener" title="http://jekyllcn.com/">帮助文档</a>，或者GitHub</p>
+<h2 id="关于GitHub-Pages"><a href="#关于GitHub-Pages" class="headerlink" title="关于GitHub-Pages"></a>关于GitHub-Pages</h2><p>github-pages是一个免费的静态网站托管平台，由github提供，它具有以下几个特点：</p>
+<ul>
+<li>无限免费空间，无限免费流量</li>
+<li>具有项目主页和个人主页两种选择</li>
+<li>支持页面生成，可以使用jekyll来布局页面，使用markdown来书写正文</li>
+<li>可以自定义域名</li>
+</ul>
+<p>对于普通的博主来说，用项目主页或者个人主页并无所谓。更多关于主页类型，请参见：<a href="https://help.github.com/articles/user-organization-and-project-pages" target="_blank" rel="noopener" title="https://help.github.com/articles/user-organization-and-project-pages">User, Organization and Project Pages</a></p>
+<p>github-pages<strong>仅仅</strong>为我们提供了<strong>静态页面的托管</strong>，不要说不能用wordpress，连基本的评论，访问统计都得自己想办法（幸好都有解决方案，接下去我们会慢慢介绍）。</p>
+<h3 id="创建项目仓库"><a href="#创建项目仓库" class="headerlink" title="创建项目仓库"></a>创建项目仓库</h3><p>在创建博客之前，还需要用自己的帐号创建一个项目。在Git中，项目被称为仓库(Repository)，仓库顾名思义，当然可以包含代码或者非代码。将来我们的网页或者模板实际上都是保存在这个仓库中的。</p>
+<p>登录后，访问<a href="https://github.com/new" target="_blank" rel="noopener">https://github.com/new</a>，创建仓库。</p>
+<h3 id="项目主页"><a href="#项目主页" class="headerlink" title="项目主页"></a>项目主页</h3><p><strong>项目主页</strong>的目的是为项目提供一个展示功能的网页，方便项目推广。但是也可以用来做个人博客。对于博客来说，博客的整个网站目录必须是项目仓库的<code>gh-pages</code>分支。</p>
+<p>通过<a href="https://pages.github.com/" target="_blank" rel="noopener">https://pages.github.com/</a>上的向导，可以在你的项目仓库中创建这样的分支，并且github还提供了多种模板供你选择：</p>
+<p><img src="https://st-qn.gittt.cn/2015/08/06/themes.png" alt=""></p>
+<p>通过向导自动创建的项目的访问地址类似这样<code>http://username.github.io/仓库名/</code>，在使用自定义域名前，你需要通过这样的链接访问项目主页。它是一个纯粹为项目推广准备的，因此并没有博客的结构，但是自定义模板的功能确实很不错。</p>
+<p>手动创建分支的方法，也很简单，可以参考<a href="https://help.github.com/articles/creating-project-pages-manually" target="_blank" rel="noopener">Creating Project Pages manually</a></p>
+<h3 id="个人主页"><a href="#个人主页" class="headerlink" title="个人主页"></a>个人主页</h3><p>每个帐号只能有一个仓库来存放个人主页，而且仓库的名字必须是<code>username/username.github.io</code>，这是特殊的命名约定。你可以通过<code>http://username.github.io</code>来访问你的个人主页。</p>
+<p>通过向导很容易创建一个仓库，并测试成功。不过，同样的，没有博客的结构。需要注意的个人主页的网站内容是在master分支下的。</p>
+<p>例如本站项目地址：<a href="https://github.com/zhuowenli/zhuowenli.github.io" target="_blank" rel="noopener" title="https://github.com/zhuowenli/zhuowenli.github.io">zhuowenli.github.io</a></p>
+<h2 id="本地环境搭建"><a href="#本地环境搭建" class="headerlink" title="本地环境搭建"></a>本地环境搭建</h2><p>创建了仓库后，我们就需要管理它，无论是管理本地仓库还是远程仓库都需要Git客户端。Git客户端实际上十分强大，它本身就可以offline的创建本地仓库，而本地仓库和远程仓库之间的同步也是通过Git客户端完成的。</p>
+<p>MAC下只要两行命令就可以安装好Git。打开终端，输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>
+
+<p>Homebrew可以很方便的在OS X下安装一些工具包。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install git</span><br></pre></td></tr></table></figure>
+
+<p>这里省略了windows下安装和使用Git客户端的基本技巧，你可以访问 <a href="http://git-scm.com/" target="_blank" rel="noopener" title="http://git-scm.com/">这个网站</a> 下载Git客户端。具体步骤请自行谷歌百度。</p>
+<h3 id="安装Ruby"><a href="#安装Ruby" class="headerlink" title="安装Ruby"></a>安装Ruby</h3><p>jekyll本身基于Ruby开发，因此，想要在本地构建一个测试环境需要具有Ruby的开发和运行环境。</p>
+<p>MAC默认带有ruby的运行环境了，这个步骤可以跳过。</p>
+<p>至于在windows下，可以使用<a href="http://rubyinstaller.org/downloads/" target="_blank" rel="noopener">Rubyinstaller</a>安装。windows的安装还是一如既往的“无脑”，不多说了。</p>
+<p>至于Linux下可以参考<a href="https://ruby-china.org/wiki/install_ruby_guide" target="_blank" rel="noopener">如何快速正确的安装 Ruby, Rails 运行环境</a>。</p>
+<p><em>附：<a href="http://www.ruby-lang.org/zh_cn/downloads/" target="_blank" rel="noopener">ruby安装说明</a></em></p>
+<p>如果想要快速体验ruby开发，可以参考：<a href="http://www.ruby-lang.org/zh_cn/documentation/quickstart/" target="_blank" rel="noopener">20分钟体验 Ruby</a></p>
+<h3 id="安装Bundle"><a href="#安装Bundle" class="headerlink" title="安装Bundle"></a>安装Bundle</h3><p>Ruby Rails 3 中引入Bundle来管理项目中所有gem依赖，该命令只能在一个含有Gemfile的目录下执行。这里使用Bundle，可以很方便的帮我们安装好那些乱七八糟的环境。</p>
+<p>打开你安装好的<code>Git Bash</code>，或者MAC下的<code>终端</code>。然后直接使用下面命令安装即可：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install bundle</span><br></pre></td></tr></table></figure>
+
+<h3 id="Gemfile和Bundle安装"><a href="#Gemfile和Bundle安装" class="headerlink" title="Gemfile和Bundle安装"></a>Gemfile和Bundle安装</h3><p>在根目录下创建一个叫<code>Gemfile</code>的文件，注意没有后缀，打开文件，输入以下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> <span class="string">'http://ruby.taobao.org/'</span></span><br><span class="line">gem <span class="string">'github-pages'</span></span><br></pre></td></tr></table></figure>
+
+<p>保存后，在命令行中执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bundle install</span><br></pre></td></tr></table></figure>
+
+<p>该命令会根据当前目录下的Gemfile，安装所需要的所有软件。这一步所安装的东西，可以说跟github本身的环境是完全一致的，所以可以确保本地如果没有错误，上传后也不会有错误。而且可以在将来使用下面命令，随时更新环境，十分方便。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bundle update</span><br></pre></td></tr></table></figure>
+
+<h3 id="项目展示"><a href="#项目展示" class="headerlink" title="项目展示"></a>项目展示</h3><p>接下来我们把，创建好的GitHub仓库<strong>clone</strong>到本地，例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zhuowenli/zhuowenli.github.io.git</span><br></pre></td></tr></table></figure>
+
+<p>进入clone到本地的这个文件夹</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> zhuowenli.github.io</span><br></pre></td></tr></table></figure>
+
+<p>使用下面命令，就可以启动本地服务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bundle <span class="built_in">exec</span> jekyll serve</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://st-qn.gittt.cn/2015/08/06/jekyll.png" alt=""></p>
+<p>如图，每当本地的文件发生改变时，jekyll会自动编译发生改变的文件，在<code>_site</code>文件夹里面生成用来展示的静态html页面。</p>
+<p>jekyll此时会在localhost的4000端口监听http请求，用浏览器访问<a href="http://localhost:4000/" target="_blank" rel="noopener" title="http://localhost:4000/">http://localhost:4000/</a>，本地的页面出现了！</p>
+<p><img src="https://st-qn.gittt.cn/2015/08/06/localhost.png" alt=""></p>
+<p>至此，我们就知道了如何创建一个博客站，并且在线上及本地环境运行。接下来我会继续教大家如何从无到有一步一步的自定义创建博客，组织编辑内容，域名解析，评论统计等等。</p>
+<p>敬请期待~</p>
+
+    </div>
+
+    <footer class="post-footer">
+        
+        <div class="post-tags">
+            
+            <a href="/tags/github/">github</a>
+            
+            <a href="/tags/github-pages/">github pages</a>
+            
+            <a href="/tags/jekyll/">jekyll</a>
+            
+        </div>
+        
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/diary/ubuntu-htaccess-301.html">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Ubuntu下使用.htaccess实现301重定向</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/frontend/the-flux-quick-start-guide.html">
+        <span class="next-text nav-default">Flux 入门教程</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+        
+            
+    <div class="comments" id="comments">
+        
+            <div id="gitalk-container"></div>
+        
+    </div>
+
+
+        
+    </footer>
+</article>
+
+
+        </div>
+
+        <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2016 -
+    
+    2022
+    <span class="footer-author">Zhuo Wenli.</span>
+    <span class="power-by">Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>.</span>
+    <span class="design-by">Designed by <a href="https://www.zhuowenli.com/">zhuowenli</a></span>
+</span>
+
+<nav id="nav-bottom">
+    
+        <ul id="menu-bottom" class="nav-bottom-items">
+            
+                <li class="menu-item">
+                    <a href="/">
+                        
+                        
+                            Home
+                        
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="/archives">
+                        
+                        
+                            Archives
+                        
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="/about">
+                        
+                        
+                            About
+                        
+                    </a>
+                </li>
+            
+        </ul>
+    
+</nav>
+
+        </footer>
+
+        <div class="back-to-top" id="back-to-top">
+            <i class="iconfont icon-up"></i>
+        </div>
+    </div>
+    
+    
+
+
+<script src="/lib/gitalk.min.js"></script>
+<script type="text/javascript">
+    const gitalk = new Gitalk({
+        clientID: '3a683f311ce3460b686d',
+        clientSecret: '264685b8506d937c73b468584847c3b2347bdcfe',
+        repo: 'zhuowenli.github.io',
+        owner: 'zhuowenli',
+        admin: 'zhuowenli'.split(','),
+        pagerDirection: 'first',
+        id: `通过GitHub Pages创建博客（一）`,
+        number: 19,
+        distractionFreeMode: true
+    });
+    if (document.querySelector('#gitalk-container')) {
+        gitalk.render('gitalk-container');
+    }
+</script>
+
+
+
+    
+    
+
+
+  
+    <script type="text/javascript" src="/lib/jquery-3.1.1.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/theme.js?v=1.0.0"></script>
+<script type="text/javascript" src="/js/bootstrap.js?v=1.0.0"></script>
+
+</body>
+</html>

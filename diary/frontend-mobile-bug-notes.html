@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="移动前端开发BUG记录"/>
+
+
+
+
+  <meta name="keywords" content="JavaScript,frontend,mobile,bug,notes," />
+
+
+
+
+
+    <link rel="alternate" href="/atom.xml" title="Zhuo Wenli">
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.0.0" />
+
+
+
+<link rel="canonical" href="https://www.zhuowenli.com/diary/frontend-mobile-bug-notes.html"/>
+
+
+<meta name="description" content="记录各种奇葩问题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动前端开发BUG记录">
+<meta property="og:url" content="https://www.zhuowenli.com/diary/frontend-mobile-bug-notes.html">
+<meta property="og:site_name" content="Zhuo Wenli">
+<meta property="og:description" content="记录各种奇葩问题。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://st-qn.gittt.cn/2015/01/06/1.png">
+<meta property="og:image" content="https://st-qn.gittt.cn/2015/01/06/2.png">
+<meta property="article:published_time" content="2015-01-06T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-18T02:56:11.596Z">
+<meta property="article:author" content="Zhuo Wenli">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="frontend">
+<meta property="article:tag" content="mobile">
+<meta property="article:tag" content="bug">
+<meta property="article:tag" content="notes">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://st-qn.gittt.cn/2015/01/06/1.png">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0" />
+
+
+
+<script type="text/javascript">
+    var themeConfig = {
+        color: 'Default',
+        favicon: {
+            enable: true,
+            icon: '/favicon.ico',
+            hide_text: '(●—●)喔哟，崩溃啦！',
+            show_text: '(/≧▽≦/)咦！又好了！',
+        }
+    };
+</script>
+
+
+
+    <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7278e0ce3cabf14a3798ac2126b733d9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171827500-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-171827500-1');
+</script>
+
+
+    <title> 移动前端开发BUG记录 - Zhuo Wenli </title>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Zhuo Wenli" type="application/atom+xml">
+</head>
+<body>
+    <div id="page">
+        <header id="masthead">
+<h1 class="site-title">
+    <a href="/." class="logo">Zhuo Wenli</a>
+</h1>
+
+
+        </header>
+
+        <div id="content">
+            
+    
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">移动前端开发BUG记录</h1>
+        <time class="post-time">
+            Jan 06 2015
+        </time>
+    </header>
+
+    <div class="post-content">
+        <p>记录各种奇葩问题。</p>
+<a id="more"></a>
+
+<h2 id="IOS"><a href="#IOS" class="headerlink" title="IOS"></a>IOS</h2><h3 id="弹窗高度下榻问题"><a href="#弹窗高度下榻问题" class="headerlink" title="弹窗高度下榻问题"></a>弹窗高度下榻问题</h3><h4 id="表现形式"><a href="#表现形式" class="headerlink" title="表现形式"></a>表现形式</h4><p>如下弹窗，最外层竖直水平居中。内容动态加载。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">id</span>=<span class="string">"pop"</span> <span class="attr">class</span>=<span class="string">"pop"</span>&gt;</span></span><br><span class="line"> <span class="comment">&lt;!-- add more --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> html = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line">html += <span class="string">'&lt;div&gt;......&lt;/div&gt;'</span>;</span><br><span class="line"></span><br><span class="line">$(<span class="string">'section#pop'</span>).append(html);  <span class="comment">// 填充弹窗</span></span><br><span class="line">openPop();  <span class="comment">// 显示弹窗</span></span><br></pre></td></tr></table></figure>
+
+<p>在iphone下会出现如下bug:</p>
+<p><img src="https://st-qn.gittt.cn/2015/01/06/1.png" alt=""></p>
+<h4 id="BUG原因"><a href="#BUG原因" class="headerlink" title="BUG原因"></a>BUG原因</h4><p>在iphone下，点击按钮触发弹窗渲染时。会先渲染最外层的<code>section#pop</code>，这时候<code>section#pop</code>是出于居中状态，并且高度为0。然后开始往<code>section#pop</code>里面填充内容。</p>
+<p>这时候浏览器不会再去渲染弹窗居中的样式。而是让内容顺着弹窗最初的高度，往下填充内容。导致弹窗看起来整体的高度下塌。</p>
+<p>但是，里面的链接，按钮等的位置其实是在整体居中的位置。而不是我们看上去的位置。所以点击按钮或链接会失效。</p>
+<h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><p>可以连同最外层的<code>section#pop</code>一起填充进去。例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> html = <span class="string">''</span>;</span><br><span class="line">html += <span class="string">'&lt;section id="pop-location" class="pop_state"&gt;'</span>;</span><br><span class="line">html += ......</span><br><span class="line">html += <span class="string">'&lt;/section&gt;'</span></span><br><span class="line">_content.append(html);  <span class="comment">// 填充弹窗</span></span><br><span class="line">openPop();  <span class="comment">// 显示弹窗</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="移动端-active伪类事件失效"><a href="#移动端-active伪类事件失效" class="headerlink" title="移动端:active伪类事件失效"></a>移动端:active伪类事件失效</h3><h4 id="BUG原因-1"><a href="#BUG原因-1" class="headerlink" title="BUG原因"></a>BUG原因</h4><p>Safari Mobile 默认不使用<code>:active</code> 状态，除非元素上或<code>&lt;body&gt;</code>上有一个<code>touchstart</code> 事件处理器。</p>
+<p>相关链接：<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/%3Aactive" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/CSS/%3Aactive</a></p>
+<h4 id="解决办法-1"><a href="#解决办法-1" class="headerlink" title="解决办法"></a>解决办法</h4><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.<span class="keyword">body</span>.addEventListener(<span class="symbol">'touchstart</span>', <span class="keyword">function</span> <span class="title"></span>() &#123;&#125;);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h2><h3 id="字体图标显示不出来"><a href="#字体图标显示不出来" class="headerlink" title="字体图标显示不出来"></a>字体图标显示不出来</h3><h4 id="表现形式-1"><a href="#表现形式-1" class="headerlink" title="表现形式"></a>表现形式</h4><p>字体图标在小米2的QQ浏览器上显示不出来，如图：</p>
+<p><img src="https://st-qn.gittt.cn/2015/01/06/2.png" alt=""></p>
+<h4 id="BUG原因-2"><a href="#BUG原因-2" class="headerlink" title="BUG原因"></a>BUG原因</h4><p>部分手机浏览器不支持 <strong>&amp;#xe + 3位16进制</strong> 的Unicode字符，如<code>&amp;#xe61a;</code></p>
+<h4 id="解决办法-2"><a href="#解决办法-2" class="headerlink" title="解决办法"></a>解决办法</h4><p>把字体图标编码制作成 <strong>&amp;#xe + 4位16进制</strong> 即可，如<code>&amp;#xe601a</code>;</p>
+
+    </div>
+
+    <footer class="post-footer">
+        
+        <div class="post-tags">
+            
+            <a href="/tags/JavaScript/">JavaScript</a>
+            
+            <a href="/tags/frontend/">frontend</a>
+            
+            <a href="/tags/mobile/">mobile</a>
+            
+            <a href="/tags/bug/">bug</a>
+            
+            <a href="/tags/notes/">notes</a>
+            
+        </div>
+        
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/frontend/Media-Query-Level-4.html">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">浅析 Media Query Level 4</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/diary/2015.html">
+        <span class="next-text nav-default">回首2014，规划2015</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+        
+            
+    <div class="comments" id="comments">
+        
+            <div id="gitalk-container"></div>
+        
+    </div>
+
+
+        
+    </footer>
+</article>
+
+
+        </div>
+
+        <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2016 -
+    
+    2022
+    <span class="footer-author">Zhuo Wenli.</span>
+    <span class="power-by">Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>.</span>
+    <span class="design-by">Designed by <a href="https://www.zhuowenli.com/">zhuowenli</a></span>
+</span>
+
+<nav id="nav-bottom">
+    
+        <ul id="menu-bottom" class="nav-bottom-items">
+            
+                <li class="menu-item">
+                    <a href="/">
+                        
+                        
+                            Home
+                        
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="/archives">
+                        
+                        
+                            Archives
+                        
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="/about">
+                        
+                        
+                            About
+                        
+                    </a>
+                </li>
+            
+        </ul>
+    
+</nav>
+
+        </footer>
+
+        <div class="back-to-top" id="back-to-top">
+            <i class="iconfont icon-up"></i>
+        </div>
+    </div>
+    
+    
+
+
+<script src="/lib/gitalk.min.js"></script>
+<script type="text/javascript">
+    const gitalk = new Gitalk({
+        clientID: '3a683f311ce3460b686d',
+        clientSecret: '264685b8506d937c73b468584847c3b2347bdcfe',
+        repo: 'zhuowenli.github.io',
+        owner: 'zhuowenli',
+        admin: 'zhuowenli'.split(','),
+        pagerDirection: 'first',
+        id: `移动前端开发BUG记录`,
+        number: 33,
+        distractionFreeMode: true
+    });
+    if (document.querySelector('#gitalk-container')) {
+        gitalk.render('gitalk-container');
+    }
+</script>
+
+
+
+    
+    
+
+
+  
+    <script type="text/javascript" src="/lib/jquery-3.1.1.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/theme.js?v=1.0.0"></script>
+<script type="text/javascript" src="/js/bootstrap.js?v=1.0.0"></script>
+
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="What's new in ECMAScript 2020 (ES2020)"/>
+
+
+
+
+  <meta name="keywords" content="JavaScript,ECMAScript,ES2020," />
+
+
+
+
+
+    <link rel="alternate" href="/atom.xml" title="Zhuo Wenli">
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.0.0" />
+
+
+
+<link rel="canonical" href="https://www.zhuowenli.com/backend/es2020.html"/>
+
+
+<meta name="description" content="从 ES2016 开始，ECMA 修改了标准的制定原则：成文标准要从事实标准中诞生，实现先于标准存在，进入标准草案必须有 JavaScript 引擎实现的支持、社区里有充分的人气和足够的 Test262 测试。 旨在通过更频繁地发布小规模增量更新，促进标准和语言的快速发展，而版本命令规则使用 ECMAScript + 年份的形式。 所以，我们今年又可以看看 ES2020 新增了哪些特性啦。✌️">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What&#39;s new in ECMAScript 2020 (ES2020)">
+<meta property="og:url" content="https://www.zhuowenli.com/backend/es2020.html">
+<meta property="og:site_name" content="Zhuo Wenli">
+<meta property="og:description" content="从 ES2016 开始，ECMA 修改了标准的制定原则：成文标准要从事实标准中诞生，实现先于标准存在，进入标准草案必须有 JavaScript 引擎实现的支持、社区里有充分的人气和足够的 Test262 测试。 旨在通过更频繁地发布小规模增量更新，促进标准和语言的快速发展，而版本命令规则使用 ECMAScript + 年份的形式。 所以，我们今年又可以看看 ES2020 新增了哪些特性啦。✌️">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-07T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-18T02:56:11.596Z">
+<meta property="article:author" content="Zhuo Wenli">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="ECMAScript">
+<meta property="article:tag" content="ES2020">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0" />
+
+
+
+<script type="text/javascript">
+    var themeConfig = {
+        color: 'Default',
+        favicon: {
+            enable: true,
+            icon: '/favicon.ico',
+            hide_text: '(●—●)喔哟，崩溃啦！',
+            show_text: '(/≧▽≦/)咦！又好了！',
+        }
+    };
+</script>
+
+
+
+    <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7278e0ce3cabf14a3798ac2126b733d9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171827500-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-171827500-1');
+</script>
+
+
+    <title> What's new in ECMAScript 2020 (ES2020) - Zhuo Wenli </title>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Zhuo Wenli" type="application/atom+xml">
+</head>
+<body>
+    <div id="page">
+        <header id="masthead">
+<h1 class="site-title">
+    <a href="/." class="logo">Zhuo Wenli</a>
+</h1>
+
+
+        </header>
+
+        <div id="content">
+            
+    
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">What's new in ECMAScript 2020 (ES2020)</h1>
+        <time class="post-time">
+            Jul 07 2020
+        </time>
+    </header>
+
+    <div class="post-content">
+        <p>从 ES2016 开始，ECMA 修改了标准的制定原则：成文标准要从事实标准中诞生，实现先于标准存在，进入标准草案必须有 JavaScript 引擎实现的支持、社区里有充分的人气和足够的 Test262 测试。</p>
+<p>旨在通过更频繁地发布小规模增量更新，促进标准和语言的快速发展，而版本命令规则使用 ECMAScript + 年份的形式。</p>
+<p>所以，我们今年又可以看看 ES2020 新增了哪些特性啦。✌️</p>
+<a id="more"></a>
+
+<h2 id="动态-import"><a href="#动态-import" class="headerlink" title="动态 import"></a>动态 import</h2><p>如果你有某个在代码中不常使用的资源，直接导入其所有依赖项可能只是浪费资源的话。我们就可以在需要时通过  <code>async/await</code> 动态导入该依赖项。</p>
+<p>新的动态 <code>import</code> 语法看起来像一个函数，但并不是函数，不过动态 <code>import</code> 语法也支持 <code>await</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// math.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> add = <span class="function">(<span class="params">num1, num2</span>) =&gt;</span> num1 + num2;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123; add &#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">const</span> doMathAdd = <span class="keyword">async</span> (num1, num2) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> math = <span class="keyword">await</span> <span class="keyword">import</span>(<span class="string">'./math.js'</span>);</span><br><span class="line">    <span class="keyword">return</span> math.add(<span class="number">5</span>, <span class="number">10</span>);</span><br><span class="line">&#125;;</span><br><span class="line">doMathAdd(<span class="number">4</span>, <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+
+<p>在这之前，我们通常会借助 <a href="https://webpack.js.org/api/module-methods/#requireensure" target="_blank" rel="noopener"><code>require.ensure()</code></a> 来实现该特性。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">const</span> doMathAdd = <span class="function">(<span class="params">num1, num2</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">require</span>.ensure([<span class="string">'./math.js'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">require</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">const</span> math = <span class="built_in">require</span>(<span class="string">'./math.js'</span>).default;</span><br><span class="line">            resolve(math.add(<span class="number">5</span>, <span class="number">10</span>));</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br><span class="line">doMathAdd(<span class="number">4</span>, <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/import" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/import</a></p>
+<h2 id="私有-Class-变量"><a href="#私有-Class-变量" class="headerlink" title="私有 Class 变量"></a>私有 Class 变量</h2><p>Class 属性在默认情况下是公共的，可以被外部类检测或修改。现在你可以 <code>#</code> 前缀来定义私有类字段。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Message</span> </span>&#123;</span><br><span class="line">    #message = "Howdy";</span><br><span class="line">    greet() &#123;</span><br><span class="line">        console.log(this.#message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> greeting = <span class="keyword">new</span> Message();</span><br><span class="line"></span><br><span class="line">greeting.greet(); <span class="comment">// Howdy</span></span><br><span class="line">console.log(greeting.#message); // Private name #message is not defined</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes/Private_class_fields" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes/Private_class_fields</a></p>
+<h2 id="Promise-allSettled"><a href="#Promise-allSettled" class="headerlink" title="Promise.allSettled"></a>Promise.allSettled</h2><p>该 <code>Promise.allSettled()</code> 方法返回一个在所有给定的 promise 已被决议或被拒绝后决议的 <code>Promise</code>，并带有一个对象数组 <code>[{status, ?value, ?reason}]</code> ，每个对象表示对应的 promise 结果。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> p1 = <span class="built_in">Promise</span>.resolve(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">const</span> p2 = <span class="built_in">Promise</span>.reject(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span>.allSettled([p1, p2]).then(<span class="function"><span class="params">data</span> =&gt;</span> <span class="built_in">console</span>.log(data));</span><br><span class="line"><span class="comment">// [</span></span><br><span class="line"><span class="comment">//     Object &#123; status: "fulfilled", value: 1&#125;,</span></span><br><span class="line"><span class="comment">//     Object &#123; status: "rejected", reason: 2&#125;</span></span><br><span class="line"><span class="comment">// ]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span>.all([p1, p2]).then(<span class="function"><span class="params">data</span> =&gt;</span> <span class="built_in">console</span>.log(data)); <span class="comment">// Uncaught (in promise) 2</span></span><br></pre></td></tr></table></figure>
+
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled</a></p>
+<h2 id="空值合并运算符"><a href="#空值合并运算符" class="headerlink" title="空值合并运算符"></a>空值合并运算符</h2><p>大家都知道由于 JavaScript 是动态类型的，在进行某些比较操作的时候经常会发生一些「隐式强制转换」，导致我们最终获取到的结果跟我们的预期不一致。例如下面这种情况，我们期望有效值的内容可以被正常打印出来：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = &#123;</span><br><span class="line">    profile: &#123;</span><br><span class="line">        name: <span class="string">''</span>,</span><br><span class="line">        age: <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person.profile.name || <span class="string">'Anonymous'</span>); <span class="comment">// Anonymous</span></span><br><span class="line"><span class="built_in">console</span>.log(person.profile.age || <span class="number">18</span>); <span class="comment">// 18</span></span><br></pre></td></tr></table></figure>
+
+<p>如果我们希望该判断条件更加严格点的话，只有值为 <code>null</code> 或 <code>undefined</code> 时才允许使用默认值，就得改成这种操作：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; name, age &#125; = person.profile;</span><br><span class="line"><span class="built_in">console</span>.log(name !== <span class="literal">null</span> &amp;&amp; name !== <span class="literal">undefined</span> ? name : <span class="string">'Anonymous'</span>); <span class="comment">// ''</span></span><br><span class="line"><span class="built_in">console</span>.log(age !== <span class="literal">null</span> &amp;&amp; age !== <span class="literal">undefined</span> ? age : <span class="number">18</span>); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+
+<p>ES2020 引入了一个新的运算符 <code>??</code>，该运算符的工作原理与上述的条件一致，仅当初始值为 <code>null</code> 或 <code>undefined</code> 时才读取为运算符右边的值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(person.profile.name ?? <span class="string">'Anonymous'</span>); <span class="comment">// ''</span></span><br><span class="line"><span class="built_in">console</span>.log(person.profile.age ?? <span class="number">18</span>); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator</a></p>
+<h2 id="可选链操作符"><a href="#可选链操作符" class="headerlink" title="可选链操作符"></a>可选链操作符</h2><p>与空值合并运算符相似，JavaScript 处理假值时可能无法按照我们的意愿行事。如果我们想要的值是不确定的，我们可以返回一个默认值。但是如果它的路径是不确定的，该怎么办？</p>
+<p>可选链操作符 <code>?.</code> 可以按照操作符之前的属性是否有效，链式读取对象的属性或者使整个对象链返回 <code>undefined</code>。 <code>?.</code> 运算符的作用与 <code>.</code> 运算符类似，不同之处在于，如果对象链上的引用是 <code>nullish</code> (<code>null</code> 或者 <code>undefined</code>)，<code>.</code> 操作符会抛出一个错误，而 <code>?.</code> 操作符则会按照短路计算的方式进行处理，返回 <code>undefined</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> adventurer = &#123;</span><br><span class="line">    name: <span class="string">'Alice'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(adventurer.dog?.name); <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(adventurer.dog?.other?.name); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>可选链操作符也可用于函数调用，如果操作符前的函数不存在，也将会返回 undefined。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(adventurer.someNonExistentMethod?.()); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>结合其他运算符一起使用，效果更佳：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person?.profile?.name ?? <span class="string">'Anonymous'</span>); <span class="comment">// Anonymous</span></span><br><span class="line"><span class="built_in">console</span>.log(person?.profile?.age || <span class="number">18</span>); <span class="comment">// 18</span></span><br></pre></td></tr></table></figure>
+
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/%E5%8F%AF%E9%80%89%E9%93%BE" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/%E5%8F%AF%E9%80%89%E9%93%BE</a></p>
+<h2 id="BigInt"><a href="#BigInt" class="headerlink" title="BigInt"></a>BigInt</h2><p>BigInt 是一个内置的对象，它提供了一种方法来表示大于 <code>2⁵³-1</code> 的整数，这是 JavaScript 可以可靠地用 number 原语表示的最大数，并由 number 表示。<code>MAX_SAFE_INTEGER</code> 常量。BigInt 可用于任意大整数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> max = <span class="built_in">Number</span>.MAX_SAFE_INTEGER;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(max); <span class="comment">// 9007199254740991</span></span><br></pre></td></tr></table></figure>
+
+<p>超过此该值后，一切操作就开始变得有点奇怪…</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(max + <span class="number">1</span>); <span class="comment">// 9007199254740992</span></span><br><span class="line"><span class="built_in">console</span>.log(max + <span class="number">2</span>); <span class="comment">// 9007199254740992</span></span><br><span class="line"><span class="built_in">console</span>.log(max + <span class="number">3</span>); <span class="comment">// 9007199254740994</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">53</span>) == <span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">53</span>) + <span class="number">1</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>现在我们可以使用新的 BigInt 数据类型解决此问题。通过在末尾加上字母 <code>n</code>，就可以创建一个 BigInt 类型的数据。我们无法将标准数字与 BigInt 数字混合使用，因此任何数学运算都需要使用BigInt 来完成。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> bigNum = <span class="number">100000000000000000000000000000n</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(bigNum * <span class="number">2n</span>); <span class="comment">// 200000000000000000000000000000n</span></span><br><span class="line"><span class="built_in">console</span>.log(bigNum * bigNum); <span class="comment">// 10000000000000000000000000000000000000000000000000000000000n</span></span><br><span class="line"><span class="built_in">console</span>.log(bigNum * bigNum * <span class="number">2</span>); <span class="comment">// Uncaught TypeError: Cannot mix BigInt and other types, use explicit conversions</span></span><br><span class="line"><span class="built_in">console</span>.log(bigNum * bigNum * <span class="number">2n</span>); <span class="comment">// 20000000000000000000000000000000000000000000000000000000000n</span></span><br></pre></td></tr></table></figure>
+
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/BigInt" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/BigInt</a></p>
+<h2 id="globalThis"><a href="#globalThis" class="headerlink" title="globalThis"></a>globalThis</h2><p>在 JavaScript 中，编写可跨平台的访问全局对象的代码特别麻烦。在浏览器环境下，我们会通过 <code>window</code>、<code>self</code>、<code>this</code>、<code>frames</code> 等各种方式来访问；在 Node 环境下，我们又会通过 <code>global</code> 或者 <code>this</code> 来访问；其中，只有 V8 的 <code>d8</code> 或者 JavaScriptCore 的 <code>jsc</code> 之类的 shell 中才会提供访问全局对象的功能。</p>
+<p>在松散模式下，可以在函数中返回 <code>this</code> 来获取全局对象，但是在严格模式和模块环境下，<code>this</code> 会返回 <code>undefined</code>。获取环境全局对象的唯一可靠的跨平台方法是 <code>Function(&#39;return this&#39;)()</code>。但是这在某些情况下会违反 <a href="https://github.com/paulmillr/es6-shim/issues/301" target="_blank" rel="noopener">CSP</a> 规则（例如在 Chrome Apps中），因此 <a href="https://github.com/paulmillr/es6-shim/commit/2367e0953edd01ae9a5628e1f47cf14b0377a7d6" target="_blank" rel="noopener">es6-shim</a> 使用了类似如下的方式：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> getGlobal = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// the only reliable means to get the global object is</span></span><br><span class="line">    <span class="comment">// `Function('return this')()`</span></span><br><span class="line">    <span class="comment">// However, this causes CSP violations in Chrome apps.</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> self !== <span class="string">'undefined'</span>) &#123; <span class="keyword">return</span> self; &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">window</span> !== <span class="string">'undefined'</span>) &#123; <span class="keyword">return</span> <span class="built_in">window</span>; &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> global !== <span class="string">'undefined'</span>) &#123; <span class="keyword">return</span> global; &#125;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'unable to locate global object'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> globals = getGlobal();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> globals.foo !== <span class="string">'function'</span>) &#123;</span><br><span class="line">    <span class="comment">// no foo in this environment!</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>globalThis</code> 提供了一个标准的方式来获取不同环境下的全局 <code>this</code> 对象（也就是全局对象自身）。不像 <code>window</code> 或者 <code>self</code> 这些属性，它确保可以在有无窗口的各种环境下正常工作。所以，你可以安心的使用 <code>globalThis</code>，不必担心它的运行环境。为便于记忆，你只需要记住，全局作用域中的 <code>this</code> 就是 <code>globalThis</code>。有了这个功能，就不再需要在整个环境中进行全局搜索了：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> globalThis.foo !== <span class="string">'function'</span>) &#123;</span><br><span class="line">    <span class="comment">// no foo in this environment!</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/globalThis" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/globalThis</a></p>
+<h2 id="延伸阅读"><a href="#延伸阅读" class="headerlink" title="延伸阅读"></a>延伸阅读</h2><p><a href="https://github.com/tc39/proposals/blob/master/finished-proposals.md" target="_blank" rel="noopener">https://github.com/tc39/proposals/blob/master/finished-proposals.md</a></p>
+
+    </div>
+
+    <footer class="post-footer">
+        
+        <div class="post-tags">
+            
+            <a href="/tags/JavaScript/">JavaScript</a>
+            
+            <a href="/tags/ECMAScript/">ECMAScript</a>
+            
+            <a href="/tags/ES2020/">ES2020</a>
+            
+        </div>
+        
+
+        
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/backend/rest.html">
+        <span class="next-text nav-default">你真的了解 REST 吗？</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+        
+            
+    <div class="comments" id="comments">
+        
+            <div id="gitalk-container"></div>
+        
+    </div>
+
+
+        
+    </footer>
+</article>
+
+
+        </div>
+
+        <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2016 -
+    
+    2022
+    <span class="footer-author">Zhuo Wenli.</span>
+    <span class="power-by">Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>.</span>
+    <span class="design-by">Designed by <a href="https://www.zhuowenli.com/">zhuowenli</a></span>
+</span>
+
+<nav id="nav-bottom">
+    
+        <ul id="menu-bottom" class="nav-bottom-items">
+            
+                <li class="menu-item">
+                    <a href="/">
+                        
+                        
+                            Home
+                        
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="/archives">
+                        
+                        
+                            Archives
+                        
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="/about">
+                        
+                        
+                            About
+                        
+                    </a>
+                </li>
+            
+        </ul>
+    
+</nav>
+
+        </footer>
+
+        <div class="back-to-top" id="back-to-top">
+            <i class="iconfont icon-up"></i>
+        </div>
+    </div>
+    
+    
+
+
+<script src="/lib/gitalk.min.js"></script>
+<script type="text/javascript">
+    const gitalk = new Gitalk({
+        clientID: '3a683f311ce3460b686d',
+        clientSecret: '264685b8506d937c73b468584847c3b2347bdcfe',
+        repo: 'zhuowenli.github.io',
+        owner: 'zhuowenli',
+        admin: 'zhuowenli'.split(','),
+        pagerDirection: 'first',
+        id: `What's new in ECMAScript 2020 (ES2020)`,
+        number: 59,
+        distractionFreeMode: true
+    });
+    if (document.querySelector('#gitalk-container')) {
+        gitalk.render('gitalk-container');
+    }
+</script>
+
+
+
+    
+    
+
+
+  
+    <script type="text/javascript" src="/lib/jquery-3.1.1.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/theme.js?v=1.0.0"></script>
+<script type="text/javascript" src="/js/bootstrap.js?v=1.0.0"></script>
+
+</body>
+</html>

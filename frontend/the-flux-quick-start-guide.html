@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="Flux 入门教程"/>
+
+
+
+
+  <meta name="keywords" content="JavaScript,react,flux," />
+
+
+
+
+
+    <link rel="alternate" href="/atom.xml" title="Zhuo Wenli">
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.0.0" />
+
+
+
+<link rel="canonical" href="https://www.zhuowenli.com/frontend/the-flux-quick-start-guide.html"/>
+
+
+<meta name="description" content="本文将概括性的介绍如何使用 Flux 架构开发 JavaScript 应用，用尽可能少的篇幅带你熟悉 Flux 的核心概念。你可以结合这些代码阅读本文。 一起学习。你最好先对 React 有基本的了解，并且有一些开发 React 组件的经验。如果不熟悉也没关系，可以先读一读这篇文章 React 入门教程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flux 入门教程">
+<meta property="og:url" content="https://www.zhuowenli.com/frontend/the-flux-quick-start-guide.html">
+<meta property="og:site_name" content="Zhuo Wenli">
+<meta property="og:description" content="本文将概括性的介绍如何使用 Flux 架构开发 JavaScript 应用，用尽可能少的篇幅带你熟悉 Flux 的核心概念。你可以结合这些代码阅读本文。 一起学习。你最好先对 React 有基本的了解，并且有一些开发 React 组件的经验。如果不熟悉也没关系，可以先读一读这篇文章 React 入门教程。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2015-07-30T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-18T02:56:11.596Z">
+<meta property="article:author" content="Zhuo Wenli">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="react">
+<meta property="article:tag" content="flux">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0" />
+
+
+
+<script type="text/javascript">
+    var themeConfig = {
+        color: 'Default',
+        favicon: {
+            enable: true,
+            icon: '/favicon.ico',
+            hide_text: '(●—●)喔哟，崩溃啦！',
+            show_text: '(/≧▽≦/)咦！又好了！',
+        }
+    };
+</script>
+
+
+
+    <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7278e0ce3cabf14a3798ac2126b733d9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171827500-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-171827500-1');
+</script>
+
+
+    <title> Flux 入门教程 - Zhuo Wenli </title>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Zhuo Wenli" type="application/atom+xml">
+</head>
+<body>
+    <div id="page">
+        <header id="masthead">
+<h1 class="site-title">
+    <a href="/." class="logo">Zhuo Wenli</a>
+</h1>
+
+
+        </header>
+
+        <div id="content">
+            
+    
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">Flux 入门教程</h1>
+        <time class="post-time">
+            Jul 30 2015
+        </time>
+    </header>
+
+    <div class="post-content">
+        <p>本文将概括性的介绍如何使用 Flux 架构开发 JavaScript 应用，用尽可能少的篇幅带你熟悉 Flux 的核心概念。你可以结合这些<a href="https://github.com/zhuowenli/flux-starter-kit" target="_blank" rel="noopener">代码</a>阅读本文。 一起学习。你最好先对 React 有基本的了解，并且有一些开发 React 组件的经验。如果不熟悉也没关系，可以先读一读这篇文章 <a href="/frontend/the-react-quick-start-guide.html">React 入门教程</a>。</p>
+<svg class="flux" width="89px" height="36px" viewBox="0 0 89 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M70.92,0.34 C67.466,0.34 64.249,1.344 61.535,3.069 L44.439,15.625 L35.428,9.008 C34.885,9.889 34.338,10.765 33.815,11.672 C33.689,11.89 33.572,12.111 33.448,12.329 L40.98,17.86 L25.175,29.466 C23.009,30.816 20.517,31.53 17.958,31.53 C10.421,31.53 4.288,25.398 4.288,17.86 C4.288,10.322 10.42,4.19 17.958,4.19 C20.517,4.19 23.01,4.903 25.175,6.254 L26.746,7.407 C27.395,6.285 28.068,5.189 28.747,4.101 L27.343,3.07 C24.63,1.344 21.412,0.341 17.958,0.341 C8.283,0.341 0.439,8.185 0.439,17.86 C0.439,27.535 8.282,35.379 17.958,35.379 C21.412,35.379 24.63,34.375 27.343,32.65 L44.439,20.095 L53.485,26.738 C54.039,25.83 54.592,24.919 55.139,23.97 C55.247,23.782 55.345,23.595 55.452,23.407 L47.899,17.86 L63.703,6.254 C65.869,4.904 68.362,4.19 70.92,4.19 C78.458,4.19 84.59,10.322 84.59,17.86 C84.59,25.398 78.458,31.53 70.92,31.53 C68.361,31.53 65.869,30.817 63.703,29.466 L62.155,28.329 C61.499,29.462 60.835,30.563 60.168,31.645 L61.536,32.649 C64.25,34.375 67.467,35.378 70.921,35.378 C80.596,35.378 88.44,27.534 88.44,17.859 C88.439,8.184 80.596,0.34 70.92,0.34 L70.92,0.34 Z" fill="#44B74A">
+  </path>
+</svg>
+
+<a id="more"></a>
+
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>Flux 是用来构建用户端 Web 应用的架构，它包含三个核心概念：<code>Views</code>, <code>Stores</code> 和 <code>Dispatcher</code>，还有一些次级概念：<code>Actions</code>, <code>Action Types</code>, <code>Action Creators</code> 和 <code>Web Utils</code>。</p>
+<p>请耐心学习以下概念定义然后再看后面的教程。当你准备开始开发 Flux 应用之前，建议你再回过头来看一遍基本概念。</p>
+<h3 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h3><ul>
+<li><code>Views</code> 即 React 组件。它们负责渲染界面，捕获用户事件，从 Stores 获取数据。</li>
+<li><code>Stores</code> 用于管理数据。 一个 Store 管理一个区域的数据，当数据变化时它负责通知 Views。</li>
+<li><code>Dispatcher</code> 接收新数据然后传递给 Stores，Stores 更新数据并通知 Views。</li>
+</ul>
+<h3 id="次级概念"><a href="#次级概念" class="headerlink" title="次级概念"></a>次级概念</h3><ul>
+<li><code>Actions</code> 是传递给 Dispatcher 的对象，包含新数据和 Action Type。</li>
+<li><code>Action Types</code> 指定了可以创建哪些 Actions，Stores 只会更新特定 Action Type 的 Actions 触发的数据。</li>
+<li><code>Action Creators</code> 是 Actions 的创建者，并将其传递给 Dispatcher 或 Web Utils。</li>
+<li><code>Web Utils</code> 是用于与外部 API’s 通信的对象。例如 Actions Creator 可能需要从服务器请求数据。</li>
+</ul>
+<p>是不是一次给的信息量太多啦？强烈建议结合这些<a href="https://github.com/zhuowenli/flux-starter-kit" target="_blank" rel="noopener">代码</a> 边看文章边敲代码，可以达到更好的学习效果。</p>
+<p>提示：这里省略了 <code>constants</code> 和 <code>Web Utils</code>，是为了更快速简单地理解 Flux。更深入阅读 <a href="https://github.com/facebook/flux/tree/master/examples" target="_blank" rel="noopener">官方示例</a> 能很好地补充这些知识。</p>
+<h2 id="Views"><a href="#Views" class="headerlink" title="Views"></a>Views</h2><p>部署好 <a href="https://github.com/zhuowenli/flux-starter-kit" target="_blank" rel="noopener">开发代码</a> 后，你会看到在 <code>js</code> 目录下有个 <code>app.js</code> 文件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> React = <span class="built_in">require</span>(<span class="string">'react'</span>);</span><br><span class="line"><span class="keyword">var</span> Comments = <span class="built_in">require</span>(<span class="string">'./views/comments'</span>);</span><br><span class="line"><span class="keyword">var</span> CommentForm = <span class="built_in">require</span>(<span class="string">'./views/comment-form'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> App = React.createClass(&#123;</span><br><span class="line">    render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;Comments /&gt;</span><br><span class="line">                &lt;CommentForm /&gt;</span><br><span class="line">            &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">        );</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">React.render(&lt;App /</span>&gt;, <span class="built_in">document</span>.getElementById(<span class="string">'app'</span>));</span><br></pre></td></tr></table></figure>
+
+<p>上面代码把 <code>Views</code> 渲染到 DOM 中。先忽略 <code>Comments</code>，看一下 <code>CommentFrom</code> 的实现。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> React = <span class="built_in">require</span>(<span class="string">'react'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> CommentActionCreators = <span class="built_in">require</span>(<span class="string">'../actions/comment-action-creators'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> CommentForm = React.creatClass(&#123;</span><br><span class="line">    onSubmit: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> textNode = <span class="keyword">this</span>.refs.text.getDOMNode();</span><br><span class="line">        <span class="keyword">var</span> text = textNode.value;</span><br><span class="line"></span><br><span class="line">        textNode.value = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line">        CommentActionCreators.createComment(&#123;</span><br><span class="line">            text: text</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;div className=<span class="string">'comment-form'</span>&gt;</span><br><span class="line">                &lt;textarea ref=<span class="string">'text'</span> /&gt;</span><br><span class="line">                &lt;button onClick=&#123;<span class="keyword">this</span>.onSubmit&#125;&gt;Submit&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">            &lt;/</span>div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = CommentForm;</span><br></pre></td></tr></table></figure>
+
+<p><code>CommentForm</code> 依赖的 <code>CommentActionCreators</code> 是一个 Action Creator (正如它的名字一样)。</p>
+<p>当表单提交时 <code>createComment</code> 函数传递了 <code>comment</code> 对象，它的值是根据 <code>textarea</code> 的值构造出来的。让我们开发这个 Action Creator 来接收 <code>comment</code>。</p>
+<h2 id="Actions"><a href="#Actions" class="headerlink" title="Actions"></a>Actions</h2><p>在 <code>actions</code> 目录里创建 `comment-action-creators.js 文件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> AppDispatcher = <span class="built_in">require</span>(<span class="string">'../dispatcher/app-dispatcher'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line"></span><br><span class="line">  createComment: <span class="function"><span class="keyword">function</span>(<span class="params">comment</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> action= &#123;</span><br><span class="line">      actionType: <span class="string">"CREATE_COMMENT"</span>,</span><br><span class="line">      comment: comment</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    AppDispatcher.dispatch(action);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><code>createComment</code> 函数构造了一个 Action，包含 Action Type 和 comment 数据，并将这个 Action 传递给 Dispatcher 的 <code>dispatch</code> 函数。</p>
+<p>接下来编写 Dispatcher 用于接收 Actions。</p>
+<p>提示：也可以把这些逻辑写在 View 里面 - 直接跟 Dispatcher 通信，但最佳实践是用 Action Creator。它能降低代码的耦合度并给 Dispatcher 提供一个单独的接口。</p>
+<h2 id="Dispatcher"><a href="#Dispatcher" class="headerlink" title="Dispatcher"></a>Dispatcher</h2><p>在 <code>dispatcher</code> 目录下创建 <code>app-dispatcher.js</code> 文件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Dispatcher = <span class="built_in">require</span>(<span class="string">'flux'</span>).Dispatcher;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="keyword">new</span> Dispatcher();</span><br></pre></td></tr></table></figure>
+
+<p>Flux 库的 Dispatcher 提供了一个 <code>dispatch</code> 函数，将接收到的 Actions 传递给所有注册的回调函数，回调函数由 Stores 提供。</p>
+<p>提示：这里没有 Dispatcher 的具体实现，源码在<a href="https://github.com/facebook/flux/blob/master/src/Dispatcher.js#L181" target="_blank" rel="noopener">这里</a>。</p>
+<h2 id="Stores"><a href="#Stores" class="headerlink" title="Stores"></a>Stores</h2><p>在 <code>stores</code> 目录下创建一个 <code>comment-store.js</code> 文件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> AppDispatcher = <span class="built_in">require</span>(<span class="string">'../dispatcher/app-dispatcher'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> EventEmitter = <span class="built_in">require</span>(<span class="string">'events'</span>).EventEmitter;</span><br><span class="line"><span class="keyword">var</span> assign = <span class="built_in">require</span>(<span class="string">'object-assign'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> comments = [];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> CommentStore = assign(&#123;&#125;, EventEmitter.prototype, &#123;</span><br><span class="line">    emitChange: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.emit(<span class="string">'change'</span>);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    addChangeListener: <span class="function"><span class="keyword">function</span>(<span class="params">callback</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.on(<span class="string">'change'</span>, callback);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    removeChangeListener: <span class="function"><span class="keyword">function</span>(<span class="params">callback</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.removeListener(<span class="string">'change'</span>, callback);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    getAll: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> comments;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">AppDispatcher.register(<span class="function"><span class="keyword">function</span>(<span class="params">action</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">switch</span>(action.actionType) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"CREAT_COMMENT"</span>:</span><br><span class="line">            comments.push(action.comment);</span><br><span class="line">            CommentStore.emitChange();</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = CommentStore;</span><br></pre></td></tr></table></figure>
+
+<p>这段代码分为两部分：创建 Store 和 注册 Store。</p>
+<p>Store 由 <code>EventEmitter.prototype</code> 和自定义对象整合而成。<code>EventEmitter.prototype</code> 给 Store 赋予了订阅和触发事件的能力。</p>
+<p>自定义对象定义了订阅和取消订阅事件的函数，同时定义了 <code>getAll</code> 函数返回 <code>comments</code> 数据。</p>
+<p>然后，通过 Dispatcher 注册了一个回调函数。当 Dispatcher 调用 <code>dispatch</code> 时传递 Actions 参数给每个注册过的回调函数。</p>
+<hr>
+<p>现在我们需要一个 View 来展示 Store 的数据，并订阅数据的变化。</p>
+<p>在 <code>views</code> 目录里有个 <code>comments.js</code> 文件。把它修改成如下所示：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> React = <span class="built_in">require</span>(<span class="string">'react'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> CommentStore = <span class="built_in">require</span>(<span class="string">'../stores/comment-store'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getStateFromStore</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        comments: CommentStore.getAll()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Comments = React.createClass(&#123;</span><br><span class="line">    onChange: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.setState(getStateFromStore());</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    getInitialState: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getStateFromStore();</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    componentDidMount: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        CommentStore.addChangeListener(<span class="keyword">this</span>.onChange);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    componentWillUnmount: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        CommentStore.removeChangeListener(<span class="keyword">this</span>.onChange);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> comments = <span class="keyword">this</span>.state.comments.map(<span class="function"><span class="keyword">function</span>(<span class="params">comment, index</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> (</span><br><span class="line">                &lt;div className=<span class="string">'comment'</span> key=&#123;<span class="string">'comment-'</span> + index&#125;&gt;</span><br><span class="line">                &#123;comment.text&#125;</span><br><span class="line">                &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">            );</span></span><br><span class="line"><span class="regexp">        &#125;);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        return (</span></span><br><span class="line"><span class="regexp">            &lt;div className='comments'&gt;</span></span><br><span class="line"><span class="regexp">            &#123;comments&#125;</span></span><br><span class="line"><span class="regexp">            &lt;/</span>div&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = Comments;</span><br></pre></td></tr></table></figure>
+
+<p><code>getStateFromStores</code> 函数从 Store 获取 comment 数据，并在 <code>getInitialState</code> 中设置为初始值。</p>
+<p>在 <code>componentDidMount</code> 中，<code>onChange</code> 函数作为 <code>addChangeListener</code> 的回调函数，当 Store 触发 <code>change</code> 事件时 <code>onChange</code> 函数将被调用，即当 Store 数据变化时，它用于更新组件的 <code>state</code> 状态。</p>
+<p>最后 <code>componentWillUnmount</code> 将 <code>onChange</code> 事件监听从 <code>Store</code> 移除。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>现在这个 Flux 应用可以运行起来了，同时我们也学习了 Flux 架构的核心概念：<code>Views</code>, <code>Stores</code> 和 <code>Dispatcher</code>。</p>
+<ul>
+<li>当提交 comment 时，View 调用了 Action Creator</li>
+<li>Action Creator 创建一个 Action 并传给 Dispatcher</li>
+<li>Dispatcher 将 Action 发送给 Store 中注册的回调函数</li>
+<li>Store 更新 comment 数据，并触发一个 change 事件</li>
+<li>View 更新 state 并重新渲染界面</li>
+</ul>
+<p>这就是 Flux 的本质，Dispatcher 发送数据给所有 Stores，后者通知 Views 进行更新。</p>
+<p>要想更深入理解 Flux 架构，我建议阅读 <a href="https://facebook.github.io/flux/" target="_blank" rel="noopener">官方文档</a>，还有 <a href="https://github.com/facebook/flux/tree/master/examples" target="_blank" rel="noopener">官方示例</a>。</p>
+<style type="text/css">
+    .flux{
+        height: 140px;
+        margin: 0 auto;
+        display: block;
+        width: 252px;
+    }
+</style>
+
+    </div>
+
+    <footer class="post-footer">
+        
+        <div class="post-tags">
+            
+            <a href="/tags/JavaScript/">JavaScript</a>
+            
+            <a href="/tags/react/">react</a>
+            
+            <a href="/tags/flux/">flux</a>
+            
+        </div>
+        
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/frontend/build-github-blog-pages-1.html">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">通过GitHub Pages创建博客（一）</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/frontend/the-react-quick-start-guide.html">
+        <span class="next-text nav-default">React 入门教程</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+        
+            
+    <div class="comments" id="comments">
+        
+            <div id="gitalk-container"></div>
+        
+    </div>
+
+
+        
+    </footer>
+</article>
+
+
+        </div>
+
+        <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2016 -
+    
+    2022
+    <span class="footer-author">Zhuo Wenli.</span>
+    <span class="power-by">Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>.</span>
+    <span class="design-by">Designed by <a href="https://www.zhuowenli.com/">zhuowenli</a></span>
+</span>
+
+<nav id="nav-bottom">
+    
+        <ul id="menu-bottom" class="nav-bottom-items">
+            
+                <li class="menu-item">
+                    <a href="/">
+                        
+                        
+                            Home
+                        
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="/archives">
+                        
+                        
+                            Archives
+                        
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="/about">
+                        
+                        
+                            About
+                        
+                    </a>
+                </li>
+            
+        </ul>
+    
+</nav>
+
+        </footer>
+
+        <div class="back-to-top" id="back-to-top">
+            <i class="iconfont icon-up"></i>
+        </div>
+    </div>
+    
+    
+
+
+<script src="/lib/gitalk.min.js"></script>
+<script type="text/javascript">
+    const gitalk = new Gitalk({
+        clientID: '3a683f311ce3460b686d',
+        clientSecret: '264685b8506d937c73b468584847c3b2347bdcfe',
+        repo: 'zhuowenli.github.io',
+        owner: 'zhuowenli',
+        admin: 'zhuowenli'.split(','),
+        pagerDirection: 'first',
+        id: `Flux 入门教程`,
+        number: 20,
+        distractionFreeMode: true
+    });
+    if (document.querySelector('#gitalk-container')) {
+        gitalk.render('gitalk-container');
+    }
+</script>
+
+
+
+    
+    
+
+
+  
+    <script type="text/javascript" src="/lib/jquery-3.1.1.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/theme.js?v=1.0.0"></script>
+<script type="text/javascript" src="/js/bootstrap.js?v=1.0.0"></script>
+
+</body>
+</html>

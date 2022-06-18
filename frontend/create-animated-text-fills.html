@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="如何创建文字填充动画"/>
+
+
+
+
+  <meta name="keywords" content="css3,JavaScript,svg,animation," />
+
+
+
+
+
+    <link rel="alternate" href="/atom.xml" title="Zhuo Wenli">
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.0.0" />
+
+
+
+<link rel="canonical" href="https://www.zhuowenli.com/frontend/create-animated-text-fills.html"/>
+
+
+<meta name="description" content="在CSS3和SVG出现之前，我们脑海里可能会有一些酷炫的想法，因为技术的不支持一直没办法实现。但是，随着技术的发展，这些高大上的想法越来越有实现的可能。例如，我们现在有很多的方式来实现文字填充动画。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何创建文字填充动画">
+<meta property="og:url" content="https://www.zhuowenli.com/frontend/create-animated-text-fills.html">
+<meta property="og:site_name" content="Zhuo Wenli">
+<meta property="og:description" content="在CSS3和SVG出现之前，我们脑海里可能会有一些酷炫的想法，因为技术的不支持一直没办法实现。但是，随着技术的发展，这些高大上的想法越来越有实现的可能。例如，我们现在有很多的方式来实现文字填充动画。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://st-qn.gittt.cn/2015/03/07/1.png">
+<meta property="og:image" content="https://st-qn.gittt.cn/2015/03/07/2.png">
+<meta property="article:published_time" content="2015-03-07T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-18T02:56:11.596Z">
+<meta property="article:author" content="Zhuo Wenli">
+<meta property="article:tag" content="css3">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="svg">
+<meta property="article:tag" content="animation">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://st-qn.gittt.cn/2015/03/07/1.png">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0" />
+
+
+
+<script type="text/javascript">
+    var themeConfig = {
+        color: 'Default',
+        favicon: {
+            enable: true,
+            icon: '/favicon.ico',
+            hide_text: '(●—●)喔哟，崩溃啦！',
+            show_text: '(/≧▽≦/)咦！又好了！',
+        }
+    };
+</script>
+
+
+
+    <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7278e0ce3cabf14a3798ac2126b733d9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171827500-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-171827500-1');
+</script>
+
+
+    <title> 如何创建文字填充动画 - Zhuo Wenli </title>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Zhuo Wenli" type="application/atom+xml">
+</head>
+<body>
+    <div id="page">
+        <header id="masthead">
+<h1 class="site-title">
+    <a href="/." class="logo">Zhuo Wenli</a>
+</h1>
+
+
+        </header>
+
+        <div id="content">
+            
+    
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">如何创建文字填充动画</h1>
+        <time class="post-time">
+            Mar 07 2015
+        </time>
+    </header>
+
+    <div class="post-content">
+        <p>在CSS3和SVG出现之前，我们脑海里可能会有一些酷炫的想法，因为技术的不支持一直没办法实现。但是，随着技术的发展，这些高大上的想法越来越有实现的可能。例如，我们现在有很多的方式来实现文字填充动画。</p>
+<a id="more"></a>
+
+<p>大概一年前，<a href="http://sarasoueidan.com/index.html" target="_blank" rel="noopener">Sara Soueidan</a>发表了一篇<a href="http://tympanus.net/codrops/2013/12/02/techniques-for-creating-textured-text/" target="_blank" rel="noopener">Techniques for Creating Textured Text</a>的文章。这篇神奇的文章告诉我们如何使用一些现代web技术、包括canvas等，来实现创建纹理文字的效果。如图：</p>
+<p><img src="https://st-qn.gittt.cn/2015/03/07/1.png" alt=""></p>
+<p>看到这个，我们就会想，能不能让里面文字填充的背景动起来？我们可以实现文字的阴影或渐变的动画？或者使用一个视频(<code>video</code>)来填充文本如何？</p>
+<p>这篇文章我将会分享如何创建图案填充的文本动画。当然，最好还要保留文本的文字选择能力，用于复制、粘贴等。</p>
+<p>因为是<strong>高度实验性</strong>的代码，可能有大部分浏览器不支持，为了更好的体验效果请用chrome最新版浏览器来阅读该文章，谢谢。</p>
+<h2 id="方法1：使用background-clip"><a href="#方法1：使用background-clip" class="headerlink" title="方法1：使用background-clip"></a>方法1：使用<code>background-clip</code></h2><p>这个方式可能是我们脑海里第一个蹦出来的想法，虽然只有WebKit内核的浏览器支持，所以要加上<code>-webkit-</code>前缀。</p>
+<p>html标签如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box-with-text"</span>&gt;</span></span><br><span class="line">    Text</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>CSS是这样的：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box-with-text</span>&#123;</span><br><span class="line"> <span class="attribute">background-image</span>:<span class="built_in">url</span>(<span class="string">'img/1.jpg'</span>);</span><br><span class="line"> <span class="attribute">-webkit-text-fill-color</span>: transparent;</span><br><span class="line"> <span class="attribute">-webkit-background-clip</span>: text;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<div class="demo">
+ <div class="box-with-text demo1">
+     Text
+ </div>
+</div>
+
+<p>文字依然文本，所以我们可以选择和复制。其缺点是缺乏浏览器的支持。</p>
+<p>但我们可以用CSS渐变与-webkit-前缀以除去非Webkit的浏览器的背景：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box-with-text</span>&#123;</span><br><span class="line"> <span class="attribute">background-image</span>:<span class="built_in">-webkit-linear-gradient</span>(transparent, transparent),</span><br><span class="line">        <span class="built_in">url</span>(<span class="string">'img/1.jpg'</span>);</span><br><span class="line"> <span class="attribute">-webkit-text-fill-color</span>: transparent;</span><br><span class="line"> <span class="attribute">-webkit-background-clip</span>: text;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>不支持的浏览器将完全忽略了整个字符串，我们能够避免完全显示的背景图像。这简单的一招将使我们能够解决非Webkit内核的浏览器，如果我们不希望显示的图像话。</p>
+<p>如果我们要实现填充动画，CSS可以实现。但是我们CSS动画只能实现改变背景的位置和大小，不能平滑地改变颜色。效果如图</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// scss</span><br><span class="line"><span class="keyword">@include</span> keyframes(stripes) &#123;</span><br><span class="line">  100% &#123;</span><br><span class="line">    <span class="attribute">background-position</span>: <span class="number">0</span> -<span class="number">50px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box-with-text</span>&#123;</span><br><span class="line"> <span class="attribute">background-image</span>: <span class="built_in">-webkit-linear-gradient</span>(crimson <span class="number">50%</span>, #FD0 <span class="number">50%</span>);</span><br><span class="line"> <span class="attribute">background-repeat</span>: repeat;</span><br><span class="line"> <span class="attribute">background-position</span>: <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line"> <span class="attribute">background-size</span>: <span class="number">100%</span> <span class="number">50px</span>;</span><br><span class="line"> <span class="attribute">-webkit-text-fill-color</span>: transparent;</span><br><span class="line"> <span class="attribute">-webkit-background-clip</span>: text;</span><br><span class="line"> @include animation(stripes 2s linear infinite);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="demo">
+ <div class="box-with-text demo2">
+     Text
+ </div>
+</div>
+
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>使用该技术实现：只支持WebKit内核浏览器，有限的填充文字的动画效果。</p>
+<h2 id="方法2：使用SVG"><a href="#方法2：使用SVG" class="headerlink" title="方法2：使用SVG"></a>方法2：使用SVG</h2><p>SVG是一种奇妙的格式，它具有良好的浏览器支持。在SVG中，我们有三种方式来使文章填充图案：</p>
+<ul>
+<li>fill</li>
+<li>mask</li>
+<li>clip-path</li>
+</ul>
+<p>我将会逐一使用这些方式来展示文字填充图案的效果。</p>
+<p>如果你不了解SVG，建议你阅读<a href="http://www.w3.org/TR/SVG/" target="_blank" rel="noopener">SVG规范</a>，或者其他<a href="https://docs.webplatform.org/wiki/svg/tutorials" target="_blank" rel="noopener">SVG教程</a>等。</p>
+<p>html使用方法如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">viewBox</span>=<span class="string">"0 0 600 300"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">text</span> <span class="attr">text-anchor</span>=<span class="string">"middle"</span> <span class="attr">x</span>=<span class="string">"50%"</span> <span class="attr">y</span>=<span class="string">"50%"</span> <span class="attr">dy</span>=<span class="string">".35em"</span> <span class="attr">class</span>=<span class="string">"text"</span>&gt;</span></span><br><span class="line">  Text</span><br><span class="line">    <span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在它的常规文本中，我们也可以自由的复制粘帖</p>
+<div class="demo">
+ <svg viewBox="0 0 600 300">
+  <text text-anchor="middle" x="50%" y="50%" dy=".35em" class="text1">
+   Text
+     </text>
+ </svg>
+</div>
+
+<p>在SVG中添加一个简单的linearGradient标签：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">viewBox</span>=<span class="string">"0 0 600 300"</span>&gt;</span></span><br><span class="line"> <span class="comment">&lt;!-- Gradient --&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">linearGradient</span> <span class="attr">id</span>=<span class="string">"gr-simple"</span> <span class="attr">x1</span>=<span class="string">"0"</span> <span class="attr">y1</span>=<span class="string">"0"</span> <span class="attr">x2</span>=<span class="string">"100%"</span> <span class="attr">y2</span>=<span class="string">"100%"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">stop</span> <span class="attr">stop-color</span>=<span class="string">"hsl(50, 100%, 70%)"</span> <span class="attr">offset</span>=<span class="string">"10%"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">stop</span> <span class="attr">stop-color</span>=<span class="string">"hsl(320, 100%, 50%)"</span> <span class="attr">offset</span>=<span class="string">"90%"</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">linearGradient</span>&gt;</span></span><br><span class="line"> <span class="comment">&lt;!-- text --&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">text</span> <span class="attr">text-anchor</span>=<span class="string">"middle"</span> <span class="attr">x</span>=<span class="string">"50%"</span> <span class="attr">y</span>=<span class="string">"50%"</span> <span class="attr">dy</span>=<span class="string">".35em"</span> <span class="attr">class</span>=<span class="string">"text"</span>&gt;</span></span><br><span class="line">  Text</span><br><span class="line">    <span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.text</span> &#123;</span><br><span class="line"> <span class="attribute">font</span>: <span class="number">12.5em</span>/<span class="number">1</span> Open Sans, Impact;</span><br><span class="line"> <span class="attribute">text-transform</span>: uppercase;</span><br><span class="line"> <span class="attribute">fill</span>: <span class="built_in">url</span>(#gr-simple);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>就可以实现渐变填充的效果：</p>
+<div class="demo">
+ <svg viewBox="0 0 600 300">
+  <!-- Gradient -->
+  <linearGradient id="gr-simple" x1="0" y1="0" x2="100%" y2="100%">
+   <stop stop-color="hsl(50, 100%, 70%)" offset="10%"/>
+   <stop stop-color="hsl(320, 100%, 50%)" offset="90%"/>
+  </linearGradient>
+  <!-- text -->
+  <text text-anchor="middle" x="50%" y="50%" dy=".35em" class="text2">
+   Text
+     </text>
+ </svg>
+</div>
+
+<p>想了解更多关于<code>gradients</code>的知识可以阅读<a href="http://www.sitepoint.com/author/jtrythall/" target="_blank" rel="noopener">Joni Trythall</a>的文章<a href="http://www.sitepoint.com/getting-started-svg-gradients/" target="_blank" rel="noopener">Getting Started with SVG Gradients</a></p>
+<p>使用<code>fill</code>来填充颜色的方式也可以直接写在<code>text</code>的属性<code>fill</code>上，要使用<code>gradients</code>是必须定义ID，并且将之插入到<code>url()</code>中。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">viewBox</span>=<span class="string">"0 0 600 300"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">text</span> <span class="attr">text-anchor</span>=<span class="string">"middle"</span> <span class="attr">x</span>=<span class="string">"50%"</span> <span class="attr">y</span>=<span class="string">"50%"</span> <span class="attr">dy</span>=<span class="string">".35em"</span> <span class="attr">class</span>=<span class="string">"text"</span> <span class="attr">fill</span>=<span class="string">"url(#gr-simple)"</span>&gt;</span></span><br><span class="line">  Text</span><br><span class="line">    <span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>当然，你喜欢使用css的话也行。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.text</span> &#123;</span><br><span class="line"> <span class="attribute">fill</span>: <span class="built_in">url</span>(#gr-simple);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以设置<code>gradient</code>的字体颜色，但是我们需要使用SMIL来控制<code>gradient</code>的其他属性</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Gradient --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">radialGradient</span> <span class="attr">id</span>=<span class="string">"gr-radial"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">cx</span>=<span class="string">"50%"</span> <span class="attr">cy</span>=<span class="string">"50%"</span> <span class="attr">r</span>=<span class="string">"70%"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- Animation for radius of gradient --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">animate</span> <span class="attr">attributeName</span>=<span class="string">"r"</span></span></span><br><span class="line"><span class="tag">             <span class="attr">values</span>=<span class="string">"0%;150%;100%;0%"</span></span></span><br><span class="line"><span class="tag">             <span class="attr">dur</span>=<span class="string">"5s"</span> <span class="attr">repeatCount</span>=<span class="string">"indefinite"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- Animation for colors of stop-color --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">stop</span> <span class="attr">stop-color</span>=<span class="string">"#FFF"</span> <span class="attr">offset</span>=<span class="string">"0"</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">animate</span> <span class="attr">attributeName</span>=<span class="string">"stop-color"</span></span></span><br><span class="line"><span class="tag">             <span class="attr">values</span>=<span class="string">"#333;#FFF;#FFF;#333"</span></span></span><br><span class="line"><span class="tag">             <span class="attr">dur</span>=<span class="string">"5s"</span> <span class="attr">repeatCount</span>=<span class="string">"indefinite"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">stop</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">stop</span> <span class="attr">stop-color</span>=<span class="string">"rgba(55,55,55,0)"</span> <span class="attr">offset</span>=<span class="string">"100%"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">radialGradient</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果如下</p>
+<div class="demo">
+ <svg viewBox="0 0 600 300" style="background: #000;">
+  <!-- Gradient -->
+  <radialGradient id="gr-radial" cx="50%" cy="50%" r="70%" >
+   <!-- Gradient动画的半径 -->
+   <animate attributeName="r" values="0%;150%;100%;0%" dur="5s" repeatCount="indefinite" />
+   <!-- Gradient渐变色彩 -->
+   <stop stop-color="#FFF" offset="0">
+    <animate attributeName="stop-color" values="#333;#FFF;#FFF;#333" dur="5s" repeatCount="indefinite" />
+   </stop>
+   <stop stop-color="rgba(55,55,55,0)" offset="100%"/>
+  </radialGradient>
+  <!-- Text -->
+  <text text-anchor="middle" x="50%" y="50%" dy=".35em" class="text3" >
+   Text
+  </text>
+ </svg>
+</div>
+
+<p>想了解更多关于SMIL的知识可以阅读Sara Soueidan的文章<a href="http://css-tricks.com/guide-svg-animations-smil/" target="_blank" rel="noopener">A Guide to SVG Animations (SMIL)</a></p>
+<p>现在我们来使用<code>&lt;pattern&gt;</code>试试。</p>
+<div class="demo">
+ <svg viewBox="0 0 600 300" class="demo3">
+  <pattern id="p-spots" viewBox="0 0 80 80" patternUnits="userSpaceOnUse" width="60" height="60" x="5" y="5" >
+   <g class="g-spots">
+    <circle r="5" cx="10" cy="10"/>
+    <circle r="7" cx="30" cy="30"/>
+    <circle r="5" cx="50" cy="10"/>
+    <circle r="9" cx="70" cy="30"/>
+    <circle r="11" cx="50" cy="50"/>
+    <circle r="5" cx="10" cy="50"/>
+    <circle r="7" cx="30" cy="70"/>
+    <circle r="9" cx="70" cy="70"/>
+   </g>
+  </pattern>
+  <!-- Text -->
+  <text text-anchor="middle" x="50%" y="50%" dy=".35em" class="text" >
+   Text
+  </text>
+ </svg>
+</div>
+
+<p><code>&lt;pattern&gt;</code>标签的代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">pattern</span> <span class="attr">id</span>=<span class="string">"p-spots"</span> <span class="attr">viewBox</span>=<span class="string">"0 0 80 80"</span> <span class="attr">patternUnits</span>=<span class="string">"userSpaceOnUse"</span> <span class="attr">width</span>=<span class="string">"60"</span> <span class="attr">height</span>=<span class="string">"60"</span> <span class="attr">x</span>=<span class="string">"5"</span> <span class="attr">y</span>=<span class="string">"5"</span> &gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">g</span> <span class="attr">class</span>=<span class="string">"g-spots"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">r</span>=<span class="string">"5"</span> <span class="attr">cx</span>=<span class="string">"10"</span> <span class="attr">cy</span>=<span class="string">"10"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">r</span>=<span class="string">"7"</span> <span class="attr">cx</span>=<span class="string">"30"</span> <span class="attr">cy</span>=<span class="string">"30"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">r</span>=<span class="string">"5"</span> <span class="attr">cx</span>=<span class="string">"50"</span> <span class="attr">cy</span>=<span class="string">"10"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">r</span>=<span class="string">"9"</span> <span class="attr">cx</span>=<span class="string">"70"</span> <span class="attr">cy</span>=<span class="string">"30"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">r</span>=<span class="string">"11"</span> <span class="attr">cx</span>=<span class="string">"50"</span> <span class="attr">cy</span>=<span class="string">"50"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">r</span>=<span class="string">"5"</span> <span class="attr">cx</span>=<span class="string">"10"</span> <span class="attr">cy</span>=<span class="string">"50"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">r</span>=<span class="string">"7"</span> <span class="attr">cx</span>=<span class="string">"30"</span> <span class="attr">cy</span>=<span class="string">"70"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">r</span>=<span class="string">"9"</span> <span class="attr">cx</span>=<span class="string">"70"</span> <span class="attr">cy</span>=<span class="string">"70"</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">g</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这里仅定义了圆的大小和位置，样式需要在css中定义。或者使用sass：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//scss</span></span><br><span class="line"><span class="variable">$colors</span>: <span class="number">#1D4259</span>, <span class="number">#0A7373</span>, <span class="number">#30BF7C</span>, <span class="number">#BAF266</span>, <span class="number">#EEF272</span>;</span><br><span class="line"><span class="variable">$max</span>: length(<span class="variable">$colors</span>);</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.g-spots</span> circle &#123;</span><br><span class="line"> <span class="keyword">@for</span> <span class="variable">$item</span> from <span class="number">1</span> through <span class="variable">$max</span> &#123;</span><br><span class="line">  &amp;<span class="selector-pseudo">:nth-child</span>(#&#123;<span class="variable">$max</span>&#125;n + #&#123;<span class="variable">$item</span>&#125;)&#123;</span><br><span class="line">   fill: nth(<span class="variable">$colors</span>, <span class="variable">$item</span>);</span><br><span class="line">  &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样就会生成下面的css：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.g-spots</span> <span class="selector-tag">circle</span><span class="selector-pseudo">:nth-child(5n</span> + 1) &#123;</span><br><span class="line"> <span class="attribute">fill</span>: <span class="number">#1D4259</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.g-spots</span> <span class="selector-tag">circle</span><span class="selector-pseudo">:nth-child(5n</span> + 2) &#123;</span><br><span class="line"> <span class="attribute">fill</span>: <span class="number">#0A7373</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.g-spots</span> <span class="selector-tag">circle</span><span class="selector-pseudo">:nth-child(5n</span> + 3) &#123;</span><br><span class="line"> <span class="attribute">fill</span>: <span class="number">#30BF7C</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.g-spots</span> <span class="selector-tag">circle</span><span class="selector-pseudo">:nth-child(5n</span> + 4) &#123;</span><br><span class="line"> <span class="attribute">fill</span>: <span class="number">#BAF266</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.g-spots</span> <span class="selector-tag">circle</span><span class="selector-pseudo">:nth-child(5n</span> + 5) &#123;</span><br><span class="line"> <span class="attribute">fill</span>: <span class="number">#EEF272</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>想了解更多有关于SVG patterns的，可以阅读<a href="https://developer.mozilla.org/zh-TW/docs/Web/SVG/Tutorial/%E5%9B%BE%E6%A1%88" target="_blank" rel="noopener">MDN-SVG教程</a>相关文章。</p>
+<p>我是使用sass来做css的预编译的，所以可以很方便的指定动画的延时。代码如下：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// scss</span></span><br><span class="line"><span class="variable">$colors</span>: <span class="number">#551F7A</span>, <span class="number">#BA2799</span>, <span class="number">#D9587A</span>, <span class="number">#FFDD00</span>, <span class="number">#FFF3A1</span>;</span><br><span class="line"><span class="variable">$max</span>: length(<span class="variable">$colors</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$time</span>: <span class="number">2s</span>;</span><br><span class="line"><span class="variable">$time-step</span>: <span class="variable">$time</span>/<span class="variable">$max</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.g-stars</span> polygon &#123;</span><br><span class="line">  stroke-<span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">animation</span>: stroke <span class="variable">$time</span> infinite;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">@for</span> <span class="variable">$item</span> from <span class="number">1</span> through <span class="variable">$max</span> &#123;</span><br><span class="line">    &amp;<span class="selector-pseudo">:nth-child</span>(#&#123;<span class="variable">$max</span>&#125;n + #&#123;<span class="variable">$item</span>&#125;)&#123;</span><br><span class="line">      <span class="variable">$color</span>: nth(<span class="variable">$colors</span>, <span class="variable">$item</span>);</span><br><span class="line">      fill: <span class="variable">$color</span>;</span><br><span class="line">      stroke: <span class="variable">$color</span>;</span><br><span class="line">      <span class="attribute">animation-delay</span>: -(<span class="variable">$time-step</span>*<span class="variable">$item</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@keyframes</span> stroke &#123;</span><br><span class="line"> 50% &#123;</span><br><span class="line">  stroke-<span class="attribute">width</span>: <span class="number">10</span>;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>// 编译后的css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">// css</span><br><span class="line"><span class="selector-class">.g-stars</span> <span class="selector-tag">polygon</span> &#123;</span><br><span class="line"> <span class="attribute">stroke-width</span>: <span class="number">0</span>;</span><br><span class="line"> <span class="attribute">animation</span>: stroke <span class="number">2s</span> infinite;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.g-stars</span> <span class="selector-tag">polygon</span><span class="selector-pseudo">:nth-child(5n</span> + 1) &#123;</span><br><span class="line"> <span class="attribute">fill</span>: <span class="number">#551F7A</span>;</span><br><span class="line"> <span class="attribute">stroke</span>: <span class="number">#551F7A</span>;</span><br><span class="line"> <span class="attribute">animation-delay</span>: -<span class="number">0.4s</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.g-stars</span> <span class="selector-tag">polygon</span><span class="selector-pseudo">:nth-child(5n</span> + 2) &#123;</span><br><span class="line"> <span class="attribute">fill</span>: <span class="number">#BA2799</span>;</span><br><span class="line"> <span class="attribute">stroke</span>: <span class="number">#BA2799</span>;</span><br><span class="line"> <span class="attribute">animation-delay</span>: -<span class="number">0.8s</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.g-stars</span> <span class="selector-tag">polygon</span><span class="selector-pseudo">:nth-child(5n</span> + 3) &#123;</span><br><span class="line"> <span class="attribute">fill</span>: <span class="number">#D9587A</span>;</span><br><span class="line"> <span class="attribute">stroke</span>: <span class="number">#D9587A</span>;</span><br><span class="line"> <span class="attribute">animation-delay</span>: -<span class="number">1.2s</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.g-stars</span> <span class="selector-tag">polygon</span><span class="selector-pseudo">:nth-child(5n</span> + 4) &#123;</span><br><span class="line"> <span class="attribute">fill</span>: <span class="number">#FFDD00</span>;</span><br><span class="line"> <span class="attribute">stroke</span>: <span class="number">#FFDD00</span>;</span><br><span class="line"> <span class="attribute">animation-delay</span>: -<span class="number">1.6s</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.g-stars</span> <span class="selector-tag">polygon</span><span class="selector-pseudo">:nth-child(5n</span> + 5) &#123;</span><br><span class="line"> <span class="attribute">fill</span>: <span class="number">#FFF3A1</span>;</span><br><span class="line"> <span class="attribute">stroke</span>: <span class="number">#FFF3A1</span>;</span><br><span class="line"> <span class="attribute">animation-delay</span>: -<span class="number">2s</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@keyframes</span> stroke &#123;</span><br><span class="line"> 50% &#123;</span><br><span class="line">  <span class="attribute">stroke-width</span>: <span class="number">10</span>;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来我们把里面的圆圈替换成星星，并且让他放大缩小。</p>
+<div class="demo">
+ <svg viewBox="0 0 600 300" class="demo4">
+  <pattern id="p-stars" width="70" height="70" viewBox="0 0 120 120" patternUnits="userSpaceOnUse" >
+   <g class="g-stars">
+    <polygon points="15 22.5 6.18322122 27.1352549 7.86707613 17.3176275 0.734152256 10.3647451 10.5916106 8.93237254 15 0 19.4083894 8.93237254 29.2658477 10.3647451 22.1329239 17.3176275 23.8167788 27.1352549 " transform="scale(.9,.9)"></polygon>
+    <polygon points="15 22.5 6.18322122 27.1352549 7.86707613 17.3176275 0.734152256 10.3647451 10.5916106 8.93237254 15 0 19.4083894 8.93237254 29.2658477 10.3647451 22.1329239 17.3176275 23.8167788 27.1352549" transform="translate(30,30) scale(.9,.9)"></polygon>
+    <polygon points="15 22.5 6.18322122 27.1352549 7.86707613 17.3176275 0.734152256 10.3647451 10.5916106 8.93237254 15 0 19.4083894 8.93237254 29.2658477 10.3647451 22.1329239 17.3176275 23.8167788 27.1352549" transform="translate(90,30) scale(.9,.9)"></polygon>
+    <polygon points="15 22.5 6.18322122 27.1352549 7.86707613 17.3176275 0.734152256 10.3647451 10.5916106 8.93237254 15 0 19.4083894 8.93237254 29.2658477 10.3647451 22.1329239 17.3176275 23.8167788 27.1352549" transform="translate(0,60) scale(.9,.9)"></polygon>
+    <polygon points="15 22.5 6.18322122 27.1352549 7.86707613 17.3176275 0.734152256 10.3647451 10.5916106 8.93237254 15 0 19.4083894 8.93237254 29.2658477 10.3647451 22.1329239 17.3176275 23.8167788 27.1352549" transform="translate(60,0) scale(.9,.9)"></polygon>
+    <polygon points="15 22.5 6.18322122 27.1352549 7.86707613 17.3176275 0.734152256 10.3647451 10.5916106 8.93237254 15 0 19.4083894 8.93237254 29.2658477 10.3647451 22.1329239 17.3176275 23.8167788 27.1352549" transform="translate(60,60) scale(.9,.9)"></polygon>
+    <polygon points="15 22.5 6.18322122 27.1352549 7.86707613 17.3176275 0.734152256 10.3647451 10.5916106 8.93237254 15 0 19.4083894 8.93237254 29.2658477 10.3647451 22.1329239 17.3176275 23.8167788 27.1352549" transform="translate(90,90) scale(.9,.9)"></polygon>
+    <polygon points="15 22.5 6.18322122 27.1352549 7.86707613 17.3176275 0.734152256 10.3647451 10.5916106 8.93237254 15 0 19.4083894 8.93237254 29.2658477 10.3647451 22.1329239 17.3176275 23.8167788 27.1352549" transform="translate(30,90) scale(.9,.9)"></polygon>
+    <polygon points="15 22.5 6.18322122 27.1352549 7.86707613 17.3176275 0.734152256 10.3647451 10.5916106 8.93237254 15 0 19.4083894 8.93237254 29.2658477 10.3647451 22.1329239 17.3176275 23.8167788 27.1352549" transform="translate(120,60) scale(.9,.9)"></polygon>
+    <polygon points="15 22.5 6.18322122 27.1352549 7.86707613 17.3176275 0.734152256 10.3647451 10.5916106 8.93237254 15 0 19.4083894 8.93237254 29.2658477 10.3647451 22.1329239 17.3176275 23.8167788 27.1352549" transform="translate(60,120) scale(.9,.9)"></polygon>
+    <polygon points="15 22.5 6.18322122 27.1352549 7.86707613 17.3176275 0.734152256 10.3647451 10.5916106 8.93237254 15 0 19.4083894 8.93237254 29.2658477 10.3647451 22.1329239 17.3176275 23.8167788 27.1352549" transform="translate(0,120) scale(.9,.9)"></polygon>
+    <polygon points="15 22.5 6.18322122 27.1352549 7.86707613 17.3176275 0.734152256 10.3647451 10.5916106 8.93237254 15 0 19.4083894 8.93237254 29.2658477 10.3647451 22.1329239 17.3176275 23.8167788 27.1352549" transform="translate(-30,90) scale(.9,.9)"></polygon>
+    <!-- Hack to make shapes full  -->
+    <polygon></polygon>
+    <polygon></polygon>
+    <polygon></polygon>
+    <polygon points="15 22.5 6.18322122 27.1352549 7.86707613 17.3176275 0.734152256 10.3647451 10.5916106 8.93237254 15 0 19.4083894 8.93237254 29.2658477 10.3647451 22.1329239 17.3176275 23.8167788 27.1352549" transform="translate(120,0) scale(.9,.9)"></polygon>
+   </g>
+  </pattern>
+  <!-- Text -->
+  <text text-anchor="middle" x="50%" y="50%" dy=".35em" class="text" >
+   Text
+  </text>
+ </svg>
+</div>
+
+<p>因为代码比较长，就不放出了，大家可以自己审查元素来查看。</p>
+<p>当然我们也可以使用gif动画，虽然体积会比较庞大，但是可以创建出很好的效果。</p>
+<div class="demo">
+ <svg viewBox="0 0 600 300" class="demo5">
+  <!-- Pattern -->
+  <pattern  id="p-fire"  viewBox="30 100 186 200" patternUnits="userSpaceOnUse" width="216" height="200" x="-70" y="35">
+   <!-- Fire -->
+   <image xlink:href="https://st-qn.gittt.cn/2015/03/07/fire.gif" width="256" height="300"/>
+  </pattern>
+  <!-- Text -->
+  <text text-anchor="middle" x="50%" y="50%" dy=".35em" class="text" >
+   Text
+  </text>
+ </svg>
+</div>
+
+<p>pattern中用来使用图片的方法如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">pattern</span> <span class="attr">id</span>=<span class="string">"p-fire"</span> <span class="attr">viewBox</span>=<span class="string">"30 100 186 200"</span> <span class="attr">patternUnits</span>=<span class="string">"userSpaceOnUse"</span> <span class="attr">width</span>=<span class="string">"216"</span> <span class="attr">height</span>=<span class="string">"200"</span> <span class="attr">x</span>=<span class="string">"-70"</span> <span class="attr">y</span>=<span class="string">"35"</span> &gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">image</span> <span class="attr">xlink:href</span>=<span class="string">"/img/post/AnimateTextFills/fire.gif"</span> <span class="attr">width</span>=<span class="string">"256"</span> <span class="attr">height</span>=<span class="string">"300"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>不同于<code>background-clip</code>，文本文字将正确的显示在最新的浏览器。</p>
+<p>接下来我们来谈谈<code>stroke</code>，对于html来说，我们可以使用<code>text-shadow</code>的方式来模拟一个类<code>stroke</code>，但是这种方式很大的局限性。</p>
+<p><img src="https://st-qn.gittt.cn/2015/03/07/2.png" alt=""></p>
+<p>如图，实现这样的效果可以使用如下代码：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box-with-text</span> &#123;</span><br><span class="line"> <span class="attribute">text-shadow</span>: -<span class="number">0px</span> -<span class="number">0px</span> <span class="number">0</span> yellowgreen, <span class="number">0px</span> -<span class="number">0px</span> <span class="number">0</span> yellowgreen, <span class="number">0px</span> <span class="number">0px</span> <span class="number">0</span> yellowgreen, -<span class="number">0px</span> <span class="number">0px</span> <span class="number">0</span> yellowgreen, -<span class="number">1px</span> -<span class="number">1px</span> <span class="number">0</span> yellowgreen, <span class="number">1px</span> -<span class="number">1px</span> <span class="number">0</span> yellowgreen, <span class="number">1px</span> <span class="number">1px</span> <span class="number">0</span> yellowgreen, -<span class="number">1px</span> <span class="number">1px</span> <span class="number">0</span> yellowgreen, -<span class="number">2px</span> -<span class="number">2px</span> <span class="number">0</span> yellowgreen, <span class="number">2px</span> -<span class="number">2px</span> <span class="number">0</span> yellowgreen, <span class="number">2px</span> <span class="number">2px</span> <span class="number">0</span> yellowgreen, -<span class="number">2px</span> <span class="number">2px</span> <span class="number">0</span> yellowgreen, <span class="number">0</span> <span class="number">5px</span> <span class="number">15px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.2</span>);</span><br><span class="line"> <span class="attribute">font</span>: <span class="number">26vmax</span>/.<span class="number">85</span> Open Sans, Impact;</span><br><span class="line"> <span class="attribute">color</span>: <span class="number">#FFF</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>用text-shadow实现起来确实非常的繁琐，而且代码相当的臃肿。</p>
+<p>不同于HTML，<code>stroke</code>是可用于SVG的所有元素，包括文本。并且除了作为线条它们也可填充渐变和图案。</p>
+<div class="demo">
+ <svg viewBox="0 0 600 300" class="demo6">
+  <symbol id="s-text">
+   <text text-anchor="middle" x="50%" y="50%" dy=".35em">
+    Text
+   </text>
+  </symbol>
+  <use xlink:href="#s-text" class="text"></use>
+  <use xlink:href="#s-text" class="text"></use>
+  <use xlink:href="#s-text" class="text"></use>
+  <use xlink:href="#s-text" class="text"></use>
+  <use xlink:href="#s-text" class="text"></use>
+ </svg>
+</div>
+
+<p>对于这种类型的<code>stroke</code>，我们需要把许多颜色置入到文本中，可以使用下面的方法来实现。。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">svg</span> <span class="attr">viewBox</span>=<span class="string">"0 0 600 300"</span> <span class="attr">class</span>=<span class="string">"demo6"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">symbol</span> <span class="attr">id</span>=<span class="string">"s-text"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">text</span> <span class="attr">text-anchor</span>=<span class="string">"middle"</span> <span class="attr">x</span>=<span class="string">"50%"</span> <span class="attr">y</span>=<span class="string">"50%"</span> <span class="attr">dy</span>=<span class="string">".35em"</span>&gt;</span></span><br><span class="line">    Text</span><br><span class="line">   <span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">symbol</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 复制多个文本 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">use</span> <span class="attr">xlink:href</span>=<span class="string">"#s-text"</span> <span class="attr">class</span>=<span class="string">"text"</span>&gt;</span><span class="tag">&lt;/<span class="name">use</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">use</span> <span class="attr">xlink:href</span>=<span class="string">"#s-text"</span> <span class="attr">class</span>=<span class="string">"text"</span>&gt;</span><span class="tag">&lt;/<span class="name">use</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">use</span> <span class="attr">xlink:href</span>=<span class="string">"#s-text"</span> <span class="attr">class</span>=<span class="string">"text"</span>&gt;</span><span class="tag">&lt;/<span class="name">use</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">use</span> <span class="attr">xlink:href</span>=<span class="string">"#s-text"</span> <span class="attr">class</span>=<span class="string">"text"</span>&gt;</span><span class="tag">&lt;/<span class="name">use</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">use</span> <span class="attr">xlink:href</span>=<span class="string">"#s-text"</span> <span class="attr">class</span>=<span class="string">"text"</span>&gt;</span><span class="tag">&lt;/<span class="name">use</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>用样式控制颜色和动画</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$colors</span>: <span class="number">#551F7A</span>, <span class="number">#BA2799</span>, <span class="number">#D9587A</span>, <span class="number">#FFDD00</span>, <span class="number">#FFF3A1</span>;</span><br><span class="line"><span class="variable">$max</span>: length(<span class="variable">$colors</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">@include</span> keyframes(stroke2) &#123;</span><br><span class="line">  100% &#123;</span><br><span class="line">    stroke-dashoffset: -<span class="number">400</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//scss</span></span><br><span class="line"><span class="selector-class">.text</span> &#123;</span><br><span class="line"> fill: none;</span><br><span class="line"> stroke-<span class="attribute">width</span>: <span class="number">6</span>;</span><br><span class="line"> stroke-linejoin: round;</span><br><span class="line"> stroke-dasharray: <span class="number">70</span> <span class="number">330</span>;</span><br><span class="line"> stroke-dashoffset: <span class="number">0</span>;</span><br><span class="line"> <span class="keyword">@include</span> animation(stroke2 <span class="number">6s</span> infinite linear);</span><br><span class="line"> <span class="keyword">@for</span> <span class="variable">$item</span> from <span class="number">1</span> through <span class="variable">$max</span> &#123;</span><br><span class="line">  &amp;<span class="selector-pseudo">:nth-child</span>(#&#123;<span class="variable">$max</span>&#125;n + #&#123;<span class="variable">$item</span>&#125;)&#123;</span><br><span class="line">   <span class="variable">$color</span>: nth(<span class="variable">$colors</span>, <span class="variable">$item</span>);</span><br><span class="line">   stroke: <span class="variable">$color</span>;</span><br><span class="line">   <span class="keyword">@include</span> animation-delay(#&#123;-(1<span class="selector-class">.2</span> * <span class="variable">$item</span>)&#125;s);</span><br><span class="line">  &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译出来的css就是这样：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.text</span> &#123;</span><br><span class="line">  <span class="attribute">fill</span>: none;</span><br><span class="line">  <span class="attribute">stroke-width</span>: <span class="number">6</span>;</span><br><span class="line">  <span class="attribute">stroke-linejoin</span>: round;</span><br><span class="line">  <span class="attribute">stroke-dasharray</span>: <span class="number">70</span> <span class="number">330</span>;</span><br><span class="line">  <span class="attribute">stroke-dashoffset</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">animation</span>: stroke2 <span class="number">6s</span> infinite linear;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.text</span><span class="selector-pseudo">:nth-child(5n</span> + 1) &#123;</span><br><span class="line">  <span class="attribute">stroke</span>: <span class="number">#551F7A</span>;</span><br><span class="line">  <span class="attribute">animation-delay</span>: -<span class="number">1.2s</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.text</span><span class="selector-pseudo">:nth-child(5n</span> + 2) &#123;</span><br><span class="line">  <span class="attribute">stroke</span>: <span class="number">#BA2799</span>;</span><br><span class="line">  <span class="attribute">animation-delay</span>: -<span class="number">2.4s</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.text</span><span class="selector-pseudo">:nth-child(5n</span> + 3) &#123;</span><br><span class="line">  <span class="attribute">stroke</span>: <span class="number">#D9587A</span>;</span><br><span class="line">  <span class="attribute">animation-delay</span>: -<span class="number">3.6s</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.text</span><span class="selector-pseudo">:nth-child(5n</span> + 4) &#123;</span><br><span class="line">  <span class="attribute">stroke</span>: <span class="number">#FFDD00</span>;</span><br><span class="line">  <span class="attribute">animation-delay</span>: -<span class="number">4.8s</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.text</span><span class="selector-pseudo">:nth-child(5n</span> + 5) &#123;</span><br><span class="line">  <span class="attribute">stroke</span>: <span class="number">#FFF3A1</span>;</span><br><span class="line">  <span class="attribute">animation-delay</span>: -<span class="number">6s</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@keyframes</span> stroke &#123;</span><br><span class="line">  100% &#123;</span><br><span class="line">    <span class="attribute">stroke-dashoffset</span>: -<span class="number">400</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于每一个<code>stroke</code>，我们单独设置一个动画延时，所有他们的路径就不会积聚在同一个地方，而是通过在一个字母上不同的位置循环。</p>
+<h3 id="结论-1"><a href="#结论-1" class="headerlink" title="结论"></a>结论</h3><p>使用这种方法的文本可以使用CSS样式。我们也可以选择和复制的文本。另一大优势是，SVG具有非常好的浏览器的支持。因此，创建这类文本，SVG是最好的人选之一。</p>
+<hr>
+
+<p>未完待续……</p>
+
+    </div>
+
+    <footer class="post-footer">
+        
+        <div class="post-tags">
+            
+            <a href="/tags/css3/">css3</a>
+            
+            <a href="/tags/JavaScript/">JavaScript</a>
+            
+            <a href="/tags/svg/">svg</a>
+            
+            <a href="/tags/animation/">animation</a>
+            
+        </div>
+        
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/frontend/array-unique.html">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">数组去重的几个方法</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/diary/sublime-plugin.html">
+        <span class="next-text nav-default">sublime前端必备插件</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+        
+            
+    <div class="comments" id="comments">
+        
+            <div id="gitalk-container"></div>
+        
+    </div>
+
+
+        
+    </footer>
+</article>
+
+
+        </div>
+
+        <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2016 -
+    
+    2022
+    <span class="footer-author">Zhuo Wenli.</span>
+    <span class="power-by">Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>.</span>
+    <span class="design-by">Designed by <a href="https://www.zhuowenli.com/">zhuowenli</a></span>
+</span>
+
+<nav id="nav-bottom">
+    
+        <ul id="menu-bottom" class="nav-bottom-items">
+            
+                <li class="menu-item">
+                    <a href="/">
+                        
+                        
+                            Home
+                        
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="/archives">
+                        
+                        
+                            Archives
+                        
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="/about">
+                        
+                        
+                            About
+                        
+                    </a>
+                </li>
+            
+        </ul>
+    
+</nav>
+
+        </footer>
+
+        <div class="back-to-top" id="back-to-top">
+            <i class="iconfont icon-up"></i>
+        </div>
+    </div>
+    
+    
+
+
+<script src="/lib/gitalk.min.js"></script>
+<script type="text/javascript">
+    const gitalk = new Gitalk({
+        clientID: '3a683f311ce3460b686d',
+        clientSecret: '264685b8506d937c73b468584847c3b2347bdcfe',
+        repo: 'zhuowenli.github.io',
+        owner: 'zhuowenli',
+        admin: 'zhuowenli'.split(','),
+        pagerDirection: 'first',
+        id: `如何创建文字填充动画`,
+        number: 23,
+        distractionFreeMode: true
+    });
+    if (document.querySelector('#gitalk-container')) {
+        gitalk.render('gitalk-container');
+    }
+</script>
+
+
+
+    
+    
+
+
+  
+    <script type="text/javascript" src="/lib/jquery-3.1.1.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/theme.js?v=1.0.0"></script>
+<script type="text/javascript" src="/js/bootstrap.js?v=1.0.0"></script>
+
+</body>
+</html>

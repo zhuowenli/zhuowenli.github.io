@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="你真的了解 REST 吗？"/>
+
+
+
+
+  <meta name="keywords" content="REST,plugin," />
+
+
+
+
+
+    <link rel="alternate" href="/atom.xml" title="Zhuo Wenli">
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.0.0" />
+
+
+
+<link rel="canonical" href="https://www.zhuowenli.com/backend/rest.html"/>
+
+
+<meta name="description" content="在互联网迅猛发展的今天，作为一名前端开发，大家应该都会经常听到 REST 这个东西。并且随着前后端分离以及各种层出不穷的框架技术的发展，REST 已经普遍到成为了互联网软件开发者的基本常识。然而，在大部分时候，其实大家都没理解到底什么是 REST。 我最早查阅 REST 资料的时候还是在 15 年刚接触前端开发的那些时候，就粗略的看了一下，觉得没必要花时间看这么简单的东西。对于不理解 REST 的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="你真的了解 REST 吗？">
+<meta property="og:url" content="https://www.zhuowenli.com/backend/rest.html">
+<meta property="og:site_name" content="Zhuo Wenli">
+<meta property="og:description" content="在互联网迅猛发展的今天，作为一名前端开发，大家应该都会经常听到 REST 这个东西。并且随着前后端分离以及各种层出不穷的框架技术的发展，REST 已经普遍到成为了互联网软件开发者的基本常识。然而，在大部分时候，其实大家都没理解到底什么是 REST。 我最早查阅 REST 资料的时候还是在 15 年刚接触前端开发的那些时候，就粗略的看了一下，觉得没必要花时间看这么简单的东西。对于不理解 REST 的">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://www.zhuowenli.com/assets/restful/1.png">
+<meta property="og:image" content="https://www.zhuowenli.com/assets/restful/2.png">
+<meta property="og:image" content="https://www.zhuowenli.com/assets/restful/3.png">
+<meta property="article:published_time" content="2020-07-01T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-18T02:56:11.596Z">
+<meta property="article:author" content="Zhuo Wenli">
+<meta property="article:tag" content="REST">
+<meta property="article:tag" content="plugin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.zhuowenli.com/assets/restful/1.png">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0" />
+
+
+
+<script type="text/javascript">
+    var themeConfig = {
+        color: 'Default',
+        favicon: {
+            enable: true,
+            icon: '/favicon.ico',
+            hide_text: '(●—●)喔哟，崩溃啦！',
+            show_text: '(/≧▽≦/)咦！又好了！',
+        }
+    };
+</script>
+
+
+
+    <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7278e0ce3cabf14a3798ac2126b733d9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171827500-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-171827500-1');
+</script>
+
+
+    <title> 你真的了解 REST 吗？ - Zhuo Wenli </title>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Zhuo Wenli" type="application/atom+xml">
+</head>
+<body>
+    <div id="page">
+        <header id="masthead">
+<h1 class="site-title">
+    <a href="/." class="logo">Zhuo Wenli</a>
+</h1>
+
+
+        </header>
+
+        <div id="content">
+            
+    
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">你真的了解 REST 吗？</h1>
+        <time class="post-time">
+            Jul 01 2020
+        </time>
+    </header>
+
+    <div class="post-content">
+        <p>在互联网迅猛发展的今天，作为一名前端开发，大家应该都会经常听到 REST 这个东西。并且随着前后端分离以及各种层出不穷的框架技术的发展，REST 已经普遍到成为了互联网软件开发者的基本常识。然而，在大部分时候，其实大家都没理解到底什么是 REST。</p>
+<p>我最早查阅 REST 资料的时候还是在 15 年刚接触前端开发的那些时候，就粗略的看了一下，觉得没必要花时间看这么简单的东西。对于不理解 REST 的开发来说，大家习惯于展示一些 demo 来让他人理解 REST，这样就给大家造成了 REST 就是 CURD 谬论。所以开发同学想要深入理解 REST 是什么，就很难避开 Fielding 的那篇博士论文。然而，当我最近重新去看时论文的时候却颇感吃力。</p>
+<p>在当面试官的过程中，我也经常会问一些前端同学：「你知道什么是 REST 吗？」。大家的回答也是五花八门，很少有能够听到让我满意的回答。甚至有的同学说「没有听说过 REST」！</p>
+<p>那么 REST 究竟是什么？RESTful API 跟 REST 有什么区别？是一种技术、一种架构、还是一种规范？</p>
+<p>对于这个问题笔者先卖个关子，为了深入理解 REST 是什么，我们需要回顾一下 Web 发展的历程，从源头上讲讲 REST 是怎么来的。</p>
+<a id="more"></a>
+
+<h2 id="Web-技术发展与-REST-的由来"><a href="#Web-技术发展与-REST-的由来" class="headerlink" title="Web 技术发展与 REST 的由来"></a>Web 技术发展与 REST 的由来</h2><p>在互联网行业中，实践总是走在理论之前。Web 发展到了 1995 年，在 CGI、ASP 等技术出现之后，沿用了多年、主要面向静态文档的 HTTP/1.0 协议已经无法满足 Web 应用的开发需求，因此需要设计新版本的 HTTP 协议。</p>
+<p>在 HTTP/1.0 协议专家组之中，有一位年轻人脱颖而出，显示出了不凡的洞察力，后来他成为了 HTTP/1.1 协议专家组的负责人。这位年轻人就是 Apache HTTP 服务器的核心开发者 <a href="https://en.wikipedia.org/wiki/Roy_Fielding" target="_blank" rel="noopener">Roy Fielding</a> ，他还是 Apache 软件基金会的合作创始人。</p>
+<p>Fielding 和他的同事们在 HTTP/1.1 协议的设计工作中，对于 Web 之所以取得巨大成功，在技术架构方面的因素做了一番深入的总结。Fielding 将这些总结纳入到了一套理论框架之中，然后使用这套理论框架中的指导原则，来指导 HTTP/1.1 协议的设计方向。</p>
+<p>HTTP/1.1 协议的第一个草稿是在 1996 年 1 月发布的，经过了三年多时间的修订，于 1999 年 6 月成为了 IETF 的正式规范（包括了 RFC 2616 以及用于对客户端做身份认证的 RFC 2617）。HTTP/1.1 协议设计得极为成功，以至于发布之后整整 10 年时间里，都没有多少人认为有修订的必要。</p>
+<p>Fielding 在完成 HTTP/1.1 协议的设计工作之后，回到了加州大学欧文分校继续攻读自己的博士学位。第二年（2000 年）在他的博士学位论文 <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm" target="_blank" rel="noopener">Architectural Styles and the Design of Network-based Software Architectures</a> 中，更为系统、严谨地阐述了这套理论框架，并且使用这套理论框架推导出了一种新的架构风格。Fielding 为这种架构风格取了一个令人轻松愉快的名字「REST」—— Representational State Transfer（表述性状态转移）的缩写。</p>
+<p>在我看来，Fielding 这篇博士论文在 Web 发展史上的价值，不亚于 Web 之父 <a href="https://www.w3.org/People/Berners-Lee/" target="_blank" rel="noopener">Tim Berners-Lee</a> 关于超文本的那篇<a href="https://www.w3.org/History/1989/proposal.html" target="_blank" rel="noopener">经典论文</a>。然而遗憾的是，这篇博士论文在诞生之后的将近 5 年时间里，一直没有得到足够的重视。</p>
+<p>这种情况在 2005 年之后有了很大的改善，随着 Ajax、Ruby on Rails 等新的 Web 开发技术的兴起，在 Web 开发技术社区掀起了一场重归 Web 架构设计本源的运动，REST 架构风格得到了越来越多的关注。在 2007 年 1 月，支持 REST 开发的 Ruby on Rails 1.2 版正式发布，并且将支持 REST 开发作为 Rails 未来发展中的优先内容。Ruby on Rails 的创始人 <a href="https://en.wikipedia.org/wiki/David_Heinemeier_Hansson" target="_blank" rel="noopener">DHH</a> 做了一个名为「World of Resources」的精彩演讲，DHH 在 Web 开发技术社区中的强大影响力，使得 REST 一下子处在 Web 开发技术舞台的聚光灯之下。</p>
+<p>今天，各种流行的 Web 开发框架，几乎没有不支持 REST 开发的。大多数 Web 开发者都是通过阅读某种 REST 开发框架的文档，以及通过一些 demo 来学习 REST 开发的。然而，通过 demo 来学习 REST 有非常大的局限性。因为 REST 并不是一种具体的技术，也不是一种具体的规范，REST 其实是一种内涵非常丰富的架构风格。通过 demo 来学习 REST，除了学习到一种有趣的 Web 开发技术之外，并不能全面深入的理解 REST 究竟是什么。甚至还会误以为这些简单的 demo 就是 REST 本身，REST 不过是一种简单的 Web 开发技术而已。</p>
+<p>那么，下面我们言归正传。</p>
+<h2 id="深入理解-REST"><a href="#深入理解-REST" class="headerlink" title="深入理解 REST"></a>深入理解 REST</h2><p>在 Fielding 的这篇名为 <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm" target="_blank" rel="noopener">Architectural Styles and the Design of Network-based Software Architectures</a> 的博士论文（中文版名为<a href="https://www.infoq.cn/article/dissertation-rest-cn/" target="_blank" rel="noopener">《架构风格与基于网络的软件架构设计》</a>）中，提出了一整套基于网络的软件（即所谓的「分布式应用」）的设计方法，值得所有分布式应用的开发者仔细阅读、深入体会。</p>
+<p>在论文的前三章中，Fielding 在批判性继承前人研究成果的基础上，建立起来一整套研究和评价软件架构的方法论。这套方法论的核心是「架构风格」这个概念。架构风格是一种研究和评价软件架构设计的方法，它是比架构更加抽象的概念。一种架构风格是由一组相互协作的架构约束来定义的。架构约束是指软件的运行环境施加在架构设计之上的约束。</p>
+<blockquote>
+<p>REST emphasizes scalability of component interactions, generality of interfaces, independent deployment of components, and intermediary components to reduce interaction latency, enforce security, and encapsulate legacy systems. I describe the software engineering principles guiding REST and the interaction constraints chosen to retain those principles, contrasting them to the constraints of other architectural styles. Finally, I describe the lessons learned from applying REST to the design of the Hypertext Transfer Protocol and Uniform Resource Identifier standards, and from their subsequent deployment in Web client and server software.<br>REST 强调组件交互的可伸缩性、接口的通用性、组件的独立部署、以及用来减少交互延迟、增强安全性、封装遗留系统的中间组件。我描述了指导 REST 的软件工程原则和选择用来支持这些原则的交互约束，并将它们与其他架构风格的约束进行了对比。最后，我描述了从在超文本转移协议（HTTP）和统一资源标识符（URI）的标准中应用 REST，以及从这两个标准在 Web 客户端和服务器软件的后续部署等过程中学到的经验教训。</p>
+</blockquote>
+<p>这是论文摘要里面的一段话，从这里就能看出来，我们平时大部分时候所理解的 REST 都是错误的。REST 不是一个接口规范，不是对资源的 CRUD，而是网络应用的一种架构风格。另外，作者提到在论文里描述了将 REST 应用到 HTTP 以及 URI 规范的过程中所吸取的经验，我把这一句话加粗了，是为了强调 REST 的重要性，也是为了强调这篇论文的价值。</p>
+<p>作者在论文里介绍了什么是软件架构：</p>
+<blockquote>
+<p>A <strong>software architecture</strong> is an abstraction of the run-time elements of a software system during some phase of its operation. A system may be composed of many levels of abstraction and many phases of operation, each with its own software architecture.<br>一个<strong>软件架构</strong>是一个软件系统在其操作的某个阶段的运行时（run-time）元素的抽象。一个系统可能由很多层抽象和很多个操作阶段组成，每个抽象和操作阶段都有自己的软件架构。</p>
+</blockquote>
+<p>架构的组成元素：</p>
+<blockquote>
+<p>A <strong>software architecture</strong> is defined by a configuration of architectural elements–components, connectors, and data–constrained in their relationships in order to achieve a desired set of architectural properties.<br>一个<strong>软件架构</strong>由一些架构元素（组件、连接器和数据）的配置来定义，这些元素之间的关系受到约束，以获得想要得到的一组架构属性。</p>
+<ol>
+<li>A <em>component</em> is an abstract unit of software instructions and internal state that provides a transformation of data via its interface.<br>一个<strong>组件</strong>是软件指令和内部状态的一个抽象单元，通过其接口提供对于数据的转换。</li>
+<li>A <em>connector</em> is an abstract mechanism that mediates communication, coordination, or cooperation among components.<br>一个<strong>连接器</strong>是对于组件之间的通讯、协调或者合作进行仲裁的一种抽象机制。</li>
+<li>A <em>datum</em> is an element of information that is transferred from a component, or received by a component, via a connector.<br>一个<strong>数据</strong>是组件通过一个连接器接收或发送的信息元素。</li>
+</ol>
+</blockquote>
+<p>结构：</p>
+<blockquote>
+<p>A <strong>configuration</strong> is the structure of architectural relationships among components, connectors, and data during a period of system run-time.<br>一个<strong>配置</strong>是在系统的运行期间组件、连接器和数据之间的架构关系的结构。</p>
+</blockquote>
+<p>属性：</p>
+<blockquote>
+<p>The set of architectural properties of a software architecture includes all properties that derive from the selection and arrangement of components, connectors, and data within the system. Examples include both the functional properties achieved by the system and non-functional properties, such as relative ease of evolution, reusability of components, efficiency, and dynamic extensibility, often referred to as quality attributes.<br>软件架构的架构属性集合包括了对组件、连接器和数据的选择和排列所导致的所有属性。架构属性的例子包括了可以由系统获得的功能属性和非功能属性，例如：进化的相对容易程度、组件的可重用性、效率、动态扩展能力；这些常常被称作品质属性（quality attributes）。</p>
+</blockquote>
+<p>风格：</p>
+<blockquote>
+<p>An <strong>architectural style</strong> is a coordinated set of architectural constraints that restricts the roles/features of architectural elements and the allowed relationships among those elements within any architecture that conforms to that style.<br>一种<strong>架构风格</strong>是一组协作的架构约束，这些约束限制了架构元素的角色和功能，以及在任何一个遵循该风格的架构中允许存在的元素之间的关系。</p>
+</blockquote>
+<p>然后介绍了一下什么是 Network-based Application Architectures，以及需要关注的架构属性：</p>
+<ol>
+<li>性能（Performance）</li>
+<li>可伸缩性（Scalability）</li>
+<li>简单性（Simplicity）</li>
+<li>可修改性（Modifiability）</li>
+<li>可见性（Visibility）</li>
+<li>可移植性（Portability）</li>
+<li>可靠性（Reliability）</li>
+</ol>
+<p>在论文的第四章中，Fielding 研究了 Web 这样一个分布式系统对于软件架构设计提出了哪些需求。在第五章中，Fielding 将第四章 Web 提出的需求具体化为一些架构约束，通过逐步添加各种架构约束，推导出来了 REST 这种新的架构风格。</p>
+<p>REST 架构风格的推导过程如下图所示：</p>
+<p><img src="../assets/restful/1.png" alt="图 1：REST 所继承的架构风格约束"></p>
+<p>在图 1 中，每一个椭圆形里面的缩写词代表了一种架构风格，而每一个箭头边的单词代表了一种架构约束。</p>
+<p>REST 架构风格最重要的架构约束有 6 个：</p>
+<ol>
+<li>客户 - 服务器（Client-Server）: 通信只能由客户端单方面发起，表现为请求 - 响应的形式。</li>
+<li>无状态（Stateless）: 通信的会话状态（Session State）应该全部由客户端负责维护。</li>
+<li>缓存（Cache）: 响应内容可以在通信链的某处被缓存，以改善网络效率。</li>
+<li>统一接口（Uniform Interface）: 通信链的组件之间通过统一的接口相互通信，以提高交互的可见性。</li>
+<li>分层系统（Layered System）: 通过限制组件的行为（即，每个组件只能“看到”与其交互的紧邻层），将架构分解为若干等级的层。</li>
+<li>按需代码（Code-On-Demand，可选）: 支持通过下载并执行一些代码（例如 Java Applet、Flash 或 JavaScript），对客户端的功能进行扩展。</li>
+</ol>
+<p>只要满足这 6 条基本原则，就是符合 REST 风格的架构，这其中的每一条都值得花大精力去研究，等未来有空我也会一条条的深入去探索一下，探索一下技术的发展以及发展过程中的故事。</p>
+<p>REST 架构风格如下图：</p>
+<p><img src="../assets/restful/2.png" alt="图 2：REST 架构风格"></p>
+<p>而 HTTP/1.1 协议作为一种 REST 架构风格的架构实例，其架构如下图所示：</p>
+<p><img src="../assets/restful/3.png" alt="图 3：一个基于 REST 的架构的过程视图"></p>
+<p>通过比较图 2 和图 3，大家不难发现这两张图中的架构是高度一致的。对于 HTTP/1.1 协议为何要设计成这个样子，大家想必已经有所领悟。</p>
+<p>在论文的第六章中，Fielding 对于到 2000 年为止在 Web 基础架构协议的设计和开发方面的一些经验教训进行了深入的分析。其中，「HTTP 不是 RPC」、「HTTP 不是一种传输协议」两部分值得读者反复阅读。时至 20 年之后的今天，对于 HTTP 协议的误解仍然广泛存在。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>上述这些关于「REST 是什么」的描述，可以总结为一句话：REST 是所有 Web 应用都应该遵守的架构设计指导原则，而基于 REST 架构风格构建的 API 就是 RESTful API。</p>
+<p>当然，REST 并不是法律，违反了 REST 的指导原则，仍然能够实现正常的功能开发。但是违反了 REST 的指导原则，会付出很多代价，特别是对于大流量的网站而言。它的大原则容易把握，但是细节不容易做对。我们需要进行较多的尝试来实施 RESTful API 中的最佳实践。大多数情况下，懒惰或缺乏时间意味着我们不会为此付出努力，所以才会为我们的用户留下一个个古怪的、难用的、却又脆弱的 API。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://www.infoq.cn/article/dissertation-rest-cn/" target="_blank" rel="noopener">《架构风格与基于网络的软件架构设计》</a></li>
+<li><a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm" target="_blank" rel="noopener">Architectural Styles and the Design of Network-based Software Architectures</a></li>
+</ul>
+
+    </div>
+
+    <footer class="post-footer">
+        
+        <div class="post-tags">
+            
+            <a href="/tags/REST/">REST</a>
+            
+            <a href="/tags/plugin/">plugin</a>
+            
+        </div>
+        
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/backend/es2020.html">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">What's new in ECMAScript 2020 (ES2020)</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/diary/awesome-mac.html">
+        <span class="next-text nav-default">Awesome Mac</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+        
+            
+    <div class="comments" id="comments">
+        
+            <div id="gitalk-container"></div>
+        
+    </div>
+
+
+        
+    </footer>
+</article>
+
+
+        </div>
+
+        <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2016 -
+    
+    2022
+    <span class="footer-author">Zhuo Wenli.</span>
+    <span class="power-by">Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>.</span>
+    <span class="design-by">Designed by <a href="https://www.zhuowenli.com/">zhuowenli</a></span>
+</span>
+
+<nav id="nav-bottom">
+    
+        <ul id="menu-bottom" class="nav-bottom-items">
+            
+                <li class="menu-item">
+                    <a href="/">
+                        
+                        
+                            Home
+                        
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="/archives">
+                        
+                        
+                            Archives
+                        
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="/about">
+                        
+                        
+                            About
+                        
+                    </a>
+                </li>
+            
+        </ul>
+    
+</nav>
+
+        </footer>
+
+        <div class="back-to-top" id="back-to-top">
+            <i class="iconfont icon-up"></i>
+        </div>
+    </div>
+    
+    
+
+
+<script src="/lib/gitalk.min.js"></script>
+<script type="text/javascript">
+    const gitalk = new Gitalk({
+        clientID: '3a683f311ce3460b686d',
+        clientSecret: '264685b8506d937c73b468584847c3b2347bdcfe',
+        repo: 'zhuowenli.github.io',
+        owner: 'zhuowenli',
+        admin: 'zhuowenli'.split(','),
+        pagerDirection: 'first',
+        id: `你真的了解 REST 吗？`,
+        number: -1,
+        distractionFreeMode: true
+    });
+    if (document.querySelector('#gitalk-container')) {
+        gitalk.render('gitalk-container');
+    }
+</script>
+
+
+
+    
+    
+
+
+  
+    <script type="text/javascript" src="/lib/jquery-3.1.1.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/theme.js?v=1.0.0"></script>
+<script type="text/javascript" src="/js/bootstrap.js?v=1.0.0"></script>
+
+</body>
+</html>

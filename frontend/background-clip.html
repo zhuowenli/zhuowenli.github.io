@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="使用background-clip实现透明边框"/>
+
+
+
+
+  <meta name="keywords" content="css3,css-tricks," />
+
+
+
+
+
+    <link rel="alternate" href="/atom.xml" title="Zhuo Wenli">
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.0.0" />
+
+
+
+<link rel="canonical" href="https://www.zhuowenli.com/frontend/background-clip.html"/>
+
+
+<meta name="description" content="使用background-clip实现透明边框你有没有在网页上见过透明边框的元素？ 类似下面这样的效果：  你可能觉得实现效果非常简单，只需要以下代码： 1234#lightbox&amp;#123; background: white; border: 20px solid rgba(0,0,0,0.3);&amp;#125;  但是如果这样写的话，就会出现如下效果。  在上面的截图中，边框已经用了RGBa设置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用background-clip实现透明边框">
+<meta property="og:url" content="https://www.zhuowenli.com/frontend/background-clip.html">
+<meta property="og:site_name" content="Zhuo Wenli">
+<meta property="og:description" content="使用background-clip实现透明边框你有没有在网页上见过透明边框的元素？ 类似下面这样的效果：  你可能觉得实现效果非常简单，只需要以下代码： 1234#lightbox&amp;#123; background: white; border: 20px solid rgba(0,0,0,0.3);&amp;#125;  但是如果这样写的话，就会出现如下效果。  在上面的截图中，边框已经用了RGBa设置">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://st-qn.gittt.cn/2014/09/19/transparentborders.png">
+<meta property="og:image" content="https://st-qn.gittt.cn/2014/09/19/gray.png">
+<meta property="og:image" content="https://st-qn.gittt.cn/2014/09/19/background-clip.png">
+<meta property="og:image" content="https://st-qn.gittt.cn/2014/09/19/transparentborders.png">
+<meta property="article:published_time" content="2014-09-19T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-18T02:56:11.592Z">
+<meta property="article:author" content="Zhuo Wenli">
+<meta property="article:tag" content="css3">
+<meta property="article:tag" content="css-tricks">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://st-qn.gittt.cn/2014/09/19/transparentborders.png">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0" />
+
+
+
+<script type="text/javascript">
+    var themeConfig = {
+        color: 'Default',
+        favicon: {
+            enable: true,
+            icon: '/favicon.ico',
+            hide_text: '(●—●)喔哟，崩溃啦！',
+            show_text: '(/≧▽≦/)咦！又好了！',
+        }
+    };
+</script>
+
+
+
+    <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7278e0ce3cabf14a3798ac2126b733d9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171827500-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-171827500-1');
+</script>
+
+
+    <title> 使用background-clip实现透明边框 - Zhuo Wenli </title>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Zhuo Wenli" type="application/atom+xml">
+</head>
+<body>
+    <div id="page">
+        <header id="masthead">
+<h1 class="site-title">
+    <a href="/." class="logo">Zhuo Wenli</a>
+</h1>
+
+
+        </header>
+
+        <div id="content">
+            
+    
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">使用background-clip实现透明边框</h1>
+        <time class="post-time">
+            Sep 19 2014
+        </time>
+    </header>
+
+    <div class="post-content">
+        <h2 id="使用background-clip实现透明边框"><a href="#使用background-clip实现透明边框" class="headerlink" title="使用background-clip实现透明边框"></a>使用background-clip实现透明边框</h2><p>你有没有在网页上见过透明边框的元素？</p>
+<p>类似下面这样的效果：</p>
+<p><img src="https://st-qn.gittt.cn/2014/09/19/transparentborders.png" alt=""></p>
+<p>你可能觉得实现效果非常简单，只需要以下代码：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#lightbox</span>&#123;</span><br><span class="line"> <span class="attribute">background</span>: white;</span><br><span class="line"> <span class="attribute">border</span>: <span class="number">20px</span> solid <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.3</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是如果这样写的话，就会出现如下效果。</p>
+<p><img src="https://st-qn.gittt.cn/2014/09/19/gray.png" alt=""></p>
+<p>在上面的截图中，边框已经用了<code>RGBa</code>设置为透明，但是边框却显示为不透明的灰色，这是因为该元素的白色背景透过透明边框显示了出来。</p>
+<p>幸运的是，CSS3有个属性拯救了我们！这个属性就是<code>background-clip</code>，它正是用来指定在一个盒模型中，究竟哪一部分能够用来显示背景。它做的事儿正如它的名字一样：<code>background-clip</code>（背景剪裁）。它可以将盒子的指定部分的背景裁去。这一属性可以有三个值，而且也可以加上浏览器前缀。以下就是该属性的三种设置。你不用同时使用如下代码，这里仅是为了显示方便而已：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#lightbox</span> &#123;</span><br><span class="line"> <span class="attribute">-moz-background-clip</span>: border; <span class="comment">/* Firefox 3.6 */</span></span><br><span class="line"> <span class="attribute">-webkit-background-clip</span>: border; <span class="comment">/* Safari 4? Chrome 6? */</span></span><br><span class="line"> <span class="attribute">background-clip</span>: border-box; <span class="comment">/* Firefox 4, Safari 5, Opera 10, IE 9 */</span></span><br><span class="line"></span><br><span class="line"> <span class="attribute">-moz-background-clip</span>: padding; <span class="comment">/* Firefox 3.6 */</span></span><br><span class="line"> <span class="attribute">-webkit-background-clip</span>: padding; <span class="comment">/* Safari 4? Chrome 6? */</span></span><br><span class="line"> <span class="attribute">background-clip</span>: padding-box; <span class="comment">/* Firefox 4, Safari 5, Opera 10, IE 9 */</span></span><br><span class="line"></span><br><span class="line"> <span class="attribute">-moz-background-clip</span>: content; <span class="comment">/* Firefox 3.6 */</span></span><br><span class="line"> <span class="attribute">-webkit-background-clip</span>: content; <span class="comment">/* Safari 4? Chrome 6? */</span></span><br><span class="line"> <span class="attribute">background-clip</span>: content-box; <span class="comment">/* Firefox 4, Safari 5, Opera 10, IE 9 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以下是图示：</p>
+<p><img src="https://st-qn.gittt.cn/2014/09/19/background-clip.png" alt=""></p>
+<p>嗯，写到这你应该就知道<code>background-clip</code>的作用了：如果我们将background-clip设置为padding-box的话，白色背景就会在边框处被裁掉，然后透明边框就可以透出该元素下面的内容了，这也正是我们想要的效果！</p>
+<p><img src="https://st-qn.gittt.cn/2014/09/19/transparentborders.png" alt=""></p>
+
+    </div>
+
+    <footer class="post-footer">
+        
+        <div class="post-tags">
+            
+            <a href="/tags/css3/">css3</a>
+            
+            <a href="/tags/css-tricks/">css-tricks</a>
+            
+        </div>
+        
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/frontend/javascript-module-pattern.html">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Javascript 模块模式</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/frontend/Deep-understanding-of-inheritance-and-prototype-chain.html">
+        <span class="next-text nav-default">深入理解继承与原型链</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+        
+            
+    <div class="comments" id="comments">
+        
+            <div id="gitalk-container"></div>
+        
+    </div>
+
+
+        
+    </footer>
+</article>
+
+
+        </div>
+
+        <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2016 -
+    
+    2022
+    <span class="footer-author">Zhuo Wenli.</span>
+    <span class="power-by">Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>.</span>
+    <span class="design-by">Designed by <a href="https://www.zhuowenli.com/">zhuowenli</a></span>
+</span>
+
+<nav id="nav-bottom">
+    
+        <ul id="menu-bottom" class="nav-bottom-items">
+            
+                <li class="menu-item">
+                    <a href="/">
+                        
+                        
+                            Home
+                        
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="/archives">
+                        
+                        
+                            Archives
+                        
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="/about">
+                        
+                        
+                            About
+                        
+                    </a>
+                </li>
+            
+        </ul>
+    
+</nav>
+
+        </footer>
+
+        <div class="back-to-top" id="back-to-top">
+            <i class="iconfont icon-up"></i>
+        </div>
+    </div>
+    
+    
+
+
+<script src="/lib/gitalk.min.js"></script>
+<script type="text/javascript">
+    const gitalk = new Gitalk({
+        clientID: '3a683f311ce3460b686d',
+        clientSecret: '264685b8506d937c73b468584847c3b2347bdcfe',
+        repo: 'zhuowenli.github.io',
+        owner: 'zhuowenli',
+        admin: 'zhuowenli'.split(','),
+        pagerDirection: 'first',
+        id: `使用background-clip实现透明边框`,
+        number: 37,
+        distractionFreeMode: true
+    });
+    if (document.querySelector('#gitalk-container')) {
+        gitalk.render('gitalk-container');
+    }
+</script>
+
+
+
+    
+    
+
+
+  
+    <script type="text/javascript" src="/lib/jquery-3.1.1.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/theme.js?v=1.0.0"></script>
+<script type="text/javascript" src="/js/bootstrap.js?v=1.0.0"></script>
+
+</body>
+</html>

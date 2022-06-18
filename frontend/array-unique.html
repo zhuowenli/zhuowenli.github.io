@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="数组去重的几个方法"/>
+
+
+
+
+  <meta name="keywords" content="JavaScript,unique,array," />
+
+
+
+
+
+    <link rel="alternate" href="/atom.xml" title="Zhuo Wenli">
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.0.0" />
+
+
+
+<link rel="canonical" href="https://www.zhuowenli.com/frontend/array-unique.html"/>
+
+
+<meta name="description" content="最近前端面试遇到的的一个问题：怎样去掉Javascript的Array的重复项，并且实现排序。这个问题看起来简单，但是其实暗藏杀机。 考的不仅仅是实现这个功能，更能看出你对JS代码的深入理解。 这几天想了一些方法，可以实现这个目的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数组去重的几个方法">
+<meta property="og:url" content="https://www.zhuowenli.com/frontend/array-unique.html">
+<meta property="og:site_name" content="Zhuo Wenli">
+<meta property="og:description" content="最近前端面试遇到的的一个问题：怎样去掉Javascript的Array的重复项，并且实现排序。这个问题看起来简单，但是其实暗藏杀机。 考的不仅仅是实现这个功能，更能看出你对JS代码的深入理解。 这几天想了一些方法，可以实现这个目的。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2015-03-13T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-18T02:56:11.592Z">
+<meta property="article:author" content="Zhuo Wenli">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="unique">
+<meta property="article:tag" content="array">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0" />
+
+
+
+<script type="text/javascript">
+    var themeConfig = {
+        color: 'Default',
+        favicon: {
+            enable: true,
+            icon: '/favicon.ico',
+            hide_text: '(●—●)喔哟，崩溃啦！',
+            show_text: '(/≧▽≦/)咦！又好了！',
+        }
+    };
+</script>
+
+
+
+    <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7278e0ce3cabf14a3798ac2126b733d9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171827500-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-171827500-1');
+</script>
+
+
+    <title> 数组去重的几个方法 - Zhuo Wenli </title>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Zhuo Wenli" type="application/atom+xml">
+</head>
+<body>
+    <div id="page">
+        <header id="masthead">
+<h1 class="site-title">
+    <a href="/." class="logo">Zhuo Wenli</a>
+</h1>
+
+
+        </header>
+
+        <div id="content">
+            
+    
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">数组去重的几个方法</h1>
+        <time class="post-time">
+            Mar 13 2015
+        </time>
+    </header>
+
+    <div class="post-content">
+        <p>最近前端面试遇到的的一个问题：怎样去掉Javascript的Array的重复项，并且实现排序。这个问题看起来简单，但是其实暗藏杀机。 考的不仅仅是实现这个功能，更能看出你对JS代码的深入理解。</p>
+<p>这几天想了一些方法，可以实现这个目的。</p>
+<a id="more"></a>
+
+<p>首先实现一个排序的方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> seq = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x - y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>实现数组去重并排序：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.</span></span><br><span class="line"><span class="built_in">Array</span>.prototype.unique1 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> n = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.length; i++) &#123;</span><br><span class="line">        <span class="comment">// 判断有没有在数组里面，没有就填充进去</span></span><br><span class="line">        <span class="keyword">if</span> (n.indexOf(<span class="keyword">this</span>[i]) == <span class="number">-1</span>) &#123;</span><br><span class="line">            n.push(<span class="keyword">this</span>[i]);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> n.sort(seq); <span class="comment">// 最后进行一次排序</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 2.</span></span><br><span class="line"><span class="built_in">Array</span>.prototype.unique2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> n = &#123;&#125;,</span><br><span class="line">        r = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.length; i++) &#123;</span><br><span class="line">        <span class="comment">// 使用哈希表，利用关键字的判断来去重</span></span><br><span class="line">        <span class="comment">// 如果哈希表中没有当前项</span></span><br><span class="line">        <span class="keyword">if</span> (!n[<span class="keyword">this</span>[i]]) &#123;</span><br><span class="line">            n[<span class="keyword">this</span>[i]] = <span class="literal">true</span>;</span><br><span class="line">            r.push(<span class="keyword">this</span>[i]);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> r.sort(seq);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 3.</span></span><br><span class="line"><span class="built_in">Array</span>.prototype.unique3 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> n = [<span class="keyword">this</span>[<span class="number">0</span>]];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//如果当前数组的第i项在当前数组中第一次出现的位置不是i，</span></span><br><span class="line">    <span class="comment">//那么表示第i项是重复的，忽略掉。否则存入结果数组</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; <span class="keyword">this</span>.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.indexOf(<span class="keyword">this</span>[i]) == i) &#123;</span><br><span class="line">            n.push(<span class="keyword">this</span>[i]);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> n.sort(seq); <span class="comment">// 最后进行一次排序</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 4.</span></span><br><span class="line"><span class="built_in">Array</span>.prototype.unique4 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.sort(seq); <span class="comment">// 先进行数组排序</span></span><br><span class="line">    <span class="keyword">var</span> n = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.length; i++) &#123;</span><br><span class="line">        <span class="comment">// 如果当前项和上一项的值不一样时，则存入结果数组</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>[i] != <span class="keyword">this</span>[i - <span class="number">1</span>]) &#123;</span><br><span class="line">            n.push(<span class="keyword">this</span>[i]);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> n;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 5.</span></span><br><span class="line"><span class="built_in">Array</span>.prototype.unique5 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 使用ES5的reduce方法。</span></span><br><span class="line">    <span class="comment">// 参考链接：http://www.zhangxinxu.com/wordpress/2013/04/es5%E6%96%B0%E5%A2%9E%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/#reduce</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (a.indexOf(b) &lt; <span class="number">0</span> ) &#123;</span><br><span class="line">            a.push(b);</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;, []);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>其中1、3、5的方法都用到了数组<code>indexOf</code>方法。使用这个方法是为了寻找存入参数在数组中第一次出现的位置。显然，js引擎在调用这个方法的时候会挨个遍历数组直到找到目标为止，所以函数会花掉比较多的时间。</p>
+<p>至于第2种的做法就是把已经出现过的字段，通过关键字的形式存入一个对象内，利用关键字索引要比<code>indexOf</code>遍历数组快得多。</p>
+<p>第4种方法的思路是先把数组排序，然后比较相邻的两个值。这种方法也比第1种和第3种方法快了不少。</p>
+
+    </div>
+
+    <footer class="post-footer">
+        
+        <div class="post-tags">
+            
+            <a href="/tags/JavaScript/">JavaScript</a>
+            
+            <a href="/tags/unique/">unique</a>
+            
+            <a href="/tags/array/">array</a>
+            
+        </div>
+        
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/frontend/the-react-quick-start-guide.html">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">React 入门教程</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/frontend/create-animated-text-fills.html">
+        <span class="next-text nav-default">如何创建文字填充动画</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+        
+            
+    <div class="comments" id="comments">
+        
+            <div id="gitalk-container"></div>
+        
+    </div>
+
+
+        
+    </footer>
+</article>
+
+
+        </div>
+
+        <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2016 -
+    
+    2022
+    <span class="footer-author">Zhuo Wenli.</span>
+    <span class="power-by">Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>.</span>
+    <span class="design-by">Designed by <a href="https://www.zhuowenli.com/">zhuowenli</a></span>
+</span>
+
+<nav id="nav-bottom">
+    
+        <ul id="menu-bottom" class="nav-bottom-items">
+            
+                <li class="menu-item">
+                    <a href="/">
+                        
+                        
+                            Home
+                        
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="/archives">
+                        
+                        
+                            Archives
+                        
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="/about">
+                        
+                        
+                            About
+                        
+                    </a>
+                </li>
+            
+        </ul>
+    
+</nav>
+
+        </footer>
+
+        <div class="back-to-top" id="back-to-top">
+            <i class="iconfont icon-up"></i>
+        </div>
+    </div>
+    
+    
+
+
+<script src="/lib/gitalk.min.js"></script>
+<script type="text/javascript">
+    const gitalk = new Gitalk({
+        clientID: '3a683f311ce3460b686d',
+        clientSecret: '264685b8506d937c73b468584847c3b2347bdcfe',
+        repo: 'zhuowenli.github.io',
+        owner: 'zhuowenli',
+        admin: 'zhuowenli'.split(','),
+        pagerDirection: 'first',
+        id: `数组去重的几个方法`,
+        number: 22,
+        distractionFreeMode: true
+    });
+    if (document.querySelector('#gitalk-container')) {
+        gitalk.render('gitalk-container');
+    }
+</script>
+
+
+
+    
+    
+
+
+  
+    <script type="text/javascript" src="/lib/jquery-3.1.1.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/theme.js?v=1.0.0"></script>
+<script type="text/javascript" src="/js/bootstrap.js?v=1.0.0"></script>
+
+</body>
+</html>

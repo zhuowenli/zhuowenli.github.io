@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="PhoneGap入门教程(6) - 设备信息和系统提示"/>
+
+
+
+
+  <meta name="keywords" content="JavaScript,PhoneGap,Android,Webapp," />
+
+
+
+
+
+    <link rel="alternate" href="/atom.xml" title="Zhuo Wenli">
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.0.0" />
+
+
+
+<link rel="canonical" href="https://www.zhuowenli.com/frontend/phonegap-getting-started-tutorial-6.html"/>
+
+
+<meta name="description" content="PhoneGap可以获取设备的相关信息。并且，在事件处理和其他操作中，会经常用到的基本操作就是使用系统提示，例如警告框、提示框、震动、蜂鸣等。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PhoneGap入门教程(6) - 设备信息和系统提示">
+<meta property="og:url" content="https://www.zhuowenli.com/frontend/phonegap-getting-started-tutorial-6.html">
+<meta property="og:site_name" content="Zhuo Wenli">
+<meta property="og:description" content="PhoneGap可以获取设备的相关信息。并且，在事件处理和其他操作中，会经常用到的基本操作就是使用系统提示，例如警告框、提示框、震动、蜂鸣等。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2015-02-10T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-18T02:56:11.596Z">
+<meta property="article:author" content="Zhuo Wenli">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="PhoneGap">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="Webapp">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0" />
+
+
+
+<script type="text/javascript">
+    var themeConfig = {
+        color: 'Default',
+        favicon: {
+            enable: true,
+            icon: '/favicon.ico',
+            hide_text: '(●—●)喔哟，崩溃啦！',
+            show_text: '(/≧▽≦/)咦！又好了！',
+        }
+    };
+</script>
+
+
+
+    <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7278e0ce3cabf14a3798ac2126b733d9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171827500-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-171827500-1');
+</script>
+
+
+    <title> PhoneGap入门教程(6) - 设备信息和系统提示 - Zhuo Wenli </title>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Zhuo Wenli" type="application/atom+xml">
+</head>
+<body>
+    <div id="page">
+        <header id="masthead">
+<h1 class="site-title">
+    <a href="/." class="logo">Zhuo Wenli</a>
+</h1>
+
+
+        </header>
+
+        <div id="content">
+            
+    
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">PhoneGap入门教程(6) - 设备信息和系统提示</h1>
+        <time class="post-time">
+            Feb 10 2015
+        </time>
+    </header>
+
+    <div class="post-content">
+        <p>PhoneGap可以获取设备的相关信息。并且，在事件处理和其他操作中，会经常用到的基本操作就是使用系统提示，例如警告框、提示框、震动、蜂鸣等。</p>
+<a id="more"></a>
+
+<h2 id="获取设备的基本信息"><a href="#获取设备的基本信息" class="headerlink" title="获取设备的基本信息"></a>获取设备的基本信息</h2><p>设备信息插件的完全限定名是<code>org.apache.cordova.device</code>，可以使用下列命令进行安装</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cordova plugin add org.apache.cordova.device</span><br></pre></td></tr></table></figure>
+
+<p>一旦安装了插件，就可以使用该插件公开的几个属性。这几个属性使用<code>window.device</code>对象可以访问，这些属性包含了设备硬件信息和软件相关信息：</p>
+<ul>
+<li><p><code>device.cordova</code>： 获取Cordova版本号</p>
+</li>
+<li><p><code>device.platform</code>： 获取设备的操作系统名称。例如”Android”、”BlackBerry 10”、”iOS”、”WinCE”、”Tizen”等。</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//   - "Android"</span></span><br><span class="line"><span class="comment">//   - "BlackBerry 10"</span></span><br><span class="line"><span class="comment">//   - Browser:         returns "MacIntel" on Mac</span></span><br><span class="line"><span class="comment">//                      returns "Win32" on Windows</span></span><br><span class="line"><span class="comment">//   - "iOS"</span></span><br><span class="line"><span class="comment">//   - "WinCE"</span></span><br><span class="line"><span class="comment">//   - "Tizen"</span></span><br><span class="line"><span class="keyword">var</span> devicePlatform = device.platform;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>device.uuid</code>：    获取设备的通用唯一识别码 (Universally Unique Identifier)</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Android: Returns a random 64-bit integer (as a string, again!)</span></span><br><span class="line"><span class="comment">//          The integer is generated on the device's first boot</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// BlackBerry: Returns the PIN number of the device</span></span><br><span class="line"><span class="comment">//             This is a nine-digit unique integer (as a string, though!)</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// iPhone: (Paraphrased from the UIDevice Class documentation)</span></span><br><span class="line"><span class="comment">//         Returns a string of hash values created from multiple hardware identifies.</span></span><br><span class="line"><span class="comment">//         It is guaranteed to be unique for every device and can't be tied</span></span><br><span class="line"><span class="comment">//         to the user account.</span></span><br><span class="line"><span class="comment">// Windows Phone 7 : Returns a hash of device+current user,</span></span><br><span class="line"><span class="comment">// if the user is not defined, a guid is generated and will persist until the app is uninstalled</span></span><br><span class="line"><span class="comment">// Tizen: returns the device IMEI (International Mobile Equipment Identity or IMEI is a number</span></span><br><span class="line"><span class="comment">// unique to every GSM and UMTS mobile phone.</span></span><br><span class="line"><span class="keyword">var</span> deviceID = device.uuid;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>device.version</code>： 返回操作系统版本号</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Android:    Froyo OS would return "2.2"</span></span><br><span class="line"><span class="comment">//             Eclair OS would return "2.1", "2.0.1", or "2.0"</span></span><br><span class="line"><span class="comment">//             Version can also return update level "2.1-update1"</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// BlackBerry: Torch 9800 using OS 6.0 would return "6.0.0.600"</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Browser:    Returns version number for the browser</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// iPhone:     iOS 3.2 returns "3.2"</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Windows Phone 7: returns current OS version number, ex. on Mango returns 7.10.7720</span></span><br><span class="line"><span class="comment">// Tizen: returns "TIZEN_20120425_2"</span></span><br><span class="line"><span class="keyword">var</span> deviceVersion = device.version;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>device.model</code>：   返回设备的型号名称，其内容一般上是设备生产商所设。即使是同一款产品，如果其系统版本号不同，返回的<code>device.name</code>的内容也可能不一样。</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Android:    Nexus One       returns "Passion" (Nexus One code name)</span></span><br><span class="line"><span class="comment">//             Motorola Droid  returns "voles"</span></span><br><span class="line"><span class="comment">// BlackBerry: Torch 9800      returns "9800"</span></span><br><span class="line"><span class="comment">// Browser:    Google Chrome   returns "Chrome"</span></span><br><span class="line"><span class="comment">//             Safari          returns "Safari"</span></span><br><span class="line"><span class="comment">// iOS:     for the iPad Mini, returns iPad2,5; iPhone 5 is iPhone 5,1. See http://theiphonewiki.com/wiki/index.php?title=Models</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="keyword">var</span> model = device.model;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="系统消息提示对话框"><a href="#系统消息提示对话框" class="headerlink" title="系统消息提示对话框"></a>系统消息提示对话框</h2><p>系统消息提示对话框插件的完全限定名是<code>org.apache.cordova.dialogs</code>，可以使用下列命令进行安装</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cordova plugin add org.apache.cordova.dialogs</span><br></pre></td></tr></table></figure>
+
+<p>一旦安装了插件，就可以使用该插件公开的几个方法，他们都可以使用<code>window.navigator</code>对象访问。</p>
+<ul>
+<li><code>navigator.notification.alert()</code>： 弹出对话框</li>
+<li><code>navigator.notification.confirm()</code>： 弹出确认对话框</li>
+<li><code>navigator.notification.prompt()</code>： 提示输入消息对话框</li>
+</ul>
+<p>这几个方法与JavaScript内建的同名方法有些不同，它们调用的是系统内置的对话框。</p>
+<h3 id="提示警告框"><a href="#提示警告框" class="headerlink" title="提示警告框"></a>提示警告框</h3><p><code>notification.alert()</code>方法弹出一个可以定制的警告或者对话窗口，语法格式如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">navigator.notification.alert(message, alertCallback, [title], [buttonName])</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>message</code>: 对话框信息. (String)</p>
+</li>
+<li><p><code>alertCallback</code>: 定义当警告对话框关闭的时候被调用的回调函数. (Function)</p>
+</li>
+<li><p><code>title</code>: 对话框标题. (String) (可选, 默认为<code>Alert</code>)</p>
+</li>
+<li><p><code>buttonName</code>: 按钮标签. (String) (可选, 默认为<code>OK</code>)</p>
+</li>
+</ul>
+<p>事例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">alertDismissed</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// do something</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">navigator.notification.alert(</span><br><span class="line">    <span class="string">'You are the winner!'</span>,  <span class="comment">// message</span></span><br><span class="line">    alertDismissed,         <span class="comment">// callback</span></span><br><span class="line">    <span class="string">'Game Over'</span>,            <span class="comment">// title</span></span><br><span class="line">    <span class="string">'Done'</span>                  <span class="comment">// buttonName</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="确认对话框"><a href="#确认对话框" class="headerlink" title="确认对话框"></a>确认对话框</h3><p><code>notification.confirm()</code>方法弹出一个可以定制的确认对话框，语法格式如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">navigator.notification.confirm(message, confirmCallback, [title], [buttonLabels])</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>message</code>: 对话框信息. (String)</p>
+</li>
+<li><p><code>confirmCallback</code>: 定义一个回调函数，按下按钮后触发此回调函数。该回调函数的参数为按下按钮的索引，也就是参数<code>buttonLabels</code>所定义的标签顺序。注意索引是从1开始的。 (Function)</p>
+</li>
+<li><p><code>title</code>: 对话框标题. (String) (可选, 默认为<code>Confirm</code>)</p>
+</li>
+<li><p><code>buttonLabels</code>: 定义按钮标签，如果声明多个按钮，那么该参数的值是以逗号为分隔符的字符串，顺序用作按钮标签。Android最多支持3个按钮，并且Android3.0之后序号按相反的顺序排列。 (Array) (可选, 默认为[<code>OK,Cancel</code>])</p>
+</li>
+</ul>
+<p>举个栗子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onConfirm</span>(<span class="params">buttonIndex</span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">'You selected button '</span> + buttonIndex);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">navigator.notification.confirm(</span><br><span class="line">    <span class="string">'You are the winner!'</span>, <span class="comment">// message</span></span><br><span class="line">     onConfirm,            <span class="comment">// callback to invoke with index of button pressed</span></span><br><span class="line">    <span class="string">'Game Over'</span>,           <span class="comment">// title</span></span><br><span class="line">    [<span class="string">'Restart'</span>,<span class="string">'Exit'</span>]     <span class="comment">// buttonLabels</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="提示输入消息对话框"><a href="#提示输入消息对话框" class="headerlink" title="提示输入消息对话框"></a>提示输入消息对话框</h3><p>有时候需要用户输入一些消息来进行判断，而不仅仅是‘是’和‘否’，使用<code>notification.prompt()</code>方法可以实现这个目的。语法格式如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">navigator.notification.prompt(message, promptCallback, [title], [buttonLabels], [defaultText])</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>message</code>: 对话框信息. (String)</p>
+</li>
+<li><p><code>promptCallback</code>: 定义一个回调函数，按下按钮后触发此回调函数。该回调函数的参数是一个Object对象，其中包含两个属性： (Function)</p>
+<ul>
+<li>属性<code>buttonIndex</code>为按下按钮的索引，也就是参数<code>buttonLabels</code>所定义的标签顺序，注意索引是从1开始的；</li>
+<li>属性<code>input1</code>是输入文本的内容。</li>
+</ul>
+</li>
+<li><p><code>title</code>: 对话框标题. (String) (可选, 默认为<code>Prompt</code>)</p>
+</li>
+<li><p><code>buttonLabels</code>: 定义按钮标签，如果声明多个按钮，那么该参数的值是以逗号为分隔符的字符串，顺序用作按钮标签。Android最多支持3个按钮，并且Android3.0之后序号按相反的顺序排列。 (Array) (可选, 默认为[<code>OK,Cancel</code>])</p>
+</li>
+<li><p><code>defaultText</code>: 在输入框中显示预置的信息。 (String) (可选, 如果不定义，文本框中默认为空白)</p>
+</li>
+</ul>
+<p>举个栗子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onPrompt</span>(<span class="params">results</span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">"You selected button number "</span> + results.buttonIndex + <span class="string">" and entered "</span> + results.input1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">navigator.notification.prompt(</span><br><span class="line">    <span class="string">'Please enter your name'</span>,  <span class="comment">// message</span></span><br><span class="line">    onPrompt,                  <span class="comment">// callback to invoke</span></span><br><span class="line">    <span class="string">'Registration'</span>,            <span class="comment">// title</span></span><br><span class="line">    [<span class="string">'Ok'</span>,<span class="string">'Exit'</span>],             <span class="comment">// buttonLabels</span></span><br><span class="line">    <span class="string">'Jane Doe'</span>                 <span class="comment">// defaultText</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h2 id="系统震动和蜂鸣提示"><a href="#系统震动和蜂鸣提示" class="headerlink" title="系统震动和蜂鸣提示"></a>系统震动和蜂鸣提示</h2><p>这个插件与<a href="http://www.w3.org/TR/vibration/" target="_blank" rel="noopener">W3C震动规范</a>对齐。</p>
+<p>系统震动和蜂鸣提示插件的完全限定名是<code>org.apache.cordova.vibration</code>，可以使用下列命令进行安装</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cordova plugin add org.apache.cordova.vibration</span><br></pre></td></tr></table></figure>
+
+<p>一旦安装了插件，就可以使用该插件公开的几个方法，他们都可以使用<code>window.navigator</code>对象访问。</p>
+<ul>
+<li><code>navigator.notification.beep()</code>： 弹出对话框</li>
+<li><code>navigator.notification.vibrate()</code>： 弹出确认对话框</li>
+</ul>
+<h3 id="触发设备蜂鸣"><a href="#触发设备蜂鸣" class="headerlink" title="触发设备蜂鸣"></a>触发设备蜂鸣</h3><p>使用<code>notification.beep()</code>方法可以使设备发出beep声。语法格式如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">navigator.notification.beep(times);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>times</code>: 定义beep声重复的次数. (Number)</li>
+</ul>
+<p>举个栗子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Beep twice!</span></span><br><span class="line">navigator.notification.beep(<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><ul>
+<li>Android系统会播放在“Settings/Display &amp; Sound”面板内指定的通知铃声(Notification ringtone).</li>
+<li>iOS将忽略控制发声的次数<br>iOS没有原生的Beep API，PhoneGap通过使用多媒体API播放音频文件来实现播放beep声。因此，用户必须提供一个beep声音频文件，并且此文件的播放时长必须少于30s，该文件位于 www 根目录下，而且只能命名为 beep.wav 。</li>
+<li><strong>PhoneGap最新API把该方法归纳到上面设备基本信息上。</strong></li>
+</ul>
+<h3 id="触发设备震动"><a href="#触发设备震动" class="headerlink" title="触发设备震动"></a>触发设备震动</h3><p>使用<code>navigator.vibrate()</code>方法可以使设备在指定时长震动。语法格式如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">navigator.vibrate(time)</span><br></pre></td></tr></table></figure>
+
+<p>or</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">navigator.vibrate([time])</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>times</code>: 定义以毫秒为时长来震动设备，1000毫秒为1秒. (Number)</li>
+</ul>
+<p>举个栗子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Vibrate for 3 seconds</span></span><br><span class="line">navigator.vibrate(<span class="number">3000</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Vibrate for 3 seconds</span></span><br><span class="line">navigator.vibrate([<span class="number">3000</span>]);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<blockquote>
+<p>相关文章:</p>
+<p><a href="/frontend/phonegap-getting-started-tutorial-1.html">PhoneGap入门教程(1) - 环境安装与配置</a></p>
+<p><a href="/frontend/phonegap-getting-started-tutorial-2.html">PhoneGap入门教程(2) - 内核事件和基本用法</a></p>
+<p><a href="/frontend/phonegap-getting-started-tutorial-3.html">PhoneGap入门教程(3) - 原生插件安装和管理</a></p>
+<p><a href="/frontend/phonegap-getting-started-tutorial-4.html">PhoneGap入门教程(4) - 电量变化侦测</a></p>
+<p><a href="/frontend/phonegap-getting-started-tutorial-5.html">PhoneGap入门教程(5) - 程序内置浏览器窗口</a></p>
+<p>PhoneGap入门教程(6) - 设备信息和系统提示</p>
+</blockquote>
+<br>
+
+<blockquote>
+<p>参考资料：</p>
+<p><a href="https://github.com/apache/cordova-plugin-dialogs/blob/master/doc/index.md" target="_blank" rel="noopener">Apache Cordova Plugin dialogs</a></p>
+<p><a href="https://github.com/apache/cordova-plugin-vibration/blob/master/doc/index.md" target="_blank" rel="noopener">Apache Cordova Plugin vibration</a></p>
+</blockquote>
+
+    </div>
+
+    <footer class="post-footer">
+        
+        <div class="post-tags">
+            
+            <a href="/tags/JavaScript/">JavaScript</a>
+            
+            <a href="/tags/PhoneGap/">PhoneGap</a>
+            
+            <a href="/tags/Android/">Android</a>
+            
+            <a href="/tags/Webapp/">Webapp</a>
+            
+        </div>
+        
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/diary/sublime-plugin.html">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">sublime前端必备插件</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/frontend/phonegap-getting-started-tutorial-5.html">
+        <span class="next-text nav-default">PhoneGap入门教程(5) - 程序内置浏览器窗口</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+        
+            
+    <div class="comments" id="comments">
+        
+            <div id="gitalk-container"></div>
+        
+    </div>
+
+
+        
+    </footer>
+</article>
+
+
+        </div>
+
+        <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2016 -
+    
+    2022
+    <span class="footer-author">Zhuo Wenli.</span>
+    <span class="power-by">Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>.</span>
+    <span class="design-by">Designed by <a href="https://www.zhuowenli.com/">zhuowenli</a></span>
+</span>
+
+<nav id="nav-bottom">
+    
+        <ul id="menu-bottom" class="nav-bottom-items">
+            
+                <li class="menu-item">
+                    <a href="/">
+                        
+                        
+                            Home
+                        
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="/archives">
+                        
+                        
+                            Archives
+                        
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="/about">
+                        
+                        
+                            About
+                        
+                    </a>
+                </li>
+            
+        </ul>
+    
+</nav>
+
+        </footer>
+
+        <div class="back-to-top" id="back-to-top">
+            <i class="iconfont icon-up"></i>
+        </div>
+    </div>
+    
+    
+
+
+<script src="/lib/gitalk.min.js"></script>
+<script type="text/javascript">
+    const gitalk = new Gitalk({
+        clientID: '3a683f311ce3460b686d',
+        clientSecret: '264685b8506d937c73b468584847c3b2347bdcfe',
+        repo: 'zhuowenli.github.io',
+        owner: 'zhuowenli',
+        admin: 'zhuowenli'.split(','),
+        pagerDirection: 'first',
+        id: `PhoneGap入门教程(6) - 设备信息和系统提示`,
+        number: 25,
+        distractionFreeMode: true
+    });
+    if (document.querySelector('#gitalk-container')) {
+        gitalk.render('gitalk-container');
+    }
+</script>
+
+
+
+    
+    
+
+
+  
+    <script type="text/javascript" src="/lib/jquery-3.1.1.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/theme.js?v=1.0.0"></script>
+<script type="text/javascript" src="/js/bootstrap.js?v=1.0.0"></script>
+
+</body>
+</html>

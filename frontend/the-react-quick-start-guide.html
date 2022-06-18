@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="React 入门教程"/>
+
+
+
+
+  <meta name="keywords" content="JavaScript,react," />
+
+
+
+
+
+    <link rel="alternate" href="/atom.xml" title="Zhuo Wenli">
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.0.0" />
+
+
+
+<link rel="canonical" href="https://www.zhuowenli.com/frontend/the-react-quick-start-guide.html"/>
+
+
+<meta name="description" content="这篇文章将概括性的介绍一下如何用 ReactJS 进行开发。我将介绍一些基础知识，不会有过于深入的分析。你可以结合这些代码阅读本文。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React 入门教程">
+<meta property="og:url" content="https://www.zhuowenli.com/frontend/the-react-quick-start-guide.html">
+<meta property="og:site_name" content="Zhuo Wenli">
+<meta property="og:description" content="这篇文章将概括性的介绍一下如何用 ReactJS 进行开发。我将介绍一些基础知识，不会有过于深入的分析。你可以结合这些代码阅读本文。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2015-07-29T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-18T02:56:11.596Z">
+<meta property="article:author" content="Zhuo Wenli">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="react">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0" />
+
+
+
+<script type="text/javascript">
+    var themeConfig = {
+        color: 'Default',
+        favicon: {
+            enable: true,
+            icon: '/favicon.ico',
+            hide_text: '(●—●)喔哟，崩溃啦！',
+            show_text: '(/≧▽≦/)咦！又好了！',
+        }
+    };
+</script>
+
+
+
+    <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7278e0ce3cabf14a3798ac2126b733d9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171827500-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-171827500-1');
+</script>
+
+
+    <title> React 入门教程 - Zhuo Wenli </title>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Zhuo Wenli" type="application/atom+xml">
+</head>
+<body>
+    <div id="page">
+        <header id="masthead">
+<h1 class="site-title">
+    <a href="/." class="logo">Zhuo Wenli</a>
+</h1>
+
+
+        </header>
+
+        <div id="content">
+            
+    
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">React 入门教程</h1>
+        <time class="post-time">
+            Jul 29 2015
+        </time>
+    </header>
+
+    <div class="post-content">
+        <p>这篇文章将概括性的介绍一下如何用 ReactJS 进行开发。我将介绍一些基础知识，不会有过于深入的分析。你可以结合这些<a href="https://github.com/zhuowenli/react-starter-kit" target="_blank" rel="noopener">代码</a>阅读本文。</p>
+<a id="more"></a>
+
+<div class="atom">
+  <div class="oval oval-forward"></div>
+  <div class="oval oval-backward"></div>
+  <div class="oval oval-horizontal"></div>
+  <div class="circle"></div>
+</div>
+
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>React 的 API 非常少，简单、易懂、易用。在正式开始之前先介绍几个概念，一个一个来。</p>
+<p><strong>React 元素</strong> 是表现为 HTML 元素的 JavaScript 对象，他们并不真实存在于浏览器中。他们最终表现为类似<code>h1</code>, <code>div</code> 或 <code>section</code> 之类的浏览器元素。</p>
+<p><strong>组件(Components)</strong> 是开发人员创建的 React 元素。他们通常包含了用户界面的结构和功能。 比如 <code>NavBar</code>、 <code>LikeButton</code>、<code>ImageUploader</code>等等。</p>
+<p><strong>JSX</strong> 是一种创建 React 元素和 components 的技术。例如 <code>&lt;h1&gt;Hello&lt;/h1&gt;</code> 是一个用 JSX 写的 React 元素。同样可以用纯 JavaScript 写成 <code>React.DOM.h1(null, &#39;Hello&#39;);</code>。JSX 读写起来更轻松，最终上线之前必须将 JSX 语句转为 JavaScript 语句。</p>
+<p><strong>虚拟DOM</strong> 是由 React 元素和 components 组成的 JavaScript 树形结构对象。React 将虚拟 DOM 渲染到浏览器中变成最终的用户界面。React 会观察虚拟 DOM 的变化，并自动将这些变化渲染到浏览器端。</p>
+<p>理解了上面这些概念，我们可以开始使用 React 写一些例子了。下面会开发一系列功能，每一个例子都是在前一个例子的基础上进行改进。我们会编写一个类似 instagram 的照片流程序 - 没有比这更好的示例程序了。</p>
+<p>下载所需要的<a href="https://github.com/zhuowenli/react-starter-kit" target="_blank" rel="noopener">开发环境</a>，直接在<code>script.js</code>文件里面开发就可以了。</p>
+<h2 id="渲染-render"><a href="#渲染-render" class="headerlink" title="渲染(render)"></a>渲染(render)</h2><p>第一步是渲染虚拟元素（React 元素或 component）。注意，虚拟元素只存在于内存中，必须显式地告诉 React 将它渲染到浏览器上。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">React.render(<span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">'http://zhuowenli.github.io/lib/img/icon.png'</span> /&gt;</span></span>, <span class="built_in">document</span>.body)</span><br></pre></td></tr></table></figure>
+
+<p>查看代码：<a href="http://jsbin.com/detime/6/edit" target="_blank" rel="noopener">JSBin</a></p>
+<p><code>render</code> 函数接收两个参数：虚拟元素和真实的浏览器 DOM 元素。React 将虚拟元素插入到指定的 DOM 元素中。上例中可以看到图片被渲染出来了。</p>
+<h2 id="组件-Components"><a href="#组件-Components" class="headerlink" title="组件(Components)"></a>组件(Components)</h2><p>组件是 React 的精髓所在。它们是自定义的 React 元素，通常有一些功能和结构定义。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Photo = React.createClass(&#123;</span><br><span class="line">    render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">'http://zhuowenli.github.io/lib/img/icon.png'</span> /&gt;</span></span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">React.render(<span class="xml"><span class="tag">&lt;<span class="name">Photo</span> /&gt;</span></span>, <span class="built_in">document</span>.body);</span><br></pre></td></tr></table></figure>
+
+<p>查看代码：<a href="http://jsbin.com/detime/7/edit" target="_blank" rel="noopener">JSBin</a></p>
+<p><code>createClass</code> 函数接收一个对象，这个对象实现了 <code>render</code> 方法。</p>
+<p>这个<code>Photo</code>组件定义了 <code>&lt;Photo /&gt;</code>元素，并且渲染到 <code>document.body</code> 里。</p>
+<p>这个组件跟之前的渲染图片没有太大区别，但是它为将来添加自定义功能奠定了基础。</p>
+<h2 id="属性-Props"><a href="#属性-Props" class="headerlink" title="属性(Props)"></a>属性(Props)</h2><p>可以把属性看做组件的配置参数，看起来非常像 HTML 属性。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Photo = React.createClass(&#123;</span><br><span class="line">    render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;div className=<span class="string">'photo'</span>&gt;</span><br><span class="line">                &lt;img src=&#123;<span class="keyword">this</span>.props.imageURL&#125; /&gt;</span><br><span class="line">                &lt;span&gt;&#123;<span class="keyword">this</span>.props.caption&#125;&lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp">            &lt;/</span>div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">React.render(<span class="xml"><span class="tag">&lt;<span class="name">Photo</span> <span class="attr">imageURL</span>=<span class="string">'http://zhuowenli.github.io/lib/img/icon.png'</span> <span class="attr">caption</span>=<span class="string">'Logo!'</span> /&gt;</span></span>, <span class="built_in">document</span>.body);</span><br></pre></td></tr></table></figure>
+
+<p>查看代码：<a href="http://jsbin.com/detime/8/edit" target="_blank" rel="noopener">JSBin</a></p>
+<p><code>imageURL</code> 和 <code>caption</code> 两个属性被传递到 <code>Photo</code> 组件内的 <code>render</code> 函数里。</p>
+<p><code>imageURL</code> 被用在 React 图片元素的 <code>src</code> 属性，<code>caption</code> 被用作 React <code>span</code> 元素内的文本。</p>
+<p>组件不会改变它的属性，他们是静止不变的。如果组件里包含动态数据，就要用到状态(State)对象。</p>
+<h2 id="状态-State"><a href="#状态-State" class="headerlink" title="状态(State)"></a>状态(State)</h2><p>状态对象用来记录随时可能变化的数据。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Photo = React.createClass(&#123;</span><br><span class="line">    toggleLiked: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">            liked: !<span class="keyword">this</span>.state.liked</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    getInitialState: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            liked: <span class="literal">false</span></span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> buttonClass = <span class="keyword">this</span>.state.liked ? <span class="string">'active'</span> : <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;div className=<span class="string">'photo'</span>&gt;</span><br><span class="line">                &lt;img src=&#123;<span class="keyword">this</span>.props.src&#125; /&gt;</span><br><span class="line"></span><br><span class="line">                &lt;div className=<span class="string">'bar'</span>&gt;</span><br><span class="line">                    &lt;button onClick=&#123;<span class="keyword">this</span>.toggoleLiked&#125; className=&#123;buttonClass&#125;&gt;</span><br><span class="line">                        ♥</span><br><span class="line">                    &lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">                    &lt;span&gt;&#123;this.props.caption&#125;&lt;/</span>span&gt;</span><br><span class="line">                &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">            &lt;/</span>div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">React.render(<span class="xml"><span class="tag">&lt;<span class="name">Photo</span> <span class="attr">src</span>=<span class="string">'http://zhuowenli.github.io/lib/img/icon.png'</span> <span class="attr">caption</span>=<span class="string">'Logo!'</span>) /&gt;</span></span>, <span class="built_in">document</span>.body);</span><br></pre></td></tr></table></figure>
+
+<p>查看代码：<a href="http://jsbin.com/detime/3/edit" target="_blank" rel="noopener">JSBin</a></p>
+<p>组件的状态给组件引入了一些复杂性。</p>
+<p>这个组件有一个新的函数 <code>getInitialState</code>。 当组件初始化时 React 会去调用这个函数。根据它返回的对象来设置组件的初始状态（正如函数名所表达的那样）。</p>
+<p>这个组件还有另一个新函数 <code>toggleLiked</code>。它调用了 <code>setState</code> 来切换 <code>liked</code> 的值。</p>
+<p>在 <code>render</code> 函数里有个 <code>buttonClass</code> 的变量，根据 <code>liked</code> 状态被标记为 <code>&#39;active&#39;</code> 或 空值。</p>
+<p><code>buttonClass</code> 被用作 React <code>button</code> 元素的类名。这个按钮还将 <code>toggleLiked</code> 函数绑定到 <code>onClick</code> 事件上。</p>
+<p>看看在浏览器中渲染出来是什么效果：</p>
+<ul>
+<li>当组件里的按钮被点击时，触发 <code>toggleLiked</code> 函数</li>
+<li><code>liked</code> 状态被改变</li>
+<li>React 重新渲染虚拟 DOM</li>
+<li>新老虚拟 DOM 进行对比</li>
+<li>React 识别出变化的部分并渲染到浏览器</li>
+</ul>
+<p>上例演示了通过点击按钮来改变类名</p>
+<h2 id="组合组件-Composition"><a href="#组合组件-Composition" class="headerlink" title="组合组件(Composition)"></a>组合组件(Composition)</h2><p>将一些小的组件(components)链接起来形成一个大的组合组件。例如 <code>Photo</code> 组件可以用在 <code>PhotoGallery</code> 组件中，如下：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Photo = React.createClass(&#123;</span><br><span class="line">    toggleLiked: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">            liked: !<span class="keyword">this</span>.state.liked</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    getInitialState: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            liked: <span class="literal">false</span></span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> buttonClass = <span class="keyword">this</span>.state.liked ? <span class="string">'active'</span> : <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;div className=<span class="string">'photo'</span>&gt;</span><br><span class="line">                &lt;img src=&#123;<span class="keyword">this</span>.props.src&#125; /&gt;</span><br><span class="line"></span><br><span class="line">                &lt;div className=<span class="string">'bar'</span>&gt;</span><br><span class="line">                    &lt;button onClick=&#123;<span class="keyword">this</span>.toggleLiked&#125; className=&#123;buttonClass&#125;&gt;</span><br><span class="line">                        ♥</span><br><span class="line">                    &lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">                    &lt;span&gt;&#123;this.props.caption&#125;&lt;/</span>span&gt;</span><br><span class="line">                &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">            &lt;/</span>div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> PhotoGallery = React.createClass(&#123;</span><br><span class="line">    render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> photos = <span class="keyword">this</span>.props.photos.map(<span class="function"><span class="keyword">function</span>(<span class="params">photo</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">Photo</span> <span class="attr">src</span>=<span class="string">&#123;photo.url&#125;</span> <span class="attr">caption</span>=<span class="string">&#123;photo.caption&#125;</span> /&gt;</span></span></span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;div className=<span class="string">'photo-gallery'</span>&gt;</span><br><span class="line">                &#123;photos&#125;</span><br><span class="line">            &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">        );</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">var data = [</span></span><br><span class="line"><span class="regexp">    &#123;</span></span><br><span class="line"><span class="regexp">        url: 'http://zhuowenli.github.io/lib/img/icon.png',</span></span><br><span class="line"><span class="regexp">        caption: 'Logo!'</span></span><br><span class="line"><span class="regexp">    &#125;,</span></span><br><span class="line"><span class="regexp">    &#123;</span></span><br><span class="line"><span class="regexp">        url: 'http://zhuowenli.github.io/lib/img/icon-72.png',</span></span><br><span class="line"><span class="regexp">        caption: 'Small Logo'</span></span><br><span class="line"><span class="regexp">    &#125;,</span></span><br><span class="line"><span class="regexp">    &#123;</span></span><br><span class="line"><span class="regexp">        url: 'http://zhuowenli.github.io/lib/img/icon-152.png',</span></span><br><span class="line"><span class="regexp">        caption: 'Large Logo'</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">];</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">React.render(&lt;PhotoGallery photos=&#123;data&#125; /</span>&gt;, <span class="built_in">document</span>.body);</span><br></pre></td></tr></table></figure>
+
+<p>查看代码：<a href="http://jsbin.com/detime/10/edit" target="_blank" rel="noopener">JSBin</a></p>
+<p><code>Photo</code> 组件跟之前的没什么两样。新组件 <code>PhotoGallery</code> 根据 3 条假数据生成了 3 个 <code>Photo</code> 组件。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>本文只是一篇 React 入门，我强烈推荐大家去读 <a href="http://reactjs.cn/react/docs/getting-started.html" target="_blank" rel="noopener">React 官方文档</a>，里面包含了所有你想要的细节。</p>
+<p>如果本文有什么错误之处，欢迎在下方评论，或者给我提 pull request。尽情给我发邮件吧，我很乐意效劳。</p>
+<p>P.S - 如果你准备开发一个更复杂的 React 应用，推荐阅读 <a href="/frontend/the-flux-quick-start-guide.html">Flux 入门教程</a>。</p>
+<style type="text/css">
+    .atom { position: relative; width: 200px; height: 200px; margin: 100px auto -50px;}
+    .oval { width: 200px; height: 75px; border: 5px solid #61DAFB; border-radius: 50%; }
+    .oval-forward { -moz-transform: rotate(65deg); -ms-transform: rotate(65deg); -webkit-transform: rotate(65deg); transform: rotate(65deg); }
+    .oval-backward { margin-top: -75px; -moz-transform: rotate(-65deg); -ms-transform: rotate(-65deg); -webkit-transform: rotate(-65deg); transform: rotate(-65deg); }
+    .oval-horizontal { margin-top: -75px; }
+    .circle { width: 40px; height: 40px; background: #61DAFB; border-radius: 40px; position: absolute; top: 19px; left: 80px; -moz-animation: pulse 2s ease-in-out infinite; -ms-animation: pulse 2s ease-in-out infinite; -webkit-animation: pulse 2s ease-in-out infinite; animation: pulse 2s ease-in-out infinite; }
+</style>
+
+    </div>
+
+    <footer class="post-footer">
+        
+        <div class="post-tags">
+            
+            <a href="/tags/JavaScript/">JavaScript</a>
+            
+            <a href="/tags/react/">react</a>
+            
+        </div>
+        
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/frontend/the-flux-quick-start-guide.html">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Flux 入门教程</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/frontend/array-unique.html">
+        <span class="next-text nav-default">数组去重的几个方法</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+        
+            
+    <div class="comments" id="comments">
+        
+            <div id="gitalk-container"></div>
+        
+    </div>
+
+
+        
+    </footer>
+</article>
+
+
+        </div>
+
+        <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2016 -
+    
+    2022
+    <span class="footer-author">Zhuo Wenli.</span>
+    <span class="power-by">Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>.</span>
+    <span class="design-by">Designed by <a href="https://www.zhuowenli.com/">zhuowenli</a></span>
+</span>
+
+<nav id="nav-bottom">
+    
+        <ul id="menu-bottom" class="nav-bottom-items">
+            
+                <li class="menu-item">
+                    <a href="/">
+                        
+                        
+                            Home
+                        
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="/archives">
+                        
+                        
+                            Archives
+                        
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="/about">
+                        
+                        
+                            About
+                        
+                    </a>
+                </li>
+            
+        </ul>
+    
+</nav>
+
+        </footer>
+
+        <div class="back-to-top" id="back-to-top">
+            <i class="iconfont icon-up"></i>
+        </div>
+    </div>
+    
+    
+
+
+<script src="/lib/gitalk.min.js"></script>
+<script type="text/javascript">
+    const gitalk = new Gitalk({
+        clientID: '3a683f311ce3460b686d',
+        clientSecret: '264685b8506d937c73b468584847c3b2347bdcfe',
+        repo: 'zhuowenli.github.io',
+        owner: 'zhuowenli',
+        admin: 'zhuowenli'.split(','),
+        pagerDirection: 'first',
+        id: `React 入门教程`,
+        number: 21,
+        distractionFreeMode: true
+    });
+    if (document.querySelector('#gitalk-container')) {
+        gitalk.render('gitalk-container');
+    }
+</script>
+
+
+
+    
+    
+
+
+  
+    <script type="text/javascript" src="/lib/jquery-3.1.1.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/theme.js?v=1.0.0"></script>
+<script type="text/javascript" src="/js/bootstrap.js?v=1.0.0"></script>
+
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="Ubuntu下使用.htaccess实现301重定向"/>
+
+
+
+
+  <meta name="keywords" content="ubuntu,301,htaccess,lamp," />
+
+
+
+
+
+    <link rel="alternate" href="/atom.xml" title="Zhuo Wenli">
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.0.0" />
+
+
+
+<link rel="canonical" href="https://www.zhuowenli.com/diary/ubuntu-htaccess-301.html"/>
+
+
+<meta name="description" content="最近在DigitalOcean搞了台服务器(一个月只要$5哟~)，顺便把博客迁移到这上面。博主有两个域名：zwlme.com、zhuowenli.com，然后就想让所有的域名都可以直接跳转到zhuowenli.github.io这个主域名上。 尝试了几个方案，最终觉得用.htaccess来实现域名跳转到zhuowenli.github.io会比较友好。 今天博主就来给大家分享如何使用.htacce">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu下使用.htaccess实现301重定向">
+<meta property="og:url" content="https://www.zhuowenli.com/diary/ubuntu-htaccess-301.html">
+<meta property="og:site_name" content="Zhuo Wenli">
+<meta property="og:description" content="最近在DigitalOcean搞了台服务器(一个月只要$5哟~)，顺便把博客迁移到这上面。博主有两个域名：zwlme.com、zhuowenli.com，然后就想让所有的域名都可以直接跳转到zhuowenli.github.io这个主域名上。 尝试了几个方案，最终觉得用.htaccess来实现域名跳转到zhuowenli.github.io会比较友好。 今天博主就来给大家分享如何使用.htacce">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2015-09-10T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-18T02:56:11.596Z">
+<meta property="article:author" content="Zhuo Wenli">
+<meta property="article:tag" content="ubuntu">
+<meta property="article:tag" content="301">
+<meta property="article:tag" content="htaccess">
+<meta property="article:tag" content="lamp">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0" />
+
+
+
+<script type="text/javascript">
+    var themeConfig = {
+        color: 'Default',
+        favicon: {
+            enable: true,
+            icon: '/favicon.ico',
+            hide_text: '(●—●)喔哟，崩溃啦！',
+            show_text: '(/≧▽≦/)咦！又好了！',
+        }
+    };
+</script>
+
+
+
+    <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7278e0ce3cabf14a3798ac2126b733d9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171827500-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-171827500-1');
+</script>
+
+
+    <title> Ubuntu下使用.htaccess实现301重定向 - Zhuo Wenli </title>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Zhuo Wenli" type="application/atom+xml">
+</head>
+<body>
+    <div id="page">
+        <header id="masthead">
+<h1 class="site-title">
+    <a href="/." class="logo">Zhuo Wenli</a>
+</h1>
+
+
+        </header>
+
+        <div id="content">
+            
+    
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">Ubuntu下使用.htaccess实现301重定向</h1>
+        <time class="post-time">
+            Sep 10 2015
+        </time>
+    </header>
+
+    <div class="post-content">
+        <p>最近在<a href="https://www.digitalocean.com/?refcode=6ecb75692729" target="_blank" rel="noopener" title="DigitalOcean">DigitalOcean</a>搞了台服务器(一个月只要$5哟~)，顺便把博客迁移到这上面。博主有两个域名：<a href="http://zhuowenli.github.io" target="_blank" rel="noopener" title="http://zhuowenli.github.io">zwlme.com</a>、<a href="http://zhuowenli.github.io" target="_blank" rel="noopener" title="http://zhuowenli.github.io">zhuowenli.com</a>，然后就想让所有的域名都可以直接跳转到<a href="http://zhuowenli.github.io" target="_blank" rel="noopener" title="http://zhuowenli.github.io">zhuowenli.github.io</a>这个主域名上。</p>
+<p>尝试了几个方案，最终觉得用<code>.htaccess</code>来实现域名跳转到<a href="http://zhuowenli.github.io" target="_blank" rel="noopener" title="http://zhuowenli.github.io">zhuowenli.github.io</a>会比较友好。</p>
+<p>今天博主就来给大家分享如何使用<code>.htaccess</code>实现301重定向。</p>
+<h2 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><p>首先，我们需要把两个域名都通过A记录解析到服务器上。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// zhuowenli.com</span><br><span class="line">记录类型  主机记录  记录值</span><br><span class="line">A        www     [:服务器ip地址]  // 将域名解析为zhuowenli.github.io</span><br><span class="line">A        @       [:服务器ip地址]  // 将域名解析为zhuowenli.com（不带www）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// zwlme.com</span><br><span class="line">记录类型  主机记录  记录值</span><br><span class="line">A        www     [:服务器ip地址]  // 将域名解析为zhuowenli.github.io</span><br><span class="line">A        @       [:服务器ip地址]  // 将域名解析为zwlme.com（不带www）</span><br></pre></td></tr></table></figure>
+
+<h2 id="服务配置"><a href="#服务配置" class="headerlink" title="服务配置"></a>服务配置</h2><p>博主在购买服务器的时候，选择了有lamp的镜像，所以只要配置下Apache，把网站根目录指向博客根目录下的<code>_site</code>文件就行了，具体过程：</p>
+<p>略。</p>
+<h2 id="设置重定向"><a href="#设置重定向" class="headerlink" title="设置重定向"></a>设置重定向</h2><p>在网站根目录下创建<code>.htaccess</code>文件，然后编辑该文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 切换到网站根目录</span></span><br><span class="line"><span class="comment"># 创建.htaccess</span></span><br><span class="line">touch .htaccess</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编辑该文件</span></span><br><span class="line">vim .htaccess</span><br></pre></td></tr></table></figure>
+
+<p>输入如下代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#启动重写引擎</span></span><br><span class="line">RewriteEngine On</span><br><span class="line"></span><br><span class="line"><span class="comment">#匹配以zhuowenli.github.io、zwlme.com、或者zhuowenli.com开头的域名</span></span><br><span class="line">RewriteCond %&#123;http_host&#125; ^(www.)?zwlme.com$ [NC,OR]</span><br><span class="line">RewriteCond %&#123;http_host&#125; ^zhuowenli.com$ [NC]</span><br><span class="line"></span><br><span class="line"><span class="comment">#这些域名的任何网址都重定向到zhuowenli.github.io，返回码是301</span></span><br><span class="line">RewriteRule ^(.*)$ http://zhuowenli.github.io/<span class="variable">$1</span> [R=301,L]</span><br></pre></td></tr></table></figure>
+
+<p>然后，还没完呢！</p>
+<h2 id="重新配置Apache（基于LAMP）"><a href="#重新配置Apache（基于LAMP）" class="headerlink" title="重新配置Apache（基于LAMP）"></a>重新配置Apache（基于LAMP）</h2><p>编辑配置文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 切换到Apache配置目录</span></span><br><span class="line"><span class="built_in">cd</span> /etc/apache2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行ls命令会发现下列文件、文件夹</span></span><br><span class="line">apache2.conf  conf-available  conf-enabled  envvars  magic  mods-available  mods-enabled  ports.conf  sites-available  sites-enabled</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编辑配置文件</span></span><br><span class="line">vim apache2.conf</span><br></pre></td></tr></table></figure>
+
+<p>将<code>apache2.conf</code>下所有的 <code>AllowOverride None</code> 改为 <code>AllowOverride All</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">AllowOverride None</span><br><span class="line"></span><br><span class="line"><span class="comment"># 改为：</span></span><br><span class="line">AllowOverride All</span><br></pre></td></tr></table></figure>
+
+<p>启用<code>mod_rewrite.so</code>模块：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将mods-available目录下的rewrite.load复制到mods-enabled下</span></span><br><span class="line">cp mods-available/rewrite.load mods-enabled/</span><br></pre></td></tr></table></figure>
+
+<p>OK！配置完毕，接下来重启下Apache服务就行啦</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/apache2 restart</span><br></pre></td></tr></table></figure>
+
+<p>最后，你就会发现：访问<a href="http://zwlme.com" target="_blank" rel="noopener">zwlme.com</a>、<a href="http://zhuowenli.github.io" target="_blank" rel="noopener" title="http://zhuowenli.github.io">zhuowenli.github.io</a>或者<a href="http://zhuowenli.com" target="_blank" rel="noopener">zhuowenli.com</a>的时候，域名都会自动跳转到<a href="http://zhuowenli.github.io" target="_blank" rel="noopener" title="http://zhuowenli.github.io">zhuowenli.github.io</a>这个主域名了！。</p>
+
+    </div>
+
+    <footer class="post-footer">
+        
+        <div class="post-tags">
+            
+            <a href="/tags/ubuntu/">ubuntu</a>
+            
+            <a href="/tags/301/">301</a>
+            
+            <a href="/tags/htaccess/">htaccess</a>
+            
+            <a href="/tags/lamp/">lamp</a>
+            
+        </div>
+        
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/frontend/background-blend-mode.html">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">background-blend-mode</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/frontend/build-github-blog-pages-1.html">
+        <span class="next-text nav-default">通过GitHub Pages创建博客（一）</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+        
+            
+    <div class="comments" id="comments">
+        
+            <div id="gitalk-container"></div>
+        
+    </div>
+
+
+        
+    </footer>
+</article>
+
+
+        </div>
+
+        <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2016 -
+    
+    2022
+    <span class="footer-author">Zhuo Wenli.</span>
+    <span class="power-by">Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>.</span>
+    <span class="design-by">Designed by <a href="https://www.zhuowenli.com/">zhuowenli</a></span>
+</span>
+
+<nav id="nav-bottom">
+    
+        <ul id="menu-bottom" class="nav-bottom-items">
+            
+                <li class="menu-item">
+                    <a href="/">
+                        
+                        
+                            Home
+                        
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="/archives">
+                        
+                        
+                            Archives
+                        
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="/about">
+                        
+                        
+                            About
+                        
+                    </a>
+                </li>
+            
+        </ul>
+    
+</nav>
+
+        </footer>
+
+        <div class="back-to-top" id="back-to-top">
+            <i class="iconfont icon-up"></i>
+        </div>
+    </div>
+    
+    
+
+
+<script src="/lib/gitalk.min.js"></script>
+<script type="text/javascript">
+    const gitalk = new Gitalk({
+        clientID: '3a683f311ce3460b686d',
+        clientSecret: '264685b8506d937c73b468584847c3b2347bdcfe',
+        repo: 'zhuowenli.github.io',
+        owner: 'zhuowenli',
+        admin: 'zhuowenli'.split(','),
+        pagerDirection: 'first',
+        id: `Ubuntu下使用.htaccess实现301重定向`,
+        number: 18,
+        distractionFreeMode: true
+    });
+    if (document.querySelector('#gitalk-container')) {
+        gitalk.render('gitalk-container');
+    }
+</script>
+
+
+
+    
+    
+
+
+  
+    <script type="text/javascript" src="/lib/jquery-3.1.1.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/theme.js?v=1.0.0"></script>
+<script type="text/javascript" src="/js/bootstrap.js?v=1.0.0"></script>
+
+</body>
+</html>

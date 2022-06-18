@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="PhoneGap入门教程(1) - 环境搭建与配置"/>
+
+
+
+
+  <meta name="keywords" content="JavaScript,PhoneGap,NodeJS,Android,Webapp," />
+
+
+
+
+
+    <link rel="alternate" href="/atom.xml" title="Zhuo Wenli">
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.0.0" />
+
+
+
+<link rel="canonical" href="https://www.zhuowenli.com/frontend/phonegap-getting-started-tutorial-1.html"/>
+
+
+<meta name="description" content="PhoneGap是一能够让你用普通的web技术编写出能够轻松调用API接口和进入应用商店的HTML5应用开发平台。 是唯一的一个支持7个平台的开源移动框架。它的优势是无以伦比的：开发成本低——据估算，至多Native App的五分之一！ PhoneGap就是一种中间件技术，可以通过搭建一个webview来执行网页程序，并且可以提供调用底层API的接口。本教程将会介绍如何在windows下开发and">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PhoneGap入门教程(1) - 环境搭建与配置">
+<meta property="og:url" content="https://www.zhuowenli.com/frontend/phonegap-getting-started-tutorial-1.html">
+<meta property="og:site_name" content="Zhuo Wenli">
+<meta property="og:description" content="PhoneGap是一能够让你用普通的web技术编写出能够轻松调用API接口和进入应用商店的HTML5应用开发平台。 是唯一的一个支持7个平台的开源移动框架。它的优势是无以伦比的：开发成本低——据估算，至多Native App的五分之一！ PhoneGap就是一种中间件技术，可以通过搭建一个webview来执行网页程序，并且可以提供调用底层API的接口。本教程将会介绍如何在windows下开发and">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://st-qn.gittt.cn/2015/01/31/1.png">
+<meta property="og:image" content="https://st-qn.gittt.cn/2015/01/31/2.png">
+<meta property="og:image" content="https://st-qn.gittt.cn/2015/01/31/3.png">
+<meta property="og:image" content="https://st-qn.gittt.cn/2015/01/31/4.png">
+<meta property="og:image" content="https://st-qn.gittt.cn/2015/01/31/5.png">
+<meta property="og:image" content="https://st-qn.gittt.cn/2015/01/31/6.png">
+<meta property="og:image" content="https://st-qn.gittt.cn/2015/01/31/7.png">
+<meta property="og:image" content="https://st-qn.gittt.cn/2015/01/31/8.png">
+<meta property="og:image" content="https://st-qn.gittt.cn/2015/01/31/9.png">
+<meta property="og:image" content="https://st-qn.gittt.cn/2015/01/31/10.png">
+<meta property="og:image" content="https://st-qn.gittt.cn/2015/01/31/11.png">
+<meta property="og:image" content="https://st-qn.gittt.cn/2015/01/31/12.png">
+<meta property="og:image" content="https://st-qn.gittt.cn/2015/01/31/13.png">
+<meta property="og:image" content="https://st-qn.gittt.cn/2015/01/31/14.png">
+<meta property="og:image" content="https://st-qn.gittt.cn/2015/01/31/15.png">
+<meta property="og:image" content="https://st-qn.gittt.cn/2015/01/31/16.png">
+<meta property="og:image" content="https://st-qn.gittt.cn/2015/01/31/17.png">
+<meta property="og:image" content="https://st-qn.gittt.cn/2015/01/31/18.png">
+<meta property="article:published_time" content="2015-01-31T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-18T02:56:11.596Z">
+<meta property="article:author" content="Zhuo Wenli">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="PhoneGap">
+<meta property="article:tag" content="NodeJS">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="Webapp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://st-qn.gittt.cn/2015/01/31/1.png">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0" />
+
+
+
+<script type="text/javascript">
+    var themeConfig = {
+        color: 'Default',
+        favicon: {
+            enable: true,
+            icon: '/favicon.ico',
+            hide_text: '(●—●)喔哟，崩溃啦！',
+            show_text: '(/≧▽≦/)咦！又好了！',
+        }
+    };
+</script>
+
+
+
+    <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7278e0ce3cabf14a3798ac2126b733d9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171827500-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-171827500-1');
+</script>
+
+
+    <title> PhoneGap入门教程(1) - 环境搭建与配置 - Zhuo Wenli </title>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Zhuo Wenli" type="application/atom+xml">
+</head>
+<body>
+    <div id="page">
+        <header id="masthead">
+<h1 class="site-title">
+    <a href="/." class="logo">Zhuo Wenli</a>
+</h1>
+
+
+        </header>
+
+        <div id="content">
+            
+    
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">PhoneGap入门教程(1) - 环境搭建与配置</h1>
+        <time class="post-time">
+            Jan 31 2015
+        </time>
+    </header>
+
+    <div class="post-content">
+        <p>PhoneGap是一能够让你用普通的web技术编写出能够轻松调用API接口和进入应用商店的HTML5应用开发平台。</p>
+<p>是唯一的一个支持7个平台的开源移动框架。它的优势是无以伦比的：开发成本低——据估算，至多Native App的五分之一！</p>
+<p>PhoneGap就是一种中间件技术，可以通过搭建一个webview来执行网页程序，并且可以提供调用底层API的接口。本教程将会介绍如何在windows下开发android应用。IOS版本有时间另外讲。</p>
+<a id="more"></a>
+
+<h2 id="PhoneGap安装与配置"><a href="#PhoneGap安装与配置" class="headerlink" title="PhoneGap安装与配置"></a>PhoneGap安装与配置</h2><h3 id="安装与配置"><a href="#安装与配置" class="headerlink" title="安装与配置"></a>安装与配置</h3><p>我们将使用NodeJS来管理开发。我们可以从下面的网址下载NodeJS。</p>
+<p><a href="http://nodejs.org/" target="_blank" rel="noopener">http://nodejs.org/</a></p>
+<p>如图，NodeJS会判断操作系统，不同系统INSTALL按钮指向的链接也不同。</p>
+<p><img src="https://st-qn.gittt.cn/2015/01/31/1.png" alt=""></p>
+<h3 id="安装PhoneGap"><a href="#安装PhoneGap" class="headerlink" title="安装PhoneGap"></a>安装PhoneGap</h3><p>Android开发是在windows上进行的，所以下载windows版的NodeJS。安装好NodeJS之后，其中会包含了npm这个管理器。</p>
+<p>从windows开始菜单选择“Node.js command prompt”应用，并执行。会打开一个命令行工具，这将自动设置npm管理器环境。</p>
+<p><img src="https://st-qn.gittt.cn/2015/01/31/2.png" alt=""></p>
+<p>下面我们使用命令行来进行安装。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install phonegap</span><br></pre></td></tr></table></figure>
+
+<p>回车执行后会自动下载最新版本的PhoneGap，过段时间即可安装完成。安装完成后，可在下面的位置看到phonegap文件夹，说明下载安装完成。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\用户名\AppData\Roaming\npm\node_modules\</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://st-qn.gittt.cn/2015/01/31/3.png" alt=""></p>
+<h2 id="建立PhoneGap-for-Android开发和测试环境"><a href="#建立PhoneGap-for-Android开发和测试环境" class="headerlink" title="建立PhoneGap for Android开发和测试环境"></a>建立PhoneGap for Android开发和测试环境</h2><p>要为Android开发原生应用程序，一般会使用Eclipce这个IDE，并且在上面安装专门用于android开发的插件：ADT。</p>
+<p>无论任何环境进行android应用程序开发都需要Android SDK 支持才行。</p>
+<p>当然，Google已经封装了一个包含Eclipce、ADT、Android SDK的集成开发包提供下载。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://developer.android.com/sdk</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装ANT和配置环境"><a href="#安装ANT和配置环境" class="headerlink" title="安装ANT和配置环境"></a>安装ANT和配置环境</h3><p>PhoneGap需要Apache Ant来编译工程，因此需要装Apache Ant，可以从下面的网址下载：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://ant.apache.org/bindownload.cgi</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://st-qn.gittt.cn/2015/01/31/4.png" alt=""></p>
+<p>下载的ANT仅仅是个压缩包，只需解压到一个目录就行。我将之解压到(D:\Application\Android\ant)目录下，然后还要配置环境变量<code>ANT_HOME</code>指向这个文件位置。</p>
+<p>为了在命令行中方便使用ant命令，我们可以将ant的bin路径添加到PATH变量中。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">;%ANT_HOME%\bin</span><br></pre></td></tr></table></figure>
+
+<p>这里的<code>%ANT_HOME%</code>实际上是使用前面定义的<code>ANT_HOME</code>环境变量。</p>
+<p><img src="https://st-qn.gittt.cn/2015/01/31/5.png" alt=""></p>
+<p><img src="https://st-qn.gittt.cn/2015/01/31/6.png" alt=""></p>
+<h3 id="配置Android环境"><a href="#配置Android环境" class="headerlink" title="配置Android环境"></a>配置Android环境</h3><p>此外，还要配置Android环境变量。添加<code>ANDROID_HOME</code>环境变量，指向SDK目录(D:\Application\Android\sdk)，然后添加到PATH中。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">;%ANDROID_HOME%\tools;%ANDROID_HOME%\platform-tools</span><br></pre></td></tr></table></figure>
+
+<p>这些同Android开发一样，这里就不再赘述了。</p>
+<h2 id="创建PhoneGap工程"><a href="#创建PhoneGap工程" class="headerlink" title="创建PhoneGap工程"></a>创建PhoneGap工程</h2><p>下面我们使用PhoneGap来创建一个工程。使用管理员身份打开一个命令行窗口(cmd)，使用<code>cd</code>命令进入一个目录，将会在该目录创建工程。</p>
+<p>使用PhoneGap create命令创建工程，命令如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">phonegap create <span class="tag">&lt;<span class="name">工程路径</span>&gt;</span> <span class="tag">&lt;<span class="name">包名</span>&gt;</span> <span class="tag">&lt;<span class="name">工程名</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">phonegap create kypapp "zhuowenli.kyp.com" "HelloWorld"</span><br></pre></td></tr></table></figure>
+
+<p>第一次参数对应的是创建的工程的目录(kypapp)，第二个参数是包名，第三个参数是程序名称，也就是安装打包后在手机上显示的名称。</p>
+<p><img src="https://st-qn.gittt.cn/2015/01/31/7.png" alt=""></p>
+<p>执行后就会在F:\kypapp目录下创建PhoneGap工程，如图：</p>
+<p><img src="https://st-qn.gittt.cn/2015/01/31/8.png" alt=""></p>
+<h3 id="为PhoneGap工程添加Android平台"><a href="#为PhoneGap工程添加Android平台" class="headerlink" title="为PhoneGap工程添加Android平台"></a>为PhoneGap工程添加Android平台</h3><p>PhoneGap工程创建完成后还不知道要在哪种平台上开发和部署程序，可选的平台有很多，如Android，IOS，WP8，blackberry10等等。如果你要添加哪个平台，就必须事先添加这个平台的SDK。我们现在来创建Android平台。</p>
+<p>首先cd进入PhoneGap工程目录</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd kypapp</span><br></pre></td></tr></table></figure>
+
+<p>然后调用下面命令添加Android平台。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">phonegap build android</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://st-qn.gittt.cn/2015/01/31/9.png" alt=""></p>
+<p>并且在F:\kypapp\platforms目录下，将可以看到配置好的Android文件夹。</p>
+<p><img src="https://st-qn.gittt.cn/2015/01/31/10.png" alt=""></p>
+<h2 id="使用ADT进行PhoneGap开发"><a href="#使用ADT进行PhoneGap开发" class="headerlink" title="使用ADT进行PhoneGap开发"></a>使用ADT进行PhoneGap开发</h2><p>启动Eclipse。</p>
+<p><img src="https://st-qn.gittt.cn/2015/01/31/11.png" alt=""></p>
+<p>初次启动需要指定Android SDK的目录。单机“Browser…”按钮导航到D:\Application\Android\sdk目录。</p>
+<p><img src="https://st-qn.gittt.cn/2015/01/31/12.png" alt=""></p>
+<p>点击OK后就可以进入开发环境了。</p>
+<ul>
+<li><strong>步骤1</strong>  在主菜单上选择“File &gt; New &gt; Project”菜单栏，打开就能看到Android相关工程<br><img src="https://st-qn.gittt.cn/2015/01/31/13.png" alt=""></li>
+<li><strong>步骤2</strong>  选择“Android Project from Existing Code”目录，点击Next<br><img src="https://st-qn.gittt.cn/2015/01/31/14.png" alt=""></li>
+<li><strong>步骤3</strong>  点击“Browser…”按钮，导航到F:\kypapp\platforms\android目录（刚刚用PhoneGap添加的Android平台目录），将会在下面创建两个工程。<br><img src="https://st-qn.gittt.cn/2015/01/31/15.png" alt=""></li>
+<li><strong>步骤4</strong>  右击HelloWorld主目录，选择“Properties &gt; Resource Filters”,删除“Exclude all:”下面的两条信息（选中，点击右侧Remove），然后点击OK。<br><img src="https://st-qn.gittt.cn/2015/01/31/16.png" alt=""><br>会发现assets底下多了个www文件夹啦。然后res下面的www文件夹可以删掉了。如图：<br><img src="https://st-qn.gittt.cn/2015/01/31/17.png" alt=""></li>
+</ul>
+<p>接下来在包浏览器中，打开“src &gt; zhuowenli.kyp.com &gt; CordovaApp.java”，这是主Java文件。<br>删除或注释掉下面一行代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">loadUrl(launchUrl);</span><br></pre></td></tr></table></figure>
+
+<p>替换为下面这行代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">super.loadUrl("file:///android_asset/www/index.html");</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://st-qn.gittt.cn/2015/01/31/18.png" alt=""></p>
+<p>ok, 配置成功了。 接下来可以在菜单栏点击“Run As &gt; Android Application”，就可以在AVD或者手机设备打包apk，并安装了。</p>
+<hr>
+<blockquote>
+<p>相关文章:</p>
+<p>PhoneGap入门教程(1) - 环境安装与配置</p>
+<p><a href="/frontend/phonegap-getting-started-tutorial-2.html">PhoneGap入门教程(2) - 内核事件和基本用法</a></p>
+<p><a href="/frontend/phonegap-getting-started-tutorial-3.html">PhoneGap入门教程(3) - 原生插件安装和管理</a></p>
+<p><a href="/frontend/phonegap-getting-started-tutorial-4.html">PhoneGap入门教程(4) - 电量变化侦测</a></p>
+<p><a href="/frontend/phonegap-getting-started-tutorial-5.html">PhoneGap入门教程(5) - 程序内置浏览器窗口</a></p>
+<p><a href="/frontend/phonegap-getting-started-tutorial-6.html">PhoneGap入门教程(6) - 设备信息和系统提示</a></p>
+</blockquote>
+
+    </div>
+
+    <footer class="post-footer">
+        
+        <div class="post-tags">
+            
+            <a href="/tags/JavaScript/">JavaScript</a>
+            
+            <a href="/tags/PhoneGap/">PhoneGap</a>
+            
+            <a href="/tags/NodeJS/">NodeJS</a>
+            
+            <a href="/tags/Android/">Android</a>
+            
+            <a href="/tags/Webapp/">Webapp</a>
+            
+        </div>
+        
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/frontend/phonegap-getting-started-tutorial-2.html">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">PhoneGap入门教程(2) - 内核事件和基本用法</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/diary/markdown.html">
+        <span class="next-text nav-default">Markdown 语法说明</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+        
+            
+    <div class="comments" id="comments">
+        
+            <div id="gitalk-container"></div>
+        
+    </div>
+
+
+        
+    </footer>
+</article>
+
+
+        </div>
+
+        <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2016 -
+    
+    2022
+    <span class="footer-author">Zhuo Wenli.</span>
+    <span class="power-by">Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>.</span>
+    <span class="design-by">Designed by <a href="https://www.zhuowenli.com/">zhuowenli</a></span>
+</span>
+
+<nav id="nav-bottom">
+    
+        <ul id="menu-bottom" class="nav-bottom-items">
+            
+                <li class="menu-item">
+                    <a href="/">
+                        
+                        
+                            Home
+                        
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="/archives">
+                        
+                        
+                            Archives
+                        
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a href="/about">
+                        
+                        
+                            About
+                        
+                    </a>
+                </li>
+            
+        </ul>
+    
+</nav>
+
+        </footer>
+
+        <div class="back-to-top" id="back-to-top">
+            <i class="iconfont icon-up"></i>
+        </div>
+    </div>
+    
+    
+
+
+<script src="/lib/gitalk.min.js"></script>
+<script type="text/javascript">
+    const gitalk = new Gitalk({
+        clientID: '3a683f311ce3460b686d',
+        clientSecret: '264685b8506d937c73b468584847c3b2347bdcfe',
+        repo: 'zhuowenli.github.io',
+        owner: 'zhuowenli',
+        admin: 'zhuowenli'.split(','),
+        pagerDirection: 'first',
+        id: `PhoneGap入门教程(1) - 环境搭建与配置`,
+        number: 30,
+        distractionFreeMode: true
+    });
+    if (document.querySelector('#gitalk-container')) {
+        gitalk.render('gitalk-container');
+    }
+</script>
+
+
+
+    
+    
+
+
+  
+    <script type="text/javascript" src="/lib/jquery-3.1.1.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/theme.js?v=1.0.0"></script>
+<script type="text/javascript" src="/js/bootstrap.js?v=1.0.0"></script>
+
+</body>
+</html>
